@@ -2,14 +2,14 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<script type="text/javascript" src="resrouce/js/vue.js"></script>		
+		<script type="text/javascript" src="resource/js/vue.js"></script>		
 	</head>
 	<body>
-		<h1 v-bind:title="blogmessage">{{ message }}</h1>
+		<h1 id="app" v-bind:title="blogmessage">{{ message }}</h1>
 	</body>
 	<script>
 		var h1 = new Vue({
-			el: "h1",
+			el: "#app",
 			data: {
 				message: "sungpaks Github Blog",
 				blogmessage: "hello???"
