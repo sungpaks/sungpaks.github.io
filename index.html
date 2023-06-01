@@ -5,17 +5,15 @@
 		<script type="text/javascript" src="resrouce/js/vue.js"></script>		
 	</head>
 	<body>
-		<h1 v-bind:title="blogmessage">
-			{{ message }}
-		</h1>
+		<h1 v-bind:title="blogmessage">{{ message }}</h1>
 	</body>
 	<script>
 		var h1 = new Vue({
-			el: 'h1',
+			el: "h1",
 			data: {
 				message: "sungpaks Github Blog",
 				blogmessage: "hello???"
 			}
-		})
+		});
 	</script>
 </html>
