@@ -1,4 +1,21 @@
----
-layout: home
-sidebar_main: true
-autor_profile: true
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script type="text/javascript" src="resrouce/js/vue.js"></script>		
+	</head>
+	<body>
+		<h1 v-bind:title="blogmessage">
+			{{ message }}
+		</h1>
+	</body>
+	<script>
+		var h1 = new Vue({
+			el: 'h1',
+			data: {
+				message: "sungpaks Github Blog",
+				blogmessage: "hello???"
+			}
+		})
+	</script>
+</html>
