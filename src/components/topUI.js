@@ -1,12 +1,15 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 
-const topUI = () => {
+function TopUI({ rootPath }) {
   return (
-    <div className="topUI">
-      <h5>성훈 블로그</h5>
+    <div className="top-ui">
+      <h4>
+        <a href={rootPath}>성훈 블로그</a>
+      </h4>
     </div>
   )
 }
 
-export default topUI
+export default TopUI
