@@ -8,8 +8,9 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
-    "@fontsource/merriweather": "^5.0.3",
     "@fontsource-variable/montserrat": "^5.0.4",
+    "@fontsource/ibm-plex-sans": "^5.0.18",
+    "@fontsource/merriweather": "^5.0.3",
     "gatsby": "^5.13.0",
     "gatsby-plugin-feed": "^5.13.0",
     "gatsby-plugin-image": "^3.13.0",
@@ -21,6 +22,7 @@
     "gatsby-source-filesystem": "^5.13.0",
     "gatsby-transformer-remark": "^6.13.0",
     "gatsby-transformer-sharp": "^5.13.0",
+    "gh-pages": "^6.1.1",
     "prismjs": "^1.29.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
@@ -38,6 +40,7 @@
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
+    "deploy": "gatsby build && gh-pages -d public -b deploy",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",

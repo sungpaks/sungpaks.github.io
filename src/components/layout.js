@@ -1,10 +1,11 @@
 import * as React from "react"
+import topUI from "./topUI.js"
 import { Link } from "gatsby"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  let header
+  /*let header
 
   if (isRootPath) {
     header = (
@@ -18,12 +19,13 @@ const Layout = ({ location, title, children }) => {
         {title}
       </Link>
     )
-  }
+  }*/
 
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
+      <header className="global-header">{}</header>
       <main>{children}</main>
+      <topUI></topUI>
       <footer>
         © {new Date().getFullYear()}, Built with
         {` `}

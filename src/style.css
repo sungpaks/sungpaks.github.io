@@ -76,7 +76,7 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: "ibm-plex-sans";
   font-size: var(--fontSize-1);
   color: var(--color-text);
 }
@@ -285,6 +285,7 @@ a:focus {
 }
 
 .bio {
+  font-size: var(--fontSize-2);
   display: flex;
   margin-bottom: var(--spacing-16);
 }
@@ -315,6 +316,9 @@ a:focus {
 
 .gatsby-highlight {
   margin-bottom: var(--spacing-8);
+}
+.topUI {
+  position: fixed;
 }
 
 /* Media queries */
