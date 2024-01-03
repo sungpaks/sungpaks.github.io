@@ -11,6 +11,7 @@
     "@fontsource-variable/montserrat": "^5.0.4",
     "@fontsource/ibm-plex-sans": "^5.0.18",
     "@fontsource/merriweather": "^5.0.3",
+    "@giscus/react": "^2.4.0",
     "gatsby": "^5.13.0",
     "gatsby-plugin-feed": "^5.13.0",
     "gatsby-plugin-image": "^3.13.0",
