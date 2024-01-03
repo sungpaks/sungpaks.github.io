@@ -12,7 +12,7 @@ module.exports = {
     title: `성훈 블로그`,
     author: {
       name: `조성훈`,
-      summary: `세종대학교 19학번, 물리천문학과 + 소프트웨어학과 복수전공`,
+      summary: `세종대학교 19학번, 물리천문학과 + 소프트웨어학과`,
     },
     description: `My Tech Blog`,
     siteUrl: `https://github.com/sungpaks`,

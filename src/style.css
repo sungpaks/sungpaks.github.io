@@ -287,12 +287,14 @@ a:focus {
 }
 
 .bio {
-  font-size: var(--fontSize-2);
+  font-weight: var(--fontWeight-black);
+  font-size: var(--fontSize-3);
   display: flex;
   margin-bottom: var(--spacing-16);
 }
 
 .bio p {
+  font-weight: var(--fontWeight-normal);
   margin-bottom: var(--spacing-0);
 }
 
