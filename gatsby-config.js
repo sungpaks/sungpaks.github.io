@@ -9,7 +9,7 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `조성훈 블로그`,
+    title: `성훈 블로그`,
     author: {
       name: `조성훈`,
       summary: `세종대학교 19학번, 물리천문학과 + 소프트웨어학과 복수전공`,
@@ -111,15 +111,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `Gatsby`,
+        name: `조성훈 기술 블로그입니다`,
+        short_name: `성훈 블로그`,
         start_url: `/`,
         background_color: `#ffffff`,
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/thumbs_up.png`, // This path is relative to the root of the site.
       },
     },
   ],

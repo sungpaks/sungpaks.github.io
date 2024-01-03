@@ -2,11 +2,11 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 
-function TopUI({ rootPath }) {
+function TopUI() {
   return (
     <div className="top-ui">
       <h4>
-        <a href={rootPath}>성훈 블로그</a>
+        <Link to="/">성훈 블로그</Link>
       </h4>
     </div>
   )
