@@ -100,7 +100,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
-  margin-top: var(--spacing-12);
+  margin-top: var(--spacing-8);
   margin-bottom: var(--spacing-6);
   line-height: var(--lineHeight-tight);
   letter-spacing: -0.025em;
@@ -320,10 +320,12 @@ a:focus {
 }
 .top-ui {
   position: fixed;
-  margin-left: 40px;
+  vertical-align: center;
+  padding-left: 40px;
   width: 100%;
   height: 100px;
-  background-color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid black;
+  background-color: rgba(245, 245, 245, 0.8);
 }
 
 /* Media queries */

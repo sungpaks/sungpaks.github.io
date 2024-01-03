@@ -5,9 +5,9 @@ import { Link } from "gatsby"
 function TopUI() {
   return (
     <div className="top-ui">
-      <h4>
+      <h2>
         <Link to="/">성훈 블로그</Link>
-      </h4>
+      </h2>
     </div>
   )
 }

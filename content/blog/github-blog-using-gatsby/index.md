@@ -28,7 +28,7 @@ slug: building-github-blog-using-gatsby
 이런식으로 명령줄을 입력하시면 되겠습니다
 
 근데 저같은 경우\
-<img src="https://i.imgur.com/F5qObnj.png" width=100%/>\
+<img src="https://i.imgur.com/F5qObnj.png" width=100% height=100%/>\
 이런 문제가 나타났는데..\
 찾아보고 찾아보다가 모르겠어서 테마를 그냥 바꿔봤는데 됐습니다..\
 테마의 문제인가?\
@@ -45,8 +45,7 @@ slug: building-github-blog-using-gatsby
 
 이제 *(본인의 깃허브 이름).github.io*라는 이름의 레포지토리를 만듭시다.\
 전 이미 있어서 그냥\
-`git remote add origin https://github.com/sungpaks/sungpaks.github.io.git`
-로 프로젝트 폴더에 원격 저장소를 연결하고\
+`git remote add origin REPO_URL` 이런식으로 프로젝트 폴더에 원격 저장소를 연결하고\
 쓸데없는 것들이 있었어서.. `--force` 옵션을 붙여서 `push`해주어 덮어씌워버렸습니다
 
 이제 레포지토리의 `master`브랜치에 프로젝트가 올라가있을건데요\
@@ -85,7 +84,7 @@ slug: building-github-blog-using-gatsby
 **gatsby-browser.js**에 `import "@fontsource/ibm-plex-sans"`라고 써줬습니다.\
 그 다음 **style.css**에서 `body { font-family: "ibm-plex-sans"; }`라고 써주면..
 
-![](https://i.imgur.com/kPO51P6.png)
+<img src="https://i.imgur.com/kPO51P6.png" width=50%>
 
 잘 되네요~
 
@@ -133,7 +132,7 @@ slug: building-github-blog-using-gatsby
 새 글을 쓰려면 폴더를 하나 만들고 그 밑에 마크다운 파일을 생성하여 여기에 글을 작성합니다. 이미지같은거 넣으려면 또한 같이 넣으시구요.\
 이런식으로
 
-![](https://i.imgur.com/uZfUuLc.png)
+<img src="https://i.imgur.com/uZfUuLc.png" width=100%/>
 
 글의 제목과 날짜, 설명은
 마크다운 파일 가장 상단에
@@ -147,7 +146,7 @@ description: "Gatsby로 Github 블로그 만들어봤습니다"
 ```
 
 이렇게 쓰시면 알아서 아래와 같이 됩니다
-![](https://i.imgur.com/oVOck6K.png)
+<img src="https://i.imgur.com/oVOck6K.png" width=100%/>
 
 쩝.. 이정도면 준비는 얼추 된 것 같네요.
 스타일도 좀 만지고 완성도도 높이고 하는건 천천히 하겠습니다
