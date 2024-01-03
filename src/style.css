@@ -78,6 +78,7 @@ html {
 body {
   font-family: "ibm-plex-sans";
   font-size: var(--fontSize-1);
+  font-weight: 550;
   color: var(--color-text);
 }
 
