@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[My Tech Blog]]></description><link>https://github.com/sungpaks</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 03 Jan 2024 10:18:05 GMT</lastBuildDate><item><title><![CDATA[두번째 글]]></title><description><![CDATA[^^]]></description><link>https://github.com/sungpaks/2nd/</link><guid isPermaLink="false">https://github.com/sungpaks/2nd/</guid><pubDate>Wed, 03 Jan 2024 06:35:00 GMT</pubDate><content:encoded>&lt;p&gt;^^&lt;/p&gt;</content:encoded></item><item><title><![CDATA[✒️ 내 동년배들 다 깃허브 블로그 운영한다]]></title><description><![CDATA[여러분 새해 복 많이 받으십시오 저는 미루고 미뤄왔던 깃허브 블로그를 드디어 만들었습니다 새해 시작이 좋네요 원래 Jeykll로 한번 시도를 했었는데 쩝.. Ruby인 것도 맘에 안 들고 어디서 막혔는지 기억도 안 나네요 대신 React…]]></description><link>https://github.com/sungpaks/github-blog-using-gatsby/</link><guid isPermaLink="false">https://github.com/sungpaks/github-blog-using-gatsby/</guid><pubDate>Wed, 03 Jan 2024 06:30:00 GMT</pubDate><content:encoded>&lt;p&gt;여러분 새해 복 많이 받으십시오&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[My Tech Blog]]></description><link>https://github.com/sungpaks</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 03 Jan 2024 10:42:52 GMT</lastBuildDate><item><title><![CDATA[두번째 글]]></title><description><![CDATA[^^]]></description><link>https://github.com/sungpaks/2nd/</link><guid isPermaLink="false">https://github.com/sungpaks/2nd/</guid><pubDate>Wed, 03 Jan 2024 06:35:00 GMT</pubDate><content:encoded>&lt;p&gt;^^&lt;/p&gt;</content:encoded></item><item><title><![CDATA[✒️ 내 동년배들 다 깃허브 블로그 운영한다]]></title><description><![CDATA[여러분 새해 복 많이 받으십시오 저는 미루고 미뤄왔던 깃허브 블로그를 드디어 만들었습니다 새해 시작이 좋네요 원래 Jeykll로 한번 시도를 했었는데 쩝.. Ruby인 것도 맘에 안 들고 어디서 막혔는지 기억도 안 나네요 대신 React…]]></description><link>https://github.com/sungpaks/github-blog-using-gatsby/</link><guid isPermaLink="false">https://github.com/sungpaks/github-blog-using-gatsby/</guid><pubDate>Wed, 03 Jan 2024 06:30:00 GMT</pubDate><content:encoded>&lt;p&gt;여러분 새해 복 많이 받으십시오&lt;br&gt;
 저는 미루고 미뤄왔던 깃허브 블로그를 드디어 만들었습니다&lt;br&gt;
 새해 시작이 좋네요&lt;/p&gt;
 &lt;p&gt;원래 Jeykll로 한번 시도를 했었는데&lt;br&gt;
@@ -16,7 +16,7 @@
 &lt;code class=&quot;language-text&quot;&gt;gatsby new 프로젝트명 깃허브URL&lt;/code&gt;&lt;br&gt;
 이런식으로 명령줄을 입력하시면 되겠습니다&lt;/p&gt;
 &lt;p&gt;근데 저같은 경우&lt;br&gt;
-&lt;img src=&quot;https://i.imgur.com/F5qObnj.png&quot; width=&quot;100%/&quot;&gt;&lt;br&gt;
+&lt;img src=&quot;https://i.imgur.com/F5qObnj.png&quot; width=&quot;100%&quot; height=&quot;100%/&quot;&gt;&lt;br&gt;
 이런 문제가 나타났는데..&lt;br&gt;
 찾아보고 찾아보다가 모르겠어서 테마를 그냥 바꿔봤는데 됐습니다..&lt;br&gt;
 테마의 문제인가?&lt;br&gt;
@@ -29,8 +29,7 @@
 &lt;h2&gt;Github Page와 연동&lt;/h2&gt;
 &lt;p&gt;이제 &lt;em&gt;(본인의 깃허브 이름).github.io&lt;/em&gt;라는 이름의 레포지토리를 만듭시다.&lt;br&gt;
 전 이미 있어서 그냥&lt;br&gt;
-&lt;code class=&quot;language-text&quot;&gt;git remote add origin https://github.com/sungpaks/sungpaks.github.io.git&lt;/code&gt;
-로 프로젝트 폴더에 원격 저장소를 연결하고&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;git remote add origin REPO_URL&lt;/code&gt; 이런식으로 프로젝트 폴더에 원격 저장소를 연결하고&lt;br&gt;
 쓸데없는 것들이 있었어서.. &lt;code class=&quot;language-text&quot;&gt;--force&lt;/code&gt; 옵션을 붙여서 &lt;code class=&quot;language-text&quot;&gt;push&lt;/code&gt;해주어 덮어씌워버렸습니다&lt;/p&gt;
 &lt;p&gt;이제 레포지토리의 &lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt;브랜치에 프로젝트가 올라가있을건데요&lt;br&gt;
 저는 배포를 따로 다른 브랜치에서 하고싶기 때문에 로컬 &lt;code class=&quot;language-text&quot;&gt;deploy&lt;/code&gt; 브랜치를 먼저 생성합니다 : &lt;br&gt;
@@ -55,7 +54,7 @@
 &lt;code class=&quot;language-text&quot;&gt;npm install @fontsource/ibm-plex-sans&lt;/code&gt;와 같이 입력하여 받아와서&lt;br&gt;
 &lt;strong&gt;gatsby-browser.js&lt;/strong&gt;에 &lt;code class=&quot;language-text&quot;&gt;import &quot;@fontsource/ibm-plex-sans&quot;&lt;/code&gt;라고 써줬습니다.&lt;br&gt;
 그 다음 &lt;strong&gt;style.css&lt;/strong&gt;에서 &lt;code class=&quot;language-text&quot;&gt;body { font-family: &quot;ibm-plex-sans&quot;; }&lt;/code&gt;라고 써주면..&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/kPO51P6.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;https://i.imgur.com/kPO51P6.png&quot; width=&quot;50%&quot;&gt;
 &lt;p&gt;잘 되네요~&lt;/p&gt;
 &lt;h3&gt;3. 상단바&lt;/h3&gt;
 &lt;p&gt;그 왜 있잖아요 상단에 고정되어서 따라다니는데 반투명하고
@@ -90,7 +89,7 @@
 이거 다 지워주고..&lt;br&gt;
 새 글을 쓰려면 폴더를 하나 만들고 그 밑에 마크다운 파일을 생성하여 여기에 글을 작성합니다. 이미지같은거 넣으려면 또한 같이 넣으시구요.&lt;br&gt;
 이런식으로&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/uZfUuLc.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;https://i.imgur.com/uZfUuLc.png&quot; width=&quot;100%/&quot;&gt;
 &lt;p&gt;글의 제목과 날짜, 설명은
 마크다운 파일 가장 상단에&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;---
@@ -99,7 +98,7 @@ date: &quot;2024-01-03T15:30&quot;
 description: &quot;Gatsby로 Github 블로그 만들어봤습니다&quot;
 ---&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;이렇게 쓰시면 알아서 아래와 같이 됩니다
-&lt;img src=&quot;https://i.imgur.com/oVOck6K.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;https://i.imgur.com/oVOck6K.png&quot; width=&quot;100%/&quot;&gt;&lt;/p&gt;
 &lt;p&gt;쩝.. 이정도면 준비는 얼추 된 것 같네요.
 스타일도 좀 만지고 완성도도 높이고 하는건 천천히 하겠습니다
 이만 마칩니다&lt;/p&gt;</content:encoded></item></channel></rss>
