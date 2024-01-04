@@ -1,4 +1,186 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[My Tech Blog]]></description><link>https://github.com/sungpaks</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 03 Jan 2024 11:52:26 GMT</lastBuildDate><item><title><![CDATA[👥 C++ 멀티스레딩 맛 한번 보세요]]></title><description><![CDATA[저번학기에 게임 만드는 팀플이 있었는데요 처음에는 C로 시작했고 나중에 C++로 확장했지만 사실 사용중인 이미지 렌더링 라이브러리가 C로 작성된거기도 하고 해서 아무튼 시작은 C…]]></description><link>https://github.com/sungpaks/multi-threading-in-cpp/</link><guid isPermaLink="false">https://github.com/sungpaks/multi-threading-in-cpp/</guid><pubDate>Wed, 03 Jan 2024 11:35:00 GMT</pubDate><content:encoded>&lt;p&gt;저번학기에 게임 만드는 팀플이 있었는데요&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[My Tech Blog]]></description><link>https://github.com/sungpaks</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 04 Jan 2024 13:27:24 GMT</lastBuildDate><item><title><![CDATA[😏 저랑.. 타입스크립트 공부 하실래요? (TypeScript - Day 1)]]></title><description><![CDATA[안녕하세요. 오늘은 TypeScript 가져왔습니다. 저도 TypeScript는 처음 써보는데요.. 이게 저는 C나 C++, Java…]]></description><link>https://github.com/sungpaks/studying-typescript-day1/</link><guid isPermaLink="false">https://github.com/sungpaks/studying-typescript-day1/</guid><pubDate>Thu, 04 Jan 2024 11:43:00 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요.&lt;br&gt;
+오늘은 TypeScript 가져왔습니다.&lt;br&gt;
+저도 TypeScript는 처음 써보는데요..&lt;br&gt;
+이게 저는 C나 C++, Java..같은&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;int a = 10;&lt;/code&gt; 이런 것만 해봤고&lt;br&gt;
+이거에 익숙해서 그런지&lt;br&gt;
+그냥 냅다 &lt;code class=&quot;language-text&quot;&gt;const a = 10;&lt;/code&gt; 이런 식으로 쓰는거 정말 적응 안됩니다.&lt;br&gt;
+그리고 요새는 파이썬을 또한 다시 만져보고 있는데&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;a = 10&lt;/code&gt; 이건 정말.. 더 그러네요&lt;/p&gt;
+&lt;p&gt;아무튼 이렇게 Javscript는 타입이 불분명하다는 점 때문에 다른 사람들도 어지간히 불편했나 봅니다.&lt;br&gt;
+이런 니즈가 있었기에 마이크로소프트에서 &lt;strong&gt;TypeScript&lt;/strong&gt;라는 것을 내놓았는데요&lt;br&gt;
+꽤나 널리 쓰이게 된지 좀 된 것 같습니다&lt;/p&gt;
+&lt;p&gt;그래서 남들 하는건 저도 해야겠으니&lt;br&gt;
+어떻게 공부를 시작해볼까? 생각하다가 그냥&lt;br&gt;
+쩝.. Document나 열어봐야지.. 하여 좀 살펴봤습니다&lt;br&gt;
+TypeScript는 친절하게도 여러 수준의 맞춤형 핸드북을 제공합니다&lt;br&gt;
+저는 JavaScript Programmer를 위한.. &lt;a href=&quot;https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html&quot;&gt;이거&lt;/a&gt;를 골라봤습니다.&lt;br&gt;
+저랑 같이 공부 허쉴?&lt;/p&gt;
+&lt;h2&gt;TypeScript는요..&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.typescriptlang.org/&quot;&gt;여기&lt;/a&gt;에서 소개하는 TypeScript의 특징? 편의성? 머 아무튼 그런거는&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;에디터에서 타입을 체크해줍니다&lt;/li&gt;
+&lt;li&gt;자동완성도 해줍니다&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;interface&lt;/code&gt;를 제공합니다. (구조체와 유사)&lt;/li&gt;
+&lt;li&gt;JSX에서도, props같은거 타입을 지정할 수 있게 해줍니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;음.. 좋네요&lt;br&gt;
+이제 본격적으로 뜯어봅니다&lt;br&gt;
+아 그리고 이제 귀찮으니까 TypeScript는 TS로 줄여서 쓰겠습니다. JavaScript도 JS로 줄여쓰고싶어지면 그렇게 하겠습니다.&lt;/p&gt;
+&lt;h2&gt;Types By Inference&lt;/h2&gt;
+&lt;p&gt;타입을 추론하여 정한다는 내용인데요&lt;br&gt;
+예를 들어, 이전에 보통 Javascript에서 으레 하듯이&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;let helloWorld = &quot;Hello World&quot;;&lt;/code&gt;라고 쓴다면&lt;br&gt;
+TS는 아! &lt;code class=&quot;language-text&quot;&gt;helloWorld&lt;/code&gt;는 &lt;code class=&quot;language-text&quot;&gt;string&lt;/code&gt; 타입이다! 를 기억합니다&lt;br&gt;
+그럼 이제 나중에 10같은 &lt;code class=&quot;language-text&quot;&gt;number&lt;/code&gt;값을 실수로 넣는 상황이 되어도 빨간줄을 좍좍 그어줍니다. 이렇게
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 331px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/e994a8e01f3d3e504a0217eb8466d505/62452/image.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 24.68354430379747%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABDklEQVR42lWQ6Y6CMBSFff9XM7NEx52JAgq1FLqwFCHyTQd/eZPm3pM23+k9C+8nlJ5w9UBRSLLshjGaJIm5C4m8S6wx9L7HdobM5AibU3sXtCXTGdIV4QhM61jUzUgsRozrieOYcwClAbpar7hcLiRpgpQCay1N5ziJI2mZzABp7kGfuFZX8gB2TQDmccLma8nv7ofd5wer5ZI0ijjvNnj/oHSKg9izPx4YhoH3mt7V9GTRFTlyu2IUN8T2G7lfI8Lv9DkKERSUZVhHSaJgIqVEqQJjDW1bhztFoV5vmrZ5AR9Dhx/87DA+R/qhp9Q69IGqKsOqJmRqZlhVVWhdUTc1vmvn+T9vFbJ3zs2MP9c0eOAgOueFAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;image&quot; title=&quot;&quot; src=&quot;/static/e994a8e01f3d3e504a0217eb8466d505/62452/image.png&quot; srcset=&quot;/static/e994a8e01f3d3e504a0217eb8466d505/c26ae/image.png 158w,
+/static/e994a8e01f3d3e504a0217eb8466d505/6bdcf/image.png 315w,
+/static/e994a8e01f3d3e504a0217eb8466d505/62452/image.png 331w&quot; sizes=&quot;(max-width: 331px) 100vw, 331px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;Defining Types&lt;/h2&gt;
+&lt;p&gt;타입을 정의한다는 내용인데요&lt;br&gt;
+항상 위에서처럼 타입 추론에 의지할 수는 없습니다&lt;br&gt;
+디자인 패턴에 따라서는 명시를 해야할 수도 있고,&lt;br&gt;
+그게 아니더라도 선언과 동시에 값을 초기화하지 않을 수도 있죠?&lt;/p&gt;
+&lt;p&gt;따라서 TS는 사용자에게 타입을 명시할 수 있도록 extension을 제공합니다.&lt;br&gt;
+이름이라면 응당 문자열이게끔 &lt;code class=&quot;language-text&quot;&gt;name: string&lt;/code&gt;과 같이 쓴다던가,&lt;br&gt;
+학번이라면 당연히 숫자이게끔 &lt;code class=&quot;language-text&quot;&gt;id: number&lt;/code&gt;라고 쓴다던가.. 말입니다&lt;/p&gt;
+&lt;p&gt;만약 Sungho라는 이름의, 학번이 190001인 학생이 있다면&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;const student = {name: &quot;Sungho&quot;, id: 190001};&lt;/code&gt;
+이렇게 작성할 수 있을텐데요
+대신 좀 더 엄격하게, TS를 이용하여 &lt;code class=&quot;language-text&quot;&gt;interface&lt;/code&gt;를 선언하고 사용해볼 수 있습니다 :&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Student&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+  id&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; student&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Student &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Sungho&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; id&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;190001&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게, &lt;code class=&quot;language-text&quot;&gt;interface&lt;/code&gt;를 선언하고 사용하여 객체의 각 property의 타입을 강제할 수 있습니다.&lt;br&gt;
+이렇게 쓰면 좋은 점은, 타입을 잘못 쓴 경우 (&lt;code class=&quot;language-text&quot;&gt;name: 190001&lt;/code&gt;처럼..)말고도 하나 더있는데요,&lt;br&gt;
+예를 들어 property 이름이 헷갈려서 이름을 &lt;code class=&quot;language-text&quot;&gt;username: &quot;Sungho&quot;&lt;/code&gt;라고 써버리는 상황을 또한 방지할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;아 그리고 객체지향언어인 JS는 클래스가 있으니까 TS에서도&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;StudentAccount&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+  id&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; id&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; name
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; id
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 타입을 정의할 수 있습니다.&lt;br&gt;
+TS의 신기한 특징은, 위에서 살펴본 &lt;code class=&quot;language-text&quot;&gt;interface Student&lt;/code&gt;에 대해&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;const student: Student = new StudentAccount(&quot;Sungho&quot;, 190001);&lt;/code&gt;&lt;br&gt;
+과 같이 써버릴 수 있습니다.&lt;br&gt;
+TS가 &lt;em&gt;Structural Type System&lt;/em&gt;이라서 가능한데, 이거에 관해서는 밑에서 다룹니다&lt;/p&gt;
+&lt;p&gt;그리고 함수에서도,&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;function setStudent(student: Student) {}&lt;/code&gt;와 같이 인자 타입을 정의할 수도 있고&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;function getStudent(): Student {}&lt;/code&gt;와 같이 리턴값의 타입을 정의할 수도 있습니다.&lt;/p&gt;
+&lt;p&gt;이 정의할 수 있는 타입은&lt;br&gt;
+JS에서 기본적으로 존재하는 primitive type인&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;boolean&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;bigint&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;null&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;number&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;string&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;symbol&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;undefined&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이런 거에 추가로 TS에서 지원하는 타입으로&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;any&lt;/code&gt; : 뭐든 허용&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;unknown&lt;/code&gt; : &lt;code class=&quot;language-text&quot;&gt;any&lt;/code&gt;와 비슷하지만, 실제로 사용 시 타입을 써야 함&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;never&lt;/code&gt; : 값이 항상 없음..을 의미하는데, 어떤 함수가 무한루프를 돌거나 항상 오류를 발생시키는 등 &quot;리턴 값이 절대 없음&quot; 을 나타내는 상황 등에서 이용하나봅니다&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;void&lt;/code&gt; : 함수가 &lt;code class=&quot;language-text&quot;&gt;undefined&lt;/code&gt;를 반환하거나 반환값이 없을 때&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;code class=&quot;language-text&quot;&gt;type alias&lt;/code&gt; vs &lt;code class=&quot;language-text&quot;&gt;interface&lt;/code&gt; ?&lt;/h3&gt;
+&lt;p&gt;새에 관한 타입을 만들고자 할 때, 두 가지 방법이 있습니다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;type BirdType = {wings: 2;};&lt;/code&gt; : &lt;em&gt;type alias&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;interface BirdInterface {wings: 2;}&lt;/code&gt; : &lt;em&gt;interface&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;대부분의 경우 이 두 방법은 거의 유사하지만, 조금의 차이점이 있고, 공식문서에서는 웬만하면 &lt;code class=&quot;language-text&quot;&gt;interface&lt;/code&gt;를 사용하는게 좋겠다고 말하네요&lt;/p&gt;
+&lt;p&gt;유사한 점은&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;둘 다 property만 공통적이면 섞어쓸 수 있습니다.(intermix.) 이건 위에서 언급한 &lt;em&gt;Structural Type System&lt;/em&gt;에 의한 특징&lt;/li&gt;
+&lt;li&gt;확장 가능 : 방식은 다릅니다.. 이런 식으로
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;type Owl = {nocturnal: true} &amp;amp; BirdType&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;interface Chicken extends BirdInterface{colorful : false}&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;근데 이제 다른 점이 무엇이냐&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;property가 공통적이지 않은데 intermix를 시도하는 경우 에러메시지가 다릅니다. 대충 &lt;code class=&quot;language-text&quot;&gt;interface&lt;/code&gt;를 쓰는 편이 더 직관적이고 간결하다고 설명하네요&lt;/li&gt;
+&lt;li&gt;또 중요한 차이점은, &quot;&lt;code class=&quot;language-text&quot;&gt;interface&lt;/code&gt;는 &lt;code class=&quot;language-text&quot;&gt;open&lt;/code&gt;이고, &lt;code class=&quot;language-text&quot;&gt;type alias&lt;/code&gt;는 &lt;code class=&quot;language-text&quot;&gt;close&lt;/code&gt;&quot;라는 것인데 : - &lt;code class=&quot;language-text&quot;&gt;interface&lt;/code&gt;는 두 번 선언하면 확장됩니다. 예를 들어
+&lt;code class=&quot;language-text&quot;&gt;interface Kitten {purrs : boolean;}&lt;/code&gt; 그 다음에
+&lt;code class=&quot;language-text&quot;&gt;interface Kitten {color: string;}&lt;/code&gt; 이렇게 쓰면 &lt;code class=&quot;language-text&quot;&gt;Kitten&lt;/code&gt; 인터페이스는 확장됩니다. (property 둘 다 가짐)&lt;/li&gt;
+&lt;li&gt;근데 &lt;code class=&quot;language-text&quot;&gt;type&lt;/code&gt;은 두 번 써버리면 그 자체로 성립이 불가
+&lt;img src=&quot;https://i.imgur.com/GROaGdy.png&quot; width=&quot;100%&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;뭐 그렇다네요. 적당히 주의하도록 합시다&lt;/p&gt;
+&lt;h2&gt;Composing Types&lt;/h2&gt;
+&lt;p&gt;이제 타입을 구성해봅시다&lt;br&gt;
+TS와 함께라면 복잡한 타입도 구성해볼 수 있습니다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Unions : 여러 타입을 결합합니다. 예컨대 &lt;code class=&quot;language-text&quot;&gt;type MyBool = true | false;&lt;/code&gt; 등..
+&lt;ul&gt;
+&lt;li&gt;어떤 변수에 들어갈 값을 특정 리터럴로 제한할 때 강력합니다. 예를 들면
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;type siblings = &quot;brother&quot; | &quot;sister&quot;;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;type PrimeNumberUnderTen = 2 | 3 | 5 | 7;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;또는 타입을 둘 이상 허용할 때 쓸 수 있습니다. (&lt;code class=&quot;language-text&quot;&gt;string&lt;/code&gt; 또는 &lt;code class=&quot;language-text&quot;&gt;string&lt;/code&gt;의 배열)
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;참고 : &lt;code class=&quot;language-text&quot;&gt;typeof&lt;/code&gt;연산자로 타입을 확인할 수 있습니다.&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;if (typeof obj === &quot;string&quot;)&lt;/code&gt; 이런 식&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Generics : Array가 담을 수 있는 &lt;code class=&quot;language-text&quot;&gt;type&lt;/code&gt;을 제한할 수 있습니다.
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;type StringArray = Array&amp;lt;string&gt;;&lt;/code&gt; 이런 식&lt;/li&gt;
+&lt;li&gt;또는, &lt;code class=&quot;language-text&quot;&gt;type ObjectWithNameArray = Array&amp;lt;{ name: string} &gt;;&lt;/code&gt; 이렇게 쓰면 property로 &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt;을 가지는 애들만 넣도록 할 수 있습니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;T&gt;&lt;/code&gt; 와 같이 써서, 타입을 변수처럼 취급할 수 있습니다. (ex : &lt;code class=&quot;language-text&quot;&gt;interface Backpack&amp;lt;T&gt;{}&lt;/code&gt;)&lt;br&gt;
+이런 인터페이스에 대해, &lt;code class=&quot;language-text&quot;&gt;declare const backpack: Backpack&amp;lt;string&gt;;&lt;/code&gt;과 같이 작성하여 원하는 타입에 대한 &lt;code class=&quot;language-text&quot;&gt;Backpack&amp;lt;T&gt;&lt;/code&gt; 객체를 생성할 수 있습니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Structural Type System&lt;/h2&gt;
+&lt;p&gt;위에서 계속 언급한 &lt;strong&gt;Structural Type System&lt;/strong&gt;인데요&lt;br&gt;
+C++같은 다른 언어에서는 &lt;strong&gt;nominal typing&lt;/strong&gt;이라고 해서, 클래스의 이름으로 타입을 결정하고 구분짓습니다.&lt;br&gt;
+이와 달리, TS는 내부 &lt;em&gt;모양&lt;/em&gt;을 보고 타입을 처리합니다.&lt;br&gt;
+그말인 즉, 내부가 똑같이 생겼다면 동일한 타입으로 간주할 수 있습니다.&lt;br&gt;
+예를 들어, &lt;code class=&quot;language-text&quot;&gt;type MyBoolean = true | false&lt;/code&gt; 이렇게 쓰면 그냥 &lt;code class=&quot;language-text&quot;&gt;boolean&lt;/code&gt;으로 받아들입니다.&lt;/p&gt;
+&lt;p&gt;예를 들어&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  x&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;
+  y&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//이런 인터페이스가 있고&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;logPoint&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;p&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Point&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//이런 함수가 있을 때&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; point1 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; x&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; y&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;26&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; point2 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; x&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; y&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;26&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; z&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;89&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;logPoint&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;point1&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;logPoint&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;point2&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;//둘 다 가능&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;point1&lt;/code&gt;은 당연히 가능하고, &lt;code class=&quot;language-text&quot;&gt;point2&lt;/code&gt;또한 property의 subset이 조건을 만족하므로 가능합니다.&lt;br&gt;
+예시에서는 살펴보지 않았지만, 클래스에 대해서도 다를 것 없이&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;x: number&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;y: number&lt;/code&gt; 필드만 가지고 있다면 동일한 타입으로 취급받을 수 있습니다.&lt;/p&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;p&gt;여기까지가 TypeScript 문법에 관한 간단한 오버뷰라고 하네요&lt;br&gt;
+이 다음은&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;핸드북 다 읽어보기 : &lt;a href=&quot;https://www.typescriptlang.org/docs/handbook/intro.html&quot;&gt;from start to finish&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;예제 풀어보기 : &lt;a href=&quot;https://www.typescriptlang.org/play#show-examples&quot;&gt;Playground examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이런게 준비되어있다고 합니다&lt;br&gt;
+Day 2를 쓸지는 모르겠지만..&lt;br&gt;
+이만 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[👥 C++ 멀티스레딩 맛 한번 보세요]]></title><description><![CDATA[저번학기에 게임 만드는 팀플이 있었는데요 처음에는 C로 시작했고 나중에 C++로 확장했지만 사실 사용중인 이미지 렌더링 라이브러리가 C로 작성된거기도 하고 해서 아무튼 시작은 C…]]></description><link>https://github.com/sungpaks/multi-threading-in-cpp/</link><guid isPermaLink="false">https://github.com/sungpaks/multi-threading-in-cpp/</guid><pubDate>Wed, 03 Jan 2024 11:35:00 GMT</pubDate><content:encoded>&lt;p&gt;저번학기에 게임 만드는 팀플이 있었는데요&lt;br&gt;
 처음에는 C로 시작했고 나중에 C++로 확장했지만&lt;br&gt;
 사실 사용중인 이미지 렌더링 라이브러리가 C로 작성된거기도 하고 해서&lt;br&gt;
 아무튼 시작은 C였고 멀티스레딩은 생각을 해두지 않았었습니다&lt;br&gt;
