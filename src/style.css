@@ -346,6 +346,7 @@ a:focus {
   background-color: rgba(245, 245, 245, 0.8);
 }
 .top-ui-title {
+  display: inline-block;
   width: fit-content;
   color: black;
   transition: all 0.5s ease;
@@ -361,7 +362,7 @@ a:focus {
   padding-left: 3px;
 }
 
-.category-button {
+.tag-button {
   margin-right: 10px;
   margin-bottom: 15px;
   font-size: 13px;
@@ -371,7 +372,7 @@ a:focus {
   border: none;
   z-index: 1;
 }
-.category-button:after {
+.tag-button:after {
   position: absolute;
   content: "";
   width: 0;
@@ -385,14 +386,14 @@ a:focus {
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
-.category-button:hover {
+.tag-button:hover {
   color: #fff;
 }
-.category-button:hover:after {
+.tag-button:hover:after {
   left: 0;
   width: 100%;
 }
-.category-button:active {
+.tag-button:active {
   top: 2px;
 }
 .post-list-item-title {
@@ -401,6 +402,11 @@ a:focus {
 .post-list-item-title:hover {
   transition: all 0.3s ease;
   text-shadow: 2px 2px 2px darkgray;
+}
+.top-ui-tag {
+  float: right;
+  margin: 20px;
+  color: rgb(88, 88, 88);
 }
 
 /* Media queries */

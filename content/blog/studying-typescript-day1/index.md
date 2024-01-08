@@ -2,7 +2,7 @@
 title: 😏 저랑.. 타입스크립트 공부 하실래요? (TypeScript - Day 1)
 date: "2024-01-04T20:43"
 description: "TypeScript Document 스터디 윗 미."
-category: ["TypeScript", "JavaScript"]
+tag: ["TypeScript", "JavaScript"]
 ---
 
 안녕하세요.\

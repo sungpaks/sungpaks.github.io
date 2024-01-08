@@ -9,17 +9,15 @@ import Seo from "../components/seo"
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
-  const [curCategory, setCurCategory] = useState("ALL")
+  const [curTag, setCurTag] = useState("ALL")
   const [curPostList, setCurPostList] = useState(posts)
   useEffect(() => {
-    if (curCategory === "ALL") {
+    if (curTag === "ALL") {
       setCurPostList([...posts])
     } else {
-      setCurPostList([
-        ...posts.filter(p => p.frontmatter.category.includes(curCategory)),
-      ])
+      setCurPostList([...posts.filter(p => p.frontmatter.tag.includes(curTag))])
     }
-  }, [curCategory])
+  }, [curTag])
 
   if (posts.length === 0) {
     return (
@@ -35,11 +33,7 @@ const BlogIndex = ({ data, location }) => {
   }
 
   return (
-    <Layout
-      location={location}
-      title={siteTitle}
-      setCurCategory={setCurCategory}
-    >
+    <Layout location={location} title={siteTitle} setCurTag={setCurTag}>
       <Bio />
       <hr />
       <ol style={{ listStyle: `none` }}>
@@ -69,16 +63,16 @@ const BlogIndex = ({ data, location }) => {
                     </Link>
                   </h2>
                 </header>
-                {post.frontmatter.category?.map(c => {
+                {post.frontmatter.tag?.map(c => {
                   return (
                     <button
-                      class="custom-button category-button"
+                      class="custom-button tag-button"
                       onClick={() => {
-                        setCurCategory(c === curCategory ? "ALL" : c)
+                        setCurTag(c === curTag ? "ALL" : c)
                       }}
                       style={{
-                        top: c === curCategory ? "2px" : 0,
-                        color: c === curCategory ? "darkgray" : "black",
+                        top: c === curTag ? "2px" : 0,
+                        color: c === curTag ? "darkgray" : "black",
                       }}
                     >
                       {c}
@@ -130,13 +124,13 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
-          category
+          tag
         }
       }
     }
 
-    categories: allMarkdownRemark(limit: 2000) {
-      group(field: frontmatter___category) {
+    tags: allMarkdownRemark(limit: 2000) {
+      group(field: frontmatter___tag) {
         fieldValue
         totalCount
       }
