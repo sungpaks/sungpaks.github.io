@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-
+import { useState } from "react"
+import { useEffect } from "react"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -8,6 +9,17 @@ import Seo from "../components/seo"
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
+  const [curCategory, setCurCategory] = useState("ALL")
+  const [curPostList, setCurPostList] = useState(posts)
+  useEffect(() => {
+    if (curCategory === "ALL") {
+      setCurPostList([...posts])
+    } else {
+      setCurPostList([
+        ...posts.filter(p => p.frontmatter.category.includes(curCategory)),
+      ])
+    }
+  }, [curCategory])
 
   if (posts.length === 0) {
     return (
@@ -23,12 +35,20 @@ const BlogIndex = ({ data, location }) => {
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout
+      location={location}
+      title={siteTitle}
+      setCurCategory={setCurCategory}
+    >
       <Bio />
       <hr />
       <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
+        {curPostList.map(post => {
           const title = post.frontmatter.title || post.fields.slug
+          /*const categories = [
+            { fieldValue: ALL_NAME, totalCount: allPosts.length },
+            ...data.categories.group,
+          ]*/
 
           return (
             <li key={post.fields.slug}>
@@ -40,11 +60,31 @@ const BlogIndex = ({ data, location }) => {
                 <header>
                   <h2>
                     <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
+                      <span
+                        itemProp="headline"
+                        className="post-list-item-title"
+                      >
+                        {title}
+                      </span>
                     </Link>
                   </h2>
-                  <small>{post.frontmatter.date}</small>
                 </header>
+                {post.frontmatter.category?.map(c => {
+                  return (
+                    <button
+                      class="custom-button category-button"
+                      onClick={() => {
+                        setCurCategory(c === curCategory ? "ALL" : c)
+                      }}
+                      style={{
+                        top: c === curCategory ? "2px" : 0,
+                        color: c === curCategory ? "darkgray" : "black",
+                      }}
+                    >
+                      {c}
+                    </button>
+                  )
+                })}
                 <section>
                   <p
                     dangerouslySetInnerHTML={{
@@ -53,6 +93,7 @@ const BlogIndex = ({ data, location }) => {
                     itemProp="description"
                   />
                 </section>
+                <small>{post.frontmatter.date}</small>
               </article>
             </li>
           )
@@ -89,7 +130,15 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          category
         }
+      }
+    }
+
+    categories: allMarkdownRemark(limit: 2000) {
+      group(field: frontmatter___category) {
+        fieldValue
+        totalCount
       }
     }
   }

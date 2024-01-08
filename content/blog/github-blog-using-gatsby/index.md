@@ -3,6 +3,7 @@ title: ✒️ 내 동년배들 다 깃허브 블로그 운영한다
 date: "2024-01-03T15:30"
 description: "Gatsby로 Github 블로그 만들어봤습니다"
 slug: building-github-blog-using-gatsby
+category: ["Gatsby", "Blog"]
 ---
 
 여러분 새해 복 많이 받으십시오\
