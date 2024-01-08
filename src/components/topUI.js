@@ -11,7 +11,7 @@ function TopUI({ setCurTag }) {
         </Link>
       </h4>
       <h6 className="top-ui-tag">
-        <Link to="/tag">Tag</Link>
+        <Link to="/">Tag</Link>
       </h6>
     </div>
   )
