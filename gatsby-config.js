@@ -15,7 +15,7 @@ module.exports = {
       summary: `세종대학교 19학번, 물리천문학과 + 소프트웨어학과`,
     },
     description: `My Tech Blog`,
-    siteUrl: `https://github.com/sungpaks`,
+    siteUrl: `https://sungpaks.github.io/`,
     social: {
       twitter: ``,
       instagram: `sungpaks`,
