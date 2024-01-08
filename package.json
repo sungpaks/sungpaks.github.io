@@ -13,6 +13,7 @@
     "@fontsource/merriweather": "^5.0.3",
     "@giscus/react": "^2.4.0",
     "gatsby": "^5.13.0",
+    "gatsby-plugin-advanced-sitemap": "^2.1.0",
     "gatsby-plugin-feed": "^5.13.0",
     "gatsby-plugin-gtag": "^1.0.13",
     "gatsby-plugin-image": "^3.13.0",
