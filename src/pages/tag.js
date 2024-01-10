@@ -1,6 +1,7 @@
 import * as React from "react"
 import Layout from "../components/layout"
 import { Link, graphql } from "gatsby"
+import kebabCase from "lodash.kebabcase"
 
 const TagPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -22,7 +23,7 @@ const TagPage = ({ data, location }) => {
               key={t.fieldValue}
               className="custom-button tag-button"
               style={buttonScaleStyle}
-              to="/tag" //"/tag/" + t.fieldValue}
+              to={`/tag/${kebabCase(t.fieldValue)}`}
             >
               {t.fieldValue} ({t.totalCount})
             </Link>

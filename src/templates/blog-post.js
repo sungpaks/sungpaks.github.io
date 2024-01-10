@@ -5,6 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Giscus from "@giscus/react"
+import kebabCase from "lodash.kebabcase"
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
@@ -21,22 +22,14 @@ const BlogPostTemplate = ({
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          {post.frontmatter.tag?.map(c => {
+          {post.frontmatter.tag?.map(t => {
             return (
-              <button
-                class="custom-button tag-button"
-                onClick={() => {
-                  //setCurTag(c === curTag ? "ALL" : c)
-                }}
-                style={
-                  {
-                    //top: c === curTag ? "2px" : 0,
-                    //color: c === curTag ? "darkgray" : "black",
-                  }
-                }
+              <Link
+                className="custom-button tag-button"
+                to={`/tag/${kebabCase(t)}`}
               >
-                {c}
-              </button>
+                {t}
+              </Link>
             )
           })}
           <p>{post.frontmatter.date}</p>
