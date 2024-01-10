@@ -4,7 +4,7 @@ import TopUI from "./topUI"
 
 const Layout = ({ location, title, children, setCurTag }) => {
   const rootPath = `${__PATH_PREFIX__}/`
-  const isRootPath = location.pathname === rootPath
+  const isRootPath = location?.pathname === rootPath
   /*let header
 
   if (isRootPath) {

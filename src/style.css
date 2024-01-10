@@ -229,6 +229,7 @@ table thead tr th {
 /* Link */
 
 a {
+  text-decoration: none;
   color: var(--color-primary);
 }
 
@@ -354,7 +355,7 @@ a:focus {
 .top-ui-title:hover {
   text-shadow: 2px 2px 2px darkgray;
   transition: all 0.5s ease;
-  font-size: 150%;
+  transform: scale(1.05);
   color: rgba(109, 158, 12);
 }
 .top-ui-title:active {
@@ -407,6 +408,13 @@ a:focus {
   float: right;
   margin: 20px;
   color: rgb(88, 88, 88);
+  transition: all 0.5s ease;
+}
+.top-ui-tag:hover {
+  color: black;
+  text-shadow: 2px 2px 2px darkgray;
+  transition: all 0.5s ease;
+  transform: scale(1.05);
 }
 
 /* Media queries */

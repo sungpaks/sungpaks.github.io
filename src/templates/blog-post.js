@@ -21,6 +21,24 @@ const BlogPostTemplate = ({
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
+          {post.frontmatter.tag?.map(c => {
+            return (
+              <button
+                class="custom-button tag-button"
+                onClick={() => {
+                  //setCurTag(c === curTag ? "ALL" : c)
+                }}
+                style={
+                  {
+                    //top: c === curTag ? "2px" : 0,
+                    //color: c === curTag ? "darkgray" : "black",
+                  }
+                }
+              >
+                {c}
+              </button>
+            )
+          })}
           <p>{post.frontmatter.date}</p>
         </header>
         <hr />
@@ -107,6 +125,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tag
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

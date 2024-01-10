@@ -1,5 +1,5 @@
 ---
-title: 😏 저랑.. 타입스크립트 공부 하실래요? (TypeScript - Day 1)
+title: 😏 저랑.. 타입스크립트 공부 하실래요? (TypeScript)
 date: "2024-01-04T20:43"
 description: "TypeScript Document 스터디 윗 미."
 tag: ["TypeScript", "JavaScript"]

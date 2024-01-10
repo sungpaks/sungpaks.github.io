@@ -19,7 +19,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Get all markdown blog posts sorted by date
   const result = await graphql(`
     {
-      allMarkdownRemark(sort: { frontmatter: { date: ASC } }, limit: 1000) {
+      allMarkdownRemark(
+        sort: { fields: [frontmatter___date], order: ASC }
+        limit: 1000
+      ) {
+        tagList: distinct(field: frontmatter___tag)
         nodes {
           id
           fields {
@@ -37,6 +41,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     )
     return
   }
+
+  const tagPosts = path.resolve(`./src/templates/tag-post.js`)
+  const tags = result.data.allMarkdownRemark
+  console.log(tags)
+  tags.forEach(tag => {
+    console.log(tag)
+    createPage({
+      path: `/tag/${tag}/`,
+      component: tagPosts,
+      context: { tag },
+    })
+  })
 
   const posts = result.data.allMarkdownRemark.nodes
 
