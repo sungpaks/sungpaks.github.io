@@ -1,5 +1,166 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[My Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 11 Jan 2024 10:40:35 GMT</lastBuildDate><item><title><![CDATA[🙃 타입스크립트가 되고 싶은 리액트 컴포넌트는 나에게..]]></title><description><![CDATA[ㅋㅋㅋ]]></description><link>https://sungpaks.github.io/migration-react-component-to-typescript/</link><guid isPermaLink="false">https://sungpaks.github.io/migration-react-component-to-typescript/</guid><pubDate>Thu, 11 Jan 2024 10:31:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Zd6pFgp.png&quot; alt=&quot;&quot; loading=&quot;lazy&quot; width=&quot;50%&quot; height=&quot;auto/&quot;&gt;&lt;br&gt;
-ㅋㅋㅋ&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🔌 옵시디언 플러그인 개발 이렇게 시작해보세요]]></title><description><![CDATA[여러분은 노트 앱 뭐쓰시나요 보통 노션 자주들 쓰시는데.. 저도 노션 썼었지만 힙해보여서 여러 이유로 옵시디언으로 갈아탄지…]]></description><link>https://sungpaks.github.io/how-to-make-obsidian-plugin/</link><guid isPermaLink="false">https://sungpaks.github.io/how-to-make-obsidian-plugin/</guid><pubDate>Sun, 07 Jan 2024 12:45:00 GMT</pubDate><content:encoded>&lt;p&gt;여러분은 노트 앱 뭐쓰시나요&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 11 Jan 2024 12:37:19 GMT</lastBuildDate><item><title><![CDATA[🙃 타입스크립트가 되고 싶은 리액트 컴포넌트는 나에게..]]></title><description><![CDATA[Gatsby는 리액트를 기반으로 하기 때문에, 처음 시작하면 등의 파일들이 각각 Component를 하는 것을 볼 수 있습니다.  리액트 사용자라면 너무 익숙하죠? 이번 시간에는 이렇게 생겨먹은 React Component…]]></description><link>https://sungpaks.github.io/migration-react-component-to-typescript/</link><guid isPermaLink="false">https://sungpaks.github.io/migration-react-component-to-typescript/</guid><pubDate>Thu, 11 Jan 2024 10:31:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 194px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d6e09a0d402674a88c32375fa6cc6c71/2bf95/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 134.17721518987344%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;다크로드&quot;
+        title=&quot;&quot;
+        src=&quot;/static/d6e09a0d402674a88c32375fa6cc6c71/2bf95/image.png&quot;
+        srcset=&quot;/static/d6e09a0d402674a88c32375fa6cc6c71/c26ae/image.png 158w,
+/static/d6e09a0d402674a88c32375fa6cc6c71/2bf95/image.png 194w&quot;
+        sizes=&quot;(max-width: 194px) 100vw, 194px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Gatsby는 리액트를 기반으로 하기 때문에,&lt;br&gt;
+처음 시작하면 &lt;code class=&quot;language-text&quot;&gt;index.js&lt;/code&gt;등의 &lt;code class=&quot;language-text&quot;&gt;.js&lt;/code&gt;파일들이 각각&lt;br&gt;
+Component를 &lt;code class=&quot;language-text&quot;&gt;export&lt;/code&gt;하는 것을 볼 수 있습니다. &lt;br&gt;
+리액트 사용자라면 너무 익숙하죠?&lt;/p&gt;
+&lt;p&gt;이번 시간에는 이렇게 생겨먹은 &lt;strong&gt;React Component&lt;/strong&gt; 스타일의 &lt;code class=&quot;language-text&quot;&gt;.js&lt;/code&gt;친구들을&lt;br&gt;
+&lt;strong&gt;타입스크립트&lt;/strong&gt;(&lt;code class=&quot;language-text&quot;&gt;.ts&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;.tsx&lt;/code&gt;)로 바꿔버리는...&lt;br&gt;
+마이그레이션 작업을 좀 해보겠습니다&lt;br&gt;
+그냥.. 얼마전에 &lt;strong&gt;TypeScript&lt;/strong&gt; 이론을 공부했으니까.. 이걸 실제로 써보려고 그럽니다&lt;br&gt;
+그리고 더 늦기 전에 갈아타야 좀 수월하지 않겠습니까?&lt;/p&gt;
+&lt;p&gt;들어가기에 앞서..&lt;br&gt;
+&lt;a href=&quot;https://www.gatsbyjs.com/docs/how-to/custom-configuration/typescript/#gatsby-configts&quot;&gt;공홈&lt;/a&gt;도 참고했고&lt;br&gt;
+매우 똥같은 번역이 있지만 꽤나 참고가 된 &lt;a href=&quot;https://hackernoon.com/ko/javascript%EC%97%90%EC%84%9C-typescript%EB%A1%9C-%EB%B0%98%EC%9D%91-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-%EB%A7%88%EC%9D%B4%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%85%98%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95&quot;&gt;링크&lt;/a&gt;도 있습니다&lt;/p&gt;
+&lt;h1&gt;TypeScript Initialize&lt;/h1&gt;
+&lt;p&gt;그.. 타입스크립트는 준비 하셨죠?&lt;br&gt;
+그럼 이제 initialize 하겠습니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;npm init gatsby -ts&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;그럼 이제 &lt;code class=&quot;language-text&quot;&gt;tsconfig.json&lt;/code&gt;파일이 생기는데요&lt;br&gt;
+&lt;a href=&quot;https://github.com/gatsbyjs/gatsby/blob/master/starters/gatsby-starter-minimal-ts/tsconfig.json&quot;&gt;gatsby-minimal-starter-ts&lt;/a&gt;에서 내용을 긁어다 쓰셔도 무방하다고 공홈에서 그러네요&lt;br&gt;
+저도 그냥 긁었습니다&lt;/p&gt;
+&lt;p&gt;그런 다음 일단 &lt;code class=&quot;language-text&quot;&gt;gatsby-*.js&lt;/code&gt;들을 &lt;code class=&quot;language-text&quot;&gt;.ts&lt;/code&gt;로 바꿔줍시다&lt;br&gt;
+얘네들은 제 경험상으론 확장자만 바꿔주고 딱히 뭐 안해줘도 됩니다&lt;/p&gt;
+&lt;h1&gt;이제 하나하나 수정해봅시다&lt;/h1&gt;
+&lt;p&gt;이제 &lt;code class=&quot;language-text&quot;&gt;src/component/&lt;/code&gt; 또는.. &lt;code class=&quot;language-text&quot;&gt;src/pages/&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;src/templates/&lt;/code&gt; 이런 곳에 있는 &lt;code class=&quot;language-text&quot;&gt;.js&lt;/code&gt;들을 &lt;code class=&quot;language-text&quot;&gt;.ts&lt;/code&gt;로 바꿀건데요&lt;br&gt;
+확장자를 바꾸고나면 빨간줄이 좍좍 그어질텐데&lt;br&gt;
+겁나지만 하나씩 좀 해봅시다..&lt;/p&gt;
+&lt;p&gt;해야 할 일들은 대충&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;혹시 컴포넌트를 &lt;em&gt;Functional Component&lt;/em&gt; 형태로 쓰셨다면 &lt;code class=&quot;language-text&quot;&gt;import {FC} from &quot;react&quot;&lt;/code&gt;를 써서 &quot;이거 리액트 컴포넌트임&quot;을 알려야하는 것 같습니다&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-text&quot;&gt;props&lt;/code&gt;에 type safety 집어넣기&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;useState&lt;/code&gt;에 type 주기&lt;br&gt;
+(예 : &lt;code class=&quot;language-text&quot;&gt;[data, setData] = useState() =&gt; [data, setData] = useState&amp;lt;typename&gt;()&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;필요한 친구들은 타입스크립트버전(&lt;code class=&quot;language-text&quot;&gt;@types/&lt;/code&gt;)를 다시 설치해줘야 합니다&lt;br&gt;
+(예 : &lt;code class=&quot;language-text&quot;&gt;import kebabCase from &quot;lodash.kebabcase&quot;&lt;/code&gt; -&gt; &lt;code class=&quot;language-text&quot;&gt;npm i --save-dev @types/lodash.kebabcase&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;마지막에 &lt;code class=&quot;language-text&quot;&gt;gatsby-node.js&lt;/code&gt;에서 &lt;code class=&quot;language-text&quot;&gt;createPages&lt;/code&gt;의 &lt;code class=&quot;language-text&quot;&gt;component&lt;/code&gt;항목들을 &lt;code class=&quot;language-text&quot;&gt;.js&lt;/code&gt;-&gt;&lt;code class=&quot;language-text&quot;&gt;.ts&lt;/code&gt;로 바꾸는 것을 잊지 말도록 합시다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이 중에서 props에 type넣기를 한번 같이 보겠습니다&lt;/p&gt;
+&lt;h1&gt;props에 type safety 보장하기&lt;/h1&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 549px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a2d14be78172fbdbe9f4735cf7e2b4c7/928ea/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 27.21518987341772%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA6UlEQVR42mWQWW6EMBBEOUkUaTAYgw14NwwYJsr9j1RpPIpElI+n3rxUdbWkBfu2I4SAGCP2PUNKhXnWBec8tDYYBollWUturSvx4n728ahR+RBxMU4a2tgyEJ0A512haVo0XICxBjVdqGv2h6t/p9I+wawnXP7G5BIsKQoxIZHyS/1EH5glg4v+/fgd1v7rVdKTRX9iCF9QlCuKvV7f9vNZWJ4bcj5wnC+ocUJP9gey+osstSxrqT67AXU3gimybTQpUhAtg6UVhHTAxw3r80XrcJiVhFEjBOc0n2DnGbMYqCb7bQvOPvADA4KbsuwU+EoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;1&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a2d14be78172fbdbe9f4735cf7e2b4c7/928ea/image-1.png&quot;
+        srcset=&quot;/static/a2d14be78172fbdbe9f4735cf7e2b4c7/c26ae/image-1.png 158w,
+/static/a2d14be78172fbdbe9f4735cf7e2b4c7/6bdcf/image-1.png 315w,
+/static/a2d14be78172fbdbe9f4735cf7e2b4c7/928ea/image-1.png 549w&quot;
+        sizes=&quot;(max-width: 549px) 100vw, 549px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;확장자를 바꾸고 나면 가장 먼저 눈에 띄는 빨간줄은 이녀석입니다&lt;br&gt;
+사실 이 마이그레이션 작업은 props에 type만 잘 넣어주면 됩니다&lt;br&gt;
+만약 &lt;code class=&quot;language-text&quot;&gt;const Component=({description, title}) =&gt; {}&lt;/code&gt;같은 컴포넌트가 있다면&lt;br&gt;
+저같은 경우는 &lt;code class=&quot;language-text&quot;&gt;interface&lt;/code&gt;를 이용하여&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ComponentProps&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  description&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+  title&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; description&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; title &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; ComponentProps&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이런식으로 해줬습니다&lt;/p&gt;
+&lt;p&gt;근데 문제는 graphql 쿼리로 가져오는 &lt;code class=&quot;language-text&quot;&gt;data&lt;/code&gt;같은 props들은 이렇게 단순하게 끝나지 않는데요...&lt;br&gt;
+이 쿼리들 데이터들의 객체관계를 하나하나 &lt;code class=&quot;language-text&quot;&gt;interface&lt;/code&gt;로 표현하고 또 &lt;code class=&quot;language-text&quot;&gt;interface&lt;/code&gt;로.. 아휴&lt;br&gt;
+그냥 GPT한테 query문을 긁어서 가져갑시다..&lt;br&gt;
+알아서 잘 해줍니다.&lt;br&gt;
+아니면 나중에 안 사실인데&lt;br&gt;
+공홈에 보니까 &lt;a href=&quot;https://www.gatsbyjs.com/docs/how-to/local-development/graphql-typegen&quot;&gt;GraphQL Typegen&lt;/a&gt;이라는게 존재합니다 쩝&lt;/p&gt;
+&lt;p&gt;아무튼 각 컴포넌트들마다 &lt;code class=&quot;language-text&quot;&gt;export const pageQuery = graphql&lt;/code&gt;로 시작하는 쿼리문들을 긁어다가 GPT한테 인터페이스를 만들어달라고 하면
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e5fb0015d43295207695651b0c559685/36c33/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 76.58227848101265%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAB2klEQVR42qWSWW/aUBCF7/WGwRgr3khw2dJFJUgRAUwrtdhgSIIhIWoSd3nq//8Vp8PFaRMpQRF9+DQznvHxub7DPn+/xcU6w2qVIRxN0Tv7iv4gwmAYC876T+stVIcxhuHkCf3BGCxMUlyS2N3db1xd/xRcLu6xSO+xXP2g+peIizTD+cUt0mWG+fk3RJMVpskayfwGyexG5MNwCtbvRYiilF7K8uYaMQ1PpleiniTXNLxlHC8R0/Mv40XuaioIRwm52zifkEMqPnZ6eP+hg0bzGIdBE7V6CwHxhqjX26g38rzRFvVmrtl6K2i136FzcoqT7im63T7Y6NMMrh9ANx2ULRtHBRW+qsEiZEUGYwycM7AN7HkkSRLRJx0h6Pk1FLmGiq7DLcvQVRkS5yTEXxR5zMOc59X+CYqGJIMzDpUGlPyrewk6lJiGC8+x0bYU2IoGg46865g7BOewnSpMpsAtFOBbdGRd2v63vR06h3DlEtoVE0GliIMSh6HL+wmGJFitBvlt0UVIr3f2okPbPYKkm9ANCy6tiqFp+wuGoxl8cmgoJdjlIqqmBE1R/s+h69X+NjhF+WF1COkV6/Ps2hiGA8+qollWCR2OrOJAVqCSW8dxoOxw/VjwD/gmdFTyLxZhAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;GPT 결과&quot;
+        title=&quot;&quot;
+        src=&quot;/static/e5fb0015d43295207695651b0c559685/f058b/image-2.png&quot;
+        srcset=&quot;/static/e5fb0015d43295207695651b0c559685/c26ae/image-2.png 158w,
+/static/e5fb0015d43295207695651b0c559685/6bdcf/image-2.png 315w,
+/static/e5fb0015d43295207695651b0c559685/f058b/image-2.png 630w,
+/static/e5fb0015d43295207695651b0c559685/40601/image-2.png 945w,
+/static/e5fb0015d43295207695651b0c559685/36c33/image-2.png 946w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+잘 뱉어줍니다.&lt;/p&gt;
+&lt;p&gt;이제 이걸 가져다가 적당히 &lt;code class=&quot;language-text&quot;&gt;interface ComponentProps {}&lt;/code&gt;를 작성하고 타입을 명시해주면 되겠습니다.&lt;/p&gt;
+&lt;p&gt;근데 저같은 경우는 어떤 props는 상황에 따라 props를 넣을 수도 넣지 않을 수도 있는&lt;br&gt;
+꽤나 양자역학적인 슈뢰딩거의 props문제가 있었습니다\&lt;/p&gt;
+&lt;p&gt;이 경우 간단히... &lt;code class=&quot;language-text&quot;&gt;:&lt;/code&gt; 대신 &lt;code class=&quot;language-text&quot;&gt;?:&lt;/code&gt;를 씁시다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ComponentProps&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  Schrödinger&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; cat
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;저처럼 바보같이 &lt;code class=&quot;language-text&quot;&gt;Schrödinger: cat | undefined&lt;/code&gt; 이런 트라이를 하지 말도록 합시다.&lt;br&gt;
+그리고 처음 하시면 헷갈리실까봐 말씀드리는건데&lt;br&gt;
+함수를 넘길 때는.. 만약 인자는 &lt;code class=&quot;language-text&quot;&gt;number&lt;/code&gt;타입이고 반환값은 없다면&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;function(param: number): void&lt;/code&gt; 이런식입니다&lt;/p&gt;
+&lt;h1&gt;해치웠나?&lt;/h1&gt;
+&lt;p&gt;음.. 해치운 것 같습니다.&lt;br&gt;
+막상 별거 없죠?&lt;br&gt;
+인생이란게 그렇습니다.&lt;/p&gt;
+&lt;p&gt;이만 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🔌 옵시디언 플러그인 개발 이렇게 시작해보세요]]></title><description><![CDATA[여러분은 노트 앱 뭐쓰시나요 보통 노션 자주들 쓰시는데.. 저도 노션 썼었지만 힙해보여서 여러 이유로 옵시디언으로 갈아탄지…]]></description><link>https://sungpaks.github.io/how-to-make-obsidian-plugin/</link><guid isPermaLink="false">https://sungpaks.github.io/how-to-make-obsidian-plugin/</guid><pubDate>Sun, 07 Jan 2024 12:45:00 GMT</pubDate><content:encoded>&lt;p&gt;여러분은 노트 앱 뭐쓰시나요&lt;br&gt;
 보통 노션 자주들 쓰시는데.. 저도 노션 썼었지만&lt;br&gt;
 &lt;del&gt;힙해보여서&lt;/del&gt; 여러 이유로 옵시디언으로 갈아탄지 6개월? 됐습니다&lt;/p&gt;
 &lt;p&gt;블로그를 쓸 때도 어차피 블로그 글도 마크다운이니까&lt;br&gt;
