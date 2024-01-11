@@ -1,8 +1,13 @@
 import * as React from "react"
+import { FC } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 
-function TopUI({ setCurTag }) {
+interface ComponentProps {
+  setCurTag?(value: string): void
+}
+
+function TopUI({ setCurTag }: ComponentProps) {
   return (
     <div className="top-ui">
       <h4 className="top-ui-title" style={{ marginTop: 20 }}>

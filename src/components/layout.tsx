@@ -1,25 +1,17 @@
 import * as React from "react"
-import { Link } from "gatsby"
 import TopUI from "./topUI"
+import { FC } from "react"
+import { pathPrefix } from "../../gatsby-config"
 
-const Layout = ({ location, title, children, setCurTag }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
+interface ComponentProps {
+  location: any
+  children: any | undefined
+  setCurTag?(value: string): void
+}
+
+const Layout = ({ location, children, setCurTag }: ComponentProps) => {
+  const rootPath = "/" //`${__PATH_PREFIX__}/`
   const isRootPath = location?.pathname === rootPath
-  /*let header
-
-  if (isRootPath) {
-    header = (
-      <h1 className="main-heading">
-        <Link to="/">{title}</Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
-    )
-  }*/
 
   return (
     <div>

@@ -1,14 +1,21 @@
 import * as React from "react"
+import { FC } from "react"
 import Layout from "../components/layout"
 import { Link, graphql } from "gatsby"
 import kebabCase from "lodash.kebabcase"
+import { PageQueryData } from "."
 
-const TagPage = ({ data, location }) => {
+interface ComponentProps {
+  data: PageQueryData
+  location: any
+}
+
+const TagPage = ({ data, location }: ComponentProps) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
   return (
-    <Layout>
+    <Layout location={location} setCurTag={undefined}>
       <div style={{ marginTop: "100px", marginBottom: "100px" }}>
         <h2 style={{ paddingBottom: "10px", paddingTop: "50px" }}>
           🏷️ All Tags

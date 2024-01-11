@@ -7,14 +7,58 @@ import Seo from "../components/seo"
 import Giscus from "@giscus/react"
 import kebabCase from "lodash.kebabcase"
 
+interface Frontmatter {
+  title: string
+  date: string
+  description?: string
+  tag?: string[]
+}
+
+interface MarkdownRemark {
+  id: string
+  excerpt: string
+  html: string
+  frontmatter: Frontmatter
+}
+
+interface BlogPostBySlugQuery {
+  site: {
+    siteMetadata: {
+      title: string
+    }
+  }
+  markdownRemark: MarkdownRemark
+  previous?: {
+    fields: {
+      slug: string
+    }
+    frontmatter: {
+      title: string
+    }
+  }
+  next?: {
+    fields: {
+      slug: string
+    }
+    frontmatter: {
+      title: string
+    }
+  }
+}
+
+interface ComponentProps {
+  data: BlogPostBySlugQuery
+  location: any
+}
+
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
   location,
-}) => {
+}: ComponentProps) => {
   const siteTitle = site.siteMetadata?.title || `Title`
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} setCurTag={undefined}>
       <article
         className="blog-post"
         itemScope
@@ -88,7 +132,7 @@ const BlogPostTemplate = ({
   )
 }
 
-export const Head = ({ data: { markdownRemark: post } }) => {
+export const Head = ({ data: { markdownRemark: post } }: any) => {
   return (
     <Seo
       title={post.frontmatter.title}

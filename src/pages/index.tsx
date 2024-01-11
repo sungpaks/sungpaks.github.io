@@ -5,12 +5,56 @@ import { useEffect } from "react"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { FC } from "react"
 
-const BlogIndex = ({ data, location }) => {
+interface SiteMetadata {
+  title: string
+}
+
+interface Frontmatter {
+  date: string
+  title: string
+  description: string
+  tag: string[]
+}
+
+interface Fields {
+  slug: string
+}
+
+interface MarkdownRemarkNode {
+  excerpt: string
+  fields: Fields
+  frontmatter: Frontmatter
+}
+
+interface TagNode {
+  fieldValue: string
+  totalCount: number
+}
+
+export interface PageQueryData {
+  site: {
+    siteMetadata: SiteMetadata
+  }
+  allMarkdownRemark: {
+    nodes: MarkdownRemarkNode[]
+  }
+  tags: {
+    group: TagNode[]
+  }
+}
+
+interface ComponentProps {
+  data: PageQueryData
+  location: any
+}
+
+const BlogIndex = ({ data, location }: ComponentProps) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
-  const [curTag, setCurTag] = useState("ALL")
-  const [curPostList, setCurPostList] = useState(posts)
+  const [curTag, setCurTag] = useState<string>("ALL")
+  const [curPostList, setCurPostList] = useState<MarkdownRemarkNode[]>(posts)
   useEffect(() => {
     if (curTag === "ALL") {
       setCurPostList([...posts])
@@ -21,7 +65,7 @@ const BlogIndex = ({ data, location }) => {
 
   if (posts.length === 0) {
     return (
-      <Layout location={location} title={siteTitle}>
+      <Layout location={location} setCurTag={setCurTag}>
         <Bio />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
@@ -33,7 +77,7 @@ const BlogIndex = ({ data, location }) => {
   }
 
   return (
-    <Layout location={location} title={siteTitle} setCurTag={setCurTag}>
+    <Layout location={location} setCurTag={setCurTag}>
       <Bio />
       <hr />
       <ol style={{ listStyle: `none` }}>
@@ -66,7 +110,7 @@ const BlogIndex = ({ data, location }) => {
                 {post.frontmatter.tag?.map(c => {
                   return (
                     <button
-                      class="custom-button tag-button"
+                      className="custom-button tag-button"
                       onClick={() => {
                         setCurTag(c === curTag ? "ALL" : c)
                       }}
@@ -105,7 +149,9 @@ export default BlogIndex
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = () => <Seo title="All posts" />
+export const Head = () => (
+  <Seo title="All posts" description="" children={null} />
+)
 
 export const pageQuery = graphql`
   {

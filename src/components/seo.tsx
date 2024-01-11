@@ -6,9 +6,16 @@
  */
 
 import * as React from "react"
+import { FC } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-const Seo = ({ description, title, children }) => {
+interface ComponentProps {
+  description: string
+  title: string
+  children?: any
+}
+
+const Seo = ({ description, title, children }: ComponentProps) => {
   const { site } = useStaticQuery(
     graphql`
       query {
