@@ -78,7 +78,7 @@ html {
 body {
   font-family: "ibm-plex-sans";
   font-size: var(--fontSize-1);
-  font-weight: 550;
+  font-weight: var(--fontWeight-normal);
   color: var(--color-text);
 }
 
@@ -338,6 +338,7 @@ a:focus {
 }
 
 .top-ui {
+  z-index: 10;
   position: fixed;
   vertical-align: middle;
   padding-left: 40px;

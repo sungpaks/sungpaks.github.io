@@ -1,7 +1,6 @@
 import * as React from "react"
 import TopUI from "./topUI"
 import { FC } from "react"
-import { pathPrefix } from "../../gatsby-config"
 
 interface ComponentProps {
   location: any

@@ -4,17 +4,16 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
  */
 
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
-module.exports = {
+import { GatsbyConfig } from "gatsby"
+
+const config: GatsbyConfig = {
   siteMetadata: {
     title: `성훈 블로그`,
     author: {
       name: `조성훈`,
       summary: `세종대학교 19학번, 물리천문학과 + 소프트웨어학과`,
     },
-    description: `My Tech Blog`,
+    description: `Sunghoon Tech Blog`,
     siteUrl: `https://sungpaks.github.io/`,
     social: {
       twitter: ``,
@@ -86,8 +85,8 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.nodes.map(node => {
+            serialize: ({ query: { site, allMarkdownRemark } }: any) => {
+              return allMarkdownRemark.nodes.map((node: any) => {
                 return Object.assign({}, node.frontmatter, {
                   description: node.excerpt,
                   date: node.frontmatter.date,
@@ -134,3 +133,5 @@ module.exports = {
     },
   ],
 }
+
+export default config
