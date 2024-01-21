@@ -90,7 +90,7 @@ const Component = ({ description, title }: ComponentProps) => {}
 이제 이걸 가져다가 적당히 `interface ComponentProps {}`를 작성하고 타입을 명시해주면 되겠습니다.
 
 근데 저같은 경우는 어떤 props는 상황에 따라 props를 넣을 수도 넣지 않을 수도 있는\
-꽤나 양자역학적인 슈뢰딩거의 props문제가 있었습니다\
+꽤나 양자역학적인 슈뢰딩거의 props문제가 있었습니다
 
 이 경우 간단히... `:` 대신 `?:`를 씁시다.
 
