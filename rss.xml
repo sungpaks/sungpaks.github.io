@@ -1,4 +1,442 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 11 Jan 2024 12:37:19 GMT</lastBuildDate><item><title><![CDATA[🙃 타입스크립트가 되고 싶은 리액트 컴포넌트는 나에게..]]></title><description><![CDATA[Gatsby는 리액트를 기반으로 하기 때문에, 처음 시작하면 등의 파일들이 각각 Component를 하는 것을 볼 수 있습니다.  리액트 사용자라면 너무 익숙하죠? 이번 시간에는 이렇게 생겨먹은 React Component…]]></description><link>https://sungpaks.github.io/migration-react-component-to-typescript/</link><guid isPermaLink="false">https://sungpaks.github.io/migration-react-component-to-typescript/</guid><pubDate>Thu, 11 Jan 2024 10:31:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 21 Jan 2024 07:28:00 GMT</lastBuildDate><item><title><![CDATA[🫘 스프링 입문자라면 필히 알아둬야 합니다. 스프링 빈(Bean)이란?]]></title><description><![CDATA[요즘 스프링공부중인데요 "이렇게 저렇게 해서 스프링 빈을 주입받습니다~" 라는 말을 정말 자주 봅니다 그럼 저같은 머글들은 당연히도.. 스프링 빈이 도당체 뭔데?? 라고 생각하게 됩니다.. 모르겠으면 응당 알아보고 넘어가야겠죠? Spring Bean…]]></description><link>https://sungpaks.github.io/what-is-spring-bean/</link><guid isPermaLink="false">https://sungpaks.github.io/what-is-spring-bean/</guid><pubDate>Sun, 21 Jan 2024 05:37:00 GMT</pubDate><content:encoded>&lt;p&gt;요즘 스프링공부중인데요&lt;br&gt;
+&lt;em&gt;&quot;이렇게 저렇게 해서 스프링 빈을 주입받습니다~&quot;&lt;/em&gt; 라는 말을 정말 자주 봅니다&lt;br&gt;
+그럼 저같은 머글들은 당연히도..&lt;br&gt;
+&lt;strong&gt;스프링 빈&lt;/strong&gt;이 도당체 뭔데?? 라고 생각하게 됩니다..&lt;br&gt;
+모르겠으면 응당 알아보고 넘어가야겠죠?&lt;/p&gt;
+&lt;h1&gt;Spring Bean ?&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.spring.io/spring-framework/reference/core/beans/introduction.html&quot;&gt;Spring docs&lt;/a&gt;에서 말하는 bean이란...&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;bean은 Spring IoC 컨테이너에 의해 생성(instanciatiate)되고, 조립(assemble)되며, 관리(manage)되는 객체입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;음... 저같은 사람은 &lt;strong&gt;Spring IoC 컨테이너&lt;/strong&gt;가 뭔지도 모르니까 또 알아봐야겠는데요?&lt;/p&gt;
+&lt;p&gt;일단 기존의 Java Programming에서는 먼저 &lt;code class=&quot;language-text&quot;&gt;class&lt;/code&gt;를 작성하고, &lt;code class=&quot;language-text&quot;&gt;new&lt;/code&gt;로 객체를 인스턴스화하여 사용하는 구조였습니다. 사용자가 객체들을 직접 생성, 관리했던 것인데요&lt;br&gt;
+Spring의 가장 큰 특징은 이 개념을 거꾸로 뒤집는다는 것입니다.&lt;br&gt;
+객체의 생성과 유지, 관리를 사용자가 직접 하도록 하는 것이 아닌, 특별한 관리 주체에게 맡겨버리는 것인데요..&lt;br&gt;
+이를 &lt;strong&gt;제어의 역전(IoC, Inversion of Control)&lt;/strong&gt; 이라고 하며, 이 대신 관리해주는 주체가 &lt;strong&gt;Spring IoC 컨테이너&lt;/strong&gt;입니다.&lt;/p&gt;
+&lt;p&gt;일단 Spring IoC 컨테이너에 &lt;strong&gt;등록&lt;/strong&gt;되면 &lt;strong&gt;Singleton&lt;/strong&gt;으로 단일 객체가 생성되어 관리되고, 사용자는 필요할 때 &lt;strong&gt;주입&lt;/strong&gt;받아 사용합니다.&lt;/p&gt;
+&lt;p&gt;그럼 Spring Bean을 등록하는 법과 주입받는 법을 알아봐야겠는데요&lt;/p&gt;
+&lt;h1&gt;Spring Bean 등록&lt;/h1&gt;
+&lt;h3&gt;1. &lt;code class=&quot;language-text&quot;&gt;@Component&lt;/code&gt; 어노테이션(Annotation)&lt;/h3&gt;
+&lt;p&gt;어노테이션은 소스코드에 메타데이터 정보를 추가해주는... 유사 인터페이스인데요&lt;br&gt;
+가장 익숙할만한 것으로는 &lt;code class=&quot;language-text&quot;&gt;@Override&lt;/code&gt; 이런 것이 있겠죠?&lt;/p&gt;
+&lt;p&gt;스프링에서도 꽤나 많은 어노테이션들이 존재하고 매우 중하게 이용되며&lt;br&gt;
+스프링 빈으로 등록하기 위해서는 &lt;code class=&quot;language-text&quot;&gt;@Component&lt;/code&gt; 어노테이션을 사용합니다.&lt;br&gt;
+또한 &lt;code class=&quot;language-text&quot;&gt;@Controller, @RestController, @Service, @Repository&lt;/code&gt;등의 어노테이션 또한 &lt;code class=&quot;language-text&quot;&gt;@Component&lt;/code&gt;어노테이션을 내재하므로, 사용 시 스프링 빈으로 등록됩니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Target&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;ElementType&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;TYPE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Retention&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;RetentionPolicy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;RUNTIME&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Documented&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token annotation punctuation&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Controller&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;/**
+     * The value may indicate a suggestion for a logical component name,     * to be turned into a Spring bean in case of an autodetected component.     * @return the suggested component name, if any (or empty String otherwise)
+     */&lt;/span&gt;    &lt;span class=&quot;token annotation punctuation&quot;&gt;@AliasFor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;annotation &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위와 같이, &lt;code class=&quot;language-text&quot;&gt;@Controller&lt;/code&gt; 어노테이션의 구현부를 보면 &lt;code class=&quot;language-text&quot;&gt;@Component&lt;/code&gt; 어노테이션을 포함하고 있음을 확인할 수 있습니다.&lt;/p&gt;
+&lt;h3&gt;2. 직접 Bean Configuration에 등록&lt;/h3&gt;
+&lt;p&gt;또는 아래와 같이, &lt;code class=&quot;language-text&quot;&gt;@Configuration&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;@Bean&lt;/code&gt; 어노테이션으로 설정파일 밑에 직접 스프링 빈을 등록할 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Configuration&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FooConfig&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FooObject&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;fooObject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FooObject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위에서 &lt;code class=&quot;language-text&quot;&gt;@Component&lt;/code&gt;어노테이션은 클래스에 사용했었지만, 이렇게 &lt;code class=&quot;language-text&quot;&gt;@Bean&lt;/code&gt; 어노테이션을 사용하면 메소드 단위로 빈으로 등록할 수 있습니다.&lt;/p&gt;
+&lt;h1&gt;Spring Bean 주입&lt;/h1&gt;
+&lt;p&gt;스프링 빈을 등록했으면 어떻게 가져다 쓸지도 알아야겠죠?&lt;br&gt;
+스프링 빈 객체를 주입받는다,&lt;br&gt;
+또는 의존성을 주입받는다(&lt;strong&gt;DI&lt;/strong&gt;, Dependency Injection)&lt;br&gt;
+이런 식으로 말하는데요&lt;br&gt;
+세 가지 방법이 있습니다&lt;/p&gt;
+&lt;h3&gt;1. 필드&lt;/h3&gt;
+&lt;p&gt;필드에 &lt;code class=&quot;language-text&quot;&gt;@Autowired&lt;/code&gt; 어노테이션을 붙여줍니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Autowired&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FooObject&lt;/span&gt; fooObject&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;2. setter&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;setter&lt;/code&gt; 메소드를 사용합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FooObject&lt;/span&gt; fooObject&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Autowired&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setFooObject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;FooObject&lt;/span&gt; fooObject&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fooObject &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; fooObject&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;3. 생성자 (권장)&lt;/h3&gt;
+&lt;p&gt;스프링 빈 객체를 인자로 하는 생성자를 작성합니다. 이 경우 &lt;code class=&quot;language-text&quot;&gt;@Autowired&lt;/code&gt; 어노테이션은 생략될 수 있습니다.
+클래스에 생성자가 하나만 존재하며 인자가 스프링 빈으로 등록된 객체이면 됩니다.
+컨테이너가 알아서 생성자에 객체를 넣어주는 셈입니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SimpleService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FooObject&lt;/span&gt; fooObject&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SimpleService&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;FooObject&lt;/span&gt; fooObject&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fooObject &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; fooOjbect&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;또한 lombok을 사용하는 경우, 클래스에 &lt;code class=&quot;language-text&quot;&gt;@RequiredArgsConstructor&lt;/code&gt; 어노테이션만 붙여주면 자동으로 &lt;code class=&quot;language-text&quot;&gt;final&lt;/code&gt; 필드들을 인자로 받는 생성자를 만들어주니 간단하게 사용할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;스프링에서는 생성자 &gt; setter &gt; 필드 순으로 권장하고 있는데요&lt;br&gt;
+생성자의 경우 객체 의존성도 꽤나 알아보기 쉽고 &lt;code class=&quot;language-text&quot;&gt;final&lt;/code&gt;의 특성상 일관성을 보장할 수 있는 등의 장점이 있습니다.&lt;br&gt;
+그래도 setter의 경우 객체를 나중에 주입받거나 재주입받고 싶은 그런 상황에서 쓰일 수 있겠죠?&lt;br&gt;
+본인 상황에 맞게 쓰면 될 것 같습니다&lt;/p&gt;
+&lt;h1&gt;스프링 빈 주입 대상이 여럿이면 어쩌죠?&lt;/h1&gt;
+&lt;p&gt;헉 그런 일이 있을까요? 싶지만&lt;br&gt;
+주입 대상을 상속/구현하는 클래스가 또 여럿 있다면&lt;br&gt;
+그 중 어떤 객체를 원하는지 모호하기 때문에 에러가 발생할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;확인해볼까요? 먼저 간단히 &lt;code class=&quot;language-text&quot;&gt;FooObject&lt;/code&gt; 클래스에 &lt;code class=&quot;language-text&quot;&gt;@Component&lt;/code&gt;어노테이션을 붙여 스프링 빈 객체로 등록하고&lt;br&gt;
+테스트 코드에서 간단히 &lt;code class=&quot;language-text&quot;&gt;@Autowired&lt;/code&gt; 필드 주입으로 해당 객체를 주입받습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FooObject&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;printInfo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot; &gt;&gt;&gt; I&apos;m foo&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@RunWith&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;SpringRunner&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@SpringBootTest&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BeanTest&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@Autowired&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FooObject&lt;/span&gt; foo&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@Test&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot; &gt;&gt;&gt; &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; foo&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		foo&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;printInfo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;실행 결과는&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/51e91110a7d71ff35a411f8f7395a2d9/be86f/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 10.126582278481013%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAYElEQVR42m3KVw7AIAwDUG5SZgVlhNFx/5O5KX9I/bCi2E+4PeBIhJQrajuRSp1/oYEYCTk33hqojmnC15WGmIn9xa6jj4dz804Qxnr4kBgWBL5S2d8o7dZOGki9mk0ZvOXlOvpxMr00AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;단일 대상 테스트 결과&quot;
+        title=&quot;&quot;
+        src=&quot;/static/51e91110a7d71ff35a411f8f7395a2d9/f058b/image.png&quot;
+        srcset=&quot;/static/51e91110a7d71ff35a411f8f7395a2d9/c26ae/image.png 158w,
+/static/51e91110a7d71ff35a411f8f7395a2d9/6bdcf/image.png 315w,
+/static/51e91110a7d71ff35a411f8f7395a2d9/f058b/image.png 630w,
+/static/51e91110a7d71ff35a411f8f7395a2d9/be86f/image.png 662w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br&gt;
+객체를 잘 주입받은 것 같습니다?&lt;/p&gt;
+&lt;p&gt;그런데 &lt;code class=&quot;language-text&quot;&gt;FooObject&lt;/code&gt;를 상속한 친구가 있다면 어떨까요?&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ChildFooObject&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FooObject&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;printInfo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot; &gt;&gt;&gt; I&apos;m foo child&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이런 친구를 추가하고 아까와 똑같이 실행해보면&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/76cbc3ae59407a242f66a7d708884b53/af192/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 25.316455696202528%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA1UlEQVR42oWOzW7DIBCEeY+qxfgfExMw2LEdqae+/ytNZ0ki5ZbDp50dZndRfynjjBkHOUPClfhlJRkhbXA+ws4B0wdeGeVGh2VwiCRRB+ntjCtrYZjgydTbgusfvWf+Qn158+Rd6apBbAbkdsRv77CybmRtRixkp761lp5FqHtkege11HtncSMdd4xVW6qqTYvEwM6HxGHP5QcvygHp927iEVu8jZlNetaZuZPewozhoi9t8K1rqMZ0ZVhCr6VRflWGLQa+awZrDpknFRGvaP3QP0/+ASFtlLVQCPn2AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;다중 대상 테스트 결과&quot;
+        title=&quot;&quot;
+        src=&quot;/static/76cbc3ae59407a242f66a7d708884b53/f058b/image-1.png&quot;
+        srcset=&quot;/static/76cbc3ae59407a242f66a7d708884b53/c26ae/image-1.png 158w,
+/static/76cbc3ae59407a242f66a7d708884b53/6bdcf/image-1.png 315w,
+/static/76cbc3ae59407a242f66a7d708884b53/f058b/image-1.png 630w,
+/static/76cbc3ae59407a242f66a7d708884b53/af192/image-1.png 645w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br&gt;
+헉.. 실패해부렀습니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;foo&lt;/code&gt;에 &lt;code class=&quot;language-text&quot;&gt;FooObject&lt;/code&gt;를 넣고싶은건지, &lt;code class=&quot;language-text&quot;&gt;ChildFooObject&lt;/code&gt;를 넣고싶은건지 몰라서 에러가 났는데요&lt;br&gt;
+그럼 &quot;내가 원하는 객체는 저거야!&quot;를 알려주는 방법을 알아봅시다&lt;/p&gt;
+&lt;h3&gt;1. 필드 이름으로 매칭하기&lt;/h3&gt;
+&lt;p&gt;위에서 &lt;code class=&quot;language-text&quot;&gt;@Component&lt;/code&gt;어노테이션을 붙여서 &lt;code class=&quot;language-text&quot;&gt;FooObject&lt;/code&gt;를 스프링 빈 객체로 등록했는데요&lt;br&gt;
+이 경우 클래스 명에 대한 camelCase와 동일하게 필드 이름을 작성해주면 해당 객체로 매칭됩니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@RunWith&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;SpringRunner&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@SpringBootTest&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BeanTest&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@Autowired&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FooObject&lt;/span&gt; fooObject&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@Autowired&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FooObject&lt;/span&gt; childFooObject&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@Test&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot; &gt;&gt;&gt; FooObject : &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; fooObject&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		fooObject&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;printInfo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;-----------&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot; &gt;&gt;&gt; ChildFooObject : &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; childFooObject&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		childFooObject&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;printInfo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 623px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d76a891588cc189edaf06f0ba4d80ea7/6114d/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 37.9746835443038%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABG0lEQVR42o1R7VKEMAzkQYTjoFCg3wXvbhxPR9//ndYkcA6iP/yxs22TbNJNcX//xOvbB5hvL3ek+YqYnxHSgnm5woWMyXpC+IVx9z4aD+MiCk62PiOTUIgz2m6QoHUJmQQ9vRkqSNTEUgE38DELp3yB80lyQ1yglEbR96NMxGDRSJPl+QJrI5pWUwNN3EMRt2qF2sBnjq2sUZ0aFMPoMNFEnr9mgiQ0bYdT3aIsa5TV+R9Y80Rw36U+qx+JnMBg8T2qx/kQE0E9GPHIh5k8WWgp63cVWcFT+82rSXyN8OS3obhzm3dpljdHUGpAMU5ODI1kfpTN3pCIH2deyjDa70n/4j2KXk/oaBoW1oOV1bPA086/Y1F5uO8FvwAIEOs/IwNbfAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;매칭 By Bean Name&quot;
+        title=&quot;&quot;
+        src=&quot;/static/d76a891588cc189edaf06f0ba4d80ea7/6114d/image-2.png&quot;
+        srcset=&quot;/static/d76a891588cc189edaf06f0ba4d80ea7/c26ae/image-2.png 158w,
+/static/d76a891588cc189edaf06f0ba4d80ea7/6bdcf/image-2.png 315w,
+/static/d76a891588cc189edaf06f0ba4d80ea7/6114d/image-2.png 623w&quot;
+        sizes=&quot;(max-width: 623px) 100vw, 623px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;또는 &lt;code class=&quot;language-text&quot;&gt;@Bean&lt;/code&gt;으로 스프링 빈을 생성한 경우, 메소드 이름으로 스프링 빈 객체를 매칭할 수 있습니다.&lt;/p&gt;
+&lt;h3&gt;2. &lt;code class=&quot;language-text&quot;&gt;@Primary&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;@Primary&lt;/code&gt; 어노테이션을 사용하여 우선순위를 최상위로 올립니다. 이 경우 자동으로 해당 객체를 우선 주입합니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;ChildFooObject&lt;/code&gt;에 어노테이션을 붙여보겠습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FooObject&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;printInfo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot; &gt;&gt;&gt; I&apos;m foo&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Primary&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ChildFooObject&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FooObject&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;printInfo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot; &gt;&gt;&gt; I&apos;m foo child&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@RunWith&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;SpringRunner&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@SpringBootTest&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BeanTest&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@Autowired&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FooObject&lt;/span&gt; foo&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@Test&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot; &gt;&gt;&gt; ChildFooObject is @Primary : &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; foo&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		foo&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;printInfo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 581px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9d690b32ce13edc914cba98d579db755/92d15/image-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 20.88607594936709%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAtklEQVR42mWP2Q6CQAxF+RFlmUFZZh8QE1AS/v+frm150fhw0mnTnnYKv8zY3gfWbcdrP7A8V/g4EbMQ8wwXMvrRYbQBg/EC5xyNi18EFFp36HsrhZgfCDEjphnGRnSDpZzEJHQ+o1E3DCNJSCyLfEJZKVzLRmJVaxSXa02DhgYnaWBRSmczi896FimLAkVekmg5w3XpI3o6oGArPxhLVw70lRAmGa6b9ge+8K+m71D0S9V2kn8A3395laroARsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;매칭 By @Primary&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9d690b32ce13edc914cba98d579db755/92d15/image-3.png&quot;
+        srcset=&quot;/static/9d690b32ce13edc914cba98d579db755/c26ae/image-3.png 158w,
+/static/9d690b32ce13edc914cba98d579db755/6bdcf/image-3.png 315w,
+/static/9d690b32ce13edc914cba98d579db755/92d15/image-3.png 581w&quot;
+        sizes=&quot;(max-width: 581px) 100vw, 581px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;3. &lt;code class=&quot;language-text&quot;&gt;@Qualifier&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;@Qualifier&lt;/code&gt; 어노테이션으로 어떤 객체를 주입받을지 직접 알릴 수도 있습니다.&lt;br&gt;
+주입을 원하는 클래스 명에 대한 camelCase를 어노테이션의 value로 집어넣습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@RunWith&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;SpringRunner&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@SpringBootTest&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BeanTest&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@Autowired&lt;/span&gt;
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@Qualifier&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;fooObject&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FooObject&lt;/span&gt; foo&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@Test&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot; &gt;&gt;&gt; @Qualifier(\&quot;fooObject\&quot;) : &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; foo&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		foo&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;printInfo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 539px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4496cf39bf696c3115f41bdd8974a4b0/10f9a/image-4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 23.417721518987342%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA3ElEQVR42m1QW27DMAzzQdZXmtiJ33aaZutP1hXt/W/ESjYSDMM+CMECSZEWy/2J5fuB5eeJ++OFab4hjVfEcUbME/JlxkiwPsG6CGMDDE1NU7tQ978grEskvBZhJhNHSxY5n+FCrm8yUL1Bp3QxGrQrYuY1rdrQygGi7XokShLTBDYPMRcyG12mL8JnSaaUQT/YwmM+N8kURKoBnazYHxoISUQmsMjHsVaytRoba+MpkacZyhHV2y01z8zfQ0cCaY+nFmKtIgmcsDlLfOyOdO2E3f4f/NkzdwUnfAMmZpcsXVrx4wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;매칭 By @Qualifier&quot;
+        title=&quot;&quot;
+        src=&quot;/static/4496cf39bf696c3115f41bdd8974a4b0/10f9a/image-4.png&quot;
+        srcset=&quot;/static/4496cf39bf696c3115f41bdd8974a4b0/c26ae/image-4.png 158w,
+/static/4496cf39bf696c3115f41bdd8974a4b0/6bdcf/image-4.png 315w,
+/static/4496cf39bf696c3115f41bdd8974a4b0/10f9a/image-4.png 539w&quot;
+        sizes=&quot;(max-width: 539px) 100vw, 539px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;4. 모든 스프링 빈 객체 주입받기&lt;/h3&gt;
+&lt;p&gt;전부 필요하면 어쩌죠?&lt;br&gt;
+전부 받도록 합시다.&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 244px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bd0380fa8316549c2838456d7d040288/0cba8/image-5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 84.17721518987341%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAIAAABSJhvpAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD6ElEQVR42lWSa1MaBxSG9y90ptNmTIeouIgKBK2AoiSpMcZLAFEiIIgaUAEDgnIRLwgiFmtMvcXoNNHGmmmChtuCCGEv7AKKYpt+yP/ptp186Mw759N5znvmvAeIQ0g4lEzE0EgodXJyGo+jZ2d4IBAPvP1gXjvh2sICJ9RoC7XPQW1zoXszwZaZYNtsuNUZbHEGgUymiGNXKFyA0xd45joWRUa0xubm+3xOcz3vPkdkFFje8RzxR+5431JM5ImJvbGepVOhOypejAEYVsSQSwQuIEghmcyKHkkrK6oZVWxaOZ1GrQLLQXaTsMn4pnE63miLcGyR761hnj1ab4vU2cL/wlgRhi+uCp/nZ30l33wHltHLKSBYSgNvVZZSwDJKObdNLbCH+fYozwHx7BD3i/5ZG0Uv8/m/Dt+c8LgCZhW7Bqx+Iu50aZS2/t6nUiGfXUuj1vD1O40ziQZ7lPt/+JoUgf8p6VZUgTXMmtohUWd0fflwYfKlRfPaOe4f13CZLJZ6td5xVjcZqZuCav+TFQJIWxy/TiVz/Ma7t0pKqWX0cZkk4Hf95p3etelfTOq9eq249cFD/XOpL9nthiSeqMRD1niPJ0Y6X6FoIZ//JO1VfP3Vt9XUSqf68ZbVYB1W2dVy98jAWLfQolIG3oUI4hJNZzE0i2M5Uhk0C5A5YUjh6vLzin/jxg1KA5O9Y9OtmTVPZRL7gGzPaVrQqv0mffj4GMHy6XQGQbMoQpAjMJQACKyYwy+z2etUImOSy9p5vGfGkbc+58aUftc5cbho37aPb9kM4cB7BDuHYRxBiC9wFoCRizOYyOeKGF48Wl9bUD8m77xt0e3ZDZtWw+LYE8/o0KppNHoSRPFzGMFJBsWyKErAHzOAfmtHtOAORVJZnMwst7fsdQwqtqd0m+bRn81jC9pB52D/snHsNHKaTGOpjxgMEzBKkJ35fBFgPeyqqL79Q2d3As6f5z4FIymton9uWO7TDbg0ivnh/tlB5axen0jAF4U/COKCwIgcnkufpX9c8gMswb3bcnnliKZ9fj6dvTo6Cs5YppzDCq2406qSOtTyOe2QTNjb+kBkdfpczw69L6GVI8K1m+S0KoFai6FjyT3z6tXE+qbK7Lgj6JwwWH71TXu0fWaZ2NQnnNNpeiSKmyUVdHptWRkDZDbXtaruKOe7dKuA75eDg/39yPtAv1TNZjWxGHyVchSJBn/fWNlfcZMjVmedHe2S0tJKKAL5F5coNyk0Kp0GMhhMLvB6a2fF5e7q6Kmuqudw7jZwWwRNHVAwGj3+cPD8p3WrYc3rq2M3U6lMk3EKT6YGlUMgyK5hkC/b8DfEY/ThdY8e5QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;끄덕&quot;
+        title=&quot;&quot;
+        src=&quot;/static/bd0380fa8316549c2838456d7d040288/0cba8/image-5.png&quot;
+        srcset=&quot;/static/bd0380fa8316549c2838456d7d040288/c26ae/image-5.png 158w,
+/static/bd0380fa8316549c2838456d7d040288/0cba8/image-5.png 244w&quot;
+        sizes=&quot;(max-width: 244px) 100vw, 244px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@RunWith&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;SpringRunner&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@SpringBootTest&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BeanTest&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@Autowired&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;FooObject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; fooObjects&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@Test&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;FooObject&lt;/span&gt; foo &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; fooObjects&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot; &gt;&gt;&gt; by list : &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; foo&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+			foo&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;printInfo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;---------&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3eb9ed89b3dedd6ebde62d214faf7b3e/084e2/image-6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 41.77215189873418%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABGklEQVR42n1R7XKDIBD0PWpExE8Uv7Vj2jrT93+o7d0Rkmma6Y+dhbtjYZfILTOOjxPXzxNf5ze2/YAbZvTjSlgwzits26N5hnVSDz3mthsQ5UUtTd64fkJZNqhp35PovLwL98OCgcTDmnmad+FwOWukOkekUgPbjf4100aDGwntmOnASOvOjeCZf0FCicpwSTQinRWo6hZl1aJpHGoCi2SmlIGA+JI+QXnm3m2GRUXQ5BWMqUSEiwndqrMcHIf0iO/r3HNB0fi9r2ldeEF+Mr9qmFbKaaUcfT7bdkitbrpH+DZ8ArmgvO39cwbkJCyWU22kyOFO0+o/prIixDe+xeq3xVeI07+W2W6wHAbF/gsoBjlLlLlF9Oj9ALct6LXi+/ftAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;매칭 By List&quot;
+        title=&quot;&quot;
+        src=&quot;/static/3eb9ed89b3dedd6ebde62d214faf7b3e/f058b/image-6.png&quot;
+        srcset=&quot;/static/3eb9ed89b3dedd6ebde62d214faf7b3e/c26ae/image-6.png 158w,
+/static/3eb9ed89b3dedd6ebde62d214faf7b3e/6bdcf/image-6.png 315w,
+/static/3eb9ed89b3dedd6ebde62d214faf7b3e/f058b/image-6.png 630w,
+/static/3eb9ed89b3dedd6ebde62d214faf7b3e/084e2/image-6.png 632w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;hr&gt;
+&lt;br/&gt;
+&lt;p&gt;스프링 빈 주입에 관해 정말 좋은 글이 있는데요.. 저도 참고 많이 했습니다&lt;br&gt;
+&lt;a href=&quot;https://tech.kakaopay.com/post/martin-dev-honey-tip-2/#6%EC%A4%84-%EC%9A%94%EC%95%BD&quot;&gt;카카오페이 기술블로그 포스팅&lt;/a&gt;인데요&lt;br&gt;
+카카오페이 시니어 개발자분께서 빈 주입에 대한 스프링 코드를 직접 뜯고 씹고 맛보고 즐겨주십니다&lt;br&gt;
+오픈소스 코드도 까보고 해라.. 이런거는 항상 고수들께서 강조하시지만&lt;br&gt;
+막상 하려면 또 잘 모르는 입장에서는 힘들고 부담이고 어디서부터 손대야할지도 모르겠는데&lt;br&gt;
+코드 리뷰 흐름을 같이 손잡고 따라가게 해주시니 정말 도움이 많이 됩니다&lt;br&gt;
+그 외에도 다른 이야기들과.. 테스트 코드 작성이나.. 결론이나.. 딱딱하지 않으면서도 전부 뼈가 되고 살이 될만한 내용들 뿐이니 한번쯤 보시면 어떤가 싶습니다&lt;/p&gt;
+&lt;p&gt;이만 마칩니다&lt;/p&gt;
+&lt;h2&gt;Reference&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://melonicedlatte.com/2021/07/11/232800.html&quot;&gt;스프링 빈(Spring Bean)이란? 개념 정리&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://tech.kakaopay.com/post/martin-dev-honey-tip-2/#6%EC%A4%84-%EC%9A%94%EC%95%BD&quot;&gt;Spring Bean Injection 이야기(feat. 모두가 다 알고 있는 스프링빈, 정말 다 알고 있는가?)&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://girawhale.tistory.com/113&quot;&gt;[Spring] Bean 주입하기 : DI&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://docs.spring.io/spring-framework/reference/core/beans/introduction.html&quot;&gt;Spring Docs&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🙃 타입스크립트가 되고 싶은 리액트 컴포넌트는 나에게..]]></title><description><![CDATA[Gatsby는 리액트를 기반으로 하기 때문에, 처음 시작하면 등의 파일들이 각각 Component를 하는 것을 볼 수 있습니다.  리액트 사용자라면 너무 익숙하죠? 이번 시간에는 이렇게 생겨먹은 React Component…]]></description><link>https://sungpaks.github.io/migration-react-component-to-typescript/</link><guid isPermaLink="false">https://sungpaks.github.io/migration-react-component-to-typescript/</guid><pubDate>Thu, 11 Jan 2024 10:31:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 194px; &quot;
     &gt;
@@ -147,7 +585,7 @@ Component를 &lt;code class=&quot;language-text&quot;&gt;export&lt;/code&gt;하�
 잘 뱉어줍니다.&lt;/p&gt;
 &lt;p&gt;이제 이걸 가져다가 적당히 &lt;code class=&quot;language-text&quot;&gt;interface ComponentProps {}&lt;/code&gt;를 작성하고 타입을 명시해주면 되겠습니다.&lt;/p&gt;
 &lt;p&gt;근데 저같은 경우는 어떤 props는 상황에 따라 props를 넣을 수도 넣지 않을 수도 있는&lt;br&gt;
-꽤나 양자역학적인 슈뢰딩거의 props문제가 있었습니다\&lt;/p&gt;
+꽤나 양자역학적인 슈뢰딩거의 props문제가 있었습니다&lt;/p&gt;
 &lt;p&gt;이 경우 간단히... &lt;code class=&quot;language-text&quot;&gt;:&lt;/code&gt; 대신 &lt;code class=&quot;language-text&quot;&gt;?:&lt;/code&gt;를 씁시다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ComponentProps&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   Schrödinger&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; cat
