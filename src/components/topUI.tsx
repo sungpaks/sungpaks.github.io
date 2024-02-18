@@ -10,7 +10,7 @@ interface ComponentProps {
 function TopUI({ setCurTag }: ComponentProps) {
   return (
     <div className="top-ui">
-      <h4 className="top-ui-title" style={{ marginTop: 20 }}>
+      <h4 className="top-ui-title" style={{ margin: 0 }}>
         <Link
           to="/"
           onClick={() => {
@@ -20,7 +20,7 @@ function TopUI({ setCurTag }: ComponentProps) {
           👍 성훈 블로그
         </Link>
       </h4>
-      <h6 className="top-ui-tag">
+      <h6 className="top-ui-tag" style={{ margin: "0 20px 0 0" }}>
         <Link to="/tag">Tag</Link>
       </h6>
     </div>
