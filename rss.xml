@@ -1,4 +1,316 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 18 Feb 2024 12:28:13 GMT</lastBuildDate><item><title><![CDATA[🫸 [WSL] Proxy error : Could not proxy request]]></title><description><![CDATA[이런 에러를 만났었는데요 정적페이지는 띄워지지만 서버로의 요청이 전부 실패하는 상황이었습니다 거두절미하고 해결한 방법부터 말씀드리고 시작하자면.. package.json에서 proxy 요청을 localhost가 아닌 호스트 머신의 IP…]]></description><link>https://sungpaks.github.io/wsl-localhost-issue/</link><guid isPermaLink="false">https://sungpaks.github.io/wsl-localhost-issue/</guid><pubDate>Sun, 18 Feb 2024 12:37:00 GMT</pubDate><content:encoded>&lt;img src=&quot;https://i.imgur.com/coS9OXd.png&quot; alt=&quot;&quot; loading=&quot;lazy&quot; width=&quot;100%&quot;&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 25 Feb 2024 11:20:00 GMT</lastBuildDate><item><title><![CDATA[🌩️ 코딩테스트 SQL문제 벼락치기!! (프로그래머스 SQL 고득점 kit 풀이)]]></title><description><![CDATA[소프트웨어 마에스트로 코딩테스트를 보게됐는데요 어라?? SQL 문항이 하나 있습니다?? 1년전에 데이터베이스 수업을 듣긴 했으나 전부 까먹어버렸습니다.. 그래서 급하게 벼락치기를 갈겼습니다!! 먼저 SQL문의 대략적인 생김새 오랜만에 SQL…]]></description><link>https://sungpaks.github.io/programmers-sql-solutions/</link><guid isPermaLink="false">https://sungpaks.github.io/programmers-sql-solutions/</guid><pubDate>Sun, 25 Feb 2024 10:16:00 GMT</pubDate><content:encoded>&lt;p&gt;소프트웨어 마에스트로 코딩테스트를 보게됐는데요&lt;br&gt;
+어라?? SQL 문항이 하나 있습니다??&lt;br&gt;
+1년전에 데이터베이스 수업을 듣긴 했으나&lt;br&gt;
+전부 까먹어버렸습니다..&lt;br&gt;
+그래서 급하게 벼락치기를 갈겼습니다!!&lt;/p&gt;
+&lt;h2&gt;먼저 SQL문의 대략적인 생김새&lt;/h2&gt;
+&lt;p&gt;오랜만에 SQL문을 마주하니까 교수님께서 해주신 말이 새록새록합니다&lt;br&gt;
+sql문은 대소문자를 구별하지 않는다.. 이건 윈도우 기준이네요&lt;br&gt;
+또 뭐 있더라?아무튼&lt;/p&gt;
+&lt;p&gt;SQL문에서 해야 할 일은 조회(SELECT)뿐입니다&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/acebaed0d515e5d8973c2aa445cbadda/98b29/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 38.60759493670886%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAkklEQVR42q2SQQrCMBBFcxZpTLWCiei0TRQRadLWuijqyvuf45tYFNeJi8fwN4/5zLDD8AQ1d4iqxbx0yTCyD6jzCO4DJzfNFCHfWRRli43pIY2D0g5rHeQ2Cib8Vtv6BlldkanTl5mMg62OI0TdIaNmqkyJlXMvC8JwlA9JRyn2Axbm8mYZ8DnXfbzwH6/yK3wBpo0GPZ5CwscAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;프로그래머스 sql문제&quot;
+        title=&quot;&quot;
+        src=&quot;/static/acebaed0d515e5d8973c2aa445cbadda/f058b/image.png&quot;
+        srcset=&quot;/static/acebaed0d515e5d8973c2aa445cbadda/c26ae/image.png 158w,
+/static/acebaed0d515e5d8973c2aa445cbadda/6bdcf/image.png 315w,
+/static/acebaed0d515e5d8973c2aa445cbadda/f058b/image.png 630w,
+/static/acebaed0d515e5d8973c2aa445cbadda/98b29/image.png 937w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br&gt;
+프로그래머스 SQL문제를 풀어보러 들어가보면 SELECT가 먼저 쓰여있는 것을 볼 수 있습니다&lt;/p&gt;
+&lt;p&gt;그럼 SELECT로 할 수 있는게 뭐가 있는지 봅시다..&lt;br&gt;
+&lt;a href=&quot;https://mariadb.com/kb/en/select/&quot;&gt;MariaDB 문서&lt;/a&gt;를 보면 select문 Syntax를 확인해볼 수 있는데&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;SELECT
+    [ALL | DISTINCT | DISTINCTROW]
+    [HIGH_PRIORITY]
+    [STRAIGHT_JOIN]
+    [SQL_SMALL_RESULT] [SQL_BIG_RESULT] [SQL_BUFFER_RESULT]
+    [SQL_CACHE | SQL_NO_CACHE] [SQL_CALC_FOUND_ROWS]
+    select_expr [, select_expr ...]
+    [ FROM table_references
+      [WHERE where_condition]
+      [GROUP BY {col_name | expr | position} [ASC | DESC], ... [WITH ROLLUP]]
+      [HAVING where_condition]
+      [ORDER BY {col_name | expr | position} [ASC | DESC], ...]
+      [LIMIT {[offset,] row_count | row_count OFFSET offset  [ROWS EXAMINED rows_limit] } |
+        [OFFSET start { ROW | ROWS }]
+        [FETCH { FIRST | NEXT } [ count ] { ROW | ROWS } { ONLY | WITH TIES }] ]
+      procedure|[PROCEDURE procedure_name(argument_list)]
+      [INTO OUTFILE &apos;file_name&apos; [CHARACTER SET charset_name] [export_options] |
+        INTO DUMPFILE &apos;file_name&apos; | INTO var_name [, var_name] ]
+      [FOR UPDATE lock_option | LOCK IN SHARE MODE lock_option]
+
+
+export_options:
+    [{FIELDS | COLUMNS}
+        [TERMINATED BY &apos;string&apos;]
+        [[OPTIONALLY] ENCLOSED BY &apos;char&apos;]
+        [ESCAPED BY &apos;char&apos;]
+    ]
+    [LINES
+        [STARTING BY &apos;string&apos;]
+        [TERMINATED BY &apos;string&apos;]
+    ]
+
+
+lock_option:
+    [WAIT n | NOWAIT | SKIP LOCKED]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;아휴.. 코테가 당장 코앞인데 언제 이걸 전부 공부하죠?&lt;br&gt;
+그러니 많이 쓰이는 것들을 좀 정리해보면&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;SELECT column1, column2, column3 as col3&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;먼저 SELECT 뒤에는 조회하고 싶은 컬럼들을 나열합니다.&lt;/li&gt;
+&lt;li&gt;컬럼 이름을 따로 정하고 싶다면 &quot;컬럼이름 as 별명&quot;과 같이 작성합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;FROM table&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;이건 그냥 문제에서 주는 테이블 이름 씁니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;WHERE 조건...&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;조건에 맞는 애들만 조회하고 싶은 경우 씁니다(ex : age &gt;= 13)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;GROUP BY 컬럼명 HAVING 조건...&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;같은 값을 가진 행끼리 그룹짓습니다.&lt;/li&gt;
+&lt;li&gt;이 때, HAVING절로 조건을 제한할 수 있습니다.&lt;/li&gt;
+&lt;li&gt;WHERE와 HAVING이 다른 점은, HAVING은 집계함수(COUNT, SUM 등..)를 사용할 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ORDER BY col1 ASC, col2 DESC&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;결과 정렬 기준을 정합니다.&lt;/li&gt;
+&lt;li&gt;기본값은 ASC(오름차순)이며, 내림차순을 원할 경우 DESC를 명시합니다.&lt;/li&gt;
+&lt;li&gt;기준에 차선, 그 다음 기준, ...을 원하면 위와 같이 기준을 나열합니다. (예시의 경우, col1을 기준으로 오름차순 정렬하며, col1값이 같은 행들은 col2를 기준으로 내림차순 정렬)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;일단.. 이거 말고도 JOIN이나 UNION, 서브쿼리같은 잡기술들이 좀 있는데요&lt;br&gt;
+그건 실전에서 보면서 알아보도록 합시다&lt;/p&gt;
+&lt;h2&gt;내장함수들&lt;/h2&gt;
+&lt;p&gt;그리고 내장함수들을 쓸 경우가 꽤나 있습니다?&lt;br&gt;
+특히 프로그래머스 문제들 중에&lt;br&gt;
+**DATE_FORMAT()**을 써야하는 경우가 굉장히 많습니다&lt;br&gt;
+DATE_FORMAT(날짜컬럼, &quot;%Y-%m-%d&quot;)는 꼭 알아두면 좋은데&lt;br&gt;
+항상 프로그래머스 SQL문제들은 날짜를 &quot;YYYY-MM-DD&quot;로 해달라고 하거든요&lt;/p&gt;
+&lt;p&gt;아무튼 그리고 또 다른것들 대충 주루룩 언급해보면&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;문자열
+&lt;ul&gt;
+&lt;li&gt;LOCATE(&quot;A&quot;, &quot;ABC&quot;) : &quot;ABC&quot;에서 &quot;A&quot;가 몇 번째?&lt;/li&gt;
+&lt;li&gt;substring(&quot;abc&quot;, 2) : 2번째 문자부터 반환&lt;/li&gt;
+&lt;li&gt;right(&quot;abcd&quot;, 1) : &quot;abcd&quot;에서 오른쪽에서 1번째까지&lt;/li&gt;
+&lt;li&gt;left(&quot;abcd&quot;, 1) : &quot;abcd&quot;에서 왼쪽에서 1번째까지&lt;/li&gt;
+&lt;li&gt;upper(str), lower(str)&lt;/li&gt;
+&lt;li&gt;length(&quot;abc&quot;) : 글자 수 반환&lt;/li&gt;
+&lt;li&gt;concat(&quot;ABC&quot;, &quot;DEF&quot;) : 문자열 붙이기&lt;/li&gt;
+&lt;li&gt;replace(&quot;ABC&quot;, &quot;A&quot;, &quot;Z&quot;) : &quot;ABC&quot;의 &quot;A&quot;를 &quot;Z&quot;로 변환&lt;/li&gt;
+&lt;li&gt;LPAD(&quot;def&quot;, 5, &quot; _ &quot; ) &quot;def&quot; 왼쪽에 &quot; _ &quot;를, 전체 문자열이 5글자가 되도록 붙이기&lt;/li&gt;
+&lt;li&gt;TRIM(&quot; _ &quot; from &quot; _ abc _ &quot;) : 특정 문자열 삭제(이건 양 옆)
+&lt;ul&gt;
+&lt;li&gt;TRIM(leading &quot; _ &quot; from &quot; _ abc _ &quot;) : 앞에꺼. traling은 뒤에꺼&lt;/li&gt;
+&lt;li&gt;또는 LTRIM(&quot; _ _ abc _ _ &quot;, &quot; _ &quot;) , RTRIM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;숫자형 - abs, ceiling, floor, round 반올림, truncate(숫자, 자릿수) : 버림 - power, mod - 순위 매기기 : rank() over(order by 컬럼명)&lt;/p&gt;
+&lt;p&gt;날짜형 - NOW() : 현재 날짜시간 - current_date(), current_time() - year(날짜) : 날짜의 연도, month(), monthname(), dayname()이건요일 - week(날짜) : 올해의 몇 번째 주인지 반환 - datediff(날짜, 날짜) : 차이 반환&lt;/p&gt;
+&lt;p&gt;사실 이것들은&lt;br&gt;
+소마 이전 기수 코테에서&lt;br&gt;
+특정 함수 모르면 못 풀게 나왔대서.. 급히 정리했던것들입니다 ㅜㅜ&lt;/p&gt;
+&lt;h2&gt;프로그래머스 SQL문제 풀이들&lt;/h2&gt;
+&lt;p&gt;제가 푼 것들 조금 정리해둔건데요&lt;br&gt;
+이게 알고리즘도 그렇듯이&lt;br&gt;
+제 답이 항상 최적해이고 효율적이고 쉬운 답인건 아닙니다 ㅜ&lt;br&gt;
+참고만 해주세요~&lt;/p&gt;
+&lt;h3&gt;12세 이하인 여자 환자 목록 출력&lt;/h3&gt;
+&lt;p&gt;PT_NO, PT_NAME, GEND_CD, AGE, TLNO 이 테이블에서
+PT_NAME, PT_NO, GEND_CD, AGE, TLNO 이렇게 해서, 12세 이하인 여자환자만 출력&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;조건에 따라 : WHERE&lt;/li&gt;
+&lt;li&gt;NULL값 대체 : &lt;code class=&quot;language-text&quot;&gt;IFNULL(컬럼명, 대체 문자열)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;나이 기준으로 내림차순 정렬 : &lt;code class=&quot;language-text&quot;&gt;ORDER BY AGE DESC&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;컬럼 이름 변경 &lt;code class=&quot;language-text&quot;&gt;IFNULL(TLNO, &quot;NONE&quot;) TLNO&lt;/code&gt; (as를 생략해도 됨)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;-- 코드를 입력하세요&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; PT_NAME&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; PT_NO&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; GEND_CD&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; AGE&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; IFNULL&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;TLNO&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;NONE&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; TLNO
+&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; PATIENT
+&lt;span class=&quot;token keyword&quot;&gt;WHERE&lt;/span&gt; GEND_CD &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;W&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;AND&lt;/span&gt; AGE &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;13&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;ORDER&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;BY&lt;/span&gt; AGE &lt;span class=&quot;token keyword&quot;&gt;DESC&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; PT_NAME &lt;span class=&quot;token keyword&quot;&gt;ASC&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;재구매가 일어난 상품과 회원 리스트&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;USER_ID와 PRODUCT_ID로 그룹 : &lt;code class=&quot;language-text&quot;&gt;GROUP BY USER_ID, PRODUCT_ID&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;HAVING : where과 비슷하나 집계함수 쓸 때 사용. GROUP BY 다음에 나온다&lt;/li&gt;
+&lt;li&gt;집계함수 COUNT를 써서 조건을 줘야 하니 &lt;code class=&quot;language-text&quot;&gt;GROUP BY ~ HAVING ~&lt;/code&gt;을 사용했습니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;-- 코드를 입력하세요&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; USER_ID&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; PRODUCT_ID &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; ONLINE_SALE
+&lt;span class=&quot;token keyword&quot;&gt;GROUP&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;BY&lt;/span&gt; USER_ID&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; PRODUCT_ID
+&lt;span class=&quot;token keyword&quot;&gt;HAVING&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;COUNT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;PRODUCT_ID&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;ORDER&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;BY&lt;/span&gt; USER_ID&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; PRODUCT_ID &lt;span class=&quot;token keyword&quot;&gt;DESC&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;오프라인/온라인 판매 데이터 통합하기&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;결과 함께 보여주기 : &lt;code class=&quot;language-text&quot;&gt;UNION ALL&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;PPAP처럼 두 결과를 UH~하고 이어붙입니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;없는 컬럼 NULL로 대체 : &lt;code class=&quot;language-text&quot;&gt;NULL as USER_ID&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;2022-03 만족하는거 가져오기 : &lt;code class=&quot;language-text&quot;&gt;LIKE &apos;2022-03-%&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;LIKE 다음 조건에, &lt;em&gt;어떤 값이 오든 상관없다&lt;/em&gt;는 뜻으로 %를 씁니다&lt;/li&gt;
+&lt;li&gt;예를 들어, &quot;%조건%&quot;면, &quot;무조건이야&quot; 또는 &quot;조건이야&quot; 또는 &quot;무조건&quot; 모두 됩니다&lt;/li&gt;
+&lt;li&gt;&quot;%조건&quot;이면, &quot;무조건&quot;만 됩니다&lt;/li&gt;
+&lt;li&gt;&quot;조건%&quot;이면, &quot;조건이야&quot;만 됩니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;날짜형식지정 : &lt;code class=&quot;language-text&quot;&gt;DATE_FORMAT(날짜, 형식)&lt;/code&gt; : %Y는 4자리 연도, %m는 2자리 월, %d는 2자리 일&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;-- 코드를 입력하세요&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; DATE_FORMAT&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;SALES_DATE&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;%Y-%m-%d&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; SALES_DATE&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; PRODUCT_ID&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; USER_ID&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; SALES_AMOUNT
+&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; ONLINE_SALE &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; onl
+&lt;span class=&quot;token keyword&quot;&gt;WHERE&lt;/span&gt; SALES_DATE &lt;span class=&quot;token operator&quot;&gt;LIKE&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;2022-03-%&quot;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;UNION&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;ALL&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; DATE_FORMAT&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;SALES_DATE&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;%Y-%m-%d&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; SALES_DATE&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; PRODUCT_ID&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;NULL&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; USER_ID&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; SALES_AMOUNT
+&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; OFFLINE_SALE &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;off&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;WHERE&lt;/span&gt; SALES_DATE &lt;span class=&quot;token operator&quot;&gt;LIKE&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;2022-03-%&quot;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;ORDER&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;BY&lt;/span&gt; SALES_DATE&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; PRODUCT_ID&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; IFNULL&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;USER_ID&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;가격이 제일 비싼 식품의 정보 출력하기&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;서브쿼리 : &lt;code class=&quot;language-text&quot;&gt;where PRICE = (SELECT ~~~)&lt;/code&gt; : 괄호 안에 담은 쿼리의 결과를 그대로 가져와서 써먹을 수 있습니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;-- 코드를 입력하세요&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; FOOD_PRODUCT
+&lt;span class=&quot;token keyword&quot;&gt;WHERE&lt;/span&gt; PRICE &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;MAX&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;PRICE&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; FOOD_PRODUCT&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;3월에 태어난 여성 목록 출력&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;전화번호 NULL인 경우 출력 제외 : &lt;code class=&quot;language-text&quot;&gt;where TLNO is not null&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;-- 코드를 입력하세요&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; MEMBER_ID&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; MEMBER_NAME&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; gender&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; date_format&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;date_of_birth&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;%Y-%m-%d&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; date_of_birth
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; member_profile
+&lt;span class=&quot;token keyword&quot;&gt;where&lt;/span&gt; gender &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;W&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;and&lt;/span&gt; tlno &lt;span class=&quot;token operator&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;and&lt;/span&gt; date_format&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;date_of_birth&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;%m&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;03&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;과일로 만든 아이스크림 고르기&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;flavor in (서브쿼리)&lt;/code&gt;를 사용하여 포함되어있는 값인지 확인&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;-- 코드를 입력하세요&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; flavor &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; first_half
+&lt;span class=&quot;token keyword&quot;&gt;where&lt;/span&gt; total_order &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3000&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;and&lt;/span&gt; flavor &lt;span class=&quot;token operator&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;select&lt;/span&gt; flavor
+    &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; icecream_info
+    &lt;span class=&quot;token keyword&quot;&gt;where&lt;/span&gt; ingredient_type &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;fruit_based&apos;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;order&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;by&lt;/span&gt; total_order &lt;span class=&quot;token keyword&quot;&gt;desc&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;강원도에 위치한 생산공장 목록 출력하기&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&quot;강원도&quot;로 시작하는거 찾기 : &lt;code class=&quot;language-text&quot;&gt;address like &apos;강원도%&apos;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;%강원도% : 앞뒤 상관없이 강원도만 있으면 됨 / %강원도 : 강원도로 끝나야함. / 강원도% : 강원도로 시작&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;-- 코드를 입력하세요&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; factory_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; factory_name&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; address &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; food_factory
+&lt;span class=&quot;token keyword&quot;&gt;where&lt;/span&gt; address &lt;span class=&quot;token operator&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;강원도%&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;평균 일일 대여 요금 구하기&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;반올림 : round(대상, 자릿수)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;-- 코드를 입력하세요&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;round&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;avg&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;daily_fee&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; average_fee &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; car_rental_company_car
+&lt;span class=&quot;token keyword&quot;&gt;where&lt;/span&gt; car_type &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;SUV&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;조건에 맞는 도서와 저자 리스트 출력하기&lt;/h3&gt;
+&lt;p&gt;비교적 입문적인 JOIN문제입니다.&lt;br&gt;
+TABLE_A 테이블의 col1 칼럼과, TABLE_B 테이블의 col2 칼럼 값들이 같은 것들끼리 쪼인하려면&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;FROM TABLE_A AS a JOIN TABLE_B AS b ON a.col1 = b.col1&lt;/code&gt;&lt;br&gt;
+이런 식이며.. JOIN에는 INNER JOIN, LEFT OUTER JOIN, RIGHT OUTER JOIN, 등.. 많지만 JOIN만 쓰면 INNER JOIN합니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b147f238438524c11f903a62aaac9186/5bf79/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 78.48101265822784%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsTAAALEwEAmpwYAAADK0lEQVR42j1TOW8TWxQ+AingjgJEFUQBEhUtJSICkSZKhCJBqIASSIWEBFKQIPAzaEHggBKWJPaDxCbBeJl4d0wcG814mbEns1zP4rFnfSczj3eLq7uc797vfN85YA6HbCYjcpxiGANd9zxPkqRUKlUoFNrtdj6f39nZSafTNE3jlTEYqIYhi1KvVLZME37dvLkCsDR+plepKIPBaDjUNG17ezuZTFZ3qwgul8u5XI5hGNuyiKoe1Gofz51HyK+5OVgJhcKhUBQ3i4uq5ymyjD+4rouzY9uu4/y/lQTB9rzUq5drAG9Doa9jY7B56dIHgPCxY61YTB2NdE07jPY8pGBaluU4hmEEYF1Vddtm4/GlsbEwwLeLF0FoNDYWFtLLy61uT1UUzx+6pmqmuf/9e/b1a92y+oQE53y3W603kuFwavGF3GjA0DTrpP+HZRmatm07CJJFUbGs7cnJL8eP9ziOKIppmnguimIum6W5rmCajuMAm0jE5+ao5eUuAvr9gCGRJMVxfs7MrJ44IQgCIX3M4BB8cMAJAgbHb9zoxOOwPj6+fvas3OtJkoz0ND9nzFNUlPLGRubNG1nTVBWl9HDWdV0iROb51QsX1k6eBFTrn4kJvGu3WrIsK3/TRpOLlUqDYQ54/j86hOCjHMsih+j1658BIPf48dqpU6VIBH/AVFHkAKwQ0m42O60WQfN8MF4damEY5Uhk9fTp3NOngDRysdhePt/t9SxflWC4vr/B2rEs28+5y3GV3d1ascju72MBAIqZzmZLlQrNMJokZe7ejVyZWJ+a2rp2TdzbI+127PLln0+ebM3Pp6andykqTVHFUonpdKzRCNADtFclBD/NPXv2HmDl6NFPR468BfgxO5u8c2cJgCsU6M1NPKEezhsop6ZiF6CvEFSf7RMuPn/+4S/4HcDW7Gzq3j0sJpai6GgU303ef6C4ruIrh/GH4Hq9TmUypXKZrjfit25Fr16NTs8kJielWk3l+cTUVHJhIfHo0c7t27/zeaSdSaebTBMLBgIPOizb6XQGhjF0XSfoCs/Drapptt8hQfHxPF8sFqvVaqvZGg2H/wLb0/mW3YtXRQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;joins&quot;
+        title=&quot;&quot;
+        src=&quot;/static/b147f238438524c11f903a62aaac9186/f058b/image-1.png&quot;
+        srcset=&quot;/static/b147f238438524c11f903a62aaac9186/c26ae/image-1.png 158w,
+/static/b147f238438524c11f903a62aaac9186/6bdcf/image-1.png 315w,
+/static/b147f238438524c11f903a62aaac9186/f058b/image-1.png 630w,
+/static/b147f238438524c11f903a62aaac9186/40601/image-1.png 945w,
+/static/b147f238438524c11f903a62aaac9186/5bf79/image-1.png 966w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt; from stackoverflow&lt;/p&gt;
+&lt;p&gt;대충 이렇습니다.. 조회하려는 용도에 따라 조금씩 나뉩니다.&lt;/p&gt;
+&lt;p&gt;이 문제에서는 INNER JOIN이면 오케이입니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;-- 코드를 입력하세요&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; BOOK_ID&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; AUTHOR_NAME&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; date_format&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;PUBLISHED_DATE&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;%Y-%m-%d&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; published_date
+&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; BOOK &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; b &lt;span class=&quot;token keyword&quot;&gt;join&lt;/span&gt; AUTHOR &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; a &lt;span class=&quot;token keyword&quot;&gt;on&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;author_id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; a&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;author_id
+&lt;span class=&quot;token keyword&quot;&gt;where&lt;/span&gt; category &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;경제&quot;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;order&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;by&lt;/span&gt; published_date&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;없어진 기록 찾기&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;left outer join : 왼쪽 테이블을 기준으로 함. 왼쪽 데이터는 무조건 가져오고, 오른쪽 데이터는 없으면 null로 표기&lt;/li&gt;
+&lt;li&gt;outs에는 있는데, ins에는 없는걸 null로 표기하여 가져오고 싶으므로, outs left outer join ins&lt;/li&gt;
+&lt;li&gt;조인해서 가져와서, isnull인것만&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;-- 코드를 입력하세요&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; outs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;animal_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; outs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; animal_outs &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; outs &lt;span class=&quot;token keyword&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;outer&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;join&lt;/span&gt; animal_ins &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; ins
+&lt;span class=&quot;token keyword&quot;&gt;on&lt;/span&gt; ins&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;animal_id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; outs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;animal_id
+&lt;span class=&quot;token keyword&quot;&gt;where&lt;/span&gt; isnull&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ins&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;animal_id&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;이렇게 좀.. 벼락치기를 해봤습니다&lt;br&gt;
+후회되는 것은.. 이런 SQL 연습할 수 있는 방법이 있었는데&lt;br&gt;
+왜 데베 수업들을 때는 이런거로 연습 안해봤지? 싶네요&lt;br&gt;
+이런거라도 풀어봤으면 시험 쪼금이라도 더 잘 봤을텐데&lt;/p&gt;
+&lt;p&gt;쩝.. 이만 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🫸 [WSL] Proxy error : Could not proxy request]]></title><description><![CDATA[이런 에러를 만났었는데요 정적페이지는 띄워지지만 서버로의 요청이 전부 실패하는 상황이었습니다 거두절미하고 해결한 방법부터 말씀드리고 시작하자면.. package.json에서 proxy 요청을 localhost가 아닌 호스트 머신의 IP…]]></description><link>https://sungpaks.github.io/wsl-localhost-issue/</link><guid isPermaLink="false">https://sungpaks.github.io/wsl-localhost-issue/</guid><pubDate>Sun, 18 Feb 2024 12:37:00 GMT</pubDate><content:encoded>&lt;img src=&quot;https://i.imgur.com/coS9OXd.png&quot; alt=&quot;&quot; loading=&quot;lazy&quot; width=&quot;100%&quot;&gt;
 &lt;p&gt;이런 에러를 만났었는데요&lt;br&gt;
 정적페이지는 띄워지지만 서버로의 요청이 전부 실패하는 상황이었습니다&lt;br&gt;
 거두절미하고 &lt;strong&gt;해결한 방법&lt;/strong&gt;부터 말씀드리고 시작하자면..&lt;/p&gt;
