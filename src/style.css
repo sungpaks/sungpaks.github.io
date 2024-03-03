@@ -380,9 +380,12 @@ a:focus {
   padding-left: 3px;
 }
 
+.tag-button-container {
+  display: flex;
+  flex-wrap: wrap;
+}
 .tag-button {
-  margin-right: 10px;
-  margin-bottom: 15px;
+  margin: 10px;
   font-size: 13px;
   font-weight: 600;
   color: black;

@@ -21,21 +21,24 @@ const TagPage = ({ data, location }: ComponentProps) => {
           🏷️ All Tags
           <hr></hr>
         </h2>
-        {data.tags.group.map(t => {
-          const buttonScaleStyle = {
-            transform: `scale(${1 + (t.totalCount - 1) / 10})`,
-          }
-          return (
-            <Link
-              key={t.fieldValue}
-              className="custom-button tag-button"
-              style={buttonScaleStyle}
-              to={`/tag/${kebabCase(t.fieldValue)}`}
-            >
-              {t.fieldValue} ({t.totalCount})
-            </Link>
-          )
-        })}
+        <div className="tag-button-container">
+          {data.tags.group.map(t => {
+            const buttonScaleStyle = {
+              transform: `scale(${1 + (t.totalCount - 1) / 10})`,
+              marginRight: `calc(15px + )`,
+            }
+            return (
+              <Link
+                key={t.fieldValue}
+                className="custom-button tag-button"
+                style={buttonScaleStyle}
+                to={`/tag/${kebabCase(t.fieldValue)}`}
+              >
+                {t.fieldValue} ({t.totalCount})
+              </Link>
+            )
+          })}
+        </div>
       </div>
     </Layout>
   )
