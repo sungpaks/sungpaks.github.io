@@ -6,10 +6,20 @@ import { useEffect, useState } from "react"
 
 interface ComponentProps {
   setCurTag?(value: string): void
-  scrollPercent: number
 }
 
-function TopUI({ setCurTag, scrollPercent }: ComponentProps) {
+function TopUI({ setCurTag }: ComponentProps) {
+  const [scrollPercent, setScrollPercent] = useState(0)
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      const currentScroll: number = document.documentElement.scrollTop
+      const totalScroll: number =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight
+      setScrollPercent(Math.round((currentScroll * 100) / totalScroll))
+    })
+  })
+
   return (
     <div>
       <div className="top-ui">

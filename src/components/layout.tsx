@@ -7,24 +7,15 @@ interface ComponentProps {
   location: any
   children: any | undefined
   setCurTag?(value: string): void
-  scrollPercent?: number
 }
 
-const Layout = ({
-  location,
-  children,
-  setCurTag,
-  scrollPercent,
-}: ComponentProps) => {
+const Layout = ({ location, children, setCurTag }: ComponentProps) => {
   const rootPath = "/" //`${__PATH_PREFIX__}/`
   const isRootPath = location?.pathname === rootPath
 
   return (
     <div>
-      <TopUI
-        setCurTag={setCurTag}
-        scrollPercent={scrollPercent === undefined ? 0 : scrollPercent}
-      />
+      <TopUI setCurTag={setCurTag} />
       <div className="global-wrapper" data-is-root-path={isRootPath}>
         <header className="global-header">{}</header>
         <main>{children}</main>
