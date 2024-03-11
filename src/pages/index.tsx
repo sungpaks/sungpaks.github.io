@@ -55,6 +55,7 @@ const BlogIndex = ({ data, location }: ComponentProps) => {
   const posts = data.allMarkdownRemark.nodes
   const [curTag, setCurTag] = useState<string>("ALL")
   const [curPostList, setCurPostList] = useState<MarkdownRemarkNode[]>(posts)
+
   useEffect(() => {
     if (curTag === "ALL") {
       setCurPostList([...posts])

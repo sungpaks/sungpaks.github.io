@@ -20,6 +20,9 @@ const config: GatsbyConfig = {
       instagram: `sungpaks`,
     },
   },
+  flags: {
+    DEV_SSR: true,
+  },
   plugins: [
     {
       resolve: `gatsby-plugin-gtag`,

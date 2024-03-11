@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Giscus from "@giscus/react"
 import kebabCase from "lodash.kebabcase"
+import { useState } from "react"
 
 interface Frontmatter {
   title: string
@@ -57,8 +58,21 @@ const BlogPostTemplate = ({
 }: ComponentProps) => {
   const siteTitle = site.siteMetadata?.title || `Title`
 
+  const [scrollPercent, setScrollPercent] = useState(0)
+  document.addEventListener("scroll", () => {
+    const currentScroll: number = document.documentElement.scrollTop
+    const totalScroll: number =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight
+    setScrollPercent(Math.round((currentScroll * 100) / totalScroll))
+  })
+
   return (
-    <Layout location={location} setCurTag={undefined}>
+    <Layout
+      location={location}
+      setCurTag={undefined}
+      scrollPercent={scrollPercent}
+    >
       <article
         className="blog-post"
         itemScope
