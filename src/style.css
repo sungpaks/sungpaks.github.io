@@ -436,6 +436,13 @@ a:focus {
   transition: all 0.5s ease;
   transform: scale(1.05);
 }
+.progress-bar {
+  top: calc(70px - 4px);
+  z-index: 10;
+  position: fixed;
+  height: 4px;
+  background-color: rgb(129, 193, 0);
+}
 
 /* Media queries */
 
@@ -450,5 +457,8 @@ a:focus {
   }
   .top-ui {
     height: 60px;
+  }
+  .progress-bar {
+    top: calc(60px - 3px);
   }
 }
