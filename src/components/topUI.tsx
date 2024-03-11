@@ -10,7 +10,7 @@ interface ComponentProps {
 
 function TopUI({ setCurTag }: ComponentProps) {
   const [scrollPercent, setScrollPercent] = useState(0)
-  window.addEventListener("scroll", () => {
+  document.addEventListener("scroll", () => {
     const currentScroll: number = document.documentElement.scrollTop
     const totalScroll: number =
       document.documentElement.scrollHeight -
