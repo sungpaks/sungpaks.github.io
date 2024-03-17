@@ -1,4 +1,250 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 11 Mar 2024 12:27:01 GMT</lastBuildDate><item><title><![CDATA[🤙 자바스크립트의 비동기 작업과 Promise]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/javascript-promise/</link><guid isPermaLink="false">https://sungpaks.github.io/javascript-promise/</guid><pubDate>Sun, 10 Mar 2024 20:12:10 GMT</pubDate><content:encoded>&lt;p&gt;저번 시간에는&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 17 Mar 2024 06:27:50 GMT</lastBuildDate><item><title><![CDATA[📉 Gatsby 블로그에 Progress Bar 넣기]]></title><description><![CDATA[그냥 갑자기 progress bar를 블로그에 추가하고 싶어졌습니다..  그 왜 그런거 있잖아요.  블로그 내리면 스크롤 얼마나 내렸는지 보여주는 상단 바 간단히 스크롤 정보를 얻어다가 몇 퍼센트나 왔는지 확인하고, 그 퍼센트를 bar의 width…]]></description><link>https://sungpaks.github.io/how-to-make-progress-bar-in-gatsby-blog/</link><guid isPermaLink="false">https://sungpaks.github.io/how-to-make-progress-bar-in-gatsby-blog/</guid><pubDate>Sun, 17 Mar 2024 14:24:33 GMT</pubDate><content:encoded>&lt;p&gt;그냥 갑자기 progress bar를 블로그에 추가하고 싶어졌습니다..&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/57be3d00a1b3c10880910846df8f77e0/cc155/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 51.26582278481012%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABzElEQVR42pXSy04TUQCH8UESeQKWbtwY0I2m1vgARh/DuHNr3BG3bstCoyCXBQqkauItMSEh4WYDCJ220M6Mhc7YGXHaUDq9zEwHxn4eiwmJoSSe5Jfv/LcnR3qZtrk5meXOtMKtV8duT6tia6Iai9oepp5HNwzK5TKlUulUtm3jei6S6bSZ3w1Z0kMW9ePOFwI+5ut8EmzHx3c9XFfUa50pPAqRlu1lXn+f4V3xTUfcmGF9fwmoCw6tsErjsEIjqOCJezdueMDhLw/p3sID+qcuc3H2Rkf/1BXuLtyn1Mxh1tMUq0kUcwXF+oJVS2HWMhSdf21hVGUc30YqemXkikX64EeHXDHRGxXCNhwJfxpyQswzThvpZzGDmnrCzvYI+a3nHUrmKbIcQ07G2NyIsfF1WHSYpNgf3j9jdGSSifEJxsdOvBgdw9ANpLm5h6RliW9aL6om/dVDPt9DNnuO1dU+Eok+1tbOi93L0NAFBgevE41eJRK51hGNRhgYuEQ8PotUbbpkTR1FfA1FzaJoua5ywnZOOZ2i4vk+UrtkwfoKWAXxSE1oORDU/l+rSjtoIgWbCVqPH+F/fotvqfi7afxCpiuvm50Uwf4evwFws6+g4RLEhwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;progress bar&quot;
+        title=&quot;&quot;
+        src=&quot;/static/57be3d00a1b3c10880910846df8f77e0/f058b/image.png&quot;
+        srcset=&quot;/static/57be3d00a1b3c10880910846df8f77e0/c26ae/image.png 158w,
+/static/57be3d00a1b3c10880910846df8f77e0/6bdcf/image.png 315w,
+/static/57be3d00a1b3c10880910846df8f77e0/f058b/image.png 630w,
+/static/57be3d00a1b3c10880910846df8f77e0/cc155/image.png 886w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그 왜 그런거 있잖아요. &lt;br&gt;
+블로그 내리면 스크롤 얼마나 내렸는지 보여주는 상단 바&lt;br&gt;
+간단히 스크롤 정보를 얻어다가 몇 퍼센트나 왔는지 확인하고, 그 퍼센트를 bar의 width로 주면 될 것 같네요?&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 185px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1930acb1cee30895c5b7339f5ef3c9a6/1d79a/image-5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 147.46835443037975%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAdCAIAAAAl5NuSAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTUlEQVR42p2Uy4qEMBBF8/8f5UJBdOFCcbBVEPH9aG3f67l0gTDSk64YUBLl5N5KVUqM4zjPc5IkaZpiguWLPQSefd+LosjzHJOXyhBN09i2DcFlWQzDwC58ffF8PqMowhuA7/uYTNOkYHtdV7wh2Pf94/FQg8f3AFyWpeu627YpwOcgcURxE86yTNM0pvgfmMwPwwBxTuTisgZcVZVpmhzxK0zimKDmYEEZhuG6riGOw5ObFx+/gsEuqLabMMQty5LXqZD8Q8xwfgeGeNu2yLlEXKYMDAUrOXMhIZEziOu63nUdHaGCMoWNJkFRqNkmBrzjOB9zLr7WIOD/Ev4FpsgRM5oM8XT5uTAY9LkgCKg9otVR52HZPu+p53lYxnEMF3QEgnPpqWDCMDyO4+c9sBcXPnOOY8cEzrm2zyaBhF+qlQuT+KW9cOFLkgj+BWOtTQvDJAxuAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;어디까지내려가는거에요&quot;
+        title=&quot;&quot;
+        src=&quot;/static/1930acb1cee30895c5b7339f5ef3c9a6/1d79a/image-5.png&quot;
+        srcset=&quot;/static/1930acb1cee30895c5b7339f5ef3c9a6/c26ae/image-5.png 158w,
+/static/1930acb1cee30895c5b7339f5ef3c9a6/1d79a/image-5.png 185w&quot;
+        sizes=&quot;(max-width: 185px) 100vw, 185px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;시작해봅시다&lt;/p&gt;
+&lt;h1&gt;스크롤 정보와 스크롤 이벤트 얻어오기&lt;/h1&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1cc1257b5579aabb3ab22a8629868b4c/525d3/image-4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 110.12658227848102%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAIAAABPIytRAAAACXBIWXMAAAsTAAALEwEAmpwYAAADzUlEQVR42oVSyW/aeBT2nzcaaaQ5zCGjGVWzaK5zmD9hDj310CpVCU0aqWES0jYoGYiJzWYwGBsMBEpYjG0wOAmr8W6zZOmD9DBqI83T56e3fW/5ycjNzc10OpUkaTgcqqra7/fBnUwmiqKMRqPBYABBy7Jub2/vvhJE1/VYLBYIBAiCKJfLfr//9PQ0n89XKpVcLkdRVLVa5Xn+cfJisYBR0ELTNJjgOA5o27ZnsxkYrusCbblc3j0mCCSACdWmaQIT3NlsDgbQDMMA/QXhdi2fyfDBVbIsw/HQRep0NGW8XCwgfn9//wUT1oR2MAkeCOoRaAPk6+vr+XwOo+SerCoTsB/dE8hwDuwFb7kiw/eQuFnLw2I3/xE45Gv3oQYBz7Et17HBuV/J3Rr/K+ub3ZlbuahXa9xY0Zz50nLmtgtYAKyVnn/GbLHGfI1VFsYjiuHsRsVtTPCGWx606UE5D9rwnDa2UA7gDXPes9ZrjN/G+B1c2MHWlWe8F20NFQuZGI4X41+FAa1XYe5lqLF1Jngj3ZennAfaQR0mbOPiTqS9E5XeRKWdiPQal7xhYTC1kKnp7hOSLy7txdp7cenNWWPjtz83fvnjn4T4Ni75EpKP6Bykugepnp/sHQJS8kFS3id6I81GNNP9kG4fkiv4k6KflI7R4POnP//194sA0z9MCe/T4lGmE6CkY7r7ALCPMtJEdxDddoN0+5ha4SgtoIw4mykdMff9DxtvsXKI7Z3QnX9z3VC+h7IyWpBBh1g5mJOmhovozuys0Avnu2G2G6Q7dP0K/st+//LHJ78/2z1J1McoK2EFGS/K0eJVrHQVOb/CSpdYUVZNFzFsN0ILWJbH6VaYamVL9cnkusHVvvn2u6cv9jLVEU6LMbabKPSSJZkodYmSHC/KEFFNGzEtJ0HXATGqGooVKTo7Gl0C+acnvz7b9CXoFpoo4elqPFuPZmpxCnQjSjUxsjbVTcS0HYKpE0wDNE5+jCSyg+GlKAm7vnfvg2SCbkQz1WjmIp6txTI1PHWBEdUIWUPjFUU1EMt2yXwryTTTLJ8pCEmGqzfrZBqPpWgyz6dyTTLXyhT5bElkzttUUaRLYorhiGxTh7Vtx2UrHbbcKVSkwsfO+UXvKBDc3HxOpFm6IGQLAlNqgw7Fy+/QQgAv+U5ynv30lj81UjQEGmBklcg2MvkWxQq58zbJ8BTbBpsqCAmag42AD9sRNEcwXJKBV6h9CLOKZiDzxVK+VgZjXVHNwUgfK+ZYMQYjFSJTzR6OIWJAStNtVbcnU0OZrmxFtRaL5ScsWGtfA8zZwQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;어디지&quot;
+        title=&quot;&quot;
+        src=&quot;/static/1cc1257b5579aabb3ab22a8629868b4c/f058b/image-4.png&quot;
+        srcset=&quot;/static/1cc1257b5579aabb3ab22a8629868b4c/c26ae/image-4.png 158w,
+/static/1cc1257b5579aabb3ab22a8629868b4c/6bdcf/image-4.png 315w,
+/static/1cc1257b5579aabb3ab22a8629868b4c/f058b/image-4.png 630w,
+/static/1cc1257b5579aabb3ab22a8629868b4c/40601/image-4.png 945w,
+/static/1cc1257b5579aabb3ab22a8629868b4c/525d3/image-4.png 1090w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;먼저, 스크롤이 어디 쯤 있고, 전체 스크롤 높이는 어느 정도인지 알아야겠죠?&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;document&lt;/code&gt;, 또는 &lt;code class=&quot;language-text&quot;&gt;window&lt;/code&gt;객체에서 정보를 가져오면 될 것 같습니다.&lt;br&gt;
+저는 &lt;code class=&quot;language-text&quot;&gt;document&lt;/code&gt;썼습니다&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;document.documentElement.scrollTop&lt;/code&gt;으로 현재 스크롤이 위치한 높이를 알 수 있습니다.&lt;br&gt;
+근데 스크롤은 두께가 있죠? 전체 문서에서 현재 위치한 화면의 가장 위쪽이냐, 가장 밑이냐, 등등..&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;scrollTop&lt;/code&gt;은 현재 위치한 스크롤의 가장 위쪽 좌표값을 줍니다.&lt;/p&gt;
+&lt;p&gt;이제 전체 스크롤 높이를 알고자 한다면, &lt;code class=&quot;language-text&quot;&gt;document.documentElement.scrollHeight&lt;/code&gt;를 가져오면 됩니다.&lt;br&gt;
+그런데 주의할 점은, 이 전체 &lt;code class=&quot;language-text&quot;&gt;scrollHeight&lt;/code&gt;에서 클라이언트 화면(유저가 보고 있는)의 높이인&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;documentElement.clientHeight&lt;/code&gt;를 빼줘야 합니다.&lt;br&gt;
+우리가 방금 &lt;code class=&quot;language-text&quot;&gt;scrollTop&lt;/code&gt;, 즉 스크롤 중에서도 위쪽 좌표를 기준으로 하기로 했죠?&lt;br&gt;
+따라서 &lt;code class=&quot;language-text&quot;&gt;documentElement.scrollHeight - documentElement.clientHeight&lt;/code&gt;값을 전체 스크롤 높이로 써야&lt;br&gt;
+가장 하단까지 갔을 때 진행률이 100%가 될 수 있습니다.&lt;/p&gt;
+&lt;p&gt;이 세 가지 정보를 하나씩 &lt;code class=&quot;language-text&quot;&gt;console.log&lt;/code&gt;로 찍어보면&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 333px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9a755055e2ff0862734d7dc4303752cb/24c7e/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 128.48101265822785%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAaCAYAAAC3g3x9AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAEAElEQVR42qVV2W5bRwzV//9Pn/qaNE4kNa5jF7L25e77vt97ekhLtoPCaIASoHiHM8M5XDUrigJOkMLyYnhhhrTsEKY1/Fj0Gb8r1XlxpesgqWE4IRw/hulEejerekRZjYB3ZqvVM3YnA0/rDVabI2JuuFHBBxJyyoup6kxdJ/CTCpvtCX/9WOHhcY3N/oK8HtTw2fQx+/rtDsddAO80wg0zReeGJWw/o2FBlavO9nMYbqIon1wiLXrk1UD0gq5FWnTo+gmzxZ9zXLYB3F3DFyxESUGu1CWbYfDDFElWwSUCm666QYK1nyAuWhRVR6MvUnicaHA+nyNJEghNVAgNFCN5GEWnKvTX75vE9LZ3k0JqMIoTwh2Q5QXKqlbZ0WrbDciLUnVFUem37AnXTafGda+slOu6eTEYxzGqqsL5fIZlmTDNC3o+UPHw5XKB7/twHId6U9kgR1GsXriOC9t2dF88nS0WcxwuPi5eCTfuKFtc/A5Hl5kNGnhJr3phR6SsyU7Uwg4b1XvJAMMvcXbzF4Org4fHrYfVucSnvwv8/j3Fb/MEX58LHOwKe/LOKnHiY3vKnVnqWtnkGafB/crC8uksBhcwbZ9FGhJRjcddiJ1NV4MBex4M04Yl0Wrxng0XSd6hbCby+C+uWmZ5uVwyBjY+f/6ksbz/vkSa5ei6DqZxYawifrM0yhpfvvyBJM2v+XyX2nekCIMgQFmWaNsOTdsy4z2GYbjyiHEc9VvKqude0zQq5dGXs6PeH8fpxaDneWpUsikkBuTyNIkcdH0zKhcPhwNOp5NmVqrgVgn9ML2VjRxu+XIrr5YZOl96tIcV9UTesshHlVJOclYoY2gkJDcSEIpQDKZpiuPxCIM1VXkGhu032CyPxX6gi7XWnMgkieiNh4GuHvY7LJeLn7ps9vXujp0S60IQVFWDJM44YXJNwDD02lpFPRJtp4+k5ciBMHDydDoctF3ZNUEYYSaoJC5Cjm1hs17jtN8jDjkwPFcTJRlNigGPxxKrS8nib1ibNeuQczPrXxH6zMVMBqxkTCgnqrNhIGWvvu/6afp5ALyn6V38xNZMYifpFyqINM8KxEEEy7GZPQuH4xlVXXNMTVibROXU6qoZtNqaUd5fK2NikjLM5OeGsMhzWKaBHw8PijQMOOrZ/H0vc2/Eli4e3YY93LF3W7bifxiU0pB4RnGqyXkrh19z+dXgzeWYNWVblgZXkrXdHrB63nDmlUiY2ft9jicOEEG3t65JSbqPEXYsm4g1ttluOSxrNBI7JkherztmMe04+nvNuLgaU9bt+IowZ8heDY7XlhO0JafvBx5+SGJQumYmVsUg/yk/jNOvkICRyTWTkS4d8n9JEMqQ+AcgmMeBXERhQQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;스크롤 정보 로그&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9a755055e2ff0862734d7dc4303752cb/24c7e/image-1.png&quot;
+        srcset=&quot;/static/9a755055e2ff0862734d7dc4303752cb/c26ae/image-1.png 158w,
+/static/9a755055e2ff0862734d7dc4303752cb/6bdcf/image-1.png 315w,
+/static/9a755055e2ff0862734d7dc4303752cb/24c7e/image-1.png 333w&quot;
+        sizes=&quot;(max-width: 333px) 100vw, 333px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;대충 이런 식입니다&lt;/p&gt;
+&lt;p&gt;이제 스크롤 정보 가져오는 것은 알았으니, 이벤트리스너를 등록해봅시다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;document.addEventListener(&quot;scroll&quot;, scrollEventHandlerFunction)&lt;/code&gt;과 같이 해줍니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;scroll&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; currentScroll&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;documentElement&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;scrollTop
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; totalScroll&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;
+    document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;documentElement&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;scrollHeight &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;
+    document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;documentElement&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;clientHeight
+  &lt;span class=&quot;token function&quot;&gt;setScrollPercent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;currentScroll &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; totalScroll&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;대충 이런 식의 코드를.. 상단 고정 레이아웃 컴포넌트에서 추가해줬습니다.&lt;/p&gt;
+&lt;h1&gt;progress-bar 컴포넌트 생성하기&lt;/h1&gt;
+&lt;p&gt;이미 상단에 고정된 레이아웃인 &lt;code class=&quot;language-text&quot;&gt;top-ui&lt;/code&gt; 컴포넌트가 있으므로,&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;div className&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;progress-bar&quot;&lt;/span&gt; style&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;scrollPercent&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;밑에 적당히 이런 친구를 추가해줍시다.&lt;br&gt;
+css 클래스인 &lt;code class=&quot;language-text&quot;&gt;.progress-bar&lt;/code&gt;는 적당히 원하는대로 작성해줍시다.&lt;br&gt;
+width는 변수인 &lt;code class=&quot;language-text&quot;&gt;scrollPercent&lt;/code&gt;를 쓰고싶으니까, 리액트 컴포넌트에서 직접 줍니다.&lt;/p&gt;
+&lt;h1&gt;Failed to server render(SSR)이라는 에러가 떴어요&lt;/h1&gt;
+&lt;p&gt;그대로 진행해보면..
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 570px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c313c34e4de767724e95988a1673e56f/432e7/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 110.12658227848102%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAIAAABPIytRAAAACXBIWXMAAAsTAAALEwEAmpwYAAADAklEQVR42pVRW0/TYBju/xETiRnCYMEARo2HxKgXGjVCOIyxcVQBNVyoEBbwEmTDHR1DEoKI94oGbzUBwpUQyOi6rV071m7rDi0+X8vMOJjo2ydfnz7f+3zv2++lOkyO9qopAiOBxUi4xegANxd1c+WUpdphNTmPgGozTHef9/Y2+HvqfN213k6TB582k8dW44bSVevtqfMOXg12VLmaz0y1lDtKQZkNzt563/Mb7x9ffNdX73t0wT9wZaavwf/kcmDwWhCA/vT6bFetp6V8qvWsoxSUucI5dGvuxd354fsLY80fRxsXRx4sjLcsDd9bsDctjrd+GmteGro5h7JHnJrZ4LQaXVaj21btRtu2Gk+nyW0zuTuMLlQDsVS+tVa7jjuJ2VI5/frO8kz/usv6w935Mziwbr/9uc3gaD83ba4gAAGQdhxU0+k33caZZ5c+9NfND9TPg3RVBR6emmgsm2wsm9AwWcREyUpAzdpXAiNffS+/+F8tAyD4hBgcXcE6a/8OogNcV/TdwOg3SlXV/RNCLb7Uw6pKoFliXJRSCgpNR8LhSDzOY6XDTGg3HI1xcV4IhehQKByLcUwkGo2xu6FwNMpCEYQEzJu/NilFUXghgT049SOQCsRYLsxEOC4OzsUh42gGiixn9S62t7cPzCzLafkczws0zXAkWSAKpDjPcnF0BLZLM+gIR8C1s7NDzEhlmCgkUoTkRWganbOxGEsa1o5IpdLpdCZFXhmcq+qVVVWBgOKJxN5eMimlUqIo4a/AoUOCDN+ha9MuTGtbRW1l/x/iz1z0/IN/3tjYWFtbW11dFUVRTzoSJ56it61ms9mMFv/VwtbWFjHDk8/nc8XIapH7e2AXZlwSMcOJaxQEAcXB0TxuSE8qXUuJ3i/550KhkJFleGREJpOSJL0X6PmSwGcuTx4EKqMSqVzI5VJCAsOStcBseJ6XRJFlWRBthhhcEjwpJoWUwEt8tpBFJpkzTsKNpTMoL4PAJkqkc0nC1NGHlNYCMqpJ2E+LBaUgZ+TfWmkBwfQFK/0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Failed to server render(SSR)&quot;
+        title=&quot;&quot;
+        src=&quot;/static/c313c34e4de767724e95988a1673e56f/432e7/image-2.png&quot;
+        srcset=&quot;/static/c313c34e4de767724e95988a1673e56f/c26ae/image-2.png 158w,
+/static/c313c34e4de767724e95988a1673e56f/6bdcf/image-2.png 315w,
+/static/c313c34e4de767724e95988a1673e56f/432e7/image-2.png 570w&quot;
+        sizes=&quot;(max-width: 570px) 100vw, 570px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br&gt;
+이런 에러가 납니다&lt;br&gt;
+게다가 &lt;code class=&quot;language-text&quot;&gt;gatsby-config&lt;/code&gt;에서 &lt;code class=&quot;language-text&quot;&gt;flags: {DEV_SSR: true}&lt;/code&gt;를 추가하여 서버 사이드 빌드 에러를 활성화하지 않았다면&lt;br&gt;
+그냥 &lt;code class=&quot;language-text&quot;&gt;gatsby develop&lt;/code&gt;환경에서는 모르고 개발했다가 빌드할 때가 되어서야 에러를 알게 됩니다&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.gatsbyjs.com/docs/debugging-html-builds/&quot;&gt;Debugging HTML Builds&lt;/a&gt;에서 관련 내용을 확인할 수 있는데요&lt;br&gt;
+Gatsby는 기본적으로 페이지들을 정적 HTML파일로 빌드하고 서버사이드에서 렌더링해주기 때문에&lt;br&gt;
+브라우저 레퍼런스인 &lt;code class=&quot;language-text&quot;&gt;window&lt;/code&gt; 또는 &lt;code class=&quot;language-text&quot;&gt;document&lt;/code&gt;객체에 접근하려고 해도 해당 객체가 없습니다..&lt;/p&gt;
+&lt;p&gt;그래서 이걸 해결하기 위해 찾아보다가 &lt;a href=&quot;https://stackoverflow.com/questions/62816197/how-to-implement-document-getelementbyid-in-gatsbyreact&quot;&gt;스택오버플로우&lt;/a&gt;에서 관련 글을 찾았는데&lt;br&gt;
+코드를 React Lifecycle에 포함시키기 위해 &lt;code class=&quot;language-text&quot;&gt;useEffect&lt;/code&gt;로 감싸면 간단히 해결된다고 하네요&lt;/p&gt;
+&lt;p&gt;그래서 결국 이렇게 됩니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;scrollPercent&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setScrollPercent&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;scroll&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; currentScroll&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;documentElement&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;scrollTop
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; totalScroll&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;
+      document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;documentElement&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;scrollHeight &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;
+      document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;documentElement&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;clientHeight
+    &lt;span class=&quot;token function&quot;&gt;setScrollPercent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;currentScroll &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; totalScroll&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6d78ecfb851f422642e3f5a1b326c5f5/b97f6/image-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 39.87341772151899%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABY0lEQVR42o1QyW7CQAzN/38Ap8IfIE4cQIIDAimCLqmoVLWXSEQkbTKThewbr7ZRKtRTrbHsmed5tp+RqDMc+xOHwwueHp9xOp2QJAniOP63c73v+3BdF4aOXuGcD7Ded3j7MKFUgLquUZaleFEUEquq+o33ON+5JgxD+qtgNF2Nrm9RVjkulxhRFIkPnbk4TVMEQUD4RT7yNJwzrrVG0zRg41qDE9f1sN3uMH4YYzqdYrFYYDabYblc4ng8wrIsjEYjrFYrbDYbTCYTmKaJ9XqN+XwuTdh4CCF0HAf7/R62bQNXOtcr+r4X55xtyAfs/m24e54Hgx/yPEea5cjygjSpSaNG1mCtBr3qpkXTtqJZJW+V1LINTYWw768EZohCj/TwST8NrVwEJLBSGt9+QLkmDTVhMZQOxfO8EFIhxI2QNTV43KoqSYcvInUpBqRFJBP21LnrOlnpPnbdbcW/lmUZfgB+zV0wAepKtwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;결과&quot;
+        title=&quot;&quot;
+        src=&quot;/static/6d78ecfb851f422642e3f5a1b326c5f5/f058b/image-3.png&quot;
+        srcset=&quot;/static/6d78ecfb851f422642e3f5a1b326c5f5/c26ae/image-3.png 158w,
+/static/6d78ecfb851f422642e3f5a1b326c5f5/6bdcf/image-3.png 315w,
+/static/6d78ecfb851f422642e3f5a1b326c5f5/f058b/image-3.png 630w,
+/static/6d78ecfb851f422642e3f5a1b326c5f5/40601/image-3.png 945w,
+/static/6d78ecfb851f422642e3f5a1b326c5f5/b97f6/image-3.png 958w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;짜잔 이렇게 태그 색깔과 좀 비슷하게 연두색으로 progress bar를 넣어봤습니다&lt;/p&gt;
+&lt;p&gt;별 것도 아닌데 이렇게나 떠들었네요&lt;br&gt;
+마치 제 자소서같습니다.&lt;/p&gt;
+&lt;p&gt;이만 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🤙 자바스크립트의 비동기 작업과 Promise]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/javascript-promise/</link><guid isPermaLink="false">https://sungpaks.github.io/javascript-promise/</guid><pubDate>Sun, 10 Mar 2024 20:12:10 GMT</pubDate><content:encoded>&lt;p&gt;저번 시간에는&lt;br&gt;
 비동기 작업이 끝나는 타이밍을 외부에서는 알 방법이 마땅치 않기 때문에,&lt;br&gt;
 콜백 함수, 즉 &quot;그거 끝나면 할 일&quot;를 넘겨주는 일련의 과정을 살펴봤었죠?&lt;/p&gt;
 &lt;p&gt;그런데 비동기 작업이 진행 중이거나, 완료되었다거나, 등의 상태를 알 수 있다면 해결되는 문제 아닐까요?&lt;br&gt;
