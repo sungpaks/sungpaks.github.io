@@ -16,7 +16,7 @@ function TopUI({ setCurTag }: ComponentProps) {
       const totalScroll: number =
         document.documentElement.scrollHeight -
         document.documentElement.clientHeight
-      setScrollPercent(Math.round((currentScroll * 100) / totalScroll))
+      setScrollPercent((currentScroll * 100) / totalScroll)
     })
   })
 
