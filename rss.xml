@@ -1,4 +1,214 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 17 Mar 2024 06:27:50 GMT</lastBuildDate><item><title><![CDATA[📉 Gatsby 블로그에 Progress Bar 넣기]]></title><description><![CDATA[그냥 갑자기 progress bar를 블로그에 추가하고 싶어졌습니다..  그 왜 그런거 있잖아요.  블로그 내리면 스크롤 얼마나 내렸는지 보여주는 상단 바 간단히 스크롤 정보를 얻어다가 몇 퍼센트나 왔는지 확인하고, 그 퍼센트를 bar의 width…]]></description><link>https://sungpaks.github.io/how-to-make-progress-bar-in-gatsby-blog/</link><guid isPermaLink="false">https://sungpaks.github.io/how-to-make-progress-bar-in-gatsby-blog/</guid><pubDate>Sun, 17 Mar 2024 14:24:33 GMT</pubDate><content:encoded>&lt;p&gt;그냥 갑자기 progress bar를 블로그에 추가하고 싶어졌습니다..&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 22 Mar 2024 15:28:56 GMT</lastBuildDate><item><title><![CDATA[🛑 자바스크립트의 비동기 작업과 Async/Await]]></title><description><![CDATA[Promise…]]></description><link>https://sungpaks.github.io/javascript-async-await/</link><guid isPermaLink="false">https://sungpaks.github.io/javascript-async-await/</guid><pubDate>Fri, 22 Mar 2024 23:11:07 GMT</pubDate><content:encoded>&lt;p&gt;Promise로 스마트한 비동기 처리를 살펴봤었는데요..&lt;br&gt;
+괜찮은 것 같긴 한데.. 아래와 같은 경우에는 아직도 알아보기 힘든 것 같네요?&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getJohnData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;//John의 데이터 가져오기&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;resolve&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;John&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;john@example.com&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getSunghoData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;//Sungho의 데이터 가져오기&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;resolve&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Sungho&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Sungho@example.com&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//꼭 John, Sungho 순서로 데이터를 가져오려면..&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getJohnAndSunghoData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;getJohnData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;email&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getSunghoData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;email&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; Promise&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;John, Sungho Data 가져왔어용&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;res&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 329px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fafe9f6f4d12986516587366d216eea8/004a5/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46.835443037974684%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABd0lEQVR42pWRyVLCQBCGeQOVJRQkISEJSxKy7+ygFEVRelWvcvf9b7/dk0JPFnrodGYy3fP1l0bXimClG0yKPcbZDu7iCN2roNg5JDP4dzQkK0T1/IbD+wWPrx94uXwi3JxgBEtIVoCO6aNj+D/5RjS4a1N18aA6uFcc3Mk2mgNeu2jpnoi27td5+IeGfMjKCwTHFdLzRsR0WSE5rTHbLTApc2hhCv9pCc2PReMbhCEUN4HsRNCjFEacQbZjDCmrboy+HaE3jTAIUnRJQUvzhIrfHdJjVBRwtwtBMdvOkZzXmM4r+IcVQtrj79x8tl9iXBaCkuuuVJJZxzehTBQDP4GZ5YLMotwnKi3MoNO4TNwdBVDpjDqLySmPXROxsqtbQcgvepTBJV88Lo/DTtmjR9Sal9A6F+SsRKaLJmWJaVWJGGUF7MVc1LKOBt/E/ow0w5AK+nZIvhKMqwLOqhJEihfDTDJotN+b1BNxKKRBdmL6WfUU7aGHL/mFCtLCFSdsAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;실행결과 1&quot;
+        title=&quot;&quot;
+        src=&quot;/static/fafe9f6f4d12986516587366d216eea8/004a5/image.png&quot;
+        srcset=&quot;/static/fafe9f6f4d12986516587366d216eea8/c26ae/image.png 158w,
+/static/fafe9f6f4d12986516587366d216eea8/6bdcf/image.png 315w,
+/static/fafe9f6f4d12986516587366d216eea8/004a5/image.png 329w&quot;
+        sizes=&quot;(max-width: 329px) 100vw, 329px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;더 좋아질 수는 없을까요?&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 276px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a7767145d2ac7b5ebd403d1c7fd8faf4/f2d11/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.45569620253164%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAAChElEQVR42mP4DwP//v37jwD/wIgAYEBS/vfmlQtrlyzYsWnd+3dvkI37CwR//gAJLJohitbMmpDsaOxrqGokK+pvZ3n90kWQFIYGZAcyQMy7efF8TajjoSklV5a1b2rPKPQyrUgM/fsPJPX+7etV82fN6GrZtX7125fPkfVDNa+dM2lFTeyDTdMfbZ31Zs/cU1ML+tJ837198/fntz2Ty7Ls1YP05b11FfzMdSe1N/z4/g1iBMjZ396/2t5deGf9hO0T688v6bu8asLmlqwZhWGfv/24umvF+akFeyYUN8W6Z3qY+RqrqwtxTexogQQESPPHB7euzax6f2TpnQ3Tb6xo29aTv6wmY01z1qPrF3dMqrm+ZsruqY3dmaGVka5JrmYOGvKetua/f/+GBtjf3z+fHNv8dPP0L8dW3l878cSMslMzK5cVBB/oyT80sfTl3sWHZtRPL4lsTfTM9LCwVpbytgFq/gXWDPb9908fbq+beGpex+ra3CNTqleXRsxJdru2oP7NzhlPN086O6vicG/2/LzAinAne1XJmtx0qLMhkQGMxJu7F15bPWlrc9GmxpSuENtDXemnp5Vfml5+aUbJtQW1V6eXTU90D7fSi3CyunvzOszP4IB/PGvxidLUK+snHJpe2mavOSfC8faq5mNTC3a3F2+ojd/XkX6oI3FDnlOzr+aFo/sgOkHOfrNz31XvqDMMwmc4ZI6q6G+UVljJJ3G6O/tgT+oCKYk9jv5P79080R71coLbj6m2j9utnl/cC04rYM2nWYXPMvBeYJY4zyR2hlHkNIPgCW3Dqyvq18c7rmTgXMvAc2lK76s5UU+nBDyfGnClw/9wd+y3T+8h8QwAOJYlaSC9qQgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;속닥속닥...&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a7767145d2ac7b5ebd403d1c7fd8faf4/f2d11/image-1.png&quot;
+        srcset=&quot;/static/a7767145d2ac7b5ebd403d1c7fd8faf4/c26ae/image-1.png 158w,
+/static/a7767145d2ac7b5ebd403d1c7fd8faf4/f2d11/image-1.png 276w&quot;
+        sizes=&quot;(max-width: 276px) 100vw, 276px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;속닥속닥...&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getJohnData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;//John의 데이터 가져오기&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;resolve&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;John&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;john@example.com&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getSunghoData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;//Sungho의 데이터 가져오기&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;resolve&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Sungho&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Sungho@example.com&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//이렇게 해보세요..&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getJohnAndSunghoData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; john &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getJohnData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;john&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;email&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; sungho &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getSunghoData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;sungho&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;email&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;John, Sungho Data 가져왔어용&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;헉 이렇게 해보라는데요?&lt;br&gt;
+코드가 아주 절차적으로 보이고 아무튼 정갈해보입니다&lt;br&gt;
+근데 처음보는 &lt;code class=&quot;language-text&quot;&gt;async&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;await&lt;/code&gt; 키워드가 있죠?&lt;br&gt;
+당장 알아보도록 합시다.&lt;/p&gt;
+&lt;h1&gt;Async와 Await&lt;/h1&gt;
+&lt;p&gt;Promise를 더 잘 쓰기 위해 나온 특별한 친구들이 바로 &lt;code class=&quot;language-text&quot;&gt;async&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;await&lt;/code&gt;입니다.&lt;br&gt;
+사실 이름 안에 역할이 다 담겨있고, 사용하기도 쉽습니다.&lt;/p&gt;
+&lt;h2&gt;async&lt;/h2&gt;
+&lt;p&gt;먼저, &lt;code class=&quot;language-text&quot;&gt;async&lt;/code&gt; 키워드는 함수를 비동기(&lt;em&gt;asynchronous&lt;/em&gt;) 함수로 정의하기 위해 쓰입니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;async function myAsyncrhonousFunction() {}&lt;/code&gt;과 같이,&lt;br&gt;
+그저 함수 선언 앞에 키워드를 갖다 붙이기만 하면 됩니다.&lt;br&gt;
+이렇게 하면 해당 함수는 항상 &lt;code class=&quot;language-text&quot;&gt;Promise&lt;/code&gt;를 반환하며,&lt;br&gt;
+함수가 명시적으로 &lt;code class=&quot;language-text&quot;&gt;Promise&lt;/code&gt;를 반환하지 않는 경우에도 묵시적으로 &lt;code class=&quot;language-text&quot;&gt;Promise&lt;/code&gt;객체로 감싸줍니다.&lt;/p&gt;
+&lt;p&gt;예를 들어, 아래 두 함수는 동등합니다 :&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;fart&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;BBOONG&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;fart&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; Promise&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;BBOONG&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그렇습니다.&lt;/p&gt;
+&lt;h2&gt;await&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;async&lt;/code&gt;얘기에 &lt;code class=&quot;language-text&quot;&gt;await&lt;/code&gt;가 빠지면 섭합니다?&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;await&lt;/code&gt;는 &lt;code class=&quot;language-text&quot;&gt;async&lt;/code&gt; 함수 내에서 동작하는, 이름 그대로 &lt;em&gt;&quot;기다려&quot;&lt;/em&gt; 키워드입니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;await&lt;/code&gt;키워드를 붙이면 해당 줄에서 &lt;code class=&quot;language-text&quot;&gt;Promise&lt;/code&gt;가 처리될 때까지 함수 진행이 멈춥니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 204px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4a8ec8f4051b8654da68b800520c86d1/779ef/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 94.30379746835443%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAIAAAAf7rriAAAACXBIWXMAAAsTAAALEwEAmpwYAAAES0lEQVR42hWT+09TdxjGD+3p5ZRLz/V7vufe0xtFEFraMlou69W2tOHeAa2wAWoBQcrNMRSFhgmiTKZZIjoMMM0kcfthYcliFuOSZTH7q3b2/va+ySfP8755XsSCkbV1JEmxFAUJGpAEYTCY9AZUAdWT0ablgdB+Kf92e+nj0e6Pu9sQ0iRlpWgrYEkGEAhBAIqmSVrjKQZqM0qPojRu7very1nffK59vjexM559tX7t9Ns7vfEITlSLIoSQghyNEHQdTuKs1vIcEKAsgG632iqTo351NdtWKaSe375xfyRxMNX35w87r588kHhKEgEHaY6nEYoGmiLgFFFSOJFTRXYuFioGnP1NwlzcVymmny0UFjPhzXz6/H75pLLqcUgiZESRFUQaAZqkYIO8jWZ4AIWamjo3AP2XHWN+21zCe2ckWhnvWUiG1gd6jspTZztfczSu8KwksAJPIbwIZUWBnKhZMJownU5fi1XLuDVqx8dDtsVcW+XL7L18fHdq8O/Tp/PFIRzDNFjmWAEyCOR5KDIMC1CjGalCtKqz1KS6OwfbvV94lZFW+Wpn/Uw6cCufWb6az0Y7h3LJeKgt1RVMdX72P0wCUo+aGmzODp837Gsp5jKFXGbjxsRGoW91IDSnkb3xynRxJh4pp5KldKrQHbqaCHU0exAOArMFq0LRJtXmddgbFXvY6fCwIOhpONzafnmwd7a/cby5cPHi2WwwnMf5tN2ZaPN2BtyQsSBGza0eMZpRE4YaMVRv1On1egTRoXo05QvsLS1dnL/59OGPX89fT/jDfZSQcrg7WpqbL7kEntCuLThcDkHiLTUW1KRHMV1tjdkDyXTANd/bvTmWOVz56uJo78n2Wku9KlGkCGhFFS95HG1NLkSUJFe902ZXLNWWKl2V0aALuplil6sU820Xsid3Sz/dnX334Pa/58eVlRlA4yRRezkYzOR6pwaTCEEyBIkTpLUaM5sMqJu1DvrkiVD9ZCy4OpjeGu05Wpl+9c3Ms5XS+7PnyWiIIDEOapEm2v2NCOQkXuAAZAxmkxlDIy443XVpIe6bTgRLudharqsyHHu7ubA01HPx9PHO2gJhxVSFFwW2ucGJcAKAWtZ4JqCKdgrvkKnxdmc5HdyfzL4oF+8NRyf9rndby78fbv3z6uDTbz83up3a2jwPOEBrMMMJrMKBa583J9xigLOOBtTylcBuIXs4PXwr2nqz0/f99dHTjZtv7s6/f/k44PVwDCFLUJU4DeZlmygKfKTBNux1dKtUvlVezLbeG45sDsSmwi2lSHipJ/nd7MQvOyvnD9cbnbLIEjaetkssAqGgvbHBbNTrdC4ajzmZIZ8wn/Fujia3xtJzUf90h28xHX90vfjX8d7Z3jpRa+YAoQi0zDEISeJYNWa3yR67AzOY3XTtlXpuLOgsZ9vX87GNwehOIXVye/bj8aMPJw/XbhRCAU+jA3hU0SEL/wGGmQMdqjs2XQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;기다린다&quot;
+        title=&quot;&quot;
+        src=&quot;/static/4a8ec8f4051b8654da68b800520c86d1/779ef/image-2.png&quot;
+        srcset=&quot;/static/4a8ec8f4051b8654da68b800520c86d1/c26ae/image-2.png 158w,
+/static/4a8ec8f4051b8654da68b800520c86d1/779ef/image-2.png 204w&quot;
+        sizes=&quot;(max-width: 204px) 100vw, 204px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;아까 처음에 살펴봤던 코드를 다시 볼까요?&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//async function에서&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; john &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getJohnData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;john&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;email&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;await가 없었다면 getJohnData()가 1초 대기하는 것을 기다리지도 않고 &lt;code class=&quot;language-text&quot;&gt;console.log&lt;/code&gt;가 실행되기 때문에, 결과값은 &lt;code class=&quot;language-text&quot;&gt;undefined&lt;/code&gt;였을 것입니다.&lt;br&gt;
+그러나 &lt;code class=&quot;language-text&quot;&gt;await&lt;/code&gt; 키워드를 붙여 기다리도록 했으므로, &lt;code class=&quot;language-text&quot;&gt;Promise&lt;/code&gt;가 이행되고 나서야 &lt;code class=&quot;language-text&quot;&gt;console.log&lt;/code&gt;가 실행됩니다.&lt;/p&gt;
+&lt;p&gt;우리는 &lt;code class=&quot;language-text&quot;&gt;getJohnData()&lt;/code&gt;같은 비동기함수 호출과 그 밑 줄을 차례대로 실행하기 위해&lt;br&gt;
+콜백이니 &lt;code class=&quot;language-text&quot;&gt;Promise.then()&lt;/code&gt;이니.. 코드를 새로운 형태로 짜야 했는데&lt;br&gt;
+그냥 &lt;code class=&quot;language-text&quot;&gt;await&lt;/code&gt; 딸깍으로 가능해졌습니다..&lt;br&gt;
+펀하고 쿨한데요?&lt;/p&gt;
+&lt;p&gt;흠.. 그리고 &lt;code class=&quot;language-text&quot;&gt;async&lt;/code&gt;함수에서 에러를 반환하고 싶을 수도 있겠죠? &lt;code class=&quot;language-text&quot;&gt;Promise&lt;/code&gt;의 &lt;code class=&quot;language-text&quot;&gt;reject&lt;/code&gt;처럼요&lt;br&gt;
+이 경우에도 그냥 아래와 같이 간단하게 할 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;wannaReject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; Promise&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;No&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;혹은 예외 &lt;code class=&quot;language-text&quot;&gt;throw&lt;/code&gt;로&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;wannaReject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;NO&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 해서, 일상적으로 으레 하듯이 &lt;code class=&quot;language-text&quot;&gt;try-catch&lt;/code&gt;블록을 사용할 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; john &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getJohnData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; sungho &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getSunghoData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;err&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;/*두 썸띵*/&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Ref&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://ko.javascript.info/async-await&quot;&gt;모던 JavaScript 튜토리얼 - async와 await&lt;/a&gt;
+&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/async_function&quot;&gt;MDN web docs - async function&lt;/a&gt;
+[토스 페이먼츠 - 예제로 이해하는 await async 문법]
+(&lt;a href=&quot;https://velog.io/@tosspayments/%EC%98%88%EC%A0%9C%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-awaitasync-%EB%AC%B8%EB%B2%95&quot;&gt;https://velog.io/@tosspayments/%EC%98%88%EC%A0%9C%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-awaitasync-%EB%AC%B8%EB%B2%95&lt;/a&gt;)&lt;/p&gt;
+&lt;hr&gt;
+&lt;br/&gt;
+&lt;p&gt;이렇게 Javascript의 비동기 작업 관련해서 3번이나 포스팅을 뽑아냈네요&lt;br&gt;
+아무튼 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[📉 Gatsby 블로그에 Progress Bar 넣기]]></title><description><![CDATA[그냥 갑자기 progress bar를 블로그에 추가하고 싶어졌습니다..  그 왜 그런거 있잖아요.  블로그 내리면 스크롤 얼마나 내렸는지 보여주는 상단 바 간단히 스크롤 정보를 얻어다가 몇 퍼센트나 왔는지 확인하고, 그 퍼센트를 bar의 width…]]></description><link>https://sungpaks.github.io/how-to-make-progress-bar-in-gatsby-blog/</link><guid isPermaLink="false">https://sungpaks.github.io/how-to-make-progress-bar-in-gatsby-blog/</guid><pubDate>Sun, 17 Mar 2024 14:24:33 GMT</pubDate><content:encoded>&lt;p&gt;그냥 갑자기 progress bar를 블로그에 추가하고 싶어졌습니다..&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
