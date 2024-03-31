@@ -1,4 +1,118 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 24 Mar 2024 04:24:41 GMT</lastBuildDate><item><title><![CDATA[🛑 자바스크립트의 비동기 작업과 Async/Await]]></title><description><![CDATA[Promise…]]></description><link>https://sungpaks.github.io/javascript-async-await/</link><guid isPermaLink="false">https://sungpaks.github.io/javascript-async-await/</guid><pubDate>Fri, 22 Mar 2024 23:11:07 GMT</pubDate><content:encoded>&lt;p&gt;Promise로 스마트한 비동기 처리를 살펴봤었는데요..&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 31 Mar 2024 05:47:02 GMT</lastBuildDate><item><title><![CDATA[🖇️ 슬랙에서 깃허브 연동하기]]></title><description><![CDATA[팀 내 소통을 위한 툴로 슬랙이 요새 인기인 것 같은데요 보면 볼수록 뭔가 신기하고 편한 기능이 많습니다. 또한 개발자들은 팀 프로젝트같은 것을 할 때면 깃허브를 빼놓을 수 없죠?? Organization이나 Repository를 만들고, Issue…]]></description><link>https://sungpaks.github.io/slack-github-subscribe/</link><guid isPermaLink="false">https://sungpaks.github.io/slack-github-subscribe/</guid><pubDate>Sun, 31 Mar 2024 13:46:58 GMT</pubDate><content:encoded>&lt;p&gt;팀 내 소통을 위한 툴로 슬랙이 요새 인기인 것 같은데요&lt;br&gt;
+보면 볼수록 뭔가 신기하고 편한 기능이 많습니다.&lt;br&gt;
+또한 개발자들은 팀 프로젝트같은 것을 할 때면 깃허브를 빼놓을 수 없죠??&lt;br&gt;
+Organization이나 Repository를 만들고, Issue나 PR을 올리고, .. 등등&lt;br&gt;
+근데 개발자들은 게으르기 때문에 저런 Issue나 PR 확인하러 깃허브 켜기도 귀찮습니다..&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 446px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c5aa8fddf45f286125d1d2ef8b98c79a/6244b/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 25.316455696202528%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAAAsTAAALEwEAmpwYAAABMklEQVR42mP4///foif/ss+frr+w7D+QAwZAxq9fvyIjI69fvw5k//37F04+fPgwLCzs69evQDZD7dM/2ff+l944H3dyfv/tI7///z914kRaetqaNWtCQ0M3b96ck5MTFxe3a9euxYsXh4SELFq0KDo6GkjOnDmTYens/YvWXDp34fTxSx2rj9QBzZsxY6aVldW8efNSUlIsLCymTJlSV1fn6ekZHBx84sSJTZs26evrKyoq3rt3j+Ff59Kvfk3fm5v+XM/4faYa6PCjx457e3s7ODgkJiYmJCTExsYCuWlpaREREYWFhdOnTwdyXV1d586dywC06lX5ktc9NV+fzvwD8uz/u3fvrl69GmjwxYsX379/D7Rq/fr1z549u3Pnzvz58+/fv3/lypVHjx7t3r0bAPEOyOuZbdn1AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;슬랙&quot;
+        title=&quot;&quot;
+        src=&quot;/static/c5aa8fddf45f286125d1d2ef8b98c79a/6244b/image-1.png&quot;
+        srcset=&quot;/static/c5aa8fddf45f286125d1d2ef8b98c79a/c26ae/image-1.png 158w,
+/static/c5aa8fddf45f286125d1d2ef8b98c79a/6bdcf/image-1.png 315w,
+/static/c5aa8fddf45f286125d1d2ef8b98c79a/6244b/image-1.png 446w&quot;
+        sizes=&quot;(max-width: 446px) 100vw, 446px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;따라서 슬랙에서 간단히 깃허브를 연동하여 원하는 레포지토리나 조직의 풀리퀘, 이슈 등을 확인하고&lt;br&gt;
+코멘트를 달고 경우에 따라서는 이슈를 닫는 등의 마무리까지 가능하게 할 수 있습니다.&lt;br&gt;
+매우 간단하니 바로 시작해봅시다&lt;br&gt;
+참고로 Windows 11 기준입니다&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1&gt;슬랙 워크스페이스에 깃허브 앱 추가&lt;/h1&gt;
+&lt;p&gt;먼저 원하는 슬랙 워크스페이스에서&lt;br&gt;
+Slack App Directory로 들어갑시다.&lt;br&gt;
+아래와 같이 들어갈 수 있습니다&lt;/p&gt;
+&lt;img src=&quot;https://i.imgur.com/JX2g6n8.png&quot; alt=&quot;&quot; loading=&quot;lazy&quot; width=&quot;80%&quot;&gt;
+&lt;p&gt;그 다음 검색으로 Github를 입력하고 &lt;strong&gt;&quot;Slack에 추가&quot;&lt;/strong&gt; 버튼을 클릭합니다.&lt;/p&gt;
+&lt;img src=&quot;https://i.imgur.com/LmBYGWr.png&quot; alt=&quot;&quot; loading=&quot;lazy&quot; width=&quot;80%&quot;&gt;
+&lt;p&gt;그럼 아래와 같이 앱이 추가됩니다!&lt;/p&gt;
+&lt;img src=&quot;https://i.imgur.com/fnCOL1B.png&quot; alt=&quot;&quot; loading=&quot;lazy&quot; width=&quot;80%&quot;&gt;
+&lt;p&gt;&lt;strong&gt;&quot;Connect Github account&quot;&lt;/strong&gt; 를 눌러 깃허브 계정을 연결하고, 무슨 코드를 주는데 그거 갖다가 &lt;strong&gt;&quot;Enter code&quot;&lt;/strong&gt; 에 집어넣어줍시다.&lt;br&gt;
+그럼 이렇게 됩니다
+&lt;img src=&quot;https://i.imgur.com/V1eBBVn.png&quot; alt=&quot;&quot; loading=&quot;lazy&quot; width=&quot;80%&quot;&gt;&lt;/p&gt;
+&lt;h1&gt;깃허브 앱을 원하는 채널에 추가하기&lt;/h1&gt;
+&lt;p&gt;이제 슬랙의 원하는 채널(제 경우 &lt;code class=&quot;language-text&quot;&gt;#issues&lt;/code&gt;)에 가서, 해당 채널 상단의 세부정보를 열어봅니다.&lt;/p&gt;
+&lt;img src=&quot;https://i.imgur.com/ZzedSp8.png&quot; alt=&quot;&quot; loading=&quot;lazy&quot; width=&quot;50%&quot;&gt;
+&lt;p&gt;세부정보를 열었다면 &lt;strong&gt;통합 - 앱 - 앱 추가 - 깃허브 선택&lt;/strong&gt;&lt;/p&gt;
+&lt;img src=&quot;https://i.imgur.com/NPO41Um.png&quot; alt=&quot;&quot; loading=&quot;lazy&quot; width=&quot;60%&quot;&gt;
+&lt;p&gt;짜잔&lt;/p&gt;
+&lt;h1&gt;슬랙 채널에서 Github organization/repo 구독하기&lt;/h1&gt;
+&lt;p&gt;이제 해당 채널에서 &lt;code class=&quot;language-text&quot;&gt;/github subscribe owner/repo&lt;/code&gt;와 같이 입력해줍시다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;owner&lt;/code&gt;에는 연결하려는 레포지토리를 가지고 있는 organization이나 유저 이름을&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;repo&lt;/code&gt;에는 레포지토리 이름을 써줍시다&lt;/p&gt;
+&lt;p&gt;그럼 일단 아래와 같은게 나옵니다&lt;/p&gt;
+&lt;img src=&quot;https://i.imgur.com/DfPC9Oq.png&quot; alt=&quot;&quot; loading=&quot;lazy&quot; width=&quot;80%&quot;&gt;
+&lt;p&gt;원하는 &lt;code class=&quot;language-text&quot;&gt;owner&lt;/code&gt;를 선택하면, 아래와 같이 나오는데&lt;/p&gt;
+&lt;img src=&quot;https://i.imgur.com/XU5dlIA.png&quot; alt=&quot;&quot; loading=&quot;lazy&quot; width=&quot;80%&quot;&gt;
+&lt;p&gt;여기서 레포지토리를 고를 수도 있는데,&lt;br&gt;
+방금 만든 organization이라 레포가 없어서 저는 All 선택지밖에 없네요&lt;br&gt;
+사실 제가 원하는게 All이긴 합니다&lt;/p&gt;
+&lt;p&gt;이제 다시 슬랙으로 돌아와서, 커맨드를 다시 입력하면 끝!!&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;/github subscribe owner/repo&lt;/code&gt;&lt;/p&gt;
+&lt;img src=&quot;https://i.imgur.com/CYbtw1s.png&quot; alt=&quot;&quot; loading=&quot;lazy&quot; width=&quot;80%&quot;&gt;
+&lt;p&gt;이 경우 repository를 한정시켜서 테스트했는데&lt;br&gt;
+저처럼 organization 자체를 구독시키고자 하는 경우&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;github subscribe organization&lt;/code&gt;과 같이 그냥 repo를 쓰지 않으면 됩니다&lt;/p&gt;
+&lt;h1&gt;이제 써봅시다&lt;/h1&gt;
+&lt;p&gt;해치웠나? 한 번 이슈를 열어봅시다&lt;/p&gt;
+&lt;img src=&quot;https://i.imgur.com/HiAOmbW.png&quot; alt=&quot;&quot; loading=&quot;lazy&quot; width=&quot;80%&quot;&gt;
+&lt;p&gt;이렇게 깃허브에서 이슈를 열고 슬랙에 가보면..&lt;/p&gt;
+&lt;img src=&quot;https://i.imgur.com/kGT8vGF.png&quot; alt=&quot;&quot; loading=&quot;lazy&quot; width=&quot;80%&quot;&gt;
+&lt;p&gt;이렇게 알림도 받아볼 수 있고 코멘트도 달고.. &lt;code class=&quot;language-text&quot;&gt;Close&lt;/code&gt;도 할 수 있습니다!&lt;br&gt;
+사실 위 화면은 제가 이미 슬랙에서 이슈를 닫아버린 후입니다 ㅋㅋ ㅈㅅ&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;이렇게 마법의 슬랙고둥님을 만들었습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 256px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/527608345d8c8463326493f8414e0926/6f3f2/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEz0lEQVR42gHEBDv7AAkdEwYfExE8IxRAKQIKCQEFBw0qHgYjFgYhGhEwJQcMDQYODw0nHxlAJAwlFhA5MRdePh4+H7K0Ld7YIAAHHA8bLDIwQUMcRDBCWFQ+Q1MrPEdSZWssQEUACgkAAgYFFg0YQyoUSyESLhcSOiUVUTEGIBKPlSff1SMABSEMUl+LtbTxsLHR5t/z5uD25tn0/e7/1cXhgIOikJqxW252GUosCjIUCiEQGEAmDkksFD0it7Aq++siABExEzBGXYGV762q58PA5ujc9ePJ6Ne94vPf+P7w//Tq+uvi+36FnQQWEAwkFxU/LQtKNCFNIsfCKvXnJAASORs/Y2x6nPSPmOG5t+m8r9+9rNvy4vfl2O2wp9eamNKtreZ7e68BIhUXVzYaYTsTVDAMNhuhniDs3CMADS8VXYSXgrL/e5DmmZninZja49b449Dsp6XgiJTle4vc1dX3oJ26IEhMDk4vBzoWDjEXBysccHkfzsklAAgiECI+P22f4m2O73uI5aqy7+zb+L6z53qDwFBhpoCg+Jur5MvG7qez6IaSljhHNhEpGQInFnZ/IM3OKAAKJRoJIxhikcNykPNwgOGnru/czPGyredZbqAqQGpdfbmFp/Z2htx7i9u1uOh8hYg2UzUKOBqspCTVzSAACyYaECcoeqTegq3/ZYLmlqLr18zyqanlXn2tWnqgKkZvXHq2f57ybIHie43eNURPSmNCDDUdlpgj89weABQzIwYfFTBXZGug2WSP74uf587I8K2s5nGIuFl9pFZ3nihAaWaCyI+h+3d9uA4iHFRtSwk3GGV+GvneHgATOSMRNyMJOxJEcoxmlv9ujOywsvG8tOieo9JObpVdgKc6VXlCWpGLpPmfn9cqPjlKaTsOSxR2jh/53hwAFz4mEDMhEUokRXaTmKyzjJOAlp6+sKvjv7XsdIWzUHWaQVyAP1aLj6v6oqLWTmFfe5ZyBkMFlaIp8dkYABU1IxU3JhBPNDpiO8S6Ps29K3R7eZKb6Kul4rSx5GqArCQ+ZVNtqIum9qyp2b7Exc7czj1wPH2JFejSGgAaOicZNyYPRi5KdUeVnjqIjUOamF98iJ6SofOnp+W1suhvd6VgfLiIo/O9uufO187M2sZsiXtHXBDMviQAGkUqGDYkEDEfMF9Ai7Bfl58xopo1Y4bJdZryepPhl57ks7HprbHohp3umqPRcIV2iJWLGEAzQ1sj4M8hABlLKhs/JxU2IBNHK0l8UJfAZZ2lRHqgzX+u/3ek/HGY83SP5pSf5o+Y4aSq5i1DRwMgCRI0J3uIOO3ZIAAUQSYYQy0TNSEZUzMQRCY1XT+Gp0+etFVXfJFbi8Bvo+F4qvx0ovqIofaorPJLW3IHHAdPcHuSrmblywsAFUEYGEUkFT4sF08yF0EqFTMhHD4lnrNMZGkpCjgkIVc6NFlrNV1xUX2ejKz5fIzBRFpegsDbbqCfkaVZABtZFxVOGBNAKhVHLh1HNB1ALxQzIl96N7y5RCI/KhtUKBtCLyRTKSZgGE16hYyu/Yql1F6UmWeZq3W61wAZWRYaUR4YQS4ZRzIbSDYdPzAfPiQiRTC2vEdibTUSSi0mTDcuYjAwcSQgUCY6XXp1lblmiiVIaVSGxuSDexAdsjpQ5AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;마법의 소라고둥님!&quot;
+        title=&quot;&quot;
+        src=&quot;/static/527608345d8c8463326493f8414e0926/6f3f2/image.png&quot;
+        srcset=&quot;/static/527608345d8c8463326493f8414e0926/c26ae/image.png 158w,
+/static/527608345d8c8463326493f8414e0926/6f3f2/image.png 256w&quot;
+        sizes=&quot;(max-width: 256px) 100vw, 256px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;간편한데요?&lt;/p&gt;
+&lt;p&gt;이만 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🛑 자바스크립트의 비동기 작업과 Async/Await]]></title><description><![CDATA[Promise…]]></description><link>https://sungpaks.github.io/javascript-async-await/</link><guid isPermaLink="false">https://sungpaks.github.io/javascript-async-await/</guid><pubDate>Fri, 22 Mar 2024 23:11:07 GMT</pubDate><content:encoded>&lt;p&gt;Promise로 스마트한 비동기 처리를 살펴봤었는데요..&lt;br&gt;
 괜찮은 것 같긴 한데.. 아래와 같은 경우에는 아직도 알아보기 힘든 것 같네요?&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getJohnData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;token comment&quot;&gt;//John의 데이터 가져오기&lt;/span&gt;
