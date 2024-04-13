@@ -1,4 +1,541 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 31 Mar 2024 05:47:02 GMT</lastBuildDate><item><title><![CDATA[🖇️ 슬랙에서 깃허브 연동하기]]></title><description><![CDATA[팀 내 소통을 위한 툴로 슬랙이 요새 인기인 것 같은데요 보면 볼수록 뭔가 신기하고 편한 기능이 많습니다. 또한 개발자들은 팀 프로젝트같은 것을 할 때면 깃허브를 빼놓을 수 없죠?? Organization이나 Repository를 만들고, Issue…]]></description><link>https://sungpaks.github.io/slack-github-subscribe/</link><guid isPermaLink="false">https://sungpaks.github.io/slack-github-subscribe/</guid><pubDate>Sun, 31 Mar 2024 13:46:58 GMT</pubDate><content:encoded>&lt;p&gt;팀 내 소통을 위한 툴로 슬랙이 요새 인기인 것 같은데요&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 13 Apr 2024 08:15:53 GMT</lastBuildDate><item><title><![CDATA[🤼 코드 몇 줄로 Critical Section에 혼자 진입하기 : Mutual Exclusion Software Approach]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/mutual-exclusion-software-approach/</link><guid isPermaLink="false">https://sungpaks.github.io/mutual-exclusion-software-approach/</guid><pubDate>Sat, 13 Apr 2024 13:39:15 GMT</pubDate><content:encoded>&lt;p&gt;옛날에는 프로그램이 오도기합짜세해병이라서&lt;br&gt;
+악! 한번 시작한 프로그램은 영원한 프로그램! 이었으므로 이게 끝나기 전에는 다른 무언가를 할 수 없었습니다&lt;/p&gt;
+&lt;p&gt;이후로 어쩌구 저쩌구.. 역사를 거쳐서&lt;br&gt;
+프로그램을 중단시켰다가 다시 실행시키는 방법이 나왔습니다&lt;br&gt;
+덕분에 프로그램을 &lt;strong&gt;번갈아&lt;/strong&gt; 실행할 수 있게 된건데&lt;br&gt;
+말이 번갈아서 실행하는거지 매우 빠르게 갈아끼우면 사람으로서는 동시에 실행된다고 느끼게 됩니다&lt;br&gt;
+마치 이미지를 주르륵 갈아끼우면 동영상이 되듯이요&lt;br&gt;
+이렇듯 여러 개의 프로그램들을 프로세스라는 단위로 나눈 다음, 줄 세워서 실행하게 되었습니다..&lt;/p&gt;
+&lt;p&gt;게다가 이것으로도 모자라서, CPU를 여러 개 둠으로써 프로세스를 &lt;strong&gt;진짜 동시에&lt;/strong&gt;실행할 수 있게 되었습니다&lt;br&gt;
+그리고 프로세스 안에 일꾼(=스레드)을 여럿 두기도 하게 되었고..&lt;br&gt;
+아무튼 거두절미하고, 이런 이야기는 나중에 또 쓰기로 하고&lt;/p&gt;
+&lt;p&gt;그렇게 일을 동시에들 하니까 또 문제가 생깁니다&lt;/p&gt;
+&lt;h1&gt;동시성 문제&lt;/h1&gt;
+&lt;p&gt;무슨 문제가 발생하나 봅시다&lt;br&gt;
+잔고 0원인 제 통장에 A가 만원, B가 5만원을 입금하려고 하는데&lt;br&gt;
+제 잔고를 확인 --&gt; 잔고 + 만원.&lt;br&gt;
+이렇게 하는 과정을 동시에 한다고 치면..&lt;/p&gt;
+&lt;p&gt;A | 잔고 확인 : 잔고 = 0&lt;div style=&quot;text-align: right&quot;&gt;잔고 확인 : 잔고 = 0 | B&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;A | 잔고 = 잔고(=0) + 10,000 ==&gt; 잔고 = 10,000&lt;div style=&quot;text-align: right&quot;&gt;잔고 = 잔고(=0) + 50,000 ==&gt; 잔고 = 50,000 | B&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;결과적으로 잔고가 50,000이 되었습니다?? &lt;del&gt;뭐야 돌려줘요&lt;/del&gt;&lt;br&gt;
+게다가 이건 매우 운이 좋은 케이스인데,&lt;br&gt;
+위와 반대로 B의 순서가 A보다 앞섰다면 만원과 오만원을 넣었는데 잔고가 만원이 되어버릴 수도 있습니다..&lt;/p&gt;
+&lt;p&gt;이렇게 어떤 공유 데이터를 둘 이상의 프로세스가 읽고 쓰는 작업을 하는데,&lt;br&gt;
+그 순서에 따라 결과가 달라지는 경우를 &lt;strong&gt;Race Condition&lt;/strong&gt;이라고 하고, &lt;br&gt;
+이게 발생하는 부분을 &lt;strong&gt;Critical Section&lt;/strong&gt;(이하 C.S)이라고 부릅니다.&lt;/p&gt;
+&lt;p&gt;흠.. 어떻게 해결할까요?&lt;br&gt;
+A와 B가 (잔고 읽고, 잔고=잔고+금액)을 한 번에 한 명씩만 하면 되겠죠?&lt;br&gt;
+이렇게 한 번에 한 놈만 Critical Section에 들어오라고 하는 것을 &lt;strong&gt;&lt;em&gt;Mutual Exclusion&lt;/em&gt;&lt;/strong&gt;(상호 배제)이라고 합니다.&lt;/p&gt;
+&lt;p&gt;이 상호 배제는&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;소프트웨어로 구현하거나,&lt;/li&gt;
+&lt;li&gt;따로 하드웨어 수준의 instruction으로 구현해버리거나,&lt;/li&gt;
+&lt;li&gt;OS의 동기화 툴을 이용하거나,&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이렇게 크게 세 가지 방법이 있습니다&lt;/p&gt;
+&lt;p&gt;지금 알아볼 것은 소프트웨어 알고리즘을 잘 작성해서 적당히 Mutual Exclusion을 구현하는 방법인데요&lt;br&gt;
+단순한 발상부터 시작해서 총 6개 방법을 알아봅니다&lt;/p&gt;
+&lt;h1&gt;1. 공유 변수 &lt;code class=&quot;language-text&quot;&gt;turn&lt;/code&gt; 사용&lt;/h1&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6e017a5ef7621475beefa7fc527c3d18/d0e73/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 31.645569620253163%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA0ElEQVR42nWRxwrDQAxE9/9/z2Dc8MUFF9wbrhNGoLBJyGFYWfuklcYmTVM4joMwDOG6Lvh93zeO48B5niLGzNV1LYzv+/A8D0VR/LBm33dQTPJkkpDquq6Pxqp/rBnHEX3fg+c0TRIPw4Cu69C2LdZ1lULC8zyjaRrhGJMjr+yyLDBZliEIAkRRJCvxoixL5HkuYqFOUlWVrBvHscRsxrXZg+JDhhdJkkihPb69hnrIx+gxp2Remed5RLIyx9y27W2s7ZNtNmGuT1Y9/+b5U15TzM2wZhyvbQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;#1&quot;
+        title=&quot;&quot;
+        src=&quot;/static/6e017a5ef7621475beefa7fc527c3d18/f058b/image-1.png&quot;
+        srcset=&quot;/static/6e017a5ef7621475beefa7fc527c3d18/c26ae/image-1.png 158w,
+/static/6e017a5ef7621475beefa7fc527c3d18/6bdcf/image-1.png 315w,
+/static/6e017a5ef7621475beefa7fc527c3d18/f058b/image-1.png 630w,
+/static/6e017a5ef7621475beefa7fc527c3d18/d0e73/image-1.png 671w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;마치 카드게임을 하듯이 턴을 정하는 방법입니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;공유 변수인 &lt;code class=&quot;language-text&quot;&gt;turn&lt;/code&gt;을 두고, &lt;code class=&quot;language-text&quot;&gt;turn&lt;/code&gt;값이 0이면 P0가, 1이면 P1가 C.S로 진입합니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;turn&lt;/code&gt;이 상대 차례이면 기다립니다.&lt;/li&gt;
+&lt;li&gt;C.S를 빠져나오면, &lt;code class=&quot;language-text&quot;&gt;turn&lt;/code&gt;을 넘깁니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 487px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/53828edfd9b2dd5782d7538ee4a74b4f/7b439/image-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 148.1012658227848%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;고이즈미 신지로&quot;
+        title=&quot;&quot;
+        src=&quot;/static/53828edfd9b2dd5782d7538ee4a74b4f/7b439/image-3.png&quot;
+        srcset=&quot;/static/53828edfd9b2dd5782d7538ee4a74b4f/c26ae/image-3.png 158w,
+/static/53828edfd9b2dd5782d7538ee4a74b4f/6bdcf/image-3.png 315w,
+/static/53828edfd9b2dd5782d7538ee4a74b4f/7b439/image-3.png 487w&quot;
+        sizes=&quot;(max-width: 487px) 100vw, 487px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이 경우 &lt;em&gt;Mutual Exclusion&lt;/em&gt;은 지켜집니다만..&lt;br&gt;
+C.S를 나와서 &lt;code class=&quot;language-text&quot;&gt;turn&lt;/code&gt;을 상대편으로 넘겨주기 전에 CPU 실행권을 뺏겨버리곤 영영 돌아오지 못한다면?&lt;br&gt;
+다른 프로세스는 C.S에 진입한다는 현실에 도달하지 못합니다..&lt;/p&gt;
+&lt;p&gt;게다가 이게 진짜 공평한 턴제라서, C.S로의 진입은 무조건 같은 횟수만큼 &lt;em&gt;번갈아서&lt;/em&gt; 진입할 수 있습니다.&lt;br&gt;
+문제는 C.S로의 진입을 P0는 10번만 하고 싶을 수도 있고, 반면 P1는 100번 들어가고 싶을 수도 있습니다..&lt;br&gt;
+이 &lt;strong&gt;무조건 번갈아서 들어갈 수 있다&lt;/strong&gt;라는 것은 매우 큰 단점이 되기 때문에, 다음 방법이 등장합니다&lt;/p&gt;
+&lt;h1&gt;2. 공유 변수 &lt;code class=&quot;language-text&quot;&gt;flag[2]&lt;/code&gt; 사용 (1) : 나 들어왔어&lt;/h1&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/da08f54f199406306508a0e1d8944a50/af192/image-7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 34.177215189873415%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA7ElEQVR42nWR16qGMBCE8/5PZ8eCHRvYe2V/ZkHxCOdiiInfbnYmwjAMMk2TZVkWbdtG+76zjuN4dJ4nJUlCmqYxp6oq5XlO13U9NeDENE00jiNrnmcuBATh+90UhW8e+y8r+r6nYRhYgLuuo6ZpqG1bWtf1T8Obe+vmsS7LQkKSJLJtmy2UZUlFUVAcxxRFEeEy3Aw7mML3feYQD9aqqpgHC6Gp0HWdgiAg13X5J2zfNr4ZZllG4MMwJM/zeICbfyzLsswTImxMBuC/R0nTlBRFIcdxeELsv7yo65qzgj0cfh/i3fDO6+Zx9uV/BZgVgMwIc54AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;#2&quot;
+        title=&quot;&quot;
+        src=&quot;/static/da08f54f199406306508a0e1d8944a50/f058b/image-7.png&quot;
+        srcset=&quot;/static/da08f54f199406306508a0e1d8944a50/c26ae/image-7.png 158w,
+/static/da08f54f199406306508a0e1d8944a50/6bdcf/image-7.png 315w,
+/static/da08f54f199406306508a0e1d8944a50/f058b/image-7.png 630w,
+/static/da08f54f199406306508a0e1d8944a50/af192/image-7.png 645w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;턴제가 아닌, 공유 변수 &lt;code class=&quot;language-text&quot;&gt;flag[]&lt;/code&gt;를 사용하여 &lt;em&gt;C.S에 진입헀는지 여부&lt;/em&gt;를 표현합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;flag[1] == true&lt;/code&gt;이면 P1이 C.S에 진입했다는 의미이므로 P0는 기다림.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;flag[1] == false&lt;/code&gt;라서 P0가 C.S에 들어가도 괜찮은 경우, &lt;code class=&quot;language-text&quot;&gt;flag[0] = true&lt;/code&gt;로 &quot;나 C.S 들어간다&quot;를 표현&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 474px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/48f04c94b8c5c8352f096a2ad107300c/5595f/image-6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVR42gGfAmD9ADA9R01TTlxfUUlFSUNJUEBJT0NKUTE6RC8+SDlLViIuOQwVHA0WHBQeJicyOD5NUUlbYFhqb1RmbEVZXgAwPkplaFuCfV9zYlxybm1sbGl1cW89RU4xQks6TVUVIisRFx4hJiwdISkRGyUhLjY8VVZfgX5bgn1JcWsAMj5HMT5JLzxJLTtFKjdCKzhEKDQ+JjI6NEFIISs1JSYtVkxMZFdTaFlXSkVJFBsnOEZFb5J5a5NyYoJ0AD1GUTlETzI9Sik0PycyPR8pMhoiKxkgKB8pMxoeJ0xHSHBjXoVxaXlmYYRycUdDTUZgUXumd3ebbH6djgDQ293J19m9yc+4xs5ATlcOFR0UGyMRGSENFBwaHyZDQUZbXFpybGhbW1pjc3NZW2JHYVdfhGhsiX1ljoYA1vz8u/j/r+b8ia/CMEBHIC0zJDE3HCctFh8mMDA2eXRugYF4Zmhign94e4eBT1NdOU9Yf5aVpsTGm7m5AICep6/W63ycsg8aIyg1OjFBRDBERys9Qh8rMlNMS5B8dIp2cJR/d5aDfp+Mh391fSEyQl5xfI+yxKjf9QBATVOgvM2HobFgaXByc3R8fn9UXGFhaW1laW80NDqIcWyPdHGSdnWsj4enkIp1fIooPU8tPUphgptij68ALDk9N0VRNENMMj0/OT5CLDE5eXpnb3NfbG9gaGVUi4BvfWllgm90nIyIlYmGcH2GW2x6Fyg2gJailJ+qABgiJxYfJhgjKRknKxMjJxYfJIRWK3lRLXtYL5BuQoJiOnVfTXp3ent3d317fYB/f251fCA0Q1hqc/P39wAcJi0iMTcoOT4nNj0jMjkjMDYmJi8kJS8iJy8oKC9uW1JsW1JrX1l4cHBPYnYsO0VVc39CW2sdMT6DqbURwujdYmr7OQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;기다려 무도&quot;
+        title=&quot;&quot;
+        src=&quot;/static/48f04c94b8c5c8352f096a2ad107300c/5595f/image-6.png&quot;
+        srcset=&quot;/static/48f04c94b8c5c8352f096a2ad107300c/c26ae/image-6.png 158w,
+/static/48f04c94b8c5c8352f096a2ad107300c/6bdcf/image-6.png 315w,
+/static/48f04c94b8c5c8352f096a2ad107300c/5595f/image-6.png 474w&quot;
+        sizes=&quot;(max-width: 474px) 100vw, 474px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이러면 상대편이 C.S에 관심이 없다면(&lt;code class=&quot;language-text&quot;&gt;flag == false&lt;/code&gt;), 내가 원할 때마다 계속 C.S에 진입할 수 있습니다.&lt;br&gt;
+이전처럼 꼭 진입의 균형을 수호하지 않아도 됩니다 !&lt;/p&gt;
+&lt;p&gt;그런데 &lt;em&gt;Mutual Exclusion&lt;/em&gt;을 보장하지 못합니다??&lt;br&gt;
+양 옆의 코드 한 줄 한 줄마다 계속 차례가 넘어간다고 생각해봅시다..&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;P0가 &lt;code class=&quot;language-text&quot;&gt;flag[1] == false&lt;/code&gt;임을 확인하고 &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;을 탈출&lt;/li&gt;
+&lt;li&gt;P1가 &lt;code class=&quot;language-text&quot;&gt;flag[0] == false&lt;/code&gt;임을 확인하고 `while을 탈출&lt;/li&gt;
+&lt;li&gt;P0는 &lt;code class=&quot;language-text&quot;&gt;flag[0] = true&lt;/code&gt;로 올리고, C.S 진입&lt;/li&gt;
+&lt;li&gt;P1도 &lt;code class=&quot;language-text&quot;&gt;flag[1] = true&lt;/code&gt;로 올리고, C.S 진입&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;C.S에 동시에 진입할 수 있게 되어버립니다..&lt;br&gt;
+근데 여기서 &lt;code class=&quot;language-text&quot;&gt;flag[] = true&lt;/code&gt;로 켜는 명령줄 위치를 바꿔주면 떔빵이 가능합니다.&lt;br&gt;
+그게 바로&lt;/p&gt;
+&lt;h1&gt;3. 공유 변수 &lt;code class=&quot;language-text&quot;&gt;flag[2]&lt;/code&gt; 사용 (2) : 나 들어갈거야&lt;/h1&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/32248180c0e0250d082a8fea7b63240d/a1253/image-8.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 35.44303797468354%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA70lEQVR42nWR16qEYAyEff+HEy/siliwYe9iyzKBLGeXPReDP/HLpClxHJNt2+S6LlmWRVmW0X3fdJ7nhxAbx5FM0yTHcVhJktB1XR+csu87retKy7Kw8D6Og/Vtith/rEgZhoGgbdsYep6Hu5GvmKETGPR9/2YRFw4CowRBQJqmked5PDbM27alsiw5WTpFQtd1pKoq+b5PhmFQ0zTM13VNVVVxEaUoCt6Lruu8Fxinacq7hPFfw2ma+D9Y4cMwJHjkeU7zPJOCxaKaHAdVvkeGKd7oBkZRFDGLzmTc98jYCw4jiXK1X0eRA/5ihX8BTroWajO8wTwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;#3&quot;
+        title=&quot;&quot;
+        src=&quot;/static/32248180c0e0250d082a8fea7b63240d/f058b/image-8.png&quot;
+        srcset=&quot;/static/32248180c0e0250d082a8fea7b63240d/c26ae/image-8.png 158w,
+/static/32248180c0e0250d082a8fea7b63240d/6bdcf/image-8.png 315w,
+/static/32248180c0e0250d082a8fea7b63240d/f058b/image-8.png 630w,
+/static/32248180c0e0250d082a8fea7b63240d/a1253/image-8.png 657w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;직전에 먼저 &lt;code class=&quot;language-text&quot;&gt;flag&lt;/code&gt;값을 &lt;code class=&quot;language-text&quot;&gt;true&lt;/code&gt;로 올리도록 순서를 살짝 바꾸어서&lt;br&gt;
+이제 &lt;code class=&quot;language-text&quot;&gt;flag[1]&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;flag[0]&lt;/code&gt;을 마치 &lt;em&gt;C.S에 들어가기 위한 의사 표현&lt;/em&gt;으로 사용하게 됩니다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;먼저 &lt;code class=&quot;language-text&quot;&gt;flag[0] = true&lt;/code&gt;로 놓고 &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;로 기다리다가,&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;flag[1] == false&lt;/code&gt;이면 C.S로 진입&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이러면 일단 P0가 &lt;code class=&quot;language-text&quot;&gt;flag[0] = true&lt;/code&gt;를 켜고 나면, P1은 P0가 C.S를 빠져나오기 전까지 그 어디서도 &lt;code class=&quot;language-text&quot;&gt;flag[0] == false&lt;/code&gt;임을 확인할 수 없으며,&lt;br&gt;
+P1이 P0의 &lt;code class=&quot;language-text&quot;&gt;flag[0] = true&lt;/code&gt;직전에 CPU 사용권을 잡아채서 한 줄이라도 실행했다면, P0가 C.S에 진입하는 것이 성립하지 않습니다&lt;/p&gt;
+&lt;p&gt;이로써 &lt;em&gt;Mutual Exclusion&lt;/em&gt;을 보장할 수 있게 되었는데, 새로운 문제가 발생합니다 :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;P0가 &lt;code class=&quot;language-text&quot;&gt;flag[0]=true&lt;/code&gt;, CPU 사용권 뺏김&lt;/li&gt;
+&lt;li&gt;P1가 &lt;code class=&quot;language-text&quot;&gt;flag[1]=true&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;flag[0]==true&lt;/code&gt;인 것을 보고 기다림&lt;/li&gt;
+&lt;li&gt;P0는 &lt;code class=&quot;language-text&quot;&gt;flag[1]==true&lt;/code&gt;인 것을 보고 기다림&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이렇게 서로가 서로의 &lt;code class=&quot;language-text&quot;&gt;flag==true&lt;/code&gt;를 확인하고 무작정 기다립니다.&lt;br&gt;
+한 치의 양보 없이 그저 상대편이 &lt;code class=&quot;language-text&quot;&gt;flag=false&lt;/code&gt; 해주기를 기다릴 뿐입니다..&lt;br&gt;
+이렇게 서로 버티는 상황을 &lt;strong&gt;Deadlock&lt;/strong&gt;이라고 합니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 189px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5d2d7732f419e3332c13e1e3aa3beded/0f8c7/image-9.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 141.13924050632912%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAcCAIAAADuuAg3AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEXklEQVR42k2U2Sv8XxjHjz0RSblRspZIKVeEP4Ebblxw5dKNC6REieRGuJEtO8Vg7Ps2I9vY94x9HXyZsc9Yvr/XZ843/c7FZ86c8yzv5/28nyN2dnbGxsZOrSs2NtbGxsbd3d3Dw4NNVlbWycmJXq+/ubnZ29vTLeu0Gu3a2hr78/Pz6elpcXBwMDQ0dHd3l52dLYSwtbXliydfNzc3nU5H0L/W9f7+fqDXPxqNb29vl5eXtbW14uPjg2DX19eZmZk4BAcHJyQkJCYm+vr6urq6arXazs5O8lssFmxeX19loM/Pz/r6esHu/v5+dnZWo9Hk5+c3NjZubGysrq4WFxfX1NQsLi42NzeD/Pj4eH9/32wxG02ml5cXvBTY1MOdWq0mw+HhIafz8/NbW1uPj49cs5+YmJiZmdnc3MT/9va2paWlp6cHM84FRpSNZ11dnTwlw8PDw/LyMuUYjUa4oULCERqMHR0dYMQMpgTUTU1NERi08fHxuJ2dneFTUlKysLAAQkolAYxS+fDwMHVNTk4Spbe3V2DNDgeYq6ioaGpqInZra2tVVdXz8zM+JpPpj3XRVNLAP2nAPzIyIr6/v5+engB2cXFBku7u7vb2diiYm5vjr8FgIDmeYKa6r68vyTa00wglM5wRniQUSRTQ7u7uEp4T6U8e2AId9dMk0tCO7e1tATaSy3hQJSVxY11sfn5+KIecmJGA0JSNG+EwFkdHRxiZzWZCYio3wOOLpLiiyOTkZEQCi4QgEIgQGUyLoqIimeHv/9aPdUlEqA2pQTURqZGIgJcNFmFhYShpfX2dgkGCYDilPIQxODhYWVnp5OSEbMvLy2U55JQsKrAjIiKEdcXExNAz+gGT1Obv78+hnZ2dp6cnm7i4OJxJDn66Q/2oSERGRtrb23Pt4ODQ398voaakpMjZcnFxCQwMZM+cXF1d0TNCE4LMEC6ioqJ+J1GlUuFZWloqc/J1dnZmtr28vKhCMg/PEIaZ0irpzEpLS+OIeIzx70gDB3+UJzHLLzUTSCEsOjoaIz8/P0jijmH+TSv9vb29ERPCADCNZAN+KodaER4ejkVBQQHscwEYxoMTR0dHGSIoKKjdulAuskP2qBr8CFa549EijALpWwF2YzD4+Pj85g8JCSkrK6Nn6enpjFpSUlJubi5mCuzU1NSMjAxJMpV8WTfMFqYMVkNDAz1DSESnsSsrK+Pj45AntSz6+vr4OTk9nZme5mJgYIC/yBBWcFhaWiJ0YWEhIkUFFI8qeRj+OdNr/kAGduSZ0Wju/9wjQ4qHeZQIkWimq6uLUeOQBHwRCc+boGk8I4gOI966uYV5ojKJHHJCNot1jY6O8tZCFU8FCqFMRWFyngnRrVb39PZ0dnXBJJghVtYm20sj2traqqur4Zyx5VBpFTuwoTvGymyxcAoKUOXk5AQEBMiplHQCh2cI8dOkf62Ss85DgZscTCokXGhoKH3Ky8uTztKf/PIxI4FKpfoP1Ni+ngWUnm8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;서로 죽여라&quot;
+        title=&quot;&quot;
+        src=&quot;/static/5d2d7732f419e3332c13e1e3aa3beded/0f8c7/image-9.png&quot;
+        srcset=&quot;/static/5d2d7732f419e3332c13e1e3aa3beded/c26ae/image-9.png 158w,
+/static/5d2d7732f419e3332c13e1e3aa3beded/0f8c7/image-9.png 189w&quot;
+        sizes=&quot;(max-width: 189px) 100vw, 189px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그럼 서로 좀 양보하고 그러면 어떨까요?&lt;/p&gt;
+&lt;h1&gt;4. 공유 변수 `flag[2] 사용 (3) : 양보&lt;/h1&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 573px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/64bbe71218cf43ea31f20e3eff1287bb/3c024/image-10.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 58.22784810126582%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA7DAAAOwwHHb6hkAAABQklEQVR42o2S6a6CUAyEef93Y9OIImIMIZoobiAuLPbma3IIdxHujyYnaWfOzLSW7/sSBIEsFguZTqeyWq2kbVupqkrquv5VTdPIer0WcPP5XJbLpcxms27eOp1Ocrlc5Hw+a+V5/idRv4qiEHB9bEf4fr+lX6gbI6Q+YazJZCJJkshut5M0TdXSEBF9YiGm/X6v2LIsO5zluq7mRyZkeL/fP5JiCzVRFInneZqhbdtK2hFuNhtxHEfiONZfUTlkG+D1elUBYMxSns+n9qzD4dA1j8ejvF6vUcuAsY2j7XarlruloAjbyKayLBs9m9vtpqogBf/NMidAbhA8Hg/9bUglc5yKmaN4o5qeZshSCDoMQz1abnFo29hkniJDlHIlkFpsC1JDbML9REYcfMq5QcKmTUxqGYK+nf8cNRGZPH/ivgDhlJRIYtdk2QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;#4&quot;
+        title=&quot;&quot;
+        src=&quot;/static/64bbe71218cf43ea31f20e3eff1287bb/3c024/image-10.png&quot;
+        srcset=&quot;/static/64bbe71218cf43ea31f20e3eff1287bb/c26ae/image-10.png 158w,
+/static/64bbe71218cf43ea31f20e3eff1287bb/6bdcf/image-10.png 315w,
+/static/64bbe71218cf43ea31f20e3eff1287bb/3c024/image-10.png 573w&quot;
+        sizes=&quot;(max-width: 573px) 100vw, 573px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;말 그대로 아까 코드에서 양보룰을 추가했습니다.
+이제 아래와 같은 동작을 반복합니다 :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;P0가 C.S에 진입하려는데 &lt;code class=&quot;language-text&quot;&gt;flag[1] == true&lt;/code&gt;인 경우, &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;로 진입하되&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;내에서 &lt;code class=&quot;language-text&quot;&gt;flag[0]=false&lt;/code&gt;로 양보하고 잠깐 기다림(delay).&lt;/li&gt;
+&lt;li&gt;잠깐 기다린 후 다시 &lt;code class=&quot;language-text&quot;&gt;flag[0]=true&lt;/code&gt;로 놓고, `flag[1]을 재차 확인&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이전과 동일하게 &lt;em&gt;Mutual Exclusion&lt;/em&gt;은 보장되며, 양보로 인해 &lt;strong&gt;Deadlock&lt;/strong&gt;은 발생하지 않게 되었습니다.&lt;br&gt;
+그러나 과유불급이라고 했나요.. 무작정 양보하기 때문에 또 새로운 문제인 &lt;strong&gt;Livelock&lt;/strong&gt;이 발생해버립니다&lt;br&gt;
+둘 다 &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;에서 서로의 의사를 확인하고 &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;문 내부로 진입한 경우,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;P0가 양보 (&lt;code class=&quot;language-text&quot;&gt;flag[0]=false&lt;/code&gt;), 기다리다가 CPU 사용권 뺏김&lt;/li&gt;
+&lt;li&gt;P1가 양보 (&lt;code class=&quot;language-text&quot;&gt;flag[1]=false&lt;/code&gt;), 기다리다가 CPU 사용권 뺏김&lt;/li&gt;
+&lt;li&gt;P0가 다시 &lt;code class=&quot;language-text&quot;&gt;flag[0] = true&lt;/code&gt; 하자마자 CPU 사용권 뺏김&lt;/li&gt;
+&lt;li&gt;P1이 다시 &lt;code class=&quot;language-text&quot;&gt;flag[1] = true&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 225px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEjklEQVR42g3OCVdhCwAA4Psz3zabRmpKmxCXIhXZ2kSJkAxFzA3JKEPJWBqi1Nh3175T3rwz8+ac7wd8QOo7zWahy/ZpbAYuGdm5tDC/OuW/fgXyOUM0rKmWxc9dQbMqbNcF/a7ouQ/1e/JuS9SoGbotC9Cqrnqc9MNDyuw0wghRT1SzaiXZfM74bGaeaukP31g/e/J+TdlvHvWax72GplsTd5vCXvug11QBzTT4o06MPZCnJl7B8VX8zD9i/qjfSYWOJ9pFsJ4n9Ou4fgPbb5K7rdVeW/rSM/Wq+m5O20ppgFaB3S4uV3ICn3dz0Dn0eTixJ+aNlVzK0+DsfDFH6bfpvTbjpbP748Xy78Baj8pzVlbhkpkycoF2eatVFg5arNubZaUSD53gHTYGHjt8qlsxQJxTHcN8xrq5IP58Xk9HhUn3JnxBKZpoZQszdcoBmjlMu8x7rjDDvjmnFeu2Yby22V3ebK2kfgyIP2morTq/ArM75bVbw7pDxXxUk4t6Ula3GD5hAfX4UCOH6ZQ2O3mwkZke1Gfa8Dyc2P7vZeOlzR50WIM6p108LAVkHWgxq2aE5diCcS6hJsW1DKCeQDQzqE6F0yqtPzdW775idCLa1dFes6wfvBgGfUUvwqtY+TWPvHECVg8IsBZf0BMjKtKTchmoZfktmN+qyHoNdbsqhw62IqbNsoaYv1p76Ut68H7UvpO+2M37TsOHlDvZgolPiZ6QoipSQLHyu01p5IltGOxVyM0CtuDC1i7wWSmq5FjoV7jlANeu5pzJ9txGqXmffqlgX+m4nw/oHhHoly4CpSd0JfrbWCM62kmB5UscfIyJi9GdzM5zhptyk5w6ilc3F75m3ZvW/NoVL7QiZc3rtqgFjxhIXk3Ct5jCzWTWRYOLSR+PacGNm6ZGrj9pgsFI2jJfNI8372eyXnJEM185mlEtzaD+QtHmEN3GFuDYGb3Xg60Y/dHIMZy5rr741UNoiAAapYIvenFcN5VXTiQNmNC1wCpZE04jd9hcPBqPQ75qRAWAd23YvDIUM2ACpDfKKQy0J7vdxsS9UCmuqDy8Lz4OFz2IhGNJq4SWZieMh8Rz6Hzkz3dX0HgjQgWett8/7SIv2WNuidBIYx8TcWEeIiZBPVip8MNIMTRaDqNyMf48Yf2Ag/6Rp7kuuItT4IVopPqEBQKCoYhixMp5+1l1cPMt5by2B93XSZc0+GU1HxaUInt530bWvaVngA7hYj0iqYZXAx/Jd5JZOAgCvg3EoxwZ2H2nXhiTCaRBCyMef7CaDr3HqPT1WNpOShjGggrk/cFwGBpN23CxsyUPbzJuWsj7dgAb85Wdj3QLURL88Ef2ePoGcef3qCSKqOOPUmQ8ZceGLUMxx5uk923mFplxo9JXw2nXRC64kQiJgUs2wshH88EPjBGU/Wis8n3asrvquiCUE8u2ne0nIyEbwqbvwJwfzHzDp29nUn5CLrybjYrSjyBwvvi3U/BBMT+6j0fp18f9WvQN9bVPif7u3tdhN+/NzEKMlQysp0P8TGgjG+JlI6pMWBQLTGYfcf8DfZ1JyAcoMtEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;형님먼저 아우먼저&quot;
+        title=&quot;&quot;
+        src=&quot;/static/46ecb893e87ea183cf2bf50afcb13a4f/3684f/image-11.png&quot;
+        srcset=&quot;/static/46ecb893e87ea183cf2bf50afcb13a4f/c26ae/image-11.png 158w,
+/static/46ecb893e87ea183cf2bf50afcb13a4f/3684f/image-11.png 225w&quot;
+        sizes=&quot;(max-width: 225px) 100vw, 225px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;a href=&quot;https://www.melon.com/album/music.htm?albumId=10100122&quot;&gt;출처&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;이런 과정을 반복해버리면 서로가 서로를 양보하다가 Livelock 사태가 벌어지고 맙니다..&lt;br&gt;
+이 경우 딜레이를 줄이거나 아예 없애도 Livelock 문제를 완전히 해결할 수가 없습니다&lt;/p&gt;
+&lt;p&gt;장난 그만 하고 진짜 문제없는 알고리즘을 살펴보도록 합시다&lt;br&gt;
+앞으로 두 개의 실명제 알고리즘이 나오는데&lt;br&gt;
+&apos;이름이 붙었다는 것은 강하다는 것&apos;&lt;br&gt;
+과 같습니다&lt;/p&gt;
+&lt;h1&gt;5. Dekker&apos;s Algorithm&lt;/h1&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/24b7bf7bed3febe422869f67648980f6/e9beb/image-12.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 84.81012658227847%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAA7DAAAOwwHHb6hkAAABlElEQVR42pWUCY+CQAyF+f+/zigxUUEUFe8LPAGp+ZqUqDu4uyYj1+vr62tnvPl8LsPhUMbjsa6iKJyrLEtd3Od53ojzJpOJdLtdOR6PcrvdGsHX61XSNFWMETsJl8uldDodmc1mGvB4PN4AJODdfr8X3/cljmO9byQk22AwUFKum83GSVpVlSZtt9vS7/dlsVi4CQkGCGGv15PpdCr8XCq3262qBEfy+/3+o3zPAgAEQSBRFMl6va6JbPEMKY0DCy5JkjcMy+OPLHS61WppAIrxFrWj0UhOp1NNSKngwINjSiAmAXapQqTzEoLVaqXNIQkd5dtrSainMSQ8HA6KA2MTogohsABUuMaCd1mWaaBhXptnMUqIVORTGqDPWTRbdrudVoEyuu6aWR0bfAvD8K0MV5fxj5HBN8hdlaiH+AchXcbDpuGmEtum+PiJU0LKND9sfWbm+Xw+6/azb03bz8M71NF2ysX0y+Xi3MvfDoWakA4z/ZRNKYwFB8Zvh8BXQpt8TG8y+8+EzBaknCDcu8r9D+ETMAYekiHR8mgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;#5&quot;
+        title=&quot;&quot;
+        src=&quot;/static/24b7bf7bed3febe422869f67648980f6/f058b/image-12.png&quot;
+        srcset=&quot;/static/24b7bf7bed3febe422869f67648980f6/c26ae/image-12.png 158w,
+/static/24b7bf7bed3febe422869f67648980f6/6bdcf/image-12.png 315w,
+/static/24b7bf7bed3febe422869f67648980f6/f058b/image-12.png 630w,
+/static/24b7bf7bed3febe422869f67648980f6/e9beb/image-12.png 730w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;각자의 의사 표현인 &lt;code class=&quot;language-text&quot;&gt;flag[2]&lt;/code&gt;만으로는 문제를 해결할 수 없어서, &lt;code class=&quot;language-text&quot;&gt;turn&lt;/code&gt;까지 도입합니다&lt;br&gt;
+P0과 P1 함수에서 막 &lt;code class=&quot;language-text&quot;&gt;while(true)&lt;/code&gt;로 C.S와 non-C.S를 무한반복하는 것 처럼 보이는데,&lt;br&gt;
+그냥 프로그램은 C.S와 non-C.S의 반복적으로 나온다는 것을 간단히 보이기 위한 장치니까 신경쓰지 않아도 됩니다&lt;br&gt;
+아무튼 중요한건 이전의 알고리즘에서 &lt;code class=&quot;language-text&quot;&gt;if(turn==1)&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;while (turn ==1)&lt;/code&gt;이 추가되었다는 점입니다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;P0는 &lt;code class=&quot;language-text&quot;&gt;flag[1]==true&lt;/code&gt;이면 &lt;code class=&quot;language-text&quot;&gt;turn&lt;/code&gt;을 확인합니다&lt;/li&gt;
+&lt;li&gt;P0가 보니까 &lt;code class=&quot;language-text&quot;&gt;turn == 1&lt;/code&gt;인 경우,
+&lt;ul&gt;
+&lt;li&gt;내 차례가 아니니까 &lt;code class=&quot;language-text&quot;&gt;flag[0]=false&lt;/code&gt;로 양보하고 기다립니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;turn==0&lt;/code&gt;이 되면 이제 그만 기다리고, &lt;code class=&quot;language-text&quot;&gt;flag[0]=true&lt;/code&gt;로 다시 올립니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;P0가 보니까 &lt;code class=&quot;language-text&quot;&gt;turn == 0&lt;/code&gt;인 경우,
+&lt;ul&gt;
+&lt;li&gt;내 차례니까 상대편이 &lt;code class=&quot;language-text&quot;&gt;flag[1]=false&lt;/code&gt;로 양보하기를 기다립니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;flag[1] == false&lt;/code&gt;가 되면 C.S로 진입하고, 끝나면 &lt;code class=&quot;language-text&quot;&gt;turn&lt;/code&gt;을 넘기고 &lt;code class=&quot;language-text&quot;&gt;flag[0]&lt;/code&gt;을 내립니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이렇게, 현재 &lt;em&gt;내 턴이면 버티고 내 턴이 아니면 양보&lt;/em&gt;하도록 하여 Deadlock과 Livelock 문제를 모두 해결합니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 261px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d7bdf9ee4a23115149b95782b2f3a67b/edf96/image-14.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 74.0506329113924%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADc0lEQVR42g2T6WscdRzG5x/wgEIRQV8JfSFFUKm0BdFGi63QGPIiNQltCKsmTeb6zbFX9pxr59jZe2evmdnJ7OyRNEdTSNOgOQqhxKZKTNvETbfWkvpC/wkHPm8fni98Pw/E64At41ENC+Sm/dmpQGE6rMEuTA1lDCTVotQ2JbcpwcLjFTiuI6yBxKsoq5OcTkCyCYQaGdGwmSIScinBsdJUrAJ7055IYvzb785fuPTRtZEv6cRN1Qa8gXI6Gq/irI6LJgGpdUqq0WwZRDU0oqHxEsJUYMXCh/ovsJ6BBXbyxlefnXn39Km33xoY7lNn3TzG6oRoUlKdglTTJxtevgKYIsKUcLaCM9r0ghnYd7jwjStHt4XXa5kF4dbYlYvvnT41+uPVTIvmdCC4YYuG0qZfMdxmjNHQWBnNlLBfrMhDPZwjRu9nwNMOl5gYoL6/TAx9PTlw6cwH78fy07JFJOogMUtCGSug6l6xQnBlTNXwnXr8sCUdtMRlAX5YnTmaE5Pw8N0U2MhTSXjonTff+Ml7PdMMyKY32fBBWdunml6pRjJlzKkGnzTlgzmlu5A8WUmdLKdeLijLAmIGx3tL6q4ZyWIjdoFQTEI2KcXyu81+1fIlqiBewbQy/Ycj7uT9WwrozkkvF9VXd1L/rmb/W80fz8t/zsv/3Cvsd6S0AaQ6KVleKO+EfPJUNI/JBi3UcLsaqHgGGz/0Hzlc77Z43GKP21y3LR4vpg86wmFH3HTiQgmNFYFYp6FCMyzrtFzzKaaPL6NLq7Xff+4Yg+ea/eca33y4NNK3KUzsWsKLZzuPt+dtK5ixKL4KgmlYdF9VaEZyzkzK8ksmLVTAyrr56I5ue/of362vRae289FNxvNsY+6v3qNX3V8by6pk4mnbn5ylFZuECk4wYweTdZ9oUO7laTtkSvheO3Nyst998qD32/p9evjF/lbv6fbr53srq5psAWnWtRUoDQoqtoJp2yubNK+TkkFLNXzw+q28mNvbWfu7u3u4Pb/FTzw/2l2/t7ixYZecGcWihDrgTIy3AJRzXFcAV8WYCuCrBJ/Db07SZy+So2PhUEQS42w2GiJ9yfFJb6JAijrhWskZOGOiLlDaIeQ6ztXwSAmJaDBbxHkFiSGBa0Pkp33o2fP+j7+IffJ5YAyhUq5Y7oos4HZy7sgM+H8s8OkWLGQ9UgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;봐준다&quot;
+        title=&quot;&quot;
+        src=&quot;/static/d7bdf9ee4a23115149b95782b2f3a67b/edf96/image-14.png&quot;
+        srcset=&quot;/static/d7bdf9ee4a23115149b95782b2f3a67b/c26ae/image-14.png 158w,
+/static/d7bdf9ee4a23115149b95782b2f3a67b/edf96/image-14.png 261w&quot;
+        sizes=&quot;(max-width: 261px) 100vw, 261px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;또한 이전에 발생했던, 강제로 턴을 기다리는 상황 또는 &lt;em&gt;Mutual Exclusion&lt;/em&gt;이 보장되지 않는 상황 또한 일어나지 않습니다.&lt;/p&gt;
+&lt;p&gt;아 근데 좀.. 길지 않나요?&lt;br&gt;
+더 짧게도 가능한 방법이 있습니다&lt;/p&gt;
+&lt;h1&gt;6. Peterson&apos;s Algorithm&lt;/h1&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/eef2dd4a431e8f2624e00339c9ea3c1d/be86f/image-13.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 74.68354430379746%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABfElEQVR42p2Th4rDMBBE9f8fF+IU0u303nuf4y3IODk7x8UgbKTd2Smym06nqtVqarfb9l6tVno8Hrper7rdbi/rfr/r+Xza+/3MLzccDlUsFgUwIJfLJbP4fD5ru93qeDxmgjoYlctldbtdrddrA00rZu9wOKharSoMQy2XSwNGzQsgG1EUKQgCk9zv92PAJDCDqEVJPp+3WvpgnRzq8IQiJsNwt9vFsnknvaRhv9+rXq9rMBhos9nEgN4uYzifz1WpVFQoFFQqlex7PB5rsVjEfnkrkA0gdblczph2Oh3NZjOzwfkiwiFpJsOYyWlewoLzVqtlPSxUxR4iGTaw4pBvmrKCoRl7CHEymfxK3HmjfVGz2dTpdPqYNDKpRTq+J++tgw0AbCYTS7vYnBMKwD6498EOI1lMgj4WAP5+v2jk/NPFN0CAuFdIbjQa5iOJjUajj79YJiDSCIR0AcJPfi8G/RfMAJGBuaxer2fMMJ4nzcc/AWmm8ZvmNMAfIa2C/hdN76wAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;#6&quot;
+        title=&quot;&quot;
+        src=&quot;/static/eef2dd4a431e8f2624e00339c9ea3c1d/f058b/image-13.png&quot;
+        srcset=&quot;/static/eef2dd4a431e8f2624e00339c9ea3c1d/c26ae/image-13.png 158w,
+/static/eef2dd4a431e8f2624e00339c9ea3c1d/6bdcf/image-13.png 315w,
+/static/eef2dd4a431e8f2624e00339c9ea3c1d/f058b/image-13.png 630w,
+/static/eef2dd4a431e8f2624e00339c9ea3c1d/be86f/image-13.png 662w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;데커 알고리즘에서는 &lt;code class=&quot;language-text&quot;&gt;turn&lt;/code&gt;을 C.S가 끝나고서야 반납했으나,&lt;br&gt;
+피터슨 알고리즘에서는 &lt;code class=&quot;language-text&quot;&gt;turn&lt;/code&gt;을 초장에 양보합니다.&lt;br&gt;
+이 차이로 인해 전체 코드의 길이가 반으로 줄어버립니다!!&lt;br&gt;
+software-approach라는 말은 매번 이 코드를 직접 작성해야 한다는 뜻이라서, 짧고 단순할 수록 당연히 장점이 됩니다.&lt;/p&gt;
+&lt;p&gt;아무튼 이 알고리즘은&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;P0가 C.S에 들어가려면, &lt;code class=&quot;language-text&quot;&gt;flag[0]=true&lt;/code&gt;로 의사표현을 하되, &lt;code class=&quot;language-text&quot;&gt;turn=1&lt;/code&gt;로 턴을 일단 양보합니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;에서 기다리지 않고 넘어갈 조건은
+&lt;ul&gt;
+&lt;li&gt;P1가 C.S에 들어가려 하지 않는 경우 (&lt;code class=&quot;language-text&quot;&gt;flag[1]==false&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;P1가 C.S에 들어가고자 하는데(&lt;code class=&quot;language-text&quot;&gt;flag[1]==true&lt;/code&gt;), &lt;code class=&quot;language-text&quot;&gt;turn&lt;/code&gt;이 내 차례일 경우&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;둘 다 아니면 어쩔 수 없이 .. 기다립니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;재미있는 점은, 양쪽 다 &lt;code class=&quot;language-text&quot;&gt;flag&lt;/code&gt;를 켠 경우 &lt;code class=&quot;language-text&quot;&gt;turn&lt;/code&gt;에 의해 정해지되,&lt;br&gt;
+이 &lt;code class=&quot;language-text&quot;&gt;turn&lt;/code&gt;은 먼저 양보한 쪽이 먼저 C.S에 진입하게 된다는 점입니다. &lt;br&gt;
+이러한 특성으로 인해 &lt;em&gt;Mutual Exclusion&lt;/em&gt;을 보장 + deadlock과 livelock을 방지하게 됩니다&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1&gt;Software Approach의 단점&lt;/h1&gt;
+&lt;p&gt;근데 지금까지 살펴본 방법에서, 공통적으로 등장하는 문제가 있습니다&lt;br&gt;
+바로 &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;로 기다린다는 것인데요&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;을 계속 도는건 사실 CPU 사용권을 받고도 쓰지 않는 것이기 때문에,&lt;br&gt;
+CPU 사용권을 낭비하는 셈이 됩니다.&lt;br&gt;
+또 머냐.. 자바 수업해주신 교수님이&lt;br&gt;
+CPU는 &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;이 중요한 줄 알고 최선을 다해서 실행한다는 언급을 하신게 기억이 나네요&lt;/p&gt;
+&lt;p&gt;아무튼 이렇게 &lt;em&gt;열심히 기다리는 문제&lt;/em&gt;를 &lt;strong&gt;Busy Waiting&lt;/strong&gt;이라고 합니다&lt;br&gt;
+이건 어쩔 수가 없습니다.. OS의 도움이 없으면 이렇게 가짜로 기다리는 것 외에 방법이 없습니다 ㅜㅜ&lt;/p&gt;
+&lt;p&gt;그리고 지금까지는 프로세스(또는 스레드)가 딱 둘인 경우를 살펴봤는데&lt;br&gt;
+실제로는 더 많을 수 있고, 그렇게 되면 소프트웨어적인 방법으로는 굉장히 복잡해집니다..&lt;/p&gt;
+&lt;p&gt;또한 이런 코드들을 직접 작성해야 하므로 아무리 짧아도 어쩔 수 없이 복잡해집니다&lt;/p&gt;
+&lt;p&gt;뭐 그런 등등의 문제가 있습니다&lt;/p&gt;
+&lt;h1&gt;그럼 우짭니까?&lt;/h1&gt;
+&lt;p&gt;hardware instruction을 따로 만들어서 매우 단순하게 한 줄로 해결할 수 있도록 하는 방법이 있습니다&lt;br&gt;
+그러나 이 경우도 &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;을 써서 가짜로 기다리는 Busy Waiting 이슈를 피할 순 없고, 다른 문제들도 존재합니다&lt;/p&gt;
+&lt;p&gt;Busy Waiting 이슈까지 해결해버리는 진짜 베스트는 아예 OS가 제공하는 동기화 툴을 이용하는 것입니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 260px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b4f2292a355bb0ef679ebf5516cdc531/86c28/image-15.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 74.68354430379746%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADnklEQVR42gGTA2z8AMjMn9TIisSxgqqQaZubiJ7RxYOehmReUWZnW15fVVRRQVdSQVtXTWRgUHJjS2lmWHdsU2uKoWKlz2ys0wDEyJ7XzYrLuYStk2qcnYik1ct/mIZ0hYmFo655oaBvo3R2pHdyhZOSlph2cVgMBQMaFA8YHCAtRlZumbIAxceh2s+N0cWLs55xoqGNst3ZjKCNdXJofYF9dYJ4co1kcopiaW1tfnNph3RTPjIoWEk2a4OTfajBosLXAMXIoNnOjNfOj8Oyd5ybhq3SzomZiGpiZXBweGNjW2NlYXNsWIt5UIFmR3pWSU08M2hUP4WUnIynuJ2qsQDDx57Zz4vRyI6pqpuxs7PHy895j7BnepyFipWOk5WQnaKfnn7KsWamhVJ8WElQPjNmUT2wtbi9z9vG0NkAwceh3NCMoKSdm6zR0cjFy8PDyc3fgpa5YV9ZcmRab2RddWtWf3JKa1s7aFE6QzEjbllBlIVplYhtlohuAMXLoNjNkKKqq9LV3djS1drW3OXh5cPK2GRZZnpdb3xliWZ4bWeSaXF+WH55UqGXj4qBbp+3o6XAsaK7rQDCxpXXzI22t6Pc3uvl5u/b3OPq6vLFy9lxWFeCX2yDZoNqbVupu5/GxLmjm4qzrayyrqa5zsew0civzsgAxcyd3NSYysCVxL262M3NzsW/0sXIjIiMX1Y/XU48SDo2ioF5lIqGYlZHfWY/YEstamFVusvBsc/IrczGAL21k7GpiKuoh3+GlHJ+o7atnJqeulJsjGtqQEU7K01FRq6tq0lAN72nWuXFU86wVlJGT4mZlK7KsqXBrgCnuqypxLy01NB+pcp7mMbT1trIzdutuc6np4hGPyteVVW1opKhhkrfwlPkw067nExAM0Zyg1ejwmCZuFwAv+Lgu9zctdTOk6yy3t7p1dXgrbPE6eP01OHFiZlWe3Na1qyQ0adszaZgzpZofmVfg36Sr7yVnLddnLheAK3Mt528k5W3cJOzZcXNt7TDq4ijd7nEnrbGiLHJca/Bb7uwcLCycKSmabeqb7W2fsfOnbrBja26crC9dAChxWqfxV+lyGSpyWutxnC1yXW9znm6x3q9yn+/yoTCzIW7x4Ctt3a8xn/Cy4HCyYK/xYHDxoTHyYrGx4sAnLtfmbZfm7RkoLJqpK9spq9xpq92qbB3q7B4r7J8qqt4mZturax8sbB7sK15sKx8sK18r6x8rqx7r6t8UqwMqsy/wNoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;도라에몽 도와줘&quot;
+        title=&quot;&quot;
+        src=&quot;/static/b4f2292a355bb0ef679ebf5516cdc531/86c28/image-15.png&quot;
+        srcset=&quot;/static/b4f2292a355bb0ef679ebf5516cdc531/c26ae/image-15.png 158w,
+/static/b4f2292a355bb0ef679ebf5516cdc531/86c28/image-15.png 260w&quot;
+        sizes=&quot;(max-width: 260px) 100vw, 260px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+도라에몽 도와줘!&lt;/p&gt;
+&lt;p&gt;이 다른 방법들에 대해서는 또 후속작을 내놓겠습니다&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;그러고보니 1번같은 방법을 쓴 적이 있습니다&lt;br&gt;
+프론트엔드단에서 제출버튼 연타를 막기 위해&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;isSubmitting &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;postOrPutSomthing&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;finally&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+isSubmitting &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;대충 이딴식으로 써놓는 것인디..&lt;br&gt;
+좀 주먹구구같다는 생각을 버릴 수가 없지만&lt;br&gt;
+간단히 의도를 실현시키기에는 꽤나 적당한 것 같습니다 ㅜㅜ\&lt;/p&gt;
+&lt;p&gt;아무튼 배고파서 이만 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🖇️ 슬랙에서 깃허브 연동하기]]></title><description><![CDATA[팀 내 소통을 위한 툴로 슬랙이 요새 인기인 것 같은데요 보면 볼수록 뭔가 신기하고 편한 기능이 많습니다. 또한 개발자들은 팀 프로젝트같은 것을 할 때면 깃허브를 빼놓을 수 없죠?? Organization이나 Repository를 만들고, Issue…]]></description><link>https://sungpaks.github.io/slack-github-subscribe/</link><guid isPermaLink="false">https://sungpaks.github.io/slack-github-subscribe/</guid><pubDate>Sun, 31 Mar 2024 13:46:58 GMT</pubDate><content:encoded>&lt;p&gt;팀 내 소통을 위한 툴로 슬랙이 요새 인기인 것 같은데요&lt;br&gt;
 보면 볼수록 뭔가 신기하고 편한 기능이 많습니다.&lt;br&gt;
 또한 개발자들은 팀 프로젝트같은 것을 할 때면 깃허브를 빼놓을 수 없죠??&lt;br&gt;
 Organization이나 Repository를 만들고, Issue나 PR을 올리고, .. 등등&lt;br&gt;
