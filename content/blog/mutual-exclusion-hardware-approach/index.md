@@ -96,7 +96,7 @@ void exchange (int* register, int* memory) {
 
 <iframe width="50%" src="https://www.youtube.com/embed/vpQUw8MQ3c4?si=7H7YgNLTojpf00-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-from. [유튜브 채널 [유준호]](https://www.youtube.com/@yoojunho1201)
+<span style="font-size:70%">from. 유튜브 채널 [유준호]</span>
 
 ~**_나랑 차 바꾸자!!!_**~
 
@@ -143,6 +143,9 @@ Software Approach로 구현할 때와 비교해보면
 - starvation을 막을 방법이 없다..
   - 어떤 프로세스가 C.S를 빠져나와 다시 줄을 서고는, 대기중인 프로세스를 제끼고 또 C.S에 들어가버릴 수 있다는 뜻
   - {`bolt=0` --> non-CS구간 지나서 --> 다시 C.S 직전의 hardware instruction 실행 --> 바로 C.S로 재진입 성공}과 같은 과정을 timeout 되기 전에 반복해버릴 수 있습니다
+    ![무한으로 즐겨요](image-4.png)
+    <span style="font-size:70%">from. 명륜진사갈비</span>\
+    무한으로 즐겨요~
 
 와 같은 단점이 존재합니다.
 또한 deadlock 발생 가능성이 존재하지만,\
