@@ -1,4 +1,215 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 13 Apr 2024 09:30:13 GMT</lastBuildDate><item><title><![CDATA[🤼 코드 몇 줄로 Critical Section에 혼자 진입하기 : Mutual Exclusion Software Approach]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/mutual-exclusion-software-approach/</link><guid isPermaLink="false">https://sungpaks.github.io/mutual-exclusion-software-approach/</guid><pubDate>Sat, 13 Apr 2024 13:39:15 GMT</pubDate><content:encoded>&lt;p&gt;옛날에는 프로그램이 오도기합짜세해병이라서&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 20 Apr 2024 12:01:59 GMT</lastBuildDate><item><title><![CDATA[🚧 코드 한 줄로 Critical Section에 혼자 진입하기 : Mutual Exclusion Hardware Approach]]></title><description><![CDATA[저번 포스팅에서 Software 로직으로 Mutual Exclusion을 지키는 방법을 살펴봤습니다 Dekker 선생님이나 Peterson…]]></description><link>https://sungpaks.github.io/mutual-exclusion-hardware-approach/</link><guid isPermaLink="false">https://sungpaks.github.io/mutual-exclusion-hardware-approach/</guid><pubDate>Sat, 20 Apr 2024 17:25:07 GMT</pubDate><content:encoded>&lt;p&gt;저번 포스팅에서 Software 로직으로 Mutual Exclusion을 지키는 방법을 살펴봤습니다&lt;br&gt;
+Dekker 선생님이나 Peterson 선생님께서 빈틈없는 알고리즘을 만들어 주셨지만&lt;br&gt;
+여전히 문제가 존재했습니다..\&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;같은 반복문을 이용하여 가짜로 기다리기 때문에 busy-waiting 문제가 있고&lt;/li&gt;
+&lt;li&gt;프로세스가 세 개, 열 개, ... 이렇게 많아지면 이걸 다 막기 너무 복잡해지고&lt;/li&gt;
+&lt;li&gt;결국 닝겐의 손으로 매번 코드를 짜야하기 때문에 구멍이 날 수 있고&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;대충 이런 단점들이 있었는데요&lt;br&gt;
+그래서, Mutual Exclusion을 위한 &lt;strong&gt;Hardware Instruction&lt;/strong&gt;을 미리 정의해두고 사용한다는 발상이 나왔습니다&lt;br&gt;
+이렇게 하면 매우 간단히, 진짜 한 줄 정도로 Mutual Exclusion을 보장할 수 있고,&lt;br&gt;
+프로세스가 여럿 존재해도 끄떡없이 막아낼 수 있습니다.&lt;/p&gt;
+&lt;p&gt;그래서 어떻게 하는 것인지 이제부터 알아볼건데, 주의할 점은&lt;br&gt;
+아래에서 설명할 instruction에 대한 코드는 실제로 어떤 함수같은 코드가 아니라,&lt;br&gt;
+&lt;em&gt;이렇게 동작한다는 것을 나타내기 위한 것&lt;/em&gt;일 뿐입니다.&lt;br&gt;
+미리 정의되어 있는, 하나의 &lt;strong&gt;atomic한 과정&lt;/strong&gt;이며,&lt;br&gt;
+즉 중간에 interrupt를 받아 중단되거나 하지 않습니다.&lt;br&gt;
+또한 어떤 메모리를 참조할 때도, 해당 메모리를 블락시킨 채로 접근하기 때문에,&lt;br&gt;
+&lt;strong&gt;hardware instruction은 진짜진짜 독립적&lt;/strong&gt;입니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 251px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c0342ca4f8efb9178020b5fe75dcc62a/26abe/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 80.37974683544303%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsTAAALEwEAmpwYAAADt0lEQVR42hXR6U/bBhjHcb+lpeEIcRwndhzfdhJfJD4S5+LICVaAUUgZjZA6oOMcZVC2MlUqRVUnaKEp0HLsoq0QTCqatL2YKm2aNK3d2Nap68tJnfZi+y8WpM/b74vn9wAREYoIUFRytWjehOIN8y6BBgOUg8cdCNzkgkGGxlI6PWhpuWhQZd0JEY8FfNEgGvNjQG/adT7j6sue6s+6Snn3QMF90YIHOxDS28j4XAWTO7hVXp3KlzuD+RiUiUL5uCtjQq26E6h11tQ6as45aurAM/WgzeFy1Dad1ZWGqAw5oHMLZbNyJff4RmllIpeNE4Lf1ptxy2KdKjdpihOwM3Y702inG06RdgcJ2rw2SYO1pH9kZqQy3/PJta6dq8WVsTQreeq8tngCqXHbzsL1Z6BGwC87eQlkJQcrOkjJ7lPdfAvL50JMtnn25rW1pelbo/G7U/m+gg7zkDfQ5Ak0evyNHq7Bw9UDhuCsrqWKrlAQ0mKMYmli0agiM3JxdGD93u2lyY4Ppsuz1xfZhBw2GdXvCPNNIc4eYu2AL2m4VNwdoWGdoLPNUldE6VQDnSqZllIDuc8P9h9s319ZXyteepuKC0JGZU0/2oxhIRyTvQCba0WiBJrgOINIJwLZGN+vkYplMPmQUoze39uslhvbD8zz7bjJcymZSUmoQSMGjRokQLTFkagPjNKKhM2QzivF4BAPdRRV1or4C+HFlaXVyr2tvR1rpEQkg2xKJk0e1alTGg6QLRFYxwNZrrdf/CjPfHO3/dvtzsmFpDclE23SxMLo9u7Go6PDnncHyJYgZQZwnUV1EjEIpBqjGgsblJzlDz7uPtmfev31wh9fzT69PbRTuTg/2zo+nF69s/jk8LA0ViYSQSLCowqO6gQaIT2aD4gnwmCYKI3qPz4af757/ef9mRd70893R//7ZaFyZzLek3346e7mzqY12O01OExnPZLPLaCIXo1x4IKVAZux9Ur+5PHID5WJP4/feXU8/uansX9eDk9M5dhUaGtva31jLd2R8hksrnOQz0koFJ0U4DAG9HS01olIe5948uXgq6P3fv3i8ovPLr/5fuLld9207qUSwvuLcx8uXtUNoXqwRyRAzEmafr5N9rfJgBsBEZ0JtnDPnnb99dvA378P/fv60rMja/lm21vDcaq1OVkwL5StdDGJaSwapj0KASsYqpLxjAlokbBTwJPd8vysEc2RvWVl6UYs1iVwOV2wzEBBnVseeXK8Orc8jqqUN0x5dKr6ZEhEOT/1P9EsCnNMM32pAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;건드리지마&quot;
+        title=&quot;&quot;
+        src=&quot;/static/c0342ca4f8efb9178020b5fe75dcc62a/26abe/image.png&quot;
+        srcset=&quot;/static/c0342ca4f8efb9178020b5fe75dcc62a/c26ae/image.png 158w,
+/static/c0342ca4f8efb9178020b5fe75dcc62a/26abe/image.png 251w&quot;
+        sizes=&quot;(max-width: 251px) 100vw, 251px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;아무튼 시작합시다.&lt;br&gt;
+Instruction이 두 가지 나옵니다.&lt;/p&gt;
+&lt;h1&gt;1. Compare &amp;#x26; Swap Instruction&lt;/h1&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;compare_and_swap&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;word&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; testval&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; newval&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; oldval&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+	oldval &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;word&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;oldval &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; testval&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;word &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; newval&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; oldval&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;첫 번째 Instruction은 위와 같이 생겨먹었는데,&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;word&lt;/code&gt;의 값이 &lt;code class=&quot;language-text&quot;&gt;testval&lt;/code&gt;와 같아야 &lt;code class=&quot;language-text&quot;&gt;newval&lt;/code&gt;로 값을 바꾸고, 이전의 &lt;code class=&quot;language-text&quot;&gt;word&lt;/code&gt;값을 반환합니다.&lt;br&gt;
+당장 이것만 봐서는 어떻게 써먹는지 잘 모르겠으니, 실제로 어떻게 사용하여 Mutual Exclusion을 구현하는지 봅시다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; bolt&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//i번째 프로세스의 작업&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ture&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;compare_and_swap&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;bolt&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+			&lt;span class=&quot;token comment&quot;&gt;/* do nothing */&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token comment&quot;&gt;/* Critical Section */&lt;/span&gt;
+		bolt &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token comment&quot;&gt;/* remainder */&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	bolt &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;parbegin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;bolt&lt;/code&gt;값이 0이면, &lt;code class=&quot;language-text&quot;&gt;compare_and_swap&lt;/code&gt;은 bolt값을 1로 바꾸고 0을 반환합니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;bolt&lt;/code&gt;값이 1이면, &lt;code class=&quot;language-text&quot;&gt;compare_and_swap&lt;/code&gt;은 1이 반환됩니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이 &lt;code class=&quot;language-text&quot;&gt;bolt&lt;/code&gt;값은 사실상 C.S가 잠겨있는지 여부입니다.&lt;br&gt;
+n개의 프로세스가 아무리 한꺼번에 &lt;code class=&quot;language-text&quot;&gt;compare_and_swap&lt;/code&gt;으로 도달하더라도,&lt;br&gt;
+해당 instruction은 atomic하므로 단 하나의 프로세스만이 &lt;code class=&quot;language-text&quot;&gt;bolt&lt;/code&gt;값을 1로 바꾸고 0의 반환값을 얻는 데 성공합니다.&lt;br&gt;
+그럼 나머지 프로세스들은 &lt;code class=&quot;language-text&quot;&gt;bolt&lt;/code&gt;값이 이미 1이므로 계속 기다릴 뿐입니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 296px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/51e90ecf8acd898070640e35bc368757/b1a44/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.59493670886076%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsTAAALEwEAmpwYAAABtklEQVR42o2Ryy8DURSH53+SsBK7Lj0iuiISCQsJEWIhSCU2hHRBMfpSgpRoqGLa0cn0RSqYms5MDfqYjnm0RltVUnauetSmjeTLLyc3+U7OuQeqrVM1qJpVTWpVs3rGiq2dxMx4xOyOGFD6m+OKQL3t2k37qSCLt9G4lFaivMBLcjguGFHShNLVgbZOk94bJfdalDN5EciJ5L0ohaK8znG+4Lg0uCgjSlcCauzqb+0ZaukZ7BgY1x8Rqzi7gjGmY8bgpD7N6vJoX/+MbnnbtqOZsywdhowoAxyDi67ilOXdw5CfTb+/Fw8IbgGh/uOU5XmE2gvecpJM3iVCMcGCg1cw9v9kM3bnjaReCoVsJpvLP624iUUHoXeSJjcNWnxRUR6eNQ9OLY5p9aPaZdhxArso3QGxdHQFI2HYScHIJ5X+HKqvaevsHpqYmh7RTG4gPj8r4yTnCSdBYiSHh3lQr3vZ0i7M7yxfQFoYQy/ib8WC8pDOZZRcVpHF+8eHFMi0LEoC//KctQeZuf0LsEvpEGUg61nMFoz6mKSX4vwMH4jwIP2MEPipA9eC1Xdtcl2tYvS6h/3LB8CsDF4DHASxAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;선착순!!&quot;
+        title=&quot;&quot;
+        src=&quot;/static/51e90ecf8acd898070640e35bc368757/b1a44/image-1.png&quot;
+        srcset=&quot;/static/51e90ecf8acd898070640e35bc368757/c26ae/image-1.png 158w,
+/static/51e90ecf8acd898070640e35bc368757/b1a44/image-1.png 296w&quot;
+        sizes=&quot;(max-width: 296px) 100vw, 296px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;선착순 1명만 반환값 0을 받아서 C.S로 들어가겠네요&lt;br&gt;
+당연히 끝나고 나면, &lt;code class=&quot;language-text&quot;&gt;bolt = 0&lt;/code&gt;으로 또 선착순 1명을 받도록 해줍니다.&lt;br&gt;
+화장실 변기 칸 쓰고 다시 나올려면 잠갔던 문을 다시 열어야겠죠..&lt;br&gt;
+나가면서 잠그고 나가는 사람은 아주 정신이 이상한 사람임에 논란의 여지가 없어보입니다.&lt;/p&gt;
+&lt;h1&gt;2. Exchange Instruction&lt;/h1&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;exchange&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; memory&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; temp&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+	temp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;memory&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;memory &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;register&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; temp&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;두 번째 Instruction은 너무 친근하게 생겨먹었습니다&lt;br&gt;
+코딩 처음 배울 때 이런거 자주 하셨죠?&lt;/p&gt;
+&lt;iframe width=&quot;50%&quot; src=&quot;https://www.youtube.com/embed/vpQUw8MQ3c4?si=7H7YgNLTojpf00-k&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;from. &lt;a href=&quot;https://www.youtube.com/@yoojunho1201&quot;&gt;유튜브 채널 [유준호]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;&lt;strong&gt;&lt;em&gt;나랑 차 바꾸자!!!&lt;/em&gt;&lt;/strong&gt;&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;아.. 그리고 쓰는건&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; bolt&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; keyi &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;exchange&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;keyi&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;bolt&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;keyi &lt;span class=&quot;token operator&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token comment&quot;&gt;/* critical section */&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	bolt &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token comment&quot;&gt;/* remainder */&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	bolt &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;parbegin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;C.S에 들어가려는 프로세스들은 각자의 &lt;code class=&quot;language-text&quot;&gt;key&lt;/code&gt;를 가집니다. 잠긴 방 문을 열기 위한 키라고 생각합시다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;do-while&lt;/code&gt;로 프로세스들은 &lt;code class=&quot;language-text&quot;&gt;exchange&lt;/code&gt;를 계----속 시도하며 &lt;code class=&quot;language-text&quot;&gt;bolt&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;keyi&lt;/code&gt;값을 교체합니다.&lt;/li&gt;
+&lt;li&gt;단 하나의 프로세스만이 &lt;code class=&quot;language-text&quot;&gt;bolt&lt;/code&gt;값이 0일 때 &lt;code class=&quot;language-text&quot;&gt;exchange&lt;/code&gt;에 성공하고, &lt;code class=&quot;language-text&quot;&gt;keyi&lt;/code&gt;가 1이 아닌 0이 되어 C.S에 진입합니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;잠긴 방 문을 열기 위해 모든 프로세스가 자물쇠 키인 &lt;code class=&quot;language-text&quot;&gt;keyi&lt;/code&gt;를 가지고 있지만, 이 값이 1이면 키가 가짜 키입니다 ㅜㅜ&lt;br&gt;
+여러 프로세스들이 이 가짜 키를 진짜 키로 바꾸기 위해 &lt;code class=&quot;language-text&quot;&gt;bolt&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;keyi&lt;/code&gt;를 바꿔먹지만,&lt;br&gt;
+단 하나의 프로세스만이 &lt;code class=&quot;language-text&quot;&gt;bolt==0&lt;/code&gt;일 때 키를 바꾸는데 성공하여 C.S로 진입합니다.&lt;br&gt;
+그럼 프로세스가 C.S를 빠져나오기 전까지는 모든 프로세스가 본인의 열쇠를 진짜 열쇠로 바꿀 수 없고,&lt;br&gt;
+C.S를 빠져나온 프로세스가 진짜 열쇠를 두고 가면(&lt;code class=&quot;language-text&quot;&gt;bolt=0&lt;/code&gt;) 다시 또 선착순으로 진짜 열쇠를 누군가 얻게 됩니다.&lt;/p&gt;
+&lt;h1&gt;장점과 단점&lt;/h1&gt;
+&lt;p&gt;Hardware Instruction을 통해 Mutual Exclusion을 구현하는 두 가지 방법을 알아보았습니다\&lt;/p&gt;
+&lt;p&gt;Software Approach로 구현할 때와 비교해보면&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;process가 많아도 간단히 적용할 수 있다&lt;/li&gt;
+&lt;li&gt;C.S가 여러번 반복되어도 여전히 강력하다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;라는 장점이 존재합니다&lt;br&gt;
+그러나..&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;여전히 &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;과 같이 가짜로 기다리기 때문에, &lt;em&gt;busy-waiting&lt;/em&gt;문제가 여전히 존재한다&lt;/li&gt;
+&lt;li&gt;starvation을 막을 방법이 없다..
+&lt;ul&gt;
+&lt;li&gt;어떤 프로세스가 C.S를 빠져나와 다시 줄을 서고는, 대기중인 프로세스를 제끼고 또 C.S에 들어가버릴 수 있다는 뜻&lt;/li&gt;
+&lt;li&gt;{&lt;code class=&quot;language-text&quot;&gt;bolt=0&lt;/code&gt; --&gt; non-CS구간 지나서 --&gt; 다시 C.S 직전의 hardware instruction 실행 --&gt; 바로 C.S로 재진입 성공}과 같은 과정을 timeout 되기 전에 반복해버릴 수 있습니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;와 같은 단점이 존재합니다.
+또한 deadlock 발생 가능성이 존재하지만,&lt;br&gt;
+이건 C.S를 다중으로 구현하여 &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;(또는 &lt;code class=&quot;language-text&quot;&gt;do-while&lt;/code&gt;)문을 여러 개 쓰게 되면 발생하는 문제라서&lt;br&gt;
+hardware instruction 방법 자체의 문제라기에는 좀 .. 애매하네요&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;br&gt;
+이런 노력에도 불구하고 문제를 완전히 해결할 수는 없었네요..&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 564px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/37a2bc9380036d77b48295e8724ae5f5/ba4d9/image-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 148.7341772151899%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;역시 형이야&quot;
+        title=&quot;&quot;
+        src=&quot;/static/37a2bc9380036d77b48295e8724ae5f5/ba4d9/image-3.png&quot;
+        srcset=&quot;/static/37a2bc9380036d77b48295e8724ae5f5/c26ae/image-3.png 158w,
+/static/37a2bc9380036d77b48295e8724ae5f5/6bdcf/image-3.png 315w,
+/static/37a2bc9380036d77b48295e8724ae5f5/ba4d9/image-3.png 564w&quot;
+        sizes=&quot;(max-width: 564px) 100vw, 564px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;결국 우리의 친구 OS가 도와줘야겠습니다..&lt;br&gt;
+OS는 &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;로 가짜로 기다린다거나 그러지 않습니다.&lt;br&gt;
+&lt;em&gt;그냥 블락시켜버리면 그만이야~&lt;/em&gt; 거든요&lt;br&gt;
+다음 포스팅에서는 OS가 제공하는 툴로 Mutual Exclusion을 구현하는 방법에 대해 알아보겠습니더&lt;/p&gt;
+&lt;p&gt;이만 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🤼 코드 몇 줄로 Critical Section에 혼자 진입하기 : Mutual Exclusion Software Approach]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/mutual-exclusion-software-approach/</link><guid isPermaLink="false">https://sungpaks.github.io/mutual-exclusion-software-approach/</guid><pubDate>Sat, 13 Apr 2024 13:39:15 GMT</pubDate><content:encoded>&lt;p&gt;옛날에는 프로그램이 오도기합짜세해병이라서&lt;br&gt;
 악! 한번 시작한 프로그램은 영원한 프로그램! 이었으므로 이게 끝나기 전에는 다른 무언가를 할 수 없었습니다&lt;/p&gt;
 &lt;p&gt;이후로 어쩌구 저쩌구.. 역사를 거쳐서&lt;br&gt;
 프로그램을 중단시켰다가 다시 실행시키는 방법이 나왔습니다&lt;br&gt;
