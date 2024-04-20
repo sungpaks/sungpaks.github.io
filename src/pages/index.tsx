@@ -111,6 +111,7 @@ const BlogIndex = ({ data, location }: ComponentProps) => {
                 {post.frontmatter.tag?.map(c => {
                   return (
                     <button
+                      key={c}
                       className="custom-button tag-button"
                       onClick={() => {
                         setCurTag(c === curTag ? "ALL" : c)

@@ -70,6 +70,7 @@ const BlogPostTemplate = ({
           {post.frontmatter.tag?.map(t => {
             return (
               <Link
+                key={t}
                 className="custom-button tag-button"
                 to={`/tag/${kebabCase(t)}`}
               >
