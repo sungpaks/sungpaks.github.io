@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 20 Apr 2024 12:01:59 GMT</lastBuildDate><item><title><![CDATA[🚧 코드 한 줄로 Critical Section에 혼자 진입하기 : Mutual Exclusion Hardware Approach]]></title><description><![CDATA[저번 포스팅에서 Software 로직으로 Mutual Exclusion을 지키는 방법을 살펴봤습니다 Dekker 선생님이나 Peterson…]]></description><link>https://sungpaks.github.io/mutual-exclusion-hardware-approach/</link><guid isPermaLink="false">https://sungpaks.github.io/mutual-exclusion-hardware-approach/</guid><pubDate>Sat, 20 Apr 2024 17:25:07 GMT</pubDate><content:encoded>&lt;p&gt;저번 포스팅에서 Software 로직으로 Mutual Exclusion을 지키는 방법을 살펴봤습니다&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 20 Apr 2024 12:28:29 GMT</lastBuildDate><item><title><![CDATA[🚧 코드 한 줄로 Critical Section에 혼자 진입하기 : Mutual Exclusion Hardware Approach]]></title><description><![CDATA[저번 포스팅에서 Software 로직으로 Mutual Exclusion을 지키는 방법을 살펴봤습니다 Dekker 선생님이나 Peterson…]]></description><link>https://sungpaks.github.io/mutual-exclusion-hardware-approach/</link><guid isPermaLink="false">https://sungpaks.github.io/mutual-exclusion-hardware-approach/</guid><pubDate>Sat, 20 Apr 2024 17:25:07 GMT</pubDate><content:encoded>&lt;p&gt;저번 포스팅에서 Software 로직으로 Mutual Exclusion을 지키는 방법을 살펴봤습니다&lt;br&gt;
 Dekker 선생님이나 Peterson 선생님께서 빈틈없는 알고리즘을 만들어 주셨지만&lt;br&gt;
 여전히 문제가 존재했습니다..\&lt;/p&gt;
 &lt;ul&gt;
@@ -125,7 +125,7 @@ n개의 프로세스가 아무리 한꺼번에 &lt;code class=&quot;language-tex
 &lt;p&gt;두 번째 Instruction은 너무 친근하게 생겨먹었습니다&lt;br&gt;
 코딩 처음 배울 때 이런거 자주 하셨죠?&lt;/p&gt;
 &lt;iframe width=&quot;50%&quot; src=&quot;https://www.youtube.com/embed/vpQUw8MQ3c4?si=7H7YgNLTojpf00-k&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;p&gt;from. &lt;a href=&quot;https://www.youtube.com/@yoojunho1201&quot;&gt;유튜브 채널 [유준호]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-size:70%&quot;&gt;from. 유튜브 채널 [유준호]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;&lt;strong&gt;&lt;em&gt;나랑 차 바꾸자!!!&lt;/em&gt;&lt;/strong&gt;&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;아.. 그리고 쓰는건&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; bolt&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
@@ -164,7 +164,40 @@ C.S를 빠져나온 프로세스가 진짜 열쇠를 두고 가면(&lt;code clas
 &lt;li&gt;starvation을 막을 방법이 없다..
 &lt;ul&gt;
 &lt;li&gt;어떤 프로세스가 C.S를 빠져나와 다시 줄을 서고는, 대기중인 프로세스를 제끼고 또 C.S에 들어가버릴 수 있다는 뜻&lt;/li&gt;
-&lt;li&gt;{&lt;code class=&quot;language-text&quot;&gt;bolt=0&lt;/code&gt; --&gt; non-CS구간 지나서 --&gt; 다시 C.S 직전의 hardware instruction 실행 --&gt; 바로 C.S로 재진입 성공}과 같은 과정을 timeout 되기 전에 반복해버릴 수 있습니다&lt;/li&gt;
+&lt;li&gt;{&lt;code class=&quot;language-text&quot;&gt;bolt=0&lt;/code&gt; --&gt; non-CS구간 지나서 --&gt; 다시 C.S 직전의 hardware instruction 실행 --&gt; 바로 C.S로 재진입 성공}과 같은 과정을 timeout 되기 전에 반복해버릴 수 있습니다
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8850ac30bef064408dd481da7b34e476/8c557/image-4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.9620253164557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVR42gGfAmD9AB4aFhwZFh8XFCAVEBMODIBZQZltT31aQ555Y7GNeYVrXY5yZNXFt9m/qrKIbzstJRIMCiUYExkTEBkUEQAjHhsdGhk6KSCKXkh1Tz2FZ1V4XkydfGq7jntJNSltTD1POC1SQTeGbl6wk36JZFCGW0ZiQjMeGRciHRoAPC0lRzEmcEg1yo9zq3JZlGRJw5mE0p6Gbj8lXj0uy45yp3ReeU87hl1HeFpGlWFHyY9znGlQSjElRjIoAItbR7l3W6BrUcKJb7R7Yb1/ZO65obp1R5BNHpFdQMuMcb5+Y7t6T61zVKt0W61yVsWOc6x0W6huVbl3XACFUj7AfmKweV66gmbDim6IVUB5UT94VEFZOitFLyZdOyxgPS5aOilLNy+EUkCzeV/DjHCveV26fWOxblUAomlQwIJlo21Rr3tduINlnV9FRCwcFRIWLicrOTA0IhsbHBYTGhkdLSIhkFY8rXNYu4ZpoGxPtXldvH5hALx/Ybl+YaRrTZFfQ4tgR65vSahrQjAhGSskJjUqKzctLiwlJk09OpJVLbBnOo1dQ45fRJhjRrN4Wr2DZACvdVnCg2GnbEyAUDVHLiA/KRxYNyRTOSkhHB8uJScuJicxJys0JiezaDiiYzhbPy1uRi+WX0C7fly9gF8AOS0thlxJj1o+dVRBTTouNikhUj0vPzEpGxgaJx8hKiEkIhweKiEiXjkjUDUkZUg1YEY3gllDmmZMVT43AB4aHyQeIikeH0YtIItkTVhEOV5STltUU0dDR05KTTs4O1dUV01JTF1ZWUI4NG9RQHFURTAkIiohIx0aHwAoISUhGx8cGSAjFxRULRVfPiuHaFVOQTsfHB8jHyAoIyUpJSc8MzR4XlB4WUhuSzk/KB4WFBkgHCAlHiF6V9vLhEp5TgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;무한으로 즐겨요&quot;
+        title=&quot;&quot;
+        src=&quot;/static/8850ac30bef064408dd481da7b34e476/f058b/image-4.png&quot;
+        srcset=&quot;/static/8850ac30bef064408dd481da7b34e476/c26ae/image-4.png 158w,
+/static/8850ac30bef064408dd481da7b34e476/6bdcf/image-4.png 315w,
+/static/8850ac30bef064408dd481da7b34e476/f058b/image-4.png 630w,
+/static/8850ac30bef064408dd481da7b34e476/8c557/image-4.png 700w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;span style=&quot;font-size:70%&quot;&gt;from. 명륜진사갈비&lt;/span&gt;&lt;br&gt;
+무한으로 즐겨요~&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
