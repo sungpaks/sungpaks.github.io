@@ -1,13 +1,13 @@
 ---
-title: "🚧 코드 한 줄로 Critical Section에 혼자 진입하기 : Mutual Exclusion Hardware Approach"
+title: "🙋 선착순 한 명 Critical Section!! : Mutual Exclusion Hardware Approach"
 date: 2024-04-20 17:25:07
-description: "Mutual Exclusion입니다.. 근데 이제 하드웨어를 곁들인"
+description: "축하합니다. 당신은 Critical Section입니다."
 tag: ["OS"]
 ---
 
 저번 포스팅에서 Software 로직으로 Mutual Exclusion을 지키는 방법을 살펴봤습니다\
 Dekker 선생님이나 Peterson 선생님께서 빈틈없는 알고리즘을 만들어 주셨지만\
-여전히 문제가 존재했습니다..\
+여전히 문제가 존재했습니다..
 
 - `while`같은 반복문을 이용하여 가짜로 기다리기 때문에 busy-waiting 문제가 있고
 - 프로세스가 세 개, 열 개, ... 이렇게 많아지면 이걸 다 막기 너무 복잡해지고
