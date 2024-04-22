@@ -77,7 +77,7 @@ void semSignal(semaphore s) {
 결국 semaphore의 값, 즉  
 `s.count`의 값은 음수냐 양수냐에 따라서
 
-- `s.count <= 0` : `s.count`값 == **블락되어 큐에 들어가 있는 프로세스 개수**
+- `s.count <= 0` : |`s.count`값| == **블락되어 큐에 들어가 있는 프로세스 개수**
 - `s.count >= 0` : `s.count`값 == **블락되지 않고 지나갈 수 있는 프로세스 개수**
 
 라는 결론에 도달합니다
