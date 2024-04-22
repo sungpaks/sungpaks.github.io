@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 22 Apr 2024 14:17:26 GMT</lastBuildDate><item><title><![CDATA[OS 툴로 Critical Section 통제하기 : Mutual Exclusion By Semaphore & Monitor]]></title><description><![CDATA[Software 로직으로 이리 보고 Hardware Instruction으로 저리 봐도 로 가짜로 대기하는 Busy-Waiting…]]></description><link>https://sungpaks.github.io/mutual-exclusion-by-os/</link><guid isPermaLink="false">https://sungpaks.github.io/mutual-exclusion-by-os/</guid><pubDate>Sat, 20 Apr 2024 21:31:15 GMT</pubDate><content:encoded>&lt;p&gt;Software 로직으로 이리 보고&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 22 Apr 2024 16:02:23 GMT</lastBuildDate><item><title><![CDATA[ 🕹️ OS 툴로 Critical Section 통제하기 : Mutual Exclusion By Semaphore & Monitor]]></title><description><![CDATA[Software 로직으로 이리 보고 Hardware Instruction으로 저리 봐도 로 가짜로 대기하는 Busy-Waiting…]]></description><link>https://sungpaks.github.io/mutual-exclusion-by-os/</link><guid isPermaLink="false">https://sungpaks.github.io/mutual-exclusion-by-os/</guid><pubDate>Sat, 20 Apr 2024 21:31:15 GMT</pubDate><content:encoded>&lt;p&gt;Software 로직으로 이리 보고&lt;br&gt;
 Hardware Instruction으로 저리 봐도&lt;br&gt;
 &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;로 가짜로 대기하는 &lt;strong&gt;Busy-Waiting&lt;/strong&gt;이슈를 피할 수는 없었고&lt;br&gt;
 이외에도 다른 이슈가 생기기 마련이었습니다&lt;br&gt;
@@ -145,7 +145,10 @@ Mutual Exclusion을 보장하려면..&lt;/p&gt;
 &lt;p&gt;이렇게, semaphore 값을 1로 초기화하여 단 하나의 프로세스만 &lt;code class=&quot;language-text&quot;&gt;semWait&lt;/code&gt;를 통과할 수 있도록 하고,&lt;br&gt;
 C.S에 들어가기 전에 &lt;code class=&quot;language-text&quot;&gt;semWait&lt;/code&gt;를 실행하여 semaphore 값이 1이었다면 진입, 0 이하였다면 대기하도록 하며,&lt;br&gt;
 C.S를 나오면 &lt;code class=&quot;language-text&quot;&gt;semSignal&lt;/code&gt;로 대기하던 프로세스를 하나 깨워줍니다.&lt;/p&gt;
-&lt;p&gt;매우 간단해졌죠??&lt;/p&gt;
+&lt;p&gt;매우 간단해졌죠??&lt;br&gt;
+마치 C.S에 혼자 들어가기 위해&lt;br&gt;
+C.S 전에는 문을 걸어잠그고&lt;br&gt;
+C.S를 빠져나올 때는 열쇠를 두고 가는 셈입니다&lt;/p&gt;
 &lt;h2&gt;Binary Semaphore&lt;/h2&gt;
 &lt;p&gt;위에서 이야기한 semaphore는 굳이 따지면 &lt;em&gt;Counting Semaphore&lt;/em&gt;이고,&lt;br&gt;
 &lt;em&gt;Binary Semaphore&lt;/em&gt;도 있는데요&lt;br&gt;
@@ -202,10 +205,167 @@ C.S를 나오면 &lt;code class=&quot;language-text&quot;&gt;semSignal&lt;/code&
 &lt;p&gt;이 경우 큐에 프로세스가 얼마나 있다거나, 몇 개나 통과할 수 있다거나, 이런 것은 알 수없지만&lt;br&gt;
 &lt;code class=&quot;language-text&quot;&gt;count&lt;/code&gt;변수를 따로 유지하거나 할 수도 있긴 합니다&lt;br&gt;
 그리고 &lt;a href=&quot;https://www.geeksforgeeks.org/mutex-vs-semaphore/&quot;&gt;geeksforgeeks&lt;/a&gt;에 따르면&lt;br&gt;
-전에 썼던 &lt;a href=&quot;https://sungpaks.github.io/multi-threading-in-cpp/&quot;&gt;C++에서 멀티스레딩 써보는 포스팅&lt;/a&gt;에서 사용했던 &lt;strong&gt;Mutex&lt;/strong&gt;가 이러한 Binary Semaphore의 일종이라는 것 같습니다&lt;br&gt;
+전에 썼던 &lt;a href=&quot;https://sungpaks.github.io/multi-threading-in-cpp/&quot;&gt;C++에서 멀티스레딩 써보는 포스팅&lt;/a&gt;에서 사용했던 &lt;strong&gt;Mutex&lt;/strong&gt;가 이러한 Binary Semaphore의 일종이라는 것 같습니다.&lt;br&gt;
 딱 하나만 지나갈 수 있게 허락하는 Semaphore로 상호배제를 구현하는 셈.&lt;/p&gt;
+&lt;p&gt;확실히 좋아진 것 같긴한데, 아직도 Semaphore로는 부족한게&lt;br&gt;
+아직도 자꾸 몽총한 제가 관리하라고 떠넘기죠?&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;count&lt;/code&gt; 값도 그렇고.. 알아서 잠그고 들어가서 열쇠 놓고 가라고 하고..&lt;br&gt;
+이러다 제가 실수로 열쇠 두고 가는 것을 깜빡하면 어쩌죠?&lt;br&gt;
+변기칸을 잠그고 도망가버리는 어글리 코리안이 되기 십상입니다&lt;/p&gt;
+&lt;p&gt;그래서 나온게&lt;/p&gt;
 &lt;h1&gt;Monitors&lt;/h1&gt;
-&lt;p&gt;&lt;strong&gt;Monitor&lt;/strong&gt;는 Program-Language Construct, 즉 어떤 라이브러리 함수나 패키지같은 것이라고 보시면 되고&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🙋 선착순 한 명 Critical Section!! : Mutual Exclusion Hardware Approach]]></title><description><![CDATA[저번 포스팅에서 Software 로직으로 Mutual Exclusion을 지키는 방법을 살펴봤습니다 Dekker 선생님이나 Peterson…]]></description><link>https://sungpaks.github.io/mutual-exclusion-hardware-approach/</link><guid isPermaLink="false">https://sungpaks.github.io/mutual-exclusion-hardware-approach/</guid><pubDate>Sat, 20 Apr 2024 17:25:07 GMT</pubDate><content:encoded>&lt;p&gt;저번 포스팅에서 Software 로직으로 Mutual Exclusion을 지키는 방법을 살펴봤습니다&lt;br&gt;
+&lt;p&gt;&lt;strong&gt;Monitor&lt;/strong&gt;는 Program-Language Construct, 즉 동기화를 위한 어떤 라이브러리 함수나 패키지같은 것이라고 보면 되는데&lt;br&gt;
+구조는 일단 아래와 같이 생겨먹습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 463px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2a8b224eaee2f17cae054ceb7f5685a6/71ce0/image-4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 137.9746835443038%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAcCAYAAABh2p9gAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAEX0lEQVR42pVVx24jRxTk/3+AsbAN2IAP6wDtwQfvGlhLtgAxzTAMJ4l5OAxiFikGUVQoVzU1hLSWD9vAA4f9Xle/WJ3C166nR/zuVfFbycdqucBoNMRiuTyqU09PT3h8fHxTpEvE7Ol3v8eJE+BnAgYVB2dnZ/CD0IDJJvXVHj484JeSh3fnGQz7PTRbTcxm84PzvDC1uL5GqVSC6/kIwxCFYpE3Bmg0m1it11hvNtjv79But1Aql+G5Lor1Jux6A1vqpF+vVri5ucF2u0UqncnAsm0jZR4o5HOwczm4joNMNotsNoMiLykUCsYmjmMEBA09F1dXV+h2u0Z6vZ45n3I9D0uiD6ksVuv46Ib40wvxOazB8X3kCNjt9tBo1FGt1nB3d4f5fI7xZILd7S1W9G7NSLRa7fYBcECwNkM8d328u7Dw3UUeP1plWE7F3HrLg/1+n6HvMRj0ETH8qNPBaDzGhiHL691ux98uUh4B+4MBOtzs8dDZ32f46/SU4VmwGWqHB+/v75nDtjl0NRyiXq9R6phMp9TtzWXSKXTj4XA0QrVWQ5OHwmrVfNd4oMhiCVDVa7Za6Pa69HDA3A2NCCiKIrSo05JtqsIEz5gT3TyktNoRInorj6VT4u/vH4yxvNSeQlROPT/AhpUd0SGlxXgog2kCSIXyElMxv56bA1F08DCOOwQf0Mue8VJV7XRiXLPtkvzGbwGqQOHlpdnzWGUlWkvfjUbD5E6eCrBPkbfHkPn9X0D+Kn+T2cyAKAwVxbIsgjUQhJeYsGXUPirEAydHHpuQecGrHI4Z7vV0gsV8huViDp8h61YdUn6T8TryxPP3lNU+VjkBlHd1Jj5HD/KUUrMFhzpVUflRiFr61gUiAv1qHYsiD5O2aTE/n4tlfJMt4ttcCd/bFdgVF1mO5va5gopAh1V5halv7Ul3KFx8aOwelUp+sxPhw6dPOPnjI06zeeTylmmXL0PVdIgMkv1Ep2iOoyd26ZOOxCptVk1t4j73nJZhlc2aoW0NXY2fx07AmmcDmDT2lBXVHw13hRd4pDEvDDgpZZM75S2dTsNxyEaFoqn2jGdEEovFwkQhm1dFUUMbI1Z5xra4oWFAXpTxA9tGxiqCkq82epkGtdGrtlHP9box0mSb93YZv1JOyh6KrkevHBOaCvB/bTOZTAm4M7N+zKEoKe2H+CGdx08ZC+9FX2UHFQLqdk3Dko+RwtS4SfStPUWhRjchv6QvjdbF+T8oWHnYZGubLK1Z1hLAgq/cDQEEotzptUvAj0WRh8pfjRzXZtlrBNXI+SyM0pGMnjxU78U8pL0BCUH8KeZOODP+clIEbLylgYwDPo9JlQUSRW04lYp50Jpssyq5c7O9NflVng9VpsGcLr+kL4n25KmYRUvTkeRMsysQ/VeFkzmXbcrmSyZQVfOlqKn16pWeWVuisANeIr1vqC0205HoHb5BKYUjpnhLEorSe6tKy7sanwf1mzyWXqFKL5Htv/7HEdKA/tpnAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Monitor 구조&quot;
+        title=&quot;&quot;
+        src=&quot;/static/2a8b224eaee2f17cae054ceb7f5685a6/71ce0/image-4.png&quot;
+        srcset=&quot;/static/2a8b224eaee2f17cae054ceb7f5685a6/c26ae/image-4.png 158w,
+/static/2a8b224eaee2f17cae054ceb7f5685a6/6bdcf/image-4.png 315w,
+/static/2a8b224eaee2f17cae054ceb7f5685a6/71ce0/image-4.png 463w&quot;
+        sizes=&quot;(max-width: 463px) 100vw, 463px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;자세히는 이어 설명하겠지만&lt;br&gt;
+해당 그림에서 &lt;em&gt;MONITOR&lt;/em&gt; 영역, 즉 하얀 색 영역은 그 자체로 Critical Section으로,&lt;br&gt;
+사실상 하나의 &lt;em&gt;성역&lt;/em&gt;같은 것이라&lt;br&gt;
+그 안에는 단 하나의 프로세스만 들어갈 수 있고&lt;br&gt;
+그 안에 있는 지역 변수는 그 안에서만 접근 가능하며&lt;br&gt;
+미리 정의된 Procedure(≈ function)로만 그 지역 변수를 읽고 쓸 수 있습니다&lt;/p&gt;
+&lt;p&gt;좀 더 친숙하게는&lt;br&gt;
+🚽 화장실 변기칸 같아서&lt;br&gt;
+🚶 그 안에 사람은 한 명만 들어가서 문을 걸어잠그고&lt;br&gt;
+🧻 그 안에 있는 휴지는 그 안에 들어간 사람만 쓸 수 있고&lt;br&gt;
+💩 그 안에서 할 수 있는 일은..&lt;br&gt;
+;;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 300px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/614753d3fd99ff7d1c5409285e722d3d/5a46d/image-5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACoUlEQVR42hWO207TAABA+xVcFIOSGBM0chn3MYcbi1wGShiDgDDcxqCjK13XtevWtfTC2q67VhgMGBkZiAwQESUYfMDwYuILmhDjk1F/RHw7L+fkAEcnF3vHn5PZHR+TsNmmEA+kRPhMWsmmlVU1Viy+kcV4Q30zgYf39492d/fPPp2fnp4dfzg5fPsOyK1vbWweqEv5aCwLzkBzHndc5FbU2KoaXUnK3PwCQYTFSGwtV2BoTpISm4Xi7t4RTc1LogSkZWk1m9/a2D7YOmCIIAxdy3xWVVbT8nIyEgxQEIQSBCVHkzwfidAUCzv8s9M+BCWDYSDBkpnF7FZu+yD/OuzFZsGZ/9spaSUlqlHWjxEkSTPzEVlOUDTPE1AGH0uGIJrhMCwEiAS8GFeXoy9ziWXEjVz3Imw4rQhLcUFhSVN7m7ZBo2tuMLS3NtXWuEYHogFXJIyDbm8+vweEILvCMcebBSFAGUzdOE7SAVTmwskFWqDQLn2bsa3R0KrpM7Y3PKh+btbLuIPwTPFC/PuPP4BEzP38cnFe2Ji1jNjGbRiG+yAng8FiGGdJxNpj6DfpuvSt/Z06bZNm0voMd7+QReny6m/x8CPQWNfIEoFDgVUR2IvAzkkHAbsYn4vzg5TXZe0xPu181GfUjg6YW2ofTjtnLq9+f/32q7DzHoYxoKSs4s6typB9HEc90y7H+MhQEIUEEuEwkAAnevTang5dn0FvNT8xaZstAxZuIe0EA9Og1+8PASWl5TdvVAyaTbB7ymW3DfV3+SEnH/TxpJeA7Nr6mnuVt+uq748NDvR29U5MTPkDHCskfSgRVVJAWWm5oUUz3P140KQbNndazCYUnKRQiMag68rdqiqttkOSUolEJhRiZTm1lnt1DQwtZJbX/wGZki0jxYEStQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;변기&quot;
+        title=&quot;&quot;
+        src=&quot;/static/614753d3fd99ff7d1c5409285e722d3d/5a46d/image-5.png&quot;
+        srcset=&quot;/static/614753d3fd99ff7d1c5409285e722d3d/c26ae/image-5.png 158w,
+/static/614753d3fd99ff7d1c5409285e722d3d/5a46d/image-5.png 300w&quot;
+        sizes=&quot;(max-width: 300px) 100vw, 300px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;아무튼 예.. 그렇습니다&lt;br&gt;
+아예 Scope를 분리해서 C.S로 만들어버리고, 접근은 정해진 함수로만 하는 의존성 역전 like한 발상&lt;br&gt;
+좋은데요&lt;/p&gt;
+&lt;p&gt;그래서 Monitor는 아래와 같은 구성요소들을 포함하는데&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;한 개 이상의 &lt;strong&gt;procedure&lt;/strong&gt; (≈ functino)&lt;/li&gt;
+&lt;li&gt;모니터만의 &lt;strong&gt;지역 변수&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Condition 변수&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;초기화&lt;/strong&gt;를 위한 코드&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이 &lt;strong&gt;Condition 변수&lt;/strong&gt;는 Semaphore와 되게 비슷한 친구인데&lt;br&gt;
+얘도 큐를 가지고 있고, &lt;code class=&quot;language-text&quot;&gt;cwait(c), csignal(c)&lt;/code&gt; 함수를 가집니다&lt;br&gt;
+Semaphore랑 다른 점은 Condition 변수는 &lt;strong&gt;값이 없다&lt;/strong&gt;라는 점인데&lt;br&gt;
+따라서 &lt;code class=&quot;language-text&quot;&gt;cwait&lt;/code&gt;은 값이고 뭐고 블락시켜 큐에 집어넣고,&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;csignal&lt;/code&gt;은 값이고 뭐고 해당하는 큐에서 하나 꺼내옵니다&lt;/p&gt;
+&lt;p&gt;그리고 아까 Monitor 구조 그림에서 좌측 하단에 &lt;code class=&quot;language-text&quot;&gt;urgent queue&lt;/code&gt;라는게 있는데&lt;br&gt;
+요거는 이제 어떤 procedure에서 중간에 &lt;code class=&quot;language-text&quot;&gt;csignal(c)&lt;/code&gt;가 실행되면 프로세스를 깨우게 되니까&lt;br&gt;
+Monitor 내에는 단 하나의 프로세스만 존재한다는 철칙을 지키기 위해&lt;br&gt;
+깨어난 프로세스를 위한 자리를 내주고 &lt;code class=&quot;language-text&quot;&gt;csignal(c)&lt;/code&gt;를 실행한 프로세스는 여기에서 잠시 숨는 곳입니다&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://entertain.daum.net/tv/948839/video/392827640&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACnElEQVR42g3C+08ScQAA8Pvj2nLrZVmtZWlrWS1/qKlTN3U+yjJXPALi4XkonCIqlwqiwHF3HHAHB3iAeKeI31NOBc0H4GtT2/KzDzQ50tnRXKVRPWztqutqe2zSNXvntJRPTROqgF9J48owrkkxcJoxCdxwhkOEuFkSsOzKRJo3QXPooKqnYaC3uk35yQA3To11WYe6LXAP5das8UiOR8SYcZnRpSKK5civFcaYjcC5hFWMIwKnh4JuU8Q7HPNZ2EW1Z37QiX1lAj9pUkEuKkKLulTYKiXtuYQtHbKJnE1eHt1bsxVWR6XMMOtVQFHCkKBgPojEA0iMRBhcH8LVfFQXi6qBMMJx1tml2ZtTHJaKYELEsZme3xZcF4X5nYwDCi1oGUIbJtURUpcJWbIsmqQQ19SvGDVSlhcu9mkp6wRr7jzwHQCyIHj/5qiSzF4dJa5LSWiFRjMhBMTHi5npQ3HmUvYJ4bGO1sZvvS2dbR9cUyaQcJ4B8iznr2wQp8B/DnyX21Rp3bO37ILWwlbA2csSeVVauj5J/jtNmY0DiElvMRs1/Z0/elvfv63VKHsN2n6dssdmVnDENOMdr2yHz2UW2oo7ADd9mPWdbFGnm0QZ4B1NDfXPHrypf+IxKfs/vqq+d+v1y5q654/qa2tq7lfduV3V1d5yIAXO9jlog51IeoyAndhLO4vp2e2EA1a0v3txt6nhqelLk03bPQkP2Ayf3Ta1H9MH5oxjv/tcqEoMomJwDNrl/xR5bD81U0xiIGzl3frk4pBIjGRws0ijuzwmsePrtLWw5DgSnEV+WmJQwKCbUftqwAKVZeoYeE7yZCVPHANvWQ4c3cwTJZk6LTKVHXp/3Xu4ge+mZiXWvuJDCHTQCffh6PfgpPI/U+fTXXZ4RsgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;혼자있고싶어요&quot;
+        title=&quot;&quot;
+        src=&quot;/static/584a6e97fc49d9418a635965cabba648/f058b/image-7.png&quot;
+        srcset=&quot;/static/584a6e97fc49d9418a635965cabba648/c26ae/image-7.png 158w,
+/static/584a6e97fc49d9418a635965cabba648/6bdcf/image-7.png 315w,
+/static/584a6e97fc49d9418a635965cabba648/f058b/image-7.png 630w,
+/static/584a6e97fc49d9418a635965cabba648/40601/image-7.png 945w,
+/static/584a6e97fc49d9418a635965cabba648/78612/image-7.png 1260w,
+/static/584a6e97fc49d9418a635965cabba648/21b4d/image-7.png 1280w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;이제 이 OS에서 제공하는 Semaphore나 Monitor라는 툴을 써서&lt;br&gt;
+다른 새로운 문제들을 기깔나게 해결하는 방법을 알아보려고 하는데&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 308px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e9bdf6269bd7c3cf690f67cc78e6de30/2ece4/image-8.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.16455696202532%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVR42gGfAmD9AGBka1lYXFBQU0FARkpJT0xLUU1OVFI4NUApKSklKquAbuWwm7OShjsyNR8eJRoZHhEQFj88Q0A9QhgYHgBBQkhPTlNKSU8xMTU2Njo7OkAyMzl5ZGJSQUZaRUHlqJPlqZbGlINPPzwUFh0cGSAKDBBJOk5vXHBRUlYAHyAmIyEnHx4lGRgeJSQqFhUcCQgOgH2EcW56j2de3qOQzZWFq3xySTM0GBceGhkeEhEWGRgic4uYm5icACckKisrMCMhKCgnKykoLhIRFxsZHxMUHRAOFbiFeN6ejMiNf7mEd25QTzMvNxAQFxUUGhwaH0tUXHmFjABHMi4lJy0nJiovLzMlJCoREBYZGB5TRkUsKCx0XFiTXlqEVVZ3UEZ/b3Z9f40NDBIkIyooJy4yMjo/SFEAQCwnJigvKikuLi0yHh0jDQ4VUEA+4qeSgWNmTEhUl2RghE1OXEE9QDtMnJutLCwyJyQrQDk+LSkvZl5nACwmLR0cIispLiopLxcVGxMVHG9YUrB8cDkrOJaXo8++v4hta6GZoTEvQl5ac0hHWT8yN3VdXVZBQsK2ugBPXHdibo04OkYWFRpEQkdTVFltXmCAXlkyL0azsbvGwMnKx8+ZlqQzMElPTGpMSGZRTV5KS1BjYGnz6+gAUmaScIm6WmqPGhomcG9wkpSZh3h8gmtqQUJSd3V8s6+1m5ifXFpsWFdsTkxgPDpUNjREGhgfqqWq//rzAFBhj0tdiEBSejQ5TFJRUWpqbXZ1e25ubn9/f4uLi4aGhZKQk4mIln6AgnJyeT07VSMhMk9OV/ju6v3n4ABHWYg7SWs+TnEgJTYnJShNTFo/P1RAPk41Mz88OkhmZXJiYG5WVHFLSmBUUmI3NUxoZHHy7u//9/X14N0miuFngl7TNQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;지루해&quot;
+        title=&quot;&quot;
+        src=&quot;/static/e9bdf6269bd7c3cf690f67cc78e6de30/2ece4/image-8.png&quot;
+        srcset=&quot;/static/e9bdf6269bd7c3cf690f67cc78e6de30/c26ae/image-8.png 158w,
+/static/e9bdf6269bd7c3cf690f67cc78e6de30/2ece4/image-8.png 308w&quot;
+        sizes=&quot;(max-width: 308px) 100vw, 308px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이쯤되면 그거까지 고봉밥으로 담기에는 양이 많아지는 것 같으니&lt;br&gt;
+다음 포스팅에 쓰겠습니다?&lt;/p&gt;
+&lt;p&gt;이만 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🙋 선착순 한 명 Critical Section!! : Mutual Exclusion Hardware Approach]]></title><description><![CDATA[저번 포스팅에서 Software 로직으로 Mutual Exclusion을 지키는 방법을 살펴봤습니다 Dekker 선생님이나 Peterson…]]></description><link>https://sungpaks.github.io/mutual-exclusion-hardware-approach/</link><guid isPermaLink="false">https://sungpaks.github.io/mutual-exclusion-hardware-approach/</guid><pubDate>Sat, 20 Apr 2024 17:25:07 GMT</pubDate><content:encoded>&lt;p&gt;저번 포스팅에서 Software 로직으로 Mutual Exclusion을 지키는 방법을 살펴봤습니다&lt;br&gt;
 Dekker 선생님이나 Peterson 선생님께서 빈틈없는 알고리즘을 만들어 주셨지만&lt;br&gt;
 여전히 문제가 존재했습니다..&lt;/p&gt;
 &lt;ul&gt;
