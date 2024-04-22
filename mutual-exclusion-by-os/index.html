@@ -131,7 +131,7 @@ Hardware Instruction으로 저리 봐도<br>
 <p>결국 semaphore의 값, 즉<br>
 <code class="language-text">s.count</code>의 값은 음수냐 양수냐에 따라서</p>
 <ul>
-<li><code class="language-text">s.count &lt;= 0</code> : <code class="language-text">s.count</code>값 == <strong>블락되어 큐에 들어가 있는 프로세스 개수</strong></li>
+<li><code class="language-text">s.count &lt;= 0</code> : |<code class="language-text">s.count</code>값| == <strong>블락되어 큐에 들어가 있는 프로세스 개수</strong></li>
 <li><code class="language-text">s.count >= 0</code> : <code class="language-text">s.count</code>값 == <strong>블락되지 않고 지나갈 수 있는 프로세스 개수</strong></li>
 </ul>
 <p>라는 결론에 도달합니다</p>
