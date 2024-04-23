@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 23 Apr 2024 13:27:22 GMT</lastBuildDate><item><title><![CDATA[✍️ Producer-Consumer Problem 그리고 Readers-Writers Problem]]></title><description><![CDATA[예.. 저번에 Semaphore와 Monitor에 대해 알아봤는데 또 새로운 문제를 해결하는 데에도 쓰인다고 했었죠? 하나는 Producer-Consumer Problem이고 다른 하나는 Readers-Writers Problem…]]></description><link>https://sungpaks.github.io/producer-consumer-problem-and-readers-writers-problem/</link><guid isPermaLink="false">https://sungpaks.github.io/producer-consumer-problem-and-readers-writers-problem/</guid><pubDate>Tue, 23 Apr 2024 01:09:02 GMT</pubDate><content:encoded>&lt;p&gt;예.. 저번에 Semaphore와 Monitor에 대해 알아봤는데&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 23 Apr 2024 13:42:18 GMT</lastBuildDate><item><title><![CDATA[✍️ Producer-Consumer Problem 그리고 Readers-Writers Problem]]></title><description><![CDATA[예.. 저번에 Semaphore와 Monitor에 대해 알아봤는데 또 새로운 문제를 해결하는 데에도 쓰인다고 했었죠? 하나는 Producer-Consumer Problem이고 다른 하나는 Readers-Writers Problem…]]></description><link>https://sungpaks.github.io/producer-consumer-problem-and-readers-writers-problem/</link><guid isPermaLink="false">https://sungpaks.github.io/producer-consumer-problem-and-readers-writers-problem/</guid><pubDate>Tue, 23 Apr 2024 01:09:02 GMT</pubDate><content:encoded>&lt;p&gt;예.. 저번에 Semaphore와 Monitor에 대해 알아봤는데&lt;br&gt;
 또 새로운 문제를 해결하는 데에도 쓰인다고 했었죠?&lt;br&gt;
 하나는 Producer-Consumer Problem이고&lt;br&gt;
 다른 하나는 Readers-Writers Problem입니다&lt;/p&gt;
@@ -45,67 +45,63 @@
 &lt;p&gt;아무튼 이제 데이터를 주르륵.. 저장한다고 치면&lt;br&gt;
 다음에 Producer가 버퍼에 쓸 위치는 포인터 &lt;code class=&quot;language-text&quot;&gt;in&lt;/code&gt;으로,&lt;br&gt;
 다음에 Consumer가 버퍼에서 읽을 위치는 포인터 &lt;code class=&quot;language-text&quot;&gt;out&lt;/code&gt;으로 나타내면&lt;/p&gt;
-&lt;p&gt;초기 상태는 아래와 같이 버퍼가 빈 상태로 시작한다고 하면
-&lt;span
+&lt;p&gt;초기 상태는 아래와 같이 버퍼가 빈 상태로 시작한다고 하면&lt;/p&gt;
+&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 591px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/a4e10ce8127e28bf72b6a6dba58f5676/7388e/image.png&quot;
+    href=&quot;/static/832ffa40fb28d4b16e8dac1df5589b3f/e4c9a/image-26.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 33.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAAArUlEQVR42q1RSw6DIBAl/S56Lo9D01bFrpv0XKz0BIKK19CVwnSGQEL3TPLyZoZH3gwwzvkVAI5SylMOMIwzyxld132MMc9pmsphGKpxHF/EAWmvRE3V971nqqM2cK2UujNcF7ZtA2utCwz7voNz7o/pLGqTO/4M4ai3ruvC2rb9zvNMbgIdBDlprRuc2teUB3eBmiblqMWJa+y9MX/Q1pesb1gUxQ2nPdBP58APde4slrrhCG0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 29.746835443037973%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAf0lEQVR42q2RywrFIAxE/f9f1IVPxJXgQgQfUyKkCO29qwrhTCaJEhSlFKy18NURSim01jDnxBgDvffNM8g7fc5Pnym899Baw1p7hzHmQefcJmuaYbIfY4TgS6hIQQ8wyec8hHD3kKYak/tTShBSStRaX1f5tdrflXPOW3z1KRdmpc4BzVtYNAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;과정 1&quot;
         title=&quot;&quot;
-        src=&quot;/static/a4e10ce8127e28bf72b6a6dba58f5676/f058b/image.png&quot;
-        srcset=&quot;/static/a4e10ce8127e28bf72b6a6dba58f5676/c26ae/image.png 158w,
-/static/a4e10ce8127e28bf72b6a6dba58f5676/6bdcf/image.png 315w,
-/static/a4e10ce8127e28bf72b6a6dba58f5676/f058b/image.png 630w,
-/static/a4e10ce8127e28bf72b6a6dba58f5676/40601/image.png 945w,
-/static/a4e10ce8127e28bf72b6a6dba58f5676/7388e/image.png 1104w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        src=&quot;/static/832ffa40fb28d4b16e8dac1df5589b3f/e4c9a/image-26.png&quot;
+        srcset=&quot;/static/832ffa40fb28d4b16e8dac1df5589b3f/c26ae/image-26.png 158w,
+/static/832ffa40fb28d4b16e8dac1df5589b3f/6bdcf/image-26.png 315w,
+/static/832ffa40fb28d4b16e8dac1df5589b3f/e4c9a/image-26.png 591w&quot;
+        sizes=&quot;(max-width: 591px) 100vw, 591px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
         decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
-    &lt;/span&gt;
-이렇게 &lt;code class=&quot;language-text&quot;&gt;in&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;out&lt;/code&gt;은 동일한 위치에 있다가&lt;/p&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 &lt;code class=&quot;language-text&quot;&gt;in&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;out&lt;/code&gt;은 동일한 위치에 있다가&lt;/p&gt;
 &lt;p&gt;이제 Producer가 데이터를 좀 쓰고 나면
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 586px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/f1eac44a222522c58f0595298b3492bc/2cffa/image-4.png&quot;
+    href=&quot;/static/044eaeb11a078426807616efdaf7696e/a76f4/image.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 33.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAxklEQVR42q1RWwqDQAzcPij9keJ1vFW1WvrlBfrbQ3gK8Qy+9Rzqrl1NM0v9lRYMDMlMhk3CijiOj78iDMOT4zjWmkf8GXvbti+rjizLHkVRuHVde3me38qyBDxwZO57i5amaRBF0Qu+b9/oyFVVufzOVRCHlFIzSClFXdeB0zAM1Pe9wTiOpgcN9TRNpLWmeZ5NBgfY+xZJkjzbtnV5agDwpDtP9BeOGhpq3srnLUwfuWka41k0bI6rz2LLwK/x1TvGYQt8AFbrKYeXsE4kAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 31.0126582278481%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAmElEQVR42q2QzQrEIAyEff/X86L9wYoFC5VehPZQ6ywJpNiFZVlY4SOTzChEhR9PzhnXdX30FZmlFEY01VaLX2uFMQb7vrOWeXtfrevKoWEYGGst+r5H13U34tFca41pmuCc4ypQvywLFIUI7z3ThohxHB/zEAJijFzneb6hPqUERaHjOHgFWfUb718kmt5Q27bhPE/867wAP4jM+StmItwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;과정 2&quot;
         title=&quot;&quot;
-        src=&quot;/static/f1eac44a222522c58f0595298b3492bc/f058b/image-4.png&quot;
-        srcset=&quot;/static/f1eac44a222522c58f0595298b3492bc/c26ae/image-4.png 158w,
-/static/f1eac44a222522c58f0595298b3492bc/6bdcf/image-4.png 315w,
-/static/f1eac44a222522c58f0595298b3492bc/f058b/image-4.png 630w,
-/static/f1eac44a222522c58f0595298b3492bc/40601/image-4.png 945w,
-/static/f1eac44a222522c58f0595298b3492bc/2cffa/image-4.png 1092w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        src=&quot;/static/044eaeb11a078426807616efdaf7696e/a76f4/image.png&quot;
+        srcset=&quot;/static/044eaeb11a078426807616efdaf7696e/c26ae/image.png 158w,
+/static/044eaeb11a078426807616efdaf7696e/6bdcf/image.png 315w,
+/static/044eaeb11a078426807616efdaf7696e/a76f4/image.png 586w&quot;
+        sizes=&quot;(max-width: 586px) 100vw, 586px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
         decoding=&quot;async&quot;
@@ -116,30 +112,28 @@
 &lt;p&gt;이제 Consumer가 데이터를 읽어가면
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 582px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/9b3b26c707182924703f8076b760bcc0/dd104/image-2.png&quot;
+    href=&quot;/static/31ca312d4345a82a9779809b9dcc4bb6/7c1cd/image-3.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 34.810126582278485%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA0UlEQVR42pVQ2wmDQBCUPIR8mA9JDRZhH/ZhotG/SFoIKUNswT9twLf2oXLRy+yBIASTuDDM7uzs3rFSGIa7NdB1XfE8T17qS2tDVdUjaL9oKIrinOe5VZalnSSJYKqhX8A2aouY0DSN6fv+I4qiG81NM3VdCw80U+r7/oXg4zhyxhinIB6GgU86PAJt2/Ku6z68VJMfPSbR5jRNHWx35wz9ipftOI7vQRA8KSctyzIXHmfuraqKcpqx/jmbDCh/Hxm/3n7BxjCMg6ZpJ8p/eAXe16cnwFUnGmQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 32.278481012658226%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAm0lEQVR42pVRywqEMAzs/39d8Sj0ZVtoe5HiRa2YZbIoIiuyA8Mkk0wOraA/MU0Tbdv2OBetNVqW5eS6ro89DvV9T7VWuudAeKKUQs455jAMrNZa8t6zhhDY01qTUoq6rmP/ug+Fl1L6HkQYRBiKhRgj1whIKVmNMecM/TWHPudMYt93eiIwzzMfAg7v195Ri7dPwBuO43gG3/ABth3Nnruezn4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;과정 3&quot;
         title=&quot;&quot;
-        src=&quot;/static/9b3b26c707182924703f8076b760bcc0/f058b/image-2.png&quot;
-        srcset=&quot;/static/9b3b26c707182924703f8076b760bcc0/c26ae/image-2.png 158w,
-/static/9b3b26c707182924703f8076b760bcc0/6bdcf/image-2.png 315w,
-/static/9b3b26c707182924703f8076b760bcc0/f058b/image-2.png 630w,
-/static/9b3b26c707182924703f8076b760bcc0/40601/image-2.png 945w,
-/static/9b3b26c707182924703f8076b760bcc0/dd104/image-2.png 1064w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        src=&quot;/static/31ca312d4345a82a9779809b9dcc4bb6/7c1cd/image-3.png&quot;
+        srcset=&quot;/static/31ca312d4345a82a9779809b9dcc4bb6/c26ae/image-3.png 158w,
+/static/31ca312d4345a82a9779809b9dcc4bb6/6bdcf/image-3.png 315w,
+/static/31ca312d4345a82a9779809b9dcc4bb6/7c1cd/image-3.png 582w&quot;
+        sizes=&quot;(max-width: 582px) 100vw, 582px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
         decoding=&quot;async&quot;
@@ -154,30 +148,28 @@ Round하게, 끝에 도달하면 &lt;code class=&quot;language-text&quot;&gt;in 
 다시 쭉 데이터를 씁니다&lt;br&gt;
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 583px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/83a1e0f7a5df333a9a6ffa7cad2959e0/dd104/image-3.png&quot;
+    href=&quot;/static/cacd2d9ffae5c08f6bb04f4f2023ecc4/9fc4b/image-4.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 34.810126582278485%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAzElEQVR42mPYv38/Cy78//9/5tzcXHYfHx8uEBufWhhmIAJwAjEPA7HgypUrlVevXq2+fv16DRpddf/+/YoDBw50bd26dSqIDZO/fft2FYh98+ZNmFowvnbtWjnDhw8ffn/79u3/169f/4Po79+/g/Hnz59h9D8g/e/Hjx9gNSAapA6EYWq+fPkCFv/48eNPBqDJCUBbkm7cuJGMTAPFk+7duxe/ffv2stWrVzeC2CAxoBxYHoueZKAL46kfhoRi2d7enkdLS0uI2FgGAD0FGi83dkRMAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 29.746835443037973%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAlUlEQVR42o2QwQqGIBCEff/ni1I7lCWIh0Q8GGg1Py4UBj+YMOw3u+MelqHxUkoIIRBf19WKg+Wc6VNRzUXHccB7j2EYcJ7na/YvXzwzxqDve0gpIYSgWjPnnHT3xnF8MnW/8LquYNu2QSlFZlkWqre01rSg6zriel54nufHlx3WWrDWTWKMmKbp+w1bgX3f4Zz7vPAHIaHMP4fpFlkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;과정 4&quot;
         title=&quot;&quot;
-        src=&quot;/static/83a1e0f7a5df333a9a6ffa7cad2959e0/f058b/image-3.png&quot;
-        srcset=&quot;/static/83a1e0f7a5df333a9a6ffa7cad2959e0/c26ae/image-3.png 158w,
-/static/83a1e0f7a5df333a9a6ffa7cad2959e0/6bdcf/image-3.png 315w,
-/static/83a1e0f7a5df333a9a6ffa7cad2959e0/f058b/image-3.png 630w,
-/static/83a1e0f7a5df333a9a6ffa7cad2959e0/40601/image-3.png 945w,
-/static/83a1e0f7a5df333a9a6ffa7cad2959e0/dd104/image-3.png 1064w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        src=&quot;/static/cacd2d9ffae5c08f6bb04f4f2023ecc4/9fc4b/image-4.png&quot;
+        srcset=&quot;/static/cacd2d9ffae5c08f6bb04f4f2023ecc4/c26ae/image-4.png 158w,
+/static/cacd2d9ffae5c08f6bb04f4f2023ecc4/6bdcf/image-4.png 315w,
+/static/cacd2d9ffae5c08f6bb04f4f2023ecc4/9fc4b/image-4.png 583w&quot;
+        sizes=&quot;(max-width: 583px) 100vw, 583px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
         decoding=&quot;async&quot;
@@ -190,39 +182,38 @@ Round하게, 끝에 도달하면 &lt;code class=&quot;language-text&quot;&gt;in 
 어떤 문제가 발생할 수 있는지 생각해봅시다&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
 일단, 한 번에 여러 Producer가 &lt;code class=&quot;language-text&quot;&gt;in&lt;/code&gt;위치에 데이터를 쓰면 안 될 것 같습니다&lt;br&gt;
-당연하죠? &quot;바보&quot;를 둘이서 나눠 쓸건데, 같은 칸에 쓰면 &quot;바&quot; 또는 &quot;보&quot;만 남게 될 것입니다&lt;br&gt;
-&lt;span
+당연하죠? &quot;바보&quot;를 둘이서 나눠 쓸건데, 같은 칸에 쓰면 &quot;바&quot; 또는 &quot;보&quot;만 남게 될 것입니다&lt;/p&gt;
+&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 537px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/33ea91d4916504539c14173986eb4b63/59000/image-6.png&quot;
+    href=&quot;/static/9986433f2cf215fe4704a53dff4cda66/b1cde/image-6.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 223.41772151898732%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 223.41772151898732%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;가만히 계세오&quot;
+        alt=&quot;가만히 계세요&quot;
         title=&quot;&quot;
-        src=&quot;/static/33ea91d4916504539c14173986eb4b63/f058b/image-6.png&quot;
-        srcset=&quot;/static/33ea91d4916504539c14173986eb4b63/c26ae/image-6.png 158w,
-/static/33ea91d4916504539c14173986eb4b63/6bdcf/image-6.png 315w,
-/static/33ea91d4916504539c14173986eb4b63/f058b/image-6.png 630w,
-/static/33ea91d4916504539c14173986eb4b63/59000/image-6.png 917w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        src=&quot;/static/9986433f2cf215fe4704a53dff4cda66/b1cde/image-6.png&quot;
+        srcset=&quot;/static/9986433f2cf215fe4704a53dff4cda66/c26ae/image-6.png 158w,
+/static/9986433f2cf215fe4704a53dff4cda66/6bdcf/image-6.png 315w,
+/static/9986433f2cf215fe4704a53dff4cda66/b1cde/image-6.png 537w&quot;
+        sizes=&quot;(max-width: 537px) 100vw, 537px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
         decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
-    &lt;/span&gt;
-Consumer의 상황도 마찬가지겠죠?&lt;br&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Consumer의 상황도 마찬가지겠죠?&lt;br&gt;
 그러니 어떤 순간에 데이터를 읽거나 쓰거나 하나만 하도록 해야 할 것 같습니다.&lt;/p&gt;
 &lt;p&gt;근데 이 경우는 이미 앞에서 질리도록 살펴봤던 Mutual Exclusion 문제네요&lt;br&gt;
 Well-Known 입니다만? 🥸&lt;/p&gt;
