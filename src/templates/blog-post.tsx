@@ -7,6 +7,7 @@ import Seo from "../components/seo"
 import Giscus from "@giscus/react"
 import kebabCase from "lodash.kebabcase"
 import { useState } from "react"
+import "katex/dist/katex.min.css"
 
 interface Frontmatter {
   title: string
