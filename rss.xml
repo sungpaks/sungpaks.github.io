@@ -1,4 +1,971 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 22 Apr 2024 16:06:12 GMT</lastBuildDate><item><title><![CDATA[ 🕹️ OS 툴로 Critical Section 통제하기 : Mutual Exclusion By Semaphore & Monitor]]></title><description><![CDATA[Software 로직으로 이리 보고 Hardware Instruction으로 저리 봐도 로 가짜로 대기하는 Busy-Waiting…]]></description><link>https://sungpaks.github.io/mutual-exclusion-by-os/</link><guid isPermaLink="false">https://sungpaks.github.io/mutual-exclusion-by-os/</guid><pubDate>Sat, 20 Apr 2024 21:31:15 GMT</pubDate><content:encoded>&lt;p&gt;Software 로직으로 이리 보고&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 23 Apr 2024 13:27:22 GMT</lastBuildDate><item><title><![CDATA[✍️ Producer-Consumer Problem 그리고 Readers-Writers Problem]]></title><description><![CDATA[예.. 저번에 Semaphore와 Monitor에 대해 알아봤는데 또 새로운 문제를 해결하는 데에도 쓰인다고 했었죠? 하나는 Producer-Consumer Problem이고 다른 하나는 Readers-Writers Problem…]]></description><link>https://sungpaks.github.io/producer-consumer-problem-and-readers-writers-problem/</link><guid isPermaLink="false">https://sungpaks.github.io/producer-consumer-problem-and-readers-writers-problem/</guid><pubDate>Tue, 23 Apr 2024 01:09:02 GMT</pubDate><content:encoded>&lt;p&gt;예.. 저번에 Semaphore와 Monitor에 대해 알아봤는데&lt;br&gt;
+또 새로운 문제를 해결하는 데에도 쓰인다고 했었죠?&lt;br&gt;
+하나는 Producer-Consumer Problem이고&lt;br&gt;
+다른 하나는 Readers-Writers Problem입니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b82ea41429b93c264638fabd253d96bc/d67ca/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 54.43037974683544%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACmElEQVR42i3SyW7bZhSGYd6FbYniKDmSNUcTKYqDSFGiKImaEsdo7MJBEiSrBEhQdFV01zvoopuimwK9y7fHbhffjnh4zvcfxTdU4lqNT0uPx8RlWr8mHbdZjFsEgwZhHDN0HQyjRNXWsC0d3dCYdGsckx77pM1h2eGH05o0O6FEtsGbOOLzNuH9KiAevCTzxqxmI9LZmChN8V2XTeiz8EP67Y7gFr9+v+fvP37iz9+/8c9fv/Dbzw94bogSmhqBqjItlRldqYxUnUH5v/R0kyiJ+fT6wPd3P/Lxzb3AEZ2GTa/XwHG6jCcdBoMb2nUDzxMwMiskhk5sGgTyZ1e3mGjmc/qmyTZb8vXtmQ+3Bx7Pr9nPA6miKVNecVW+QFUvsKSOmlXCGQ5QYpkw0QU0DHzBpk/RBK6YDK0qoe/ysA2lhh7rwOGczqW7OS/bdemyhCmxTZWKdkGz2URJBFzohkz5NKHxDHq6jScTjgRM0yUP5zveHbd8OOU87rfspM9Jq063pjGsa4xuTNTKBTfNOspCwFS6Sg2T0HjCJJrxDI4tm2KTcYwC3u9zvtwVnPwuSa+K35RNBAtbUs0LTSa8pNm6RknlDJb/g5HEUy1mZhOvUmViN+QUck5pwm0a8TabcQhG5NMecb/FvNfGbddo2GVUvcRg76MsBVzJqivTJpTekuGY/fFIEqyJgpT17o7NYUHuCFas2W1eMY9CVosVq/mGsN+QF9YoqZd0Bx2UzDJYC5iZFpE8RuqEzKcxCzcidHwyAQ63BXf5glf5juV8T7HNydOtfOvKyjqta5UrAW+67SfQJJfzyCSxoIGsH5g1ZmUDp3rNZnfmeL6nkJMp9meKQg7d68jKdZb9Gknfpl4tc1ku4QUT/gUU/mpVhhwrjwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;두뇌 풀 가동&quot;
+        title=&quot;&quot;
+        src=&quot;/static/b82ea41429b93c264638fabd253d96bc/f058b/image-1.png&quot;
+        srcset=&quot;/static/b82ea41429b93c264638fabd253d96bc/c26ae/image-1.png 158w,
+/static/b82ea41429b93c264638fabd253d96bc/6bdcf/image-1.png 315w,
+/static/b82ea41429b93c264638fabd253d96bc/f058b/image-1.png 630w,
+/static/b82ea41429b93c264638fabd253d96bc/d67ca/image-1.png 714w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;어떤 프라브람이고, 어떻게 해결할 수 있는지 함 봅시다&lt;/p&gt;
+&lt;h1&gt;Producer-Consumer Problem&lt;/h1&gt;
+&lt;p&gt;I/O버퍼나 Ready Queue 등등와 같이&lt;br&gt;
+하나의 버퍼, 말하자면 어떤 창고가 있다고 해봅시다&lt;br&gt;
+그리고 작업자인 프로세스들은 딱 두 종류만 있는데&lt;br&gt;
+버퍼라는 창고에 넣을 물건인 데이터를 만들어서 버퍼에 집어넣는 생산자인 Producer와&lt;br&gt;
+버퍼에서 데이터를 가져가는 소비자인 Consumer가 있습니다&lt;br&gt;
+이런 특성의 버퍼는 되게 자주 접할 수 있는데&lt;br&gt;
+레디 큐나 I/O버퍼같은 것들이 그것입니다&lt;/p&gt;
+&lt;p&gt;아무튼 이제 데이터를 주르륵.. 저장한다고 치면&lt;br&gt;
+다음에 Producer가 버퍼에 쓸 위치는 포인터 &lt;code class=&quot;language-text&quot;&gt;in&lt;/code&gt;으로,&lt;br&gt;
+다음에 Consumer가 버퍼에서 읽을 위치는 포인터 &lt;code class=&quot;language-text&quot;&gt;out&lt;/code&gt;으로 나타내면&lt;/p&gt;
+&lt;p&gt;초기 상태는 아래와 같이 버퍼가 빈 상태로 시작한다고 하면
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a4e10ce8127e28bf72b6a6dba58f5676/7388e/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 33.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAAArUlEQVR42q1RSw6DIBAl/S56Lo9D01bFrpv0XKz0BIKK19CVwnSGQEL3TPLyZoZH3gwwzvkVAI5SylMOMIwzyxld132MMc9pmsphGKpxHF/EAWmvRE3V971nqqM2cK2UujNcF7ZtA2utCwz7voNz7o/pLGqTO/4M4ai3ruvC2rb9zvNMbgIdBDlprRuc2teUB3eBmiblqMWJa+y9MX/Q1pesb1gUxQ2nPdBP58APde4slrrhCG0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;과정 1&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a4e10ce8127e28bf72b6a6dba58f5676/f058b/image.png&quot;
+        srcset=&quot;/static/a4e10ce8127e28bf72b6a6dba58f5676/c26ae/image.png 158w,
+/static/a4e10ce8127e28bf72b6a6dba58f5676/6bdcf/image.png 315w,
+/static/a4e10ce8127e28bf72b6a6dba58f5676/f058b/image.png 630w,
+/static/a4e10ce8127e28bf72b6a6dba58f5676/40601/image.png 945w,
+/static/a4e10ce8127e28bf72b6a6dba58f5676/7388e/image.png 1104w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+이렇게 &lt;code class=&quot;language-text&quot;&gt;in&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;out&lt;/code&gt;은 동일한 위치에 있다가&lt;/p&gt;
+&lt;p&gt;이제 Producer가 데이터를 좀 쓰고 나면
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f1eac44a222522c58f0595298b3492bc/2cffa/image-4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 33.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAxklEQVR42q1RWwqDQAzcPij9keJ1vFW1WvrlBfrbQ3gK8Qy+9Rzqrl1NM0v9lRYMDMlMhk3CijiOj78iDMOT4zjWmkf8GXvbti+rjizLHkVRuHVde3me38qyBDxwZO57i5amaRBF0Qu+b9/oyFVVufzOVRCHlFIzSClFXdeB0zAM1Pe9wTiOpgcN9TRNpLWmeZ5NBgfY+xZJkjzbtnV5agDwpDtP9BeOGhpq3srnLUwfuWka41k0bI6rz2LLwK/x1TvGYQt8AFbrKYeXsE4kAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;과정 2&quot;
+        title=&quot;&quot;
+        src=&quot;/static/f1eac44a222522c58f0595298b3492bc/f058b/image-4.png&quot;
+        srcset=&quot;/static/f1eac44a222522c58f0595298b3492bc/c26ae/image-4.png 158w,
+/static/f1eac44a222522c58f0595298b3492bc/6bdcf/image-4.png 315w,
+/static/f1eac44a222522c58f0595298b3492bc/f058b/image-4.png 630w,
+/static/f1eac44a222522c58f0595298b3492bc/40601/image-4.png 945w,
+/static/f1eac44a222522c58f0595298b3492bc/2cffa/image-4.png 1092w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;code class=&quot;language-text&quot;&gt;in&lt;/code&gt;이 쭉 이동한 상태고,&lt;/p&gt;
+&lt;p&gt;이제 Consumer가 데이터를 읽어가면
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9b3b26c707182924703f8076b760bcc0/dd104/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 34.810126582278485%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA0UlEQVR42pVQ2wmDQBCUPIR8mA9JDRZhH/ZhotG/SFoIKUNswT9twLf2oXLRy+yBIASTuDDM7uzs3rFSGIa7NdB1XfE8T17qS2tDVdUjaL9oKIrinOe5VZalnSSJYKqhX8A2aouY0DSN6fv+I4qiG81NM3VdCw80U+r7/oXg4zhyxhinIB6GgU86PAJt2/Ku6z68VJMfPSbR5jRNHWx35wz9ipftOI7vQRA8KSctyzIXHmfuraqKcpqx/jmbDCh/Hxm/3n7BxjCMg6ZpJ8p/eAXe16cnwFUnGmQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;과정 3&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9b3b26c707182924703f8076b760bcc0/f058b/image-2.png&quot;
+        srcset=&quot;/static/9b3b26c707182924703f8076b760bcc0/c26ae/image-2.png 158w,
+/static/9b3b26c707182924703f8076b760bcc0/6bdcf/image-2.png 315w,
+/static/9b3b26c707182924703f8076b760bcc0/f058b/image-2.png 630w,
+/static/9b3b26c707182924703f8076b760bcc0/40601/image-2.png 945w,
+/static/9b3b26c707182924703f8076b760bcc0/dd104/image-2.png 1064w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;code class=&quot;language-text&quot;&gt;out&lt;/code&gt;또한 쭉 이동한 상태가 됩니다&lt;/p&gt;
+&lt;p&gt;다시 Producer가 폭주해서 데이터를 쓰되&lt;br&gt;
+만약 버퍼 크기가 &lt;code class=&quot;language-text&quot;&gt;n&lt;/code&gt;이고 버퍼의 끝에 도달하면&lt;br&gt;
+0부터 &lt;code class=&quot;language-text&quot;&gt;out&lt;/code&gt;직전까지는 &lt;code class=&quot;language-text&quot;&gt;out&lt;/code&gt;이 이미 데이터를 읽어갔으니 여기를 또 채워야겠죠?&lt;br&gt;
+Round하게, 끝에 도달하면 &lt;code class=&quot;language-text&quot;&gt;in = (in+1)%n&lt;/code&gt;처럼 해서 0으로 돌아오도록 하고&lt;br&gt;
+다시 쭉 데이터를 씁니다&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/83a1e0f7a5df333a9a6ffa7cad2959e0/dd104/image-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 34.810126582278485%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAzElEQVR42mPYv38/Cy78//9/5tzcXHYfHx8uEBufWhhmIAJwAjEPA7HgypUrlVevXq2+fv16DRpddf/+/YoDBw50bd26dSqIDZO/fft2FYh98+ZNmFowvnbtWjnDhw8ffn/79u3/169f/4Po79+/g/Hnz59h9D8g/e/Hjx9gNSAapA6EYWq+fPkCFv/48eNPBqDJCUBbkm7cuJGMTAPFk+7duxe/ffv2stWrVzeC2CAxoBxYHoueZKAL46kfhoRi2d7enkdLS0uI2FgGAD0FGi83dkRMAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;과정 4&quot;
+        title=&quot;&quot;
+        src=&quot;/static/83a1e0f7a5df333a9a6ffa7cad2959e0/f058b/image-3.png&quot;
+        srcset=&quot;/static/83a1e0f7a5df333a9a6ffa7cad2959e0/c26ae/image-3.png 158w,
+/static/83a1e0f7a5df333a9a6ffa7cad2959e0/6bdcf/image-3.png 315w,
+/static/83a1e0f7a5df333a9a6ffa7cad2959e0/f058b/image-3.png 630w,
+/static/83a1e0f7a5df333a9a6ffa7cad2959e0/40601/image-3.png 945w,
+/static/83a1e0f7a5df333a9a6ffa7cad2959e0/dd104/image-3.png 1064w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+버퍼가 꽉 찼네요..&lt;br&gt;
+더 이상 쓰면 Consumer가 읽어가야 할 &apos;니&apos;, &apos;다&apos;, 등등..의 글자를 덮어쓰게 되니&lt;br&gt;
+이제 버퍼에 데이터를 쓰는 것은 멈추고&lt;br&gt;
+어떤 문제가 발생할 수 있는지 생각해봅시다&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+일단, 한 번에 여러 Producer가 &lt;code class=&quot;language-text&quot;&gt;in&lt;/code&gt;위치에 데이터를 쓰면 안 될 것 같습니다&lt;br&gt;
+당연하죠? &quot;바보&quot;를 둘이서 나눠 쓸건데, 같은 칸에 쓰면 &quot;바&quot; 또는 &quot;보&quot;만 남게 될 것입니다&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/33ea91d4916504539c14173986eb4b63/59000/image-6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 223.41772151898732%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAtCAIAAAAhntw/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAJvUlEQVR42iXWaWwU1x0A8Nlj7vvYmdk5dmZnD+/hg/Wu9769PjgMwcY2Zr02vrAxxmCKQ2gOSAI0HIE0VzFpQ2juIqWqGkjS5igpVROlTRTlS6SmSlE/Rarab1E/dpxKfz3NvNG8+b/Re//fA9ygA4YcHp5UVNHhBmDYCSNOJwQ4IMANOzYDckCwE4QcLsgB/hAEhaE45AYBwOEEdvcnfn5+vr/W43YCCg15SBBGQcQOxIljLgJz0ZiLwUGacHOkW6TAni2RjrBmXwAk7OhLmbt7Ex6BVimwW0ENkSBZUlJkjoY9hEumIZUFNQ42ecTPo34BMzkkJOF+EQc8hDspIQrqhGGwXUYKBqZ6OUEWSA/vFak2EQ17sKiExhWiXSE7vGS3QXf7mKSPSfhIwGChjEZYHhzB4JiE5XyUh8UJhiykIoOZcFIjUjqVUYkeH5X20WkfmfHTWYsq+ekekwb8PFT2U10KxlFwp4plLeahk2uPrY6dWxrYnQ92yFjKR/ZoeFInMgadM6icSaUtOh9gu00WCApI2SKrwc37iCnwsrBrfOyD22/0J9ROr/0OmdCIbo1MGUTaIHMWk7XoHr/dckmTAcIiUg/gA2EqJiIYhcuaRnDsRKuZDGsZDctbdMFPVfxkMUjY30hqWDFIV8NsJUinTQqIeKBqiB4vGPXBxODKPk4TABiVZCEV0bslsGiR9SBZt4hakLQkQlVFrwevR7mtcS4XZACTdu7fnrh2fub0S5eevPXn6TPrux65sOvgcvP+9a42Jauj9iQLfjqj4/We0Nkj47GwHteIRkxIWwygEK6xaujZtT0js6Mbd/745u07tz798vV37l799OvqYLmbA4p+qh5mihY+lgucP7hzrNZeCbG9Ud6eOaCQzlqH2hzY4gu3zZ579oHLz53a+MWPn/1Z6/wVX0d0OB/Y3in2BrGSRSR0cv6+bDUb61DxwSiXNkkAwVyxqLljWwMmcYfT4URQlGMxnid4JhLxN4cH1/bWK0FS5hFJlZ9/5kJ8SxymCUtl0n4KQCgCInGcY0CShBDYDYJuGHQicLordOmx9cW1Y5bikQkIIVFJ02dm5xiRR2jaXkU6CwOiyAoyx/Eky2KCh/KIDM+RLI1bKpvdEgqGDFnA/RKpKbxpqtFIwKsIqsqbPq9Io8B4RpwoKq2Svro1PF/R7Jgp6q2S2awEpsvWaDGQjinZuHc0b801IlONtvn++Or2ztVtnZOlNmA8yT0ym7lxYersgcZyRVqsaLNFda6qL/ZZ9U6vrLAexc6HEgV0qhqc74vM9UYfnRv48XhushAA9vYI683k6eXGytbQSlVeKCtzZfVA3deq+HkOVQwp3hHRfDJCgEGdmeuPzjeiK9tix4baJ0ohYCIrTBY8zQy/UJGX+9SlujJT8i41jImC1haQLh6feH/jxMtnZ4YaCUEVm7Xw6o7o4aHoj3bFRnJ+4L6Ep1WSmnlpLCPuy0vjWe9I2tssqNMl7czS9jfOLr525sCLp6fL6aAbc40WjNlea6pqLfSFhlI6MN4jTJflyYLcKsrzZe9UQZ4paXMVdanf/9aZfR9eXn7v8qEbp1rZTi2kUXtLZqtiLTYCRwZDkwUTaOX4VtEzlZcWy/KhurxUk5drykLVO1VVrhzqf2F55J2LC+dX+g8N98xUA2NlY6ZmLveZRwb800UDGE9xk3lhKi/Ol6TFqrhQFhcrXjuFmar3xHj3xfmBx+dLo7W20aw+X9PHS8Zs1Vis+VYbZquoAs0etpkXpvPCTFpYLMkHy+KhmtQqyNVOcXYouby78+G58s6BTNzid/QozZK+UNMXa9rhhjFVUoFyh9Aq8K0sszikLfWKe1KedNSj6RzGkRceXbl5eenO7Rv5akGzNN1So2HvQI8xV9VWevWpogaEErHuMDV3sP7QK7+aPT7Bc05SZFiJgTDgJ08/8f1///30xjOcyvmjhqR7REWgJHZrUl7bbo5mZSAQC47trj34/Mnzv7176uZLUyeOjy0fHVk81FxeOXX91VfvfHJu49retWMjq0enTj+8cPbR0YdPbd+WWt+mDKdFoDVcvvf2mQ/efenWvS8+/vbLj77+ZuPmR8/88r1rb3549bV3n7r+9qXrv3vh1x9vvPWH299++969eze++Wd+x0DF40hrJPCPv332/XdfffKbn567cGZudWV49eielSOt9QfG146dfu75p15+Y/jo0daDJ8fW13ceXd2zfnzb+v2B9nDMBQRhB/D2rZuvv3Ltoan8cDuqsE6MxUjG3roca/vQFSnme3iZEiSaEXCMAGUvq2qCT+HCmNNCnTaLbpcDgCCQ5kgIdZM4iGJuF+p22wG7XJDT7kQw0G4hFER/eIoTCGZ3Ik7ACQC1bOjKI82dWwuYG9AZkCVcTtgBIg4McRKbSjoZ3MX+n0gSlBkkm4zFA15bP4BBgJFqbP/eatAQQ6w7q+MBwa5jToECeRoWPaQq4HbF8fGQTaQloJaIBTx4xEuGvQRgMnBKQjHQHh7qVvGan9ii4goHaSLOi5xdsSieiUpYp0Z0KGRCp5J+m0g6Y7Ip/6ZVcM5nl0qEIeGEQhRNulunIzIa8uIQgXFeOd7mSxlMyqCzBm1blwkweZMuW1yPXfQjElILkG0ibk8mb1B9kU3KTA/WEfUfXt6/MlZavi/TrTM2y5s+GrZytK1kLsBvKmmb3AgStRCbM+h6iO6PMCGNUUwdoajTjz9y8cRsziJTNs6buNKlIJsL2eWe3yTW4oB2GesN4FWLyJvsYJypRmhOEgRDByjC3x4tJ9vy6mZq5YAtHh2W0C4f1RsWqiEmHeSBmAiNFoOTA7FSkOoLUxGTZ3QtKDBDJLaHwGMqWwsSVYvsbaMiIpLsCLQFvBk/ta1dyIZYwP57V5+Ye+HSwdFKqNOLsh4O5aisiF+IeM4mlYDCdEg2VJTN8PZ8x9Mn5/f0JaI63RsVMhYLtGvE0b25K2sTI7lg3Is6MSzXpV4/0XH3tcz7zyWP7Ao20qq9pOqV/Mml1vx4/0ilrREVGhF282Sgs8i+gdSuWtcWjbCPCDyFHpoM//XJ9s9f7fr77zN/ebFrdKsuMVhI58IKtTI9lEnFAzJaC7NJgwYgDB7a0R/rbIdwWOKxQlj46PHEZxvtd5+Kf/5K958uxa4utRcDLIo4Rd27tHSAkz0QRRleOu2nAZQiMAanBNtUFkBhhqUe3N/23RfFf31V/s9XxVuXuhYGTJHCIBwVvVLnlk6CpWmBZzlapyEAJXCUxBECd8EghCEunC4XjeF+rZ6XDjcNRWNg2EWiIIgi9laiOYogSYpjcRJFXMD/AEofHQVNQHqXAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;가만히 계세오&quot;
+        title=&quot;&quot;
+        src=&quot;/static/33ea91d4916504539c14173986eb4b63/f058b/image-6.png&quot;
+        srcset=&quot;/static/33ea91d4916504539c14173986eb4b63/c26ae/image-6.png 158w,
+/static/33ea91d4916504539c14173986eb4b63/6bdcf/image-6.png 315w,
+/static/33ea91d4916504539c14173986eb4b63/f058b/image-6.png 630w,
+/static/33ea91d4916504539c14173986eb4b63/59000/image-6.png 917w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+Consumer의 상황도 마찬가지겠죠?&lt;br&gt;
+그러니 어떤 순간에 데이터를 읽거나 쓰거나 하나만 하도록 해야 할 것 같습니다.&lt;/p&gt;
+&lt;p&gt;근데 이 경우는 이미 앞에서 질리도록 살펴봤던 Mutual Exclusion 문제네요&lt;br&gt;
+Well-Known 입니다만? 🥸&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+또 다른 문제는 일단&lt;br&gt;
+Producer는 버퍼가 가득 차면 데이터를 더 이상 집어넣을 수 없고&lt;br&gt;
+Consumer는 비슷하게, 버퍼가 비어 있다면 데이터를 더 이상 꺼내갈 수 없습니다&lt;br&gt;
+라는 사실에서부터 시작하는데&lt;br&gt;
+그럼 그냥 버퍼가 가득 차면 Producer는 기다리고,&lt;br&gt;
+버퍼가 비어 있으면 Consumer는 기다리면 되지 않을까요?&lt;/p&gt;
+&lt;p&gt;근데 위 그림을 다시 자세히 들여다보면&lt;br&gt;
+버퍼가 비어 있는 경우 &lt;code class=&quot;language-text&quot;&gt;in&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;out&lt;/code&gt;이 같은 자리에 있는데&lt;br&gt;
+버퍼가 가득 찬 경우에도 &lt;code class=&quot;language-text&quot;&gt;in&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;out&lt;/code&gt;이 같은 자리에 있습니다??&lt;br&gt;
+그렇기 때문에 &lt;code class=&quot;language-text&quot;&gt;if (in == out)&lt;/code&gt; 이렇게 쓰는 것만으로는 버퍼가 비어 있는지 가득 찬건지 확인을 할 수가 없습니다 ㅜㅜ&lt;/p&gt;
+&lt;p&gt;그래서 이걸 구분하기 위해 어쩔 수 없이 Producer와 Writers 각각은 다음과 같이 작성해왔습니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; producer&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;true&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		v &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;produce&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//대충 data 하나를 만들어 냄&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;in&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt;n &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; out&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 다음 칸이 out과 겹치면 대기&lt;/span&gt;
+			&lt;span class=&quot;token comment&quot;&gt;/* do nothing */&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		buffer&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;in&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; v&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		in &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;in&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; consumer&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;true&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;in &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; out&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 현재 칸이 in과 겹치면 대기&lt;/span&gt;
+			&lt;span class=&quot;token comment&quot;&gt;/* do nothing */&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		w &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; buffer&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		out &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;out&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;consume&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;w&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//대충 꺼내온 데이터를 소비함&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그냥 버퍼를 아무리 꽉 채워도 한 칸은 비우도록 한 것이죠......&lt;br&gt;
+그리고 OS를 잘 공부한 독자라면&lt;br&gt;
+busy-waiting이잖아? 를 바로 떠올리시겠죠?&lt;/p&gt;
+&lt;p&gt;이 문제를 semaphore와 monitor로 잘 해결해볼 수 있습니다&lt;br&gt;
+게다가 얘네를 쓰면 꼭 한 칸 비우도록 하지 않아도 됩니다!&lt;/p&gt;
+&lt;h2&gt;Semaphore로 Producer-Consumer Problem 해결하기&lt;/h2&gt;
+&lt;p&gt;코드 형태를 바로 봅시다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; sizeofbuffer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;/* buffer size */&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+semaphore s &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+semaphore n &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+semaphore e &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; sizeofbuffer&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;producer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;true&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;produce&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//대충 데이터 만드는 함수&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;semWait&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//데이터 집어넣기 전에, 버퍼 꽉 찼는지 확인&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;semWait&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;s&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//C.S 잠그기&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//데이터 집어넣기.&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;semSignal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;s&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// C.S 잠금 해제&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;semSignal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 데이터를 집어넣었으니, 하나 넣었다고 알리기&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;consumer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;true&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;semWait&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 데이터 꺼내기 전에, 버퍼 비었는지 확인&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;semWait&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;s&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//C.S 잠그기&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;take&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//데이터 꺼내가기.&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;semSignal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;s&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//C.S 구현&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;semsignal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//데이터를 꺼냈으니, 하나 꺼냈다고 알리기&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;consume&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//대충 데이터 소비하는 함수&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;parbegin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;producer&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; consumer&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 때, 가상의 함수 &lt;code class=&quot;language-text&quot;&gt;append()&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;take()&lt;/code&gt;는 대충 데이터를 집어넣고 꺼내가는 동작이라고 보시면 됩니다&lt;/p&gt;
+&lt;p&gt;세 가지 semaphore가 쓰이는데..&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;semaphore s&lt;/code&gt; =&gt; C.S를 잠가 Mutual Exclusion을 보장하기 위함. 초기값 1&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;semaphore n&lt;/code&gt; =&gt; 버퍼에 꺼내갈 수 있는 데이터가 얼마나 있는지 나타낸다. 초기값 0 (처음에는 데이터가 없음)&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;semaphore e&lt;/code&gt; =&gt; 버퍼에 데이터를 넣을 공간이 얼마나 남았는지 나타낸다. 초기값은 &lt;code class=&quot;language-text&quot;&gt;sizeofbuffer&lt;/code&gt;. (처음에는 버퍼 전체가 비어있으므로)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이렇게 해서,&lt;br&gt;
+producer는 빈 자리(&lt;code class=&quot;language-text&quot;&gt;e&lt;/code&gt;)를 하나 줄이고 &lt;span class=&quot;math math-inline&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo&gt;→&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\rightarrow&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.3669em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;→&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 데이터 개수(&lt;code class=&quot;language-text&quot;&gt;n&lt;/code&gt;)를 하나 늘리고,&lt;br&gt;
+consumer는 빈 자리(&lt;code class=&quot;language-text&quot;&gt;e&lt;/code&gt;)를 하나 늘리고 &lt;span class=&quot;math math-inline&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo&gt;→&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\rightarrow&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.3669em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;→&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 데이터 개수(&lt;code class=&quot;language-text&quot;&gt;n&lt;/code&gt;)를 하나 줄이고,&lt;br&gt;
+를 지속적으로 수행하게 합니다.&lt;br&gt;
+이 때,&lt;br&gt;
+만약 더 넣을 빈 자리가 없다면(&lt;code class=&quot;language-text&quot;&gt;e&lt;/code&gt;값 &lt;span class=&quot;math math-inline&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo&gt;≤&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\le&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.7719em;vertical-align:-0.136em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;≤&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 0) producer는 &lt;code class=&quot;language-text&quot;&gt;semWait(e)&lt;/code&gt;에서 걸려 대기하고,&lt;br&gt;
+만약 더 가져갈 데이터가 없다면(&lt;code class=&quot;language-text&quot;&gt;n&lt;/code&gt;값 &lt;span class=&quot;math math-inline&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo&gt;≤&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\le&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.7719em;vertical-align:-0.136em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;≤&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 0) consumer는 &lt;code class=&quot;language-text&quot;&gt;semWait(n)&lt;/code&gt;에서 걸려 대기합니다.&lt;/p&gt;
+&lt;p&gt;이 때 &lt;code class=&quot;language-text&quot;&gt;semWait()&lt;/code&gt;또는 &lt;code class=&quot;language-text&quot;&gt;semSignal()&lt;/code&gt;의 순서가 중요한데&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;semWait(s)&lt;/code&gt;를 &lt;code class=&quot;language-text&quot;&gt;semWait(e)&lt;/code&gt; 또는 &lt;code class=&quot;language-text&quot;&gt;semWait(n)&lt;/code&gt;보다 먼저 놓거나, 하면.. 참사가 벌어집니다&lt;br&gt;
+예를 들어, 제가 실수로 consumer를 &lt;code class=&quot;language-text&quot;&gt;semWait(s)&lt;/code&gt; 다음 &lt;code class=&quot;language-text&quot;&gt;semWait(n)&lt;/code&gt;이 나오도록 작성했다고 칩시다.&lt;br&gt;
+그러면 만약..&lt;/p&gt;
+&lt;p&gt;버퍼가 비어 있는 상황이라고 가정하고 흐름을 한 번 봅시다&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;먼저 consumer가 &lt;code class=&quot;language-text&quot;&gt;take()&lt;/code&gt;를 위해 접근
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;semWait(s)&lt;/code&gt;가 먼저 나왔다고 가정했으므로, &lt;code class=&quot;language-text&quot;&gt;s==1 -&gt; 0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;그 다음, 버퍼가 비어있으므로 &lt;code class=&quot;language-text&quot;&gt;semWait(n)&lt;/code&gt;에 걸려 대기&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;그 다음, producer가 &lt;code class=&quot;language-text&quot;&gt;append()&lt;/code&gt;를 위해 접근
+&lt;ul&gt;
+&lt;li&gt;버퍼에 빈 공간이 있으므로, &lt;code class=&quot;language-text&quot;&gt;semWait(e)&lt;/code&gt;를 통과&lt;/li&gt;
+&lt;li&gt;그 다음, &lt;code class=&quot;language-text&quot;&gt;semWait(s)&lt;/code&gt;에서, &lt;code class=&quot;language-text&quot;&gt;s==0 -&gt; -1&lt;/code&gt;, 값이 음수가 되었으므로 대기&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;헉.. 둘 다 Block 상태를 빠져나오지 못하는, Deadlock에 걸려버렸습니다&lt;br&gt;
+서로가 서로를 기다리게 되었네요 ㅜㅜ&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 287px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9c8a4d8900efd2b7951f164681a7a63a/480fd/image-7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 60.75949367088608%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC50lEQVR42gHcAiP9AMCVWcmaWMeeW8qjXIaFhbvDyqaIWsGbYcuiZ8aeY7+ZYMWdYsafZ6iGU7Wyp972/9To8N3x+eH4/+D3/gC7mGDMmlvCmlvIoVqAgH7Eys+niFjBm2LNpGfMpGbMo2fLo2fFoWWmhE68uqrn///Z7fPa8Pjg+P/h+f0AtpllzZpYwJhcxp9ceHp3pay3qoxavplhuZVfuZNevZdhvZhhv5hkq4dTrqqcy+D0xdbh3/T44vr/4vr+ALKZZs6cWsGYWs2mYnV2bX95XbedX8amYs2qZNayatSxacWkYcikYsOiYZuLYJGFZ42BYsPOzez//+b6/ACul2XPoVzFnV6Pd0+xo2niyWrbwmroz3CxnVlUSSuEdUTix2vjxWjjxmzgxGrewmbauF6kmHjb7/bp/v8AsZpq1qlim39Vp5BW4cVk4MBi58ZlwqZcDAsJAAAAAAAAgW9B7Mhq38Bl4sRm4cJk48Bnxalcr7Op6P7/ALGdcJ2JZpWLb8m+f87Ef8G6gdDJirGegEAeGysWECsOCottW9bJj8e7eMzCgMi+gsi8gc3Agqani6SzuwCjpJCewd+ozuqrzuqt0OyxysSkvKemvKjEWEjNOSrKPCuokXWoyLq5zcyxx7+xxLKv0Oar0O2z1/Cw0usAprOqs97/ttz5s9z/w9zmu8mRjq+GoczNxKKGzmM7y4BWpsGut9vjr9PRia+MorZ6wtbQtNv7vuP7v+T+AKq2rLvh+bre9rba9sLSvLHAm7TLxrbOyZylhWt1UpGbfsPVzbPKvaO3lZ+0jq2+lMPRtrXZ9KzP6brd9wCep6Ssvsmvwc6wxNKvwcqxxdG2z9+xw8OluMKAjpiLmaK20uCuxcyxxdC3y9mqt7y1ytWvyNelusmryNsAn6eirsrbsMzfr87kuNTpttPotNjwrtDluNfsweLvrMvksNPut9fqt9bpu9jnrsjWqszgtdbpt9LmstXsnOPiCaMRqkMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;기다릴거야&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9c8a4d8900efd2b7951f164681a7a63a/480fd/image-7.png&quot;
+        srcset=&quot;/static/9c8a4d8900efd2b7951f164681a7a63a/c26ae/image-7.png 158w,
+/static/9c8a4d8900efd2b7951f164681a7a63a/480fd/image-7.png 287w&quot;
+        sizes=&quot;(max-width: 287px) 100vw, 287px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Semaphore가 이전의 Software나 Hardware 방식과 비교하여 강력한 것은 맞지만&lt;br&gt;
+문을 잠그고, 키를 두고 가고, 값을 통제하고, .. 를 관리하는 것은 여전히 사람이기 때문에&lt;br&gt;
+이렇게 잘못 사용할 여지가 충분히 남아있습니다&lt;br&gt;
+그럼 Monitor를 사용해본다면?&lt;/p&gt;
+&lt;h2&gt;Monitor로 Producer-Consumer Problem 해결하기&lt;/h2&gt;
+&lt;p&gt;저번시간에 말한 Monitor란&lt;br&gt;
+한 번에 한 프로세스만 Monitor에 진입하므로 그 자체로 Critical Section이고&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;cwait&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;csignal&lt;/code&gt; 함수와 Block Queue를 가지는 &lt;code class=&quot;language-text&quot;&gt;condition&lt;/code&gt; 변수를 가진다고 했습니다&lt;br&gt;
+그런 Monitor의 특성을 이용하여&lt;br&gt;
+아까 semaphore로 감쌌던, 데이터를 집어넣거나 꺼내는 동작인, &lt;code class=&quot;language-text&quot;&gt;take()&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;append()&lt;/code&gt;를 작성해봅시다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;monitor boundedbuffer&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//유한한 버퍼 자체가 모니터 안에 포함됨&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;char&lt;/span&gt; buffer&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;N&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; nextin&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; nextout&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//다음에 쓸, 또는 읽을 위치&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; count&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//버퍼에 있는 데이터 갯수&lt;/span&gt;
+cond notfull &lt;span class=&quot;token comment&quot;&gt;//버퍼가 가득 찬 경우 producer가 기다리는 큐를 포함&lt;/span&gt;
+cond notempty&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//버퍼가 비어 있는 경우 consumer가 기다리는 큐를 포함&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;append&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;char&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;count &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; N&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;cwait&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;notfull&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//버퍼가 꽉 참. 기다리기&lt;/span&gt;
+	buffer&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;nextin&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	nextin &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;nextin &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	count&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;csignal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;notempty&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//버퍼에 데이터 하나 넣어뒀으니 consumer 하나를 깨운다&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;take&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;char&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;count &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;cwait&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;notempty&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//버퍼가 비어 있음. 기다리기&lt;/span&gt;
+	x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; buffer&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;nextout&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	nextout &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;nextout &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	count&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;csignal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;notfull&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//버퍼에서 데이터 하나 꺼내갔으니 producer 하나를 깨운다&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;append&lt;/code&gt;할 때는 혹여 버퍼가 꽉 찼다면 condition 변수인 &lt;code class=&quot;language-text&quot;&gt;notfull&lt;/code&gt;에 producer를 기다리게 하고,&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;take&lt;/code&gt;할 때는 혹여 버퍼가 비어있다면 condition 변수인 &lt;code class=&quot;language-text&quot;&gt;notempty&lt;/code&gt;에 consumer를 기다리게 합니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;csignal&lt;/code&gt;은 조건을 묻지도 따지지도 않고 실행하는데,&lt;br&gt;
+전에도 말했 듯이 condition 변수에는 값이 없으므로&lt;br&gt;
+그저 큐에 기다리는 프로세스가 있으면 깨우고, 없으면 말고, 를 하면 됩니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 221px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d46de6777f7296102e9507a6fc617447/cccdc/image-8.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 103.16455696202532%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAIAAADJt1n/AAAACXBIWXMAAAsTAAALEwEAmpwYAAADpUlEQVR42iWUyS9rcRTHf3+JrQUrbCQSErEwREQkVmIIwoKkJCJiWpjneVbDvTW05qFKSz1FK8TYZx76nhAxhD4JEQnvc7WLm9vf75zzHc45V5SVlcXExKSlpWVlZbW2tjY3N+/t7TmdzsvLy/39/Z6enoKCgr8/v+np6bm5uc3NTZPJNDExsb6+Lsh0c3MLCwtLTEzMzs4m+vz8/O7u7v7+Xpbl1NRU4paXl6+url5eXp6envr7+xcXFwHgRGRmZoaHh9fU1HR3d9fX11dXVxsMhrGxsY2NDQpFRUXd3NxcX18/Pz9/fn5+fX2Rb7Vaz87Odnd3RW5ubkpKSlFRUUdHx8DAQFtbm8Ph+P7+JnR4eNjHx2d1dfX19RXadrsdOeTwQn5XV5dIT08Hs6SkBMEajYb88fHx7e1trikUERGBC2tra4+Pj5SjaGFhIYzMZvPKyooglDvQysvLiUMSyisqKiIjI3lOTU3V1tY2NTWBg2ENDQ28q9VqjEC2QPf7+zslh4aGPDw8/P39vby8/Pz83N3dMQz8hYUFAPLz85OTkwMDA2dmZnZ2dmZnZ5eWlgTeNDY2AqvX64njCQIXFotlfn5ekiS8QDwkYdHS0tLe3j46Osp7b2+vqKurCwoKotswoYGAwI00SiCBOKPRSEuxIyMjA/Knp6fcEqYYVlpayhjgEPjYACCnQPECC6w+PDxkMEiAqsPxx+n89/b2xpVWqxUIwyf+cEc+oZiMn6RB1TVPk5OTKEKLwaCXZInk33Y7pAR8uDs5OUE83WaY0AkyVtGF4+NjKNBbSZJ1Oq3F8kvWyFabFc9GRkYECeQDghkkUK+qqoo539raQir2QIEhh6ROp3t4eKAvjApGKMn4HBAQgG3YQwkGZnBwEBWIxM/o6GhMOTg44J1DfLq4uIAI1IgXeMtWEEFLGACQEYmlsMAFxAcHB0MKHPSbf36QolXcKshMRXFxMVX7+voogQVsBcNzdHREF1hD2oY0xgP+nOACijhXkkEODQ1lGLGU0SUOz+gCf29vb5Fns9l4IpuFc5XDS7xQtoqlTUpKiouLq6ysZLBpWGdnJ+vpGiyMRQLDTwl6QcMwiPHGFEGTAWd6cnJyCOWTwswAi1oaztjhH7AI5pYczikBuOI2IOydr69vSEgIfnLn7e0NPs4hktUBihgAMAkkqnx8fGCHkpyXl6dSqWJjYxMSEmCOCk9Pz/j4eMRjMlQBhwJpyGE9UcF3yqXiP+WgQQH4Nr/kAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;일어나&quot;
+        title=&quot;&quot;
+        src=&quot;/static/d46de6777f7296102e9507a6fc617447/cccdc/image-8.png&quot;
+        srcset=&quot;/static/d46de6777f7296102e9507a6fc617447/c26ae/image-8.png 158w,
+/static/d46de6777f7296102e9507a6fc617447/cccdc/image-8.png 221w&quot;
+        sizes=&quot;(max-width: 221px) 100vw, 221px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 간단히 &lt;code class=&quot;language-text&quot;&gt;append()&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;take()&lt;/code&gt;라는 일종의 proceduer가 작성되었습니다&lt;br&gt;
+이제 producer와 consumer는 단순히 아래와 같이 동작하면 됩니다 :&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;producer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;char&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;true&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;produce&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//대충 x라는 데이터를 하나 만들어서&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//집어넣기&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;consumer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;char&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;true&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;take&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//꺼내와서&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;consume&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//대충 x라는 데이터를 소비&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;parbegin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;producer&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; consumer&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;진짜 단순해졌습니다&lt;br&gt;
+어랍쇼? Mutual Exclusion은 엿바꿔먹었나요? 라는 생각이 잠깐 들 수도 있지만&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;append()&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;take()&lt;/code&gt;는 Monitor 내에 정의된 &lt;em&gt;proceduer&lt;/em&gt;라서, 이미 그런 것은 보장이 다~ 됩니다.&lt;br&gt;
+또한 저렇게 한 번 정의하고 나면, semaphore에서와 같이 저같은 바보가 잘못 써놓을 일은 없습니다.&lt;br&gt;
+그냥 함수만 콜하면 끝이니까요&lt;/p&gt;
+&lt;p&gt;어? 근데&lt;br&gt;
+이전에 semaphore에서 동기화할 때는,&lt;br&gt;
+C.S를 먼저 통과하고 버퍼의 상태를 확인하면 데드락이 발생했었는데..&lt;br&gt;
+이렇게 Monitor로 구현한 방법 역시&lt;br&gt;
+Monitor 내부는 이미 혼자서만 들어가는 C.S인 셈이고&lt;br&gt;
+그 안에서 버퍼의 상태를 확인하므로 데드락 위험이 있는 것이 아닐까요? 싶지만&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 227px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/977e923fba832aae65f871793c8329ee/9b5be/image-10.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 98.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEm0lEQVR42i3Ra09adxwH8PM69gL2oEkjbdFzQEURyqVeuRwOoKJVrEWq4o1Wg62IiBzAIhQERS26iYIVrYAgRwTRIs5ecE5tm13q5pZsWbcly9Y02bKDWfLP/9nn9/1dgEc9Als3Yu8WmNsqu6qvy6qo2KLji6hvL7yQjiw+C87F/ePxFVtwSjfAg1QVOWruVS1MHIEhsxAEnF1chxJxdvJtCo5KWtrELpgfG0htLKbCnn3MlwrPJf3W+LLF7xpR88kPKgnDPOIIPxcVQBYxCEy0lbm6YFc37Gir0jYyG5mQuVf2LLqwjy09T/j3w66dJUN8aXR5UjMoyB/kXtHhGM5DhZC1GgQm5TemO7lTnVVTiiqTlNFII/bWc5JB94vY4pc7vhcbrrR/dPeJcdXVP4gUaHlEgwDUCyCDkGQR5QHOZubjbr67mzsjZ1saqO2lUEsldX3BnkksHO3MHyXcr9Zt6VXzE/tdLUJG4TwjAqEIji/attZRp1rLH7dXuOUsu5Sm5BXW0SGf23L4zH+S8h4nZjLRiXTA5rX2DCGQUfA/NopIWWyspUw0M2bby+c7yh1N9H5RkbCYMD324M3zp6dJ90nE/jJkTQUeeizdI6KCUYRoQLJtm0Rkq5gM6GsplnrqtLzU01k2dZuhr6fXMXOlMCPkNb/GJtKe+9vue4FJZbuEpeHmmoWQAY8VknA8Js4HRmooZknRdAvb03Fj9g4LL3SbTRSX0dU9d44Clpi1JW5vCznvtzcKh2Do4QU2CUmjovyHONYgRWYJ1XWLNtvKmmtl2W8Wy+kElaw2E5h8+xR9tWY9Ta+dZTYSy5NGSUl2Zjw2i8lZ3CemoWLK+E3ajIz9uIXhlFI72FcVNZU/vQq93PL2KhV9/Q8O356GvS6NoNCE94yA+LVMwgu84hnV1ZRYailTTYwZGdNWX9hbcRVhks7PTz9f9jGpxSxKgXcrvbu/q6uhGQQQvi0UBvGd4+HAVgC1KxEdDDluUmdkrAkpfZAHCUoI6YO9vZNv6BXcMqEkeny2hgUNDTdMIsoInI8nGy8mBxzaWyszA6qK3OzOZdfn5EyLhFpNvWzR92/v7y1EME84uoJF5j0ucwvPICCbxBQUzr3AEKBqKE1GHBpxEV7J0VwyIaON1ec3MXJM91tDAd86th7ZxkKxSBALGJs5Wi7RKKTo+SSjAERhEiBj5Gz4jVYlYmxgZ7ZW3x0fnOxF1a01A201schKGAtHtpPR5G54C0NvcQY513R8Eson48PjPyArueQcblj9TPX2q8xfHz5+9+77337/48cfzgz35Kmttc3YOradiG4nQlgITx6qvDbMI6EwpIdBLRcE5Ncv3xMXxMPaN0cHH//595df3//594ev3xwPdza+PtzfiYfiWHATC8Y2n47d4Wcxn6TjQ/gb5IGAgkVoKPw0Ot83q5Et2XUvN5+klsetrVUKbnEMCx+EF557HyV9tuNM0qGsGygnqPnQEBfUckA1jntYhGriJ/YO0fpon4J+SQ8TrRJwvLG4i1uoktWZmjmHzp736eWfz7913JX2l+fgWMOD1Ly8AT74H2cWU44l9Yt9AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;꺼내줘&quot;
+        title=&quot;&quot;
+        src=&quot;/static/977e923fba832aae65f871793c8329ee/9b5be/image-10.png&quot;
+        srcset=&quot;/static/977e923fba832aae65f871793c8329ee/c26ae/image-10.png 158w,
+/static/977e923fba832aae65f871793c8329ee/9b5be/image-10.png 227w&quot;
+        sizes=&quot;(max-width: 227px) 100vw, 227px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Monitor에서 버퍼의 상태를 확인하고 &lt;code class=&quot;language-text&quot;&gt;cwait&lt;/code&gt;으로 인해 블락되어 queue에 들어가면, 이 queue는 보호되는 구역 바깥에 있어서&lt;br&gt;
+C.S를 잠그고 들어가서 멈추는 것이 아니라 바깥으로 나간 상태이므로 다시 C.S는 풀리고, 새로운 프로세스가 들어올 수 있습니다&lt;br&gt;
+condition 변수의 queue(또는 urgent queue)들은 Mutual Exclusion의 보호 대상이 아니라는 점이 중요했네요&lt;/p&gt;
+&lt;h1&gt;Readers-Writers Problem&lt;/h1&gt;
+&lt;p&gt;비슷한 것 같지만 또 다른 문제가 있습니다&lt;br&gt;
+file이나 공유 메모리 공간처럼, C.S 내에 데이터가 주르륵 있고, 이 것을 읽거나 쓰려고 하는데 이번에는&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;reader : 데이터를 읽기만 한다&lt;/li&gt;
+&lt;li&gt;writer : 데이터를 읽은 뒤, 쓴다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이 두 종류의 작업자가 있습니다&lt;/p&gt;
+&lt;p&gt;이 경우 동시에 여러 reader들이 작업하는 것은 괜찮습니다. 데이터를 수정하지 않고 읽기만 하기 때문이고&lt;br&gt;
+그런데 둘 이상의 writer들은 동시에 작업하면 당연히 안 되겠죠?&lt;br&gt;
+reader와 writer가 동시에 작업하는 것은 어떨까요? 좀 애매해 보이기는 하는데..&lt;br&gt;
+이것도 막도록 합시다. 동시에 작업하면 reader가 읽은 값이 수정 전 값인지 수정 후의 값인지 모를 뿐더러&lt;br&gt;
+더 운이 나쁘면 수정되는 사이에 값을 읽어버릴 수도 있습니다&lt;br&gt;
+아무튼 정리하면 조건은 아래와 같습니다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;reader는 한 번에 둘 이상 동시에 파일을 읽기 가능&lt;/li&gt;
+&lt;li&gt;writer는 한 번에 단 하나의 writer만이 파일에 쓰기 가능&lt;/li&gt;
+&lt;li&gt;하나의 writer가 파일에 쓰기 작업을 진행중이면, reader는 파일을 읽기 불가&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이렇게 됩니다.&lt;br&gt;
+따라서, 이전에 살펴본 producer-consumer 문제와 달리, 코드가 대칭적으로 생겨먹지 않습니다&lt;br&gt;
+아무튼, 이제 reader와 writer를 위한 &lt;code class=&quot;language-text&quot;&gt;reader()&lt;/code&gt; 함수와 &lt;code class=&quot;language-text&quot;&gt;writer()&lt;/code&gt;함수를 작성할건데&lt;br&gt;
+semaphore를 이용하여 위 세 가지 조건을 모두 충족시키도록 해봅시다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/* program readersAndWriters */&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; readcount&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+semaphore x&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+semaphore wsem&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;reader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;true&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;semWait&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		readcount&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;readcount &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;semWait&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;wsem&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;semSignal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;READUNIT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//대충 read한다는 뜻&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;semWait&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		readcount&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;readcount &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;semSignal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;wsem&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;semSignal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;writer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;true&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;semWait&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;wsem&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;WRITEUNIT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//대충 write한다는 뜻&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;semSignal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;wsem&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	readcount &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;parbegin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;reader&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; writer&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;readcount&lt;/code&gt;나 &lt;code class=&quot;language-text&quot;&gt;semaphore x, semaphore wsem&lt;/code&gt;같은 각각의 요소들을 한 줄로 정리하기는 좀 애매해서 주석을 많이 달지 않았습니다&lt;/p&gt;
+&lt;p&gt;일단 좀 더 짧은 &lt;code class=&quot;language-text&quot;&gt;writer()&lt;/code&gt;부터 살펴보면, 전형적인 C.S 코드인게 보입니다.&lt;br&gt;
+writer든 reader든, writer와 함께 작업할 수 없으므로 &lt;code class=&quot;language-text&quot;&gt;wsem&lt;/code&gt;이라는 semaphore로 C.S를 잠가놓고 작업합니다.&lt;/p&gt;
+&lt;p&gt;그 다음 &lt;code class=&quot;language-text&quot;&gt;reader()&lt;/code&gt;는, 일단 대충 read하는 문장인 &lt;code class=&quot;language-text&quot;&gt;READUNIT&lt;/code&gt;을 중심으로 위쪽과 아래쪽인, 작업 전과 후로 나눠서 살펴봅시다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;작업 전에는, &lt;em&gt;reader&lt;/em&gt; 하나 추가요~ &lt;code class=&quot;language-text&quot;&gt;readcount++&lt;/code&gt;. 이 때, &lt;code class=&quot;language-text&quot;&gt;semaphore x&lt;/code&gt;로 C.S를 잠그고 진행&lt;/li&gt;
+&lt;li&gt;작업 후에는, &lt;em&gt;reader&lt;/em&gt; 하나 나가요~ &lt;code class=&quot;language-text&quot;&gt;readcount--&lt;/code&gt;. 이 때, &lt;code class=&quot;language-text&quot;&gt;semaphore x&lt;/code&gt;로 C.S를 잠그고 진행&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;그럼 이제 &lt;code class=&quot;language-text&quot;&gt;semaphore x&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;semaphore wsem&lt;/code&gt;에 의해 각각 C.S 영역이 생겨서 두 개의 방이 생긴다는 뜻인데&lt;br&gt;
+잠깐 그림으로 살펴보면
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/29fdfe1fcdd06467e881f4d2a7787e5d/5a791/image-12.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 105.0632911392405%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsTAAALEwEAmpwYAAACE0lEQVR42rWVSY/aQBCF509H8ztYLsCFAycQYHvMKYnEdkVIIHFgl9iE2HcwbSr1KpjYzDBBicbSp3a3u59fVVfbLy9fcR2Px2+n0+kHozGGG6WUYVmWQEQfofGc7/v9/vUmaNu2zg/ocrkourt4TFpeRLPZjKbTqYfJZOKsMW+C7CSNEev3ZTuwc7vb7dqLxcJmMbtQKNjFYtFDLpez+DmWG25B/SqozuczAThi57Tb7aQPp/wCOhwOHjhUccga5kNBiM3ncwlxPB5LaHDhvMSNwuDfBDERYr1ej4bDIQ0GA2l5HjkROGDNUw7hCIIQ6/f7NBqN/k8QuVsul7RarYT1eo3n/ybo3hS0DtiYe3jOc4IOjijcOW7dcBSPBblVWOiAMul0OpJPbBLXHOXzeYFrUshmswqpuS/shydls9ncnF5PhoByulaAukb3R5A7IlipVFS9XqdWq0XNZlPaWq1GjUZD7vnUCO12Wxy7TXhCxlnmiqdoNKoSiQSlUilKJpMC7u/78XicSqWSuOa0vBfkpOsIyzAMFQwGye/3E9pAICCgD3Dv8/nwYqpWqyKIvH/oEJugaZqKRCIUCoUIbTgcFtB3xtDGYjGk51PBJApZ1/WDaZrWZ2QyGSudTlvlctnidRYLHa6C2rvv4Xa7VQw9A46he1NYw/R8sTnknzwO4bdn4Ly/sSjQ8bVnjdcv+Z38AvF66imSkSceAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;과정 0&quot;
+        title=&quot;&quot;
+        src=&quot;/static/29fdfe1fcdd06467e881f4d2a7787e5d/f058b/image-12.png&quot;
+        srcset=&quot;/static/29fdfe1fcdd06467e881f4d2a7787e5d/c26ae/image-12.png 158w,
+/static/29fdfe1fcdd06467e881f4d2a7787e5d/6bdcf/image-12.png 315w,
+/static/29fdfe1fcdd06467e881f4d2a7787e5d/f058b/image-12.png 630w,
+/static/29fdfe1fcdd06467e881f4d2a7787e5d/40601/image-12.png 945w,
+/static/29fdfe1fcdd06467e881f4d2a7787e5d/5a791/image-12.png 1248w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+이렇게 시작을 합니다.&lt;br&gt;
+각 semaphore (&lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;wsem&lt;/code&gt;)에 의해 제한되는 C.S 영역과 해당 영역이 잠기면 들어가기 위해 대기하는 큐가 존재하고&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;wsem&lt;/code&gt; 내에는 데이터가 읽고 쓰여지는 공간이 존재합니다&lt;/p&gt;
+&lt;p&gt;이제 writer인 &lt;code class=&quot;language-text&quot;&gt;w1, w2, w3&lt;/code&gt;가 차례대로 도착했다고 해봅시다.&lt;br&gt;
+그럼 당연히 처음 도착한 &lt;code class=&quot;language-text&quot;&gt;w1&lt;/code&gt;만 &lt;code class=&quot;language-text&quot;&gt;wsem&lt;/code&gt; 내로 들어가 작업을 시작하고, &lt;code class=&quot;language-text&quot;&gt;w2&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;w3&lt;/code&gt;은 대기하겠죠?
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/730b9c9e695a55da7cd074eab4c1bc45/5a791/image-11.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 105.0632911392405%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsTAAALEwEAmpwYAAACV0lEQVR42rWV+4vaQBDH758u93f4oFxOKP7gT4oxibGUPkBPaTmKCFr8wUcN+EJ8xGh8rbtOZ/aMTfRsj5YLfJndSfazM7OT5ObmNa7tdvtmt9t9Rmkowy/OucEYkwKA56ThM5/W6/XtCSiE0PEGHA4HDmcX+qTFRTCdTmEymQQ0Ho+9NeYJiJFkyMOeLuEJIxeWZQnbtgXCRLFYFKVSKaBCocDwPi03/ED9COT7/R5IFBFGDqvVSs4pUtwANptNQJiqjBAZ5lUgwWazmUxxNBrJ1CgKbxO/ODn/BqQHCdbtdmEwGEC/35cWnwMvA0+05kURUkQEJFiv14PhcPh/QKrdfD4Hx3GkFosF3f83oP9QyHqSdeNCHpAn9L0M6MmDUnTu2oUlylk4p8gxi+tAtJwWeqI26VgdsGc22I4Nhdo3ePjxCF+/oy08QLFUgnw+z6k054199U1ZustTpPZyDrOFDZPpRLbTsQP4MbvfQJxIYLVa5Y1GA9rtNrRaLWnr9To0m0057vzsgNWx5Jjayh9EIGV6l7HjIR6P81QqBaqqQjqdllIzanCO42QyCeVyWUaNZbkEYtF1SsswDB6NRiEcDgPZSDgCkUhEzkk0DoVCtDHUajUJpLo/GyEdgqZpPBaLgaIoQPY+dg9v3ylwF1NOPrKJRILK80dgmhpZ1/WNaZpMKmuy3PscS3/UmfHhaU7+XC7HMpkMq1QqDNcxBG2OQO3ie+i6LkeBXyusLW127qfX0H8oyDADX2xM+Qv6CZwNSIjshQ+Fdc8ilKTT1x4Zt6/yO/kFRRTqn+hdOh8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;과정 1&quot;
+        title=&quot;&quot;
+        src=&quot;/static/730b9c9e695a55da7cd074eab4c1bc45/f058b/image-11.png&quot;
+        srcset=&quot;/static/730b9c9e695a55da7cd074eab4c1bc45/c26ae/image-11.png 158w,
+/static/730b9c9e695a55da7cd074eab4c1bc45/6bdcf/image-11.png 315w,
+/static/730b9c9e695a55da7cd074eab4c1bc45/f058b/image-11.png 630w,
+/static/730b9c9e695a55da7cd074eab4c1bc45/40601/image-11.png 945w,
+/static/730b9c9e695a55da7cd074eab4c1bc45/5a791/image-11.png 1248w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+이렇게, &lt;code class=&quot;language-text&quot;&gt;wsem&lt;/code&gt;은 닫혀있습니다. writer는 대문자 I라서 혼자 작업하고 싶어하네요~&lt;/p&gt;
+&lt;p&gt;이제 &lt;code class=&quot;language-text&quot;&gt;r1&lt;/code&gt;이라는 reader가 하나 와서 &lt;code class=&quot;language-text&quot;&gt;reader()&lt;/code&gt;를 실행한다고 해봅시다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/73c44f1121e9e4e9c63ef5372d52a2f2/5a791/image-15.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 105.0632911392405%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsTAAALEwEAmpwYAAACoUlEQVR42rWVa2/aMBSG+6en/o5CNY0iTf3QT0VcEsI07SJBQes0rUIqWlduJd0Ga8slCQlQjMO7c9wEkVLWT7X0yvZJ/PhcYmdn5yXa/f39q/l8/omUI+nrklLqQgglAE8pR+98nE6nuyug7/saPcByuZR41MimelqE4XCIwWAQUb/fD9cYKyB5kmWLeGh+KPLcN03TtyzLJ5hfLpf9SqUSUalUEvScl+vrQC0AysViARZ7RJ5jMpmoOY9nsxkoNNWHornykBjGViDDRqMRBhTibX+A4ciC4zgKyo37UJJffg7oB/n68/safy9PYNaraLU7sG1bgSkVCCPhNVuBvBvvyoWwLJuAv9Crn+K6WcNV5xpjgnmeh7u7OwY9DyQPpBMscl0XNo0ddwJn/DBnAG/G3rOXHO2TQDIqYL1el61WCzc3NyrhvFjKRSCptKQ0clUZjqXK5/Mhs8IcBYnHnEJ0px682QSNyx8YkZfj8VhFtRVIYUjOTSgOq2N2YFGVLcdCsfYVldoX/Pxm4PtpESflCorFouRiPf6wt54U13NXnlqujdHYgmffUmFu0e310O12ZfCFbObw/PxcNhoNtNttcC65v7i4QLPZVGPzqgOzY9IndKUKs+5EJGQ+y3wCDg8PZSqVQiaTQTqdVspkM9E5jY+Pj3F2dqa85jRtACnpGoel67rc399HLBYD9/FYHPF4XM1ZPN7b2+ONUavVFJBAT3vIRcjlcjKZTCKRSID7g+QBXr9N4E0ysbJxf3R0xOn5LzDNl4CmaTPDMIRS3hCFdwWR/qAJ/f3DnO2FQkFks1lRrVYFrRMEmgXA3MZ9SCdE8ilZ14Ryy5s9thMgUhRiGJEbm0L+THYG5yPy/fyGjUR5zxOUpfFtT4zdF/md/AODO+dyY+frvgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;과정 2&quot;
+        title=&quot;&quot;
+        src=&quot;/static/73c44f1121e9e4e9c63ef5372d52a2f2/f058b/image-15.png&quot;
+        srcset=&quot;/static/73c44f1121e9e4e9c63ef5372d52a2f2/c26ae/image-15.png 158w,
+/static/73c44f1121e9e4e9c63ef5372d52a2f2/6bdcf/image-15.png 315w,
+/static/73c44f1121e9e4e9c63ef5372d52a2f2/f058b/image-15.png 630w,
+/static/73c44f1121e9e4e9c63ef5372d52a2f2/40601/image-15.png 945w,
+/static/73c44f1121e9e4e9c63ef5372d52a2f2/5a791/image-15.png 1248w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+이해를 돕기 위해 &lt;code class=&quot;language-text&quot;&gt;readcount&lt;/code&gt; 변수를 값과 함께 띄웠습니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;r1&lt;/code&gt;은 &lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt;를 잠그고 들어가서는 &lt;code class=&quot;language-text&quot;&gt;readcount++&lt;/code&gt;을 진행했고,&lt;br&gt;
+그런데 그러고 나니 &lt;code class=&quot;language-text&quot;&gt;readcount==1&lt;/code&gt;이므로,&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;r1&lt;/code&gt;은 &lt;code class=&quot;language-text&quot;&gt;wsem&lt;/code&gt;에 가서 &lt;strong&gt;줄을 섭니다. &lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt;를 잠근 상태 그대로.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;그럼 이제 다른 reader 친구들, &lt;code class=&quot;language-text&quot;&gt;r2&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;r3&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;r4&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;r5&lt;/code&gt;가 주르륵.. 들어오면 어떻게 될까요?
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2dfe029415edbfa7b14bd68daf0dad46/5a791/image-16.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 105.0632911392405%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsTAAALEwEAmpwYAAACvElEQVR42rWVa08aQRSG/dONv0MwTZGk8YNNGw2XXZam6S3UGmyaEhJJrdxktWIVZC8st11meHvOLFAQqZ/c5M3MHGaeOZeZYWPjKb7RaPTM9/2PpDRJX5QQQg+CgCR0CehiQQiVpjkfBoPB5hwopdToB0wmE4F7H9nCVgqMnCsM7ctQziXsTgvtdnu2xpgDyZMUW4LwkzOR59I0TWlZtnSslqzk38h6/pVSLf9aFo4/y9yXw8C2bV6uLwK1KVCMx2OwKAyQ5+j3+2rMfX80+Cd/iOFQSXlIDGMtkGGWZeGu08Ft+w4dy4brumSXKgVCsqTaRPDkx4CS5nQIdvX7An/ODmGWi6jVG3AcR4EpFZhFwmvWAnk33pW9sG2HgJe4Lh/jolrCeeMCXYL1ej20Wi0GPQ4kD4Q7XeR5Hhzqu14fbjccM4A3Y+/ZS472QSAZFbBcLotarYabmxuVcJUvMZ5KKE3oMHJVGQ46URTR4yGzZjmaJh4+hegNeugN+6ic/YRFXna7XRXVWiCFITg3M3FYDbMBm6psuzZypW84KuXx67uBH8c5HH49Qi6XE1ys+wd77U3xet7cU9tzYHVt9JxbKswtmtfXaDabYnpCVnN4cnIiKpUK6vU6OJfcnp6eolqtqr553oDZMOkInavCLDqxFDLfZbrc2N3dFQcHB0gmk0gkEkrJVHJ5TP39/X0UCgXlNadpBUhJ1zgsXdfF9vY2IpEIuI1GoohGo2rM4v7W1hZvjFKpFF5H33/YQy5COp0W8XgcsVgM3O7Ed/D8ZQwv4rG5jdu9vT1Oz3+BCX4ENE0bGoYRKGWMIPs2GyTea4H+LhyzPZvNBqlUKigWiwGtC3x+JUJgeuU9pBsi+JYsqk+55c3u2wmwVBRiGEsvNoX8iewMzixJysyKjUR5zxCUpfFrT4zNJ/k7+QvhzeeDDi99RQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;과정 3&quot;
+        title=&quot;&quot;
+        src=&quot;/static/2dfe029415edbfa7b14bd68daf0dad46/f058b/image-16.png&quot;
+        srcset=&quot;/static/2dfe029415edbfa7b14bd68daf0dad46/c26ae/image-16.png 158w,
+/static/2dfe029415edbfa7b14bd68daf0dad46/6bdcf/image-16.png 315w,
+/static/2dfe029415edbfa7b14bd68daf0dad46/f058b/image-16.png 630w,
+/static/2dfe029415edbfa7b14bd68daf0dad46/40601/image-16.png 945w,
+/static/2dfe029415edbfa7b14bd68daf0dad46/5a791/image-16.png 1248w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;code class=&quot;language-text&quot;&gt;readcount&lt;/code&gt;를 ++하려고 호기롭게 들어왔지만,&lt;br&gt;
+우리 reader 친구들은 &lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt;가 닫혀있어서 하는 수 없이 줄을 서게 됩니다..&lt;br&gt;
+즉 writer가 &lt;code class=&quot;language-text&quot;&gt;wsem&lt;/code&gt;을 잠그고 들어가 작업중인 경우, &lt;strong&gt;reader들은 단 하나만 &lt;code class=&quot;language-text&quot;&gt;wsem&lt;/code&gt;에 가서 대표로 줄을 서고, 나머지는 &lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt;에서 기다립니다.&lt;/strong&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 210px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/423ef583b90ea1d5f78cc3a5ba5d72c5/65ed1/image-17.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAADSUlEQVR42o1TWU8TYRTt/3EJkaAoLQpSSjvThZZOC23ZWkophmpkU3ADN0pMjJrgCxKqiUAwERMTAYEHIPhA4hKBlp02QkuAFugyhS4eOlDqg9H7MDnfnXvuPffMN6xIJBIIBHZ3d4PBoNvtBvb7/QD7+/s0TW9vb/t8Pq/XC7y1tYV8NBoFRmZvb481Pz8/NDQ0PDxstVpbWlrex6KtrW1zc7Ozs7Ojo2NsbKyvr298fNxisfT29i4uLk5OToIyPT3NWl9fHxgYGB0d3djY6OrqmpiYQBZFOzs7/f39ADMzM2CCgOPIyMjy8jJzhEBWXAZkLy0tAWCRhYUFp9MZDochG/qhEPnV1VUMQD1WQzEAKxKL6FGgDqPAdDgcc3NzkaOIFyRmWIlZPFdWVrAIk7Hb7Wtra4kEpibe65jMZGFbvAgqmGP0L8FKHIvFYGbiVnABtidO+yvZGQsAGAN7ADweD8z7XzJugsvlam9v7+npQQaG22w2GP5v2aDhDmGs2WzGB2dewXOsE46E4y1CodAfbofDIWYyY+/g4CBuFfMKHfHZGBVe747b4wE4JkeiETQGWI9FzDA/PMMEYFw164z1y7cv9U21dQ8MYr3kda+FEctieswtzFrevf3w6aPVOo0jfgaHw84wez52l98s4VUQbAlHcVVE6LLVJtFP29Th5ABN322t5kpTSR2PUIvvtTYOfn7v3tx+0/2GpxEliVIMt+QqvbCgVkbohWU1cnUF9/GLp4fkNddqUX1e07NiU0MBR8HlUByeOrPJXMNVcE9kJQuKidLm/ObnxVduKM9TGVklguySzCcvm7HtAXlqdiqd4giMJGkkc00EVUnydYTKkFNoFGvr5GUPldySzEuaixzqgro+V1cjy1BeqrpdEQ7tH5C//vh+UnC21qzS1ktTxOeyC9icvPTTWWnGRukrSzllIE7xzmivClRVfNmVnIZHmjQpW1ik2KODB+RfTruiSqi5KSu9Lj0jTucbBAK9IFdL5lUQcp1EVUaoqmWFN6SVDcokki0yCfna7OLrpTQdOCD7fb5SU2GyLI3U8PTXhJV3qAskJ0d5udAg5ufzjffzSQ03lcqgyiVak8R0T8kWsuXaAjpI/wYY950fF6xXDAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;내 짬에 해야겠냐?&quot;
+        title=&quot;&quot;
+        src=&quot;/static/423ef583b90ea1d5f78cc3a5ba5d72c5/65ed1/image-17.png&quot;
+        srcset=&quot;/static/423ef583b90ea1d5f78cc3a5ba5d72c5/c26ae/image-17.png 158w,
+/static/423ef583b90ea1d5f78cc3a5ba5d72c5/65ed1/image-17.png 210w&quot;
+        sizes=&quot;(max-width: 210px) 100vw, 210px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+막내가 아닌 짬킹이 줄을 서는 선진병영이네요&lt;/p&gt;
+&lt;p&gt;이제 &lt;code class=&quot;language-text&quot;&gt;w1&lt;/code&gt;이 끝났다고 해봅시다.&lt;br&gt;
+그리고, 이 semaphore는 강한 semaphore라서 큐에서 꺼내오는 순서는 곧 죽어도 FIFO라고 가정하면&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;w2&lt;/code&gt;가 들어가서 작업, .. 끝나면 &lt;code class=&quot;language-text&quot;&gt;w3&lt;/code&gt;가 들어가서 작업, .. 끝나면 &lt;code class=&quot;language-text&quot;&gt;r1&lt;/code&gt;이 들어가니까...?
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/03afc902aa9ff81475c4af7c1eb3decf/5a791/image-19.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 105.0632911392405%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsTAAALEwEAmpwYAAACjklEQVR42rWV22saQRTG80+X/A19afECjW4f8mBIMV11NwqFXvACtrSINIJgV43VqPF+qdd1xq/njBpMrIl9yMKPHWfnfPOdMxePjp7jmc1mL+bz+SciRJjbCCFM27YJYUrAFFtgRYjGfJxMJsd3glJKgz5guVwKPHiob/WWArP+Daa98op+Gb1OE61WaxMTvhMkJ0HusVeP3EDOZalUkt1uT/a7Tfkr+U4WkmeKfPJcpr5+kdFY3O71ehxubgsaa0GxWCzAUBog5xiPx+o3O53PJmumiulUoRySRnivIIt1u120Ox00mi202x2wi8VC0LclBE3E8ISCBz8lKKleHRK7qVRQt36gWsqhVm9wEDYZbOCYvYI8G8/K6bGjSqWMQiaJ6m+LBG//X7Df74vBYIDRaKRoNpuo1uoY/hmB+yn4MEHqVIK5XE7k83nc3q7ccB1pf0EuVa2U84dIrs8hKbNgu91WbRZjd+zyIZzVXkHad2KT1nA4VAtTLpdVPbkdi8UQj8cViURCEY1GBYnubOydk8KD2BnXcrXyUjmmk6FoNBqo1WqoVqtivUN2a3h19VNYVh65bAbfvyVxfX2NbDYLy7JQKBRAp0ZRLBaV420T91Lms8zFPz09FRcX7/Hh/DWMMzf0oIlAQCcC0HVdwW2/349UKqVcc5l2BCk1g9MyTVO43G68cbzEiesVnC43XC4XnE6ngtsOh4MnRiaTUYIk9G+HvBihUEhomhcnHg1e7S28Xg/hhcfjUWiapt4+n4/Kc/WooM6XgGEY03A4bD9GJBKxg8GgnU6nbYqzSWi6Fgzt3Ie0omJzSp6C9+n2opBG+N6NTSl/pn4WvjwEqvsliTIG3/akcfwsfyd/ATGO5xAktasEAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;과정 4&quot;
+        title=&quot;&quot;
+        src=&quot;/static/03afc902aa9ff81475c4af7c1eb3decf/f058b/image-19.png&quot;
+        srcset=&quot;/static/03afc902aa9ff81475c4af7c1eb3decf/c26ae/image-19.png 158w,
+/static/03afc902aa9ff81475c4af7c1eb3decf/6bdcf/image-19.png 315w,
+/static/03afc902aa9ff81475c4af7c1eb3decf/f058b/image-19.png 630w,
+/static/03afc902aa9ff81475c4af7c1eb3decf/40601/image-19.png 945w,
+/static/03afc902aa9ff81475c4af7c1eb3decf/5a791/image-19.png 1248w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;code class=&quot;language-text&quot;&gt;r1&lt;/code&gt;의 &lt;code class=&quot;language-text&quot;&gt;semWait(wsem)&lt;/code&gt;이 풀린 것이고, &lt;code class=&quot;language-text&quot;&gt;semSignal(x)&lt;/code&gt;로 &lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt;의 잠금을 풀었습니다.&lt;br&gt;
+이제 &lt;code class=&quot;language-text&quot;&gt;READUNIT()&lt;/code&gt;에서 읽기 작업 중인데, 오래 걸리는 작업이라 여기서 한동안 머무른다고 생각해봅시다.&lt;/p&gt;
+&lt;p&gt;이 때 &lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt;은 값이 1로 열려 있고, &lt;code class=&quot;language-text&quot;&gt;wsem&lt;/code&gt;은 &lt;code class=&quot;language-text&quot;&gt;r1&lt;/code&gt;이 0인 채로 지나왔습니다&lt;br&gt;
+이 경우 writer는 &lt;code class=&quot;language-text&quot;&gt;semWait(wsem)&lt;/code&gt;을 먼저 실행하기 때문에 값이 -1이 되어 기다리게 되지만,&lt;br&gt;
+reader는 &lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt;를 잠근다 &lt;span class=&quot;math math-inline&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo&gt;→&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\rightarrow&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.3669em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;→&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; &lt;code class=&quot;language-text&quot;&gt;readcount++&lt;/code&gt; &lt;span class=&quot;math math-inline&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo&gt;→&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\rightarrow&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.3669em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;→&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; &lt;code class=&quot;language-text&quot;&gt;readcount&lt;/code&gt;가 1보다 큰, 2 이상이다 &lt;span class=&quot;math math-inline&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo&gt;→&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\rightarrow&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.3669em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;→&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; &lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt;의 잠금을 푼다&lt;br&gt;
+이 과정을 반복하며 &lt;code class=&quot;language-text&quot;&gt;READUNIT()&lt;/code&gt;에 얼마든지 도달할 수 있습니다&lt;br&gt;
+그럼 이 이후로 &lt;code class=&quot;language-text&quot;&gt;r2, r3, r4, r5&lt;/code&gt;가 모두 &lt;code class=&quot;language-text&quot;&gt;READUNIT()&lt;/code&gt;에 도달하고, 새로운 writer인 &lt;code class=&quot;language-text&quot;&gt;w4&lt;/code&gt;가 들어왔다고 해봅시다
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/885c2a1b28ea282cd4cf17898e284807/5a791/image-20.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 105.0632911392405%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsTAAALEwEAmpwYAAACz0lEQVR42rWVaU9TQRSG+dOGH6AS4YNJKzFdMKlS/QBiF1ojLqSl1Fa0QYpoV7vQhdLSja6XGV7PmdLSWpF+4SZvJpk755lz3jl37tzcXTy9Xu9ev9//SLKTnOMSQjg1TVOSwEiChIHstOZDp9OZHwGllA56gcvLS4G/HpobjFKg2yxdq1FErVpBuVwexrhGQMrExjPa4JFDUeYynU7Laq0uG7WKPAo45ZF/Q4Z3XstI0CFDwR3p8e5otVqNw53jQMcVUFxcXIBFZYAyR7vdUVnm8wUcHHxHPBZFnQD9fg/dbhdUqsqQGK4bgQyrVqs4OzvDyUkRgUAQ29vbKBSLahNJGwgeSYIX3waUtKZCsHzuGLlffrx6YUYme6wA/J7WYVgJx9wI5N04iEtkXwqFPL7tvkMuk0SpdArydASaCViv10Wz2USr1QKPjUYTXp8f8XiCvGxz0GxAmlTAaDQqEokEiuRVq3WuvIxEIkinUyprtoLHcVFFt5c8FGeayWSQSqVUua1um7JuTIiruhFIQYIN59I4u0qlglAohFg0iuNCDrs/9vB5LwCvxwufz6fk8XgEQacae+JLoWJU6zeb56r/yqdl1ULV8zrKlTJ/HXRIJTq0Ar3Pi6sOmfYwHA6LaCyG1O84EtEjfA364fd58CXgx15gF/HIT2SzWSSTSbXBeBITJfO3TB0Pi8Ui1tfXsbW2jPcvF+BeXcKW9SHePn8Al+U+nKuPYbe9wdramrKCfWabpoDkl4NbwOl0iifLy3iqW4RR/wgG/SJM+gUYdQtqNOiXoNPpeGMcHh4qIIH+nSEfht1uF2azCQajGaaVZzCaVmBQMiuZzDRnNMJqtbI9/wVucOM6HI6uy+XSBtoc0/Wc2+3WbDabtr+/r1GcRqDuFdA+dR9S3wnuvVnErTV+KMRwTdzYVPInmmfw5iwi3zcJynLwbU+M+Tv5nfwBmM/frynqjeQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;과정 5&quot;
+        title=&quot;&quot;
+        src=&quot;/static/885c2a1b28ea282cd4cf17898e284807/f058b/image-20.png&quot;
+        srcset=&quot;/static/885c2a1b28ea282cd4cf17898e284807/c26ae/image-20.png 158w,
+/static/885c2a1b28ea282cd4cf17898e284807/6bdcf/image-20.png 315w,
+/static/885c2a1b28ea282cd4cf17898e284807/f058b/image-20.png 630w,
+/static/885c2a1b28ea282cd4cf17898e284807/40601/image-20.png 945w,
+/static/885c2a1b28ea282cd4cf17898e284807/5a791/image-20.png 1248w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+reader들은 너무 외향적이라 다같이 파티를 해버리네요&lt;br&gt;
+writer인 &lt;code class=&quot;language-text&quot;&gt;w4&lt;/code&gt;는 너무 내향적이라 파티에 끼지 못하고 그냥 밖에서 기다립니다..&lt;/p&gt;
+&lt;p&gt;게다가 여기서 새 reader인 &lt;code class=&quot;language-text&quot;&gt;r6&lt;/code&gt;가 들어와도,&lt;br&gt;
+밖에서 기다리는 &lt;code class=&quot;language-text&quot;&gt;w4&lt;/code&gt;는 신경도 쓰지 않고 그냥 &lt;code class=&quot;language-text&quot;&gt;READUNIT()&lt;/code&gt;하러 들어가버릴 수 있습니다
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4fc6b4b2120d3bebbed2789570d87172/5a791/image-24.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 105.0632911392405%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsTAAALEwEAmpwYAAACuElEQVR42rWV608aQRTF+083fm7SppqmSa2mCqgxjdpE0wILJm2tCQhtbOOjSq1AaFkV5LEsu7wWXWb29N4FLEqJ9oOTnMzsLPc3596ZWR48uI92cXHx8PLy8hMpQFIGJYRQbNt2JQEFwwrQbzYsyxq7Akopg/QCjuMI3Gg01+2lQLtWhKFrqFR06JUK9RVomtaPCV8ByYmfZ+xuk32Rc6mqqjQMU5pVTR59UeTe9pbcin2W8XjcVTQatQ3D4HBlEBjsAUWn0wGL0gA5R8uy3LGu67CsFmgRtNvtK1GqrkNihEcCGVCtVl1IsVhAMplCoVCAoAXkDQn+8W1A2XOUy50ifxzH0cE3lMqa666fQV8cMxLIq/GqvBGGaRLwDLnMd5z8TpPDIgf9H9A0TVGv19FsNlGv1VCjsW7UoKonaDTqHHw3IE26wFQqJTKZDM7Pz8Fgduo4EjWC8zO3fgZ90fPtKfeK7TrgcYeclbUymlbThQ+KsxoJpKILTotrxT1vQjab5SCc5XPY3NnC9u5XRCNRxGIxV5FIRPD7mwf72k1xeuLWaDTJKbklx2r+FOXu7UCpVHJLk8/nRe+EDNfw8PBQpNJpZH+RMknqU0j+/IFMOomTbAaJgz2kjhPIqqp77QZNXEuZ7zKdeCwuLoq1tTV8WJ3Gxso43i8/x+abCRpP4OPKM4ReP4Wy8AjvVpexs7vn1pfLNASkDQjyBiiKIqamp/FqcgKel+OYmRyHZ/IJZl905Z3i58e08AISiYQLJNC/HfImBAIB4fN5MevxwTs3D493jjSPWa+PRGPfPGbo3dLSEpeHgM5I4NtWq4VgMNgOh8N2V6EB/Z1bXw/bfr/f3t/ftynOJlC7BwwMfQ/phgi+JXcRH63BTSFG+NoXm1LepHkGh+4iqnuIoKwgf+2JMXYvfyd/ALMe5Zj7vEIvAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;과정 6&quot;
+        title=&quot;&quot;
+        src=&quot;/static/4fc6b4b2120d3bebbed2789570d87172/f058b/image-24.png&quot;
+        srcset=&quot;/static/4fc6b4b2120d3bebbed2789570d87172/c26ae/image-24.png 158w,
+/static/4fc6b4b2120d3bebbed2789570d87172/6bdcf/image-24.png 315w,
+/static/4fc6b4b2120d3bebbed2789570d87172/f058b/image-24.png 630w,
+/static/4fc6b4b2120d3bebbed2789570d87172/40601/image-24.png 945w,
+/static/4fc6b4b2120d3bebbed2789570d87172/5a791/image-24.png 1248w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+이러한 특성때문에, &lt;strong&gt;reader들이 우선순위를 가진다&lt;/strong&gt;고 말합니다.&lt;/p&gt;
+&lt;p&gt;그렇게 reader들의 왁자지껄 웅성웅성 👥👤👥👥👤 파티가 끝나고
+모든 reader들이 나가서 &lt;code class=&quot;language-text&quot;&gt;readcount=0&lt;/code&gt;이 되고 나면, 마지막에 나가는 reader가 &lt;code class=&quot;language-text&quot;&gt;semSignal(wsem)&lt;/code&gt;으로 이제 &lt;code class=&quot;language-text&quot;&gt;wsem&lt;/code&gt;에 아무도 없음을 알립니다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=KNp2VyF0qHY&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 300px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACYElEQVR42jWRW08TQRiG92foDSSGQ9jtHma7ZWl3trO7M9um3QIKRkqLtBQsQhHSpsGCCEhEEBJJxYD1QAFjQNRIOHhlTUy4knhhvPXGf+K0SvJkkpnkeb+Zd5hI30i4qw9DXZOBDbWoEx7s7nw0frsLGxqECiFuy5AsDCwiGBaPMEWyCN2Kls10xkeC4ashQgj0RcOhqeHUSnb09PmTfKIHtyoqthRiy8SmvmBUfdHEAFdPALGZSG8aG1j3KL1hsrM8vzE3ffaufP5+Z72QTTrYA72yHQSYQgDGF9g1Akz7jYQFfXJz8/zY0K/Tgz+Vk/OPbyrbG7+PDsozk4IkuIPBf6Nq06hpXUQQJoZs5FGE5qZcKv7tben7u/LR2vJWfuLry+L63QmeYxXbprel75RxABCrJlsXMjSgDGSupcexP22ufi6tVUpPj5cW9h7Pjse6gYujnbn8iFKLqDrSf9lmujWtledUSVBFdimXPny2crb/+sur4u7SNHLzPiCq2GR1xPt1HumCYYomqbaNqysTaVNBY4PCsproykSdueH4cia1OJwIwdaGuvqAT9VMg61NboF+ESEeGbRwGkFh/JLQcPkSW19vyOL90b6FsYFCoiOfdPimK4BrMhUPsXRO9/GmBkO6C+oy1kXDpJ8vE8wgoATNoAe4HU1ZzKZWJ+/MF5zZKY1trMtmvekB78yU9vDBUDIZzUz4oikUG/TeTLdlJzXUYTLH2yc/Kj+LxRf5zNDmXG5rsbA63X8vF3az3EBSil1v6+lQT3dLh+X9wkxk/8NevnCrfyR+LW5p7YG/HxLWXkknHdkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;잘 놀다 갑니다&quot;
+        title=&quot;&quot;
+        src=&quot;/static/ce4188060316f1eb94aab3616d62e9f3/5a46d/image-27.png&quot;
+        srcset=&quot;/static/ce4188060316f1eb94aab3616d62e9f3/c26ae/image-27.png 158w,
+/static/ce4188060316f1eb94aab3616d62e9f3/5a46d/image-27.png 300w&quot;
+        sizes=&quot;(max-width: 300px) 100vw, 300px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;그러고 나면, 이제 조용해진 &lt;code class=&quot;language-text&quot;&gt;wsem&lt;/code&gt;에 드디어 &lt;code class=&quot;language-text&quot;&gt;w4&lt;/code&gt;가 들어갑니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d742d223b9694fca8a6464eadd03d0e7/5a791/image-25.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 105.0632911392405%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsTAAALEwEAmpwYAAACcklEQVR42rWVW4vaUBDH90uX/Q62ffBCQbcPPoigoiYxtpS2oCi0pYhFQVC0Kt6w3jXejidOZ2YTa+ra3T7sgT+TTHJ+Z2bOnOTm5jnGbrd7sd/vP6EUlHYuKaUmhGABwENS8J2Pm83m9gQ0TVPFB3A8HiX8NdDHFifBZDKB8Xjs0Gg0sufoJyBGkiSPuB+mLYzcbLVa5mw2MxFm5nI5M5/PO5TNZgU+p+naOVC1gPJwOACJIsLIYb1e8z1FigvAdrt1CFPlCJGhXwUSbDqdcorD4ZBToyjsRc4lyfkYkF4kWKfTgX6/D71ejy2+B3YGtmjOVSCtRjBKjyIiIMG63S4MBoP/B87nc7lcLsEwDCC7WCxOonuc/DQgOhlYrVZlvV7n9AhAw64p10/eR38uzOjxlK1ig11PuqbojM0aFsuFI3LK6ioQ20LSRKoVWWqTZrMJs+kMpvMZ5H98hS/fv0E2kwXsSVYmk5EIvWjsqydltVpxhNSP/V8D3n08HdxOVgdIq0Mua1gqlWStVoNGowFUS7KVSoWvi8Ui37fbbWj8bDD4PAhHynSWseMhGAzKWCwGiUQC4vE4K5lMQiQSgXA4zH5SNBqFQqHA9aUyXQAxJZU2QNM06fP5wOPxAFuvB7xeL7hcLnC73ewjiwtDuVxmIIIejpA2QVEUeXd3B36/H8iS3G+88PL1K3iL14FAgJ+FQiEqzz+BcSq6qqpbXdcFK6WL9Lu0iH1QhPJeE2nLn06nBZZBYE0FzhMI2lpA5eJ7iCdE0in5ozUYuBAt5vQb3Frnm4IM3fHFxpQ/o5/AqacI655CKEmlrz0ybp/ld/IbOtfoXHEZF10AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;과정 7&quot;
+        title=&quot;&quot;
+        src=&quot;/static/d742d223b9694fca8a6464eadd03d0e7/f058b/image-25.png&quot;
+        srcset=&quot;/static/d742d223b9694fca8a6464eadd03d0e7/c26ae/image-25.png 158w,
+/static/d742d223b9694fca8a6464eadd03d0e7/6bdcf/image-25.png 315w,
+/static/d742d223b9694fca8a6464eadd03d0e7/f058b/image-25.png 630w,
+/static/d742d223b9694fca8a6464eadd03d0e7/40601/image-25.png 945w,
+/static/d742d223b9694fca8a6464eadd03d0e7/5a791/image-25.png 1248w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+아 시끄러운 &lt;code class=&quot;language-text&quot;&gt;wsem&lt;/code&gt;에 차마 들어가지 못하고 밖에서 기다린 &lt;code class=&quot;language-text&quot;&gt;w4&lt;/code&gt;에 과몰입했는지 이 그림조차 너무 고요하게 느껴집니다...&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 225px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3d9be0d015ab779259049099e2022f2c/3684f/image-28.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEu0lEQVR42hXR/U8aBwDG8UuWJXtJnZhWa31FlPfj9TgOuDuOO14OFAuKIohYLEIFUYH6jm+IttpofZkvVVc3qtjaTmvrXrQvWbZuXZp27bKsS7Yflu2X/Ruzf8An+T55gDubK36Pm6boSpqenxrez2zOT09dah9o9nU2e0NNnkseb5u13u/2RV2+qLc1Fo9EguFed0u0wRsGdtNrLW5XpcmKo8aJoeGv7m1vbdy46O8oLRHl5lXU6cw/7j2cufapjrDipI0yObrCIZvNo6Vq9GQNsLe94a2rM5FmHWYa6+97/ODLO5trlI42oGQ1Rf+8vvTbbubF0aPmCyGUrDHS9ZG2oKPORxqdVRbPOxzweilcr1YSo919j+/fzqytjPfEI/XWSkydSSWfLy0cTF1zOxrKeCpCa+0IBij9eRYfwbTVwGHm88vtbQROIUoiEYs/ub+zvbY02R/zWfV2kliKhV4uz+6PppLxPi6IUaQtEgzoDOfZEgLFzwPf3r7V3xkiNASOWq4MDX/3cPf+1k1njdNvM690en9dHX+zfOXOQN9gtJsvxbSEpSPQqiOtFSD+Dh/fzSRiEUgsVcg1sxOp1z88Odo7tlc2nDmVc9GszyTan17rmwgE2AKEyUNIyhoNB83mumKOQoNVA8+PD0cud5Eoiig0c9Nz68vp2poWuURz9gzvvfezcrILOKXlvfGeickFlyfiD3TFwkFPU8hS2+poCAH//ftnsjdOEzpKa6hztiogmMvliSRiRFGbfxb8JDu3sIBfaaZHE4m5uRukyeb3NoQ6uz2Xel2+LuDtq582FmaqSArTqBRKoxrTaTRKsZSvJ50WKp7DOJfDKLOY3NV293ByOpma2biZWVnfWVxOuxoDwIPdndXZKYueJHAEUaMQQmK4UoPDGGby1c/X0t2gwIBq3UKZ8eQbm817wZ/o7F/1h1NFOUXAs+OjxekUoUG0uBrFEJFEiuEqDEc0KGqn+8Oe6zqNnSfE2TxMobRwRahASmiNjYTBU5BbAqR6hmZTIypYqlRBCoVYIBTIYTmigrTYST0G80E5n8s4VcRkqrgyAjFXY/oqoVSnQKpAIQqgPHmrp0mPo2IxKBQLRGCFQQfX2SkLoZSxS2mN2KiWSvmgEiZomp4MRrtaWmRKgxw2VLAFAOsM62STSiGBZGJEjbT5rL98ffX379e31v3XZ2x3t8ce7CwebM3vZ2b+er338mi2ubEagswgKCsuOQcwyyBYLJOCXFghUauhYBP95njpjxd7h/tX0+nora3k7s780eHmwd7GP38/e/viltflksjo/PwCBiMLkJSKRFyuRMiWiDhSkNPaaNleHU+vTTw9Afd65ues6S+aDg+Gtj+befLN5qtHy26Hg1kuYpYyxaAMYH3AkJSzYRkoZJfxuExcLWpvtgy2OwY67CNdztnh6EIyvjjePzUYnRy4OBpzykWC/HOFIiEECiEg+0OGuJxlILSwHGaVFOedzmaVFnDYpUXFZ0sKhZVoj9M0ZicHSSjCZUFlLGZeXjGDkV9QWPHRx6eBrKxsmx7tDPgRJS4SgjIpT4vDJKWGFSCnXGJQhT2VYy56pBpNqGRGoZhTXiGgTTVqjQlC9P8DrUiigscZnqsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;혼자가 좋아&quot;
+        title=&quot;&quot;
+        src=&quot;/static/3d9be0d015ab779259049099e2022f2c/3684f/image-28.png&quot;
+        srcset=&quot;/static/3d9be0d015ab779259049099e2022f2c/c26ae/image-28.png 158w,
+/static/3d9be0d015ab779259049099e2022f2c/3684f/image-28.png 225w&quot;
+        sizes=&quot;(max-width: 225px) 100vw, 225px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;아무튼, 그래서 정리하자면&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;readcount&lt;/code&gt;는&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;reader가 작업 중이면 읽기 작업을 진행 중인 reader의 수&lt;/li&gt;
+&lt;li&gt;writer가 작업 중이면 기다리는 reader의 수 (하나는 &lt;code class=&quot;language-text&quot;&gt;wsem&lt;/code&gt;에 대표로 줄 서고, 나머지는 &lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt;에서 줄 선다)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;그리고 또 &lt;code class=&quot;language-text&quot;&gt;semaphore x&lt;/code&gt;의 역할은&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;readcount&lt;/code&gt;의 조정을 한 번에 한 프로세스만 하게 하기 위함&lt;/li&gt;
+&lt;li&gt;reader들이 C.S에 들어가고자 하는데 이미 writer가 작업중이라 들어가지 못할 때, 짬킹을 제외한 나머지를 줄세우는 역할&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;마지막으로 &lt;code class=&quot;language-text&quot;&gt;semaphore wsem&lt;/code&gt;은&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;writer가 작업중이면, &lt;code class=&quot;language-text&quot;&gt;wsem&lt;/code&gt;을 아예 잠그고 들어간다&lt;/li&gt;
+&lt;li&gt;reader가 들어가 있으면, &lt;code class=&quot;language-text&quot;&gt;wsem&lt;/code&gt;은 reader에게만 열려있다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이렇게 됩니다&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;휴.. 생각보다 글이 길어져서 햄드네요&lt;br&gt;
+사실 내일 운영체제 중간고사입니다&lt;br&gt;
+아좌좍~
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 347px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b268d0733d1cccb1892d7c687c8d8828/39e45/image-31.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 41.77215189873418%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAABVUlEQVR42k2RW6uCUBCF9/9/r7fOs8ixlKQL3UAqsgcrLBTsTkVEUZkS3bTv6MsZcDPutdbMmtnC87w4joMguFwur9drt9utVqvJZHK9Xn3fB1osFsvl8na7zefzzWazXq/hoLrf78J1XRiHw+F8PoONx2OUtm2Tn06n/2IElmUBwRmNRp/PR0ynU3j1er3VasGjOSUfjwe1aJ6K8UIOLQxDPwk4QAKs2Ww2Go1SqWSaZuq22+0C00FRlOFwiJihOKMoipN4Pp/QxGw26/V6+XxeVVX6Y4SRJEkCy2QyxWKxVqtxgxjzJLIs0+x4POJO7Pf7fr+fXmmaZhhGoVBA/JNEuVzOZrNYgEY5x3FyuRwDUujPNh8LhISYnfObesPCbxI4x1Sn06Hb+/1ut9u6rrO8wWAgWBpXCEjQUJ5ts9VqtYqA56HbdrvlZGE8SqVSwSCQbdtfFw+aU2p6qX8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;자퇴서&quot;
+        title=&quot;&quot;
+        src=&quot;/static/b268d0733d1cccb1892d7c687c8d8828/39e45/image-31.png&quot;
+        srcset=&quot;/static/b268d0733d1cccb1892d7c687c8d8828/c26ae/image-31.png 158w,
+/static/b268d0733d1cccb1892d7c687c8d8828/6bdcf/image-31.png 315w,
+/static/b268d0733d1cccb1892d7c687c8d8828/39e45/image-31.png 347w&quot;
+        sizes=&quot;(max-width: 347px) 100vw, 347px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이만 마칩니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[ 🕹️ OS 툴로 Critical Section 통제하기 : Mutual Exclusion By Semaphore & Monitor]]></title><description><![CDATA[Software 로직으로 이리 보고 Hardware Instruction으로 저리 봐도 로 가짜로 대기하는 Busy-Waiting…]]></description><link>https://sungpaks.github.io/mutual-exclusion-by-os/</link><guid isPermaLink="false">https://sungpaks.github.io/mutual-exclusion-by-os/</guid><pubDate>Sat, 20 Apr 2024 21:31:15 GMT</pubDate><content:encoded>&lt;p&gt;Software 로직으로 이리 보고&lt;br&gt;
 Hardware Instruction으로 저리 봐도&lt;br&gt;
 &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;로 가짜로 대기하는 &lt;strong&gt;Busy-Waiting&lt;/strong&gt;이슈를 피할 수는 없었고&lt;br&gt;
 이외에도 다른 이슈가 생기기 마련이었습니다&lt;br&gt;
@@ -41,7 +1008,7 @@ Hardware Instruction으로 저리 봐도&lt;br&gt;
 &lt;p&gt;&lt;strong&gt;Semaphore&lt;/strong&gt;는 하나의 구조체 변수로, 정수 변수 하나와 큐를 가집니다.&lt;br&gt;
 또한 이 semaphore는 세 가지의 &lt;em&gt;atomic&lt;/em&gt;한 operation을 가지는데,&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Semaphore 정수 변수를 초기화&lt;/li&gt;
+&lt;li&gt;Semaphore 정수 변수를 초기화 (주의 : 음수로 초기화 X)&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;SemWait&lt;/code&gt; : 정수 변수의 값을 하나 빼고, 결과가 0보다 작으면 현재 프로세스(값을 하나 뺀 프로세스)를 block시킨다 =&gt; 큐로 이동&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;SemSignal&lt;/code&gt; : 정수 변수의 값을 하나 더하고, 결과가 0보다 작거나 같으면 큐에서 (블락되었던) 프로세스를 하나 꺼내준다.&lt;/li&gt;
 &lt;/ul&gt;
@@ -133,7 +1100,12 @@ Hardware Instruction으로 저리 봐도&lt;br&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;s.count &amp;lt;= 0&lt;/code&gt; : |&lt;code class=&quot;language-text&quot;&gt;s.count&lt;/code&gt;값| == &lt;strong&gt;블락되어 큐에 들어가 있는 프로세스 개수&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;s.count &gt;= 0&lt;/code&gt; : &lt;code class=&quot;language-text&quot;&gt;s.count&lt;/code&gt;값 == &lt;strong&gt;블락되지 않고 지나갈 수 있는 프로세스 개수&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;라는 결론에 도달합니다&lt;/p&gt;
+&lt;p&gt;라는 결론에 도달합니다.&lt;br&gt;
+그리고 앞에서 처음 semaphore에 대해 이야기할 때,&lt;br&gt;
+semaphore는 음수로 초기화하면 안 된다고 잠깐 써뒀는데,&lt;br&gt;
+그 이유가 여기서부터 비롯됩니다&lt;br&gt;
+내 맘대로 초기값을 &lt;code class=&quot;language-text&quot;&gt;-5&lt;/code&gt;로 두고 &lt;code class=&quot;language-text&quot;&gt;semSignal&lt;/code&gt;을 호출하면 &lt;code class=&quot;language-text&quot;&gt;blocked queue&lt;/code&gt;에 보낸 것이 없는데 꺼내려고 하겠죠?&lt;br&gt;
+양치기소년이 될 수 있으니 주의합시다&lt;/p&gt;
 &lt;p&gt;그럼 이제, Semaphore로 C.S에 한 번에 한 프로세스만 진입하도록&lt;br&gt;
 Mutual Exclusion을 보장하려면..&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;semaphore s &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
