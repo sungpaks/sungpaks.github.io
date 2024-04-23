@@ -24,7 +24,7 @@ Hardware Instruction으로 저리 봐도
 **Semaphore**는 하나의 구조체 변수로, 정수 변수 하나와 큐를 가집니다.  
 또한 이 semaphore는 세 가지의 *atomic*한 operation을 가지는데,
 
-- Semaphore 정수 변수를 초기화
+- Semaphore 정수 변수를 초기화 (주의 : 음수로 초기화 X)
 - `SemWait` : 정수 변수의 값을 하나 빼고, 결과가 0보다 작으면 현재 프로세스(값을 하나 뺀 프로세스)를 block시킨다 => 큐로 이동
 - `SemSignal` : 정수 변수의 값을 하나 더하고, 결과가 0보다 작거나 같으면 큐에서 (블락되었던) 프로세스를 하나 꺼내준다.
 
@@ -80,7 +80,12 @@ void semSignal(semaphore s) {
 - `s.count <= 0` : |`s.count`값| == **블락되어 큐에 들어가 있는 프로세스 개수**
 - `s.count >= 0` : `s.count`값 == **블락되지 않고 지나갈 수 있는 프로세스 개수**
 
-라는 결론에 도달합니다
+라는 결론에 도달합니다.  
+그리고 앞에서 처음 semaphore에 대해 이야기할 때,  
+semaphore는 음수로 초기화하면 안 된다고 잠깐 써뒀는데,  
+그 이유가 여기서부터 비롯됩니다  
+내 맘대로 초기값을 `-5`로 두고 `semSignal`을 호출하면 `blocked queue`에 보낸 것이 없는데 꺼내려고 하겠죠?  
+양치기소년이 될 수 있으니 주의합시다
 
 그럼 이제, Semaphore로 C.S에 한 번에 한 프로세스만 진입하도록  
 Mutual Exclusion을 보장하려면..
