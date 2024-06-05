@@ -23,19 +23,26 @@ function TopUI({ setCurTag }: ComponentProps) {
   return (
     <div>
       <div className="top-ui">
-        <h4 className="top-ui-title" style={{ margin: 0 }}>
+        <h5 className="top-ui-title" style={{ margin: 0 }}>
           <Link
             to="/"
             onClick={() => {
               if (setCurTag) setCurTag("ALL")
             }}
           >
-            👍 성훈 블로그
+            👍 조성개발실록
           </Link>
-        </h4>
-        <h6 className="top-ui-tag" style={{ margin: "0 20px 0 0" }}>
-          <Link to="/tag">Tag</Link>
-        </h6>
+        </h5>
+        <div>
+          <div className="top-ui-tag" style={{ margin: "0 20px 0 0" }}>
+            <Link to="/tag">Tag</Link>
+          </div>
+          <div className="top-ui-tag">
+            <a id="light-or-dark" onClick={() => {}}>
+              ?
+            </a>
+          </div>
+        </div>
       </div>
       <div
         className="progress-bar"

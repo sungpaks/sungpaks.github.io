@@ -1,6 +1,7 @@
 /* CSS Custom Properties Definitions */
 
 :root {
+  color-scheme: light dark;
   --maxWidth-none: "none";
   --maxWidth-xs: 20rem;
   --maxWidth-sm: 24rem;
@@ -58,6 +59,10 @@
   --color-heading: #1a202c;
   --color-heading-black: black;
   --color-accent: #d1dce5;
+  --color-dark: rgb(44, 44, 44);
+  --color-lightdark: rgb(66, 66, 66);
+  --color-light: #ededed;
+  --color-lightgreen: rgb(211, 255, 207);
 }
 
 /* HTML elements */
@@ -79,7 +84,8 @@ body {
   font-family: "ibm-plex-sans";
   font-size: var(--fontSize-1);
   font-weight: var(--fontWeight-normal);
-  color: var(--color-text);
+  color: light-dark(var(--color-text), var(--color-light));
+  background-color: light-dark(white, var(--color-dark));
 }
 
 footer {
@@ -113,13 +119,13 @@ h4,
 h5,
 h6 {
   font-weight: var(--fontWeight-bold);
-  color: var(--color-heading);
+  color: light-dark(var(--color-heading), var(--color-light));
 }
 
 h1 {
   font-weight: var(--fontWeight-black);
   font-size: var(--fontSize-6);
-  color: var(--color-heading-black);
+  color: light-dark(var(--color-heading-black), var(white));
 }
 
 h2 {
@@ -196,7 +202,7 @@ li > ul {
 }
 
 blockquote {
-  color: var(--color-text-light);
+  color: light-dark(var(--color-text-light), var(--color-light));
   margin-left: calc(-1 * var(--spacing-6));
   margin-right: var(--spacing-8);
   padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6);
@@ -204,6 +210,7 @@ blockquote {
   font-size: var(--fontSize-2);
   font-style: italic;
   margin-bottom: var(--spacing-8);
+  border-color: light-dark(black, white);
 }
 
 blockquote > :last-child {
@@ -230,7 +237,7 @@ table thead tr th {
 
 a {
   text-decoration: none;
-  color: var(--color-primary);
+  color: light-dark(var(--color-lightgreen), var(--color-lightgreen));
 }
 
 a:hover,
@@ -271,7 +278,7 @@ a:focus {
 
 .post-list-item h2 {
   font-size: var(--fontSize-4);
-  color: black;
+  color: light-dark(black, white);
   margin-bottom: var(--spacing-2);
   margin-top: var(--spacing-0);
 }
@@ -339,7 +346,7 @@ a:focus {
 
 .custom-button {
   padding: 8px 15px;
-  color: #fff;
+  color: light-dark(#fff, black);
   border-radius: 5px;
   background: transparent;
   cursor: pointer;
@@ -359,14 +366,18 @@ a:focus {
   width: 100%;
   height: 70px;
   border-bottom: 1px solid black;
-  background-color: rgba(245, 245, 245, 0.8);
+  background-color: light-dark(
+    rgba(245, 245, 245, 0.8),
+    var(--color-lightdark)
+  );
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: "ibm-plex-sans";
 }
 .top-ui-title {
   width: fit-content;
-  color: black;
+  color: light-dark(black, white);
   transition: all 0.5s ease;
 }
 .top-ui-title:hover {
@@ -388,8 +399,8 @@ a:focus {
   margin: 10px;
   font-size: 13px;
   font-weight: 600;
-  color: black;
-  background-color: rgba(169, 248, 11, 0.5);
+  color: light-dark(black, white);
+  background-color: light-dark(rgba(169, 248, 11, 0.5), yellowgreen);
   border: none;
   z-index: 1;
 }
@@ -417,6 +428,9 @@ a:focus {
 .tag-button:active {
   top: 2px;
 }
+.tag-button.pressed {
+  background-color: rgba(109, 158, 12, 0.5);
+}
 .post-list-item-title {
   transition: all 0.3s ease;
 }
@@ -427,8 +441,9 @@ a:focus {
 .top-ui-tag {
   float: right;
   margin-right: 20px;
-  color: rgb(88, 88, 88);
+  color: light-dark(rgb(88, 88, 88), --color-light);
   transition: all 0.5s ease;
+  font-weight: var(--fontWeight-bold);
 }
 .top-ui-tag:hover {
   color: black;
@@ -461,4 +476,12 @@ a:focus {
   .progress-bar {
     top: calc(60px - 3px);
   }
+}
+
+.smaller {
+  font-size: smaller;
+}
+
+#light-or-dark {
+  cursor: pointer;
 }

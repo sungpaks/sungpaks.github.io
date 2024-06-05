@@ -25,7 +25,8 @@ const TagPage = ({ data, location }: ComponentProps) => {
           {data.tags.group.map(t => {
             const buttonScaleStyle = {
               transform: `scale(${1 + (t.totalCount - 1) / 10})`,
-              marginRight: `calc(15px + )`,
+              marginRight: `calc(5px + ${t.totalCount * 5}px)`,
+              marginLeft: `calc(5px + ${t.totalCount * 5}px)`,
             }
             return (
               <Link

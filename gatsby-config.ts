@@ -8,7 +8,7 @@ import { GatsbyConfig } from "gatsby"
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `성훈 블로그`,
+    title: `조성개발실록`,
     author: {
       name: `조성훈`,
       summary: `세종대학교 19학번, 물리천문학과 + 소프트웨어학과`,

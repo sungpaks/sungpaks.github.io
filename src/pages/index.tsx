@@ -62,6 +62,14 @@ const BlogIndex = ({ data, location }: ComponentProps) => {
     } else {
       setCurPostList([...posts.filter(p => p.frontmatter.tag.includes(curTag))])
     }
+    const tagButtons = document.getElementsByClassName("tag-button")
+    for (let i = 0; i < tagButtons.length; i++) {
+      if (curTag !== "ALL" && tagButtons[i].id === curTag) {
+        tagButtons[i].classList.add("pressed")
+      } else {
+        tagButtons[i].classList.remove("pressed")
+      }
+    }
   }, [curTag])
 
   if (posts.length === 0) {
@@ -112,13 +120,12 @@ const BlogIndex = ({ data, location }: ComponentProps) => {
                   return (
                     <button
                       key={c}
+                      id={c}
                       className="custom-button tag-button"
-                      onClick={() => {
+                      onClick={e => {
                         setCurTag(c === curTag ? "ALL" : c)
-                      }}
-                      style={{
-                        top: c === curTag ? "2px" : 0,
-                        color: c === curTag ? "darkgray" : "black",
+                        if (c === curTag) {
+                        }
                       }}
                     >
                       {c}

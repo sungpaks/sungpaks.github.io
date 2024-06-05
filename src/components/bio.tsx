@@ -85,6 +85,10 @@ const Bio = () => {
               <strong>{author.name}</strong> 이라고 합니다.
               <br />
               {author?.summary || null}
+              <br />
+              <span className="smaller">
+                배움을 나눔해요. 근데 이제.. 캐주얼을 곁들인
+              </span>
             </p>
           )}
         </div>
