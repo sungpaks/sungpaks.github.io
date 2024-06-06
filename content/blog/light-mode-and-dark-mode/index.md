@@ -86,7 +86,7 @@ body {
 
 아무튼 이렇게 대강 만들었는데요
 
-![야간모드 프로또따입](https://i.imgur.com/XBjXIpV.png)
+<img src="https://i.imgur.com/XBjXIpV.png" alt loading="lazy" width="80%"/>
 
 아 근데 저는 `prefered-color-scheme` 설정같은거 건드린 적 없다고 했는데, 어떻게 이 화면을 볼 수 있냐면
 
@@ -282,8 +282,68 @@ window.dispatchEvent(new StorageEvent("storage", { key: KEY_THEME }))
 
 ---
 
+# 마무리
+
 간단한 기능같아보이지만 고민할 것도 난관도 많았습니다  
 저는 좀 산기슭으로 돌아돌아 도착한 느낌이 없지않아 있는데  
 그래도 이러면서 배우고 사는거 아니겠습니까~
 
 암튼간에 이만 마칩니다
+
+### +++++ 추가..
+
+아니.. 분명  
+[Can I Use](https://caniuse.com/mdn-css_types_color_light-dark)이런 곳이나  
+[MDN docs](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark#browser_compatibility)이런 곳에서
+
+> Since May 2024, this feature works across the latest devices and browser versions. This feature might not work in older devices or browsers.
+
+라길래 별 걱정없이 썼는데  
+배포하고보니 IOS위의 크롬 사파리 등등에서는 완전히 `light-dark`를 지원하지 않는가 봅니다?  
+폰으로 들어가보니 색상이 제대로 되어있지 않더라구여..
+
+[browserstack](https://live.browserstack.com/)이라는 곳에서 여러 디바이스별로 테스트를 해볼 수 있길래 봤는데  
+웹 브라우저들은 전부 지원하고, 안드로이드도 어지간해서는 다 지원하는데  
+IOS만 유독 최신의 최신의 최신도 다 적용이 안 됩니다..
+
+그래서 눈물을 머금고 일단 GPT시켜서 아래와 같이  
+코드를 저어언부 `light-dark`없이 다시 쓰면서도 동작은 똑같아서 자바스크립트 코드는 그대로 가능하게 해달라고 했습니다 ㅋㅋ ; ;
+
+```css
+body {
+  color: var(--color-text);
+  background-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: var(--color-light);
+    background-color: var(--color-dark);
+  }
+}
+
+body.theme-reverse {
+  color: var(--color-light);
+  background-color: var(--color-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+  body.theme-reverse {
+    color: var(--color-text);
+    background-color: white;
+  }
+}
+```
+
+근데 또 이자슥이 뭐라고 안 했더니 자꾸 새로운 CSS스타일을 적용시키거나 누락시켜서 꾸짖을 갈! 한 번 했네요
+
+![흠;](image-6.png)![꾸짖을 갈](image-7.png)
+
+갈! 한번 해주니까 사족은 넣지 않고 알잘딱깔센 하더라구요?
+
+아무튼간에.. `light-dark`가 절 지독히도 괴롭혔네요  
+제가 자초한 일인 것 같긴하죠?  
+마칩니다
+
+어라? 근데 방금 IOS 업데이트 끝났는데  
+아직 배포 안 했는데 왜 잘 나오지
