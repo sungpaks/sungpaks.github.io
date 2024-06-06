@@ -10,6 +10,11 @@ interface ComponentProps {
 
 function TopUI({ setCurTag }: ComponentProps) {
   const [scrollPercent, setScrollPercent] = useState(0)
+  const ORIGINAL = "original"
+  const REVERSED = "reversed"
+  const THEME_REVERSE = "theme-reverse"
+  const KEY_THEME = "theme"
+
   useEffect(() => {
     document.addEventListener("scroll", () => {
       const currentScroll: number = document.documentElement.scrollTop
@@ -41,13 +46,13 @@ function TopUI({ setCurTag }: ComponentProps) {
             <a
               id="light-or-dark"
               onClick={() => {
-                const theme = localStorage.getItem("theme")
-                if (!theme || theme === "original") {
-                  document.body.classList.add("theme-reverse")
-                  localStorage.setItem("theme", "reversed")
+                const theme = localStorage.getItem(KEY_THEME)
+                if (!theme || theme === ORIGINAL) {
+                  document.body.classList.add(THEME_REVERSE)
+                  localStorage.setItem(KEY_THEME, REVERSED)
                 } else {
-                  document.body.classList.remove("theme-reverse")
-                  localStorage.setItem("theme", "original")
+                  document.body.classList.remove(THEME_REVERSE)
+                  localStorage.setItem(KEY_THEME, ORIGINAL)
                 }
               }}
             >
