@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 06 Jun 2024 07:40:09 GMT</lastBuildDate><item><title><![CDATA[🔅 다크모드 5초컷 with CSS 채신기술 like-dark()함수 - (Gatsby 블로그)]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/light-mode-and-dark-mode/</link><guid isPermaLink="false">https://sungpaks.github.io/light-mode-and-dark-mode/</guid><pubDate>Thu, 06 Jun 2024 14:51:57 GMT</pubDate><content:encoded>&lt;p&gt;그제였나? 누워서 조선왕조실록 틀어놓고 잠들고 싶어하고 있었는데요&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 06 Jun 2024 11:19:35 GMT</lastBuildDate><item><title><![CDATA[🔅 다크모드 5초컷 with CSS 채신기술 like-dark()함수 - (Gatsby 블로그)]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/light-mode-and-dark-mode/</link><guid isPermaLink="false">https://sungpaks.github.io/light-mode-and-dark-mode/</guid><pubDate>Thu, 06 Jun 2024 14:51:57 GMT</pubDate><content:encoded>&lt;p&gt;그제였나? 누워서 조선왕조실록 틀어놓고 잠들고 싶어하고 있었는데요&lt;br&gt;
 아~ 도저히 잠이 안와서 노마드코더 좀 봤습니다&lt;br&gt;
 그 중에 이런 영상이 있었는데&lt;/p&gt;
 &lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/embed/vc4DGouf62E?si=hhtqt0DHpVhuzrXQ&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen=&quot;&quot; style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;
@@ -135,7 +135,7 @@
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;아무튼 이렇게 대강 만들었는데요&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/XBjXIpV.png&quot; alt=&quot;야간모드 프로또따입&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;https://i.imgur.com/XBjXIpV.png&quot; alt=&quot;&quot; loading=&quot;lazy&quot; width=&quot;80%&quot;&gt;
 &lt;p&gt;아 근데 저는 &lt;code class=&quot;language-text&quot;&gt;prefered-color-scheme&lt;/code&gt; 설정같은거 건드린 적 없다고 했는데, 어떻게 이 화면을 볼 수 있냐면&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/sOfnEJL.png&quot; alt=&quot;테스트해보기&quot;&gt;&lt;/p&gt;
 &lt;p&gt;크롬은 개발자도구에서 - 대충 더보기처럼 생긴 아이콘 - More tools - Rendering에 들어가면&lt;/p&gt;
@@ -385,10 +385,116 @@ Giscus 테마는 여러가지가 있어서 그냥 &lt;code class=&quot;language-
 &lt;p&gt;아 빵애애요&lt;br&gt;
 이제 다크모드 덕분에 버그가 꼬이지 않겠는데요~&lt;/p&gt;
 &lt;hr&gt;
+&lt;h1&gt;마무리&lt;/h1&gt;
 &lt;p&gt;간단한 기능같아보이지만 고민할 것도 난관도 많았습니다&lt;br&gt;
 저는 좀 산기슭으로 돌아돌아 도착한 느낌이 없지않아 있는데&lt;br&gt;
 그래도 이러면서 배우고 사는거 아니겠습니까~&lt;/p&gt;
-&lt;p&gt;암튼간에 이만 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[💲 Gatsby Blog에서 마크다운 수식(LaTex) 표현하기 - KaTeX 플러그인]]></title><description><![CDATA[저런 수식을 손으로 쓸 때는 아주 내맘대로 글씨를 쓰면 되니까 문제없지만 컴퓨터로 저런거 쓰려면 어라? 싶은 사람들도 있을 것 같습니다 그런데 2…]]></description><link>https://sungpaks.github.io/latex-in-gatsby-blog-by-katex/</link><guid isPermaLink="false">https://sungpaks.github.io/latex-in-gatsby-blog-by-katex/</guid><pubDate>Sat, 18 May 2024 19:45:53 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;p&gt;암튼간에 이만 마칩니다&lt;/p&gt;
+&lt;h3&gt;+++++ 추가..&lt;/h3&gt;
+&lt;p&gt;아니.. 분명&lt;br&gt;
+&lt;a href=&quot;https://caniuse.com/mdn-css_types_color_light-dark&quot;&gt;Can I Use&lt;/a&gt;이런 곳이나&lt;br&gt;
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark#browser_compatibility&quot;&gt;MDN docs&lt;/a&gt;이런 곳에서&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Since May 2024, this feature works across the latest devices and browser versions. This feature might not work in older devices or browsers.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;라길래 별 걱정없이 썼는데&lt;br&gt;
+배포하고보니 IOS위의 크롬 사파리 등등에서는 완전히 &lt;code class=&quot;language-text&quot;&gt;light-dark&lt;/code&gt;를 지원하지 않는가 봅니다?&lt;br&gt;
+폰으로 들어가보니 색상이 제대로 되어있지 않더라구여..&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://live.browserstack.com/&quot;&gt;browserstack&lt;/a&gt;이라는 곳에서 여러 디바이스별로 테스트를 해볼 수 있길래 봤는데&lt;br&gt;
+웹 브라우저들은 전부 지원하고, 안드로이드도 어지간해서는 다 지원하는데&lt;br&gt;
+IOS만 유독 최신의 최신의 최신도 다 적용이 안 됩니다..&lt;/p&gt;
+&lt;p&gt;그래서 눈물을 머금고 일단 GPT시켜서 아래와 같이&lt;br&gt;
+코드를 저어언부 &lt;code class=&quot;language-text&quot;&gt;light-dark&lt;/code&gt;없이 다시 쓰면서도 동작은 똑같아서 자바스크립트 코드는 그대로 가능하게 해달라고 했습니다 ㅋㅋ ; ;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;--color-text&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; white&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token atrule&quot;&gt;&lt;span class=&quot;token rule&quot;&gt;@media&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token property&quot;&gt;prefers-color-scheme&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; dark&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token selector&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;--color-light&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;--color-dark&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;body.theme-reverse&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;--color-light&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;--color-dark&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token atrule&quot;&gt;&lt;span class=&quot;token rule&quot;&gt;@media&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token property&quot;&gt;prefers-color-scheme&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; dark&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token selector&quot;&gt;body.theme-reverse&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;--color-text&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; white&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;근데 또 이자슥이 뭐라고 안 했더니 자꾸 새로운 CSS스타일을 적용시키거나 누락시켜서 꾸짖을 갈! 한 번 했네요&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b22e3c40d318c48e70f22e074ef0ff8c/46e51/image-6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 22.151898734177216%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAo0lEQVR42oVPWw6DMAzr/e+JKH0DLayF1ksyIW1fi2TJiZLYVvhT13XBWANjDJxzmKYJelngvYe1FnqeYah3zuM4DqjeOx7cd8f46scYNLvRWvtBbVWEnv7hfKNKKWDEGAlJlIMgCDfkgvmaIhzxNa3Ytw0pJWitEUKQW3Zfa4XiWOyEBxwrhCgCOWcBP8gsSvw8X9joGe/xw1I+O3nf5YbTvAEydzT8QvxqBAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;흠;&quot;
+        title=&quot;&quot;
+        src=&quot;/static/b22e3c40d318c48e70f22e074ef0ff8c/f058b/image-6.png&quot;
+        srcset=&quot;/static/b22e3c40d318c48e70f22e074ef0ff8c/c26ae/image-6.png 158w,
+/static/b22e3c40d318c48e70f22e074ef0ff8c/6bdcf/image-6.png 315w,
+/static/b22e3c40d318c48e70f22e074ef0ff8c/f058b/image-6.png 630w,
+/static/b22e3c40d318c48e70f22e074ef0ff8c/40601/image-6.png 945w,
+/static/b22e3c40d318c48e70f22e074ef0ff8c/46e51/image-6.png 1003w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 207px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8d09ce413686d3477afd62f0e86a48dd/661c4/image-7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 117.08860759493672%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAIAAACEf/j0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEC0lEQVR42mP4TwFggLP+gAFpmv/9+wekfv/+3dXVdfTo0Vu3bl27du0YGJw5cwbIPXny5IkTJ4DcO3fuABnPnz8HqofoQtg8b968Q4cOvXr16unTp7fA4O7duy9evACSt2/fBnJfvnwJJD98+IBF87dv3z5+/PjlyxcgCVTx6dMnCBvC/fr1K1AEyPj8+TOKnyHGXL169eLFi5cvXwbaf+DAgbNnzwLtAbIPgwHQ/uPHjwPFgS6HqEfRDDT1PRgAnQd07du3b4F2voQBoIWvX78Gir958wZFMwQAlb579w5oBNDbQNVANtCdQMYrMACygZqBjGfPngG9gMXZFy5cuHTp0sGDB/fu3Qd03rWr14CMvXv3Hth/4PbtO8AAB/piz549QP0QXQibgQ77BAKfgQ578/Yt0PgfP76Dg+0zxBVAHwHdBWT/+PED3dlA8Pfvv79A/O/vz5+/jh0+u3DeugVz1+7ddfjz5y9Am8Cy/3CmMDD5d/bMZcnxVfmZjZN65kzsmlVZ1JoYW9bZNv3jh0/g5PQHFl4wzUA9QPLl63fTp651cIzx9EibNXXF4f2njx08v3TBhsjwEnOLsNaWeXfvPYIoRiQSiM49+086u8TbOSS6uSV7e0V4ObvbWNrZWjs529sG+EY7Osa4uqdZWoUvXrYZ7EGQfgaIzi3bDuoaBohLqNvYBqupWwT4RSbH5ZUUNlZVtCbFZkWHpaqqGNvbR8jIayqpOU2bsRyiH2Tzjl3HjEwjlFVt1DQtTEx95OSUzUydMnP729sXdXUtKCqdaWvjL6+gamjgrqtrp6Rioa7tO3veepCzt2w7YmgSpanrJS2jo61rr6Six8/Ha2PnWVw8LSujIyOtraRklpdPjLCIsLS0spGRm6SUhoauh6ZO0IyZaxkMjEOV1Z0VVC1ERJQUFPXFJGS4uDgi/YJO7Th079y1BxevXzpwKj85XUiQj19QREXVRFhYXkbRFKhFU8ePQVPXU0nVVkpGT1BQRkBQVExMloOD3UpRysNcpzE/s6+mwtfa2FZdmp+XQ0hIQlhYml9AUlJaW17ZQlPXg0FZ3VFOwUxMXJWfX5SVjZWLk5uHl9dGSyvYysRZXslZXiXAxMDNUF9AUICbi4eNnYWbB2iDkrScoaKqPYOMrJG4uIaAgAQnJzcrKxMLCyMLG2dSaOzJJStqPKIrXCN3T5nTUlTFycXHxsoCVMDBwcnHJyYmpi4lbcggJ2skI6MpKibFycHBysrMwcHGyMhkamhy+8i5m7svXth08tnZuyF+QQwMQG1sYAXsIsLi0tLqcnJGDGqqJiqqupJSsmxsIIOBJDs7Kysri5mpSWhgcICPv7OTCycHOzs7G1gBMxCJiUqqKOuoqhgBAKP5ZbQJTpFhAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;꾸짖을 갈&quot;
+        title=&quot;&quot;
+        src=&quot;/static/8d09ce413686d3477afd62f0e86a48dd/661c4/image-7.png&quot;
+        srcset=&quot;/static/8d09ce413686d3477afd62f0e86a48dd/c26ae/image-7.png 158w,
+/static/8d09ce413686d3477afd62f0e86a48dd/661c4/image-7.png 207w&quot;
+        sizes=&quot;(max-width: 207px) 100vw, 207px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;갈! 한번 해주니까 사족은 넣지 않고 알잘딱깔센 하더라구요?&lt;/p&gt;
+&lt;p&gt;아무튼간에.. &lt;code class=&quot;language-text&quot;&gt;light-dark&lt;/code&gt;가 절 지독히도 괴롭혔네요&lt;br&gt;
+제가 자초한 일인 것 같긴하죠?&lt;br&gt;
+마칩니다&lt;/p&gt;
+&lt;p&gt;어라? 근데 방금 IOS 업데이트 끝났는데&lt;br&gt;
+아직 배포 안 했는데 왜 잘 나오지&lt;/p&gt;</content:encoded></item><item><title><![CDATA[💲 Gatsby Blog에서 마크다운 수식(LaTex) 표현하기 - KaTeX 플러그인]]></title><description><![CDATA[저런 수식을 손으로 쓸 때는 아주 내맘대로 글씨를 쓰면 되니까 문제없지만 컴퓨터로 저런거 쓰려면 어라? 싶은 사람들도 있을 것 같습니다 그런데 2…]]></description><link>https://sungpaks.github.io/latex-in-gatsby-blog-by-katex/</link><guid isPermaLink="false">https://sungpaks.github.io/latex-in-gatsby-blog-by-katex/</guid><pubDate>Sat, 18 May 2024 19:45:53 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 592px; &quot;
     &gt;

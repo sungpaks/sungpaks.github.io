@@ -143,7 +143,7 @@
   </a>
     </span></p>
 <p>아무튼 이렇게 대강 만들었는데요</p>
-<p><img src="https://i.imgur.com/XBjXIpV.png" alt="야간모드 프로또따입"></p>
+<img src="https://i.imgur.com/XBjXIpV.png" alt="" loading="lazy" width="80%">
 <p>아 근데 저는 <code class="language-text">prefered-color-scheme</code> 설정같은거 건드린 적 없다고 했는데, 어떻게 이 화면을 볼 수 있냐면</p>
 <p><img src="https://i.imgur.com/sOfnEJL.png" alt="테스트해보기"></p>
 <p>크롬은 개발자도구에서 - 대충 더보기처럼 생긴 아이콘 - More tools - Rendering에 들어가면</p>
@@ -393,10 +393,116 @@ Giscus 테마는 여러가지가 있어서 그냥 <code class="language-text">li
 <p>아 빵애애요<br>
 이제 다크모드 덕분에 버그가 꼬이지 않겠는데요~</p>
 <hr>
+<h1>마무리</h1>
 <p>간단한 기능같아보이지만 고민할 것도 난관도 많았습니다<br>
 저는 좀 산기슭으로 돌아돌아 도착한 느낌이 없지않아 있는데<br>
 그래도 이러면서 배우고 사는거 아니겠습니까~</p>
-<p>암튼간에 이만 마칩니다</p></section><hr/></article><nav class="blog-post-nav"><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/latex-in-gatsby-blog-by-katex/">← <!-- -->💲 Gatsby Blog에서 마크다운 수식(LaTex) 표현하기 - KaTeX 플러그인</a></li><li></li></ul></nav></main><footer>© <!-- -->2024<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-X"></script><script>
+<p>암튼간에 이만 마칩니다</p>
+<h3>+++++ 추가..</h3>
+<p>아니.. 분명<br>
+<a href="https://caniuse.com/mdn-css_types_color_light-dark">Can I Use</a>이런 곳이나<br>
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark#browser_compatibility">MDN docs</a>이런 곳에서</p>
+<blockquote>
+<p>Since May 2024, this feature works across the latest devices and browser versions. This feature might not work in older devices or browsers.</p>
+</blockquote>
+<p>라길래 별 걱정없이 썼는데<br>
+배포하고보니 IOS위의 크롬 사파리 등등에서는 완전히 <code class="language-text">light-dark</code>를 지원하지 않는가 봅니다?<br>
+폰으로 들어가보니 색상이 제대로 되어있지 않더라구여..</p>
+<p><a href="https://live.browserstack.com/">browserstack</a>이라는 곳에서 여러 디바이스별로 테스트를 해볼 수 있길래 봤는데<br>
+웹 브라우저들은 전부 지원하고, 안드로이드도 어지간해서는 다 지원하는데<br>
+IOS만 유독 최신의 최신의 최신도 다 적용이 안 됩니다..</p>
+<p>그래서 눈물을 머금고 일단 GPT시켜서 아래와 같이<br>
+코드를 저어언부 <code class="language-text">light-dark</code>없이 다시 쓰면서도 동작은 똑같아서 자바스크립트 코드는 그대로 가능하게 해달라고 했습니다 ㅋㅋ ; ;</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">body</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--color-text<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">prefers-color-scheme</span><span class="token punctuation">:</span> dark<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token selector">body</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--color-light<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--color-dark<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">body.theme-reverse</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--color-light<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--color-dark<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">prefers-color-scheme</span><span class="token punctuation">:</span> dark<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token selector">body.theme-reverse</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--color-text<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>근데 또 이자슥이 뭐라고 안 했더니 자꾸 새로운 CSS스타일을 적용시키거나 누락시켜서 꾸짖을 갈! 한 번 했네요</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/b22e3c40d318c48e70f22e074ef0ff8c/46e51/image-6.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 22.151898734177216%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAo0lEQVR42oVPWw6DMAzr/e+JKH0DLayF1ksyIW1fi2TJiZLYVvhT13XBWANjDJxzmKYJelngvYe1FnqeYah3zuM4DqjeOx7cd8f46scYNLvRWvtBbVWEnv7hfKNKKWDEGAlJlIMgCDfkgvmaIhzxNa3Ytw0pJWitEUKQW3Zfa4XiWOyEBxwrhCgCOWcBP8gsSvw8X9joGe/xw1I+O3nf5YbTvAEydzT8QvxqBAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="흠;"
+        title=""
+        src="/static/b22e3c40d318c48e70f22e074ef0ff8c/f058b/image-6.png"
+        srcset="/static/b22e3c40d318c48e70f22e074ef0ff8c/c26ae/image-6.png 158w,
+/static/b22e3c40d318c48e70f22e074ef0ff8c/6bdcf/image-6.png 315w,
+/static/b22e3c40d318c48e70f22e074ef0ff8c/f058b/image-6.png 630w,
+/static/b22e3c40d318c48e70f22e074ef0ff8c/40601/image-6.png 945w,
+/static/b22e3c40d318c48e70f22e074ef0ff8c/46e51/image-6.png 1003w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 207px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/8d09ce413686d3477afd62f0e86a48dd/661c4/image-7.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 117.08860759493672%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAIAAACEf/j0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEC0lEQVR42mP4TwFggLP+gAFpmv/9+wekfv/+3dXVdfTo0Vu3bl27du0YGJw5cwbIPXny5IkTJ4DcO3fuABnPnz8HqofoQtg8b968Q4cOvXr16unTp7fA4O7duy9evACSt2/fBnJfvnwJJD98+IBF87dv3z5+/PjlyxcgCVTx6dMnCBvC/fr1K1AEyPj8+TOKnyHGXL169eLFi5cvXwbaf+DAgbNnzwLtAbIPgwHQ/uPHjwPFgS6HqEfRDDT1PRgAnQd07du3b4F2voQBoIWvX78Gir958wZFMwQAlb579w5oBNDbQNVANtCdQMYrMACygZqBjGfPngG9gMXZFy5cuHTp0sGDB/fu3Qd03rWr14CMvXv3Hth/4PbtO8AAB/piz549QP0QXQibgQ77BAKfgQ578/Yt0PgfP76Dg+0zxBVAHwHdBWT/+PED3dlA8Pfvv79A/O/vz5+/jh0+u3DeugVz1+7ddfjz5y9Am8Cy/3CmMDD5d/bMZcnxVfmZjZN65kzsmlVZ1JoYW9bZNv3jh0/g5PQHFl4wzUA9QPLl63fTp651cIzx9EibNXXF4f2njx08v3TBhsjwEnOLsNaWeXfvPYIoRiQSiM49+086u8TbOSS6uSV7e0V4ObvbWNrZWjs529sG+EY7Osa4uqdZWoUvXrYZ7EGQfgaIzi3bDuoaBohLqNvYBqupWwT4RSbH5ZUUNlZVtCbFZkWHpaqqGNvbR8jIayqpOU2bsRyiH2Tzjl3HjEwjlFVt1DQtTEx95OSUzUydMnP729sXdXUtKCqdaWvjL6+gamjgrqtrp6Rioa7tO3veepCzt2w7YmgSpanrJS2jo61rr6Six8/Ha2PnWVw8LSujIyOtraRklpdPjLCIsLS0spGRm6SUhoauh6ZO0IyZaxkMjEOV1Z0VVC1ERJQUFPXFJGS4uDgi/YJO7Th079y1BxevXzpwKj85XUiQj19QREXVRFhYXkbRFKhFU8ePQVPXU0nVVkpGT1BQRkBQVExMloOD3UpRysNcpzE/s6+mwtfa2FZdmp+XQ0hIQlhYml9AUlJaW17ZQlPXg0FZ3VFOwUxMXJWfX5SVjZWLk5uHl9dGSyvYysRZXslZXiXAxMDNUF9AUICbi4eNnYWbB2iDkrScoaKqPYOMrJG4uIaAgAQnJzcrKxMLCyMLG2dSaOzJJStqPKIrXCN3T5nTUlTFycXHxsoCVMDBwcnHJyYmpi4lbcggJ2skI6MpKibFycHBysrMwcHGyMhkamhy+8i5m7svXth08tnZuyF+QQwMQG1sYAXsIsLi0tLqcnJGDGqqJiqqupJSsmxsIIOBJDs7Kysri5mpSWhgcICPv7OTCycHOzs7G1gBMxCJiUqqKOuoqhgBAKP5ZbQJTpFhAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="꾸짖을 갈"
+        title=""
+        src="/static/8d09ce413686d3477afd62f0e86a48dd/661c4/image-7.png"
+        srcset="/static/8d09ce413686d3477afd62f0e86a48dd/c26ae/image-7.png 158w,
+/static/8d09ce413686d3477afd62f0e86a48dd/661c4/image-7.png 207w"
+        sizes="(max-width: 207px) 100vw, 207px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>갈! 한번 해주니까 사족은 넣지 않고 알잘딱깔센 하더라구요?</p>
+<p>아무튼간에.. <code class="language-text">light-dark</code>가 절 지독히도 괴롭혔네요<br>
+제가 자초한 일인 것 같긴하죠?<br>
+마칩니다</p>
+<p>어라? 근데 방금 IOS 업데이트 끝났는데<br>
+아직 배포 안 했는데 왜 잘 나오지</p></section><hr/></article><nav class="blog-post-nav"><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/latex-in-gatsby-blog-by-katex/">← <!-- -->💲 Gatsby Blog에서 마크다운 수식(LaTex) 표현하기 - KaTeX 플러그인</a></li><li></li></ul></nav></main><footer>© <!-- -->2024<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-X"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'UA-XXXXXXXX-X'
     );
@@ -420,4 +526,4 @@ Giscus 테마는 여러가지가 있어서 그냥 <code class="language-text">li
           >
             window.___chunkMapping="{\"app\":[\"/app-1cc21af31c561ed2fb92.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-c1563fcd48549e4926c7.js\"],\"component---src-pages-index-tsx\":[\"/component---src-pages-index-tsx-d85706c6b6c6af279c79.js\"],\"component---src-pages-tag-tsx\":[\"/component---src-pages-tag-tsx-d7f782c6156d69253dda.js\"],\"component---src-templates-blog-post-tsx\":[\"/component---src-templates-blog-post-tsx-0669784e62bcf8640d4e.js\"],\"component---src-templates-tag-post-tsx\":[\"/component---src-templates-tag-post-tsx-efbea78c937f81dbbd75.js\"]}";
           </script>
-        <script>window.___webpackCompilationHash="07d3d4d36ef4afb37a5c";</script><script src="/webpack-runtime-9dc97aef5a57a46a3849.js" async></script><script src="/framework-58c763e77dabc7b8f4ac.js" async></script><script src="/app-1cc21af31c561ed2fb92.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
+        <script>window.___webpackCompilationHash="dc8df724761d0d3bd623";</script><script src="/webpack-runtime-9dc97aef5a57a46a3849.js" async></script><script src="/framework-58c763e77dabc7b8f4ac.js" async></script><script src="/app-1cc21af31c561ed2fb92.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
