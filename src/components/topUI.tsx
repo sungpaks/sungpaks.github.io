@@ -18,7 +18,7 @@ function TopUI({ setCurTag }: ComponentProps) {
         document.documentElement.clientHeight
       setScrollPercent((currentScroll * 100) / totalScroll)
     })
-  })
+  }, [])
 
   return (
     <div>
@@ -38,7 +38,19 @@ function TopUI({ setCurTag }: ComponentProps) {
             <Link to="/tag">Tag</Link>
           </div>
           <div className="top-ui-tag">
-            <a id="light-or-dark" onClick={() => {}}>
+            <a
+              id="light-or-dark"
+              onClick={() => {
+                const theme = localStorage.getItem("theme")
+                if (!theme || theme === "original") {
+                  document.body.classList.add("theme-reverse")
+                  localStorage.setItem("theme", "reversed")
+                } else {
+                  document.body.classList.remove("theme-reverse")
+                  localStorage.setItem("theme", "original")
+                }
+              }}
+            >
               ?
             </a>
           </div>

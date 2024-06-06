@@ -87,6 +87,10 @@ body {
   color: light-dark(var(--color-text), var(--color-light));
   background-color: light-dark(white, var(--color-dark));
 }
+body.theme-reverse {
+  color: light-dark(var(--color-light), var(--color-text));
+  background-color: light-dark(var(--color-dark), white);
+}
 
 footer {
   padding: var(--spacing-6) var(--spacing-0);
@@ -121,11 +125,22 @@ h6 {
   font-weight: var(--fontWeight-bold);
   color: light-dark(var(--color-heading), var(--color-light));
 }
+body.theme-reverse h2,
+h3,
+h4,
+h5,
+h6 {
+  color: light-dark(var(--color-light), var(--color-heading));
+}
 
 h1 {
   font-weight: var(--fontWeight-black);
   font-size: var(--fontSize-6);
-  color: light-dark(var(--color-heading-black), var(white));
+  color: light-dark(var(--color-heading-black), white);
+}
+
+body.theme-reverse h1 {
+  color: light-dark(white, var(--color-heading-black));
 }
 
 h2 {
@@ -212,6 +227,10 @@ blockquote {
   margin-bottom: var(--spacing-8);
   border-color: light-dark(black, white);
 }
+body.theme-reverse blockquote {
+  color: light-dark(var(--color-light), var(--color-text-light));
+  border-color: light-dark(white, black);
+}
 
 blockquote > :last-child {
   margin-bottom: var(--spacing-0);
@@ -236,8 +255,11 @@ table thead tr th {
 /* Link */
 
 a {
-  text-decoration: none;
-  color: light-dark(var(--color-lightgreen), var(--color-lightgreen));
+  text-decoration: underline;
+  color: light-dark(green, var(--color-lightgreen));
+}
+body.theme-reverse a {
+  color: light-dark(var(--color-lightgreen), green);
 }
 
 a:hover,
@@ -281,6 +303,10 @@ a:focus {
   color: light-dark(black, white);
   margin-bottom: var(--spacing-2);
   margin-top: var(--spacing-0);
+}
+body.theme-reverse .post-list-item a,
+h2 {
+  color: light-dark(white, black);
 }
 
 .post-list-item header {
@@ -357,6 +383,9 @@ a:focus {
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
 }
+body.theme-reverse .custom-button {
+  color: light-dark(black, white);
+}
 
 .top-ui {
   z-index: 10;
@@ -375,10 +404,24 @@ a:focus {
   justify-content: space-between;
   font-family: "ibm-plex-sans";
 }
+body.theme-reverse .top-ui {
+  background-color: light-dark(
+    var(--color-lightdark),
+    rgba(245, 245, 245, 0.8)
+  );
+}
+
+.top-ui a {
+  text-decoration: none;
+}
+
 .top-ui-title {
   width: fit-content;
   color: light-dark(black, white);
   transition: all 0.5s ease;
+}
+body.theme-reverse .top-ui-title a {
+  color: light-dark(white, black);
 }
 .top-ui-title:hover {
   text-shadow: 2px 2px 2px darkgray;
@@ -403,6 +446,10 @@ a:focus {
   background-color: light-dark(rgba(169, 248, 11, 0.5), yellowgreen);
   border: none;
   z-index: 1;
+}
+body.theme-reverse .tag-button {
+  color: light-dark(white, black);
+  background-color: light-dark(yellowgreen, rgba(169, 248, 11, 0.5));
 }
 .tag-button:after {
   position: absolute;
@@ -444,6 +491,9 @@ a:focus {
   color: light-dark(rgb(88, 88, 88), --color-light);
   transition: all 0.5s ease;
   font-weight: var(--fontWeight-bold);
+}
+body.theme-reverse .top-ui-tag {
+  color: light-dark(--color-light, rgb(88, 88, 88));
 }
 .top-ui-tag:hover {
   color: black;
