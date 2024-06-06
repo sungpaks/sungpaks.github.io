@@ -54,6 +54,9 @@ function TopUI({ setCurTag }: ComponentProps) {
                   document.body.classList.remove(THEME_REVERSE)
                   localStorage.setItem(KEY_THEME, ORIGINAL)
                 }
+                window.dispatchEvent(
+                  new StorageEvent("storage", { key: KEY_THEME })
+                )
               }}
             >
               ?

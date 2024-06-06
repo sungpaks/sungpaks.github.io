@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Giscus from "@giscus/react"
 import kebabCase from "lodash.kebabcase"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import "katex/dist/katex.min.css"
 
 interface Frontmatter {
@@ -58,6 +58,36 @@ const BlogPostTemplate = ({
   location,
 }: ComponentProps) => {
   const siteTitle = site.siteMetadata?.title || `Title`
+  const LIGHT = "light"
+  const DARK = "dark"
+  const KEY_THEME = "theme"
+  const REVERSED = "reversed"
+  const [curTheme, setCurTheme] = useState(LIGHT)
+  useEffect(() => {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      //시스템 설정이 다크임
+      setCurTheme(
+        window.localStorage.getItem(KEY_THEME) === REVERSED ? LIGHT : DARK
+      ) //뒤집혔으면 라이트로 ㄱㄱ
+    } else {
+      //시스템 설정이 라이트임
+      setCurTheme(
+        window.localStorage.getItem(KEY_THEME) === REVERSED ? DARK : LIGHT
+      ) //뒤집혔으면 다크로 ㄱㄱ
+    }
+  }, [])
+
+  useEffect(() => {
+    const storageListener = (event: StorageEvent) => {
+      if (event.key === KEY_THEME) {
+        setCurTheme(prev => (prev === DARK ? LIGHT : DARK))
+      }
+    }
+    window.addEventListener("storage", storageListener)
+    return () => {
+      window.removeEventListener("storage", storageListener)
+    }
+  }, [])
 
   return (
     <Layout location={location} setCurTag={undefined}>
@@ -126,7 +156,7 @@ const BlogPostTemplate = ({
         reactionsEnabled="1"
         emitMetadata="0"
         inputPosition="top"
-        theme="preferred_color_scheme"
+        theme={curTheme}
         lang="ko"
         crossorigin="anonymous"
         async
