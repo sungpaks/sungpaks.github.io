@@ -275,7 +275,7 @@ window.dispatchEvent(new StorageEvent("storage", { key: KEY_THEME }))
 
 이제 `<Giscus theme="prefered_color_scheme">`이런 식이던 테마를 `<Giscus theme={curTheme}>` 이런 식으로 바꾸면??
 
-![댓글창까지 DONE](https://i.imgur.com/TG59YUM.gif)
+<img src="https://i.imgur.com/TG59YUM.gif" alt loading="lazy" width="80%"/>
 
 아 빵애애요  
 이제 다크모드 덕분에 버그가 꼬이지 않겠는데요~
