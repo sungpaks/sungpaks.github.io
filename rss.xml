@@ -1,4 +1,394 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 06 Jun 2024 05:49:04 GMT</lastBuildDate><item><title><![CDATA[💲 Gatsby Blog에서 마크다운 수식(LaTex) 표현하기 - KaTeX 플러그인]]></title><description><![CDATA[저런 수식을 손으로 쓸 때는 아주 내맘대로 글씨를 쓰면 되니까 문제없지만 컴퓨터로 저런거 쓰려면 어라? 싶은 사람들도 있을 것 같습니다 그런데 2…]]></description><link>https://sungpaks.github.io/latex-in-gatsby-blog-by-katex/</link><guid isPermaLink="false">https://sungpaks.github.io/latex-in-gatsby-blog-by-katex/</guid><pubDate>Sat, 18 May 2024 19:45:53 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 06 Jun 2024 07:37:33 GMT</lastBuildDate><item><title><![CDATA[다크모드 5초컷 with CSS 채신기술 like-dark()함수 - (Gatsby 블로그)]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/light-mode-and-dark-mode/</link><guid isPermaLink="false">https://sungpaks.github.io/light-mode-and-dark-mode/</guid><pubDate>Thu, 06 Jun 2024 14:51:57 GMT</pubDate><content:encoded>&lt;p&gt;그제였나? 누워서 조선왕조실록 틀어놓고 잠들고 싶어하고 있었는데요&lt;br&gt;
+아~ 도저히 잠이 안와서 노마드코더 좀 봤습니다&lt;br&gt;
+그 중에 이런 영상이 있었는데&lt;/p&gt;
+&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/embed/vc4DGouf62E?si=hhtqt0DHpVhuzrXQ&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen=&quot;&quot; style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;
+&lt;p&gt;흥미로운데요? 당장 해봐야겠습니다&lt;br&gt;
+어차피 블로그에 다크모드 언젠가 넣어야지 넣어야지 했어서&lt;br&gt;
+시간 남는 김에 해봤습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9c5eb115a77df11859ae889017c1a548/78797/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 81.0126582278481%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsTAAALEwEAmpwYAAACXklEQVR42oWTy2sTURSH58+w0TwmyZ07N5OZTJKbTGYm70fTpMkkKa2m1pWLaheCIOrStWsXgosiIlpQxKBWQYo1tQHrI9TSQhcVqZZSXPgAt9aTjIaiNoVvDoe553fPa4a5MJVr3jlnFJOiFAgGKUIYcLs5E9PvvTSdHsx4NXH29ElNiw4NFavVkUJhGDCMarlcAfL5QqlkZLODADipVIbHhON4E8bBclarkxDvxPETY2PHEokUxIHGBPxcLp/J5MDC7XDKYQ/k/C3G3ZskyVevT9Tr45ATMheLpUqlNjxcNjWQUFFUVdUVRYvpsk8SEOqKOUwQx3u9YjqVjurxWCyh6zEAnHg8CRogHI5QGg6HFL+fBgMypdTj8XZ6xohHLNapeKoWRhznciEYDFiTvybUGRvEoz89I1EcCPowEQKyLEmyhwiECGB53tMbzH4wlpHS0emraaMkSwFR8h8asFqt7IDF5mBdeM9g/y926mp6apIqypHDtkwycfnSxUIuff7MZGEwy7Lu/noGu5DDZucQtlhsM9NXdnd3fmy1d39uPZy5ZrezB4jhgfZcLk4JhT6uPPv6/uWXjaXvH16tLz2Bznsr7SMmVhs7WjO2N9qzd282bl9fbj39tvkWNuZ09qu8I4ZjyEz9/vnH9+Yat5qNG29ezC03HxCeuN0HZcaYh916Be+75/c/rcwvLzzaWVv4vN6KaRrGbihsv+IZzBEee5xOpEfUzfbc6uuF1uLiWmt2e7U5WjFClETCQR4LEPYvzN6/D2amarqqRf1yIERpp1v4egSx2xfqRfb4BYzi6oTCJirnAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;다크모드 유우머&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9c5eb115a77df11859ae889017c1a548/f058b/image.png&quot;
+        srcset=&quot;/static/9c5eb115a77df11859ae889017c1a548/c26ae/image.png 158w,
+/static/9c5eb115a77df11859ae889017c1a548/6bdcf/image.png 315w,
+/static/9c5eb115a77df11859ae889017c1a548/f058b/image.png 630w,
+/static/9c5eb115a77df11859ae889017c1a548/40601/image.png 945w,
+/static/9c5eb115a77df11859ae889017c1a548/78797/image.png 1125w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;근데 5초컷도 아니고 5분컷도 아닙니다.. 꽤 걸림 ㅋㅋ;; 어그로 ㅈㅅ합니다.&lt;br&gt;
+다크모드 토글로 하고싶은게 아니었으면 진짜 5분컷이긴 한 듯&lt;/p&gt;
+&lt;p&gt;아무튼 시작합시다&lt;/p&gt;
+&lt;h1&gt;light-dark() 함수 써봅시다.&lt;/h1&gt;
+&lt;p&gt;먼저 영상에 나온 &lt;code class=&quot;language-text&quot;&gt;light-dark()&lt;/code&gt;함수를 써서,&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;prefer-color-scheme&lt;/code&gt;값이 &lt;code class=&quot;language-text&quot;&gt;dark&lt;/code&gt;인 상태에서 보여줄 화면을 구성하고 싶은데요&lt;br&gt;
+아 근데 &lt;code class=&quot;language-text&quot;&gt;prefer-color-scheme&lt;/code&gt;란..&lt;br&gt;
+여러분이 설정한 &quot;난 다크모드가 좋아 or 라이트모드가 좋아&quot; 시스템 설정입니다&lt;br&gt;
+처음 들어보셨다면 그냥 &lt;code class=&quot;language-text&quot;&gt;light&lt;/code&gt;상태일걸요? 저도 건드린적 없습니다 딱히&lt;br&gt;
+암튼간에&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;:root&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color-scheme&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; light dark&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;일단 이렇게 해서 브라우저에게 &quot;여기는 light와 dark 테마 모두 지원합니다~&quot;라고 알려줍시다&lt;/p&gt;
+&lt;p&gt;이제, 라이트모드와 다크모드에서 각각 달라야 하는 색상이 있다면 &lt;code class=&quot;language-text&quot;&gt;light-dark()&lt;/code&gt;함수를 쓰면 되는데&lt;br&gt;
+예를 들어 이렇게 되어있다고 합시다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; black&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; white&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;음.. 그러면.. &lt;code class=&quot;language-text&quot;&gt;prefers-color-scheme&lt;/code&gt;값이 &lt;code class=&quot;language-text&quot;&gt;dark&lt;/code&gt;일 때는..&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token atrule&quot;&gt;&lt;span class=&quot;token rule&quot;&gt;@media&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token property&quot;&gt;prefers-color-scheme&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; dark&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token selector&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; white&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; black&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 해야할까요??&lt;br&gt;
+너무 귀찮은데요 ㅜㅜ&lt;/p&gt;
+&lt;p&gt;근데 &lt;code class=&quot;language-text&quot;&gt;light-dark()&lt;/code&gt;라는 채신기술과 함께라면&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;light-dark&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;black&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; white&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;light-dark&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;white&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; black&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;매우 간단해졌네요??&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 240px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3e391d8d60a2dc8a90c5bc0db9692b2a/8ff5a/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 87.34177215189874%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAIAAABSJhvpAAAACXBIWXMAAAsTAAALEwEAmpwYAAACk0lEQVR42n1Ta2/SYBTej3C/Qf0NJvovTIzfVPbNZGYx6keNiSYmM9kHL5nJpku2xY05Nq6j3SiX0kLpCi0dpe3KwJZS2q5UBi0DFNdIHKAnb05y3vc85zmX90z9HJN+vz/Quq5jKRTH0jzHW5bt3DtPQ5n62+j1egPd7fZ4notCIFfIlThyd2dz5ctnBElKkjhCMzViC8d8DDpAUUivCw2tLJ7QNZERTwpkFgkFfaqqDlMbBZeE41Q8QufSJZ7UFaHVqNpnynlbbRpip1U3T6sIErdsa5TZCYYkE2WeFoq5ipBv/5D393yvXj5fWf6EYzE4FuYKRAwCEASZDM5Tue8lql5lBwkXaWLmwf1Btc+ePnk0+/DWzRuP52bJTLom14b+l8ApFK4IlKGVB6kuzL+enr7i97jjkdDdO7ddrntxCMwgCePUGGf+3edMGuWOMmqVbzdlEAi6XDNZHClQ2PVrV9/Ov6kr5aB32zAaDmCUmWOZGBQyDUmt8Wp+wyhHMRQiD5OLHxYO8YRWL4UDO5qmjaY9tLfcm/ug3z7TFfwdG5jb3lhdWvyYy8CKxJq6GA745H/VrChKMhlfX1sSWKqYSyOR0Nrqis+7HfB7BJYkCJTKU5PmfGFDEYgmManChLxuj3sdT8WBoAeOAgydLVBZAt2z7eaEH+YE41k2DR8EvZvLi++jYMDUK4Pz7etaHk/oFUKj3V3LafXYD7MsC4IAReJVWaAIRCozLVNuaJUUDMvIC6243ut1naFcYnZoCYJgGPJUrYgnRwUKxZJQIhoGw144EW+pWbspXnj1J4M5jt/xuEHAHwECEOBj8hmOye16tjR9OJv+/7bKbJhqvWZbzU7b7Jy3zruWbdt/2tkf3/xffz+FUIEPxEoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;따봉&quot;
+        title=&quot;&quot;
+        src=&quot;/static/3e391d8d60a2dc8a90c5bc0db9692b2a/8ff5a/image-1.png&quot;
+        srcset=&quot;/static/3e391d8d60a2dc8a90c5bc0db9692b2a/c26ae/image-1.png 158w,
+/static/3e391d8d60a2dc8a90c5bc0db9692b2a/8ff5a/image-1.png 240w&quot;
+        sizes=&quot;(max-width: 240px) 100vw, 240px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;light-dark(light일 때의 색상, dark일 때의 색상)&lt;/code&gt; 이렇게 써주면 됩니다.&lt;/p&gt;
+&lt;p&gt;만족스러운데요~&lt;br&gt;
+이제 색상이 반전되어야 하는 곳에 다 이 함수를 적용해줍시다&lt;br&gt;
+이정도는 몇 줄만 고쳐주면 됩니다 잠시만요..&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 247px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d455a78146de0b88ad28ec85f725af05/fb3c7/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 82.27848101265823%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD20lEQVR42gHQAy/8AC1zlC1xkzJ2lDR5mx1efaewspqirFBarIuIsKSmpKussKKip5+gop6goaGlpDBbfydfjClhii1kjC1pkAAlXY0jW4snX5AjYY8kUn7Jy8q/usg6V66MpL6tqqe6vbyLjYvT0tLm5+THw8lCTZYdUogmW4oiUIQmXo8AJVmKIlWGIFeCK1CPbl6m2NHUu7zIQqJqk8CgkpSTwcjJhYyPxMjMzc/TsbTPWEDAUFmnH1eIJE6GJFeKABxHgBpGfSNFf2NBw0tWwUeIa5OmW8/IRrmeOZ1yN7OMUaaDS6WDTKOYUIaxXzF1omU/1TE8jBlDfB5JhQBBXno/YHx1V7ZxbtI/po2Y0mvevjvdmibYrlPWvWzTv0LYxFPWsTDjty7j3i2E1lhQccV9V8BGZH9FaIEAj62UkaWDoZaweMCrxPBz7Lx7yZA62MNUpbS0oLC5ucCxorC10tar2sQy36gtytU7etB3qZfes6OtlreRAKbBpKq0ZauzRazSadm/esGei8G+QdbWWJ2usKOwvbW/zICTqeXm1N3gPcmoN9+uSb7vZ5m8ysSn0L3UpwDI3LnD0p/QzEXRxz3HvpXF3MLQ007QxzTOylvb1XvP0Hrw8sPTwV7Vxi+zwkvDmlDby3Gn0Jeko2fCz6IAfnZWh4JlkItEqaVAjY1xi5Bzvbw729czurhDyshD1M8/nIIsmIArzsgxlaxCp6ZYu6VS0dNGurY8uL+VAGReOWFaN21oPY6MOWxoOqyxnb2/XM3MIc/JR4t2bqSGg45ZPb6xM7m+L3WLPHd/SYN6N83KP355P3BoSwBpZD1lYDxnZTyRjT2QjT6ko4O3tU+2uCbd0y+5nDXFpUnf0UHFwjGnrDC7yJm/xsV2dUSQjzlYVj1fXjwAX1o7XFc3W1g4Xl0/Xls9SEYto6A66uhB5eI67+018Oot4dwm1tMoxc0+scJ4t7eat7NJiIQ6S0w1Xl08AFVLNVFHME1FLEtGKE9IK0hBJGphRKujgJ+WdJFzPqmeVsvHdsfFcJakX3B7Sj46ImtmLGFdMW1nSaeZaACdkmaajmaKf1qUkYSMiYOPjIOXkYyEfICGfX+Ndn2WjJB7c3aNhIOUlJWAf3+Gh35/enaPhGC4p3W2oG8AsKNwtap2sah3w8O9uLi6vb29zc3NqaqpsbSyqq6poaGempeNqqWbsbCuqqmop6eqtbGruqt5t6V0spxuAKaUZKicaqqjb5+YcKKYc6qfe6OYdamee62kf6qkfLWuhrivhry2ka6oipqUfnJxY4eAaq2fe66bdqyZcz52CIZI1W0EAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;a few moments later&quot;
+        title=&quot;&quot;
+        src=&quot;/static/d455a78146de0b88ad28ec85f725af05/fb3c7/image-2.png&quot;
+        srcset=&quot;/static/d455a78146de0b88ad28ec85f725af05/c26ae/image-2.png 158w,
+/static/d455a78146de0b88ad28ec85f725af05/fb3c7/image-2.png 247w&quot;
+        sizes=&quot;(max-width: 247px) 100vw, 247px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;아무튼 이렇게 대강 만들었는데요&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/XBjXIpV.png&quot; alt=&quot;야간모드 프로또따입&quot;&gt;&lt;/p&gt;
+&lt;p&gt;아 근데 저는 &lt;code class=&quot;language-text&quot;&gt;prefered-color-scheme&lt;/code&gt; 설정같은거 건드린 적 없다고 했는데, 어떻게 이 화면을 볼 수 있냐면&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/sOfnEJL.png&quot; alt=&quot;테스트해보기&quot;&gt;&lt;/p&gt;
+&lt;p&gt;크롬은 개발자도구에서 - 대충 더보기처럼 생긴 아이콘 - More tools - Rendering에 들어가면&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 242px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/698e710468b4db5e825e0a71d0a9bd9a/a1a85/image-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 85.44303797468356%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAABJ0AAASdAHeZh94AAADHElEQVR42n1US2sUQRAeTx7Uv+DV3yCIehD8BYqg4kFBvXjxIoIP8BFQPKsQvSmeJEG8qEg8JNlHstns+zU7k9ndec/szuwzs7v57CqzEkmw4Zuq7qqu/rqnqqSdnR2Mx2NMp1PGZDIBrUVRxDqB1mc+e33Jj7B3SMPhELlcDoqioFAoIJVKodVqQVVVVKtVmKaJbDbL67Iso1arYW1tjX1pvd/vc6BZYImUMAzhui5vJn00GsH3fQRBgMFgAMdx0G63Gd1ul9kTU8I+hmRMp9N8cqVSQbPZhGEYzLper/MhJIkdMSb9f0OiN/I8j08mBnQFYkYMSSdp2zZLYk43oHmn09nHjgPSp9frscPsigRam12TgpCNDiB99iwHMqS/5bkObMuAY5uMbjeE59gw9RZ0vYk2sRR202jBdSwRuLcvEJElSFPx9btjuEEEN4zgsNydB9ssva54FrFGIJsn/P3e5C/I3ulP/gTU7G2slz0UtwLk1Y6QIet/EDJydR9ZWaC+C/lfFMW+ZMmH0Y4gVZojyDUZajUD19RQLaaFnkc5vyGQglLJIfRNTKMexsMA41H4Dybb4q1tDTVFh2IMRcBWH0uJCr78TOH7cg5flzaw8COJz9/ijMXvSfxKlhHPKIht1g9EMitjNdOAag4gNe0Q5x5ncPphASfupHHyfg6nHuRx9lEB55+WcEbI4zfXcfjSKo5cjv3F0StxlseuxnHowiouvshiHI0gmbaHh580PFt0ce9jC08+23i+aOPlFxdzCybmhH73g4EbbzXcftfC7fc6y+tvVNycb+LWfAPXXjfwakFFNOxBoqTWDXF/uYpSIYtyMc8pYpk6ioU89GYDvmOgoVSg1StQqgX4rgW1LiO3uQ7X1jltKDcp+SXLskTuOVzLhigzy7Ix2K0WKsEg6KArktwUfq7rsT3kqupAEQ2kLQqCBhUGVZBEtbq1tcV1nMlkuIap2zQaDe4mmqaxXiwWGWSnOe1JJBLclWhQAyFyzJAMsViMmwS1ppWVFZbxeJxBNpovLy+zjVpZqVRCuVzmhkGg9kdX/g2bfs5iFsEEAwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Emulate CSS media feature&quot;
+        title=&quot;&quot;
+        src=&quot;/static/698e710468b4db5e825e0a71d0a9bd9a/a1a85/image-3.png&quot;
+        srcset=&quot;/static/698e710468b4db5e825e0a71d0a9bd9a/c26ae/image-3.png 158w,
+/static/698e710468b4db5e825e0a71d0a9bd9a/a1a85/image-3.png 242w&quot;
+        sizes=&quot;(max-width: 242px) 100vw, 242px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이런게 있습니다? 바꿔가면서 테스트해볼 수 있습니다&lt;/p&gt;
+&lt;h1&gt;근데 저는 라이트/다크모드 토글하고 싶은데요?&lt;/h1&gt;
+&lt;p&gt;이게 가장 문제입니다 ㅋㅋㅋ 사실 위에는 진짜 5분컷 가능&lt;br&gt;
+토글버튼 하나로 그냥 &lt;code class=&quot;language-text&quot;&gt;prefered-color-scheme&lt;/code&gt;값을 휙휙 바꾸는게 가능하면 정말 편하겠는데&lt;br&gt;
+좀 찾아봤지만 아쉽게도 그런 방법이 없는 것 같습니다?&lt;/p&gt;
+&lt;p&gt;그래서 &lt;a href=&quot;https://klloo.github.io/darkmode/&quot;&gt;지인의 블로그(상습숭배중)&lt;/a&gt;랑 &lt;a href=&quot;https://fe-developers.kakaoent.com/2021/211118-dark-mode/&quot;&gt;카카오 기술블로그&lt;/a&gt; 등등 몇 개를 참조해봤는데..&lt;br&gt;
+body에 &lt;code class=&quot;language-text&quot;&gt;dark&lt;/code&gt; 클래스를 넣었다뺐다 하는게 국룰인 것 같아보이네요&lt;/p&gt;
+&lt;p&gt;근데 저는 &lt;code class=&quot;language-text&quot;&gt;light-dark()&lt;/code&gt;함수를 쓰고싶은건데요..&lt;br&gt;
+흠;그래서 이리저리 생각을 해보다가&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;body&lt;/code&gt;에 넣었다뺐다 할 클래스로 &lt;code class=&quot;language-text&quot;&gt;reverse&lt;/code&gt;를 두고&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;body.reverse&lt;/code&gt;에는 &lt;code class=&quot;language-text&quot;&gt;light-dark&lt;/code&gt; 인자를 뒤집어서 작성하기로 했습니다&lt;/p&gt;
+&lt;p&gt;근데 하고나니까 &lt;code class=&quot;language-text&quot;&gt;dark&lt;/code&gt;넣는거랑 딱히 다른 것도 없고,&lt;br&gt;
+몇 가지 경우에는 이게 더 골아픕니다..&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 231px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f84df0f86fcceeb27293a8734cfd4e28/6e622/image-4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 94.30379746835443%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAIAAAAf7rriAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD9UlEQVR42i2S93LadgDH9XQdf+R6veu510t810uTupe2HokxwYAwSEhCEyEhiSEQIPYwW0wPbIbDso1HRvsu/eH0AT73ndBqdX9zs7q+vp3Pl1dX0+FwfHY26PZOekanWSmXSoVcJpvT9HRYi0lK0MtKNMnjLsZpC/o80Gp1d319t1yuptPlZPzh4mJ4cnLW6fRaDcOo1Sr5YjGZzqhxPRCJ+sWAl5YYjxd3cZhDC7AQkF0u7uaz2w+T5Wg4OT+/6PfPWu1urVqPhtVsTC/Gk3ktlVBUVfAFOMpPE6zbKbOYj7JDi/lqNr2ZjOej4fRiAGQH3c6Z0WzXKtWArNAkFRAlhiBVUVorc6zgIRjUEZEY+GDrf/jqanF5+ZS2e9Ksd+u1RqlQiGtxPZ7Q1ShitRNOJ+l0CCQmUhiHOjTFu/N6A5qto85GwyuQ9nQte9oyevVqLZ/NCjzvF0SKIBTBp3h9FOIy7/5lM+0IHiQkkFubP0Cz2Xwy+XB5OVrLrg13qtXacbGUTWdBz5GQyhAES7hRGKbdbgZ1Ocz7Io1ymG33j+cQmGc8XssCuNc7aTaNSqVSLBYBmdKTmhqNBoIhUaQxN+awWPe3j8xvwyJr3d9C7XtreDSanA8u1gt1u/V6vVwu5/L5dDIFAscjakT2B3y8wFI+yu22Hzgte5rMbf+2EVE4CLxiMLjs90/b7Z5htKrVaqFQyOZyqWQyFtWiQUUVfawH4WmU9yBgXhqxhv3Uq5+/azfK0NOlzns90FO/2WyDwDlAplLxWEyLRFVFDos+DwI7bCbzu20Mfs/hsI92vX7xbDoZQ1+rare75XItFApHo1oikdB1Hcg+WZZkzitzHtJtt5p3LXtvZA5F7Hs7bzYfHh4g4Bmk7XZ6YNtQOMyyLMMwCILIshyUJVWSA16OJ1EOd7BumDh6HxLJt3++8CCWL1/+hYAsCNxpd41Go1atlo6Pk8mkKAgBRcZdDtRqwZxWCoNZ3EE6D3H4ICozL3/5PqUFP3/+BwJkq9VpNIzj42ouV0hnMsCzntC1UDjiFwXag8IW28Hu4bu/EZuJQQ9lL7a58W2vW7+/f4DAtgCugT8Wy9lMPpVMx7SYFg6HJFnxCQrHijTOEQh+ZEVt+wLppNDDV5vPlsvZzc3tV7hdq9VLpVIuk8kkQVeaFgyGJVHmWbAtix/RKEwhNhw2KTxh3f/dvPvy8fHjcnkNdTp9o2lUy+ViPp/NpJJ6PB6LRIOyKvEKTwmUm8cRymXHYTPmMEUUZuvXHznP0ePHT4vFAgKejfr6zfksuFU8o0cSqqLJQkhg/SzOE+DGKDgGZjeRLrMqkc9/+iabijw8Pi4Wi/8AEojKnd4ud3QAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;마이웨이&quot;
+        title=&quot;&quot;
+        src=&quot;/static/f84df0f86fcceeb27293a8734cfd4e28/6e622/image-4.png&quot;
+        srcset=&quot;/static/f84df0f86fcceeb27293a8734cfd4e28/c26ae/image-4.png 158w,
+/static/f84df0f86fcceeb27293a8734cfd4e28/6e622/image-4.png 231w&quot;
+        sizes=&quot;(max-width: 231px) 100vw, 231px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;저는 홍대병 걸린.. 남들 가는 길에 잘 가려고 하지 않는 낭만파라서 이렇게 했지만&lt;br&gt;
+그냥 다크모드 토글은 &lt;code class=&quot;language-text&quot;&gt;dark&lt;/code&gt;하시는게 좋은 것 같습니다.&lt;br&gt;
+그러니 괜히 좋아보인다고 막 쓰지 맙시다&lt;/p&gt;
+&lt;h2&gt;reverse버전 CSS를 작성해요&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/T23O49t.png&quot; alt=&quot;reverse 클래스 ㄱㄱ&quot;&gt;&lt;/p&gt;
+&lt;p&gt;아무튼 이런 식으로 반전된 색상의 클래스를 작성해준다는 의미인데&lt;/p&gt;
+&lt;img src=&quot;https://i.imgur.com/REqkuDK.png&quot; alt=&quot;&quot; loading=&quot;lazy&quot; width=&quot;100%&quot;&gt;
+&lt;p&gt;어느정도 바뀌긴 했는데, 색상을 따로 주는 요소들은 아직 그대로네요.&lt;br&gt;
+이제 &lt;code class=&quot;language-text&quot;&gt;body&lt;/code&gt;가 &lt;code class=&quot;language-text&quot;&gt;.theme-reverse&lt;/code&gt; 클래스를 가지는 경우, 그 하위의 &lt;code class=&quot;language-text&quot;&gt;요소&lt;/code&gt;들을 손봐줘야 하는데&lt;br&gt;
+저처럼 몽총하게 선택자를 &lt;code class=&quot;language-text&quot;&gt;a .theme-reverse {}&lt;/code&gt; 이렇게 쓰지 맙시다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;body.theme-reverse a {}&lt;/code&gt; 이렇게 해줘야 먹어요&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 247px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d455a78146de0b88ad28ec85f725af05/fb3c7/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 82.27848101265823%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD20lEQVR42gHQAy/8AC1zlC1xkzJ2lDR5mx1efaewspqirFBarIuIsKSmpKussKKip5+gop6goaGlpDBbfydfjClhii1kjC1pkAAlXY0jW4snX5AjYY8kUn7Jy8q/usg6V66MpL6tqqe6vbyLjYvT0tLm5+THw8lCTZYdUogmW4oiUIQmXo8AJVmKIlWGIFeCK1CPbl6m2NHUu7zIQqJqk8CgkpSTwcjJhYyPxMjMzc/TsbTPWEDAUFmnH1eIJE6GJFeKABxHgBpGfSNFf2NBw0tWwUeIa5OmW8/IRrmeOZ1yN7OMUaaDS6WDTKOYUIaxXzF1omU/1TE8jBlDfB5JhQBBXno/YHx1V7ZxbtI/po2Y0mvevjvdmibYrlPWvWzTv0LYxFPWsTDjty7j3i2E1lhQccV9V8BGZH9FaIEAj62UkaWDoZaweMCrxPBz7Lx7yZA62MNUpbS0oLC5ucCxorC10tar2sQy36gtytU7etB3qZfes6OtlreRAKbBpKq0ZauzRazSadm/esGei8G+QdbWWJ2usKOwvbW/zICTqeXm1N3gPcmoN9+uSb7vZ5m8ysSn0L3UpwDI3LnD0p/QzEXRxz3HvpXF3MLQ007QxzTOylvb1XvP0Hrw8sPTwV7Vxi+zwkvDmlDby3Gn0Jeko2fCz6IAfnZWh4JlkItEqaVAjY1xi5Bzvbw729czurhDyshD1M8/nIIsmIArzsgxlaxCp6ZYu6VS0dNGurY8uL+VAGReOWFaN21oPY6MOWxoOqyxnb2/XM3MIc/JR4t2bqSGg45ZPb6xM7m+L3WLPHd/SYN6N83KP355P3BoSwBpZD1lYDxnZTyRjT2QjT6ko4O3tU+2uCbd0y+5nDXFpUnf0UHFwjGnrDC7yJm/xsV2dUSQjzlYVj1fXjwAX1o7XFc3W1g4Xl0/Xls9SEYto6A66uhB5eI67+018Oot4dwm1tMoxc0+scJ4t7eat7NJiIQ6S0w1Xl08AFVLNVFHME1FLEtGKE9IK0hBJGphRKujgJ+WdJFzPqmeVsvHdsfFcJakX3B7Sj46ImtmLGFdMW1nSaeZaACdkmaajmaKf1qUkYSMiYOPjIOXkYyEfICGfX+Ndn2WjJB7c3aNhIOUlJWAf3+Gh35/enaPhGC4p3W2oG8AsKNwtap2sah3w8O9uLi6vb29zc3NqaqpsbSyqq6poaGempeNqqWbsbCuqqmop6eqtbGruqt5t6V0spxuAKaUZKicaqqjb5+YcKKYc6qfe6OYdamee62kf6qkfLWuhrivhry2ka6oipqUfnJxY4eAaq2fe66bdqyZcz52CIZI1W0EAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;또 few moments later&quot;
+        title=&quot;&quot;
+        src=&quot;/static/d455a78146de0b88ad28ec85f725af05/fb3c7/image-2.png&quot;
+        srcset=&quot;/static/d455a78146de0b88ad28ec85f725af05/c26ae/image-2.png 158w,
+/static/d455a78146de0b88ad28ec85f725af05/fb3c7/image-2.png 247w&quot;
+        sizes=&quot;(max-width: 247px) 100vw, 247px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이제 CSS를 전부 잘 작성해서 원하던 모냥이 나왔다면&lt;br&gt;
+적당히 만든 버튼에 &lt;code class=&quot;language-text&quot;&gt;onClick&lt;/code&gt;을 등록해줘야겠죠?&lt;br&gt;
+뭐가 있어야 하냐면&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;body&lt;/code&gt;에 &lt;code class=&quot;language-text&quot;&gt;theme-reverse&lt;/code&gt; 클래스를 넣거나 빼기&lt;/li&gt;
+&lt;li&gt;새로고침해도 유지되게 하고 싶으니까, &lt;code class=&quot;language-text&quot;&gt;localStorage&lt;/code&gt;에 현재 모드 정보를 저장하기&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;그럼 이렇게 됩니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;onClick&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; theme &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; localStorage&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getItem&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;theme&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;theme &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; theme &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;original&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	    document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;classList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;theme-reverse&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	    localStorage&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setItem&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;theme&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;reversed&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;classList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;theme-reverse&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	localStorage&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setItem&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;theme&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;original&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;새로고침해도 유지됐으면 좋겠어요&lt;/h2&gt;
+&lt;p&gt;이러면 일단 버튼 누르면 모드가 잘 넘어가긴 하는데,&lt;br&gt;
+새로고침하면 localStorage에서 값을 불러오고 그에 맞는 모드를 적용하게 해야겠죠?&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;localStorage.getItem(&apos;theme&apos;)&lt;/code&gt;를 확인하도록 하면 될 것 같습니다&lt;br&gt;
+근데 아무데나 넣게되면 이런 일이 발생합니다&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/tmzSkST.gif&quot; alt=&quot;빤짝&quot;&gt;&lt;/p&gt;
+&lt;p&gt;이러면 야밤에 부모님 몰래 제 블로그를 탐독하다가 섬광탄에 맞는 불상사가 발생할 수 있습니다&lt;/p&gt;
+&lt;p&gt;이게 Javascript단에서 CSS 속성을 넣어주는거라, 이미 페인팅이 된 후에 야간모드가 적용되고 있어서 그렇습니다&lt;/p&gt;
+&lt;p&gt;이에 대해 위에서 언급한 &lt;a href=&quot;https://klloo.github.io/darkmode/&quot;&gt;지인의 블로그&lt;/a&gt;에서는 여기도 Gatsby를 사용했기 때문에 SSR방식을,&lt;br&gt;
+&lt;a href=&quot;https://fe-developers.kakaoent.com/2021/211118-dark-mode/&quot;&gt;카카오 기술블로그&lt;/a&gt;에서는 SSR이 아닌 경우에도 쓸 수 있는 방법을 채택하여 알려주고 있습니다&lt;/p&gt;
+&lt;p&gt;후자는 &lt;strong&gt;&lt;em&gt;자바스크립트는 명시적으로 비동기로 선언되지 않은 경우 DOM 생성을 차단합니다&lt;/em&gt;&lt;/strong&gt; 라는 점을 이용해서&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;body&lt;/code&gt;가 시작하자마자 스크립트를 넣게 했나? 그랬었네요&lt;/p&gt;
+&lt;p&gt;암튼 전자의 방식으로 해봅시다&lt;br&gt;
+Gatsby 프로젝트 루트 폴더의 &lt;strong&gt;gatsby-ssr.tsx&lt;/strong&gt;에서&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;onRenderBody&lt;/code&gt;에 &lt;code class=&quot;language-text&quot;&gt;setPreBodyComponents&lt;/code&gt;로 스크립트를 집어넣을 수 있습니다&lt;br&gt;
+아래와 같이 작성했습니다 :&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;exports&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;onRenderBody&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; setHtmlAttributes&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setPreBodyComponents &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; script &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;
+    const theme = localStorage.getItem(&quot;theme&quot;);
+    if (!theme || theme === &quot;original&quot;) {
+      document.body.classList.add(&quot;theme-reverse&quot;)
+    } else {
+      document.body.classList.remove(&quot;theme-reverse&quot;)
+    }
+  &lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;setHtmlAttributes&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; lang&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;en&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;setPreBodyComponents&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;script dangerouslySetInnerHTML&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; __html&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; script &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;localStorage&lt;/code&gt;에서 &lt;code class=&quot;language-text&quot;&gt;theme&lt;/code&gt;아이템을 가져오고, &lt;code class=&quot;language-text&quot;&gt;reversed&lt;/code&gt;면 클래스를 넣고 아니면 빼는 간단한 스크립트입니다&lt;/p&gt;
+&lt;p&gt;이렇게 해주면 새로고침해도 실명 걱정은 없어졌습니다&lt;/p&gt;
+&lt;h1&gt;댓글창도 바꿔야할 것 같아요 (Giscus)&lt;/h1&gt;
+&lt;p&gt;이제 다 좋은데.. 댓글창이 혼자 따로 노는게 문제입니다&lt;br&gt;
+Giscus 테마는 여러가지가 있어서 그냥 &lt;code class=&quot;language-text&quot;&gt;light&lt;/code&gt;건 &lt;code class=&quot;language-text&quot;&gt;dark&lt;/code&gt;건 정해주면 되는데&lt;br&gt;
+지금 어떤 모드인지? 그리고 모드가 바뀌면 바로 짜잔 바뀌기?를 그냥 이루기가 까다롭더라고여&lt;br&gt;
+방법이 몇 가지 있어보이는데&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;SSR 스크립트 넣을 때 window객체에 &lt;code class=&quot;language-text&quot;&gt;window.__onThemeChange()&lt;/code&gt; 이런 식의 리스너를 같이 넣기&lt;/li&gt;
+&lt;li&gt;전역 상태관리가 가능하면 간단할듯..&lt;/li&gt;
+&lt;li&gt;localStorage에 이벤트리스너 등록하기&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;1번은 그냥 스크립트가 계속 늘어나는게 맘에 들지 않았고..&lt;br&gt;
+2번은 당장 전역상태 라이브러리를 두지도 않았는데 이거 하나 하려고 넣기는 좀.&lt;br&gt;
+그래서 3번으로 가보기로 했습니다?&lt;/p&gt;
+&lt;p&gt;그럼 이제&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;prefered-color-scheme&lt;/code&gt;값과 &lt;code class=&quot;language-text&quot;&gt;theme-reverse&lt;/code&gt; 여부에 따라 현재 적절한 &lt;code class=&quot;language-text&quot;&gt;curTheme&lt;/code&gt;가 &lt;code class=&quot;language-text&quot;&gt;light&lt;/code&gt;인지 &lt;code class=&quot;language-text&quot;&gt;dark&lt;/code&gt;인지 결정&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;storageEventListener&lt;/code&gt;등록 : &lt;code class=&quot;language-text&quot;&gt;key: theme&lt;/code&gt;인게 바뀌면 &lt;code class=&quot;language-text&quot;&gt;curTheme&lt;/code&gt;를 바꾼다&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;사실 1번은 &lt;code class=&quot;language-text&quot;&gt;reverse&lt;/code&gt;같은 발상 하지 않고 &lt;code class=&quot;language-text&quot;&gt;theme&lt;/code&gt;가 &lt;code class=&quot;language-text&quot;&gt;dark&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;light&lt;/code&gt; 중 하나이게 하면 됐는데..&lt;br&gt;
+선택에는 대가가 따르네요&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 250px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/29aad4d9595b7a6e9aa4c287db161c4e/63868/image-5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 81.0126582278481%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD20lEQVR42gHQAy/8AChcazFldThxe0R2eU1+hFKEi3WbhUxoVzAwIZiGVcSvdsunZmZqRmKSco+/kjZsURhNOylbTHilhHSgfAA2c4JCfpJLipVPiZBalZ9dm6mGrZE9WUZWTjHhwHP0y4b/1IaGcD5cf2V+r3xmmW9to3ZroXqJuZBun3cAOmRbWJSaWpmkYZmjaaGrbqazj7aaTWZKZlw1q5FVvJhVv5xQi4FNe61/erJ6grmDdaxvap5mX41cWYRWABssI0lqVGajpW6krHOqrneus53CpWyMbodzP9mvZ9myZOGtW6umZUi3jlK2gzqhdAxmQgM0IQgiGQomGAABCwc1T0h2r7J2rat7s697tLSkzK5nknl2dUjFnVGjfULCjkdkfEsAcF4mimobfWMNZ1QMTT4NPTcMOjMAZGU9rrWEe7Kvgbazgruyib61zebGzuC8mqt+moI9upJIu5JSla2MKW5eAVRHCFxRDFNHCkA3CjUyDCopALObUr+4e4O3rIS6tZnKstnov///zvTytc3bp621fpl0LsKwdvL0x/H01I+tnRhbVAdFPww7NQ8yLgYeHACjfzqmsYCRxbiay7q30Kfe2Z/48bT377Hp4aji5rLJx5vIy5vJypTn5a/788CmtpUxZjxejj9GdylLdSgAqZ1gw9mlqdK5ut/AucOUzsON6+Cm9+yx7+Wp6uGn5uWwz8uS19GZ3Nqi3tykycmYaIpRoMhjsMVvmqxLAK62jM7ksJG4m5+/nbi5ir2zfdjNk+zgpubaoOfan+rWmuzZn+rfpd/Wn8/FjqyqdpCkaHGUWpSodomYTgCCiWXN3qa0zZarvoq0sH+roGu6sHjazpXf0pjcy5L01Ynw24zJs3LYvXytpWx+dD+Rj1mNrYOCmGd5dUoAm4xtsb2NJjssbXpctKt5npVklItXwLZ9z8OK2sWA995r/99s0qFb4ahfsJ1hVUooal0vmKZ0UHFTfW44AL+jjqCfezZOO32DZKCZZX13RXdxPp2TW6ygaNjJc+2rPsZzKcyQR9SVSd26d6GZaol+VGJhN1+CYYiNTQCRgmmKkmuFn353gFh7dERQSSVZVCp+eESXkFm7snH23nnRjDaGThhzTRmFcTp4cTmCe0dvcESOn3BtdEkAWVtDc4hmb4NhbWM6eHJJY2BFZmNCgH1RhoJQoJViuKlsu6VfdWM0OTASXF44ZGY4iYhYn6N+MDojJSwgADE9K0hgTElMNFlQMGBqTXuJb4SQd3V5XVRVPG90WXByVmJgRGRnTEBLN32GZKu2iJ2pfltiRQMGAxoaGK4j7QbmMLxSAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;개비스콘가져와!!&quot;
+        title=&quot;&quot;
+        src=&quot;/static/29aad4d9595b7a6e9aa4c287db161c4e/63868/image-5.png&quot;
+        srcset=&quot;/static/29aad4d9595b7a6e9aa4c287db161c4e/c26ae/image-5.png 158w,
+/static/29aad4d9595b7a6e9aa4c287db161c4e/63868/image-5.png 250w&quot;
+        sizes=&quot;(max-width: 250px) 100vw, 250px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;일단 저는 &lt;code class=&quot;language-text&quot;&gt;Giscus&lt;/code&gt; 컴포넌트를 &lt;strong&gt;blog-post.tsx&lt;/strong&gt;라는 곳에서 뱉기로 되어있습니다.&lt;br&gt;
+그 곳에서 :&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token function&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;matchMedia&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;(prefers-color-scheme: dark)&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;matches&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//시스템 설정이 다크임&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;setCurTheme&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;localStorage&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getItem&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;KEY_THEME&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;REVERSED&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;LIGHT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;DARK&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//뒤집혔으면 라이트로 ㄱㄱ&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//시스템 설정이 라이트임&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;setCurTheme&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;localStorage&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getItem&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;KEY_THEME&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;REVERSED&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;DARK&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;LIGHT&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//뒤집혔으면 다크로 ㄱㄱ&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;먼저 이렇게 &lt;code class=&quot;language-text&quot;&gt;curTheme&lt;/code&gt;를 결정하고&lt;br&gt;
+이제 localStorage에 이벤트 리스너를 등록합시다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token function&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;storageListener&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;event&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; StorageEvent&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;key &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;KEY_THEME&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token function&quot;&gt;setCurTheme&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;prev &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;prev &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;DARK&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;LIGHT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;DARK&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;storage&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; storageListener&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;removeEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;storage&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; storageListener&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이게 마지막줄처럼 이벤트리스너를 제거하도록 해줘야지 이벤트리스너가 계속 쌓이는 불상사를 막을 수 있습니다&lt;/p&gt;
+&lt;p&gt;아 그리고 이러면 될 줄 알았는데, localStorage에 변화가 생겨도 이벤트가 발생하지 않아서..&lt;br&gt;
+직접 넣어줬습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;dispatchEvent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;StorageEvent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;storage&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; key&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;KEY_THEME&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;야간모드 토글버튼의 &lt;code class=&quot;language-text&quot;&gt;onClick&lt;/code&gt;에서 이렇게 이벤트를 생성하도록 해줍니다&lt;/p&gt;
+&lt;p&gt;이제 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Giscus theme=&quot;prefered_color_scheme&quot;&gt;&lt;/code&gt;이런 식이던 테마를 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Giscus theme={curTheme}&gt;&lt;/code&gt; 이런 식으로 바꾸면??&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/TG59YUM.gif&quot; alt=&quot;댓글창까지 DONE&quot;&gt;&lt;/p&gt;
+&lt;p&gt;아 빵애애요&lt;br&gt;
+이제 다크모드 덕분에 버그가 꼬이지 않겠는데요~&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;간단한 기능같아보이지만 고민할 것도 난관도 많았습니다&lt;br&gt;
+저는 좀 산기슭으로 돌아돌아 도착한 느낌이 없지않아 있는데&lt;br&gt;
+그래도 이러면서 배우고 사는거 아니겠습니까~&lt;/p&gt;
+&lt;p&gt;암튼간에 이만 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[💲 Gatsby Blog에서 마크다운 수식(LaTex) 표현하기 - KaTeX 플러그인]]></title><description><![CDATA[저런 수식을 손으로 쓸 때는 아주 내맘대로 글씨를 쓰면 되니까 문제없지만 컴퓨터로 저런거 쓰려면 어라? 싶은 사람들도 있을 것 같습니다 그런데 2…]]></description><link>https://sungpaks.github.io/latex-in-gatsby-blog-by-katex/</link><guid isPermaLink="false">https://sungpaks.github.io/latex-in-gatsby-blog-by-katex/</guid><pubDate>Sat, 18 May 2024 19:45:53 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 592px; &quot;
     &gt;
