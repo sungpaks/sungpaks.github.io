@@ -14,6 +14,10 @@ function TopUI({ setCurTag }: ComponentProps) {
   const REVERSED = "reversed"
   const THEME_REVERSE = "theme-reverse"
   const KEY_THEME = "theme"
+  const [preferDark, setPreferedDark] = useState(false)
+  const LIGHT_MODE = "☀️"
+  const DARK_MODE = "🌙"
+  const [curMode, setCurMode] = useState("")
 
   useEffect(() => {
     document.addEventListener("scroll", () => {
@@ -23,6 +27,18 @@ function TopUI({ setCurTag }: ComponentProps) {
         document.documentElement.clientHeight
       setScrollPercent((currentScroll * 100) / totalScroll)
     })
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      setPreferedDark(true)
+    }
+    setCurMode(
+      preferDark
+        ? localStorage.getItem(KEY_THEME) === REVERSED
+          ? LIGHT_MODE
+          : DARK_MODE
+        : localStorage.getItem(KEY_THEME) === REVERSED
+        ? DARK_MODE
+        : LIGHT_MODE
+    )
   }, [])
 
   return (
@@ -57,9 +73,18 @@ function TopUI({ setCurTag }: ComponentProps) {
                 window.dispatchEvent(
                   new StorageEvent("storage", { key: KEY_THEME })
                 )
+                setCurMode(
+                  preferDark
+                    ? localStorage.getItem(KEY_THEME) === REVERSED
+                      ? LIGHT_MODE
+                      : DARK_MODE
+                    : localStorage.getItem(KEY_THEME) === REVERSED
+                    ? DARK_MODE
+                    : LIGHT_MODE
+                )
               }}
             >
-              ?
+              {curMode}
             </a>
           </div>
         </div>
