@@ -1,4 +1,5 @@
 /* CSS Custom Properties Definitions */
+
 :root {
   color-scheme: light dark;
   --maxWidth-none: "none";
@@ -83,12 +84,27 @@ body {
   font-family: "ibm-plex-sans";
   font-size: var(--fontSize-1);
   font-weight: var(--fontWeight-normal);
-  color: light-dark(var(--color-text), var(--color-light));
-  background-color: light-dark(white, var(--color-dark));
+  color: var(--color-text);
+  background-color: white;
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: var(--color-light);
+    background-color: var(--color-dark);
+  }
+}
+
 body.theme-reverse {
-  color: light-dark(var(--color-light), var(--color-text));
-  background-color: light-dark(var(--color-dark), white);
+  color: var(--color-light);
+  background-color: var(--color-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+  body.theme-reverse {
+    color: var(--color-text);
+    background-color: white;
+  }
 }
 
 footer {
@@ -121,25 +137,57 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: var(--fontWeight-bold);
-  color: light-dark(var(--color-heading), var(--color-light));
+  color: var(--color-heading);
 }
+
+@media (prefers-color-scheme: dark) {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-light);
+  }
+}
+
 body.theme-reverse h2,
 h3,
 h4,
 h5,
 h6 {
-  color: light-dark(var(--color-light), var(--color-heading));
+  color: var(--color-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  body.theme-reverse h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-heading);
+  }
 }
 
 h1 {
   font-weight: var(--fontWeight-black);
   font-size: var(--fontSize-6);
-  color: light-dark(var(--color-heading-black), white);
+  color: var(--color-heading-black);
+}
+
+@media (prefers-color-scheme: dark) {
+  h1 {
+    color: white;
+  }
 }
 
 body.theme-reverse h1 {
-  color: light-dark(white, var(--color-heading-black));
+  color: var(--color-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  body.theme-reverse h1 {
+    color: var(--color-heading-black);
+  }
 }
 
 h2 {
@@ -216,7 +264,7 @@ li > ul {
 }
 
 blockquote {
-  color: light-dark(var(--color-text-light), var(--color-light));
+  color: var(--color-text-light);
   margin-left: calc(-1 * var(--spacing-6));
   margin-right: var(--spacing-8);
   padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6);
@@ -224,11 +272,26 @@ blockquote {
   font-size: var(--fontSize-2);
   font-style: italic;
   margin-bottom: var(--spacing-8);
-  border-color: light-dark(black, white);
+  border-color: black;
 }
+
+@media (prefers-color-scheme: dark) {
+  blockquote {
+    color: var(--color-light);
+    border-color: white;
+  }
+}
+
 body.theme-reverse blockquote {
-  color: light-dark(var(--color-light), var(--color-text-light));
-  border-color: light-dark(white, black);
+  color: var(--color-light);
+  border-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  body.theme-reverse blockquote {
+    color: var(--color-text-light);
+    border-color: black;
+  }
 }
 
 blockquote > :last-child {
@@ -240,33 +303,41 @@ blockquote > ol {
   list-style-position: inside;
 }
 
-table {
-  width: 100%;
-  margin-bottom: var(--spacing-8);
-  border-collapse: collapse;
-  border-spacing: 0.25rem;
-}
-
-table thead tr th {
-  border-bottom: 1px solid var(--color-accent);
-}
-
-/* Link */
-
 a {
-  text-decoration: underline;
-  color: light-dark(green, var(--color-lightgreen));
-}
-body.theme-reverse a {
-  color: light-dark(var(--color-lightgreen), green);
-}
-
-a:hover,
-a:focus {
+  color: green;
   text-decoration: none;
 }
 
-/* Custom classes */
+@media (prefers-color-scheme: dark) {
+  a {
+    color: var(--color-lightgreen);
+  }
+}
+
+body.theme-reverse a {
+  color: var(--color-lightgreen);
+}
+
+@media (prefers-color-scheme: dark) {
+  body.theme-reverse a {
+    color: green;
+  }
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p > code,
+li > code {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background: var(--color-accent);
+  border-radius: 6px;
+}
+
+/* Misc */
 
 .global-wrapper {
   margin: var(--spacing-0) auto;
@@ -299,13 +370,27 @@ a:focus {
 
 .post-list-item h2 {
   font-size: var(--fontSize-4);
-  color: light-dark(black, white);
+  /* color: light-dark(black, white); */
+  color: black;
   margin-bottom: var(--spacing-2);
   margin-top: var(--spacing-0);
 }
-body.theme-reverse .post-list-item a,
-h2 {
-  color: light-dark(white, black);
+
+@media (prefers-color-scheme: dark) {
+  .post-list-item h2 {
+    color: white;
+  }
+}
+
+body.theme-reverse .post-list-item h2 {
+  /* color: light-dark(white, black); */
+  color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  body.theme-reverse .post-list-item h2 {
+    color: black;
+  }
 }
 
 .post-list-item header {
@@ -371,7 +456,8 @@ h2 {
 
 .custom-button {
   padding: 8px 15px;
-  color: light-dark(#fff, black);
+  /* color: light-dark(#fff, black); */
+  color: #fff;
   border-radius: 5px;
   background: transparent;
   cursor: pointer;
@@ -382,10 +468,25 @@ h2 {
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
 }
-body.theme-reverse .custom-button {
-  color: light-dark(black, white);
+
+@media (prefers-color-scheme: dark) {
+  .custom-button {
+    color: black;
+  }
 }
 
+body.theme-reverse .custom-button {
+  /* color: light-dark(black, white); */
+  color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  body.theme-reverse .custom-button {
+    color: white;
+  }
+}
+
+/*?*/
 .top-ui {
   z-index: 10;
   position: fixed;
@@ -394,20 +495,29 @@ body.theme-reverse .custom-button {
   width: 100%;
   height: 70px;
   border-bottom: 1px solid black;
-  background-color: light-dark(
-    rgba(245, 245, 245, 0.8),
-    var(--color-lightdark)
-  );
+  /* background-color: light-dark(rgba(245, 245, 245, 0.8), var(--color-lightdark)); */
+  background-color: rgba(245, 245, 245, 0.8);
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-family: "ibm-plex-sans";
 }
+
+@media (prefers-color-scheme: dark) {
+  .top-ui {
+    background-color: var(--color-lightdark);
+  }
+}
+
 body.theme-reverse .top-ui {
-  background-color: light-dark(
-    var(--color-lightdark),
-    rgba(245, 245, 245, 0.8)
-  );
+  /* background-color: light-dark(var(--color-lightdark), rgba(245, 245, 245, 0.8)); */
+  background-color: var(--color-lightdark);
+}
+
+@media (prefers-color-scheme: dark) {
+  body.theme-reverse .top-ui {
+    background-color: rgba(245, 245, 245, 0.8);
+  }
 }
 
 .top-ui a {
@@ -416,18 +526,35 @@ body.theme-reverse .top-ui {
 
 .top-ui-title {
   width: fit-content;
-  color: light-dark(black, white);
+  /* color: light-dark(black, white); */
+  color: black;
   transition: all 0.5s ease;
 }
-body.theme-reverse .top-ui-title a {
-  color: light-dark(white, black);
+
+@media (prefers-color-scheme: dark) {
+  .top-ui-title {
+    color: white;
+  }
 }
+
+body.theme-reverse .top-ui-title {
+  /* color: light-dark(white, black); */
+  color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  body.theme-reverse .top-ui-title {
+    color: black;
+  }
+}
+
 .top-ui-title:hover {
   text-shadow: 2px 2px 2px darkgray;
   transition: all 0.5s ease;
   transform: scale(1.05);
   color: rgba(109, 158, 12);
 }
+
 .top-ui-title:active {
   padding-top: 3px;
   padding-left: 3px;
@@ -437,19 +564,40 @@ body.theme-reverse .top-ui-title a {
   display: flex;
   flex-wrap: wrap;
 }
+
 .tag-button {
   margin: 10px;
   font-size: 13px;
   font-weight: 600;
-  color: light-dark(black, white);
-  background-color: light-dark(rgba(169, 248, 11, 0.5), yellowgreen);
+  /* color: light-dark(black, white); */
+  color: black;
+  /* background-color: light-dark(rgba(169, 248, 11, 0.5), yellowgreen); */
+  background-color: rgba(169, 248, 11, 0.5);
   border: none;
   z-index: 1;
 }
-body.theme-reverse .tag-button {
-  color: light-dark(white, black);
-  background-color: light-dark(yellowgreen, rgba(169, 248, 11, 0.5));
+
+@media (prefers-color-scheme: dark) {
+  .tag-button {
+    color: white;
+    background-color: yellowgreen;
+  }
 }
+
+body.theme-reverse .tag-button {
+  /* color: light-dark(white, black); */
+  color: white;
+  /* background-color: light-dark(yellowgreen, rgba(169, 248, 11, 0.5)); */
+  background-color: yellowgreen;
+}
+
+@media (prefers-color-scheme: dark) {
+  body.theme-reverse .tag-button {
+    color: black;
+    background-color: rgba(169, 248, 11, 0.5);
+  }
+}
+
 .tag-button:after {
   position: absolute;
   content: "";
@@ -464,42 +612,66 @@ body.theme-reverse .tag-button {
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
+
 .tag-button:hover {
   color: #fff;
 }
+
 .tag-button:hover:after {
   left: 0;
   width: 100%;
 }
+
 .tag-button:active {
   top: 2px;
 }
+
 .tag-button.pressed {
   background-color: rgba(109, 158, 12, 0.5);
 }
+
 .post-list-item-title {
   transition: all 0.3s ease;
 }
+
 .post-list-item-title:hover {
   transition: all 0.3s ease;
   text-shadow: 2px 2px 2px darkgray;
 }
+
 .top-ui-tag {
   float: right;
   margin-right: 20px;
-  color: light-dark(rgb(88, 88, 88), --color-light);
+  /* color: light-dark(rgb(88, 88, 88), --color-light); */
+  color: rgb(88, 88, 88);
   transition: all 0.5s ease;
   font-weight: var(--fontWeight-bold);
 }
-body.theme-reverse .top-ui-tag {
-  color: light-dark(--color-light, rgb(88, 88, 88));
+
+@media (prefers-color-scheme: dark) {
+  .top-ui-tag {
+    color: var(--color-light);
+  }
 }
+
+body.theme-reverse .top-ui-tag {
+  /* color: light-dark(--color-light, rgb(88, 88, 88)); */
+  color: var(--color-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  body.theme-reverse .top-ui-tag {
+    color: rgb(88, 88, 88);
+  }
+}
+
 .top-ui-tag:hover {
   color: black;
   text-shadow: 2px 2px 2px darkgray;
   transition: all 0.5s ease;
   transform: scale(1.05);
 }
+
 .progress-bar {
   top: calc(70px - 4px);
   z-index: 10;
