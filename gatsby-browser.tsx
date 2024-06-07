@@ -11,4 +11,4 @@ import "prismjs/themes/prism.css"
 
 import "@fontsource/ibm-plex-sans"
 
-require("prismjs/themes/prism-solarizedlight.css")
+require("prismjs/themes/prism.css")
