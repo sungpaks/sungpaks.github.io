@@ -8,7 +8,7 @@ interface ComponentProps {
 function TableOfContents({ tableOfContents }: ComponentProps) {
   return (
     <div className="toc-container">
-      this is ToC
+      <h4>목차</h4>
       <div
         className="toc"
         dangerouslySetInnerHTML={{ __html: tableOfContents }}

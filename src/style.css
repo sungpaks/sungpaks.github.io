@@ -124,11 +124,12 @@ h6 {
   font-weight: var(--fontWeight-bold);
   color: light-dark(var(--color-heading), var(--color-light));
 }
+
 body.theme-reverse h2,
-h3,
-h4,
-h5,
-h6 {
+body.theme-reverse h3,
+body.theme-reverse h4,
+body.theme-reverse h5,
+body.theme-reverse h6 {
   color: light-dark(var(--color-light), var(--color-heading));
 }
 
@@ -320,7 +321,7 @@ a:focus {
   margin-top: var(--spacing-0);
 }
 body.theme-reverse a,
-h2 .post-list-item {
+body.theme-reverse h2 .post-list-item {
   color: light-dark(white, black);
 }
 
@@ -555,16 +556,33 @@ body.theme-reverse .top-ui-tag {
   position: fixed;
   right: 0;
   width: 25%;
-  border-left: solid 2px;
   padding: 0;
-  margin: 0;
-  padding-left: 20px;
+  margin: 0 10px;
+}
+
+.toc {
+  border-left: solid 2px;
+  padding-left: 10px;
+}
+
+.toc a {
+  text-decoration: none;
+  color: light-dark(green, var(--color-lightgreen));
+}
+
+body.theme-reverse .toc a {
+  color: light-dark(var(--color-lightgreen), green);
 }
 
 .toc li {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
   list-style-type: none;
 }
 
-.toc ul {
-  margin: 0;
+@media (max-width: 85rem) {
+  .toc-container {
+    display: none;
+  }
 }
