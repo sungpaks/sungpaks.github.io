@@ -138,16 +138,6 @@ h1 {
   color: light-dark(var(--color-heading-black), white);
 }
 
-figure p {
-  margin-bottom: 5px;
-}
-
-figcaption {
-  text-align: center;
-  font-size: smaller;
-  color: rgb(143, 143, 143);
-}
-
 body.theme-reverse h1 {
   color: light-dark(white, var(--color-heading-black));
 }
@@ -184,6 +174,22 @@ h5 > a,
 h6 > a {
   text-decoration: none;
   color: inherit;
+}
+
+figure p {
+  margin-bottom: 5px;
+}
+
+figcaption {
+  text-align: center;
+  font-size: smaller;
+  color: rgb(143, 143, 143);
+}
+
+img {
+  display: block;
+  margin: 10px auto;
+  max-width: 100%;
 }
 
 /* Prose */
@@ -313,8 +319,8 @@ a:focus {
   margin-bottom: var(--spacing-2);
   margin-top: var(--spacing-0);
 }
-body.theme-reverse .post-list-item a,
-h2 {
+body.theme-reverse a,
+h2 .post-list-item {
   color: light-dark(white, black);
 }
 
