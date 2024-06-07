@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 06 Jun 2024 11:29:57 GMT</lastBuildDate><item><title><![CDATA[🔅 다크모드 5초컷 with CSS 채신기술 like-dark()함수 - (Gatsby 블로그)]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/light-mode-and-dark-mode/</link><guid isPermaLink="false">https://sungpaks.github.io/light-mode-and-dark-mode/</guid><pubDate>Thu, 06 Jun 2024 14:51:57 GMT</pubDate><content:encoded>&lt;p&gt;그제였나? 누워서 조선왕조실록 틀어놓고 잠들고 싶어하고 있었는데요&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 07 Jun 2024 03:24:47 GMT</lastBuildDate><item><title><![CDATA[🔅 다크모드 5초컷 with CSS 채신기술 like-dark()함수 - (Gatsby 블로그)]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/light-mode-and-dark-mode/</link><guid isPermaLink="false">https://sungpaks.github.io/light-mode-and-dark-mode/</guid><pubDate>Thu, 06 Jun 2024 14:51:57 GMT</pubDate><content:encoded>&lt;p&gt;그제였나? 누워서 조선왕조실록 틀어놓고 잠들고 싶어하고 있었는데요&lt;br&gt;
 아~ 도저히 잠이 안와서 노마드코더 좀 봤습니다&lt;br&gt;
 그 중에 이런 영상이 있었는데&lt;/p&gt;
 &lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/embed/vc4DGouf62E?si=hhtqt0DHpVhuzrXQ&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen=&quot;&quot; style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;
 &lt;p&gt;흥미로운데요? 당장 해봐야겠습니다&lt;br&gt;
 어차피 블로그에 다크모드 언젠가 넣어야지 넣어야지 했어서&lt;br&gt;
 시간 남는 김에 해봤습니다&lt;/p&gt;
+&lt;figure&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
@@ -37,6 +38,10 @@
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;
+컴하하~
+&lt;/figcaption&gt;
+&lt;/figure&gt;
 &lt;p&gt;근데 5초컷도 아니고 5분컷도 아닙니다.. 꽤 걸림 ㅋㅋ;; 어그로 ㅈㅅ합니다.&lt;br&gt;
 다크모드 토글로 하고싶은게 아니었으면 진짜 5분컷이긴 한 듯&lt;/p&gt;
 &lt;p&gt;아무튼 시작합시다&lt;/p&gt;
@@ -390,7 +395,8 @@ Giscus 테마는 여러가지가 있어서 그냥 &lt;code class=&quot;language-
 저는 좀 산기슭으로 돌아돌아 도착한 느낌이 없지않아 있는데&lt;br&gt;
 그래도 이러면서 배우고 사는거 아니겠습니까~&lt;/p&gt;
 &lt;p&gt;암튼간에 이만 마칩니다&lt;/p&gt;
-&lt;h3&gt;+++++ 추가..&lt;/h3&gt;
+&lt;details&gt;
+  &lt;summary&gt;어라? 아이폰에서 왜 안 되지&lt;/summary&gt;
 &lt;p&gt;아니.. 분명&lt;br&gt;
 &lt;a href=&quot;https://caniuse.com/mdn-css_types_color_light-dark&quot;&gt;Can I Use&lt;/a&gt;이런 곳이나&lt;br&gt;
 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark#browser_compatibility&quot;&gt;MDN docs&lt;/a&gt;이런 곳에서&lt;/p&gt;
@@ -493,8 +499,8 @@ IOS만 유독 최신의 최신의 최신도 다 적용이 안 됩니다..&lt;/p&
 &lt;p&gt;아무튼간에.. &lt;code class=&quot;language-text&quot;&gt;light-dark&lt;/code&gt;가 절 지독히도 괴롭혔네요&lt;br&gt;
 제가 자초한 일인 것 같긴하죠?&lt;br&gt;
 마칩니다&lt;/p&gt;
-&lt;p&gt;어라? 근데 방금 IOS 업데이트 끝났는데&lt;br&gt;
-아직 배포 안 했는데 왜 잘 나오지&lt;/p&gt;</content:encoded></item><item><title><![CDATA[💲 Gatsby Blog에서 마크다운 수식(LaTex) 표현하기 - KaTeX 플러그인]]></title><description><![CDATA[저런 수식을 손으로 쓸 때는 아주 내맘대로 글씨를 쓰면 되니까 문제없지만 컴퓨터로 저런거 쓰려면 어라? 싶은 사람들도 있을 것 같습니다 그런데 2…]]></description><link>https://sungpaks.github.io/latex-in-gatsby-blog-by-katex/</link><guid isPermaLink="false">https://sungpaks.github.io/latex-in-gatsby-blog-by-katex/</guid><pubDate>Sat, 18 May 2024 19:45:53 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;p&gt;어라? 근데 IOS 업데이트하니까 잘 나오네요&lt;/p&gt;
+&lt;/details&gt;</content:encoded></item><item><title><![CDATA[💲 Gatsby Blog에서 마크다운 수식(LaTex) 표현하기 - KaTeX 플러그인]]></title><description><![CDATA[저런 수식을 손으로 쓸 때는 아주 내맘대로 글씨를 쓰면 되니까 문제없지만 컴퓨터로 저런거 쓰려면 어라? 싶은 사람들도 있을 것 같습니다 그런데 2…]]></description><link>https://sungpaks.github.io/latex-in-gatsby-blog-by-katex/</link><guid isPermaLink="false">https://sungpaks.github.io/latex-in-gatsby-blog-by-katex/</guid><pubDate>Sat, 18 May 2024 19:45:53 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 592px; &quot;
     &gt;
