@@ -550,3 +550,21 @@ body.theme-reverse .top-ui-tag {
 #light-or-dark {
   cursor: pointer;
 }
+
+.toc-container {
+  position: fixed;
+  right: 0;
+  width: 25%;
+  border-left: solid 2px;
+  padding: 0;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.toc li {
+  list-style-type: none;
+}
+
+.toc ul {
+  margin: 0;
+}
