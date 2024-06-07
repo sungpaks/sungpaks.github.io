@@ -1,31 +1,20 @@
 import React from "react"
-import { graphql } from "gatsby"
-
-interface MarkdownRemark {
-  id: String
-  TableOfContents: String
-}
+import { useStaticQuery, graphql } from "gatsby"
 
 interface ComponentProps {
-  data: MarkdownRemark
+  tableOfContents: string
 }
 
-function TableOfContents({ data }: ComponentProps) {
+function TableOfContents({ tableOfContents }: ComponentProps) {
   return (
     <div className="toc-container">
       this is ToC
-      <div>{data.TableOfContents}</div>
+      <div
+        className="toc"
+        dangerouslySetInnerHTML={{ __html: tableOfContents }}
+      />
     </div>
   )
 }
 
 export default TableOfContents
-
-export const pageQuery = graphql`
-  query TableOfContentsBySlug($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      id
-      tableOfContents
-    }
-  }
-`

@@ -8,6 +8,7 @@ import Giscus from "@giscus/react"
 import kebabCase from "lodash.kebabcase"
 import { useState, useEffect } from "react"
 import "katex/dist/katex.min.css"
+import TableOfContents from "../components/TableOfContents"
 
 interface Frontmatter {
   title: string
@@ -21,6 +22,7 @@ interface MarkdownRemark {
   excerpt: string
   html: string
   frontmatter: Frontmatter
+  tableOfContents: string
 }
 
 interface BlogPostBySlugQuery {
@@ -91,6 +93,7 @@ const BlogPostTemplate = ({
 
   return (
     <Layout location={location} setCurTag={undefined}>
+      <TableOfContents tableOfContents={post.tableOfContents} />
       <article
         className="blog-post"
         itemScope
@@ -197,6 +200,7 @@ export const pageQuery = graphql`
         description
         tag
       }
+      tableOfContents
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
       fields {
