@@ -15,7 +15,14 @@ tag: ["Gatsby", "Blog", "CSS", "JavaScript", "TypeScript"]
 어차피 블로그에 다크모드 언젠가 넣어야지 넣어야지 했어서  
 시간 남는 김에 해봤습니다
 
+<figure>
+
 ![다크모드 유우머](image.png)
+
+<figcaption>
+컴하하~
+</figcaption>
+</figure>
 
 근데 5초컷도 아니고 5분컷도 아닙니다.. 꽤 걸림 ㅋㅋ;; 어그로 ㅈㅅ합니다.  
 다크모드 토글로 하고싶은게 아니었으면 진짜 5분컷이긴 한 듯
@@ -290,7 +297,8 @@ window.dispatchEvent(new StorageEvent("storage", { key: KEY_THEME }))
 
 암튼간에 이만 마칩니다
 
-### +++++ 추가..
+<details>
+  <summary>어라? 아이폰에서 왜 안 되지</summary>
 
 아니.. 분명  
 [Can I Use](https://caniuse.com/mdn-css_types_color_light-dark)이런 곳이나  
@@ -345,5 +353,6 @@ body.theme-reverse {
 제가 자초한 일인 것 같긴하죠?  
 마칩니다
 
-어라? 근데 방금 IOS 업데이트 끝났는데  
-아직 배포 안 했는데 왜 잘 나오지
+어라? 근데 IOS 업데이트하니까 잘 나오네요
+
+</details>

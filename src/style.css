@@ -138,6 +138,16 @@ h1 {
   color: light-dark(var(--color-heading-black), white);
 }
 
+figure p {
+  margin-bottom: 5px;
+}
+
+figcaption {
+  text-align: center;
+  font-size: smaller;
+  color: rgb(143, 143, 143);
+}
+
 body.theme-reverse h1 {
   color: light-dark(white, var(--color-heading-black));
 }
