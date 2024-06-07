@@ -1,6 +1,6 @@
 import * as React from "react"
 import { FC } from "react"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import { Link, graphql } from "gatsby"
 import kebabCase from "lodash.kebabcase"
 import { PageQueryData } from "."

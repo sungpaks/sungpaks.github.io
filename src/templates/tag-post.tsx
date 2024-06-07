@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import Seo from "../components/seo"
 import { FC } from "react"
 
@@ -44,7 +44,6 @@ const TagPost = ({ pageContext, data, location }: ComponentProps) => {
   const { tags } = pageContext
   const posts = data.allMarkdownRemark.nodes
   const tagHeader = "All Tags"
-  console.log(data)
   return (
     <Layout location={location}>
       <Seo title={tagHeader} description={tags} />
@@ -56,7 +55,7 @@ const TagPost = ({ pageContext, data, location }: ComponentProps) => {
         </h2>
         {posts.map(post => {
           return (
-            <div>
+            <div key={post.fields.slug}>
               <h2>
                 <Link to={`${post.fields.slug}`}>{post.frontmatter.title}</Link>
               </h2>
