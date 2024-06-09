@@ -11,7 +11,7 @@ const config: GatsbyConfig = {
     title: `조성개발실록`,
     author: {
       name: `조성훈`,
-      summary: `세종대학교 19학번, 물리천문학과 + 소프트웨어학과`,
+      summary: `이상한 사람이 쓰는 개발 블로그`,
     },
     description: `Sunghoon Tech Blog`,
     siteUrl: `https://sungpaks.github.io/`,

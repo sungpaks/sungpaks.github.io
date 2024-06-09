@@ -86,9 +86,7 @@ const Bio = () => {
               <br />
               {author?.summary || null}
               <br />
-              <span className="smaller">
-                배움을 나눔해요. 근데 이제.. 캐주얼을 곁들인
-              </span>
+              <span className="smaller">배움을 노나먹어요</span>
             </p>
           )}
         </div>
