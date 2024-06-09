@@ -30,7 +30,6 @@ function TableOfContents({ tableOfContents }: ComponentProps) {
       aTags?.forEach(a => {
         a.classList.remove("activated")
         if (a.textContent === curHeaderText) {
-          console.info(a)
           a.classList.add("activated")
         }
       })
