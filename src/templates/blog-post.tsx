@@ -118,6 +118,7 @@ const BlogPostTemplate = ({
         <TableOfContents tableOfContents={post.tableOfContents} />
         <br />
         <section
+          id="post-section"
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
