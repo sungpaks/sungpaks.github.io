@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 interface ComponentProps {
@@ -6,10 +6,22 @@ interface ComponentProps {
 }
 
 function TableOfContents({ tableOfContents }: ComponentProps) {
+  useEffect(() => {
+    const tableOfContentsDiv = document.getElementById("table-of-contents")
+    if (tableOfContentsDiv?.children.length) {
+      for (let i = 0; i < tableOfContentsDiv?.children.length; i++) {
+        const curChild = tableOfContentsDiv.children[i]
+        console.info(curChild)
+
+        if (curChild.clientTop == 0) console.log("client top!")
+        if (curChild.scrollTop == 0) console.log("scroll top!")
+      }
+    }
+  }, [])
   return (
     <div className="toc-container">
-      <h4>목차</h4>
       <div
+        id="table-of-contents"
         className="toc"
         dangerouslySetInnerHTML={{ __html: tableOfContents }}
       />
