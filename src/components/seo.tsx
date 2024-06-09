@@ -50,6 +50,10 @@ const Seo = ({ description, title, children }: ComponentProps) => {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={metaDescription} />
       {children}
+      <meta
+        name="google-site-verification"
+        content="iP6AmcpYft1WcrX_A3DlYxkWH2bwT-mrYanTBB8vm4k"
+      />
     </>
   )
 }
