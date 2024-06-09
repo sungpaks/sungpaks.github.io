@@ -284,6 +284,31 @@ a:hover,
 a:focus {
   text-decoration: none;
 }
+details {
+  padding: 0 2rem;
+  margin-top: 0;
+}
+summary {
+  font-size: larger;
+  display: block;
+  padding: 1rem 3rem 1rem 0;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+}
+summary::before,
+summary::after {
+  content: "";
+  position: absolute;
+  width: 1rem;
+  height: 2px;
+  background-color: white;
+  left: -2rem;
+  top: 2rem;
+}
+summary::after {
+  transform: rotateZ(90deg);
+}
 
 /* Custom classes */
 
@@ -549,6 +574,12 @@ body.theme-reverse .top-ui-tag {
 .smaller {
   font-size: smaller;
 }
+.xx-large {
+  font-size: xx-large;
+}
+.x-large {
+  font-size: x-large;
+}
 
 #light-or-dark {
   cursor: pointer;
@@ -563,12 +594,12 @@ body.theme-reverse .top-ui-tag {
   overflow-y: scroll;
   padding: 0;
   margin: 0 10px;
-  opacity: 0.75;
 }
 
 .toc {
   border-left: gray solid 1px;
   padding-left: 10px;
+  opacity: 0.75;
 }
 
 .toc a {
@@ -598,6 +629,8 @@ body.theme-reverse .toc a {
 
 @media (max-width: 85rem) {
   .toc-container {
-    display: none;
+    position: static;
+    width: 100%;
+    height: auto;
   }
 }

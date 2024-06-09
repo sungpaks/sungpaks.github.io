@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 interface ComponentProps {
@@ -6,6 +6,7 @@ interface ComponentProps {
 }
 
 function TableOfContents({ tableOfContents }: ComponentProps) {
+  const [isWide, setIsWide] = useState<boolean | undefined>(undefined)
   useEffect(() => {
     const postSection = document.getElementById("post-section")
     if (!postSection) return
@@ -26,13 +27,24 @@ function TableOfContents({ tableOfContents }: ComponentProps) {
       aTags?.forEach(a => {
         a.classList.remove("activated")
         if (a.textContent === curHeaderText) {
-          console.info(a)
           a.classList.add("activated")
         }
       })
     })
   }, [])
-  return (
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 85rem)")
+    mediaQuery.addEventListener("change", event => {
+      if (event.matches) {
+        setIsWide(false)
+      } else {
+        setIsWide(true)
+      }
+    })
+  }, [])
+  if (setIsWide === undefined) return
+  return isWide ? (
     <aside className="toc-container">
       <div
         id="table-of-contents"
@@ -40,6 +52,15 @@ function TableOfContents({ tableOfContents }: ComponentProps) {
         dangerouslySetInnerHTML={{ __html: tableOfContents }}
       />
     </aside>
+  ) : (
+    <details open>
+      <summary className="x-large">목차</summary>
+      <div
+        id="table-of-contents"
+        className="toc"
+        dangerouslySetInnerHTML={{ __html: tableOfContents }}
+      />
+    </details>
   )
 }
 
