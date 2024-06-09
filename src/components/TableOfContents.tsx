@@ -6,7 +6,10 @@ interface ComponentProps {
 }
 
 function TableOfContents({ tableOfContents }: ComponentProps) {
-  const [isWide, setIsWide] = useState<boolean | undefined>(undefined)
+  if (window === undefined) return
+  const [isWide, setIsWide] = useState<boolean>(
+    !window.matchMedia("(max-width: 85rem)").matches
+  )
   useEffect(() => {
     const postSection = document.getElementById("post-section")
     if (!postSection) return
@@ -43,7 +46,6 @@ function TableOfContents({ tableOfContents }: ComponentProps) {
       }
     })
   }, [])
-  if (setIsWide === undefined) return
   return isWide ? (
     <aside className="toc-container">
       <div
