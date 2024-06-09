@@ -606,7 +606,7 @@ body.theme-reverse .top-ui-tag {
 }
 
 .toc {
-  border-left: gray solid 1px;
+  /* border-left: gray solid 1px; */
   padding-left: 10px;
   opacity: 0.75;
 }
@@ -614,10 +614,16 @@ body.theme-reverse .top-ui-tag {
 .toc a {
   text-decoration: none;
   color: light-dark(var(--color-darkgreen), var(--color-lightgreen));
+  border-left: gray solid 1px;
+  padding-left: 10px;
 }
 
 body.theme-reverse .toc a {
   color: light-dark(var(--color-lightgreen), var(--color-darkgreen));
+}
+.toc ul {
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .toc li {
@@ -625,11 +631,13 @@ body.theme-reverse .toc a {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  margin-bottom: 5px;
 }
 .toc p {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  margin-bottom: 5px;
 }
 
 .toc-container a.activated {
