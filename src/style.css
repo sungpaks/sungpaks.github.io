@@ -85,6 +85,8 @@ body {
   font-weight: var(--fontWeight-normal);
   color: light-dark(var(--color-text), var(--color-light));
   background-color: light-dark(white, var(--color-dark));
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 body.theme-reverse {
   color: light-dark(var(--color-light), var(--color-text));
