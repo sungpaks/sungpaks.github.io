@@ -93,7 +93,6 @@ const BlogPostTemplate = ({
 
   return (
     <Layout location={location} setCurTag={undefined}>
-      <TableOfContents tableOfContents={post.tableOfContents} />
       <article
         className="blog-post"
         itemScope
@@ -115,6 +114,8 @@ const BlogPostTemplate = ({
           <p>{post.frontmatter.date}</p>
         </header>
         <hr />
+
+        <TableOfContents tableOfContents={post.tableOfContents} />
         <br />
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}

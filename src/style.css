@@ -554,14 +554,18 @@ body.theme-reverse .top-ui-tag {
 
 .toc-container {
   position: fixed;
+  top: 25%;
   right: 0;
   width: 25%;
+  height: 75%;
+  overflow-y: scroll;
   padding: 0;
   margin: 0 10px;
+  opacity: 0.75;
 }
 
 .toc {
-  border-left: solid 2px;
+  border-left: gray solid 1px;
   padding-left: 10px;
 }
 
@@ -575,10 +579,15 @@ body.theme-reverse .toc a {
 }
 
 .toc li {
+  list-style-type: none;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  list-style-type: none;
+}
+.toc p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 @media (max-width: 85rem) {
