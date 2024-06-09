@@ -6,10 +6,7 @@ interface ComponentProps {
 }
 
 function TableOfContents({ tableOfContents }: ComponentProps) {
-  if (window === undefined) return
-  const [isWide, setIsWide] = useState<boolean>(
-    !window.matchMedia("(max-width: 85rem)").matches
-  )
+  const [isWide, setIsWide] = useState<boolean | undefined>(true)
   useEffect(() => {
     const postSection = document.getElementById("post-section")
     if (!postSection) return
@@ -38,6 +35,7 @@ function TableOfContents({ tableOfContents }: ComponentProps) {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 85rem)")
+    if (mediaQuery.matches) setIsWide(false)
     mediaQuery.addEventListener("change", event => {
       if (event.matches) {
         setIsWide(false)
