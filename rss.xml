@@ -1,4 +1,1171 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 15 Jun 2024 11:23:29 GMT</lastBuildDate><item><title><![CDATA[👥 Scheduling을 어떻게 해야 잘 했다고 소문이 날까? - Multiprocessor]]></title><description><![CDATA[저번 시간에 Uniprocessor Scheduling…]]></description><link>https://sungpaks.github.io/multiprocessor-scheduling/</link><guid isPermaLink="false">https://sungpaks.github.io/multiprocessor-scheduling/</guid><pubDate>Sat, 15 Jun 2024 19:58:58 GMT</pubDate><content:encoded>&lt;p&gt;저번 시간에 Uniprocessor Scheduling에 대해 알아봤는데&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 16 Jun 2024 13:37:54 GMT</lastBuildDate><item><title><![CDATA[🔒 데드락도 락이다. - 데드락과 철학자 문제]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/deadlock-and-dining-philosophers-problem/</link><guid isPermaLink="false">https://sungpaks.github.io/deadlock-and-dining-philosophers-problem/</guid><pubDate>Sun, 16 Jun 2024 22:03:42 GMT</pubDate><content:encoded>&lt;h1 id=&quot;데드락이-뭔데요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EB%93%9C%EB%9D%BD%EC%9D%B4-%EB%AD%94%EB%8D%B0%EC%9A%94&quot; aria-label=&quot;데드락이 뭔데요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데드락이 뭔데요?&lt;/h1&gt;
+&lt;p&gt;그런 적 있으신가요? 친구들이랑 얘기할 때&lt;br&gt;
+예를 들어.. 시험기간에 피시방가자거나? 술먹으러가자거나?&lt;br&gt;
+&quot;너 가면 나도 간다&quot;를 서로 주고 받는 ...&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 300px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7323be423dcb292b098c225c44327535/5a46d/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVR42gGfAmD9AGhPO5JuV5t3W869pO3r3Onn3f7+/vv7/P7//+/u6/j39P////f4+tDEtcivkMOpk6KSgZeNfp+SgaWXhACsgWKWclqYiHjPw5bBtYi3qY7w6d3p3M3o2cbg0b3h0Lfjza/bwaHZvJnZvJLWuJXStJLZto7lwZTRtI4AV0xHm3tnyrCZ1sOtzrig0reY1biW1rmW1raT07SSzrKR0LOT0baV0bSUxaeJu6CCppB7rpqGuKSKp5Z+AD1DTVtPSbmTd+3KqOXYx+Xe0eni2OLZ0OTZ0dvTydbOw97VzN3WzMS4qp6Kb6CLcZyQfa+rn62pnJ+djwBJVGFSVmNoVEzpw6P57Nrm5Nzo5dvj39Xg29Hb1svSyb/TysHQy7/Atqa0o4uyoImroY63sqSxrJ+oqJkAioCK4MvD8uPK++G+89i6083C0s7Dy8a7x8O4ycS5ycW6x8O4wb2ysqyft7ChubGko5qMsa2iqaWZqKeaAPPIs/vRsvzWs/7SsPfIps/IuMXFucfFuMTDt729sMXDtcvHuczIvL+7rrqypLWvoaCbjZ2ZjZ6cj6GilQC/l3zfq47isJTuvJzvxaWTin50dm98fXNycmmBf3h7enhvbW+Bf3twbW+KiYm4tK3Hw7nKyL+rraGanZAAJCAfemBTyJp906OEoZOJbW1wWVhbdHR0eXh+enlUZmQhg4QVR0YNfnwTeHkJp6dX3NvN39/Z39/ZrrCmABIUFBkaHEs9N5qBbrGvq5+hnpOTkLCwra+vtp+fb5aWILOyK4mGPKSlM66sMsbFW/Dw4q6vo6+vpJmckAAaGhkmIyIrJidubmaTlYiFh3qGiHuChHeDhHmDhniGiHCKi26pp5CzsJHAvqPMyqvPzsGJiniAg3F4e22z0KehejIx2QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;네가 하면 나도&quot;
+        title=&quot;&quot;
+        src=&quot;/static/7323be423dcb292b098c225c44327535/5a46d/image.png&quot;
+        srcset=&quot;/static/7323be423dcb292b098c225c44327535/c26ae/image.png 158w,
+/static/7323be423dcb292b098c225c44327535/5a46d/image.png 300w&quot;
+        sizes=&quot;(max-width: 300px) 100vw, 300px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게.. 예를 들어 민수와 철수가 둘이서&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;철수 : &quot;민수 가면 나도 감&quot;&lt;/li&gt;
+&lt;li&gt;민수 : &quot;철수 가면 나도 감&quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이렇게 하면 둘이 서로가 서로의 행동을 기다리며 교착상태에 빠지는 셈인데&lt;br&gt;
+프로세스끼리도 이런 일이 생깁니다&lt;br&gt;
+&lt;strong&gt;데드락(DeadLock)&lt;/strong&gt; 이라는 것인데요&lt;br&gt;
+&lt;strong&gt;둘 이상&lt;/strong&gt;의 프로세스가 서로를 기다리며 &lt;strong&gt;BLOCK&lt;/strong&gt;상태에 빠지고, 그 &lt;strong&gt;BLOCK&lt;/strong&gt;을 푸는 &lt;strong&gt;열쇠(signal)&lt;/strong&gt; 를 또한 서로가 쥐고 있는 상태를 의미합니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b2557d6202d9996edd01340c3976d6a4/4f9e8/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 35.44303797468354%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABWklEQVR42o1Qu2oCURD1W0x+wMLCysrK3gRiJ2y8JCH2foc/YK+1IlgsiDaKzSIoCsqqiCC6+Fh3d/Zk5qrEJE0G5s6dxzn3zI2sVqvH0Wj0sVgs8uPxWAVBoBzHUVxXkk+nU10Tt21brddrdTqd1OFwUMPhUPcHg0F+Mpl8brfbaOR4PGb3+z2YlDabDRqNBnq9Hvr9PhgMBuJmy+US3W4XnU4H7XYbu90OLASMC6TPXM8Rji/8Iubzuc9DlEwmKZFIULVaJe79cN/3qVgsUiwWI8MwqF6vUyaTISbyhJC3eBLCLF9QqVQoHo+jUCiAiCCqmQD3Jg+7rgteHalUCul0GrlcTpRphefz+aJQhlqtll8ul6nZbGo1Yr8V3tdLpRLJRryZ5N8K+cheBZBpmrAs65Jo3F8Lw1DHWq2G2Wx2mw2uhFrhg+d5b+wGF17/64y7zwX7zl8S/QK4zd+xq6JHQwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;데드락 상황&quot;
+        title=&quot;&quot;
+        src=&quot;/static/b2557d6202d9996edd01340c3976d6a4/f058b/image-2.png&quot;
+        srcset=&quot;/static/b2557d6202d9996edd01340c3976d6a4/c26ae/image-2.png 158w,
+/static/b2557d6202d9996edd01340c3976d6a4/6bdcf/image-2.png 315w,
+/static/b2557d6202d9996edd01340c3976d6a4/f058b/image-2.png 630w,
+/static/b2557d6202d9996edd01340c3976d6a4/40601/image-2.png 945w,
+/static/b2557d6202d9996edd01340c3976d6a4/78612/image-2.png 1260w,
+/static/b2557d6202d9996edd01340c3976d6a4/4f9e8/image-2.png 2432w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이 데드락이 발생하는 경우를 잘 보아하니, 아래 &lt;strong&gt;4가지 조건을 모두 만족하는 경우&lt;/strong&gt; 데드락에 빠지더랍니다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mutual Exclusion&lt;/strong&gt; : &quot;열쇠&quot;같은 자원에 상호배제적으로 접근하도록 되어있습니다. (관련한 설명은 &lt;a href=&quot;https://sungpaks.github.io/mutual-exclusion-software-approach/&quot;&gt;전에 쓴 글&lt;/a&gt;을 참고해주세요)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hold-and-Wait&lt;/strong&gt; : 자원을 가진 채(Hold)로 다른 자원을 요청하여 기다립니다(Wait).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;No Preemption&lt;/strong&gt; : 자원을 강제로 뺏어가는 경우는 없습니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Circular Wait&lt;/strong&gt; : 자원을 가지고 있으면서, 요청하고, 요청하고, ... 가 순환적으로 연결됩니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이렇게 자원을 요청하거나 할당하는 양상을 &lt;strong&gt;Resource Allocation Graph&lt;/strong&gt;로 나타낼 수 있는데&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a44266041c37116a90dafb08f46fc83e/6029f/image-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 49.36708860759494%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABZklEQVR42oWSyU7DQAyG8/6vAgc4le3SjQMgIaRWRQkKSsjeLM2+52dsFAlKAyNZ42Q8v+35LGFiDcOAKIrgeR6SJDkdI+zBBRYWsHKAR+FLdGm/3yOOYxZwHAeHwwFBEEDXdciyDNM0UZYlJymKguP6vhd+ibnR4+q9xcU2xkoIS2EYwnVdFiHfMAzeR0FFUWBZFrIsQ9M0vJNgU9dIhb+0B8zUGmcvPpbmAOm/linZVMu9iLneOLhRMqxFy0+eqJAujjYKjf5Uou/ndVWyfb0ofld4LN627Q+B42RlD+QdkDVA0WG65a7rmDC9H73pqarp11KAuNWBOwNYExSiSiCINPmqqrKIbdsMZbfbMWXf95HnOcfSN1kgEq20EjMlx/mzh3tLQKFxIHJVVfFoEO00TXmny5qmcQI6o1Gh2CRJkQpQuRihuQnM3ntcvuZY/EWZFlVEpCnZFKDF9gOrtxCbAJAj4BPMZwBQL54G8gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Resource Allocation Graph 0&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a44266041c37116a90dafb08f46fc83e/f058b/image-3.png&quot;
+        srcset=&quot;/static/a44266041c37116a90dafb08f46fc83e/c26ae/image-3.png 158w,
+/static/a44266041c37116a90dafb08f46fc83e/6bdcf/image-3.png 315w,
+/static/a44266041c37116a90dafb08f46fc83e/f058b/image-3.png 630w,
+/static/a44266041c37116a90dafb08f46fc83e/6029f/image-3.png 906w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;
+Wait / Hold
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;프로세스가 자원을 요청할 때는, 리소스 Ra의 까만 점으로 바로 연결되지는 않습니다. 아직 요청이 받아들여지지 않았기 때문&lt;/li&gt;
+&lt;li&gt;프로세스의 요청을 받아들이고 할당(hold by)하는 경우, 리소스의 까만 점에서부터 프로세스로 화살표를 긋습니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9fe15c38c42eccfdee548d80caf64ac9/fcbaf/image-4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 49.36708860759494%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABZ0lEQVR42nVS2U7DMBDM//8CSIh/4aY8VKgIBChNSONcJa6buLmcwevGSaFlJMvHjsc73nW6rkPTtOi7FokE7piCv4VBjwlKKc1rzKCIK4DbqEde/+Y6nHMkSYpCcHha6PIhwiJTR4JSSsRxjDTNTOTqk+P8JoD/Xe25A9mxF+uqAi9rvPr60kaia1ucAmVaae6762P+5oJFiTnrB0UjSDbodSIStluB9XoN+g5LtHNRFMiyzMQIZVmafTsk4ARBoC0nY9qqn4zSued5hlzXNZbLJYQQY6Y07Hq1WoExBicMQ0RRNAW1oM0mz/NRkFz4vm8yH+0Td1iThhHsBwEqDtcChLbtDGG32x39IYmTRamt2mKRk9Hy+Jpum1wXZeEypKJCpcUO7VvQ453mRlzi6eUDoS7K4V87hyWntrm4Z3hOj9tmEtzPj6zB2XWAL16fbhtCqh3OYoWgwP+Cw+xueswSBf6nsX8AuGIIrQ8+3kUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Resource Allocation Graph 1&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9fe15c38c42eccfdee548d80caf64ac9/f058b/image-4.png&quot;
+        srcset=&quot;/static/9fe15c38c42eccfdee548d80caf64ac9/c26ae/image-4.png 158w,
+/static/9fe15c38c42eccfdee548d80caf64ac9/6bdcf/image-4.png 315w,
+/static/9fe15c38c42eccfdee548d80caf64ac9/f058b/image-4.png 630w,
+/static/9fe15c38c42eccfdee548d80caf64ac9/fcbaf/image-4.png 895w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;
+Circular Wait으로 데드락이 발생환 상황 / 데드락이 아닌 상황
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;그럼 두 프로세스 P1, P2가 자원 Ra, Rb에 접근하는 경우를 다음과 같이 생각해볼 수 있습니다&lt;br&gt;
+왼쪽의 경우 P1, P2 사이에 데드락이 발생한 것을 알 수 있습니다..&lt;br&gt;
+그러나 비슷하지만 오른쪽의 경우, 데드락이 발생한 것은 아닙니다. P1과 P2의 요청을 받아들일만한 재고가 남아있기 때문입니다&lt;/p&gt;
+&lt;h1 id=&quot;데드락-해결을-위한-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EB%93%9C%EB%9D%BD-%ED%95%B4%EA%B2%B0%EC%9D%84-%EC%9C%84%ED%95%9C-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;데드락 해결을 위한 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데드락 해결을 위한 방법&lt;/h1&gt;
+&lt;p&gt;그럼 데드락을 어떻게 해결할 수 있을지 알아봅시다?
+크게 세 가지 접근법이 있는데&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Prevent Deadlock&lt;/em&gt;&lt;/strong&gt; : 데드락을 &lt;strong&gt;예방&lt;/strong&gt;합시다. 이를 위해, &lt;strong&gt;자원 할당 시 규칙을 잘 만들고 이를 지키도록&lt;/strong&gt;합니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Avoid Deadlock&lt;/em&gt;&lt;/strong&gt; : 규칙을 따로 두고 지키는 것이 아닌, &lt;strong&gt;자원을 주려고 할 때 데드락 위험을 확인&lt;/strong&gt;하고 할당해주도록 합니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Detect Deadlock&lt;/em&gt;&lt;/strong&gt; : 별 규칙이나 확인 같은 절차 없이, 그냥 두고, 단 &lt;strong&gt;OS에게 수시로 확인하도록&lt;/strong&gt; 합니다. 초기 진압을 목적으로 합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;deadlock-prevention&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#deadlock-prevention&quot; aria-label=&quot;deadlock prevention permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Deadlock Prevention&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;데드락이 발생하지 않을 규칙을 만들어 예방&lt;/strong&gt;하는 것이 목적이라고 했습니다.&lt;br&gt;
+그럼 어떤 규칙을 만드는게 좋을까요?&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 224px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d0f0cf0f4a1e23192507056a401dcde4/80b2d/image-5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100.63291139240506%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEe0lEQVR42j2T21MTVxzH93/woTNOZ3ScPtuH9q0z9q21U2uHB4bO0BGxjLaikYQw5SKIcmmjAnJRoxMQAkiJgi13GC4iISExCZBskt2YZJPsLrvJhlz3ls2S9BRnOnPmPJ3PfH/z/X0OlMwI4CTSfIbPM4epcW338OP7h6kUL+ZzucLa6sYvFZUP2jRR+pDPFTKclGZz4M5w+awgQf/Dolz0+9AHNy+91DQe4JFisbhjsZ85feaTEydPnzj5R9v9QrF4jEmceJTlZU7IQwD7CLNigYnF1ge7pttrkT2rIBdJgr5Z+kP511+e/+LsnV+vJdIcwEAyK8hZPs8LMnSY4j6Gc6JMxFKGga6X6sqhnj+fPh3Yse1vGUZ01y6O367+q70OccMEGUuCGEFmeYkXcmBsEfCJjBAmo/1P9A2KGq2yvOlGpVql6OnV7r7dGFFVtZV+06+44nY4MDRMEUyGzXG5Ai8eQUw8QdG03+/3or7FpWUURSymTR8K63SD3R2ahZ62Tf0zjeq6Qdtn3TZjCBbByESKTWf4dJqDEOcuRYQjkRCGBRKJOEVRPC+AtgxTi881ncvjz23Wbceuze6weVwuFPG6Pe73tvdEJByjCSjogfFQAEHdsNs1P79kMLyeX1pwIejQ0NjwbRVs2yGiUYKI4CRJx6gwgccYhue5nCTFSAJyW0ywxeR1mO1bG5q62h+/u6As+16jvtVUdeleybkx3TMYdppNpn3zpsO4YttcCSBeWT4SBQHzuiCv3eyxAdiys7o43dNeq1BWV15uViparl5urSq/WaO2mowry29f9XevD7S+e9y59noKhn0+D+Jx7EBpTszyEjAkHPKvTI2/GR08oKJsvpjLF41Gs+J6TdudTpJiwIMMn0uluSiTpOnEARUHFJAkl85KglQ0L0y0VF7ovlWxv70uFYofPoS//erc55+eOnvqs4cP+4Be6awIliSKBWAEsOW/VSUzwDhZkI5mXzwaarrxT3udefYVaBsnmdH7HZMN15423HjR/UjOHwEfAQw05vg88EQAMEgGnuSOisbZiYmW32aaq//u1Vgde4kMB5s2R1RX5rua1yb1FEGkgFvHYgvHsdwxLIj5AsUkx16+bqn+WVdT3tuobG5umnzSGzBu6VsbeqtKhzsafa79SIhkElkWxPJ5TpCPx2bFAzqKE7gH9aJA312Lx+NaXFyY0w85tzZmDIbhR13jOq3FbIJd3gh+IOULwE3QEfiwEIkTJBkGGqCIBwsFgqEgSZKrq+t2myuZTWMEKcmyKIrxOJNKJQVBYFmWpqg4aJymIR/spCLY6KC+4qeK1pZ7KxtbfX1PGhpaA35ifmJkY3o86HREcJqJH7JZjmUF8oDC3C5wcB8C4L2A1/ni+dDF8yVlJWW377ZXXL7aoVa/G9XWlpdNDvSvappmtI/XVzZDGBnwRxAUCwJLHPaQ2w0Fvc6I3zM/M6dW1iuuK2rr69S/17/p6xy7p1QpVEazfW1MZ9V3780Z/O8t4SAWxik8gAVdTtzn+xfyDZ197Uz2AgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;규칙..&quot;
+        title=&quot;&quot;
+        src=&quot;/static/d0f0cf0f4a1e23192507056a401dcde4/80b2d/image-5.png&quot;
+        srcset=&quot;/static/d0f0cf0f4a1e23192507056a401dcde4/c26ae/image-5.png 158w,
+/static/d0f0cf0f4a1e23192507056a401dcde4/80b2d/image-5.png 224w&quot;
+        sizes=&quot;(max-width: 224px) 100vw, 224px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;
+규칙은 예외없이 지켜야 합니다
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;우리가 위에서, &lt;em&gt;데드락이 발생하는 4가지 조건&lt;/em&gt;을 언급했고,&lt;br&gt;
+이 4가지 조건이 모두 만족된다면 데드락이 발생한다고 했습니다&lt;br&gt;
+그렇다면.. 4가지 조건 중 하나라도 깰 수 있는 규칙을 만들면 되겠네요?&lt;br&gt;
+4가지 조건을 다시 살펴보며, 깰 수 있는 방법에 대해 생각해봅시다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mutual Exclusion&lt;/strong&gt; : 근데 이건 동시성 문제 해결을 위해 꼭 필요해서.. 이걸 깰 수는 없습니다 ㅜㅜ&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hold and Wait&lt;/strong&gt; : 프로세스가 자원을 Hold만 하거나, Wait만 하거나, &lt;strong&gt;둘 중 하나만&lt;/strong&gt; 하게 만들면 어떨까요?
+&lt;ul&gt;
+&lt;li&gt;그렇다면.. 실행 시작 전에 &lt;strong&gt;필요한 모든 자원을 할당(Hold)하고 시작&lt;/strong&gt;하면 wait은 없을 것 같습니다
+&lt;ul&gt;
+&lt;li&gt;그런데 이렇게 하려면, 자원이 총 얼마나 필요한지 알아야 하는데 : 이건 사실 컴파일하면서 알 수 있어서 어렵지 않습니다&lt;/li&gt;
+&lt;li&gt;그런데 모든 자원을 한꺼번에 Hold한다는 점이 문제입니다 : 언제 필요한지 모르는 자원을 시작부터 끝까지 점거하는 셈이고, 이건 굉장한 낭비입니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;No Preemption&lt;/strong&gt; : 프로세스가 자원을 요청했다가 &lt;strong&gt;Block&lt;/strong&gt;당하게 되면, &lt;strong&gt;자원을 강제로 뺏고 종료&lt;/strong&gt;시킨 뒤 다시 실행하면 어떨까요?
+&lt;ul&gt;
+&lt;li&gt;그런데 이렇게 하면 실행 시간을 예측할 수가 없고, 비용 또한 많이 들겠습니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Circular Wait&lt;/strong&gt; : 모든 자원에 &lt;strong&gt;정수 번호&lt;/strong&gt;를 붙이고, 자원 할당은 그 정수 번호 &lt;strong&gt;오름차순 순서로 할당&lt;/strong&gt;하게 하면 어떨까요?
+&lt;ul&gt;
+&lt;li&gt;만약 프로세스가 5번 다음 3번을 할당 받으려면, 3번을 먼저 할당받고 5번을 할당받게 합니다.&lt;/li&gt;
+&lt;li&gt;3번을 먼저 할당받는 점이 조금의 낭비가 발생하는 지점이지만, 다른 방법들보다는 &lt;strong&gt;가장 현실적&lt;/strong&gt;인 방법입니다 그나마..&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;그런데 &lt;strong&gt;Circular Wait&lt;/strong&gt;을 깨는 조건으로 말한 &lt;strong&gt;정수 번호 순으로 할당&lt;/strong&gt;하는 방법이 실제로 어떻게 데드락 발생을 막을 수 있는지 어떻게 증명할 수 있을까요?&lt;br&gt;
+&quot;어떤 방법이 데드락 발생을 막는다&quot;? 를 증명하려면 간단히 &quot;그 방법을 적용해도 데드락이 발생한다&quot;를 가정하고 이것이 모순임을 증명해야 합니다&lt;br&gt;
+&lt;a href=&quot;https://www.cs.cornell.edu/courses/cs4410/2017su/lectures/lec09-deadlock.html&quot;&gt;코넬대학교 자료&lt;/a&gt;를 보면 다음과 같이 써있는데&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;That means that when traversing any path in the resource allocation graph, the numbers must increase (because if resource A is held by process P which is trying to acquire B, B must be bigger than A). This means that there can&apos;t be loops, because in a loop, the number must eventually &lt;strong&gt;go down&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;요약하자면.. 순환이 발생하려면 결국은 &lt;code class=&quot;language-text&quot;&gt;1-&gt;2-&gt;3-&gt;1&lt;/code&gt; 이런 식의 &lt;em&gt;go down&lt;/em&gt;이 발생해야 &quot;순환&quot;이 성립한다는 내용입니다&lt;br&gt;
+생각해보니 당연하죠? 그것이 &quot;순환&quot;이니까&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 225px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/15f05532cdf1a2606c476f7256f4a8e0/3684f/image-6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEqklEQVR42h2S+09TBxTHb1tKoe3ti5Y+6AvaAoIidIv4GOBjgrFANSoPqxPEat8tFAXb3ntLaUtLS29f0GLftA4UHcZlMyT+ss1ly7Ys0cX4y5bsl8Vl+wvMfnAXk5Pz2+d7vud8DzA6DV2fWzBDgeVUEc2ULItRqy+OJIqpyhfRwqY3ltLNzE7NOCA0E87eT1e2g2sFMxw0ImEkeg8Ytbk+s8N6lz+wlsdg8yJq8sdd0Wz+8dc2B8Kq4+BxOFYd+0jvCTvszT/8MrCaM0EBM7KyEMsAYzbXNTukd/mWU4VoZsPiRfW+qDtZWlrL1fN4AADQ6fQaEomAx7FYdd6VxMq9ss7pNyKhhXgWGJ+GJmYRPeRfThdj2YrFhxr9Md/6puriZWIVngrSQBqdzmCCIBUTUqnPx4tbOqdvD45lgdGZPVjn8AaxydmyaTFiCazeCafb5PLkrXHr0OnuJjG9pgaHx2Nw97FeNL9pcAXNSNgTxWxPw5O33bq7GFxEcxtGT8TiT7oSGxeHhn8KWt/kQ7sheF2vaeGxqVWEqQvnl9IlIxQyuyPeeA64bIP2YKcvsFaKZMvYwSzemCddcS+h8KWz6FX1nHrgZWZ5Y1ZrONr5PBrwpjdMH2A3tvOIxTl91x1a8IXS5URh0+SJWrxxV6IYKz6YP3/mm5D7yZz5hxD01dz1nVntVqG0lCqa4JABDrv3orJCU+b5hH1mazWZXcvoPFjOCShWSN5/shVAvg06f457XyzZnyO3kEsDvkgyjF3bEdBDIRhdB0asznHLfMSo/T62lEbjezA2Gc0lyzuJ1LrnQn9ee6VkHk9Nna1Yxh7mctiqJmRF71r+AFucGptj8caVXwur2+XyDVfI5kt41u6vf/40kt+0TE7Bg59EJ1TxkRO/7eQfb+807zs0OQNjj7iQyAEjhvlRy11If/3HfKKYTmuRiAEKn1KN9Z5UNzcr+fzmyWGVd+joU7/jn7d/azQ6OrVBJus83Ku6aYeBMTM0ZnUtWm898tjjqexNJHykb5hFEzJoDWyWGKRwz6lHs847L549++7FL/uau5skXVLxfhGvVdGoBPrOaUxwsBIP7WQSaK7S3TPI5yhk0i4Br0UqbsMkhodG/vj9z7d//RtdWZdLuzqau2SSg/JGpUzcCRzuVx8fUO/u7j7YfqTs6pOKOrjspkZRR6P4oFR0oLqKYTDY3r9//+7df2MjE8c+7pFL2kX8tiZxJ5etAAanLDQGp+fYydaWNkotW8Bt2es8haLpI0yeQRMM9A9i8OvXbxQypUS4v76uUSJsFwnaWAwJMKC5yWRxsb/F4fC1tSCFzCLgq+uYDTJpJzZcKGilUlivXr2MoWkOU36gvZvLkfK5CgaNTwO5wJmrRiabiwMAAqEKKxyOgAmRSSDmTdSwXyRoJ9ewnA7o3JCGQRUeUvYJ+fIaEqOaSKFSOIBqwqzoUOIAHAFPwKqWAnb3fcrm8EAyW1DfSiMLjveeKZUqmFsmTQiSedVVIKkaxOOJWAdOj2tPjV47feGy3u7Szrgu6m5r4RC3QUwAiGymhFpT33O0H42skoggjcLDkiMRqXg8ZhBPrCL/DyNotoKV2pA2AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;신지로&quot;
+        title=&quot;&quot;
+        src=&quot;/static/15f05532cdf1a2606c476f7256f4a8e0/3684f/image-6.png&quot;
+        srcset=&quot;/static/15f05532cdf1a2606c476f7256f4a8e0/c26ae/image-6.png 158w,
+/static/15f05532cdf1a2606c476f7256f4a8e0/3684f/image-6.png 225w&quot;
+        sizes=&quot;(max-width: 225px) 100vw, 225px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;deadlock-avoidance&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#deadlock-avoidance&quot; aria-label=&quot;deadlock avoidance permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Deadlock Avoidance&lt;/h2&gt;
+&lt;p&gt;이번에는 따로 규칙을 두지는 않고, 자원 할당 전에 &lt;strong&gt;데드락 가능성을 판단&lt;/strong&gt;하고 수행하도록 해봅시다.&lt;br&gt;
+자원 할당을 해주면 데드락이 발생할 것 같을 때, 프로세스의 요청을 거절하고 block상태로 대기하도록 하는 방법입니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 177px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/afeed013f1039c701e78172ba1a0ea18/6e666/image-7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 160.75949367088606%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAIAAACdAM/hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEd0lEQVR42n2V5UtFWRTF7x8kgl8UDBBFFBHEBLtRsbuxE2xELCxMbMVAsRW7sMVux+4aZ36+6+hTZ+bAO5x731l7r712XOGv/15vb29//rOk37++vs7Ozi4tLQm/Mb9vs66urkZGRsrLy0NCQjQ0NJSVlWtra4X/8fzw8LC8vNzW1hYVFaWnp6epqZmcnFxSUhITE2NrazsxMSH8djs9PV1fX5+YmOjg4GBsbGxiYmJubp6bm3t+fk4gLy8v7Lu7uxsbG4J0hOxHR0ew0tbWNjAwUFRUlJOTU1dXLygouL6+npubW11d3dra4s4fkiVI+2QfGxuDkqysLCR9fX1lZGTc3NwAbG5uqqio+Pv7Q3tmZuby8vL4+PgnuLm52cvLC28uLi44V1JSqqmpeX5+xk9GRkZ2dnZhYSGc0e/k5ORbzMRDbOiJt8DAQCcnJ0NDw4iIiLKyssrKSqQGnJ6eXlxc3NjYiASCdMCYDw0NRUyQjo6OPj4+MDc1NeVlcHCwmpqamZmZtbU1Z2SHuSDNGZ2DgoLAeHp62tnZsUdHR7u7uw8MDKyvr8O/v79/cHBweHi4tbWVUhF+BGxjY+Ph4QFh0uPt7Q1nWBAnaot5AsPNw8PDx8fHbzFTDKhCYgiV9Ir+Ed/Pz48gASDVyspKaWkpb56enoTPgE9PTzMzMzs6OqysrPT19ZFaR0cnLCwsJSWFQGJjY2EBI2dnZ8KOi4sDJXxynp+fxxUKaWlp6erqkqSEhIT9/X12FAJmb29fV1cHBbjk5+cD+fI8NTWFW0RWUFBQVVVFKmp7dHSUqyCRF9pcI37ukNEPsLiqqqrIZGpqKvXMWSwGwBQ5Z7Sk4GFOFYSHh/P4DhbdYrW7uxtWZJIKoWOQmpjJXFZWFnhSQM6wa2RklJSURMK+wNQaYRQVFaFTfHw8tioqKtwli6vt7e3V1dXslpaW8vLytA2MvsD0Q0BAAE2LYVrn5ubm7u6uq6sLcz09Pfgh29Q83QLnnJwcJslHzOQdcENDAzmIjIzs6+ujJMBDHoXRBiuE7erqyiNnenNoaOgDfHZ2RgEiNcwXFxeRjUa/vb2lnra3tyG8sLBALuCMXXRBsw/a/CYnJ1ESemSVumHuwALP+OeRuAjh4uIC8kREzaHlF+2mpqbOzk7+ozHwyaCDG2Ccs9O6HADv7OxQgiQFOvTjOxhuZBUy9CqJ4UA9MiXu7+9FvGji4OCAcLArdq5YMAJvEZDhgtpFknUvWdeSJeJx3tvbC5JCxidWwL+DkZSShiezAm2oMLRBfwCAscJBnHtY4T1WLCwsePkOTktLY7KhFvfoeMhTGLCisHFLq9H6a2trdC+yUUviMOD8DoYw9UjdU0BcZdZBARP4AcCgJHlYERWikxnmLS0tH2CxJWFI6sbHx2kG7kGS5MOWDxKK8i87Z3RhGDItoPlVntIDGJ/gYUh4jGsURR52xiA0qXkyIg6jb3P7hyEWHjAklmBeXh4fN9JBXOJN4V+/rJ/rBynGLRWyt7cnDp+/Ae1/rEYQ19PNAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;거절한다.&quot;
+        title=&quot;&quot;
+        src=&quot;/static/afeed013f1039c701e78172ba1a0ea18/6e666/image-7.png&quot;
+        srcset=&quot;/static/afeed013f1039c701e78172ba1a0ea18/c26ae/image-7.png 158w,
+/static/afeed013f1039c701e78172ba1a0ea18/6e666/image-7.png 177w&quot;
+        sizes=&quot;(max-width: 177px) 100vw, 177px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그런데 그러려면 &lt;strong&gt;어떤 프로세스의 요청 상한선&lt;/strong&gt;을 기준으로 판단하게 되고&lt;br&gt;
+이는 최대치를 가정하고 작업하는 것이므로, &lt;strong&gt;불필요한 낭비를 하는 경향&lt;/strong&gt;이 있을 수 밖에 없긴 합니다&lt;br&gt;
+어떤 사람이 3시간 동안 과제를 할건데, 중간에 프린트를 해야한다고 해서 3시간동안 프린트기를 쭉 점거하고 있으면 매우 낭비겠죠?&lt;/p&gt;
+&lt;p&gt;일단 이 Deadlock Avoidance에는 두 가지 종류가 있습니다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Process Initiation Denial&lt;/strong&gt; : 프로세스를 시작할 때, 이 프로세스의 요구치가 데드락을 야기할 것 같으면, 프로세스의 시작을 거부합니다.
+&lt;ul&gt;
+&lt;li&gt;이 경우, 가장 최악의 경우를 상정하는 Not Optimal한 방법입니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Resource Allocation Denial&lt;/strong&gt; : 프로세스가 자원 할당을 요청하면, 이를 받아들인다면 데드락이 발생할 것 같을 경우, 자원 할당 요청을 거부합니다.
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;banker&apos;s algorithm&lt;/strong&gt;이라고도 합니다&lt;/li&gt;
+&lt;li&gt;먼저 시스템이 고정된 양의 자원을 가진다고 가정하고, 현재 상태에서 자원 요청을 승인하면 &lt;strong&gt;safe&lt;/strong&gt;한지, 아닌지, 를 확인합니다&lt;/li&gt;
+&lt;li&gt;이 &lt;strong&gt;safe&lt;/strong&gt;상태란, 데드락에 빠지지 않는 sequence가 단 하나라도 존재하는 경우입니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;자원 할당 상태를 행렬이나 벡터 등으로 나타내어 safe상태를 확인해볼 수 있습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6f049e1b6f058f885ad749cf22ddd666/bce72/image-8.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 37.34177215189873%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAAsTAAALEwEAmpwYAAABRUlEQVR42mWQXU/CMBSG9/9NNCQaNVFDNPHCWy5MDIJAAAdBIWqUDxHGxsa6deva7nudZ2C4sTk5SZ+8bZ8eSQhBeWgTjj2OHBpEcZ7nAAn1MUAC0IuTDGCaZY7HbZfhbYetFHD6+GFeNLWb7hr6aOlCjjFeeTUuWwD189piafkAESZ3feOqpZbb2nVnbZJAItiqDK2jJ+usgw/rpjwnkLNsfNszSw3rtI0PqsbMDACudFSWcaluHjfRSQvpbiDFcbRArPGmVAfT57GOWaGdpslYxdXBrDmadz9VFqYA/SD80ll/hnqTzbvq8TCW8r8loKIk0SxvjblmM/h/oeDSDaaG4ysI0sk+uTsjbaeTZ8VEcodFteGi9vL90J+OfhCQsebeyxNQADXkFfKQhPyu9i/vDTIhQFIwShVlRVy3IMXdIv+3fgEgcoAtuTJiyAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;initial state&quot;
+        title=&quot;&quot;
+        src=&quot;/static/6f049e1b6f058f885ad749cf22ddd666/f058b/image-8.png&quot;
+        srcset=&quot;/static/6f049e1b6f058f885ad749cf22ddd666/c26ae/image-8.png 158w,
+/static/6f049e1b6f058f885ad749cf22ddd666/6bdcf/image-8.png 315w,
+/static/6f049e1b6f058f885ad749cf22ddd666/f058b/image-8.png 630w,
+/static/6f049e1b6f058f885ad749cf22ddd666/bce72/image-8.png 633w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;프로세스 P1,P2,P3,P4, 자원 R1,R2,R3에 대해 이러한 상태가 있다고 생각해봅시다.&lt;br&gt;
+각 matrix와 vector들은&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;R&lt;/strong&gt; (Resource Vector) : 시스템의 전체 자원 수(R1,R2,R3에 대한)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;V&lt;/strong&gt; (Available Vector): 시스템에 현재 남아 있는 자원 수&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;C&lt;/strong&gt; (Claim Matrix) : 각 프로세스들의 최대 자원 요구치
+&lt;ul&gt;
+&lt;li&gt;P1은 &lt;code class=&quot;language-text&quot;&gt;[3,3,2]&lt;/code&gt; : 실행 시작부터 끝까지, R1을 3개, R2를 3개, R3를 2개 요구할 것임&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;A&lt;/strong&gt; (Allocation Matrix) : 각 프로세스가 현재 가지고 있는 자원의 양
+&lt;ul&gt;
+&lt;li&gt;P1은 &lt;code class=&quot;language-text&quot;&gt;[1,0,0]&lt;/code&gt; : 현재 R1을 1개, 나머지는 0개 가지고 있다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;C-A&lt;/strong&gt; : (전체)-(현재) 자원 양이므로, 각 프로세스가 앞으로 요구할 자원의 양.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이 각 matrix와 vector들의 의미를 정확히 알아둔 다음, 두 가지 Deadlock Avoidance 기법으로 데드락 가능성을 확인해봅시다&lt;/p&gt;
+&lt;h3 id=&quot;process-initation-denial&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#process-initation-denial&quot; aria-label=&quot;process initation denial permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Process Initation Denial&lt;/h3&gt;
+&lt;p&gt;P1, P2, P3, P4가 모두 시작을 대기하고 있고, 프로세스 번호 오름차순 순서로 확인 후 시작한다고 생각해봅시다.&lt;br&gt;
+그럼 &lt;strong&gt;R&lt;/strong&gt; == &lt;strong&gt;V&lt;/strong&gt;인 상태로 시작하므로, &lt;code class=&quot;language-text&quot;&gt;V [9, 3, 6]&lt;/code&gt;에서 시작하고, Process Initiation Denial 방법은 &lt;strong&gt;C&lt;/strong&gt;를 잘 살피면 됩니다&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;P1의 &lt;strong&gt;C&lt;/strong&gt;값은 : &lt;code class=&quot;language-text&quot;&gt;[3,2,2]&lt;/code&gt;이므로, &lt;code class=&quot;language-text&quot;&gt;V [9,3,6]&lt;/code&gt; 이내입니다. 할당해주고 나면, &lt;code class=&quot;language-text&quot;&gt;V [6,1,4]&lt;/code&gt;가 됩니다.&lt;/li&gt;
+&lt;li&gt;P2의 &lt;strong&gt;C&lt;/strong&gt;값은 : &lt;code class=&quot;language-text&quot;&gt;[6,1,3]&lt;/code&gt;이므로, &lt;code class=&quot;language-text&quot;&gt;V [6,1,4]&lt;/code&gt; 이내입니다. 할당해주고 나면, &lt;code class=&quot;language-text&quot;&gt;V [0,0,1]&lt;/code&gt;이 됩니다.&lt;/li&gt;
+&lt;li&gt;P3의 &lt;strong&gt;C&lt;/strong&gt;값은, &lt;code class=&quot;language-text&quot;&gt;[3,1,4]&lt;/code&gt;인데, &lt;code class=&quot;language-text&quot;&gt;V [0,0,1]&lt;/code&gt;을 초과하므로, 시작할 수 없습니다. (거부)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이렇게, 자원 요구의 최대치를 기준으로 계산합니다.&lt;br&gt;
+그러나 모든 자원을 한 번에 사용하는 것이 아니므로, 가장 최악의 경우를 상정한 Not Optimal 방법입니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/723213363d1fbc8827b1ccbd7e5cc6ec/e85cb/image-9.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 37.9746835443038%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAABqElEQVR42gXBy5aTMAAAUD5Dj+c47bQC7VCeAUJICIQQXim0Bfoae+pCz8y4cePGD9CFW3/Ye5UHO2/y6udl7Hhhp/snLPWo+TFdf9/Oz2VhB3RDe9B8ttMRytvSxu8Xhm6hnuUijhXVLfKIHSinPg4TqcWdX15qOb7K6tf91MqOiV0sJpufbHFWTbRUvU9PMAYImL6iehVBZYZSx4ZrCz5Y1IM8SbKXcf923EVRIoqaF7XYnhw+aU6q6mDtUQIT34WKGtZLJ1sY0aMRhrSOqHA81JXl/Thc99taiL2Up117H7sv91vRDh7iqkvcgCSYKZfjNee162NIWF3WKYkbIaatHNqmL4upqbY8DwBMMB3b8tw1//7+efv6/dswxJAqRYxrRrtSSFGwhMyXOsb02LdlxoammmTNcWwH6QqwpWb2XFybrmFVGKQblyjvZmvTQUnCCc7SrNTN0HTRqW+fD/310F06WRDikiZiu4+PxoeFNdO8xSqYq2BlRMpc82aaq1vRykImSFQj1MwQQoLiDEIc+pHvxxbt14DNFpvZCmhmZNkIALzeoP9IwnbqNnNcJAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;끝나버렸다&quot;
+        title=&quot;&quot;
+        src=&quot;/static/723213363d1fbc8827b1ccbd7e5cc6ec/e85cb/image-9.png&quot;
+        srcset=&quot;/static/723213363d1fbc8827b1ccbd7e5cc6ec/c26ae/image-9.png 158w,
+/static/723213363d1fbc8827b1ccbd7e5cc6ec/6bdcf/image-9.png 315w,
+/static/723213363d1fbc8827b1ccbd7e5cc6ec/e85cb/image-9.png 480w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;process-allocation-denial&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#process-allocation-denial&quot; aria-label=&quot;process allocation denial permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Process Allocation Denial&lt;/h3&gt;
+&lt;p&gt;프로세스가 자원 할당을 요청하면, 그 요청을 받아들일 경우를 가정하고 진행해봅니다.&lt;br&gt;
+데드락에 빠지지 않고 끝날 수 있는 실행 순서가 단 하나라도 존재하면, &lt;strong&gt;safe&lt;/strong&gt;상태인 것으로 간주하고 요청을 받아들입니다.&lt;br&gt;
+그러나 어떤 경우에도 데드락에 빠진다면, &lt;strong&gt;unsafe&lt;/strong&gt;상태로 간주하고 요청을 거절합니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Banker&apos;s Algorithm&lt;/strong&gt;이라고도 하는 이 방법은, 프로세스를 &lt;strong&gt;하나씩 종료&lt;/strong&gt;시켜보며 safe/unsafe를 판단합니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6f049e1b6f058f885ad749cf22ddd666/bce72/image-8.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 37.34177215189873%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAAsTAAALEwEAmpwYAAABRUlEQVR42mWQXU/CMBSG9/9NNCQaNVFDNPHCWy5MDIJAAAdBIWqUDxHGxsa6deva7nudZ2C4sTk5SZ+8bZ8eSQhBeWgTjj2OHBpEcZ7nAAn1MUAC0IuTDGCaZY7HbZfhbYetFHD6+GFeNLWb7hr6aOlCjjFeeTUuWwD189piafkAESZ3feOqpZbb2nVnbZJAItiqDK2jJ+usgw/rpjwnkLNsfNszSw3rtI0PqsbMDACudFSWcaluHjfRSQvpbiDFcbRArPGmVAfT57GOWaGdpslYxdXBrDmadz9VFqYA/SD80ll/hnqTzbvq8TCW8r8loKIk0SxvjblmM/h/oeDSDaaG4ysI0sk+uTsjbaeTZ8VEcodFteGi9vL90J+OfhCQsebeyxNQADXkFfKQhPyu9i/vDTIhQFIwShVlRVy3IMXdIv+3fgEgcoAtuTJiyAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;initial state..&quot;
+        title=&quot;&quot;
+        src=&quot;/static/6f049e1b6f058f885ad749cf22ddd666/f058b/image-8.png&quot;
+        srcset=&quot;/static/6f049e1b6f058f885ad749cf22ddd666/c26ae/image-8.png 158w,
+/static/6f049e1b6f058f885ad749cf22ddd666/6bdcf/image-8.png 315w,
+/static/6f049e1b6f058f885ad749cf22ddd666/f058b/image-8.png 630w,
+/static/6f049e1b6f058f885ad749cf22ddd666/bce72/image-8.png 633w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;아까 위에서 봤던 상태도를 다시 가져와봤습니다&lt;br&gt;
+먼저 이 상태가 safe인지 확인해봅시다.&lt;br&gt;
+&lt;strong&gt;C-A&lt;/strong&gt; matrix (앞으로 더 요구할 자원 양)에 주목해야 합니다&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;V [0,1,1]&lt;/code&gt;인 현 상태에서, &lt;strong&gt;C-A&lt;/strong&gt;를 보아하니, 지금의 자원 내에서 종료 가능한 프로세스는 P2밖에 없습니다.&lt;/li&gt;
+&lt;li&gt;P2를 종료하면, P2가 가지고 있던 자원의 양(&lt;strong&gt;A&lt;/strong&gt; 행렬 중 P2)이 모두 반납되어, &lt;code class=&quot;language-text&quot;&gt;V [6 2 3]&lt;/code&gt;으로 늘어납니다.&lt;/li&gt;
+&lt;li&gt;Available Vector &lt;strong&gt;V&lt;/strong&gt;가 매우 풍족해졌으므로, &lt;strong&gt;C-A&lt;/strong&gt;를 보면 남은 P1, P3, P4 뭐든 종료할 수 있습니다.&lt;/li&gt;
+&lt;li&gt;이럴 때는 번호가 작은 P1을 종료합니다. 우리가 반복문 코드 짤 때는 응당 &lt;code class=&quot;language-text&quot;&gt;i++&lt;/code&gt;처럼 짜기 마련이죠&lt;/li&gt;
+&lt;li&gt;이제 P1을 종료하면 &lt;code class=&quot;language-text&quot;&gt;V [7,2,3]&lt;/code&gt;이 됩니다.&lt;/li&gt;
+&lt;li&gt;이제 P3종료, 또 P4 종료가 가능하므로, &lt;strong&gt;safe&lt;/strong&gt;상태임을 알 수 있습니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이제 아래 (a)상태에서, &quot;P1이 &lt;code class=&quot;language-text&quot;&gt;[1, 0, 1]&lt;/code&gt;의 자원을 요청&quot;하여, 이를 받아준 경우인 (b)를 생각해봅시다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 511px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f1aa48ac54f017ca6f52891ff2b4c390/92e00/image-10.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 79.74683544303798%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsTAAALEwEAmpwYAAACbklEQVR42nWS70/iMBjH9/+/PDWBi3fR974wag6MCEaGogY9hbGBeqDg2Np17druF7hxzzZINN41XdPn2+/Tds+nSpqmTASISkwlokKG8XK5BNGTIWIgCljifpSLifAj8GAGooAsJZC82nPLKtq5RKVzu/3sgS8MZF0npSbavUTlJjozKIhx6LeGFEJwfm+iao8o3GOHXbbVYj+v+abK1CcOPsnZcT8Xb/jWhVczsh3hmLMB3VDpdtvdVF3IUuIo7Iz5fsc66Jj7t7YxC7JDouhu7O1dm4d31t6N+fs123EeR7opKxqrdvGvnnv7wpVl/jdxFMBVYTlN3qElyftiPo/DIA78UHKIQIZelAPWkiSBuZLHWYdGRHTStRp9VOvZMC7e0xGSNQ3X++ikZ3dGbuFM1yn5yfl+METz5OnNfZwS4wWNLJpAzYN4MHEGr3g4dTCP1uZsWJ38zwa1QLbNKIFf+J8HklPi+SYRM8LfHM5kCGqSJg7z37A3xWyCuSsKEeBHpsNnRICf8ECRwqtotNxydtqkpDrtPzynIk51CuHuFSm1nMYgQxX5svVIyxfuTtsBf1VjivDoAXBWgbO30aTNFWfvWKOA/ceVB7RPPnD+1qTbl3Tj3D14oBnn+wmv3FvH92blwX5GK87diXd0a0Lxj+5m2rTgHA8tWR/Qeh+f6uRhuuKclQc2hhyAuVgssgGgA2Rf+JxBUIhrznFRRaWo+gfOdkN3TjV8puMV5z5pGE6thzojun4QecpnVGm8SEYzdzhB+ngGE3hUnh8Zr7YxtoYTTET8FdWnBreiLoHOqIsxdjAm8NmWFPwr578vAHC2n1z/kwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;할당해주면..&quot;
+        title=&quot;&quot;
+        src=&quot;/static/f1aa48ac54f017ca6f52891ff2b4c390/92e00/image-10.png&quot;
+        srcset=&quot;/static/f1aa48ac54f017ca6f52891ff2b4c390/c26ae/image-10.png 158w,
+/static/f1aa48ac54f017ca6f52891ff2b4c390/6bdcf/image-10.png 315w,
+/static/f1aa48ac54f017ca6f52891ff2b4c390/92e00/image-10.png 511w&quot;
+        sizes=&quot;(max-width: 511px) 100vw, 511px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이 경우 현재 &lt;code class=&quot;language-text&quot;&gt;V [0, 1, 1]&lt;/code&gt; 내에서 감당 가능한 &lt;strong&gt;C-A&lt;/strong&gt; 양을 갖는 프로세스가 단 하나도 없으므로, 자원을 더 이상 할당해줄 수 없습니다&lt;br&gt;
+즉 &lt;strong&gt;unsafe&lt;/strong&gt;한 상태가 되어버렸습니다..&lt;br&gt;
+따라서 P1의 요구를 거절하고, P1의 요청을 받아들여도 괜찮을 때까지 block시킵니다.&lt;/p&gt;
+&lt;p&gt;그런데 다만, safe한 순서를 발견했다고 해서 그 순서를 따라가는 것이 아닙니다&lt;br&gt;
+그저 &quot;가능한 세계선이 존재한다&quot; 뿐이죠&lt;br&gt;
+따라서 매 할당마다 unsafe/safe 여부를 확인해야만 합니다&lt;/p&gt;
+&lt;p&gt;아무튼, 이 과정을 코드 로직으로 나타내보면 아래와 같이 나타내볼 수 있겠습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 184px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/78f50760d98a50e1691d03ab3b7d064b/5a64f/image-11.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 94.30379746835443%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAIAAAAf7rriAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEY0lEQVR42hWT11MbVxTG99/IS17ynMlMHCaTZIYJcQg2GAy2QQSDMYhmMEGA6SBEjFiqCqigslqhtiCQZAkwMkW2AIdiejfNdIHK7moXgeGFXO795rzc85vznXPmQkKJQKqUtCNSJSpTaxCdocPYg1ltpoF3vUMjdseYwzE9Mbe5tnd8eHzmdnm8Zz7cg+Men/fM44akCrEClaE6lRbTYEa9xdrTbers7NRabebePsv84szq5sbG/u6pz+shSC9JkvQ5dQ5E+2kKQlC5Vq8G1QDWa7fZB/u0OlSNKgz6jm6jwfFh8Mh15MV9IJU8DwDy9l4EgOjAOYQZDWabqd9uHXDYP0w4eyxGnQ41dun0OjXgTeaurZ3PIO82+yJAUBTu9xN+CqcoD0lAtqG3duewY3L0v/np3YMvYx9H+bx6RNkul4kBr9er19aXApcXgCf9pJfAgXkPTrhw3OXzQeOzU5+WF5a2Nr4cHdA0vbq2yK2rYrEyG+prDHrUYFBpNLKVtUWS8oMhAZjw+0mKJvw07qegw5Njl/sMRLfXc3h8BOYkaee9fJmam5uanPxYIODCcNX4xPvAZQDwoHPQMx0A5ytFByDCT+IkceJyHZ8c2XpNhcW5PF5dWRmLW1te/7pUwPt3etq5d7B9efUVOA9cBIBImvaS/kO3GwJmTk5dewf7M7MzJjPGE8AcTmlJSW5FeV5LY3U1O99s1q1uLFxdX11eX4E5nXm9px6PGyeAoJXtzwtryxub64PD77q6tG2i5rLygphHYUnPHpeUZHNqCnp7MUFrvdNp39pZ2zncJ4Drq2uCOr+FJ5bmNg92FxZnjd0Y2HBF5auikryg33789rtvniY+am7iSNtbqjhF3T0qrUY88v7t8vrc3Oq8jwJrP4cOXSd7B3syubC0glULs5npSa9rq/IKXvwaHPTDz9+HPfgjPz8TUbUae1CrVT84ZElkxv0UGhSX/vTj9CS0sDz3nMlAEKFcwZeAItWFbE5RY1NNLVzJzEpiZiTIZC0ajVRvkI0Mv1GgbXd+v/OqupAv46m1KKTWqlLTGRqNRCxpslgxrEupQAQt/FqegAuisBUGTwZMYTJpHA5beWV+yP1ga1/35JRzY3MFmvo0MTzUr9XK20T1fH6DsVun0yvF4iaRqBFEpbINw1RYJ6rTgw+neM5MiIkNVyiF/f3m5eV5sKrTsdFhFdIml/NSmYmVVcUCYQMoKBI1oGoxgohEomawgjZxMxeujHkSHhYRIpY0Y52qoSErtLu3PTBg4Tew5dKGuPgoRnx0UVEuaLu+kQ3E5bK5dWwY5lSxi7OzU8Mj7mZkp3DhCrmSL5PC0MrS7LhzUCnjoYiQkRB1LzyEmZaYkfmMVZDFys/KzmHmsbJe5KQmp8Qz/o4OufuLobPD/MbIKkhrhIsgi7EDaedxyv5phCty8lJC7wUzEmIYjOjYuKgnsZFRD8OiY+5HRP354OFfQJHRoX19lpubmw6NLC058n9fkfJjSsBwxQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;띵킹&quot;
+        title=&quot;&quot;
+        src=&quot;/static/78f50760d98a50e1691d03ab3b7d064b/5a64f/image-11.png&quot;
+        srcset=&quot;/static/78f50760d98a50e1691d03ab3b7d064b/c26ae/image-11.png 158w,
+/static/78f50760d98a50e1691d03ab3b7d064b/5a64f/image-11.png 184w&quot;
+        sizes=&quot;(max-width: 184px) 100vw, 184px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;일단 아래와 같이 각 행렬과 벡터들을 정의하고&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;state&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//m개 자원, n개 프로세스&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; resource&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;m&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//시스템의 전체 자원의 양인 리소스 벡터&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; available&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;m&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//시스템의 현재 가능한 자원의 양인 avilable 벡터&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; claim&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;m&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//프로세서가 요구하는 자원 최대치인 claim matrix&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; alloc&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;m&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//프로세서가 현재 할당받은 자원의 양인 alloc matrix&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;resource allocation algorithm을 아래와 같이 작성합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;cpp&quot;&gt;&lt;pre class=&quot;language-cpp&quot;&gt;&lt;code class=&quot;language-cpp&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;alloc&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; claim &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; error &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//할당받은 양 + 요청할 양 &gt; claim이면? 거짓말쳤네?&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;request&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; available&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; suspend process &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//request(C-A)가 가용한도보다 적으면&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; define newstate by &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//이제, 자원 할당을 가정한 새로운 상태를 정의함 :&lt;/span&gt;
+		alloc&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; alloc&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//alloc[i]에 할당한 만큼 더하고&lt;/span&gt;
+		available&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; available&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//현재 양에서 할당한 만큼 뺌&lt;/span&gt;
+	&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;safe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;newstate&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; carry out allocation &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//safe하면 할당 진행&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; restore original state &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; suspend process &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;만약 &lt;strong&gt;A&lt;/strong&gt;(현재 할당량) + 요청량 &gt; &lt;strong&gt;C&lt;/strong&gt;(최대 요청량) 면, 사실 말이 안되는 상황이죠? 지금까지의 계산이 모두 잘못되었을 가능성이 큽니다(error).&lt;/li&gt;
+&lt;li&gt;request하는 양보다 avilable한 양(&lt;strong&gt;V&lt;/strong&gt;)이 벌써 작다면, 줄 수조차 없겠죠?(suspend)&lt;/li&gt;
+&lt;li&gt;이제, 자원 할당 요청을 받아들인 상황을 가정하여, 새로이 상태를 정의합니다
+&lt;ol&gt;
+&lt;li&gt;allocation matrix &lt;strong&gt;A&lt;/strong&gt;를 업데이트&lt;/li&gt;
+&lt;li&gt;available vector &lt;strong&gt;V&lt;/strong&gt;를 업데이트&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;그 상태가 safe한지 판단하고, safe하면 할당을 진행&lt;/li&gt;
+&lt;li&gt;unsafe하면, 직전 상태로 복귀하고, 프로세스를 suspend&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;safe한 상태인지를 판별하는 것은 아래와 같이 합니다:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;cpp&quot;&gt;&lt;pre class=&quot;language-cpp&quot;&gt;&lt;code class=&quot;language-cpp&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;safe&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;state S&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; currentavail&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;m&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	process rest&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;number of process&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+	currentavail &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; available&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//변화시킬 available 벡터&lt;/span&gt;
+	rest &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;all processes&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//하나씩 종료시킬건데, 남은 프로세스들&lt;/span&gt;
+	possible &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;possible&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;find a process Pk in rest such that &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+			claim&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;k&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; alloc&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;k&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;=&lt;/span&gt; currentavail&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//남은 애들 중 하나인 Pk가 C-A가 currentavail 내에서 감당 가능?&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;found&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//true : Pk에게 자원 줬다고 보고, 계속 진행&lt;/span&gt;
+			currentavail &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; currentavail &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; alloc&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;k&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+			rest &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; rest&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;Pk&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; possible &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//false : currentavail 내에서 감당 가능한 C-A가  없으므로, unsafe함&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;rest &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; null&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;먼저 available vector를 복사하여 &lt;code class=&quot;language-text&quot;&gt;currentavail&lt;/code&gt;를 만들어 요놈을 업데이트하기로 하고, &lt;code class=&quot;language-text&quot;&gt;rest&lt;/code&gt;에는 종료되지 않고 남은 프로세스들을 넣습니다&lt;/li&gt;
+&lt;li&gt;이제 &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;문을 계속 돌며, &lt;strong&gt;C-A&lt;/strong&gt;가 &lt;code class=&quot;language-text&quot;&gt;currentavail&lt;/code&gt; 이하인 프로세스 &lt;code class=&quot;language-text&quot;&gt;Pk&lt;/code&gt;를 찾습니다
+&lt;ol&gt;
+&lt;li&gt;찾았다면 &lt;code class=&quot;language-text&quot;&gt;currentavail&lt;/code&gt;을 업데이트하고, &lt;code class=&quot;language-text&quot;&gt;Pk&lt;/code&gt;를 종료시켜 &lt;code class=&quot;language-text&quot;&gt;rest&lt;/code&gt;를 업데이트합니다&lt;/li&gt;
+&lt;li&gt;찾지 못했다면, &lt;code class=&quot;language-text&quot;&gt;possible&lt;/code&gt;을 &lt;code class=&quot;language-text&quot;&gt;false&lt;/code&gt;로 세팅하여 반복문을 끝내게 합니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;이제 반복문이 끝나면, &lt;code class=&quot;language-text&quot;&gt;rest&lt;/code&gt;에 프로세스가 남아있으면 unsafe, 없다면 safe입니다&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이렇게 해서 Deadlock Avoidance에 대해 알아보았지만&lt;br&gt;
+위에서도 계속 언급했듯이,&lt;br&gt;
+자원 요구 최대치를 미리 알고, 최악의 경우를 상정하여 대비한다는 점이 문제입니다.&lt;br&gt;
+너무 &lt;strong&gt;소극적, 보수적&lt;/strong&gt;으로 시스템을 운용하는 셈이고&lt;br&gt;
+또한 시스템 내 자원의 양이 &lt;strong&gt;고정되어있음을 가정&lt;/strong&gt;했는데&lt;br&gt;
+사실 &lt;code class=&quot;language-text&quot;&gt;semaphore&lt;/code&gt;같은 경우만 해도, 프로세스들이 막 만들고 없앨 수 있어 변동이 존재할 수 밖에 없습니다..&lt;/p&gt;
+&lt;h2 id=&quot;deadlock-detection&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#deadlock-detection&quot; aria-label=&quot;deadlock detection permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Deadlock Detection&lt;/h2&gt;
+&lt;p&gt;Deadlock Avoidance가 너무 보수적으로 자원을 운용한 것에 반해&lt;br&gt;
+Deadlock Detection은 꽤나 적극적으로 자원을 운용하는 방법입니다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;자원 할당 요청이 들어오면, &quot;일단 줘&quot;를 시전합니다&lt;/li&gt;
+&lt;li&gt;이제 정기적으로 데드락 여부를 체크하도록 합니다.&lt;/li&gt;
+&lt;li&gt;데드락이란 초기에 두 프로세스에서 시작하여 셋, 넷, ..으로 번지기 마련이므로, 초기 진압을 목적으로 합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 225px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/86051c79bf9175eb478c1f7df7f54ee2/3684f/image-12.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEh0lEQVR42h2R+09TBxTHbzaT+Wjp6972vt/vvqFgJg7MlCVuyxZnssVkyaKJLtHIJolLfEF8bMgU1InKwymXFkpVYKD2XtpS+oBSQQrUuGcWjf6wf2NXT85v53y/n2/OATwOjKFVb3CbL9QYqv9QVSMMq/gC9STJezDWAWIgTLkRmiAEmpZpRnG6CZsdttndFqsTIHCBYbzBcLMv2Kj4tvr8Daq3zh/cRpC8GybtLsQJoQ4XjGAcQQoUI1GMDJqOIAqCMIBiHM/76xtaaiM7VV+DP7hVEFRRrjX3cIJxIyQEE5CHAD0khrMozvCCz4OQLjcKwSTgAlGKklTf1kBouzfwvqLWcYwoKyFVDrA0C3twpwl3wS4QQWCSJDmalQiKRwkOQmjA6URZzmuimpo/C0RaQvW7FMlnuqi+CIlRNM6gpjlOYTgOulGG4hhW4jjZRFrtHsBiARlGlcTwtsbdsne7P9SsSAFWCMpqLYWzOILW2EEUIVxOyOFy0xRD0wIvBm0O5L2NNsBihWhKFvlQqK45VNskKbUmU5BrWUZQWGHPx7swggr7vV5Jtjg8AifyLOsNNuCktGmTHdiyxYXjPMMoobqmYHiHLEdkyS+Ifhyjd7e0JIZvlYszgz2dvKg43CRJvxGrSpDmfE4IB2w2N45xDC2F63aEIzsZ1qcoIY5VMYIfvH27NJ+pLKYfaDctdnCzDSQYVRC8sqjQgh82D7ZhgxVBaJpm/f5IINxMkqIkqBjCfv7Fl3e1Ad149HQhd7L1kKXGZbFBlhpIksKq7OcEH8OwgLUGQlAOwUXYg7lhGkVZ3ENQrHc4Fvv1Tl9X57nj37UqvGhzQCCE2u2QIIcUb4TnpICqAt09Vy93X+vs6mlrO75371effrLng8amA4cOp2bT8cSw/mDohyMH33l342aLc7PV6XK6cZzmlTDPCYokARMTk7HYiGGksrlcsVAsLy6Vy0tLy0/HJyaHh4cm4kP913r27ftaVEI1TtjqAFmG5cUADKM0QQFra2uGYSQSCW1Ii0ajqVT66fLKH3/+8/r1f3/9/aJUXtUNPTeXNUcdHef3H/h2566PWr9vazt2bP83+4H19fXy29IfJ03U6GhsZGQkFtMKheyrl/++evkindHnstnE2Eg8PprLFa5e/eXkiVM9PVcKhSKwurqWz+cWF0sLCwtzc7OZTHpqajoW1W4PasdO3hm4+8hIPqxWq4VCTtPu5PN5w9Dj8bH29rNHDre+iV0s5ufnC2YX39T8ykqlsvLkfKd28GjfT5fGorGpyspytbqe1KdLpZKp13V9enr68uVLwGw2YxjJdMowsdlsZi43V6ms/v78WXKmfOLsw4NHo91XosnH0zOGPjU5XirNmyneWuSmfhsH+vr7e2/0Xu+9fuNm781bvYOD/fcSicnxifuJ+LVe7dzFodH4PU27a2bu6rxwpfvS+IP79++NZdIz+dwsUH32fHWtulJZe7K8ZIaenc3OpFOZbFbXzSc8TqWSY2NxTdP6B/p+7rrYceZUR/upjjOn29tP/3jh3P8HNbyG8XK+SgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;강아지 CCTV&quot;
+        title=&quot;&quot;
+        src=&quot;/static/86051c79bf9175eb478c1f7df7f54ee2/3684f/image-12.png&quot;
+        srcset=&quot;/static/86051c79bf9175eb478c1f7df7f54ee2/c26ae/image-12.png 158w,
+/static/86051c79bf9175eb478c1f7df7f54ee2/3684f/image-12.png 225w&quot;
+        sizes=&quot;(max-width: 225px) 100vw, 225px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;위에서 살펴봤던 자원 할당 상태도와 비슷하게 해서, Common Detection Algorithm에 대해 알아봅시다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/44e618decefcbc4a52bb83143c04e7c4/3996e/image-13.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 37.9746835443038%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAABlklEQVR42j2RW0/jMBCF8/+f9gG0FWgfkVYgFVDLPlFEiQpB2zaFUtDSK00bO4kTOzc7seN4HZAYjUf2pzke69iglEZRRAiJ9cI4zzOlVFmWWEOMk7jBaZpKKSPctJFYR4LCkHNumG/wbByeT1B75P1+hH83iarK57V/NgrO7bBto9Oh35shSIrLMbya4u5z2Jn4bTtY+LlxZYPWPf5lRceD4KDv384zJdjDP/gJ8fE9+mkGpyNEuQyS4nUN3h3/feu5mDIujcvh7tAMjwaoZXo/euD6jaiqMF+cgzv/aBC0TP+w751YkItKVrzihRSlzoqzupbG0wfpTLw/T153vL8Yua+AKikWgHRs2B27XRtcDHfWkkRpYc7cx0VozZE1D/ozuI9yo67rLImbTGP66dZX0CzVUNc8TVRdJax6WJLrKehNwc0LuJsTN+bGd7cQgguhfWaMFUXRHLnQG+0qZUxz/WaaxixLCppVotSSRqyH66p/YbVeQwgDhPZ7d7laAQA2m42Gzm633TofW0ff+DVJK+pa/Qeskq5xj9BTRwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Request matrix&quot;
+        title=&quot;&quot;
+        src=&quot;/static/44e618decefcbc4a52bb83143c04e7c4/f058b/image-13.png&quot;
+        srcset=&quot;/static/44e618decefcbc4a52bb83143c04e7c4/c26ae/image-13.png 158w,
+/static/44e618decefcbc4a52bb83143c04e7c4/6bdcf/image-13.png 315w,
+/static/44e618decefcbc4a52bb83143c04e7c4/f058b/image-13.png 630w,
+/static/44e618decefcbc4a52bb83143c04e7c4/3996e/image-13.png 648w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;조금 달라진 점은, Claim Matrix &lt;strong&gt;C&lt;/strong&gt; 대신, &lt;strong&gt;Request Matrix Q&lt;/strong&gt;를 사용합니다.&lt;br&gt;
+이 &lt;span class=&quot;math math-inline&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mi&gt;Q&lt;/mi&gt;&lt;mrow&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;Q_{ij}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.9694em;vertical-align:-0.2861em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;Q&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.3117em;&quot;&gt;&lt;span style=&quot;top:-2.55em;margin-left:0em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot; style=&quot;margin-right:0.05724em;&quot;&gt;ij&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.2861em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;는, &lt;em&gt;프로세스 &lt;span class=&quot;math math-inline&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;i&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.6595em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;i&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;가 자원 &lt;span class=&quot;math math-inline&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;j&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.854em;vertical-align:-0.1944em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.05724em;&quot;&gt;j&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;를 요청한 뒤, 아직 요청이 받아들여지지 않은 자원의 양&lt;/em&gt;입니다.&lt;br&gt;
+OS는 여러 사정으로 인해 자원 할당을 지연시킬 수도 있지만, 이게 실제로 &lt;strong&gt;데드락이 발생&lt;/strong&gt;하여 무한히 기다리고 있는 상태일 수도 있습니다.&lt;br&gt;
+이 대기 상태의 원인이 데드락인지, 아닌지를 가려보자 하는 방법론입니다&lt;/p&gt;
+&lt;p&gt;Common Detection Algorithm은, &quot;확실히 데드락이 아닌 프로세스에 &lt;strong&gt;Mark&lt;/strong&gt;&quot;합니다&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;allocation matrix가 전부 0인 프로세스는 바로 &lt;strong&gt;mark&lt;/strong&gt;해줍시다.
+&lt;ul&gt;
+&lt;li&gt;hold-and-wait 조건 생각 나시나요? hold하는 자원이 없으면 데드락 조건에 부합하지 않습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;이제, available vector를 카피한 &lt;strong&gt;W&lt;/strong&gt; vector를 만들어서 이를 이용해 available을 시뮬레이션합시다.
+&lt;ol&gt;
+&lt;li&gt;mark되지 않은 프로세스들 중, &lt;strong&gt;W&lt;/strong&gt;값보다 &lt;strong&gt;Q&lt;/strong&gt;값이 작거나 같은, 즉 대기중인 자원 요청을 즉시 받아들여 할당해줄 수 있는 프로세스를 찾아봅니다.&lt;/li&gt;
+&lt;li&gt;P3이 가능하므로, 이 P3 또한 &lt;strong&gt;mark&lt;/strong&gt;합니다.&lt;/li&gt;
+&lt;li&gt;mark한 프로세스 P3이 종료되어 자원을 반납한다고 생각하고, &lt;strong&gt;W&lt;/strong&gt;를 업데이트합니다. (&lt;code class=&quot;language-text&quot;&gt;W:[0,0,0,0,1] -&gt; W:[0,0,0,1,1]&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;위 과정을 계속 반복할 것인데, 지금 &lt;code class=&quot;language-text&quot;&gt;W:[0,0,0,1,1]&lt;/code&gt;상태에서 &lt;strong&gt;mark&lt;/strong&gt;할 프로세스가 더이상 존재하지 않습니다.&lt;/li&gt;
+&lt;li&gt;따라서 P1, P2가 데드락인 것 같네요. 조치를 취해야 하겠습니다&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이를 &lt;strong&gt;resource allocation graph&lt;/strong&gt;로 그려보면, 다음과 같습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8cd901e1b56ecc3ee836bf50fed49b68/442cb/image-14.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 92.40506329113923%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACZElEQVR42o1U227UMBDN/38H4gWpRZUo8AdIPFSqKpCQ2CTdhWwum9hx7rF9mHHWUbaLKK5ma8+Mz5y5xAFeWVprpGnqZJ7nKzvrjsejs7Nv8Bpg3/eI49hJ13VX9nEcEUWRs/M+sKT0csHMWEzThJmi1qqBahq3Z502ZvVv2xZJckRD/y39/YUhqfXkBNae05pgCGQxk31m+wxLOikFJmJm9GIPWirLswLiGlD9jLobEQrtznTEoIGfpSadQa8XHftHZP+dlciFQiQtwkqjI1uQUlk+xxr3kUHaaJx6i/vQ4COdix5O3Jkkpz3Lp9jg7gfVNhPIWosPO+38GSvI6Of2Mcfbr79wVBMkRbl9Erh5LFFR1uUI3DyVeP9Nun1GQd89pHjz5RkZ+RfD4n/3XaEgezBTmeJUIBEdilKg7QekasS+qNHQfpwNImKS0uVhMiilQloPKDpKcZjQjTMSyWcDMi9NUapeZ6xtG9RV6ZrTdi3yLHPFN9SEU1G4Lq+Ns0sj5mlcW+oAB+qSnzEeTh4RKSWkkMjznAI2EHQehsHJEtyem24xUhC7BeSBrOvaKZiBcyLdfr93+sPhACGEGx0e9HWEzl8Kk7hgyAB8wQMZN18LoyRJUFCqp9MJDTFnG/v45YZ/80mug11V1fIVUDSefj6z8GXWM9MlfeV8PCuf0RUgX+DLLBk1oizLcwOw1orrzIw5kAfcsr0AZFbMgOvGL8e2Th7Q14xB2Y8DboNeAHKN/KuxTeElqLcxIPvz03VVQ3biqLvdztXoX2vLlIOHYXiRdrB913zB/2cxMJfp5Rv5B8mDdYcMEPQnAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Resource Allocation Graph 3&quot;
+        title=&quot;&quot;
+        src=&quot;/static/8cd901e1b56ecc3ee836bf50fed49b68/f058b/image-14.png&quot;
+        srcset=&quot;/static/8cd901e1b56ecc3ee836bf50fed49b68/c26ae/image-14.png 158w,
+/static/8cd901e1b56ecc3ee836bf50fed49b68/6bdcf/image-14.png 315w,
+/static/8cd901e1b56ecc3ee836bf50fed49b68/f058b/image-14.png 630w,
+/static/8cd901e1b56ecc3ee836bf50fed49b68/442cb/image-14.png 752w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;검은 색 화살표는 할당(hold), 회색 화살표는 요청(request)입니다.
+P1과 P2 사이에 &lt;code class=&quot;language-text&quot;&gt;r1-&gt;h3-&gt;r3-&gt;h4&lt;/code&gt;와 같은 &lt;strong&gt;circular wait&lt;/strong&gt;이 발생했고, 데드락에 빠졌음을 알 수 있습니다.&lt;/p&gt;
+&lt;h3 id=&quot;데드락-발생-시-조치&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EB%93%9C%EB%9D%BD-%EB%B0%9C%EC%83%9D-%EC%8B%9C-%EC%A1%B0%EC%B9%98&quot; aria-label=&quot;데드락 발생 시 조치 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데드락 발생 시 조치&lt;/h3&gt;
+&lt;p&gt;그럼 데드락이 감지되었다면, 어떻게 조치할 수 있나요?&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 360px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e84cd77edb5853efb43acfcfc198d7ef/f21e7/image-15.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 68.35443037974683%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAClklEQVR42j1U2XLaQBDU/39S4opjbhAIBEhcBgzoWq1WEraT10n3qCoPKmA029Pd04v3/cikDvdSR0dpLzf5a500+O7WO6195aV83TNptgep8Twvd/mDnvZ4kfb9Ks3hLN+Zkc9bIs/jVbx6d5KsN5PSX4tZrMXGB8l+j7vaHLVlJOUqEjMJxExXUuK33ezRH4oJNmLxWz/XsdggEs+BRT6YSXtPxAFcXwLIgmGDqUV/hkGhlKjX5w9xMfpRq/DehLHUYJmPAx1ehTvxPtNC6uNZ0peB5MM5pmyk/XhIiQM5WNnVFox24iA360/xzJRNe0/FvE0lfR2KmYfSYFhzgmS3e5cMQGx0+7MCkqVZgOkW3u7fdZCBJSVqNbyjTL7L3yZgFasyDnfxCR4ChAcqNDg2r2IARkrfchGQVKC5Agu73EL2DZ7GypjDLSxQG9BTY0Eet0SWpJsNfTAJFbSlf9NA2RYY2MAG+pr87KvnFsye8F0X59PjtdQnALaHq6TYaoqmPNh2QKO5JK/YdN9XoApS8sEcfRMdoD1gnCvYCv5d0XOEJWtKhkfjhdImA0o3A19jUQOIvtGzEgCOtvAgpOvDrMI/JqAEY/rp0ch8DEkIdYUIlWBZrbqsOWzO4J0Juow62FNFe8kGEwUvMIg1xsaih1HynknWxeZHD42+etJcb+pRBumcXCI6lJO9jaWAGsboeUv1TPprBK8Xak2DpWqw6WGGLTF/BCpwuAAwY9RgqxzETRvI/ASBMowUNOkhNvtuoTmGa2yaw0XMLPzvIalbHFCTIZ11gnFQxZBDsuEwxKbCU/LK8dZMl3qvNTaWfwZczsgXy2u2RIDhKZdFcDNa6LVjDpOXntZ5p5vrQ73t7vRGrfsHZcnmk/HVEYUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;우뜨캐&quot;
+        title=&quot;&quot;
+        src=&quot;/static/e84cd77edb5853efb43acfcfc198d7ef/f21e7/image-15.png&quot;
+        srcset=&quot;/static/e84cd77edb5853efb43acfcfc198d7ef/c26ae/image-15.png 158w,
+/static/e84cd77edb5853efb43acfcfc198d7ef/6bdcf/image-15.png 315w,
+/static/e84cd77edb5853efb43acfcfc198d7ef/f21e7/image-15.png 360w&quot;
+        sizes=&quot;(max-width: 360px) 100vw, 360px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;데드락에 걸린 모든 프로세스를 중단(&lt;strong&gt;abort&lt;/strong&gt;)해버립니다. : 무식하게&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;backup&lt;/strong&gt;포인트를 뒀다가 그 포인트에서부터 다시 시작합니다. : 처음부터 시작하기엔 아까우니까요&lt;/li&gt;
+&lt;li&gt;데드락이 &lt;strong&gt;풀릴 때까지 프로세스를 종료&lt;/strong&gt;시켜봅니다. : 적당히 circular wait 사이클이 끊어질 때까지 종료시켜보면 되겠죠?&lt;/li&gt;
+&lt;li&gt;데드락이 &lt;strong&gt;풀릴 때까지 자원을 preempt&lt;/strong&gt;(빼앗기)해봅니다. : 데드락 발생 4가지 조건 중 No Preemption 조건을 깨는 셈.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Deadlock avoidance로 데드락을 막을 때는, 자원 할당을 할 때마다 알고리즘을 수행하려면 부담이 너무 큽니다..&lt;br&gt;
+그런데 이렇게 Deadlock Detection 방법은 resource graph만 유지하면&lt;br&gt;
+쉽게 둘 or 세 프로세스 사이의 사이클을 감지하여 조치할 수 있어서 아주 굿입니다&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 259px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/55fd3fdfbabc263e71a0c4e316c97b8e/a2ead/image-16.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 74.68354430379746%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADYElEQVR42iWN+09aBxiGzz+2LFuyLJ3b0HW6wTITa1et67CxuoyJMgUO93MDzgU4nBtCBVG5KoLcDohUOgyK3IVWWrc2+x+GMXl+ePN9ed4XWFnb0FpsIIzrEFKPOg0oZbQ5jHaHCXdAFINQLEq6MQdjdXEWnA5EEiq9Xjr7eFYuf6FaA9ZBk9qIbRjQTROmNls1d0UEiBJ6K2XBXTBJYw7W5uJstACTDOpiphee/fjLk6e/rzxXrgIaMwpabDoIBy123WgfJrQQoUdIEMI3zFaVEVZsgkurf80vvvjpydzUo5/nFxcM+k07YthmKeCriYlvJ6USqWxcKpNIpVPT07KZmW++n3wgkYw9/O7zB19+PSF5+MPks4VZN6KJ8URmx50PctVk6GPrHFAszqiW5taXZsHVXzH1ilYhHx/74tPPPplfmMNQ5DB+UP27KoonZgjhaTzjY8RtOr/Lv6uXPzRfAwUffhndqse8aZ6gtH9OjY/99lyezxWuGq3h8Hb49t3g+s3t8DaXLbg8XDzAiT5nUzz8r1P9p1EBgrgmTEEmhfyPpzLN8mPVurJ2cdXv9tuNdvOq1W33Ws1Os9Fq1Js+/8tSJppibb3S8W29fP1aBCIO0x5uoDRyr3k5xFrD0ei9M6LfG4xoNzudVrfT6OxFQudn2ZyHOAv7bs4LdfEAKL50Rghd0m0UeWtmzx/YCTbrjV6nf+/ct4yoVS92Q6HayVFOsBYDrkEl3S0fA1FKu4+rK35XeYvM+XnB4ykVS28HN61GeyRfd/v1i6v3N++TyXQ8FjoLC2nWWtqmLo93G4UDIMVCXkjBGpaOaFPZ6zgKenGKKpcrbwbDXndw3e73OoNEImVCoUSQSTrhCGmMU8a2GB2e54GcgKVohDOs7KDKGKFL0AiiVq4tL7J2hLMje5yTtUPzj2SgUn7EoFkOj5LmFGOrJYIfL0+BrAAXePyVlzzdQtO0eR9T+yGlD1oNwMqEQy/ycJZHUwwcd+jCJJjj0SxjTXP2m0q2no0AWR4qCkSRsxY5y4mAnHgwkYOzjEX0oPlRFpADhzHDoRkWipNgjNKlaEj0Uv9elHrlJJDj4aKAFwV7gYdGOyILFbnRBbnLdy8k5TYdUrqCgOV5NM3B+7aNKKUfnKY+1Er/A9pLPlxpqdLaAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;백안!&quot;
+        title=&quot;&quot;
+        src=&quot;/static/55fd3fdfbabc263e71a0c4e316c97b8e/a2ead/image-16.png&quot;
+        srcset=&quot;/static/55fd3fdfbabc263e71a0c4e316c97b8e/c26ae/image-16.png 158w,
+/static/55fd3fdfbabc263e71a0c4e316c97b8e/a2ead/image-16.png 259w&quot;
+        sizes=&quot;(max-width: 259px) 100vw, 259px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;
+백안!!!!
+&lt;/figcation&gt;
+&lt;/figure&gt;
+&lt;h1 id=&quot;철학자-문제--dining-philosophers-problem&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B2%A0%ED%95%99%EC%9E%90-%EB%AC%B8%EC%A0%9C--dining-philosophers-problem&quot; aria-label=&quot;철학자 문제  dining philosophers problem permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;철학자 문제 : Dining Philosophers&apos; Problem&lt;/h1&gt;
+&lt;p&gt;데드락 응용문제로 유명한 문제가 있습니다&lt;br&gt;
+철학자 문제 (Dining Philosophers&apos; Problem)
+(&lt;em&gt;포크 두 개 들고 밥먹기&lt;/em&gt;) 또는 (&lt;em&gt;생각에 빠지기&lt;/em&gt;) 둘 중 하나를 하는 철학자 5명이 있습니다&lt;br&gt;
+이 5명의 철학자들은 원탁에 빙 둘러 앉아있고&lt;br&gt;
+5개의 포크가 철학자들 왼편, 오른편에 놓여있습니다&lt;br&gt;
+그림으로 나타내면 아래와 같습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 324px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5b04ab0cfddc4627775a7fb15240f2a9/67580/image-17.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 98.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAABZ0lEQVR42pWUyZKCQBBE+/9/xwMRcPTu2YsRAhKCuCOoyOIbyqlplcAxL/RS2Z2VVY1pf1HX9eFwuN1uMr1er1VVlWWpK03THI9HVpRidERQGIZsn8/n3W5XFMV0Ol0ul0xZZAotCALGctATmb0oipIk4RRUsOJ5XpqmEprneRzHq9WKU3rIbG82G6GpcgkSkAX8HjK3QW6f0XTQsfhCFrr4IHNklmXtP+D7vuZi5DMejyeTiZw9wCRyNBph29/NCMZe28YBkDPxiH+Q9/v9R44N6kKOP7LRud1u228ABeUU1VC62Wz2FZma0RHU1ZDtYrGQpvsoXgKo/3q9xiNzOp2w3i79R0iHI95A4CPz+Xxu9/07UItB2k6PJrlcLtzvOI6+IVunDlzXxaDXDgNZh2HBFFUq/EqWZIAeXHXQMa9drOkhq5ME4aK+UFaYIkoysk01vRkShwtBB3TaP5P+m9+3iw4DFtwBmwiUjHMGyScAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;철학자문제&quot;
+        title=&quot;&quot;
+        src=&quot;/static/5b04ab0cfddc4627775a7fb15240f2a9/67580/image-17.png&quot;
+        srcset=&quot;/static/5b04ab0cfddc4627775a7fb15240f2a9/c26ae/image-17.png 158w,
+/static/5b04ab0cfddc4627775a7fb15240f2a9/6bdcf/image-17.png 315w,
+/static/5b04ab0cfddc4627775a7fb15240f2a9/67580/image-17.png 324w&quot;
+        sizes=&quot;(max-width: 324px) 100vw, 324px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;어떤 철학자가, 양 옆의 다른 철학자들이 사색에 빠진 타이밍에&lt;br&gt;
+잽싸게 왼쪽 포크와 오른쪽 포크를 둘 다 집어버려 식사를 시작하면 굿이지만&lt;br&gt;
+운 나쁘게도.. 철학자들이 번갈아가면서, 자신 왼쪽에 놓인 포크를 집고, 왼쪽 포크를 집고, ...&lt;br&gt;
+이렇게 되면 각 철학자들이 왼손에 포크를 들고 오른쪽 포크를 기다리며 다같이 굶어 죽습니다...&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 300px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4a3b513ba1d1ea88d5a3e419a3fb860f/5a46d/image-18.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVR42gGfAmD9ADg1J19USG5gUmVaT2deUmxkVGdfUmBYTWZ3To2laHN1X3ZyZGxqVbCqkbiYh6mWalxdO1xTQlpNPHFmVgBBPS9fVUNsWkZqXU96bFtuZFVbVkp5cWJrb05cfzptd1uAdVlKRjArMSt+PDDij3rFt5EzKxpZTz/Gu54ARD0zWlJFVFBCZFpPYFdMVFFFdGVRknNji3Jtemdcg31ejYlifHtgQ0IwW0g2snBfrY54cWdWoZqAiYFnAGZmYHBvaG5vaGJjW0dGQENDO29aTaR+a5Z3a5BxaYxtYX19WYSBX5WGaYqCY3dzYF9VRN7Qtq+lhZaPcgBtbm1lZ2ZhY2FUWFNCQzwzNTRJODGVblinf3CmgHuTZ2COdWZ5bl2Jgm9sZFBURTbEuaHo3MLcyqK+sJMAY2NgcHFqdnZucW1jRUU/QDs7fV1SkmpUpHxstpGLlmxnnn9wo52KfXJkQTkvh31qyLmg8enc6+DKwbCaAKmii6eiia+miX51ZDU2MywoJ4BdVp92Y6R+aa+MgaN7cqeKdrq0lmRbTmxmXJGOg4t+bMa7rP//+u3j1QCqoIKelHuflXZZU0cfIB8WFxUWEQ57V0fGnIG6k3+og3Wrm5K2tKmroYqNhHV6dGmYlIaupJHi2cn38+wAopd+pJl9eHBaNDAqKywqIyMhExQUTDgvroRrso94mHhio5idusHmwsLIm5R/em9ndGxhkI1+2NDB8unfAJ+Xfp2WfEU/MiAgHT48MDY2Lmdpdnt8hpKPmI2LiYCBgZORl2NkaURFQZCQjYd8bod8cHpxZo+Jgd7XygCalX2Vim8/OCwNDAwgICNwdYypstazu+G8xOu+xey+xezK0/mSnLZjaoLF0PW9xNiXjoiPgnSHfHGalovoOjXQEZk4NwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;허기&quot;
+        title=&quot;&quot;
+        src=&quot;/static/4a3b513ba1d1ea88d5a3e419a3fb860f/5a46d/image-18.png&quot;
+        srcset=&quot;/static/4a3b513ba1d1ea88d5a3e419a3fb860f/c26ae/image-18.png 158w,
+/static/4a3b513ba1d1ea88d5a3e419a3fb860f/5a46d/image-18.png 300w&quot;
+        sizes=&quot;(max-width: 300px) 100vw, 300px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;참 내. 양보들 좀 하지.&lt;/p&gt;
+&lt;p&gt;이런 일이 발생하지 않도록, 아래와 같이 밥먹는 규칙을 정해줘야 하겠습니다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;먼저, 포크를 동시에 집지 못하게 &lt;strong&gt;Mutual Exclusion&lt;/strong&gt;을 보장해야 할 것이며&lt;/li&gt;
+&lt;li&gt;철학자들이 굶어 죽지 않게 &lt;strong&gt;데드락, starvation&lt;/strong&gt;이 발생하지 않게 해주어야 함&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;이렇게-하면-데드락이-발생해요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B4%EB%A0%87%EA%B2%8C-%ED%95%98%EB%A9%B4-%EB%8D%B0%EB%93%9C%EB%9D%BD%EC%9D%B4-%EB%B0%9C%EC%83%9D%ED%95%B4%EC%9A%94&quot; aria-label=&quot;이렇게 하면 데드락이 발생해요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이렇게 하면 데드락이 발생해요&lt;/h2&gt;
+&lt;p&gt;Mutual Exclusion을 보장하기 위해 Critical Section을 구현해야 하니&lt;br&gt;
+semaphore를 이용(semaphore 또는 monitor에 대한 자세한 설명은 &lt;a href=&quot;https://sungpaks.github.io/mutual-exclusion-by-os/&quot;&gt;여기&lt;/a&gt;)하여 간단히 아래와 같이 쓰려고 할 수도 있겠습니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;semaphore fork&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;philosohper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;true&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;think&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;wait&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fork&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//왼쪽 잡기 시도&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;wait&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fork&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//오른쪽 잡기 시도&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;eat&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//냠&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;signal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fork&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//오른쪽 포크 내려놓기&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;signal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fork&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//왼쪽 포크 내려놓기&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;parbegin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;philosopher&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;philosopher&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;philosopher&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;philosopher&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;philosopher&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그런데 이렇게 작성하면 &lt;strong&gt;데드락이 발생&lt;/strong&gt;해버릴 수 있습니다...&lt;br&gt;
+위에서 말했던 것처럼, &lt;span class=&quot;math math-inline&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;i&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.6595em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;i&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;번째 철학자가 &lt;span class=&quot;math math-inline&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;i&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.6595em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;i&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;번(왼쪽) 포크를 집고, timeout되는 과정을 반복하면&lt;br&gt;
+모든 철학자들이 왼손에는 포크를 들고, 옆 철학자가 왼 손에 들고 있는 본인 기준 오른쪽 포크를 기다리며 교착 상태에 빠져버립니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 213px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a403dd66b705cb32626223e944e723ae/3cb16/image-19.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 110.75949367088609%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAIAAABPIytRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE20lEQVR42hWT+1MTVxzFl0A2G7LZZN979+4jJOT9IgmElJAEQiIhxkQqAcQG8AEEBAQUkKEgIIODWipap6PT0aKdjh3tYzrVTmc6/lL7e/+kLnO/v37OmTn3HMRqFVgO2O2tUGphWFE7moMWijMRVkEQeQAUm9LSYoOSKACOYaytXn+muysZC3AcjVhJ0UJyJM1TlEhYNIbGjIQeRVFMj2EGgba4bSAVD/YkE4LA0jTh8vtTqe5Um0cCHILhtMFoMTRbrKQmzDMsi5twnQ7BjYaMT14odT9eGn9/vPXu6aHP46BoQuMpykKSBMdTSLOZJimOZQWW0UBWBECDDag+4QY3Sm1L5dTtkeKz5dpvR1uztRErZZZkQQQslHgRcgjHCQzD0QzLAygCAYggbJNjqnAuBFfPxvdqpePF2s5Qz5ut+T+eH4eDPiCwpzDkNBVEI1mW5zQ5SVUVTVbsC7iXc7HBNjCfDRxeLh/NDi/nE0+nax+OdrvbIwJPqwqQJUGCPCJqhhBqkUIoC7xAURSB41FJGIwos7nAzljuzqWB9XLvNzMTvx7tOe2KwDOqLEKRh5DVYAVKiqIqkqTgOIE0nD7IC0m7eCEkzfQF16uZ9Wr+5M7yxsy4o0X0eu1up+J12WTIIJoh0IQAIMxWmqS13Jw2cLava/FiqV6IX0u7JtK+xaFkvZKZKiTmqr1j/fFL+Wh3u1cSWYTlGFmWSdLShKKdPmcq7M1GAsWwq78zdLi5+ujO8lcLI882Zo7np8cV+7DHM/BZqC/eCnlKgrQWGENYLLpGxIA14rix2WTQo/qmhqYGna7clX6ys//nzz9++vj+4cpa2USXW9xdsfZAwC0IVpbBEYJiaZa3OxwQiia8GUX1mNEgMUQ6qNaLibuTlVcHt/46eXq1WpEoSgWcw+Vsj4TiAc9QeQCx0pRW4FaXU7GpGGZEGnQyax5N2Ou94Z3a2Zeb9Vdb9Q9P7v79+tt4PIibMW8olsv21YeK9zaXEIomWY5nOc2facRQ0mwcCMrX0p7JTGyumN0c6n+xNv2wPvbd9trB7RtaK2XIi4DJZTpGKnmE5VkgypL2zZClCJNKmUZj9vlc5FYltTs5uFFJ7Q9n3x6svd5e+vfNi4DfLYqMqohOm5hLdiCipGpzAxA4VFBt94ZE64CPv94bvlcrPV+5fKu/c7En+nZ7+Zf9lf/evbxQzGur1MzdduV8fw8iAOm0YarWEziS8Be8ct7NzfWFtqrZ7ZH+qWT4em/ysHbxZH3u96+38sk44GhFFVx2uT/VgdAMJwAgShA1YqTR1KmyJT+Yyvq/vJjd+6Iwl22/nkvfrpR+2lv55/Ujn8NGU4SqChBQ2XgI4YTTDZMEEXLbbEBsbsI6ZWslCGbPtK1V0xvVnoOJ8pv91U8/PLp/cyqTCMdCWj2ByyF5nDbESln1Bj1lMReSoVTUl07EKkl/pV0dTns+/8xzZSA6N5xZHOndmCpeOpccK3XXKonRYjwZdZImDGnU63R6nQnHBnsik4Xo9JmOueHCWq1481xiqZy82htZPJ95sjA8kYzXwr5rHbEzNlsmElkej6yMcghqaNKjWq9REcfZZpwxoPlI/Gh398HqwoPZoXtXiidbMx+/f/B4dbVgZna6+sZ8kYDLOVbsvF9v+R+jDhal/amDYwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;기다릴게..&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a403dd66b705cb32626223e944e723ae/3cb16/image-19.png&quot;
+        srcset=&quot;/static/a403dd66b705cb32626223e944e723ae/c26ae/image-19.png 158w,
+/static/a403dd66b705cb32626223e944e723ae/3cb16/image-19.png 213w&quot;
+        sizes=&quot;(max-width: 213px) 100vw, 213px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;circular-wait-prevetion으로-해결해봐요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#circular-wait-prevetion%EC%9C%BC%EB%A1%9C-%ED%95%B4%EA%B2%B0%ED%95%B4%EB%B4%90%EC%9A%94&quot; aria-label=&quot;circular wait prevetion으로 해결해봐요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Circular Wait Prevetion으로 해결해봐요&lt;/h2&gt;
+&lt;p&gt;위에서 살펴본, 데드락 발생 4가지 조건 중 Circular Wait을 깨뜨리는 방법으로 간단히 해결해볼 수 있는데&lt;br&gt;
+먼저 포크에 번호를 다 붙입시다. 0~4번 포크로&lt;br&gt;
+이제 &lt;span class=&quot;math math-inline&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;i&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.6595em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;i&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;번 철학자는 포크를 집을 때, 포크 번호가 작은 것부터 집도록 합시다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;fork[0],fork[1],fork[2],fork[3],fork[4]&lt;/code&gt; 존재&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;0번 철학자 : &lt;code class=&quot;language-text&quot;&gt;fork[0] -&gt; fork[1]&lt;/code&gt; 요청할 예정&lt;/li&gt;
+&lt;li&gt;1번 철학자 : &lt;code class=&quot;language-text&quot;&gt;fork[1] -&gt; fork[2]&lt;/code&gt; 요청할 예정&lt;/li&gt;
+&lt;li&gt;2번 철학자 : &lt;code class=&quot;language-text&quot;&gt;fork[2] -&gt; fork[3]&lt;/code&gt; 요청할 예정&lt;/li&gt;
+&lt;li&gt;3번 철학자 : &lt;code class=&quot;language-text&quot;&gt;fork[3] -&gt; fork[4]&lt;/code&gt; 요청할 예정&lt;/li&gt;
+&lt;li&gt;4번 철학자 : &lt;code class=&quot;language-text&quot;&gt;fork[0] -&gt; fork[4]&lt;/code&gt; 요청할 예정 (4번과 (4+1)%5=0번인데, 번호 작은 포크부터 요청하기로 함)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이제, 데드락이 발생했던 상황인 포크 하나 집고 time-out 당하는 경우를 생각해봅시다&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;0번 철학자가 먼저 &lt;code class=&quot;language-text&quot;&gt;fork[0]&lt;/code&gt;을 집은 경우 :
+&lt;ol&gt;
+&lt;li&gt;이후 1번이 &lt;code class=&quot;language-text&quot;&gt;fork[1]&lt;/code&gt;, 2번이 &lt;code class=&quot;language-text&quot;&gt;fork[2]&lt;/code&gt;, 3번이 &lt;code class=&quot;language-text&quot;&gt;fork[3]&lt;/code&gt;을 집게 되어도, 4번 철학자는 &lt;code class=&quot;language-text&quot;&gt;fork[0]&lt;/code&gt;을 집기 전에는 &lt;code class=&quot;language-text&quot;&gt;fork[4]&lt;/code&gt;를 집지 않을 것인데, 이미 &lt;code class=&quot;language-text&quot;&gt;fork[0]&lt;/code&gt;은 0번 철학자 손에 있습니다.&lt;/li&gt;
+&lt;li&gt;그럼 &lt;code class=&quot;language-text&quot;&gt;fork[4]&lt;/code&gt;가 남아있으므로, 언젠가 3번 철학자는 &lt;code class=&quot;language-text&quot;&gt;fork[4]&lt;/code&gt;까지 집어들 수 있고, 식사를 할 수 있습니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;4번 철학자가 먼저 &lt;code class=&quot;language-text&quot;&gt;fork[0]&lt;/code&gt;을 집은 경우 :
+&lt;ol&gt;
+&lt;li&gt;0번 철학자는 &lt;code class=&quot;language-text&quot;&gt;fork[0]&lt;/code&gt;을 집기 전에는 &lt;code class=&quot;language-text&quot;&gt;fork[1]&lt;/code&gt;을 집지 않습니다.&lt;/li&gt;
+&lt;li&gt;다시, 남은 철학자들이 하나 집고 timeout, ...과 같은 상황이 발생해도, 3번 또는 4번 철학자 둘 중 하나가 &lt;code class=&quot;language-text&quot;&gt;fork[4]&lt;/code&gt;를 집을 때는 이미 포크를 하나 집어든 상태이므로, 식사를 시작합니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이런 식으로 해서 데드락을 해결해볼 수 있겠네요&lt;/p&gt;
+&lt;h2 id=&quot;밥-먹는-공간은-따로-분리하고-인원-제한을-둬요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B0%A5-%EB%A8%B9%EB%8A%94-%EA%B3%B5%EA%B0%84%EC%9D%80-%EB%94%B0%EB%A1%9C-%EB%B6%84%EB%A6%AC%ED%95%98%EA%B3%A0-%EC%9D%B8%EC%9B%90-%EC%A0%9C%ED%95%9C%EC%9D%84-%EB%91%AC%EC%9A%94&quot; aria-label=&quot;밥 먹는 공간은 따로 분리하고 인원 제한을 둬요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;밥 먹는 공간은 따로 분리하고, 인원 제한을 둬요&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a8e6897a79d1fd19f0ee4a4a9e89d923/d67fd/image-20.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 77.21518987341771%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABtUlEQVR42o2UR4/CQAyF5///HO4IceCAkOBGDSX0GkpooXn1GTkbIjZaS2bCzPj5+dmJe71ecjweJYoiWa/X6tvtVhaLhez3ezkcDrLb7eRyuegahqFkmeNnuVzGF0lgfj6fdd+cBOYkwiGDc36/39+AHPAHez6fusJoMplIu92WwWAgrVZLms2m1Ot16Xa76p1OR3zfl+l0qlVtNps3IKX0+30JgkBL5qDRaMjpdPooB9YkxHm2PezxePwCot98PtcsvV5PxuOxMoPBarWKNU6DGxhGhdx1tgngaDTStVaraYloyzkVwJ4A9IP57Xb7SAAgjXTpcmgEq+d5UqlUZDgcxsFojXblcllyuZzMZrMPQMi4dNsB4xAtAYBVsViUfD6vzTFDL4BpXiZgUgKCMEokGAnQ+Xq96j4y2B2qyAQkkAAu0hDArIHs41RAJV81TAPSCJghAWUxa6al3SkUCjqHxpCkLtn6b4BmTECpVNJ9gjmrVqtxyab7nwwZD+bPDJZ0mBm14U8OOIA62GRCL8aF7PYhoLvs/dd4U9DVwQIQVnvx7RlQLqENM4eOrMlnmwZ7034A4uOA623fknkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;밥먹는 공간은 따로&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a8e6897a79d1fd19f0ee4a4a9e89d923/f058b/image-20.png&quot;
+        srcset=&quot;/static/a8e6897a79d1fd19f0ee4a4a9e89d923/c26ae/image-20.png 158w,
+/static/a8e6897a79d1fd19f0ee4a4a9e89d923/6bdcf/image-20.png 315w,
+/static/a8e6897a79d1fd19f0ee4a4a9e89d923/f058b/image-20.png 630w,
+/static/a8e6897a79d1fd19f0ee4a4a9e89d923/d67fd/image-20.png 670w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이런 식으로, 밥 먹는 공간과 생각하는 공간을 따로 분리한 뒤&lt;br&gt;
+밥 먹는 공간에는 4명까지만 들어가게 하면 어떨까요?&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 300px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/233e866e6071aed6bb44f85cd6f8bfa1/5a46d/image-21.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACaElEQVR42i2RTU8TURSGZ2eMaAy0nenMvfNx79w700Jb5numtLFU6AIaQuQj0ZLUAoEmVIPyUWjACCKBiFEXRhMTXLhwQYgLICYuXPhD/AHGH+FFPXlyVifnvO97uD4Qr5bCuXsTtiZ5WHYx9HTgENnUVASBrihZJOcNOSTA19mA6Kj8sN1b8bI5hedI7EbtTnVns52FvKUBG8k5TRL5GC9cViyRuNbVRSU+NLBHtcDULRXutNe/nJ88aDY4B0ELSbYm+DrbLeepktNAPMEneCEWjxMVppGChJ6QAg+zAdaFYSc9VgrKlsnloGApTIxkq2JOlVAyJgoJDIAqxhdGCxeHK583GyNOr0u0wMCMyCQeRS5SfYw4SxPZZffvVibYVJMG5HcnK/szIz+OVs73H71sjI9apqdLIZUDAiMq5SmIDBAQkcsqyX5VcnXFwdDWgIdgkKZH81Nftxa+Hyyfbswet2q3M9TX1ZCikOLIwPlLSGQQzsWSpSSyUreDxIE+krf6h4cqe4v1T63p07X6+/mJzlg5ojAgLPB/wFCHecpeALiMlBgbLDZn55YWF1tLrY3O1lq7015df74wszs1tD9VvWUSR1cCgv5DMSOkOlPBmUL33Wrp+N3u3tPlpWZtY6X59vWzxw/vV8p+kJYny9kUUU2MIqKEOsjrMMQg1KWIRYAlLiUmayN9F8ejr7YHX3RKrbrXavhvnpTOPk5/O1n9cFj1+9WbPbEchpGBIub5EmaeqdA4G8YLdqpYcLMZ08ogpMGUge2MNl8f//3r58He9vWrV3iBTyvJoikPGErR0AqGwogo+ANCUJV1mdFobgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;함꼐 갈 수 없습니다&quot;
+        title=&quot;&quot;
+        src=&quot;/static/233e866e6071aed6bb44f85cd6f8bfa1/5a46d/image-21.png&quot;
+        srcset=&quot;/static/233e866e6071aed6bb44f85cd6f8bfa1/c26ae/image-21.png 158w,
+/static/233e866e6071aed6bb44f85cd6f8bfa1/5a46d/image-21.png 300w&quot;
+        sizes=&quot;(max-width: 300px) 100vw, 300px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그럼 4명이 포크 5개를 공유하니, 누군가는 포크를 두 개 집을 수 있습니다&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;semaphore room&lt;/code&gt;을 새로 도입하여 이를 구현하면 :&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;semaphore fork&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//포크는 여전히 다섯 개&lt;/span&gt;
+semaphore room &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//밥 먹는 방에는 4명만 들어오세요&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;philosopher&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;true&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;think&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//생각은 방 밖에서 알아서 하세요&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;wait&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;room&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//밥 먹으러 들어가려면, 4명 꽉찼으면 대기, 자리 있으면 들어가&lt;/span&gt;
+		&lt;span class=&quot;token comment&quot;&gt;//이제 방에 들어왔음&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;wait&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fork&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//왼쪽 포크가 있으면 포크 집어들기&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;wait&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fork&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//오른쪽 포크가 있으면 포크 집어들기&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;eat&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//냠&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;signal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fork&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//오른쪽 포크 내려놓고&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;signal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fork&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//왼쪽 포크 내려놓고&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;signal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;room&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//방 나간다&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이와 같이, 포크를 집고, 먹고, 포크를 내려놓는 일련의 과정을 &lt;code class=&quot;language-text&quot;&gt;semaphore room = {4]&lt;/code&gt;로 감싸버립니다.&lt;/p&gt;
+&lt;h2 id=&quot;monitor로-해결해요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#monitor%EB%A1%9C-%ED%95%B4%EA%B2%B0%ED%95%B4%EC%9A%94&quot; aria-label=&quot;monitor로 해결해요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Monitor로 해결해요&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;semaphore&lt;/code&gt;말고도 &lt;code class=&quot;language-text&quot;&gt;monitor&lt;/code&gt;라는 강력한 동기화 툴이 있었죠?&lt;br&gt;
+이를 이용하여 해결해봅시다&lt;br&gt;
+코드 먼저 봅시다 :&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;monitor dining_controller&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+cond ForkReady&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//포크 동기화를 위한 조건변수&lt;/span&gt;
+boolean fork&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;true&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//각 포크가 집을 수 있는 상태인가??&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;get_forks&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; pid&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; left &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; pid&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; right &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;pid&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;token comment&quot;&gt;/* 왼쪽 포크 집기 */&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;fork&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;left&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;cwait&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ForkReady&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;left&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//왼쪽 포크 없으면 밖에서 기다려!!&lt;/span&gt;
+	fork&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;left&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; false&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//왼쪽 포크 있으면 집어들고, false 체크&lt;/span&gt;
+	&lt;span class=&quot;token comment&quot;&gt;/* 오른쪽 포크 집기 */&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;fork&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;right&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;cwait&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ForkReady&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;right&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//오른쪽 포크 없으면 기다려!!&lt;/span&gt;
+	fork&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;right&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; false&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//오른쪽 포크 있으면 집어들고, false 체크&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;release_forks&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; pid&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; left &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; pid&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; right &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;pid&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;token comment&quot;&gt;/* 왼쪽 포크 내려놓기 */&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ForkReady&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;left&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; fork&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;left&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;true&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//왼쪽 포크 기다리는 애 없으면 그냥 놓고&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;csignal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ForkReady&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;left&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//기다리는 애가 있으면 걔 준다&lt;/span&gt;
+	&lt;span class=&quot;token comment&quot;&gt;/* 오른쪽 포크 내려놓기 */&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ForkReady&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;right&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; fork&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;right&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;true&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//오른쪽 포크 기다리는 애 없으면 그냥 놓고&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;cisngal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ForkReady&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;right&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//기다리는 애가 있으면 걔 준다&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;/* --- 모니터 외부 --- */&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; philosopher&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;k&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; to &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;true&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;think&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;get_forks&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;k&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;eat&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;release_forks&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;k&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;void get_forks()&lt;/code&gt; : 포크를 무조건 두 개 다 집고, 모니터를 빠져나온다.
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fork[left]==false?&lt;/code&gt; 누군가 왼쪽 포크를 쓰고 있으니, 기다리자.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fork[right]==false?&lt;/code&gt; 누군가 오른쪽 포크를 쓰고 있으니, 기다리자.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;void release_forks()&lt;/code&gt; : 포크를 두 개 다 내려놓고, 모니터를 빠져나온다.
+&lt;ul&gt;
+&lt;li&gt;내려놓을 포크를 기다리던 애가 없다면, &lt;code class=&quot;language-text&quot;&gt;fork[left]=true&lt;/code&gt;와 같이 그냥 내려놓는다.&lt;/li&gt;
+&lt;li&gt;내려놓을 포크를 기다리던 애가 있으면, &lt;code class=&quot;language-text&quot;&gt;csignal&lt;/code&gt;로 포크를 넘겨준다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이렇게 하면 &lt;strong&gt;데드락이 발생하지 않는다&lt;/strong&gt;.. 입니다만, 저희 교수님께서 말씀하시길&lt;/p&gt;
+&lt;p&gt;왜 그렇죠? 처음에 데드락이 발생할 때도, semaphore로 왼쪽을 잡고, 아니면 기다리고, 그 다음 오른쪽을 잡고, 아니면 기다리고, 의 과정을 거쳤습니다&lt;br&gt;
+그런데 여기서도, 왼쪽 포크 있으면 집고, 아니면 기다리고, 오른쪽 포크 있으면 집고, 아니면 기다리고, 의 과정을 거치는게 비슷한 것 같은데요&lt;br&gt;
+라고 질문하셨습니다.. 잘 생각보라고 하시네요&lt;/p&gt;
+&lt;p&gt;또한&lt;br&gt;
+일단.. &quot;monitor는 그 자체로 내부가 Critical Section이다&quot;, &quot;프로세스 혼자서만 들어간다&quot;, 같은 설명은 답이 되지 않을 것 같네요&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;void get_forks()&lt;/code&gt;함수를, &lt;code class=&quot;language-text&quot;&gt;void get_left_fork(), void get_right_fork()&lt;/code&gt;와 같이,&lt;br&gt;
+왼쪽 포크 따로, 오른쪽 포크 따로 집게 함수를 분리하면 데드락이 발생합니다.&lt;br&gt;
+모니터 자체의 특성으로 인해 해결되는 것이 아니라는 뜻입니다&lt;br&gt;
+라고 하셨는데&lt;/p&gt;
+&lt;p&gt;교수님께서 주신 힌트를 종합해보면, 한 마디로&lt;br&gt;
+&lt;strong&gt;포크를 집으려다, 또는 하나 집고, CPU를 뺏겨도, 누군가 내가 집을 포크에 손 대지 못한다&lt;/strong&gt;&lt;br&gt;
+정도로 정리할 수 있을 것 같습니다&lt;br&gt;
+Monitor에서 &lt;strong&gt;포크를 둘 다 집어야만 모니터를 나온다&lt;/strong&gt;라는 점이 중요한 셈인데&lt;br&gt;
+Monitor내에서 time-out당해도, Monitor 내부는 잠겨있어 다른 누군가 포크를 손도 대지 못합니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 225px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f02bb9d4040baafec6b85094e4f736cc/3684f/image-22.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD9klEQVR42iVS+08iZxSd30zqJtagbhUQhsfwksciKqIVREBmeCiyUCm4K2y11dQ0627SZre6Gje1Tcp7UN5v1IiP7S/13+spXMjNfPe759xz7gzxz7939SZbLpe63e719fXNzc1j997omh+wcyZUXLVCagtObh/ow/uatR3uIk2GIu5fD3/8ZS+6++YV8WZnLRzzn5weFYvF29vbRrNZqlTXV+kh1fAgMyKbFq8HtZE9kScyzITHDPPcuTkNvbpk1KsUcgkR8Ic/fvoMTLVaxfBWu12uNVKp5PnpZ+Y3P+cHwR9/H+XZeDzxVyKeyGYz6WSGzeUsy5Znz74iXPYVlk19efzSarWazebV1VWn00ZcX11XGzXX78F4Mf1w93jb7d7f3z88PCA/PT3ZbLbBwUGAl9qddqdzBWS5XK5UKo1Gs1DIp1KpSqmcZy/ZbLZULuZyuUajAXXIEGgwGAYGBgilQhaPx+G2Xq8DjOuLiwuWZbGCUqmUyWQuLy9zvUAFx1Yv5HI5Z4RDOGzm3Z3Y3d1dXzaI0QQw+sBVKBRABxYowgOI8EZQt5gXnXYL4XZYg/61YqkAnxheq9XQmkgkAOt0OiACDKS46vOiCFN7u9s/xcKEkM/TqJXpdBpgwPrgfga+rznfCzzAUaVcZi/YUDSkkkkIUjipVqsymWyr1Yb5s7MzjAVXMplke4HNFXoBJChq1WqaTTPrTomARzCM0+GwHx8fQxWuAQMAQ6AWR2CKvYCE/gph4fjTkcGg1WmmiM2A1+/zvn37rlGvpzAwkcxmsmhFH2ZibZDTJ8URRez1w8cPNO1cc3uIdQ8dePkyGov+bzJfgC1MyF3kgEc7xAMGcKYXKGLn796/tywZ6RUzodNO+Xxen89zfv4n3sFlhi3lC8We2v7y+18OMgwj4ws5PDy0Wq2mmWlCoVQsLM4FghuhUIimHbTZHHZ7vE5mayvidbsgLxaLHhwc/NyL/f39k5PT11uhFzq1gM8lFowmhZS0r9oZhtFq5VazJeD3z5vmZ2emhQL+2NiIyWR0MQztpG22leVlk9NJO2xLMorkcScIj1BsHeerFJRSJtVplGYe6Z2UmkUS44xBIad43PEFkxEKPC437VydeaEzzRpmdErh5IRapSJCPFFggtRLSKlUqFJKvx197h0ac3DGLcZ5hYIaHeVgsm/Nu+HbYFadKqlILuYpJUJKKoYpIiyWf8cjZ4WkSCyQUSLT2LjrOc/8zYRWrVZPqYa/HrJYll5tRfBb93gVUuGUTCgT8Q3T+s1ggPAIpJt8kU2r0xt0SrlEz+W6KGqBFFCURKvVYPKyxRJ9vY2/1+0Wk7wpCuBJp8MW+T70H6tK9e74US5LAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;취급주의&quot;
+        title=&quot;&quot;
+        src=&quot;/static/f02bb9d4040baafec6b85094e4f736cc/3684f/image-22.png&quot;
+        srcset=&quot;/static/f02bb9d4040baafec6b85094e4f736cc/c26ae/image-22.png 158w,
+/static/f02bb9d4040baafec6b85094e4f736cc/3684f/image-22.png 225w&quot;
+        sizes=&quot;(max-width: 225px) 100vw, 225px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 생각해보면, 함수를 둘로 나누어 왼쪽 포크 집는 함수, 오른쪽 포크 집는 함수로 나누면 데드락이 여전히 발생한다는 점이 납득이 갑니다&lt;br&gt;
+그렇게 되면 왼쪽 포크를 집은 뒤 Monitor를 나오게 되는데, 이 타이밍에 CPU를 뺏기면, 다른 누군가 포크에 손을 댈 수 있습니다..&lt;br&gt;
+결국 &lt;code class=&quot;language-text&quot;&gt;semaphore&lt;/code&gt; 경우와 다를 바가 없어지는 셈이네요&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;br&gt;
+이렇게 프로세스 세계의 평화를 지켜냈습니다.. 후&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1b6a742585951ed7d0dfd074d5b16193/7608e/image-23.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.06329113924051%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVR42gGfAmD9AHNfN1VDIEhALkxDLVtFG19JJKqikrOsm7CnlpmUj1xcU1BEIEY3GEo5GE5FKj5HQGpeOJN4PYJuPVRJKAB3a0EyOTc3OTY3OzswNTBoViqmiESghEaymD+unDZeWTc4PTtDPCQ+NiNCSEAhKClWTS7Bm0ZuWzEnMjAAPkM3LC4rLy0xQT0+OTs8UlA9ppl+moVWwK1I28hPqplAHyItOToxR0czKzQ4Li8xIyojloNTVE83GCAdAC02LykrKCkrL0A+PU5LRUlKQJGIdIpzO7inYsq+got+PyIhKEA4KExCIygnJi8qJCchE3l4dFdSSDkrEQBALRM6Jg45Jg5EMhlBLhlDMyKIf2eLczygjWiXg1iOfDs+KhNHMBBFLhFHMBNIMBJILg+AeG1nXVBELhcARTgtRzkrQTQsd2k0rZUtdGQ6nJeRnopgnYlYrZlNubCEXVZTPjEiQzQgPTMrOTUxKCMmc3BvYmJiKSoyACQnLiEoLiYpLlpsbKOdVtjERLWoY66jaMi0RMK0VsO3c5iMPT86MEAzHS4uLSYtMAsQHGNkZmZlZQ8THQAXGR8kLDBAQD5JXmhLaHuEg0nPuTPHtES8rmfItD/MtzLZxD6IfkVbV1lFREQrMTYKEB5aXWFxcG4PFSAAMSgRNy0VNiwXNCsTMioSKyYfeXRdvbmm0dbfy8mzzMBu2cZCkYI6YF1aNy4eNS0ZKCELXVlLeXdxLygRADMtIzIqIjEqIC8oHTMqGzMtJlxaWY2NkJianairtp2eo5qXgGhkWVZTTDwzIzMoFishDnNsYZSRjDQqGQA2Njc6OTw7Ojw4Nzo2NTgzNTxqam+rq6yusrW0triwsrWxtsB3eX5bWldCQkI3NjsnJyxvbm6Rj4xBQEKz790KfCPs9gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;평화와 치킨을!&quot;
+        title=&quot;&quot;
+        src=&quot;/static/1b6a742585951ed7d0dfd074d5b16193/f058b/image-23.png&quot;
+        srcset=&quot;/static/1b6a742585951ed7d0dfd074d5b16193/c26ae/image-23.png 158w,
+/static/1b6a742585951ed7d0dfd074d5b16193/6bdcf/image-23.png 315w,
+/static/1b6a742585951ed7d0dfd074d5b16193/f058b/image-23.png 630w,
+/static/1b6a742585951ed7d0dfd074d5b16193/7608e/image-23.png 735w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;치킨 먹고싶네요~&lt;/p&gt;</content:encoded></item><item><title><![CDATA[👥 Scheduling을 어떻게 해야 잘 했다고 소문이 날까? - Multiprocessor]]></title><description><![CDATA[저번 시간에 Uniprocessor Scheduling…]]></description><link>https://sungpaks.github.io/multiprocessor-scheduling/</link><guid isPermaLink="false">https://sungpaks.github.io/multiprocessor-scheduling/</guid><pubDate>Sat, 15 Jun 2024 19:58:58 GMT</pubDate><content:encoded>&lt;p&gt;저번 시간에 Uniprocessor Scheduling에 대해 알아봤는데&lt;br&gt;
 계산대가 하나일 때 어떻게 계산을 해야 잘 했다고 소문이 날까? 였습니다&lt;/p&gt;
 &lt;p&gt;이제 시대가 발전해서&lt;br&gt;
 여러 프로세스(또는 쓰레드)가 하나의 메모리를 공유하는 &lt;strong&gt;멀티 프로세서 시스템&lt;/strong&gt;이 매우 흔해졌습니다&lt;br&gt;
