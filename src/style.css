@@ -287,7 +287,7 @@ body.theme-reverse a {
 
 a:hover,
 a:focus {
-  text-decoration: none;
+  font-weight: bold;
 }
 details {
   padding: 0 2rem;
@@ -360,8 +360,7 @@ body.theme-reverse summary::after {
   margin-bottom: var(--spacing-2);
   margin-top: var(--spacing-0);
 }
-body.theme-reverse a,
-body.theme-reverse h2 .post-list-item {
+body.theme-reverse h2.post-list-item {
   color: light-dark(white, black);
 }
 
@@ -503,6 +502,10 @@ body.theme-reverse .top-ui-title a {
   border: none;
   z-index: 1;
 }
+a.tag-button {
+  text-decoration: none;
+}
+
 body.theme-reverse .tag-button {
   color: light-dark(white, black);
   background-color: light-dark(yellowgreen, rgba(169, 248, 11, 0.5));
@@ -611,6 +614,7 @@ body.theme-reverse .top-ui-tag {
 
 .toc {
   /* border-left: gray solid 1px; */
+  border-left: rgba(191, 191, 191, 0.5) solid 3px;
   padding-left: 10px;
   opacity: 0.75;
 }
@@ -618,8 +622,10 @@ body.theme-reverse .top-ui-tag {
 .toc a {
   text-decoration: none;
   color: light-dark(var(--color-darkgreen), var(--color-lightgreen));
-  border-left: gray solid 1px;
   padding-left: 10px;
+}
+.toc a:hover {
+  font-weight: bolder;
 }
 
 body.theme-reverse .toc a {
@@ -635,7 +641,7 @@ body.theme-reverse .toc a {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 .toc p {
   white-space: nowrap;
