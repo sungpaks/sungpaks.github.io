@@ -19,7 +19,7 @@ function TableOfContents({ tableOfContents }: ComponentProps) {
     const scrollEvent = () => {
       const overTheTop: Element[] = []
       headers.forEach(h => {
-        if (h.getBoundingClientRect().top < 0) {
+        if (h.getBoundingClientRect().top <= 100) {
           overTheTop.push(h)
         }
       })

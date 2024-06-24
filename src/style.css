@@ -60,6 +60,7 @@
   --color-accent: #d1dce5;
   --color-dark: rgb(44, 44, 44);
   --color-lightdark: rgb(66, 66, 66);
+  --color-lightdark-translucent: rgba(66, 66, 66, 0.8);
   --color-light: #ededed;
   --color-lightgreen: rgb(211, 255, 207);
   --color-darkgreen: rgb(0, 57, 0);
@@ -452,7 +453,7 @@ body.theme-reverse .custom-button {
   border-bottom: 1px solid black;
   background-color: light-dark(
     rgba(245, 245, 245, 0.8),
-    var(--color-lightdark)
+    var(--color-lightdark-translucent)
   );
   display: flex;
   align-items: center;
@@ -461,7 +462,7 @@ body.theme-reverse .custom-button {
 }
 body.theme-reverse .top-ui {
   background-color: light-dark(
-    var(--color-lightdark),
+    var(--color-lightdark-translucent),
     rgba(245, 245, 245, 0.8)
   );
 }
