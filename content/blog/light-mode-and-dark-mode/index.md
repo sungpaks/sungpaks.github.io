@@ -1,5 +1,5 @@
 ---
-title: "🔅 다크모드 5초컷 with CSS 채신기술 like-dark()함수 - (Gatsby 블로그)"
+title: "🔅 다크모드 5초컷 with CSS 채신기술 light-dark()함수 - (Gatsby 블로그)"
 date: 2024-06-06 14:51:57
 description: "불좀 꺼줄래? 블로그좀 보게."
 tag: ["Gatsby", "Blog", "CSS", "JavaScript", "TypeScript"]
