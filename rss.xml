@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 06 Jul 2024 14:12:24 GMT</lastBuildDate><item><title><![CDATA[🪝 리액트 훅(React Hooks) 예제와 함께 톺아보기]]></title><description><![CDATA[리액트 좀 해봤다 자랑하려면 Hook은 매우 필수적인 것 같은데요  오늘은 이 리액트에서 기본으로 제공하는 Built-in…]]></description><link>https://sungpaks.github.io/react-hooks-guide-with-examples/</link><guid isPermaLink="false">https://sungpaks.github.io/react-hooks-guide-with-examples/</guid><pubDate>Sat, 06 Jul 2024 20:26:16 GMT</pubDate><content:encoded>&lt;p&gt;리액트 좀 해봤다 자랑하려면 Hook은 매우 필수적인 것 같은데요&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 06 Jul 2024 14:26:48 GMT</lastBuildDate><item><title><![CDATA[🪝 리액트 훅(React Hooks) 예제와 함께 톺아보기]]></title><description><![CDATA[리액트 좀 해봤다 자랑하려면 Hook은 매우 필수적인 것 같은데요  오늘은 이 리액트에서 기본으로 제공하는 Built-in…]]></description><link>https://sungpaks.github.io/react-hooks-guide-with-examples/</link><guid isPermaLink="false">https://sungpaks.github.io/react-hooks-guide-with-examples/</guid><pubDate>Sat, 06 Jul 2024 20:26:16 GMT</pubDate><content:encoded>&lt;p&gt;리액트 좀 해봤다 자랑하려면 Hook은 매우 필수적인 것 같은데요&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 254px; &quot;
@@ -992,8 +992,41 @@ input란에 타이핑을 칠 때마다 실시간으로 검색이 되게 하였�
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;아오.. 꽤나 후회했답니다?&lt;br&gt;
-이만 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🔒 데드락도 락이다. - 데드락과 철학자 문제]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/deadlock-and-dining-philosophers-problem/</link><guid isPermaLink="false">https://sungpaks.github.io/deadlock-and-dining-philosophers-problem/</guid><pubDate>Sun, 16 Jun 2024 22:03:42 GMT</pubDate><content:encoded>&lt;h1 id=&quot;데드락이-뭔데요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EB%93%9C%EB%9D%BD%EC%9D%B4-%EB%AD%94%EB%8D%B0%EC%9A%94&quot; aria-label=&quot;데드락이 뭔데요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데드락이 뭔데요?&lt;/h1&gt;
+&lt;p&gt;아오.. 꽤나 후회했답니다?&lt;/p&gt;
+&lt;p&gt;그리고 ㅋㅋㅋ 이거 하다가 공식문서 코리안버전에서&lt;br&gt;
+링크가 잘못 들어간 경우를 발견해버려서&lt;br&gt;
+이거 두 줄 고쳐서 기여했는데&lt;br&gt;
+깃허브에 동네방네 소문나버려서 좀.. ^^; 머쓱ㅋㅋ&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 208px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/38507c577cf5daee67a908bb22a8e5f4/8f2fb/image-12.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 144.30379746835442%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;기여함&quot;
+        title=&quot;&quot;
+        src=&quot;/static/38507c577cf5daee67a908bb22a8e5f4/8f2fb/image-12.png&quot;
+        srcset=&quot;/static/38507c577cf5daee67a908bb22a8e5f4/c26ae/image-12.png 158w,
+/static/38507c577cf5daee67a908bb22a8e5f4/8f2fb/image-12.png 208w&quot;
+        sizes=&quot;(max-width: 208px) 100vw, 208px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이만 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🔒 데드락도 락이다. - 데드락과 철학자 문제]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/deadlock-and-dining-philosophers-problem/</link><guid isPermaLink="false">https://sungpaks.github.io/deadlock-and-dining-philosophers-problem/</guid><pubDate>Sun, 16 Jun 2024 22:03:42 GMT</pubDate><content:encoded>&lt;h1 id=&quot;데드락이-뭔데요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EB%93%9C%EB%9D%BD%EC%9D%B4-%EB%AD%94%EB%8D%B0%EC%9A%94&quot; aria-label=&quot;데드락이 뭔데요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데드락이 뭔데요?&lt;/h1&gt;
 &lt;p&gt;그런 적 있으신가요? 친구들이랑 얘기할 때&lt;br&gt;
 예를 들어.. 시험기간에 피시방가자거나? 술먹으러가자거나?&lt;br&gt;
 &quot;너 가면 나도 간다&quot;를 서로 주고 받는 ...&lt;/p&gt;
