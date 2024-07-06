@@ -1,4 +1,999 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 28 Jun 2024 06:26:02 GMT</lastBuildDate><item><title><![CDATA[🔒 데드락도 락이다. - 데드락과 철학자 문제]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/deadlock-and-dining-philosophers-problem/</link><guid isPermaLink="false">https://sungpaks.github.io/deadlock-and-dining-philosophers-problem/</guid><pubDate>Sun, 16 Jun 2024 22:03:42 GMT</pubDate><content:encoded>&lt;h1 id=&quot;데드락이-뭔데요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EB%93%9C%EB%9D%BD%EC%9D%B4-%EB%AD%94%EB%8D%B0%EC%9A%94&quot; aria-label=&quot;데드락이 뭔데요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데드락이 뭔데요?&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 06 Jul 2024 14:12:24 GMT</lastBuildDate><item><title><![CDATA[🪝 리액트 훅(React Hooks) 예제와 함께 톺아보기]]></title><description><![CDATA[리액트 좀 해봤다 자랑하려면 Hook은 매우 필수적인 것 같은데요  오늘은 이 리액트에서 기본으로 제공하는 Built-in…]]></description><link>https://sungpaks.github.io/react-hooks-guide-with-examples/</link><guid isPermaLink="false">https://sungpaks.github.io/react-hooks-guide-with-examples/</guid><pubDate>Sat, 06 Jul 2024 20:26:16 GMT</pubDate><content:encoded>&lt;p&gt;리액트 좀 해봤다 자랑하려면 Hook은 매우 필수적인 것 같은데요&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 254px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/be28d1c15f594584a789339e2b7d2892/6a91e/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 77.84810126582278%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsTAAALEwEAmpwYAAADvklEQVR42mOIDfEtzEqqryzsaq2vLC4sLSpITUqOCgmNCgmIjwhNT4jKTomuLMxoqS7sbKhoqSmtKs6uLMlra6ia0FXHwMbCxsrEysrMIsIvJCkkyc8lxMHOy8spyMcrJioqa2ZoJi0qysnKxsvBycPBxc7Gxs7Cxs7KxsHGzsnGziDIL8DPx6cgK6+hpKEopSgnIS8lKiMlLicrrSgno2SoY2KkpS8sIAhUI8DHD1QMIfl5+YDaGHi4eeSkZMx0jBQllRSklOQlFJRlVJQV1BRklOWllWQk5NXk1aUlpHl5eIAa4IiXm1dYRICBl5tHW1nF09bW0dLG3tzKRFdfX1PXVN9YR03LQFMfqFNDSV1BVpGfjx+uk4+HF4iADAaQGfwCFtqaXnY2lgYGNiYm9hZW3s4urjYOZvqm5gbmxroGynKKwgJCQGsg2oCIh4uHm5OLQZBPQFpCcnJZxrLa7KbU6EnFGf62FpqKyg7mVkCHONnYAzUrSMlJiUkICfALCQgICwoJ8oNcwcPFzSAmLBrqHzijPHtHd/my2szm5LCsQHc7XS01GVlrYzN7S2srEzM1BSVZKVlxMUkRYTF+PmEgKS4mxs/LyyAiJKysqLR3atvrLdNPzW64smrixfmtOzqKdBTkJIXEVeQUNJXVJYTFFMQE1eWEVWQFbYwVZMX4WBiZOTl4GIDOEBMRXd9ceG9xx7eDy56tm3p7UevRiWWFwe7KEtKC3AJ2+oo9ZSGHt02/c3Hz1VNrf364dmr/vJndudbaMgyiwiIcnFxZAR7/j699vn7iuckVF2fW7OssWFye6m1uJMTNtXhCxpS6kp7y8hktDYsm9c/o7mwrLvj55dmNEysgmnnCnOzOz2p9tKb/xYZJV+c2bKhNm5AVGeNoZagguaAn7c6FPfs3rZzV1rxrw6pLpw+c2r/l4d1LJ3ctYBAWAkJRCQHhWcmRrzZOubu84/Kc2j3dBTMKYydV5LRXl1sY6lRmeM7ryzqzb9butVP2bpp16ejqnspoZyM5UPLk4+FRkJGvTo6+OL/h5KSiCzNr909rPLph4YEdm6bNmJ3gFRJr4iwrKCElyC0lzCshxCMlwMPFzsXHK8CgKK+kJK/qYOXUWVG5Z3rX0YVdB5bPuHHx5KN7N5YvW9oQmbKnqLbAJ1JbxVBVxUBGRlFcXFpMXEpKQkpESIRBW1PbUM/M2d67OqcgxjNw/swpb17d//bpzfzZsxOjE7Ldg5tiMnSV9fW0LYz0rQ0NLFWUNSUlpSUkpESFRAHYZhbPtRv13AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;제법인데..&quot;
+        title=&quot;&quot;
+        src=&quot;/static/be28d1c15f594584a789339e2b7d2892/6a91e/image.png&quot;
+        srcset=&quot;/static/be28d1c15f594584a789339e2b7d2892/c26ae/image.png 158w,
+/static/be28d1c15f594584a789339e2b7d2892/6a91e/image.png 254w&quot;
+        sizes=&quot;(max-width: 254px) 100vw, 254px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;오늘은 이 리액트에서 기본으로 제공하는 Built-in 훅에 대해 좀 알아봅시다&lt;br&gt;
+&lt;a href=&quot;https://ko.react.dev/reference/react/hooks&quot;&gt;공식 문서&lt;/a&gt;를 참고해서요&lt;br&gt;
+또한 적당한.. 직접 작성한 예제도 들고왔으니 한 번 잡솨보십시요&lt;/p&gt;
+&lt;p&gt;그리고 진정한 Hook선장이라면&lt;br&gt;
+&lt;a href=&quot;https://ko.react.dev/reference/rules/rules-of-hooks&quot;&gt;Rules of Hooks&lt;/a&gt;에 대해서도 응당 읽어보고&lt;br&gt;
+코드 짤 때 외않됌? 이라고 외치는 일 없도록 합시다.&lt;br&gt;
+대충 이런 내용들이 있습니다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;조건문, 반복문 내에서 Hook 호출 X&lt;/li&gt;
+&lt;li&gt;컴포넌트의 최상위 또는 커스텀 Hook 내에서 호출 (조건부 &lt;code class=&quot;language-text&quot;&gt;return&lt;/code&gt; 이후 이런거 X)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;아무튼 시작해봅시다&lt;/p&gt;
+&lt;h1 id=&quot;state-hooks&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#state-hooks&quot; aria-label=&quot;state hooks permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;State Hooks&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;State&lt;/strong&gt; 훅으로 사용자 입력 등의 정보를 &lt;strong&gt;기억&lt;/strong&gt;할 수 있습니다.&lt;br&gt;
+(&lt;a href=&quot;https://ko.react.dev/learn/state-a-components-memory&quot;&gt;&lt;em&gt;참고 : React는 &quot;기억&quot;해야 할 값들(현재 입력 값, 장바구나, ...)을 저장하기 위한 컴포넌트 별 메모리를 &lt;strong&gt;state&lt;/strong&gt;라고 부릅니다.&lt;/em&gt;&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 261px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8a354de8ca5fb41fbe21366f4689f0f3/edf96/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 74.0506329113924%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADnklEQVR42gGTA2z8AMm7vMjAwKejoq+trrW4va6xt6ewu19laGZlXqm5w6a3wau4wbK5xre7yby9xcK+xcPByMjCyc3Fx9DIxwC+v8a5w8ypucKZrbemu8mov86otrppa2NYWlaLionAy9nAw83Kx9HPydDQys7Uy9DbzdDgztLj0dPm0tUAqLrGlamxobXDkqaxrL3Kr8LRp5eHrqiisLa+f2VStKqt1M7W2cvN3c7O2s/P38/R4tDU5dLW6NXX7dbZAK/By4iRkaSss6iutL3Byb+/wKaDacG9wLO0t6ONfLqikefV3PHQ0/DS1uvU1+zV2O3V2+/Y3vLZ3/Pb3gC2xM2Qk5K4sa+/tri4vMDPwr+1hWSwnZCEalivj3LYsJj12t/v1dfw1tv22+D22t/22+H32+L33OH33OAAxr29opiPybWu0Lm00cK/4MjBqXJLonpai2VHp25Mx5qC+ODo8dvf8dvh8Nnf9N3i9t/o+uDq/OHr++HqANS+tse0rL+vp9C/uc+7ttjGwql2VbN8VK6Ob4JONKV/bN/KwM+1ptC3qdrCvOLOyenUzOfOx+rQyvHY1QDSw7vMu7TFta7TxL7FtrLq2dzYs5zAmnmYfmplSzt4WUKOcVhsX0t8aFW4nYzJsZ+Hdl5+bleBbliMdmAAzLqy28fAybevzr66y7u59NzcmoR3fGNNVzkoPjMqYEQufEYrWT4uEhYTV0c7nH5mZllHZlpJa1pKYlFCAKOPh9S4q82wn9K6sc64sqqSh1U8K4pbPkErHDApJWtEM186K081JwQLDkZAOcGkhnZrV3FjU3lnWHJkUwCcjIWnkX3mw6q8pJSWhXqEaVlmQy6ub0lGOClDOS51QTFRLyMvJx0PEQ8yLynAp4yAdFtoX05rY1CKf24AkYWBpZKF89HCjnpue3NsjHRgZjokl1MuWjkkGSEaOyUaHxIMBgcFJCQjoJWSrpN9rJmAc2pUcmlVlIh1ANfBvda8tbWai5mEdZaJf3FYRG9INHdPN0QtIB8iIisxLyMoIx0eGmNfW6WOfmtWQ8+5ormkibuoj6ychAD329v939yRfXGXgW6gi3SEcVqKdFuDcVtxZlRgVkltZlx1al5/dWaTgG2TdFqAZ1S0nYStmoLDrZfPuKQAwKqi79PVe21pppODk39pg3VeeWdQe15HjnNbhGxUh2xTiGxWiW9Yk3dgim1Yj3NeeGFLTkEzhXRimod1bygQEnbtMHUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;기억할게!!&quot;
+        title=&quot;&quot;
+        src=&quot;/static/8a354de8ca5fb41fbe21366f4689f0f3/edf96/image-1.png&quot;
+        srcset=&quot;/static/8a354de8ca5fb41fbe21366f4689f0f3/c26ae/image-1.png 158w,
+/static/8a354de8ca5fb41fbe21366f4689f0f3/edf96/image-1.png 261w&quot;
+        sizes=&quot;(max-width: 261px) 100vw, 261px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;값을 유지하고 업데이트하며 리렌더링을 유발하게 하려면 &lt;strong&gt;state&lt;/strong&gt;를 사용해야 함은 리액트의 기본이라고 할 수 있겠죠?&lt;/p&gt;
+&lt;h2 id=&quot;usestate--usereducer&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#usestate--usereducer&quot; aria-label=&quot;usestate  usereducer permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;useState &amp;#x26; useReducer&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;useState&lt;/code&gt;먼저 살펴봅시다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://ko.react.dev/reference/react/useState&quot;&gt;&lt;strong&gt;&lt;em&gt;useState&lt;/em&gt;&lt;/strong&gt; 레퍼런스&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;매개변수 :
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;initialState&lt;/code&gt; : &lt;strong&gt;state&lt;/strong&gt;값의 초기 설정 값.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;반환값 : 다음 두 개의 값을 가진 배열 반환
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;state&lt;/code&gt; : 현재 상태 값으로, 첫 번째 렌더링 시에는 &lt;code class=&quot;language-text&quot;&gt;initialState&lt;/code&gt;값과 일치&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;set&lt;/code&gt; 함수 : 상태 값을 업데이트하고 리렌더링을 유발.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;const [state, setState] = useState(initialState)&lt;/code&gt;와 같이,&lt;br&gt;
+&lt;strong&gt;배열 구조 분해 할당&lt;/strong&gt;을 활용하여 작성하는 것이 국룰입니다&lt;/p&gt;
+&lt;p&gt;또는, 값을 엄격하게 관리하기 위해 &lt;code class=&quot;language-text&quot;&gt;useReducer&lt;/code&gt;를 사용해볼 수도 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://ko.react.dev/reference/react/useReducer&quot;&gt;&lt;strong&gt;&lt;em&gt;useReducer&lt;/em&gt;&lt;/strong&gt; 레퍼런스&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;매개변수:
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;reducer&lt;/code&gt; : &lt;strong&gt;state&lt;/strong&gt;의 업데이트를 지정할 Reducer 함수. 반드시 &lt;strong&gt;state&lt;/strong&gt;와 &lt;strong&gt;action&lt;/strong&gt;을 매개변수로 받고, 다음 렌더링에 사용될 &lt;strong&gt;state&lt;/strong&gt;를 반환하는 순수함여야 합니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;initialArg&lt;/code&gt; : &lt;strong&gt;state&lt;/strong&gt;의 초기 설정값.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;init?&lt;/code&gt; : &lt;strong&gt;선택사항&lt;/strong&gt;으로, 초기 &lt;strong&gt;state&lt;/strong&gt;를 반환하는 초기화 함수를 여기에 따로 할당해줄 수 있습니다. 할당된 경우 초기 &lt;strong&gt;state&lt;/strong&gt;값은 &lt;code class=&quot;language-text&quot;&gt;init(initialArg)&lt;/code&gt;값입니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;반환값 : 다음 두 개의 값을 가진 배열 반환
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;state&lt;/code&gt; : 현재 상태 값으로, 첫 번째 렌더링 시의 값은 - &lt;code class=&quot;language-text&quot;&gt;init&lt;/code&gt;이 있는 경우, &lt;code class=&quot;language-text&quot;&gt;init(initialArg)&lt;/code&gt; - &lt;code class=&quot;language-text&quot;&gt;init&lt;/code&gt;이 없는 경우, &lt;code class=&quot;language-text&quot;&gt;initialArgs&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;dispatch&lt;/code&gt; 함수 : 상태를 새로운 값으로 업데이트하고 리렌더링을 유발&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;useState&lt;/code&gt; 또는 &lt;code class=&quot;language-text&quot;&gt;useReducer&lt;/code&gt;를 사용하여 간단한 버튼 클릭 카운트 예제를 작성해볼 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/* StateExample.jsx */&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; useState &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;StateExample&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;count&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setCount&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;/* ... */&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; StateExample&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;/* ReducerExample.jsx */&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; useReducer &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;reducer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;state&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; action&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;action &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;up&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; state &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Unknown Action&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;ReducerExample&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;count&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; dispatchCount&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useReducer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;reducer&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;/* ... */&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; ReducerExample&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;iframe src=&quot;https://codesandbox.io/embed/8tlls5?view=preview&amp;module=%2Fsrc%2Findex.js&amp;hidenavigation=1&quot;
+     style=&quot;width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;&quot;
+     title=&quot;state-and-reducer-sample&quot;
+     allow=&quot;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&quot;
+     sandbox=&quot;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&quot;
+   &gt;&lt;/iframe&gt;
+&lt;h1 id=&quot;context-hooks&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#context-hooks&quot; aria-label=&quot;context hooks permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Context Hooks&lt;/h1&gt;
+&lt;p&gt;보통 하위 컴포넌트에게 정보를 전달하기 위해 &lt;strong&gt;props&lt;/strong&gt;를 사용하는데요&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;MyParent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MyChildren&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;MyChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; data &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;h1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;h1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;머 이런 식으로 하겠죠?&lt;/p&gt;
+&lt;p&gt;그런데 이렇게 props를 전달하지 않고도 정보를 전달할 수 있습니다&lt;br&gt;
+예시를 먼저 보면, 아래 예시는 상위 컴포넌트에서 변경되는 &lt;code class=&quot;language-text&quot;&gt;theme&lt;/code&gt;값을 자식 컴포넌트에서 &lt;strong&gt;&lt;em&gt;구독&lt;/em&gt;&lt;/strong&gt; 합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; createContext&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; useContext&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; useState &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;react&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; ThemeContext &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;createContext&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;LIGHT&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// Context를 생성하고 내보냅니다.&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;ContextExample&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;theme&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setTheme&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;LIGHT&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//Provider로 감싸 그 하위 컴포넌트들에 Context를 제공합니다.&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;ThemeContext.Provider&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;theme&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt;
+        &lt;span class=&quot;token attr-name&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          theme &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;LIGHT&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setTheme&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;DARK&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setTheme&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;LIGHT&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        Change The Theme
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;ContextExampleChild&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;ThemeContext.Provider&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;ContextExampleChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;//이 컴포넌트에서는 Context를 읽지 않습니다.&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;
+      &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;1px solid black &quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;10px&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;ContextExampleChildChild&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;ContextExampleChildChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;//이 컴포넌트에서 Context를 읽습니다.&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; theme &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useContext&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ThemeContext&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;
+      &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;//ThemeContext에서 얻어온 값에 따라 무언가를 합니다.&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;backgroundColor&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; theme &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;DARK&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;black&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;white&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;1px solid black &quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; theme &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;DARK&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;white&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;black&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;100px&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      2nd Child, Theme : &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;theme&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; ContextExample&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;iframe src=&quot;https://codesandbox.io/embed/tl5x4r?view=preview&amp;module=%2Fsrc%2FContextExample.jsx&amp;hidenavigation=1&quot;
+     style=&quot;width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;&quot;
+     title=&quot;context-sample&quot;
+     allow=&quot;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&quot;
+     sandbox=&quot;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&quot;
+   &gt;&lt;/iframe&gt;
+&lt;p&gt;사실상 아래와 같이, props 폭포에 의한 의존성을 역전시키다시피 한 셈인데요&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a1028c0bfe9db8eacbddb59d6084bb61/21b4d/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 40.50632911392405%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAyklEQVR42k2R2xKDIAxE+f8vdYRWRUcBufQMa2n3IWOSzW6CJud83/fVEULY9/08z1JKa41Id7SI67qq4pzjw8BIKb07vPcIkS7LArt0bNtGi0qMka508aBiJE+sterjOA6EawdsrYZi7BCTCtGIFK5grcXBWYc/VAxRgQqP+usLaRHxN7qNnD0lnzvYinRcPjDIzzDORD0DQJ4t5nmG1DqY4akoynyaJtJnWNBhAv5Evc1YLf1Brd8wJa5FkpdkeGwE+Hlq+Y6x0Qdbd9Gn1l2/OgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;props인 경우, context인 경우&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a1028c0bfe9db8eacbddb59d6084bb61/f058b/image-2.png&quot;
+        srcset=&quot;/static/a1028c0bfe9db8eacbddb59d6084bb61/c26ae/image-2.png 158w,
+/static/a1028c0bfe9db8eacbddb59d6084bb61/6bdcf/image-2.png 315w,
+/static/a1028c0bfe9db8eacbddb59d6084bb61/f058b/image-2.png 630w,
+/static/a1028c0bfe9db8eacbddb59d6084bb61/40601/image-2.png 945w,
+/static/a1028c0bfe9db8eacbddb59d6084bb61/78612/image-2.png 1260w,
+/static/a1028c0bfe9db8eacbddb59d6084bb61/21b4d/image-2.png 1280w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;중간 컴포넌트가 몇 개건 간에 건너 뛰어버릴 수 있습니다.&lt;br&gt;
+&lt;a href=&quot;https://ko.react.dev/learn/passing-data-deeply-with-context&quot;&gt;이 문서&lt;/a&gt;에서 &lt;strong&gt;context&lt;/strong&gt;에 대해 더 자세히 알아볼 수 있습니다.&lt;/p&gt;
+&lt;p&gt;요약하자면, &lt;strong&gt;Context&lt;/strong&gt;는 아래와 같이 사용합니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;export const MyContext = createContext(defaultValue)&lt;/code&gt; 로 context를 생성하고 내보냅니다.&lt;/li&gt;
+&lt;li&gt;부모에서 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;MyContext.Provider value={...}&gt;&lt;/code&gt;로 자식을 감싸면, 그 하위 자식들은 모두 &lt;strong&gt;context&lt;/strong&gt;를 읽을 수 있습니다.&lt;/li&gt;
+&lt;li&gt;자식 컴포넌트에서는 &lt;code class=&quot;language-text&quot;&gt;useContext(MyContext)&lt;/code&gt; &lt;strong&gt;훅&lt;/strong&gt;으로 &lt;strong&gt;context&lt;/strong&gt;를 읽습니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이렇게 상위 컴포넌트에서 &lt;code class=&quot;language-text&quot;&gt;Context&lt;/code&gt;를 제공하고, 하위 컴포넌트에서 &lt;code class=&quot;language-text&quot;&gt;useContext&lt;/code&gt;로 이를 &lt;strong&gt;구독&lt;/strong&gt;할 수 있습니다.&lt;/p&gt;
+&lt;h1 id=&quot;ref-hooks&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ref-hooks&quot; aria-label=&quot;ref hooks permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Ref Hooks&lt;/h1&gt;
+&lt;p&gt;어떤 &lt;strong&gt;정보를 기억&lt;/strong&gt;하고는 싶은데, &lt;strong&gt;리렌더링을 유발하지 않게&lt;/strong&gt; 하려면 &lt;strong&gt;&lt;em&gt;Ref&lt;/em&gt;&lt;/strong&gt; 를 사용합니다.&lt;br&gt;
+&lt;strong&gt;state&lt;/strong&gt;와는 달리, &lt;strong&gt;ref&lt;/strong&gt;는 업데이트해도 다시 렌더링되지 않습니다.
+이렇게 하여 &lt;em&gt;리액트 패러다임에서 벗어날 수 있습니다.&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;const ref = useRef(defaultValue);&lt;/code&gt;와 같이 선언합니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;useRef&lt;/code&gt;는 &quot;&lt;em&gt;현재 값&lt;/em&gt;&quot; 에 해당하는 &lt;code class=&quot;language-text&quot;&gt;current&lt;/code&gt;값을 가진 객체를 반환합니다.
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;{current: defaultValue}&lt;/code&gt;과 같은 객체&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;ref.current&lt;/code&gt; 프로퍼티를 사용하여 값에 값에 접근하고, 읽고 쓸 수 있습니다.
+&lt;ul&gt;
+&lt;li&gt;docs의 표현으로는, &lt;strong&gt;React가 추적하지 않는 구성요소의 비밀 주머니인 셈입니다.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 225px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/55305148e17b4bb30cf42808e71b7a57/3684f/image-4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEwElEQVR42h2Q2VMaBwCH9y9oJ60RkJtgVNAoIvelIoeooLILuMDiCi6XAh6IGowmmiAeCRqMJjHGaB1aLzRjqtM0zd2kkzSXPdKndprmoZ3pTCed6UNfLOnM9/rN7wAiUF4PdDQM5nrUJKcUj4qzYcFHNu4hpxjnlOExOb5NRe3QM5fO20ba5C0ynEdF9ilJ/ipyu5oK9JnzI6a8SFOBV0txSrJDtcyojdNv4yAqhrGC7gQ5E0OGCzFoatQcMBe2yHMwJdmb8f8HCEP5YRMrZGCeCSi2VwKLSWR0CLSYpTxhfkkJo7iYXsZnlvMouqIPYeFhl4LoVBA9VWSvmupRUzIyqwdiB+sYo2HND6+XE+Ou4mNkNpsm4OW6ILFZxzVqOOwCSqWAbpfgHFJcJry1kuSuImNKItDdmN8DskK1jKl+w8v9JRCUsQpphWxyg7J4pK1mrt8812+Bqzmsghw9H4dmTpETWivIHhUlMx7oasgLG/PbtZSzEV36+lgRi5R3lKiWHI0HdPFg7XLUtHoKnghUa0VMQUEWKsPbZQRnOQmrJGFVJCDYkBuqzw3UMQZd/P5oE52Jp1APD/lUt2a96Th6O+m9d8G3fAIaxtSCvGxETLBJiM3yHFcFGaukAD4d3atj+HSMIFhQr2GV5OOkZfSZvoYHC4E7ybYrnYalfmgnjq4MmOtFZIsw2ybJccgILeWZ2ymAv4bhraa7NdQgyLI3lvp0RSfQ8slQ9dW+utVTTTGX6lywdrEPjKEyu4xi4mVb34fj7RK8Q0F8L2fI5IeMGbmkuYI+21WX6NbNdGrXR6xhSDwTabw1599NepxKOsQ7bBUTreKcDJkKgF9H92dqa2gBPRM1cfQSkkpIO+muONuuvhSpS41Y7l8Lvtoa2J12T/rVxrKsJiEBFhGtEjwixwO+ahqmJvlBtgfhetsrGkwcGvWDKCofD6hPYYpzHbq7i6Eb570dDbyuJiEowptKs8zcLFiIs0kJgEd35MJEa3t3o6a+yI5KQLhMLKIFTLxeRBQwli4Mgt+kelKnbS3qoiplrsXKRQwsRH3EriDZJQRgdWHg4OCP/Tc3o1OYsi7PbOXrTbz5meBsr/7zqZbvt45vxJBRTGXRl4rldJONj7jlCKaAm7hOLRN49+7Vs1/vjizufP3zW99wM1+U7UX5O6snnqQHX6y0r52BuyDutelAIKSXKaiQlW+xi+BmabOncmP9NHBw8Pb526fDC9cfv/5lfi91PD5wY/vK6s720npqM5WcmI6NzUze2X80fGnKAMsgmGeyic12sQEsvnn7EvDuz+f3H6fn1m6MJ1KxsyuJi1tjye21RGJvMn55dHZ4enNifnc0mR77ZBf0QiIJrd7EU9eyOyPQX3+/APbmfdup+PUHP+3c3l/de3Jt494XD797+vTJl5vr6c/SG3dffnrz2/U7z2b3HskNWm11YWMTXyAlDp5xHRy8AbYS1q9SfWsrYyuXhxdmBqfHI4l4d7S3rcOODCGOOOoYc2Nd4TaDG9HoeWirpKaeW1iCc2Cqf/79EViOmTcn4avR2nPBqpOoqBfmozUFctbHNTmHLLm4ThU/JjqmKyLzZQyHS5w5jCtg8EUMo0X42+8P/wO9y8q7R6tKUgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;비밀&quot;
+        title=&quot;&quot;
+        src=&quot;/static/55305148e17b4bb30cf42808e71b7a57/3684f/image-4.png&quot;
+        srcset=&quot;/static/55305148e17b4bb30cf42808e71b7a57/c26ae/image-4.png 158w,
+/static/55305148e17b4bb30cf42808e71b7a57/3684f/image-4.png 225w&quot;
+        sizes=&quot;(max-width: 225px) 100vw, 225px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;아까 &lt;code class=&quot;language-text&quot;&gt;useState&lt;/code&gt;에서 했던 클릭 카운트 예제와 비슷한 것을 살펴봅시다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; useRef &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;react&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;RefExample&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; clickedRef &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useRef&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//useRef로 선언하였으므로, 업데이트되어도 렌더링X&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt;
+        &lt;span class=&quot;token attr-name&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          clickedRef&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//ref 업데이트&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        click me
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt;
+        &lt;span class=&quot;token attr-name&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token function&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;you&apos;ve been clicked &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;clickedRef&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt; times!!&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        check
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; RefExample&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이번에는 &lt;code class=&quot;language-text&quot;&gt;useRef&lt;/code&gt;를 사용하여 비밀스럽게 카운트를 관리하고,&lt;br&gt;
+&lt;strong&gt;check&lt;/strong&gt;버튼을 눌러야먄 이를 확인할 수 있게 했습니다.&lt;/p&gt;
+&lt;iframe src=&quot;https://codesandbox.io/embed/rwhj2j?view=preview&amp;module=%2Fsrc%2Findex.js&amp;hidenavigation=1&quot;
+     style=&quot;width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;&quot;
+     title=&quot;RefSample&quot;
+     allow=&quot;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&quot;
+     sandbox=&quot;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&quot;
+   &gt;&lt;/iframe&gt;
+&lt;h1 id=&quot;effect-hooks&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#effect-hooks&quot; aria-label=&quot;effect hooks permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Effect Hooks&lt;/h1&gt;
+&lt;p&gt;또 하나의 React 패러다임의 &quot;탈출구&quot;로 &lt;strong&gt;Effect&lt;/strong&gt;가 존재합니다.&lt;br&gt;
+&lt;strong&gt;Effect&lt;/strong&gt;가 그래서 뭔데? 를 알아보기 위해, &lt;strong&gt;컴포넌트 내부의 2가지 로직 유형&lt;/strong&gt;에 대해 먼저 알아봅시다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;렌더링 코드&lt;/strong&gt; : 컴포넌트는 props와 state를 적절히 활용하여 JSX를 반환합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://ko.react.dev/learn/keeping-components-pure&quot;&gt;렌더링 코드는 순수해야 합니다.&lt;/a&gt; &quot;부수 효과 없이 단순 계산만을 수행&quot;하는 경우라고 볼 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;이벤트 핸들러&lt;/strong&gt; : 단순 계산 뿐만 아니라, 일종의 &lt;em&gt;부수 효과&lt;/em&gt;를 갖는, 컴포넌트 내부의 중첩 함수입니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;예를 들어, 이벤트 핸들러는 입력 필드를 업데이트 하는 등, 사용자의 이벤트에 의해 발생하는 &lt;em&gt;부수 효과&lt;/em&gt;를 포함합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;그런데 &lt;em&gt;부수 효과&lt;/em&gt;라는 애들은 이벤트에 연관되지 않는 경우가 있습니다.&lt;br&gt;
+예를 들면, 마운트 시 채팅 서버에 접속한다거나, 모달을 바로 열어 보여주거나, ..&lt;br&gt;
+이 예시들은 &lt;em&gt;부수 효과&lt;/em&gt;임에도 특정 이벤트에 의한 효과가 아닙니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Effect&lt;/strong&gt;는 즉 &lt;em&gt;렌더링 자체에 의해 발생하는 부수 효과&lt;/em&gt;를 특정하는 셈입니다.&lt;br&gt;
+이를 활용하여 컴포넌트에서 외부 시스템과 동기화할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 263px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d41d8cd98f00b204e9800998ecf8427e/17741/image-5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 72.78481012658227%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADRUlEQVR42mWS3U/bZhTG/fdsV73dxaZqqjRto+qH1Epdq21UReukbb2ATaN00HZdv9xCQ/OBYWGZgDiJk9iOcdKWDAIJy4Ydx2mCISyhBOc7ThzHdiCsUDsX1aQ9+r3PeXWko3NxHmBdE8dtbqXT2cz2bm63WChWStVqtVQqVCrFeqMsNityq64qDblVk6SqJFW6lJvNEmC32z0eD+oj5ol5FCcIwk/gRCAQEIS6orQVRVXVtqroVZFltVt17wKQ5Hw2k8lw8RTHBEIR2Itg82gikRBFaX+/051sayaLoipramkoumTtAUtL4eDCCxgaHDL+2D85NDDxQ7/5eyfmpmlWbe/J2nJ1T5FVcvi7ZRt0cHSk7h90h/XdQOEVlc9ShW22ss1UdeK1HbaYpTT2GjsdKXfQzu2JW65bF6ZHvin86RM2Fl+384dK7l95B6hRwwKt06BvCvSIQN8V2UdS0tBcn2gkoRJj2Y1Z2RempH/g94ETjq/fDxkH+XWynnnWqYaBl/ae5NzJBNzD2U9twqc55GwKOZdyX9zAv4y5vl0LIGmaTlEpBLxhvnaGdFhzm/l/mGQyGqWeO4CFR8eDjz8MPfkYMx23Wd5zP/ggYupZMX8SgU7+YTwTdE/jPj8CuwzgGHgHnJm2Ex7Mp93GR0IGA8CzthI9hy31DaePPQx9iq70UcvD+TWIX5vgo2Oba57w6l8+HOc2uGwmnVxPxsMh0os4XS4mzgD1LXx14Wmv8d3L0DtW/NIifxVGL6cjpnJiqhwzs9RijGHjTIxh2GXfkwAMoRjhcLocTiQUCgO032W3Pfhi5Ng9Sy/kPzsd+Wgm8FXUj696p5Ydo47frCaTdWzcNjY+BVntsw7UZoWskyZ41hb0u4AgQZBeJ2S578bvzqH9479eMU9eXyQXnqE4iXjgKWj0zi3Dw+vQ6A0zOGQBB2eeDs0afxr/+Ro4+BmgJQRDPZHwSoyiCMzvw0jMi1F/R2uVYlMUWpKoKk1FFjXUrkuS2GqJ9+897r14HqjWGnoG23oGBUFoaLFstfY7naPDw6P/6W0PBM19n58Htja4SqmQ390p8LlykS8VdIp8Lp97xXd5++H/07k98suVC6ffAKDJrjKi86XuAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;효과는 굉장했다&quot;
+        title=&quot;&quot;
+        src=&quot;/static/d41d8cd98f00b204e9800998ecf8427e/17741/image-5.png&quot;
+        srcset=&quot;/static/d41d8cd98f00b204e9800998ecf8427e/c26ae/image-5.png 158w,
+/static/d41d8cd98f00b204e9800998ecf8427e/17741/image-5.png 263w&quot;
+        sizes=&quot;(max-width: 263px) 100vw, 263px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이 뜻에 대해 &lt;a href=&quot;https://ko.react.dev/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events&quot;&gt;Docs에서 더 자세한 설명&lt;/a&gt;을 쭉 읽어보시면 좋을 것 같습니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;useEffect&lt;/code&gt; 관련 내용은 리액트 개발에서 꽤나 중요하기 때문에... 잘 알아두면 좋은 것 같습니다&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;useEffect&lt;/strong&gt;의 &lt;a href=&quot;https://ko.react.dev/reference/react/useEffect#examples-dependencies&quot;&gt;레퍼런스&lt;/a&gt;는 다음과 같이 생겼습니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;useEffect(setup, dependencies?)&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;매개변수
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;setup&lt;/code&gt; : &lt;strong&gt;Effect&lt;/strong&gt; 로직을 포함하는 함수입니다. 필요한 경우 &lt;strong&gt;clean-up&lt;/strong&gt;함수를 반환할 수 있습니다.
+&lt;ul&gt;
+&lt;li&gt;React는 컴포넌트가 DOM에 추가된 이후(마운트 이후)에 &lt;code class=&quot;language-text&quot;&gt;setup&lt;/code&gt;함수를 실행합니다.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://ko.react.dev/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed&quot;&gt;clean-up 함수가 필요한 경우&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;dependencies&lt;/code&gt;(선택) : &lt;code class=&quot;language-text&quot;&gt;setup&lt;/code&gt;함수의 코드 내부에서 참조되는 모든 반응형 값들을 포함한 배열로 구성됩니다.
+&lt;ul&gt;
+&lt;li&gt;의존성 배열을 전달하지 않는 경우, 컴포넌트가 렌더링 또는 리렌더링 될 때마다 실행됩니다.&lt;/li&gt;
+&lt;li&gt;빈 의존성 배열을 전달하는 경우, 초기 렌더링 이후 한 번만 실행됩니다.&lt;/li&gt;
+&lt;li&gt;의존성 배열을 &lt;code class=&quot;language-text&quot;&gt;[a, b]&lt;/code&gt;와 같이 전달하는 경우, &lt;code class=&quot;language-text&quot;&gt;a&lt;/code&gt; 또는 &lt;code class=&quot;language-text&quot;&gt;b&lt;/code&gt;가 변경되면 실행됩니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;반환값 &lt;code class=&quot;language-text&quot;&gt;undefined&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;마운트 시 모달을 냅다 보여주고, 모달 보여준 횟수를 콘솔에 찍는 코드를 짜봅시다.&lt;br&gt;
+이를 위해서는,&lt;br&gt;
+(1) 마운트 시 모달을 보여주기 위해, &lt;code class=&quot;language-text&quot;&gt;useEffect&lt;/code&gt;를 의존성 배열 없이 작성하고&lt;br&gt;
+(2) &lt;code class=&quot;language-text&quot;&gt;state&lt;/code&gt;변화에 따라 &lt;code class=&quot;language-text&quot;&gt;console.log&lt;/code&gt;호출은 &lt;em&gt;순수 계산이 아닌&lt;/em&gt; &lt;strong&gt;Effect&lt;/strong&gt;이므로, &lt;code class=&quot;language-text&quot;&gt;useEffect&lt;/code&gt;를 의존성 배열 &lt;code class=&quot;language-text&quot;&gt;[count]&lt;/code&gt;와 같이 작성해야 하겠습니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; useEffect&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; useRef&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; useState &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;react&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;EffectExample&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; modalRef &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useRef&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;count&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setCount&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// 의존성 배열을 비워 최초 마운트 시에만 Effect를 적용&lt;/span&gt;
+    modalRef&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;showModal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      modalRef&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// 의존성 배열에 count를 전달하여, count가 변경되면 side Effect 발생&lt;/span&gt;
+    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;count&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;count&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;dialog&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;ref&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;modalRef&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        하와와~ 모달인거시와요
+        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; modalRef&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;닫기&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;dialog&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt;
+        &lt;span class=&quot;token attr-name&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          modalRef&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;showModal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+          &lt;span class=&quot;token function&quot;&gt;setCount&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;count &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        열기
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; EffectExample&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;iframe src=&quot;https://codesandbox.io/embed/v9vfl7?view=preview&amp;module=%2Fsrc%2FEffectExample.jsx&amp;hidenavigation=1&quot;
+     style=&quot;width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;&quot;
+     title=&quot;EffectSample&quot;
+     allow=&quot;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&quot;
+     sandbox=&quot;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&quot;
+   &gt;&lt;/iframe&gt;
+&lt;p&gt;이외에도 &lt;code class=&quot;language-text&quot;&gt;useEffect&lt;/code&gt;와 미묘한 타이밍 차이를 갖는 변형으로&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;useLayoutEffect&lt;/code&gt;라거나.. &lt;code class=&quot;language-text&quot;&gt;useInsertionEffect&lt;/code&gt;같은게 있는데&lt;br&gt;
+건너뜁시다.&lt;/p&gt;
+&lt;h1 id=&quot;performance-hooks&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#performance-hooks&quot; aria-label=&quot;performance hooks permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Performance Hooks&lt;/h1&gt;
+&lt;p&gt;리렌더링 시 불필요한 작업을 건너뛰도록 하여 성능을 최적화해볼 수 있겠는데요&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 213px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7221f66a84a76c62f6cca2628aae4231/3cb16/image-6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 82.91139240506328%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAIAAABSJhvpAAAACXBIWXMAAAsTAAALEwEAmpwYAAACoklEQVR42iXTyS50URAH8PMk3kg8hJWtdVuxkRDSggiRmKJNTZvbGHzmuc2ENs/EEDuL76fvXdyuPqeq/kPVDXt7ewMDA4+Pj5+fn7e3txMTEwsLC1NTUy0tLRsbG9vb262trcPDw7u7u8vLy93d3XNzc5lMZn19XU5YWVnJZrPPz88fHx/qddnf319dXW1ra+vv708mkx0dHYlEAkBnZ6fD3t7ekZER54IwPT399vb28vLy/f0d1X99fcHp6elJpVJqoPX19cn27urqcg724eFhbGwszM7Ogj06OlL58/MD2d/T01Owo6OjQARDQ0Op3BPFcvCFF+jxs7i4SO3h4eHZ2ZkMwtLpNCi3Yl2QxMKVNMXOcQxsUOy6pqaGhLu7OwpVCnRcWlrCULC1tTU/P395eQkANYxeX1/DyckJkwkrKys7Pz9/enpizPj4OEspZzguRF5fX1dWVs7MzAjkU86pANY8oDU3N8OXV1VVVVpaKtYbLCON4/39HYvBwUGjdYjv/f19uLi4QAln81TAD5QaGhq8I/9QMLmrq6udnZ1o+Gtra/9yTzg+Pkamrq7OMDRmkripqUkAE8momP+KGxsb+Xxzc2NDDCgQKU822szkSiwWI6+iouLg4AAvPBXbnGTuQV6xLdQu1NbW0lldXV1fX7+5uem6vLxcLy7Ik8SbKNa6vb19cnISQQGBobCw8Pf3N517QJFkH13Qzwt/aTNV5KlD25tmjf40x+NxposUGxVKxqbMCbZUgDJ/1rCQqc6d2M2/DwMHBdEXw30iMTQ8iwUWl0zuoSjymWH2hBFcCMXFxUVFRURqBtACUKg9LyTZLYzgR85pCgYjzotDfn5+QUFBXl4e8fRob9UAlpSU6MUwXWi2cwSqN3wzt6fZbPY/wyABSNwHbEYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;이하 생략&quot;
+        title=&quot;&quot;
+        src=&quot;/static/7221f66a84a76c62f6cca2628aae4231/3cb16/image-6.png&quot;
+        srcset=&quot;/static/7221f66a84a76c62f6cca2628aae4231/c26ae/image-6.png 158w,
+/static/7221f66a84a76c62f6cca2628aae4231/3cb16/image-6.png 213w&quot;
+        sizes=&quot;(max-width: 213px) 100vw, 213px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;다음 두 훅이 그런거 하려고 만들어졌습니다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;useMemo&lt;/code&gt;를 사용하여 값을 캐싱합니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;useCallback&lt;/code&gt;를 사용하여 함수 정의를 캐싱합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이런거 하기 전에 &lt;a href=&quot;https://ko.react.dev/reference/react/useMemo&quot;&gt;&lt;strong&gt;메모이제이션&lt;/strong&gt;&lt;/a&gt;에 대해 또 알고 넘어가면 좋을 것 같네요&lt;br&gt;
+대충 &lt;em&gt;이전에 썼던 값을 캐싱하고 나중에 다시 써먹는 것을 메모이제이션&lt;/em&gt;이라고 합니다&lt;/p&gt;
+&lt;p&gt;위와 같은 메모이제이션 훅들은 공통적으로 &lt;em&gt;의존성이 변하지 않았다면 캐싱된 값을 재사용&lt;/em&gt;하는데&lt;br&gt;
+의존성이 변경되어 꼭 UI를 다시 그려야 할 때가 있습니다..&lt;br&gt;
+그런 경우에도 좀 더 매끄러운 사용자 경험을 도모하기 위해&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;useTransition&lt;/code&gt;이나 &lt;code class=&quot;language-text&quot;&gt;useDeferredValue&lt;/code&gt;같은 훅도 있습니다&lt;br&gt;
+천천히 한번 알아봅시다&lt;/p&gt;
+&lt;h2 id=&quot;usememo&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#usememo&quot; aria-label=&quot;usememo permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;useMemo&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;useMemo&lt;/code&gt;훅으로 값이 불필요하게 새로 계산되는 것을 막을 수 있습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 216px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0ca53c9ef41185db3c2ad67ec805c20c/7d4ec/image-7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 108.22784810126582%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAIAAABPIytRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFE0lEQVR42h2P6VMTBxjG91/oTL+hFYhggARCTMidTXaTPZLsJtlNSDYHhxSRigeEpFihKlJlpi3qjC3UC0QR5cZwCEREqxw6gwgMMCg61unUTp12xnZsgSTbxXee55n3y2+e9wVgowM20pCBhow0hnsRlOHSZHLbbQxp8+I2j5nyOjwlTm+JhfZiqBWGENRodXtLC/cFAQNCf4QpHHfhJh9m8iEYxzvtlJeDMSuD2him4ECup4SkfAaDRasxQKDJ4SrOL6oAYKMd1Fv1sB3DaJJwY5jLiDoxk9NidVtIr8XmIewuN5PPeEqsdL5OjykVkFaD2h2FvqJyQAeRWh3BJYyQVqvbTLgRzInitJmDbW7SZFZmZ0sy0hA9ROfmabVIjlStUkJWKs+dVwboYatWZwH1hB4mMZPDhDsQlEJxiqT8NitlVks0YoE8U6DbvZuEjaBKv1uskMtBE8FQTPEWrNFZtFuwDcedOEahqH0Lpv0GGP+6gKzx2Qh5DipXWZQahTgnM1MqFitQzEExnwMYZjOiJCcMI0mSRjDaYLQRhJ20u77wM121ZQN1ofOlBWi2UCbMhCBIrQZ1IExY3KSjAECNqNFgNBhgDDWYTTiCUDBk5RYMxxuCRZGGUO/xQM+J4AmfQyuWQDCMc+c5XC5XMUHlAenpAj4/IzUlLT1DIMtRQTqzToMp5EqJVH5yn+fu6WDk1NHp86eay0vVmaKU1HSpRGGASILwkw4/sH1b8raEHQkJ27dt3yHIyFKpkDSh7LMdO/npov2MveNI2e3awFBdJZ4j++TThOQkvlSiVCsRyGgnnH6Al5yanMxLSkpOSkzi8XYRuOXajzUDV7+52XY93HSytargVlVRpPHb5qbOsnw/rAFFArFaCXPfEVyz+ONkZ4t2pqSoZDkr4z+xv4bfrM2tzM2+u9v0quv7tyOts4+WXs7Os78MvH85kYsTQoFMB1ogjAIyhUJRVlYqn8/fxR+9Uc8+7+m7ciEcmV97tsCuDrLLQ68XF6bnfn822r+xdJ39a3ZyfCwyPjE2dq+6pg7gp/ETeTyNTDp86QT79uF8f3N/z9DUzPOpyeWx7puPHz15PP/HxNSb4fa2f+ebN/58EYuzLLvl9fUNIDGRtzeXvHfjLLsSftXXWh8MtXeMdHaM9neGu291RYYi0/ceTEbGF0fbNlZ7YpsfYjE2urkZjcbi8TigEAlf9Jx73dX49Nq5vYSlomTPq5m+fxbDm0sjscU78YVB9lk4PjfIzvXFVkZj6+vRzVg0Go3HP8KPxtsXRq+vDNxcnrjb33T25WDbbxO9b+73rD4YX7w/NT80vDwQXhvqW+xs6W2oXZqZjP/3nmU5knMM6Dp/7OLpypYzxyZ6W6b7WvuaGr4LHTpefuBs7bFbFxvbL114MDa8Mjs93HWlt+XMk7G2pz93rS0+/PD3O+5t4LBNHKKlQYf0kF0UdMqPetS1RXB9KdFwkP4h6LpYXXC1tuRG/cHuc5Vjl6unbzdOj7Te6Wga6r6yujADfOXTVHm3FPJrQh7Vl5wYZYhRBlzycpeijJaVkpIAowh6VCFGHfRoA16wZg9WXWSq208DuboMH5xViIiKLdn7SPEBWlbhUlUyqoBLWelWcvthpzLEFeSDRwr1VX7wiB8McU1edYVbAeRCUhKUwRKBKp0HZqWAmTy9KMUoSTXn8EmlkNZmMWCWHxXvtcgrcjVBDxhwc/2aAKM97NL+DyqFQ65lqQjrAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;메모&quot;
+        title=&quot;&quot;
+        src=&quot;/static/0ca53c9ef41185db3c2ad67ec805c20c/7d4ec/image-7.png&quot;
+        srcset=&quot;/static/0ca53c9ef41185db3c2ad67ec805c20c/c26ae/image-7.png 158w,
+/static/0ca53c9ef41185db3c2ad67ec805c20c/7d4ec/image-7.png 216w&quot;
+        sizes=&quot;(max-width: 216px) 100vw, 216px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;useMemo(calculateValue, dependencies)&lt;/code&gt; &lt;a href=&quot;https://ko.react.dev/reference/react/useMemo&quot;&gt;레퍼런스&lt;/a&gt;는 아래와 같습니다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;매개 변수
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;calculateValue&lt;/code&gt; : 캐싱하려는 값을 계산하는 순수 함수. 인자는 없으며, 모든 타입의 값을 반환할 수 있어야 합니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;dependencies&lt;/code&gt; : &lt;code class=&quot;language-text&quot;&gt;calculateValue&lt;/code&gt; 내에서 참조되는 모든 반응형 값들의 배열입니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;반환값
+&lt;ul&gt;
+&lt;li&gt;마지막 렌더링 이후로 &lt;code class=&quot;language-text&quot;&gt;dependencies&lt;/code&gt;에 변경이 있는 경우 : &lt;code class=&quot;language-text&quot;&gt;calculateValue&lt;/code&gt;를 다시 호출하여 결과를 반환하고, 그 값을 저장&lt;/li&gt;
+&lt;li&gt;그렇지 않은 경우 : &lt;code class=&quot;language-text&quot;&gt;calculateValue&lt;/code&gt;를 건너뛰고, 저장했던 값을 반환&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이제 &lt;code class=&quot;language-text&quot;&gt;usemMemo&lt;/code&gt;를 활용하여 값을 캐싱하는 &lt;del&gt;억지&lt;/del&gt;예제를 하나 만들어봅시다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; useMemo&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; useState&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; useEffect &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;react&quot;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; wait &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;./util&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;MemoExample&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;isDarkMode&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setIsDarkMode&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;isSelected&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setIsSelected&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;//useMemo로 text값을 정의하여, isSelected가 변경될 때만 wait(isSelected) 수행&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; text &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useMemo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;wait&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;isSelected&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;isSelected&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;//const text = wait(isSelected);&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;//useMemo 쓰지 않으면 리렌더링 시 wait를 다시 수행합니다.&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;
+      &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;backgroundColor&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; isDarkMode &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;black&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;white&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; isDarkMode &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;white&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;black&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;textDecoration&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; isSelected &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;line-through&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;none&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;label&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;input&lt;/span&gt;
+            &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;checkbox&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+            &lt;span class=&quot;token attr-name&quot;&gt;onChange&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+              &lt;span class=&quot;token function&quot;&gt;setIsSelected&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;prev&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;prev&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+              &lt;span class=&quot;token comment&quot;&gt;//isSelected가 변경되므로 text 재계산&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;input&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;text&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;label&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt;
+        &lt;span class=&quot;token attr-name&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token function&quot;&gt;setIsDarkMode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;prev&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;prev&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+          &lt;span class=&quot;token comment&quot;&gt;//isSelected는 변경되지 않으므로, text는 새로 계산하지 않는다&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        change theme
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; WithUseMemo&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;체크박스를 선택하여 TODO를 &lt;del&gt;DONE&lt;/del&gt; 으로 만들거나, 반대로 할 수 있습니다.
+또한 버튼을 클릭하여 다크모드로 테마를 바꿔볼 수 있습니다.
+이 때, 체크박스 선택 유무에 따른 텍스트를 가져오기 위해, 억지로 500ms를 기다리는 &lt;code class=&quot;language-text&quot;&gt;wait&lt;/code&gt; 함수를 거칩니다.&lt;/p&gt;
+&lt;iframe src=&quot;https://codesandbox.io/embed/clx7p9?view=preview&amp;module=%2Fsrc%2FWithUseMemo.jsx&amp;hidenavigation=1&quot;
+     style=&quot;width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;&quot;
+     title=&quot;useMemo-and-useCallback-sample&quot;
+     allow=&quot;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&quot;
+     sandbox=&quot;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&quot;
+   &gt;&lt;/iframe&gt;
+&lt;p&gt;위쪽은 &lt;code class=&quot;language-text&quot;&gt;useMemo&lt;/code&gt;를 사용하여 &lt;code class=&quot;language-text&quot;&gt;const text = useMemo(() =&gt; wait(isSelected), [isSelected]);&lt;/code&gt;와 같이 작성한 경우,&lt;br&gt;
+아래쪽은 &lt;code class=&quot;language-text&quot;&gt;const text = wait(isSelected);&lt;/code&gt;와 같이 &lt;code class=&quot;language-text&quot;&gt;useMemo&lt;/code&gt; 없이 작성한 경우입니다.&lt;br&gt;
+체크박스를 선택하거나 해제하면 TODO 또는 DID를 다시 연산해야 하기 때문에 500ms를 공통적으로 기다리지만,&lt;br&gt;
+&lt;strong&gt;change theme&lt;/strong&gt;버튼을 클릭하는 경우 차이가 납니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;useMemo&lt;/code&gt;를 사용한 경우, 값을 캐싱하여 연산을 건너뛰기 때문에 바로바로 바뀌는 모습을 확인할 수 있습니다.&lt;/p&gt;
+&lt;h2 id=&quot;usecallback&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#usecallback&quot; aria-label=&quot;usecallback permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;useCallback&lt;/h2&gt;
+&lt;p&gt;위 데모에서, &lt;strong&gt;[useCallback 예시 보기]&lt;/strong&gt; 버튼을 눌러 &lt;code class=&quot;language-text&quot;&gt;useCallback&lt;/code&gt; 사용 예제도 한 번 확인해보세요&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;useCallback&lt;/code&gt; 예제와 미사용 예제 둘 다 렌더링 시 500ms를 기다리게 됩니다&lt;br&gt;
+다른 점은, &lt;code class=&quot;language-text&quot;&gt;useCallback&lt;/code&gt; 예제는 카운트 증가나 테마 변경 등 리렌더링이 일어나도 500ms를 다시 기다리지 않지만&lt;br&gt;
+미사용 예제는 카운트나 테마를 변경하면 매번 다시 500ms를 기다려버립니다&lt;br&gt;
+왜 이런 결과가 일어날까요??&lt;/p&gt;
+&lt;p&gt;일단 먼저 &lt;a href=&quot;https://ko.react.dev/reference/react/memo&quot;&gt;memo&lt;/a&gt;라는 API를 먼저 알고 넘어갑시다&lt;br&gt;
+이 &lt;code class=&quot;language-text&quot;&gt;memo&lt;/code&gt;로 컴포넌트를 감싸면, &lt;strong&gt;props가 변경되지 않은 경우 리렌더링을 패스&lt;/strong&gt;합니다.&lt;/p&gt;
+&lt;p&gt;앗 ! 그런데 JavaScript에서 함수는 &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%9D%BC%EA%B8%89_%EA%B0%9D%EC%B2%B4&quot;&gt;일급 객체&lt;/a&gt;입니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;f1&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;f2&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;f1 &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; f2&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// false&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;같은 동작의 함수라도 객체마냥 그 참조가 다르다는 것인데요..&lt;br&gt;
+그럼 렌더링마다 함수들도 객체처럼 다시 생성되는거고&lt;br&gt;
+앗! 그럼 &lt;code class=&quot;language-text&quot;&gt;memo&lt;/code&gt;로 감싸도, props에 함수가 있다면&lt;br&gt;
+매번 다른 함수가 전달되는 셈이라서 리렌더링을 피할 수 없습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 259px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b5903284021fe0941c42e5d71664099e/a2ead/image-8.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 74.68354430379746%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADMElEQVR42g2SyZKqZgBGeZQsbpKK7U1su682okArg/yi2IjKIIM0KIITTqiAU7SHuulK3SySSlXW2eQlY9VZneX5PugeSSLF23zxPv1wk84mqUqO5QoZPAUX0yiVKYJMUyzWeBTBPqfufoDzPxN0Np1JfH/zXSqTgFJw4jaXyCDJezhxhWKzuWIqnbu5vZrC5zTyEwlgnL6nKzAF4HT2R5y6u5pk+lMi/QkqM0iFRas1nGEQFhRoGkbxFGDyJPVA0jlZ5c2uQJKZGle0zXa1ipGlLyyLMgDhOBSamLXNUPf1mm81l89Nt03ZcnkzkJeWMHfUlSWNTWFiPjlSObTloNuIxubWkZwWEXoqNHfFfTBa2VI87UVDY+1pkdXY2krg6LthJ+6CQGHWtnAaymuTn0nkae4cZpbfF8OFDS1sZe/3113h4PdWhvDrwj0ve3G3HmuVfU86ru2NWjxPpPXYCqf6aeOEYytyO6fAjWd9KJDAfto/j5SvkRd1G+HUcdrUaaafV9ZurMULd2YwH+dgY3A7V90Mzf1Q+zj6c0vZTSxoq1bnLSpwjdNqFLSpg1rZtvGp8xz449iorBRq0KK381nc4yOZDMXHrfZ02C5WKrsWSWgk0yfpcadUJyIbS497ldgapVAuL2RwlEp7Gd/pwJfYWGMuBvmqk9cEfpO4mMy7SkCDTlmrwL97zX//PM299ljEHak4b+S3fOHby/KvN3+iYFET2SmE0yqtTO6/f97+CIyRSMw0EhLqKGAygaWc97uOXn/ickqbfh9Lrzp1CZeea/dEcLHYvUpz1RzfpI776DrKqE2UqAwEqnmOgoeDwd8fb66l83XE6TLhoMGz+HGzuhzCvq5Y7VKoU50m1mCpby+X346hJzFPVQSyW+hXjQiepWBgzPTG2QCegK1lPJaZ2eB55XYjFbx3aa+FnQ06NBrDjjDTuFeNWhgAosiswaEvHeCBB4dHdRGrcShLZpbNx0AgRwBxeVyoXy+cN6XSpEN5AI4EtI6ns+gdVKzAFS5vMw9+Jd8XMdkiFJ1AiS8l7JdpHR2AvPRUEI1yRy+3NOpZedzw2LKBlQq3yfvE/5PVPM5/W10dAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;분신&quot;
+        title=&quot;&quot;
+        src=&quot;/static/b5903284021fe0941c42e5d71664099e/a2ead/image-8.png&quot;
+        srcset=&quot;/static/b5903284021fe0941c42e5d71664099e/c26ae/image-8.png 158w,
+/static/b5903284021fe0941c42e5d71664099e/a2ead/image-8.png 259w&quot;
+        sizes=&quot;(max-width: 259px) 100vw, 259px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이 때 구원투수로 &lt;code class=&quot;language-text&quot;&gt;useCallback&lt;/code&gt;이 등장합니다
+&lt;code class=&quot;language-text&quot;&gt;useCallback&lt;/code&gt; 훅으로 함수 정의를 캐싱하여 &lt;strong&gt;진짜 아까랑 똑같은 함수&lt;/strong&gt;로 유지되게 할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;useCallback(fn, dependencies)&lt;/code&gt; &lt;a href=&quot;https://ko.react.dev/reference/react/useCallback&quot;&gt;레퍼런스&lt;/a&gt;는 아래와 같습니다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;매개변수
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fn&lt;/code&gt; : 캐싱할 함수입니다. 이 함수는 어떤 인자나 반환값도 가질 수 있습니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;dependencies&lt;/code&gt; : &lt;code class=&quot;language-text&quot;&gt;fn&lt;/code&gt;내에서 참조되는 모든 반응형 값들의 배열입니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;반환값
+&lt;ul&gt;
+&lt;li&gt;첫 렌더링 시, &lt;code class=&quot;language-text&quot;&gt;fn&lt;/code&gt;함수를 그대로 반환합니다.&lt;/li&gt;
+&lt;li&gt;이후 렌더링 시 &lt;code class=&quot;language-text&quot;&gt;dependencies&lt;/code&gt;에 변경이 없다면, 이전에 저장한 함수를 반환합니다.&lt;/li&gt;
+&lt;li&gt;이후 렌더링 시 &lt;code class=&quot;language-text&quot;&gt;dependencies&lt;/code&gt;에 변경이 있다면, 새로 생성된 함수를 반환합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이제 이 훅으로 어떻게 리렌더링을 최소화했는지 봅시다&lt;br&gt;
+위 예시 구현에 사용된 코드는 아래와 같습니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; useCallback&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; useState &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;react&quot;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; wait &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;./util&quot;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; React &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;react&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//memo를 사용하여, 컴포넌트의 onClick함수가 변경되지 않은 경우 리렌더링을 건너뜁니다&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; Child &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; React&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;memo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; onClick &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;//Child는 onClick함수를 전달받아 버튼 컴포넌트를 생성하되, 500ms를 매번 기다립니다.&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;wait&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Child Rendered&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;onClick&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;클릭&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;WithUseCallback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;count&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setCount&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;dark&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setDark&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;//Child에 전달할 onClick함수를 useCallback으로 감싸고, 의존성 배열은 비워 최초 1회만 생성되게 합니다.&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; increment &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useCallback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;setCount&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;prev&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; prev &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;toggleTheme&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//테마를 반전하는 함수.&lt;/span&gt;
+    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Theme Toggled&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;setDark&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;prev&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;prev&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;
+      &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;backgroundColor&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; dark &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;black&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;white&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; dark &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;white&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;black&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;h4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;✅ useCallback 사용&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;h4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;h1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;Count: &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;count&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;h1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Child&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;increment&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;toggleTheme&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;Toggle Theme&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; WithUseCallback&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Child&lt;/code&gt;는 &lt;code class=&quot;language-text&quot;&gt;React.memo(({onClick})=&gt;{})&lt;/code&gt;과 같이 작성하여, &lt;code class=&quot;language-text&quot;&gt;onClick&lt;/code&gt;이 변하지 않는 한 메모이제이션되어 리렌더링되지 않게 합니다.&lt;br&gt;
+그러나 &lt;code class=&quot;language-text&quot;&gt;useCallback&lt;/code&gt;을 사용하지 않는 경우, 매 렌더링마다 &lt;code class=&quot;language-text&quot;&gt;increment&lt;/code&gt;함수가 매번 재생성되어 &lt;code class=&quot;language-text&quot;&gt;Child&lt;/code&gt;에 전달되므로, &lt;code class=&quot;language-text&quot;&gt;Child&lt;/code&gt;는 매번 재렌더링됩니다.
+이를 &lt;code class=&quot;language-text&quot;&gt;useCallback&lt;/code&gt;을 적용하면, &lt;code class=&quot;language-text&quot;&gt;increment&lt;/code&gt;함수를 최초 렌더링 시에만 생성하고, 이를 캐싱하여 재생성되지 않게 합니다. 따라서 &lt;code class=&quot;language-text&quot;&gt;Child&lt;/code&gt;에 전달되는 &lt;code class=&quot;language-text&quot;&gt;increment&lt;/code&gt;함수는 매번 동일한 놈이며, 따라서 &lt;code class=&quot;language-text&quot;&gt;Child&lt;/code&gt;또한 최초 1회만 리렌더링됩니다.&lt;/p&gt;
+&lt;h2 id=&quot;usetransition&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#usetransition&quot; aria-label=&quot;usetransition permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;useTransition&lt;/h2&gt;
+&lt;p&gt;React 18에서 &lt;strong&gt;Transitions&lt;/strong&gt;라는 개념이 도입되었는데&lt;br&gt;
+이는 &lt;a href=&quot;https://www.frontoverflow.com/question/46/useTransition()%20%ED%9B%85%EC%9D%98%20%EC%97%AD%ED%95%A0%EC%9D%B4%20%EB%AD%94%EA%B0%80%EC%9A%94%3F&quot;&gt;긴급한 업데이트와 긴급하지 않은 업데이트를 구분하는 개념&lt;/a&gt;입니다.&lt;br&gt;
+state를 &lt;em&gt;긴급하지 않게&lt;/em&gt; 업데이트 하여 UI를 block하지 않는 것을 &lt;strong&gt;Transition&lt;/strong&gt;이라고 칭하며&lt;br&gt;
+이를 가능하게 하는 것이 &lt;code class=&quot;language-text&quot;&gt;useTransition&lt;/code&gt; 훅입니다.&lt;br&gt;
+뒤에서 몰래 준비하는거라고 하면 이해가 빠를까요?&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 259px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2c367a012d539421d59b67a2ddede467/a2ead/image-9.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 74.68354430379746%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADgElEQVR42h3S209TdwAH8DOctKfn0t857bm2p9dzeoPWw2lLb+kFehFqoUBrK9DqGgqaQZGxWDAmKC4LbJrskpiKiCaKUReCy5YFszcSEk2WmDke97T/ZN2S7+v38/L9Qn0c8PjFRCGpRKyKTuNn8BCLR1g8TGMKiUo4AqvOskAdF/mRYF9tLNVqlNtLc+ut+bVWE7Kz2mjRXZ2PpYPceQaUTLorNv2cnZmzUVcl/YKoy/EAhVUsSTAEIVAg6hAmE4FmObd8eRIyAjghMffrkSivjTJ4UaCWfcKym+9mVRFWA5b1sNVBonpA8nqao/RenlHshqRPquYGISOqrgzaOlczKROZNuhKIl2zsTdDztagcyUf6qxf2VspxS0sC3RWlrPQdNhiHPLZk+fEiyNhiENUpQHz3UooLzERhmyF3Q2X6UFj/P50ZsJr3ajnf7+3WI0rTppSbEafwIUs/IjizIXdU2k/JNN4IyrdvCAXbFRzQLw3m29G+ve+qL5o15bj8rN2/aRzo56N9PNMRDIFRCEk8cN+V9zvDMt2yKvHr8Vdt8b980HHdiVzdyo54TRuzWROHt7a+7zy62bzr2d35kYiZoqQrbRspQIO3mVlJDPttDGQG6CLCVdNsVYl43ZpeHVIiXHaby+Pnvxw49X1mYOVS+++u74xc54myNtrn6UjPhr5lNb2mhlgM+ghHkMWU55ynylFEQt+55jD5EA1s7LtwWz2cT3/tFF4+9VCwWsdHy388/fbw4P93Z2dp092M+lkoVKECASZOCdMyyZZh41ZuKyZj3DUynDg5VrjoN3YXyw9WZrMu+2vX+w/3391ePjm/ft3p6ent+9s9iIwRGvRpI2qy4JMYUM85adIRQeafu9mOdtpFn9p17amc13uzU8v//jw4ejo6Pj4+M+PH7/Z3jp75hOIQxGJRC55GD+Fd6cK6Ag3gpQt1i9jytejwe+rqaxXdMGqpfLUbz8f7j7aedjpPH60c7E81dMDQSgMq3pVYQMRZoEd0yh6oABt0chupAd+rA5VFEmlhjlS66HJCz53v8mAoWr1mZ7uYS0GGoJhWA3DmAa2E5gZ1/QDbFgHJjn62oC0lPCJDImoNSiGAQBEgReNPEfRAk05jIZcLPxfGf4fUKtVXY+B1T4MiQFtwUhVg05WR5A4jiIYhuIIiiIISmiB4vZkA4FBp/gvZvvU4QEqPWYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;매복&quot;
+        title=&quot;&quot;
+        src=&quot;/static/2c367a012d539421d59b67a2ddede467/a2ead/image-9.png&quot;
+        srcset=&quot;/static/2c367a012d539421d59b67a2ddede467/c26ae/image-9.png 158w,
+/static/2c367a012d539421d59b67a2ddede467/a2ead/image-9.png 259w&quot;
+        sizes=&quot;(max-width: 259px) 100vw, 259px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://ko.react.dev/reference/react/useTransition&quot;&gt;레퍼런스&lt;/a&gt;는 아래와 같습니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;const [isPending, startTransition] = useTransition();&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;매개변수 : X&lt;/li&gt;
+&lt;li&gt;반환값
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;isPending&lt;/code&gt; : 대기중인 Transition 존재 여부&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;startTransition&lt;/code&gt; : 상태 업데이트를 Transition으로 수행하게 하는 함수&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;예제가 빠질 수 없겠죠?&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; useTransition&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; useState&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; useEffect &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;react&quot;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; wait&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Done&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Todo &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;./utils&quot;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Button &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;./Button&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;TransitionExample&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;tab&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setTab&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;isPending&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; startTransition&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useTransition&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setTabTransitionally&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;nextTab&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;startTransition&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setTab&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;nextTab&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Button&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setTabTransitionally&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;selected&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;tab &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        홈
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Button&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Button&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setTabTransitionally&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;selected&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;tab &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        할 일 목록(✅useTransition)
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Button&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Button&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setTab&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;selected&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;tab &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        한 일 목록(❌useTransition)
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Button&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Button&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setTabTransitionally&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;selected&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;tab &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        한 일 목록
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Button&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;isPending &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;로딩중...&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;isPending &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; tab &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Todo&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;isPending &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; tab &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Todo&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;isPending &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; tab &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Done&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; TransitionExample&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Todo&lt;/code&gt;컴포넌트는 500개 아이템을 렌더링하는데, 각 아이템 생성에 1ms가 소모되게 억지로 구성했습니다.&lt;br&gt;
+사용자가 &lt;code class=&quot;language-text&quot;&gt;Todo&lt;/code&gt;가 표시되도록 잘못 누르기라도 하면..&lt;br&gt;
+꼼짝없이 로딩을 기다려야만 합니다&lt;br&gt;
+그러나 &lt;code class=&quot;language-text&quot;&gt;useTransition&lt;/code&gt;과 함께라면, 뒤에서 준비하던 &lt;code class=&quot;language-text&quot;&gt;Todo&lt;/code&gt; 렌더링을 폐기해버리면 그만입니다.&lt;/p&gt;
+&lt;iframe src=&quot;https://codesandbox.io/embed/4dp67x?view=preview&amp;module=%2Fsrc%2FTransitionExample.jsx&amp;hidenavigation=1&quot;
+     style=&quot;width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;&quot;
+     title=&quot;transition-sample&quot;
+     allow=&quot;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&quot;
+     sandbox=&quot;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&quot;
+   &gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;strong&gt;[할 일 목록]&lt;/strong&gt; 버튼 두 개 중, &lt;code class=&quot;language-text&quot;&gt;useTransition&lt;/code&gt;을 사용한 버튼을 누른 후 바로 &lt;strong&gt;한 일 목록&lt;/strong&gt;같은 탭으로 넘어가보세요.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;useTransition&lt;/code&gt;을 적용한 버튼은 로딩을 취소하고 바로 넘어갈 수 있습니다&lt;br&gt;
+그러나 이 훅을 사용하지 않은 버튼은 한 번 클릭하면&lt;br&gt;
+꼼짝없이 기다려야만 다른 탭으로 넘어갈 수 있습니다&lt;/p&gt;
+&lt;h2 id=&quot;usedeferredvalue&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#usedeferredvalue&quot; aria-label=&quot;usedeferredvalue permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;useDeferredValue&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;useDeferredValue&lt;/code&gt; 훅을 사용하면 일부 UI 업데이트를 &lt;strong&gt;지연&lt;/strong&gt;시킬 수 있습니다.&lt;br&gt;
+&quot;지연하다, 연기하다&quot; 이런 뜻을 가지는 &lt;em&gt;defer&lt;/em&gt; 단어에 맞게요&lt;/p&gt;
+&lt;p&gt;마치 잔상을 남기는 것과 비슷합니다&lt;br&gt;
+&lt;strong&gt;state&lt;/strong&gt;가 새롭게 업데이트 되면,&lt;br&gt;
+React는 이전 값으로 먼저 리렌더링을 시도한 뒤&lt;br&gt;
+백그라운드에서는 새로 업데이트된 값으로 리렌더링을 시도합니다.&lt;br&gt;
+이후 준비되었다면 완료된 리렌더링을 화면에 표시합니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 268px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b641589847aa2c120d35fff9c581d30c/484ae/image-10.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 70.25316455696203%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC2UlEQVR42mNgBQMWFlZuPg5RGV5BCW5ecS5BKS5+SS5eKW5BaR4Y4gUiAWkeARkeLl5OoBY2NjYGEGAEEVy8LEKybMoafD7OSkmeSnEuimb6wuJynGLyHKKKnBJAJM8pJsshrsDFwcMO1sOE0MzGw6KqL1SbZDkxybIhRKc3xqjAQ0VEgoNPmUtAk0tQi4tfg1NIlUtEmZudD6iZiZGRGaGZkZvZw0WxL8mqI9qsIVi3PkAjykJSRoFfxlRESJdPSI+fX5dPQI9PXE+ASxCsmQlJMzM/U6iPSm+S9YRUh85oi7YwgxAzKTE5XllzCVFTSSkzcSBDzkJMyUmaT5oXpIkJ2dkibB4uslXBem1xlnURJrXhxsV+ulYW0pIWUvyGwhKWkrI2MmpO8ioecnwyvHBdDIxgikOKwz9YqyXGoibcMN9fqzBQuyrE2NFFTsJBRtJWWtpRXs5FQc1N2dBHlR9iM7JmTmlOhyDVWfnuPQnWXfHWnQlWtVHmnt5qah4K6n46Eo7Ksm6qql7qWr4aPDJ8yDaDaAFZfg1f5RgfzYZAkwmprhOTXDoS3INiPfT9tXRDjOUcNOQ9NLT8NFS9FfmhmhkRJL8sj7SnZECU+Yzc4I5kp4Z0//6pE1vXbAoqyzRL9jNKdNYNM1HzVVYPUAZaA9bFxMDMzAxMLkCOprFWy7z2ldtXzV8wo6w8f87W3fMOnVt07Ozqkyemb93oU5mtGmmlEaivE2wgrCjGyMDCwgJOYUD9QNLL1/vczUtbdu8qK6hrmbN82t4Tc/YdW3Li5PLjJ3ZdONO4arlYsKOou7qMhwq3JMzZeXl5hYWF6Wnps+bMufv00a49ezbOW77rwJENx8/sOHVh15kzO06f3Xvu0qajR6un9NdOb22d11VWX5mTnZuXX8DwHwn8/v379p07z1++ePr48ZOHDx/ev3/z+rXz584+fvTo/r27jx48+Pv3L7J6AL+54v2J/iTEAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;잔상&quot;
+        title=&quot;&quot;
+        src=&quot;/static/b641589847aa2c120d35fff9c581d30c/484ae/image-10.png&quot;
+        srcset=&quot;/static/b641589847aa2c120d35fff9c581d30c/c26ae/image-10.png 158w,
+/static/b641589847aa2c120d35fff9c581d30c/484ae/image-10.png 268w&quot;
+        sizes=&quot;(max-width: 268px) 100vw, 268px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://ko.react.dev/reference/react/useDeferredValue&quot;&gt;레퍼런스&lt;/a&gt;는 아래와 같습니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;useDefferedValue(value, initialValue?)&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;매개변수
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;value&lt;/code&gt; : 지연시키려는 값으로, 모든 타입을 가질 수 있습니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;initialValue&lt;/code&gt; (&lt;em&gt;optional, Canary only&lt;/em&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;반환값
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;currentValue&lt;/code&gt; : 첫 렌더링에서는 (아직 &lt;em&gt;이전&lt;/em&gt;값이 없으므로) &lt;code class=&quot;language-text&quot;&gt;value&lt;/code&gt;와 동일합니다. 업데이트가 발생하면 (1) 먼저 이전 값과 동일한 반환값으로 리렌더링을 시도하고, (2) 백그라운드에서 새 값과 동일한 반환값으로 리렌더링을 시도합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;아까처럼 억지로 리스트 아이템 하나하나 생성할 때마다 1ms씩 걸리는 예제를 생각해봅시다&lt;br&gt;
+업데이트는 빈번한데 매 업데이트가 좀 걸리는 작업이라면&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;useDeferredValue&lt;/code&gt;를 적절히 활용하여 잔상을 남길 수 있습니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/* ---- DeferredValueExample.jsx ---- */&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; useState&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; useDeferredValue &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; SlowComponent &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;./SlowComponent&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;DeferredValueExample&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setData&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; deferredData &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useDeferredValue&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; isStale &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; data &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; deferredData&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;//const isStale = true;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;h2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;✅useDefferedValue&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;h2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;input&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;onChange&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;target&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;input&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;SlowComponent&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;deferredData&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;isStale&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;isStale&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; DeferredValueExample&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;/* ---- SlowComponent.jsx ---- */&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; memo &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; SlowComponent &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;memo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; isStale &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; listItems &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    listItems&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;SlowItem&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;ul&lt;/span&gt;
+      &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; isStale &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;black&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;gray&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;listItems&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;ul&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;SlowItem&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; data &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; start &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; performance&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;performance&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; start &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//wait&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;li&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;li&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; SlowComponent&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;SlowComponent&lt;/strong&gt;에서는 1ms씩 걸리는 아이템을 100개 생성합니다&lt;br&gt;
+input란에 타이핑을 칠 때마다 실시간으로 검색이 되게 하였습니다&lt;br&gt;
+이러면 &lt;code class=&quot;language-text&quot;&gt;memo&lt;/code&gt;로 &lt;strong&gt;SlowComponent&lt;/strong&gt;를 감싼다 하더라도,&lt;br&gt;
+매 타이핑마다 props가 바뀌어버려서 리렌더링을 피하기 어렵습니다&lt;/p&gt;
+&lt;p&gt;이 때 &lt;code class=&quot;language-text&quot;&gt;useDeferredValue&lt;/code&gt;를 사용하여&lt;br&gt;
+(1) 백그라운드에서는 새로 업데이트 된 &lt;code class=&quot;language-text&quot;&gt;data&lt;/code&gt;값으로 리렌더링 결과 화면을 준비하고&lt;br&gt;
+(2) 그 전까지는 이전 값(잔상)을 기반으로 화면을 보여줍니다.&lt;/p&gt;
+&lt;p&gt;이 예제에서는 현재 보는 화면이 잔상에 의한 것인지 알려주기 위해&lt;br&gt;
+잔상인가? 를 확인하여 텍스트를 회색으로 보이게 했습니다&lt;/p&gt;
+&lt;iframe src=&quot;https://codesandbox.io/embed/wm3tz7?view=preview&amp;module=%2Fsrc%2FSlowComponent.jsx&amp;hidenavigation=1&quot;
+     style=&quot;width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;&quot;
+     title=&quot;deferred-value-sample&quot;
+     allow=&quot;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&quot;
+     sandbox=&quot;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&quot;
+   &gt;&lt;/iframe&gt;
+&lt;p&gt;아?? &quot;deffered&quot;라고 썼네요; &quot;deferred&quot;인데,, 이거 자꾸 헷갈립니다 ㅋㅋ&lt;br&gt;
+아무튼&lt;/p&gt;
+&lt;p&gt;왼쪽과 오른쪽 둘 다 다다닥 빠르게 타이핑하여 비교해보시면&lt;br&gt;
+초당 100회의 타이핑이 발생하더라도&lt;br&gt;
+왼쪽(&lt;code class=&quot;language-text&quot;&gt;useDeferredValue&lt;/code&gt;)는 잔상이라는 것을 알리기 위해서만 단 한 번 리렌더링합니다&lt;br&gt;
+그러나 오른쪽(안 쓴 경우)는 계속.. 새로운 업데이트를 위해 안간힘을 씁니다&lt;/p&gt;
+&lt;h1 id=&quot;other-hooks&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#other-hooks&quot; aria-label=&quot;other hooks permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Other Hooks&lt;/h1&gt;
+&lt;p&gt;이외에도 고유 id를 생성하는 &lt;code class=&quot;language-text&quot;&gt;useId&lt;/code&gt;같은 다른 훅이 있지만&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;다음 Hook은 대부분 라이브러리 작성자에게 유용하며 애플리케이션 코드에서는 일반적으로 사용되지 않습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;라고 하니 더 알아보고 싶다면 &lt;a href=&quot;https://ko.react.dev/reference/react/hooks#other-hooks&quot;&gt;여기로&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;마무리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A7%88%EB%AC%B4%EB%A6%AC&quot; aria-label=&quot;마무리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;마무리&lt;/h1&gt;
+&lt;p&gt;리액트는 아무래도 훅이 좀 중요하니까&lt;br&gt;
+잘 정리하고 깊게 알아두고 싶어서&lt;br&gt;
+일부러 코드 샌드박스 예제로 써가면서 들고 왔는데..&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 272px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/cbc3036025d5053a69619d0cc065223c/2aae8/image-11.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 67.72151898734178%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAAsTAAALEwEAmpwYAAADYUlEQVR42gFWA6n8ABEWJCMyRx0tPxwxSSY5SiI1Rhw0Sh02Th83TSM3UCQ2TyI3UyU9WCpDWzNJXzNGXjBDXC5CYxATJRgICQANK2AzcMBbeqdto7hgstpXqd1mpMR3q790wd1jt+Jeue9ryfxlwfV2x/J6x/xeisVSeLMlVb4LEjwZCAYAKi5VKXrTDmDBF3bNKZzWj6yFuaI5xKErwqEyua5adrezEZj3CoPiHLHjFKXlIcLjG7DrEY/1IiVVJAYOAEdIYH2exESPqTad33KCZaBvLqZnLbtlHrFuFLiDFrqKLGCeuVO9+lbQ8R7N5UjI43Kx02fQ8D49YiwBFwA7SFOPvMqK1+6ztKSwVi6VcGp6m7a0VUO0PAyOZRusbQ+KkGtWyPV0vciI0Z+FoaF4Z2RXt7oWQGMgABMAIjhVYbrsS7vxUpy9lF44qE4slYiKmo2TgIR/i2Ich1sWZnx4O62aTrgaX8Ebb8MzXKodfde9L0plDgAFAB1FZCzI6DXM5jfR/090gGs9MmqYsFWf0CVFflQ6Jl5CIXSpt1+ysDFqKiJHED9sDVCWOn/c9jVMXw4AAQAaQ2U0vvQ6xuNExehvx+Bdt79NlrBIZohBWn9Ojqxpvthqv+mAve5Jl5RNczFmjDgrexdSwZsnSGESAAAAK0lmZ8j9fMjdi87chs7cgsjWjM/ZmNTbfrrFPXesTaTnVcnxY8z4abDQc6aOfp9KN4QbVbCAKkZaEgABAC9NaHLW/2/P/HTS/3HU/6Tc+NXv/bfo/xxlyj5dmmKKpmWqw2i50muqy26ltluNmGC3hnXd/y9PbBAAAAAnQFhkuOVksN1nr9pnr9dvosVyg5xWdpgYW5AvcY9IcZZBbZ5LfKBPe5VVeJNSfaBKeZZMg6kdMEMTAwMAFxYeEBIdDAwWBgcRCggTBQUPAQAHAgEGCQoMDRAWBAQSAgIOAQEKAQALAAAIAwEGCQMKBwACDAUGGw0OAE1IO0U+NDYwJS4pICEfHREREhYWGRQTGQoMEwcOFgkKEwwMFQgJEgkJDxkMECgYGiQZFiYXFyYWFCcZFABWSTxUSDtSSjRRSDYwLSgUFRU9PEI1NT09UmeCf39Ego82QlFVVFwdFyArCRNDJiYyJBowIBsxIxw1JCYzaUu2pRnVMwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;스불재&quot;
+        title=&quot;&quot;
+        src=&quot;/static/cbc3036025d5053a69619d0cc065223c/2aae8/image-11.png&quot;
+        srcset=&quot;/static/cbc3036025d5053a69619d0cc065223c/c26ae/image-11.png 158w,
+/static/cbc3036025d5053a69619d0cc065223c/2aae8/image-11.png 272w&quot;
+        sizes=&quot;(max-width: 272px) 100vw, 272px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;아오.. 꽤나 후회했답니다?&lt;br&gt;
+이만 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🔒 데드락도 락이다. - 데드락과 철학자 문제]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/deadlock-and-dining-philosophers-problem/</link><guid isPermaLink="false">https://sungpaks.github.io/deadlock-and-dining-philosophers-problem/</guid><pubDate>Sun, 16 Jun 2024 22:03:42 GMT</pubDate><content:encoded>&lt;h1 id=&quot;데드락이-뭔데요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EB%93%9C%EB%9D%BD%EC%9D%B4-%EB%AD%94%EB%8D%B0%EC%9A%94&quot; aria-label=&quot;데드락이 뭔데요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데드락이 뭔데요?&lt;/h1&gt;
 &lt;p&gt;그런 적 있으신가요? 친구들이랑 얘기할 때&lt;br&gt;
 예를 들어.. 시험기간에 피시방가자거나? 술먹으러가자거나?&lt;br&gt;
 &quot;너 가면 나도 간다&quot;를 서로 주고 받는 ...&lt;/p&gt;
