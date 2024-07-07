@@ -1,4 +1,176 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 06 Jul 2024 14:26:48 GMT</lastBuildDate><item><title><![CDATA[🪝 리액트 훅(React Hooks) 예제와 함께 톺아보기]]></title><description><![CDATA[리액트 좀 해봤다 자랑하려면 Hook은 매우 필수적인 것 같은데요  오늘은 이 리액트에서 기본으로 제공하는 Built-in…]]></description><link>https://sungpaks.github.io/react-hooks-guide-with-examples/</link><guid isPermaLink="false">https://sungpaks.github.io/react-hooks-guide-with-examples/</guid><pubDate>Sat, 06 Jul 2024 20:26:16 GMT</pubDate><content:encoded>&lt;p&gt;리액트 좀 해봤다 자랑하려면 Hook은 매우 필수적인 것 같은데요&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 07 Jul 2024 13:02:50 GMT</lastBuildDate><item><title><![CDATA[🗳️ 리액트 사용자 입력 : onClick 🆚 onSubmit]]></title><description><![CDATA[미안하다.. 이거 보여주려고 어그로 끌었다.. onClick vs onSubmit…]]></description><link>https://sungpaks.github.io/on-click-vs-on-submit/</link><guid isPermaLink="false">https://sungpaks.github.io/on-click-vs-on-submit/</guid><pubDate>Sun, 07 Jul 2024 21:04:20 GMT</pubDate><content:encoded>&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 306px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8c211b07f4714b92832fc32fa8465bcb/98b92/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.79746835443038%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACk0lEQVR42g3L3VPSAAAA8P2JveRdvnQ9WNZdqRSlJumdoAimgPmBIgNBEeVTWHwjg4OBfA3GQBji2ICNSXylh6cv9Xv/AW8W5S+ml8cXpJMrsm3TxYErpA+lxUf21z/k4983Xs2ujfFEb2Unn/ZtYnPYGfahhvG5Ld3uidpjkQJQMqN2hPf0wWNDIgLfOs8IuwGzxbFvoJunD33cd76Tn73fsU6pIYULbRWk9TxvRaUio2P81QkAVMdPN8mjpYZusbXPJyU8BARjrlhOdB6YUbt4Wt9nrWfWEBJY0xooVEAEf+iviGNs1JoCj0UAuESfCHtnkqFmuaOcI/WSLKynTQeYyY9oocBH2ZHY6LUniv6YpVVdcBlnWpXZx9rLB266Q8wDOhFzKKBUgv+trl+h7DLWt9dzKjjDbu78MGlWrkaCG9dZFR7hU7nJSvoL6pjo1iaHHH/A8IFlodXlxn3hvMeL780VVQt1taChB3O2YMILp049sDkU8CKXOshTRqXPI3ESmu+QS53KhzYlBH6ZzLFyMZhClZIkpLz1g+zxGm7x5o0w5oQLO76iwl+4gCNXSVUFlTAV4T37ky0ImMr600ADIHkcRnNGMG3duUGcD5C6AxmLflcl6mMjAUblLv3GarlUkEP47drmqC196sp79NZf1sSRboBsM3WG87sxj7EZsA+8loZbwyZtAyzavko3ooXbLFFPZcNNXDtqbj+Q631KMRpcMFyN7dIA1+/S3TZOtELOThJpV2qMU0dblFQKo1CCyBLVcr02ZH1P9+F+K9y5Szw/XlZpLHtDdXs3QIYgfJmMO5VCS80c3mz02Eji2h8ol5vNEkXHi+VSvcr1y9c0WW2xTPsarxcc8asSRXaHd/8AEpHilGO/BSoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;미안하다..이거보여주려고어그로끌었다&quot;
+        title=&quot;&quot;
+        src=&quot;/static/8c211b07f4714b92832fc32fa8465bcb/98b92/image.png&quot;
+        srcset=&quot;/static/8c211b07f4714b92832fc32fa8465bcb/c26ae/image.png 158w,
+/static/8c211b07f4714b92832fc32fa8465bcb/98b92/image.png 306w&quot;
+        sizes=&quot;(max-width: 306px) 100vw, 306px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;
+&lt;p&gt;미안하다.. 이거 보여주려고 어그로 끌었다..&lt;br&gt;
+onClick vs onSubmit 싸움수준 ㄹㅇ실화냐?&lt;br&gt;
+진짜 리액트 최대의 고민이다.. 가슴이 웅장해진다&lt;br&gt;
+...&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;리액트에서 사용자 입력 제출할 때 뭐 쓰시나요&lt;br&gt;
+전 별 신경쓰지 않고 아무거나 생각나는거 쓰는 편이었는데&lt;br&gt;
+막상.. 생각해보니 어라? 싶어서 그냥 써보는 글입니다&lt;br&gt;
+&lt;a href=&quot;https://medium.com/@edidee/using-onclick-vs-onsubmit-to-submit-a-form-in-react-c7e6dd318dce&quot;&gt;이런 글&lt;/a&gt;을 좀 참고했을지도?&lt;/p&gt;
+&lt;p&gt;둘 다 React의 &lt;code class=&quot;language-text&quot;&gt;useState&lt;/code&gt;로 사용자의 입력을 관리하는 경우로 예시를 들었습니다&lt;/p&gt;
+&lt;h1 id=&quot;onclick&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#onclick&quot; aria-label=&quot;onclick permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;onClick&lt;/h1&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;UsingClick&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;text&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setText&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setResult&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;onClick&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token parameter&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;setResult&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;text&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;App&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;h3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;Input Using onClick&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;h3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;input&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;text&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;onChange&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setText&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;target&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;onClick&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;제출&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;h2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;h2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;대충 이렇게 하겠죠?&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 300px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4ca9f24dcd813cbe5e0c9af296602718/5a46d/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVR42gGfAmD9ADZCNEdfTYiOYo6QaU1eT0xcTEVSRFlnVGJxXnZ8b3l/bnJ6Z2RzYGV0YWh3Y2VzXJKekOjq45mmildrUQA9SzlIYE92flSFiGZOYFI0NysrJx0/SztxemnBuKXAvrKwqqNnc11dbVpicV5ndmJxgW6ToY2gqZFrlFMANkU2W2tci5eRcYF3SVpKQ0I1WU9Aj5WMk5eOqJ9oqaaJpaGcX2xWaHZlandlZXRhZnVeZHFedIFxdJN4AEdeVDU+NF1sXVJhUVlpV0VJO2FjVmtsX2trW1hgVFxlV1NeTExbSYGNgI2Wil1qVmRwXHGCdIrEd0eTJwBYbWNWb2AkMihIVUVGUEFESzxVYlRAOy1fVz9UY1A8Sz1LWkhXZ1Q5Rzdzh3lxh3pMW1xgkFFWsSMoaAAAO0g/aoRzNEc/PEQ3RU08RU07Qk9DPj4uWlI8eHliP0k8RVVFfJR/WG9Lb4d8i6maVWdlV4U4LnYAJFcGAAcJCTpFNldwYUtQP1dgTTxCNDY/ND9HO1xhT19mWHB+bkNQQ1lqXVRnTldvZURgXHGHZY6oXyZgASBQAQAwPDE1RDYrPDNzgWxzhW0yOy0nLiREUENdb2Fmd2dhc2NBS0FHWzZUZjRWZ1lac2yPo3umt2xffDNGfSAAaH5pV3BbIigcj5h9aHljIywiICYdSVNFYXRmWmdbOUI5RlFGd4lxXmc0Q0w6PlBNSFRDRk84XW9aQ38nAG56WX+Nam9iSYNsS3N2XBklIQoMCy84L2d9ZURTRyIrJScvKlFbUYqFZHdwVV1rWJi1knmMeEyWJT+fAwAiJBdEUjlATz9QaV2Ln3+AgFBQUDFMVT2Dl2xzinNOWlaVo6G5xcXL1M3Pz8bb8Oee2MVAXkFFoAsqZQe4W/c4eFo//gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;이게 클릭이야&quot;
+        title=&quot;&quot;
+        src=&quot;/static/4ca9f24dcd813cbe5e0c9af296602718/5a46d/image-1.png&quot;
+        srcset=&quot;/static/4ca9f24dcd813cbe5e0c9af296602718/c26ae/image-1.png 158w,
+/static/4ca9f24dcd813cbe5e0c9af296602718/5a46d/image-1.png 300w&quot;
+        sizes=&quot;(max-width: 300px) 100vw, 300px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그냥 간단히 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;button onClick={}&gt;&lt;/code&gt; 이렇게 쓰는 것입니다&lt;br&gt;
+어디서든 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;button&gt;&lt;/code&gt;을 적절한 &lt;code class=&quot;language-text&quot;&gt;onClick&lt;/code&gt;에만 연결해주면 후속처리를 진행할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;그냥 이게 다인데..&lt;br&gt;
+이 &lt;code class=&quot;language-text&quot;&gt;onClick&lt;/code&gt;은 버튼 뿐만 아니라 어디에도 &lt;strong&gt;범용적&lt;/strong&gt;인 이벤트 핸들러라는 점이 특징이겠네요
+그리고 &lt;strong&gt;클릭 핸들러&lt;/strong&gt;로 하기 때문에, &lt;strong&gt;진짜 클릭해야 한다&lt;/strong&gt;는 점입니다&lt;/p&gt;
+&lt;h1 id=&quot;onsubmit&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#onsubmit&quot; aria-label=&quot;onsubmit permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;onSubmit&lt;/h1&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 306px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/54a58c233ee0bae6c1b169bced67ae14/98b92/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.79746835443038%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB+klEQVR42iWS626cMBCFeb2q6mtUah+kVbTKdZukuTTJQrKLwYAv+ALGxjaQ/EgeqrNZaTTySP7OObInsa7vjRSCM0aFYEoJrfej1AJGziljREqR59sQ3BTDvs9jiPbLt68JxmXfKyFbXONlCRijAr2k6UNDqux5g3GRpo/LWwQhEI3Rj34Yvfn4ePvx83uSZRuQsa7DVem95S1lknEtWiWqArGmJoy0gqEiJ6SeZu/DEMLw/vF2c3uZQDApW6na7fYFOqQwm6fu/ra7vOhPjodsM7o+BNsbUdVlnCDwEKJbXiNYJkW5o5ToTpVlbkczKe6v1n71O67P/OpXuP5jV0dBtQAgtPV+2DtHOy8eKmkFSdMNIU1dl93Q+TJ352f+/Dg+3c0oi4+349V6rPH0GpumMEbGye3heYRKQMkHE+PYaUVZs8BL7p7j9eWMdjOp3P2NuziNrouLZ7QSggA8hmGa3ALOYXLAA6wkryq0Fx6Ne7hzJ0fD6cpmT07SrhdmUE1TEorj5/1D8kRrrhSTCj6Z7PJUKV432HpLJTXBaNuVGLmxx1WuO0EIPsSGgkPy7/5v25LPBwjg3PcizR60bqsaUVqDZ90UsEVScfgUhF4+yQM/wpLsL0nBOi122w0llWgp50RCHMmV5sBDBzkzaNKUIDRNHvYsRPsfep3PrqceFqcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;결재&quot;
+        title=&quot;&quot;
+        src=&quot;/static/54a58c233ee0bae6c1b169bced67ae14/98b92/image-2.png&quot;
+        srcset=&quot;/static/54a58c233ee0bae6c1b169bced67ae14/c26ae/image-2.png 158w,
+/static/54a58c233ee0bae6c1b169bced67ae14/98b92/image-2.png 306w&quot;
+        sizes=&quot;(max-width: 306px) 100vw, 306px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;아시겠지만 &lt;code class=&quot;language-text&quot;&gt;onSubmit&lt;/code&gt;의 경우에는 꼭 &lt;code class=&quot;language-text&quot;&gt;form&lt;/code&gt;으로 감싸고&lt;br&gt;
+버튼의 타입이 &lt;code class=&quot;language-text&quot;&gt;type=&quot;submit&quot;&lt;/code&gt;이어야 합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;UsingSubmit&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;text&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setText&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setResult&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;onSubmit&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token parameter&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    e&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;preventDefault&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;setResult&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;text&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;App&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;h3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;Input Using onSubmit&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;h3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;form&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;onSubmit&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;onSubmit&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;input&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;text&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;onChange&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setText&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;target&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;submit&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;제출&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;form&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;h2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;h2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이처럼 &lt;code class=&quot;language-text&quot;&gt;onSubmit&lt;/code&gt;을 써먹으려면 이를 통합 관리하는 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;form&gt;&lt;/code&gt;태그가 있어야 하고&lt;br&gt;
+이 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;form&gt;&lt;/code&gt;태그에 &lt;code class=&quot;language-text&quot;&gt;onSubmit&lt;/code&gt;이 등록됩니다&lt;/p&gt;
+&lt;p&gt;그런데 &lt;code class=&quot;language-text&quot;&gt;onClick&lt;/code&gt;과는 좀 다른게&lt;br&gt;
+이렇게 제출하면 기본적으로 &lt;strong&gt;새로고침이 발생&lt;/strong&gt;합니다&lt;br&gt;
+리액트 입장에서는 이게 state도 초기화되고 아주. 귀찮을 수 있습니다&lt;br&gt;
+따라서 필요한 경우 &lt;code class=&quot;language-text&quot;&gt;onSubmit&lt;/code&gt;함수에 인자로 들어오는 이벤트 객체 &lt;code class=&quot;language-text&quot;&gt;e&lt;/code&gt;를 가져다가&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;e.preventDefault()&lt;/code&gt;과 같이 작성하여 &lt;strong&gt;새로고침을 방지&lt;/strong&gt;해줍시다&lt;br&gt;
+그래야 &lt;code class=&quot;language-text&quot;&gt;onClick&lt;/code&gt;과 비슷하게 쓸 수 있습니다&lt;/p&gt;
+&lt;p&gt;그리고 한 가지 &lt;code class=&quot;language-text&quot;&gt;onClick&lt;/code&gt;과 비교되는 특징은&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;&amp;lt;form&gt;&lt;/code&gt; 내에 속한 입력란에 포커스가 있는 채로 &lt;strong&gt;엔터를 눌러도 제출된다&lt;/strong&gt;는 점입니다&lt;br&gt;
+이를 이용하여 굳이 클릭하지 않아도 엔터로 제출을 해결하게 할 수 있으므로&lt;br&gt;
+조금의 UX 개선에 도움이 될지도?&lt;/p&gt;
+&lt;h1 id=&quot;onclick-vs-onsubmit-예제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#onclick-vs-onsubmit-%EC%98%88%EC%A0%9C&quot; aria-label=&quot;onclick vs onsubmit 예제 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;onClick vs. onSubmit 예제&lt;/h1&gt;
+&lt;p&gt;위에서 쓴 예제 코드 허투루 쓴게 아닙니다&lt;br&gt;
+오늘도 샌드박스로 좀 가져왔습니다&lt;/p&gt;
+&lt;iframe src=&quot;https://codesandbox.io/embed/4ks4yp?view=preview&amp;module=%2Fsrc%2FUsingSubmit.jsx&amp;hidenavigation=1&quot;
+     style=&quot;width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;&quot;
+     title=&quot;onSubmit-vs-onClick&quot;
+     allow=&quot;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&quot;
+     sandbox=&quot;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&quot;
+   &gt;&lt;/iframe&gt;
+&lt;p&gt;위에서 살펴본 차이점(&lt;code class=&quot;language-text&quot;&gt;onSubmit&lt;/code&gt;은 엔터로 가능함 등..)을 한번 살펴보십쇼&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;끝&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%81%9D&quot; aria-label=&quot;끝 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;끝&lt;/h1&gt;
+&lt;p&gt;입니다. 진짜로&lt;br&gt;
+알아서 상황에 맞게 쓰면 되겠습니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🪝 리액트 훅(React Hooks) 예제와 함께 톺아보기]]></title><description><![CDATA[리액트 좀 해봤다 자랑하려면 Hook은 매우 필수적인 것 같은데요  오늘은 이 리액트에서 기본으로 제공하는 Built-in…]]></description><link>https://sungpaks.github.io/react-hooks-guide-with-examples/</link><guid isPermaLink="false">https://sungpaks.github.io/react-hooks-guide-with-examples/</guid><pubDate>Sat, 06 Jul 2024 20:26:16 GMT</pubDate><content:encoded>&lt;p&gt;리액트 좀 해봤다 자랑하려면 Hook은 매우 필수적인 것 같은데요&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 254px; &quot;
