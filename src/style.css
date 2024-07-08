@@ -301,6 +301,10 @@ summary {
   font-weight: bold;
   cursor: pointer;
   position: relative;
+  list-style-type: none; /*마커 화살표 없애기*/
+}
+summary::-webkit-details-marker {
+  display: none; /*사파리에서 마커 화살표 없애기*/
 }
 summary::before,
 summary::after {

@@ -1,7 +1,7 @@
 ---
 title: "🗳️ 리액트 사용자 입력 : onClick 🆚 onSubmit"
 date: 2024-07-07 21:04:20
-description: "설명"
+description: "어느것을고를까요알아맞춰보세요딩동댕동커피짠"
 tag: ["React", "JavaScript"]
 ---
 
@@ -56,7 +56,7 @@ export default function UsingClick() {
 어디서든 `<button>`을 적절한 `onClick`에만 연결해주면 후속처리를 진행할 수 있습니다.
 
 그냥 이게 다인데..  
-이 `onClick`은 버튼 뿐만 아니라 어디에도 **범용적**인 이벤트 핸들러라는 점이 특징이겠네요
+이 `onClick`은 버튼 뿐만 아니라 어디에도 **범용적**인 이벤트 핸들러라는 점이 특징이겠네요  
 그리고 **클릭 핸들러**로 하기 때문에, **진짜 클릭해야 한다**는 점입니다
 
 # onSubmit
