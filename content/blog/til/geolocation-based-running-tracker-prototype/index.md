@@ -97,9 +97,11 @@ function App() {
 export default App
 ```
 
-[깃허브 페이지로 배포](sungpaks.github.io/react-playground)해서 사용해본 결과
+[깃허브 페이지로 배포](https://sungpaks.github.io/react_playground/)해서 사용해본 결과
 
 ![데모](image-1.png)
+
+정확도 관련 수정을 해야 하긴 할 듯
 
 https://ko.vitejs.dev/guide/static-deploy 배포하려면.
 
