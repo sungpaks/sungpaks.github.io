@@ -474,6 +474,10 @@ body.theme-reverse .top-ui {
 .top-ui a {
   text-decoration: none;
 }
+.top-ui-tag a {
+  font-size: larger;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
+}
 
 .top-ui-title {
   width: fit-content;
@@ -595,6 +599,9 @@ body.theme-reverse .top-ui-tag {
 .smaller {
   font-size: smaller;
 }
+.x-small {
+  font-size: x-small;
+}
 .xx-large {
   font-size: xx-large;
 }
@@ -665,4 +672,53 @@ body.theme-reverse .toc a {
     width: 100%;
     height: auto;
   }
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 100px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  top: 150%;
+  left: 50%;
+  margin-left: -50px;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+}
+
+.tooltip .tooltip-text::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+
+.tooltip .tooltip-text::after {
+  content: "";
+  position: absolute;
+  bottom: 99%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
 }

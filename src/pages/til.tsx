@@ -50,7 +50,7 @@ interface ComponentProps {
   location: any
 }
 
-const BlogIndex = ({ data, location }: ComponentProps) => {
+const TodayILearned = ({ data, location }: ComponentProps) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
   const [curTag, setCurTag] = useState<string>("ALL")
@@ -87,7 +87,14 @@ const BlogIndex = ({ data, location }: ComponentProps) => {
 
   return (
     <Layout location={location} setCurTag={setCurTag}>
-      <Bio />
+      <div className="bio">
+        <p>
+          <br />
+          <strong>Today I Learned</strong>
+          <br />
+          학습 기록&정리인데 블로그 게시글까진 아닌 뒷고기들
+        </p>
+      </div>
       <hr />
       <ol style={{ listStyle: `none` }}>
         {curPostList.map(post => {
@@ -151,7 +158,7 @@ const BlogIndex = ({ data, location }: ComponentProps) => {
   )
 }
 
-export default BlogIndex
+export default TodayILearned
 
 /**
  * Head export to define metadata for the page
@@ -159,7 +166,7 @@ export default BlogIndex
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
 export const Head = () => (
-  <Seo title="All posts" description="" children={null} />
+  <Seo title="Today I Learned" description="" children={null} />
 )
 
 export const pageQuery = graphql`
@@ -171,7 +178,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       sort: { frontmatter: { date: DESC } }
-      filter: { frontmatter: { tag: { ne: "TIL" } } }
+      filter: { frontmatter: { tag: { eq: "TIL" } } }
     ) {
       nodes {
         excerpt
