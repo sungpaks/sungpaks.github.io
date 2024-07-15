@@ -1,5 +1,5 @@
 ---
-title: "제목"
+title: "Node.js 표준 입력, JavaScript 클래스 용법 등 - Day01 학습정리"
 date: 2024-07-15 22:05:46
 description: "설명"
 tag: ["TIL", "JavaScript", "Node.js"]
