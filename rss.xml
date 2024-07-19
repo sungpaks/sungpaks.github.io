@@ -1,4 +1,218 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 18 Jul 2024 16:57:04 GMT</lastBuildDate><item><title><![CDATA[메모리 공간을 효율적으로 쓰고 싶어요]]></title><description><![CDATA[Partitioning Fixed Partitioning 처음부터 조각을 잘라두자. Equal-size : 모두 같은 사이즈로 컴파일 할 때도, "나 여기서부터 시작한다!!"를 미리 정하고 들어갈 수 있어서, Relocation…]]></description><link>https://sungpaks.github.io/til/학습_정리_day04/</link><guid isPermaLink="false">https://sungpaks.github.io/til/학습_정리_day04/</guid><pubDate>Fri, 19 Jul 2024 01:52:28 GMT</pubDate><content:encoded>&lt;h2 id=&quot;partitioning&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#partitioning&quot; aria-label=&quot;partitioning permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Partitioning&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 19 Jul 2024 09:22:12 GMT</lastBuildDate><item><title><![CDATA[(네이버 부스트캠프 1주차) 나참 무슨 회고록을 쓰라고..]]></title><description><![CDATA[라고는 해도 열심히 쓴답니다~ 네이버 부스트캠프 챌린지 4주 과정을 시작했는데요 처음에는 "코어타임이…]]></description><link>https://sungpaks.github.io/til/네이버_부스트캠프_1주차_회고/</link><guid isPermaLink="false">https://sungpaks.github.io/til/네이버_부스트캠프_1주차_회고/</guid><pubDate>Fri, 19 Jul 2024 17:57:26 GMT</pubDate><content:encoded>&lt;p&gt;라고는 해도 열심히 쓴답니다~&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;네이버 부스트캠프 챌린지 4주 과정&lt;/strong&gt;을 시작했는데요&lt;br&gt;
+처음에는 &quot;코어타임이 7시까지라고 했으니까 그때까지만 전집중하면 끝이겠지?&quot;&lt;br&gt;
+라고 생각했는데 오산이었습니다&lt;/p&gt;
+&lt;p&gt;사실 또 다른거 하는게 많은데&lt;br&gt;
+갑자기 부스트캠프라는 개큰일정이 확 들어와버려서&lt;br&gt;
+진짜 너어무 바빠졌습니다&lt;br&gt;
+그래도 할 일이 많은건 항상 좋은 것 같아요&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 303px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2944568792ce5903caf6417c19fcf889/6728c/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.06329113924051%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACoElEQVR42h3Q608SAQAA8PvemrMQLLXUQA1LHW+OO16CvAIUOA6Rw6PDeN+RcDwUeRRCVs6iJFuCmbqyzZlWM61sa31wfepPavMP+H35ARfbehhdXKXDubWfrtTjhVqstk3X3mXCuSQSDq6sU2vvcy92CrXtTGk1tbpTOjwuvtxcWGnStkAYaGnntHf28iH5zHyKyKRsUSpQzEYjPkimHLM5zFYjkU4EHpS82ZwrOTedzocXCmQhP52g9T4KuMTidPaLQZQS2imRfVaC0mIkNXBbhujV9Wr8cdYvuUNI8IoIy/On8nx0no+kFK6EbILUYUmAwWR3sQWQMwq7SaWbUrjpUU/SopR9WorX8kTjYchNxKR4PkAv1pbr1fJKvvjE4MsoXaTZlwRaWX0dHBGEkrCLUkzGFZMJDVGozs0dVUIb5fDHp6nFzWN//efz17tne/vf15uNR091d+chlLISaeBCez+TIwHRGOQiFe64GqOVWAoJ5qoztoh9LOpG5c44hCSlNnLESMgc5BixoMLScjRuwdNAS1svky0QIxHZudd6E8Nyiw/Da0ETYZJibsctoUYghRMp9D7toJJO0BpSedOgPazHEsAVVncvRyhHYjBKGvw5E57laTDQgj9brpSDE+VXb0YMBM/ocd3zVJe8pSLCUznU01mZ/TyMxezpZgvktugoElVZZwYVNrlGCWoNjcOT098nH05/4OFZdIac8MVNKC6SQVypUe2lJeMR7dQswGB0d9zggWYfpEEGeBqOUO3Wc3PU5MGXb3/P/hx9Pfi8t7vVbDaaGzY8dHMYHBDpFJ6kwOxXuyig9fK1q2yBVGES8uF+vqaDC0pgSAjJByHj27Xw8b9fximKr/VwxLrrQ3BPH38IHofRhMDoVzvJ/x4B8OjHLq2ZAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;지쳤나요?&quot;
+        title=&quot;&quot;
+        src=&quot;/static/2944568792ce5903caf6417c19fcf889/6728c/image.png&quot;
+        srcset=&quot;/static/2944568792ce5903caf6417c19fcf889/c26ae/image.png 158w,
+/static/2944568792ce5903caf6417c19fcf889/6728c/image.png 303w&quot;
+        sizes=&quot;(max-width: 303px) 100vw, 303px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;
+사실 그정도는 아닙니다.
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;같이-해요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%99%EC%9D%B4-%ED%95%B4%EC%9A%94&quot; aria-label=&quot;같이 해요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;같이 해요&lt;/h2&gt;
+&lt;p&gt;슬랙에 400명인가? 많은 사람들이 모여 있는데&lt;br&gt;
+42서울 라피신할 때 생각이 막 나곤 합니다..&lt;br&gt;
+그 때도 슬랙에 사람들이 왁왁 있고 왁왁 올라오고 그랬는데&lt;br&gt;
+다른 점이 있다면 부스트캠프는 온라인에서만 만난다 라는 점이겠네요&lt;/p&gt;
+&lt;p&gt;또 42서울 생각이 나는 것은 여기서도 피어세션이라는 함꼐 하는 시간이 있는 것인데&lt;br&gt;
+42서울때 동료평가는 아예 시간의 제한 없이 1:1로 진행하는 것도 있고, 코드를 면밀하게 나눴던 반면&lt;br&gt;
+여기는 좀 &lt;strong&gt;어느 측면에서는 느슨하다?&lt;/strong&gt; 라고 생각됩니다&lt;br&gt;
+근데 이 느슨하다, 라는 것이 약하다는 것은 아니고&lt;br&gt;
+그냥 방식이 다르다 뿐인 것 같습니다&lt;/p&gt;
+&lt;p&gt;두 시간 동안 6명의 팀원들이 각자의 코드를 완벽히 리뷰할 수는 없어요 사실&lt;br&gt;
+게다가 함께 줌으로 미팅하는 시간은 1시간 뿐이라서&lt;br&gt;
+결과물을 서로 나누고 리뷰하고, 검증하는 데 목맨다는 방향성은 전혀 아닙니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 322px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/083723c020d308b71e46b8a5c2aa4f3c/fc778/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.734177215189874%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsTAAALEwEAmpwYAAACWElEQVR42g3LS0/aAAAA4B486GHZaYzp5tSsRXn1gbZUdCA1A60yAUEEobUIggXLy5a+aBF1zucOajL3SJYtWbKTV70t+2Pz+iUfsEDnhCix8Y4g7Da1pdzd3X/5/IPJFjayBaVtCpV6paIbx1en5xdmT68WBbHe3S6W5bYqNhVgxuUIosgcCk+Ov2nVWvf3f+Ox9f6Bp9PoFJtmJVFKpHa99G73gyF3asxyZMEVoBdpWVJ0SQXmMCSAwY8Zh8akRuvh4d++Zr7HkZN8Wq/yQn2PLwuh1WQyt8En16pbuYYglrhCW5Q6mg5QkwiFucI+Hx1cKHJ8b//U0D5WoqtmKnakG7u1umkcqQfHavfok6idHfZurr4boizvSUbHACjMHYTt0whGkEEvGcRQP2QjorFmgt6kqOhWvmyoIteutQ6PLwtCaZu7/fanq/fUtryvdQAKdYa9+OjQy76+/sEXoyCIjYw4EOzRIiBE+AOR1g5DLaJsLqHFV4qxsJTn+PjSXqXSVXTA57ARHnJwaMxqHYbd0yCIPrMMg6Mu3D0HQlOvx9zp0HyJtDE4lPZ7mQCegYcy8CuByZltGaB9PpfNbXdiTpfH4SSh8amBJxaLFbJBBIp4QchDembZWTj/Fmb9XjaAs6SdwcH65qYpyQCT4pj1ws+z7K/T9LWRO2mvqdvhTnlJyofMevJcjlwqmQsx0+HmD4rUrZ7oFqgsOVFjGa0pASQ+iyGTCZc1PvGc9bvXvE52Bm3QxFc+dlllr5XS74PmTa3EUn4+tbxDz2RC8yv0aiaeFcqN/weHzUmNJrqQAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;회의&quot;
+        title=&quot;&quot;
+        src=&quot;/static/083723c020d308b71e46b8a5c2aa4f3c/fc778/image-1.png&quot;
+        srcset=&quot;/static/083723c020d308b71e46b8a5c2aa4f3c/c26ae/image-1.png 158w,
+/static/083723c020d308b71e46b8a5c2aa4f3c/6bdcf/image-1.png 315w,
+/static/083723c020d308b71e46b8a5c2aa4f3c/fc778/image-1.png 322w&quot;
+        sizes=&quot;(max-width: 322px) 100vw, 322px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;피어들과 한 시간을 보내는 방법도 정해져 있지는 않은데&lt;br&gt;
+여러 방식을 같이 해봤습니다. 코드 설명도 해보고, 서로 코멘트도 주고받아보고, ...&lt;br&gt;
+근데 매일 올라오는 &lt;strong&gt;함께 살펴볼 사항들 을 함께 이야기하고 각자의 학습을 나누는 것&lt;/strong&gt;이 가장 좋았던 것 같아요&lt;br&gt;
+구현에만 집중했던 사람이 있고, 학습에 더 쏟은 사람이 있는데&lt;br&gt;
+전자의 경우에도 &lt;strong&gt;생각지 못했던 학습 포인트&lt;/strong&gt;를 얻어가는 거고&lt;br&gt;
+학습에 더 쏟은 사람들은 이걸 &lt;strong&gt;재정비&lt;/strong&gt;하는 시간이 되기도 하고, 나누면서 &lt;strong&gt;더 채우는 시간&lt;/strong&gt;이 되더라구요&lt;/p&gt;
+&lt;p&gt;아무튼.. 생각보다 &lt;strong&gt;느슨한 피어 학습 방식이지만, 그래서 그 장점이&lt;/strong&gt; 있는 것 같아요&lt;br&gt;
+다양한 사람들과 배움을 나누고 성장하는 건 항상 재밌긴 하죠&lt;/p&gt;
+&lt;h2 id=&quot;요구사항-분석과-설계&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD-%EB%B6%84%EC%84%9D%EA%B3%BC-%EC%84%A4%EA%B3%84&quot; aria-label=&quot;요구사항 분석과 설계 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;요구사항 분석과 설계&lt;/h2&gt;
+&lt;p&gt;사실 이 부분이 가장 저로서는 낯선 포인트였습니다&lt;br&gt;
+머리부터 박고 구현하는 편인데&lt;br&gt;
+이건 어느 정도나 통하지 규모가 커질 수록 구현에 앞서 준비준비를 잘 해두는 것이 중요하죠...&lt;br&gt;
+큰 건물을 세우려면 역시 밑그림을 그리기가 매우 중요한 것 같아요&lt;br&gt;
+&lt;strong&gt;짝설계&lt;/strong&gt;나, &lt;strong&gt;체크포인트&lt;/strong&gt;같이 &lt;strong&gt;설계&lt;/strong&gt;를 잘 해볼 수 있도록 하는 장치들이 있기 때문에&lt;br&gt;
+설계와 친해지는 시간이 되고 있어 좋습니다&lt;br&gt;
+확실히 &lt;strong&gt;설계로 먼저 방향성과 가닥을&lt;/strong&gt; 잡은 뒤 구현에 들어가면 효과적임을 느낍니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 225px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2d82cc7345183a92f6828cd0336395c3/3684f/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 99.36708860759494%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEYElEQVR42h1TW2wVRRjeh/oCJqQvJKDwXGNiCBIDEQ3BS6FIVUAb0FREYzDAgxcQjIEqtggKLa0tAqUoEivyQMUWsJRS0pttKZQ2PbY95+zZPbs7O7edmb2ePe0JcWTyZ/Jnkm++f75vPkV5tBYuXFhSUlJcXCz7xYsWV2ypkE3JUyXLn11eVFS0dMnSA3sPyJMFCxasWrVq2bJlsp8/f76yoax8/bqNFW9vfWtzxabyza++vL5yW2V1VU3p2lcq33lvx/sfbVi/ccf2Dw9XfVtU9NiSJ5eufv6FFSuemzfv8UWLnlB8XnBFgZPIQ7mIFiLxMGSzyHAiFrs0L1jBFwXXySUnksMDo//0j/Z093dd677bf2+o966CdGyb3MxSpBNkMWC6hs5SM7bcgeUCi1sGNzQHZx2PBC6L00lLwqbuTVspW8EGJXYAgWfpGFnco7FPYqhTgQIKXGoxBlykMyuFHRhMTqhdnQNaCgzeGro/MK44FsfAQ8AjtmupduLuZNdfXd0dd2bGVW3aJDoRtkt0aquYoSA1Y8kZTQ1NDCce9E9IsEMA5zjoudl3/uzFptrT3xz6rqa6vvNG753bw4N9o+qUkU5oWkIDKWTqBEIBATOmLZRGCs06xBa/tLQeqTrW0dbZ2dF9vf12Q0PL6MhkNmlOPUiZaRtlHahzRnKcxgQHFOVA0sI6UDgNrrb9veXNbQ3fn2o8dqbxRHNTfUvd8Z+G+seyM6aZBGYagiwBWSH4XMBnfZKj0DcyEmwryGRX/mjf/fEntdUNZWveaL3QVn+i+eQPTSNDD9Skqak2tKT+jmUIj88GLJ/js5yERhqgLFZAGt3q6Dm4//ClX6+8tHJdXfWPzfXnP99zoOtmX2/vyPj4DLQ9giJpocul53M+iRwg5DgYcEX9N9twrHHn9l0913vL1rx+5Ova8tItjXUtM9PG8MDYSN/9qYSuZ6imEopiyW+kbTWhAw0T5CqZaWP71g8+27XvysWre/d8Vf7a1hdXl1IcMxpzFArkcyeWzMlpAEzBSMRpCDLIsT2KPEWbMmoOHj13+sLOyt1lazc98/TKk7XNgShAkyGbEfxoWveh5DQN6vJc6M25JMRZRmFOfk+anFD/vNx+aF/V4S+Pvrtt5/hY0ndjSgRngjGXO5HLZyVY15DguUDMRjxv6w6GkWJrJHTyp+ub9+35IjGSrNhU6XkRd3zBAyEF5vKK0HfzzPEzqsVZLIMUohiqFMFAMVI2BqLp+KnG42fMFN3/6SHOI5cF3PEEl2CXsyDwC8j2MiqSD47YXITzRHcgcBSQwaZqt577vb9zEGvs5zOtZpYJJ8bQc2hAiU9JIHhsZoWuOzI2EcmHMKY6IRZViMGkb3U1dT3Xbsdi7lTduRsdPRJgAxfDQOosi+KcmkIZlQgcByjyYQjTNtSg8n9Qcdh++drFs7/JGI4MTl5ouaQnDQplTn0MQ1kOjseGp4YHJxmJGQw5dO2Mbaes/wBLF5jWjDL9owAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;과정&quot;
+        title=&quot;&quot;
+        src=&quot;/static/2d82cc7345183a92f6828cd0336395c3/3684f/image-2.png&quot;
+        srcset=&quot;/static/2d82cc7345183a92f6828cd0336395c3/c26ae/image-2.png 158w,
+/static/2d82cc7345183a92f6828cd0336395c3/3684f/image-2.png 225w&quot;
+        sizes=&quot;(max-width: 225px) 100vw, 225px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그리고 사실 개발에서는 &lt;strong&gt;요구사항 분석&lt;/strong&gt;이 진짜 중요한 포인트인데&lt;br&gt;
+같은 요구사항이라도 이걸 말한 사람과 개발자의 &lt;strong&gt;관점&lt;/strong&gt;과 &lt;strong&gt;이해&lt;/strong&gt;가 다를 수 있습니다&lt;br&gt;
+그리고 대개 요구사항은 알고리즘 문제처럼 완전히 정해져 있는 게 아니죠..&lt;br&gt;
+이건 그래서 이거 하라는거야, 저거 하라는거야? 라는 생각이 들기 마련인 것 같아요&lt;br&gt;
+게다가 부스트캠프에서는 요구사항이 꽤 길고.. 막막하고.. 그렇습니다&lt;br&gt;
+이런 &lt;strong&gt;요구사항을 분석하고 이해&lt;/strong&gt;하고, 이를 잘 따라가는 이런 연습이 도움이 많이 됨을 느낍니다&lt;/p&gt;
+&lt;p&gt;슬랙에서도 자주 있어요.. 이 부분은 이런 의도인가요? 애매 한 것 같아요! 이런 질문들이 있는데&lt;br&gt;
+어느 정도 범위 밖은 &lt;strong&gt;개인의 판단&lt;/strong&gt;에 따라라, 라는 답변이 많습니다.&lt;br&gt;
+이게 진짜 현실 경험이지 않나? 싶어요&lt;br&gt;
+요구사항을 잘 녹여내면서도 &lt;strong&gt;주도적&lt;/strong&gt;인 판단으로 진행하는 연습이 많이 되는 것 같습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 271px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/46662004a2c4f7f2acf1062de39e575e/5fce1/image-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 68.35443037974683%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC/0lEQVR42hWRWW/bVhCF+ReKAn1MHKCJjbRBNjuuAxeRo8R2JNkOJNmKdlGiRF7upLiIO+/lKmqz0qJoHpK2QNPfWQaYp8E5+OacwQBo8UyTB9cS19bV0Uzta1LT0LqBDzQF5+kb3xj6DuWaE1vrz+S2qQ1m+njKtViyipUrJ/vPHo2HV45FOC7wPRJ6BHKJWvX84OBo597d0ukxckEaspEPkEsiH/gulYt1tY/VqsWL0gmgGh5k7dnA90GSiheVV999/8Puz/t7Dx/v7Pz49vRVDKk4FELERpBxjJHv0pZBYNq077uka448j0YuFQZsAMm93bsP7t0RW421xHZLr/d2dyLE5BO6kzjgkEdDj7a1AaZOe5Y1zoOFAR9CLo6EecRcFF+MLs8WNJ5OuuDqXfX8ZZoIScR+48dikvMD3rcITJE6rjVBHhmGbOAQMfp2dqYMFsP6Z3n8eToO2mWbfB+iSRxyYchHIYccIjdDH2Aye2PP8AByESSR2Qu9YW7O61ky15tePaiWg2EFmV3oDJOIyzIlDvJ0eBSwcSpjutL17RzLRTGfhGw255YLcb2e+nxLuzzhT4/k3kW2mmZLfnWrrNbyeq0vVspypceJiBnGKAg46BDZXM4yabkyssigCTy13TlNqB8uDYYDBJ1EKJtb81T6+Ie92uqLrQEhiclCyzEI3wb5DwJrmjoLqKVEE6RuigQVifkmHd6QpgA9LTFlFzncMmLmiRT5HCY0CkrnrYGfW8SVI808NfL0wFIcaEXjFq5QuXQ9BarOWbYCRVrVJnjC3kR03ey9wfpvnhLnh8PiE08Gf376tNr8/vcSfN2MPRHf6PWPdi2Fype//llvNiKvbG+3X//797ftrUqP+sWn2PXLx43jZ+3jJ0yzrsgGxypqrUS9PuIrFfLw0eD5fZWYSKLWbfc6jQFJAEM1bFmkPtR6hRdYq3DQKezjxedcuzMTUK3cqF/2Rj2BpdTiYfHXn34BA6F51S4VSu/PajJl6IwptJrSdZk4O/4fqRlmAURuus4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;이게 무슨 소리야&quot;
+        title=&quot;&quot;
+        src=&quot;/static/46662004a2c4f7f2acf1062de39e575e/5fce1/image-3.png&quot;
+        srcset=&quot;/static/46662004a2c4f7f2acf1062de39e575e/c26ae/image-3.png 158w,
+/static/46662004a2c4f7f2acf1062de39e575e/5fce1/image-3.png 271w&quot;
+        sizes=&quot;(max-width: 271px) 100vw, 271px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;저는 &lt;strong&gt;요구사항 분석할 때 꼭 글로&lt;/strong&gt; 써봅니다&lt;br&gt;
+내가 &lt;strong&gt;이해한 요구사항&lt;/strong&gt;을 다시 글로 뱉어보는 건데요&lt;br&gt;
+그러고 나서 다른 사람들이 이해한 바와 비교해보거나&lt;br&gt;
+또는 다시 요구사항 원문으로 돌아가서, 빠진 부분이나 애매한 부분, 내가 잘못 이해한 부분, 이런게 있지는 않은가 확인하곤 합니다&lt;br&gt;
+이렇게 한 번 하고 대충 구현을 위한 흐름을 설계해보면&lt;br&gt;
+처음엔 막막해보였어도 길이 어느 정도 보이곤 합니다&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/602e4063dfca9b5c8d382a37eba3e74a/21b4d/image-4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 41.77215189873418%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAABuklEQVR42g3P23KaUABAUb6hncS2ptZUnSiK1gNyPxzuiAgiyEXFYFCMGjOT9MGX/nyd2c9rZmOuSq2mQuaKhS/dyj20naHM4fMpPKbWXDc1wOoUo1DssIUrJH1cZiIl+vLQ1UeYzvU9mVxP+CLQ9oG698ViJuwDeIrQtYwsAYF2v11v9Vqd2rcHvPH0/vwij5jPTIsdHhvzPV8GoQJSiyvj6fk5fE0mxwBdC+ffuRw+4d1mp1r50ao3H6t1vNGWSM6Do79rzZYA5sJBYlCJSa8sajOmli4ykTAZDQ8qDBW5/etns968+3LXqDXuv1aqlSpDdLIxdQxFnSWwGRykOpmof9Ym2Dr0dnb7Z30BwMffEAxsWVCZbqADRHVbte8M0dgH4imW3peKQePYQumnBnXDtjbYeXQZwssKZRPVYpnUZl2NM1l8roDcYw8RPCyEnc8Wc+6SSq7YwxKtH8tEbtOlz5YBf4rgOZEuifyWoOvO/thap5W2cUVHGoYGuVvAQ4xeZlwZCrk1wBJ1sNb6mUIUE/IthudUOkbia8B8bKzPYr5JnTCwbIMfG7yMaM+VQxdOFdLiidwk/gMlG4EI/4vNowAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;균형&quot;
+        title=&quot;&quot;
+        src=&quot;/static/602e4063dfca9b5c8d382a37eba3e74a/f058b/image-4.png&quot;
+        srcset=&quot;/static/602e4063dfca9b5c8d382a37eba3e74a/c26ae/image-4.png 158w,
+/static/602e4063dfca9b5c8d382a37eba3e74a/6bdcf/image-4.png 315w,
+/static/602e4063dfca9b5c8d382a37eba3e74a/f058b/image-4.png 630w,
+/static/602e4063dfca9b5c8d382a37eba3e74a/40601/image-4.png 945w,
+/static/602e4063dfca9b5c8d382a37eba3e74a/78612/image-4.png 1260w,
+/static/602e4063dfca9b5c8d382a37eba3e74a/21b4d/image-4.png 1280w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;사실 하면서 .. 학습과 구현, 또는 과정과 결과 사이의 &lt;strong&gt;밸런스&lt;/strong&gt;를 맞추는 게 꽤 고민입니다&lt;br&gt;
+슬랙 보면 다른 캠퍼분들도 그런 고민들이 많은 것 같더라구요&lt;br&gt;
+어떤 분들은 새벽까지 구현에 매달리시기도 하고..&lt;br&gt;
+아직도 그 균형을 찾아가는 중인데&lt;br&gt;
+확실한 것은.. &lt;strong&gt;성취가 아니라 성장&lt;/strong&gt;을 쫓아야 하는 것 같습니다&lt;br&gt;
+앞으로도 많이 남았으니 경험치 많이 얻어가야겠습니다. 푸하하&lt;/p&gt;</content:encoded></item><item><title><![CDATA[메모리 공간을 효율적으로 쓰고 싶어요]]></title><description><![CDATA[Partitioning Fixed Partitioning 처음부터 조각을 잘라두자. Equal-size : 모두 같은 사이즈로 컴파일 할 때도, "나 여기서부터 시작한다!!"를 미리 정하고 들어갈 수 있어서, Relocation…]]></description><link>https://sungpaks.github.io/til/학습_정리_day04/</link><guid isPermaLink="false">https://sungpaks.github.io/til/학습_정리_day04/</guid><pubDate>Fri, 19 Jul 2024 01:52:28 GMT</pubDate><content:encoded>&lt;h2 id=&quot;partitioning&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#partitioning&quot; aria-label=&quot;partitioning permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Partitioning&lt;/h2&gt;
 &lt;h3 id=&quot;fixed-partitioning&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#fixed-partitioning&quot; aria-label=&quot;fixed partitioning permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Fixed Partitioning&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;처음부터&lt;/strong&gt; 조각을 잘라두자.&lt;/p&gt;
 &lt;ul&gt;
