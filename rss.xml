@@ -1,4 +1,211 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 19 Jul 2024 09:22:12 GMT</lastBuildDate><item><title><![CDATA[(네이버 부스트캠프 1주차) 나참 무슨 회고록을 쓰라고..]]></title><description><![CDATA[라고는 해도 열심히 쓴답니다~ 네이버 부스트캠프 챌린지 4주 과정을 시작했는데요 처음에는 "코어타임이…]]></description><link>https://sungpaks.github.io/til/네이버_부스트캠프_1주차_회고/</link><guid isPermaLink="false">https://sungpaks.github.io/til/네이버_부스트캠프_1주차_회고/</guid><pubDate>Fri, 19 Jul 2024 17:57:26 GMT</pubDate><content:encoded>&lt;p&gt;라고는 해도 열심히 쓴답니다~&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 26 Jul 2024 09:35:02 GMT</lastBuildDate><item><title><![CDATA[(네이버 부스트캠프 2주차) 이번 주도 회고 써야할까?]]></title><description><![CDATA[헉 벌써 우여곡절 1주일이 지났습니다 이렇게 부스트캠프…]]></description><link>https://sungpaks.github.io/til/네이버_부스트캠프_2주차_회고/</link><guid isPermaLink="false">https://sungpaks.github.io/til/네이버_부스트캠프_2주차_회고/</guid><pubDate>Fri, 26 Jul 2024 18:25:42 GMT</pubDate><content:encoded>&lt;p&gt;헉 벌써 우여곡절 1주일이 지났습니다&lt;br&gt;
+이렇게 부스트캠프 4주 간의 챌린지 중 반절이 지났네요&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 290px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ee9d4b2fa2134a3f8325469717b849dc/139a5/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 60.12658227848101%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC50lEQVR42gHcAiP9ANnX0rmskk1PRjE1NDAxMDE0MzI2NTE1NDo7OpmZk/j59v7+/5aTi+Xj3/z9/Pv7+u/u597d0d/f1tLQxQDExL1iXUxAQT0pLSwoLCsoKyorLiwpLSsnKikkJiKMjYbS0s54dW7y8O729fT6+ffm49ro5du0sKCem4gAeHx4KC4uKy4tJywqJCgnICQjGyEhGiEiICQgJCUiKy8qLjAqW1pT9PTy7e3n6+rg5OLW4t/U19LI2NTNAEhNSCUpKCYqKCMnJhshICQlIUc7LkxCNFZENWJKN09BMS8tJl5eV/j49uHg2NrXy97b0Ofl3vHu6ePg2gAnKyciJiYbHx0UGBkeHx1URDWthGmYclp6WUSQaFCKaFBTRTdNUEv29vDX1Mro5+Dr6eLa1s3s6uLPyr4ATlNOKS0rOj06QUhFclpMjGdSyJ+Gv5F3oXdfwZR5uY1zgGhTYGFb+vnzzsm/497S7Onj19LH49/Txr6xAO7v7nFybYGAd93e2fDj27OLcreOdcCQc7+Nb7GEaL+LatCznNvd1/Hv6tLOw93aztbSxcO+r+no3NnSxwD////j5OGAgHeuq6W5u7zNxb25ln2dc1iRbVV8W0iLZEzXyrj19vLOybzHwrPRzsTf3NPm5uDw7+vp49sA/f39jIyNc3NxjY2MgH97g3NlqIVsnnhdj2pRgFdFkm9Zta+j29jQvbinysa4ubi1xsbEyMfH3dzZ9fXxAP///8vLy5iXl5eZmrOyrZ5/ZI1rUn9hSYxsVYlsVJx/ZJd9ZcCxnNPMvMrJw5aWl5iYmJSUlMXFw/v7+ADy9PSorK6kpqWyr6qxoZKLb1ZaRTR9YExlSzlgSjqFbViOclbPsI7/68/a1cmYmJmZmZmlpabV1dDz8+0AoqirQk9fkYqHya+VoYNne2VQnYRyg2xdemJRoolyqpB5emZSk31l/eXL5tzIurivysnC1NPO6unj7+7mmMSkF0St6P8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;벌써?&quot;
+        title=&quot;&quot;
+        src=&quot;/static/ee9d4b2fa2134a3f8325469717b849dc/139a5/image.png&quot;
+        srcset=&quot;/static/ee9d4b2fa2134a3f8325469717b849dc/c26ae/image.png 158w,
+/static/ee9d4b2fa2134a3f8325469717b849dc/139a5/image.png 290w&quot;
+        sizes=&quot;(max-width: 290px) 100vw, 290px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;
+부스트캠프 미션 하다보면 벌써? 소리가 절로 나오는
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;저번 주에는 부스트캠프라는 것을 처음 접하니까&lt;br&gt;
+할 말도 많고.. 느끼는 것도 많고.. 그랬는데&lt;br&gt;
+이제는 저번 회고에서 생각한 &lt;strong&gt;학습과 구현의 밸런스를 잘 맞추기&lt;/strong&gt;에 좀 더 신경을 쓰려고 했습니다&lt;br&gt;
+2주차 와서 또 다른 좋은 스터디그룹 팀원들도 만나고.. 아주 좋았네요&lt;/p&gt;
+&lt;p&gt;특히 저번 주에는 짝 설계만 있었는데&lt;br&gt;
+짝 프로그래밍까지 하게 되어 배운 것이 많습니다&lt;br&gt;
+『개발자 원칙』에서 김정 코드스쿼드 대표이사님이 말씀하시길&lt;br&gt;
+&quot;결과를 향하되 과정을 돌아보자&quot; 하셨습니다&lt;br&gt;
+짝 프로그래밍처럼 옆에 함께 하는 사람이 있으면&lt;br&gt;
+방향을 잃고 폭주하는 나를 잠깐 멈춰 세운 뒤&lt;br&gt;
+과정을 돌아보고, 다시금 목표와 방향을 인식하는 기회가 많았습니다&lt;br&gt;
+함께 하면서 많이 배웠네요&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 600px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c6b322ddd677c8187da8e77ad3e2b96d/0a47e/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.06329113924051%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACoUlEQVR42hXQ7U8SAQDHcd73rpe964XlH9Ca1ns3X7RW81VNN9tsjlSaFiGHIsjTAXIccMfxdDyewN3BcXI8HGAoBAIjZE1jk7TllvY0ZqsXNVdG73+ffbef4CWlyfJBqmCDSZmFlOEpMJQ3EzlruGAz4sDs0iQUWIJDMndc39rfJrIwxijRmFzvX1Dhc4JaylrIR4m0wUwDCKMI5tbIIkptOfwp6PbQ4NXLl24MDZpwoN0pJ0q4k9V4OC0cWTSGnmOcQlDPIOVtNsKboRiAsqvEpoUuO5iKB4mo7gxdm7x1fXjgCh6Ec82Ik1X7MkYbtQxTgC8PElumPra3W1uxTRThFE5OS5YcG3Vvsu7tx2cfjDweHlSOj/poXSBvCvBGNC5HE/L1EkRWbGQF7mPs6KBNZxADvQgSL1yp/g7yZ03+PKzQTk/cHFA9uYtuaKzUijkKOFNqageJNTCyan19WBDUMvaT426ygBtpqT4icWR0OG/wZAxIfNWCS2UTI1GDCCdWTBEpwirZpptpYsmmu3vS+vX3t6Cexr6cHvHFkCOtDRSs9I6XKruDvEUPLdhhsUoyHtCJfJoZJqTimh5m11V8Q387O7m4uDj/cy7YSaFfP72v1BL/ryo5Um2CbeB+xigRjSHgtHx+zKsR0vBCRDdTLeK7B6UfP3t9+f2sd/iu0y8jpx+7e3vF9SK2GrUiTMCRCEC4SwIswjC4rATsFr0XhRwmVY6j9DCEh1E+G8/nE73eZ8GrBHT84W2nU+brhBgzSa3eJbPv0ZR4WgiIAFAoUasMKAhhGtDowb00x9BsOB5cY8i11n5NwEXkjU6Vz4RtzmUNLNvYTGWKSfX85NOHo3NT958J71FWGWEUuxQzCbeKjUKvqmyju10+TKb3yH9UuJthDF4PGwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;기찻길&quot;
+        title=&quot;&quot;
+        src=&quot;/static/c6b322ddd677c8187da8e77ad3e2b96d/0a47e/image-1.png&quot;
+        srcset=&quot;/static/c6b322ddd677c8187da8e77ad3e2b96d/c26ae/image-1.png 158w,
+/static/c6b322ddd677c8187da8e77ad3e2b96d/6bdcf/image-1.png 315w,
+/static/c6b322ddd677c8187da8e77ad3e2b96d/0a47e/image-1.png 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 600px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8b60c88e990e1b098b3c3d09b1d9d953/0a47e/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.734177215189874%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsTAAALEwEAmpwYAAACY0lEQVR42g3EWU/TAAAA4P4an0yMvpgozxJ+gU9GjfHFxChyaFSCorDB2D22taVdO3rs6LFubXfBBjvZ2NjZjW0OhgwlHrygmRLI9Hv4AKUYlzcJVxqCQjomjQYKlFRwR2v8xJvHI9eu3L51Y872KlEMlTopTwL2phA6boOkZWzD5M5AQLuajqQ83vwqGNZ6s6hYouUSHWnw01P3nty5fnfk6uzseKmborfs7hT8fzi47NwycwXEX3ICvdZuekdmCg543eDN4cGKN1xj1veEVcfcs7Gb6vujgh/i8wSbdbhSMBLW0Rm7WCMD1TWpRgAnh41iaZNI2Jb492BERybtdAamEiAaMU8+GF14NOYI6qGo0SqoQXmZ2UFDTY+okOGGq3faBL4ftxv1HJN1WCIaIgV5chibx6kETMYgq36cMUz4aJVrYwWNGdm8I9phpSaV7oZOf59cDi+Bk/5eu1X2b5NUBvGXGanKBXbduGylKJ3FMInqx90rL0XsQ7LqjR4IkRZb7++cnw+Gw+H5xV/gy6FyuN+MlQU2iwUbXEhhpYobIhYx8LVJ/5S0Ton4LG+eysWh7ln9U08Z/Pl1cXnx4+e3g/0OcHRQ6x+1i+24RcaNIgeLDCZwKq3JaDFpzAab3UI6UQxc4Vlc6XcCYoAPusIhPrYhDAZnQENJf+616p0k5HeqUGZNiC9okenJ+XkNOKMya00YhLjMVphYI1jRz8ghmqNkzsb70Gq3BmyVxd36Nk4aNNYZ0ufezGWWdGr1x+nF+edzbx/KuIoD3+FLLwoRxCchjJ9KVDOV40q6l8x+Tf4DPkeY6GhhdGkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;기찻길2&quot;
+        title=&quot;&quot;
+        src=&quot;/static/8b60c88e990e1b098b3c3d09b1d9d953/0a47e/image-2.png&quot;
+        srcset=&quot;/static/8b60c88e990e1b098b3c3d09b1d9d953/c26ae/image-2.png 158w,
+/static/8b60c88e990e1b098b3c3d09b1d9d953/6bdcf/image-2.png 315w,
+/static/8b60c88e990e1b098b3c3d09b1d9d953/0a47e/image-2.png 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;
+KBS2 &apos;다큐멘터리 3일&apos;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;개발자-원칙&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%9C%EB%B0%9C%EC%9E%90-%EC%9B%90%EC%B9%99&quot; aria-label=&quot;개발자 원칙 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;『개발자 원칙』&lt;/h2&gt;
+&lt;p&gt;말 나온 김에 이 책에 대해 좀 더 쓰겠습니다.&lt;br&gt;
+이 책은 여러 CTO급의 고수분들께서&lt;br&gt;
+지나온 커리어들을 생각하며.. 아 이렇게 하니까 좋더라.. 이런 이야기를 해주십니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 210px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/67fa85f56485aa48147da30869689fb6/65ed1/image-4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 114.55696202531647%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAIAAACEf/j0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAErklEQVR42m1U+1MaVxjdv6z/Q/tTp2kmNsnUpLXVGDWaqonxCRUVE94+QERCUAkqISoqURRll+Wxu7zdAILIY3kIqDx2t1ftdJK2Z3bufDv3nHu+M/fOBzFfo16vl0qldDodi8WiNwBFIpEoFouVSoVlWZqm/yFD7Be4uLgA7Hg8DqjVarVWq4GzwApkyWQSbFEU9SX/K3EkErm8vARFKpUCvFvB6ekpSZK3tuC3XC7/jxi0AfaAT6FQCIZCxzcIBkEZcjgcmUwGcKgb3JKvxde9gxggSr0ejUZyuRxsszkcqNvtwjB3PBYjcBzHsIDfXyyeJ8/OsjdiEOffmalsLp5IVqo19j+o03Q2lz9NnN16/t12mCRVkgmdUqxTSPRK6byIJ+S8VEnGzQbtwYYe3lnb/7i8/FYpFfDHBl/MiPhTAv6UcPL1GDf8mYRQ2LY8+AiWdR5JO23SLvt095Gsa1fYvjnZauS3STobXj74brS1gdfxUNjzmPv0/kBLQ3/LT00/fosgNghDEav4Wew9J6rjnLznRpY55NKgXzOIzfejipfKP1s2dVydoEvLaZUPPZH1NU92N433/Pa88a7DbocwB+Kb765sTVxu8q9M/IvN8aKRl1nlxnQcj/KVZZXrOppemupdG2/XjrYr+ptFvb8Ien7vfnQHtSMQ4bTHV4ZYu4iGhQwiYo6EjEVQ2+GXN8YT+pFPK2My8YtFWa9xvF3HfbrIaZsbfDLV19zXdPda7HHbEzs8NiCnfTNMYJb2zjBuGQOLWavoYo0TtohikSXCKt1RD63PvlrgtQn/+Fkx2DLcfM9hhyECQxPIazapZs5UdGKBic7Xj+WMd6YKS+MbozHffMA7Hwto2ZKJThkqsVVkQyDs+XW0/b4DOHtxNHQkyEZV2bCKLWhZSsuk3rJhRfTgTT6/xbIHlQtTrbDJ5NbppKF2uspkjOo3XUNNd91O9NoZNo6crnQdHwkqRR19/u6zUxy0vPbCcpp1MvQ+w5iZy222sEGnDcSulEl9QE2C7off424nRBDo0cIzavgO+bajWltJn2j8rj3Sj1Yq1SCxHg6ogTldNtG5dTa/TiIKfFdWjqx0P/7Bhdohn8dO2KWUTxXHplj2Y9QnChPW29fnQ/Zg/TDD7rPVbaa4AcRXSYNZP8ZSm/yBJtvhIeQLYM6toai68cQ6wrIf6iV10C6/urwC4qsihahfxCPvi7ldKvIhG9JYjfyUV0si4L4aXA4E8gUx57uOTOM30aVn6ZQx8dkcDdpK59nSeZ70Y+59IxnyxuOx1UUpiSpzoSWPdZr3vHGy7YHTYYdwHHXt8VwLrwJWkx8+xA+tjv1PTtjiwVHcCXsILBjwEwS+qJokLLI9HVcx0Tk78mSk9R4KMuMex9mZrlY152I66lhz4lR6zGJ0XbK/LNnWzKzJZRqpSDM7LeEN6EVdPgP/xCwOm8GbGfYQLggjnFumCS82h2Fywq3wOGc9yDRukdiMY3uaoZ25Ab2gR8l5apD1HiyObatGPsr7jXOcWX6f241C1WolTYEhQ6UzVCZ9/aXSGVCDwZDL5/OFwnkpXyqf53LZFJipmRtWOh0OR0ql0l/I10LYDcGnSAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;이야기&quot;
+        title=&quot;&quot;
+        src=&quot;/static/67fa85f56485aa48147da30869689fb6/65ed1/image-4.png&quot;
+        srcset=&quot;/static/67fa85f56485aa48147da30869689fb6/c26ae/image-4.png 158w,
+/static/67fa85f56485aa48147da30869689fb6/65ed1/image-4.png 210w&quot;
+        sizes=&quot;(max-width: 210px) 100vw, 210px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;김정님의 이야기는 &quot;나의 메이저 버전을 업그레이드하는 마이너 원칙들&quot;입니다&lt;br&gt;
+소프트웨어가 버전이 끊임없이 올라가듯이, 개발자들도 지속적으로 성장해야 하죠&lt;/p&gt;
+&lt;p&gt;그 중에서는 &lt;strong&gt;개구리를 해부하지 말고 만들어라&lt;/strong&gt;라는 이야기가 있습니다&lt;br&gt;
+잘 이해하려면 들여다 보지만 말고 직접 한번 해봐라.. 이런 것인데&lt;br&gt;
+부스트캠프하면서 많이 느낍니다. 백날천날 그 동작이고 뭐고.. 배워봐야&lt;br&gt;
+한 번 만들어보고 부딪혀보는 것이 매우 효율적이더랍니다&lt;/p&gt;
+&lt;p&gt;또 하나, &lt;strong&gt;여러 해결책을 제시하고, 공유하고, 비교하여 서로 납득할 기준을 제시&lt;/strong&gt;하자는 내용이 있습니다&lt;br&gt;
+개발하면서 해결책은 정해져 있는게 아니더라고요..&lt;br&gt;
+여러 방법이 있고, 각자의 장단점이 있습니다&lt;br&gt;
+그리고 협업을 하다 보면 그 중 뭘 선택할지 의견이 다를 수 있는데&lt;br&gt;
+서로 납득할 기준을 제시하는 것.. 매우 중요하네요&lt;br&gt;
+응당 선택이란 근거가 있어야 하겠죠&lt;br&gt;
+오픈소스 문화는 이러한 과정을 거친다는 점이 가장 큰 장점 중 하나고&lt;br&gt;
+커뮤니티 또한 궤를 같이 합니다&lt;br&gt;
+저도 오픈소스 컨트리뷰션 프로젝트를 시작하게 됐는데&lt;br&gt;
+이런 경험 더 할 생각에 매우 좋네요&lt;/p&gt;
+&lt;p&gt;그리고 이동욱(향로)님의 글도 재밌게 봤는데&lt;br&gt;
+특히 이 분께서 쓰신 책으로 처음 스프링을 배웠어서 더 와닿은 것 같기도.&lt;br&gt;
+아무튼 &lt;strong&gt;제어할 수 없는 것에 의존하지 말고, 제어할 수 있는 것에 집중하자.&lt;/strong&gt; 라는 말을 해주십니다&lt;br&gt;
+개발이나 현실 생활이나 마찬가지로요&lt;br&gt;
+쉽게 통제되지 않는 변인들에 의존하려 하면&lt;br&gt;
+개발에서는 테스트같은거 하기도 힘들고, 현실에서도 그런다고 해서 상황이 나아지지 않습니다&lt;br&gt;
+저도 평상시 꽤나 이러려고 노력하는 편입니다&lt;br&gt;
+어쩔 수 없는 것은 어쩔 수 없는 거고.. 내가 할 수 있는거라도 해야지, 이런 느낌&lt;br&gt;
+개발 측면에서도 꽤나 그래야 할 것 같네요&lt;br&gt;
+최근에 GPS 정보 따와서 사용자가 이동한 경로를 지도에 표현하는 기능을 개발하게 되었는데&lt;br&gt;
+이거 테스트를 좀 용이하게 하려면 그런 부분 신경써야 할 것 같아요&lt;br&gt;
+이렇게 또 인사이트를 얻었네요&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;앞으로도-화잇딩&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%95%9E%EC%9C%BC%EB%A1%9C%EB%8F%84-%ED%99%94%EC%9E%87%EB%94%A9&quot; aria-label=&quot;앞으로도 화잇딩 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;앞으로도 화잇딩&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 578px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8f5018f207a406799e2922de53dfabec/508ef/image-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 117.72151898734178%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAIAAAB1KUohAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEUklEQVR42nVUXW8iZRTmz/gDvPBm452JN2rihdl4b4w33nlhjDd6uzFmbZrUrezaaku1LVvoUGBgKV8DwzDfwwwzDF8zAwMUWncLhba0UB9sq6uJJzPkvIfnPOd5zzng0XXd0PVGs2m7/ZrVblp2s2k18f5lcKr/Y5VKxaOqpdlsPuh1pNBSgXjSqJlmRa/WFlYul9vt9nw+v7q6un7NcLy5uUG+p2Lo8ITtr63HbzSX3zSffXgxPLqYXv9xcgIcKM7OzgAAxc293foQ5TH0MjyZXLVW3mqsPKjvfTEcnU0mE9CfnJwYhgEKoM/PzxE8PT2Fc0uxSMad4XVdh/nxYdzv3fbv4zKCIAQCAVEU4SMZ+hVFAZHrushptVr3lQ0D3lGvZ9l2IpliWRaIXC5HkmQ+Tw8GA7St0WggAsZ+vz8ajVAPccdx7pKHw1HFrDIMg2in04HCimmCCJWLxSKkUhSVzWbBaJom2G3b/icZOaqq4lyv16GquZiVja+63S4+h8MhMtPptCzLQOLm/0qWJAnJAE2n08l4fD2bHw+6mD90YlrAcBwHIeAcj8eQA+Rd8u3cwAo9i0ngHVnSynuFTOxqNsdcUR9ywIKCjXoDxQFBIxbdns1mOGCeoGw5jt1yLS0vBh69Ou79Z8KvzxkX9HAsxxZZURDx8DwPv8gwLCfxcoXjFybwaLOgKDJ2UVNVWZIXEYR53lMqlaC8XqvXqjVsHMRAG8bj2BZUYMVxRLzI8ulMLpnGwCTUxOZpmubBAtzKvjX0A03CtOKJRDZPA6dpKlYuuuvlol46tPLiYHt6NbuTreuL7e/1eujW8fHg8vIC6F99viXvs+Wna0yBGfT7L18Ns/urY22rz60ngj+Pzy/vGsayi6shAdPCr9NptSB0b594vOrd2H1umFXgJhfTw8DTkfobR/wQ3F4fnY3vk4uFVColySWn5bZbVrNm9I/cyeilz7eZp9Lz8+HN9cXpcBjze2uZn3gqUq2atmVPLyeNetXDZcIGHTQlSqFjZTpUq5QPY4RAhWPhABHeC+RiXJGs5v1mbodJ+HmxpJUNXVNaUrjExD0CFXGFoCuFWjxhZHz9jpVIJC3HsfTytyn2nQj7QTDzXYqyikRHidaEuMEfZom1I5mQ6aiHz4bbQnBgHOrJdW3pAbn+TdM9cR07QTOfCM2PDqX38+aSXHeEpCsRA43UMr9nSL9KR7lM6C75SIvbhS1u7TOWWJaLqarMbtL8277IQ6b+7k5iT1AtjoS6rhLJEuuGWa9WyoXk/kJ2WyS6JbKnkt1S1KE3FP9XJTrmV63PqfKnXPPjcIE36zYf6ZYibSls5HZjxE429lzIHnjYFOGwfvz9uSKBpyOHrcwTMfR9mfIr2X2Oy/CGVhZw5+cLjHTQlQLs1pdq6JGci3oUocBno3IhIdEvFk8+LhUSInXAxDYL0V+og418zF9Ihv4GiDlSSO0K6aAiMn8CCSmvgMRYhA4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;잠&quot;
+        title=&quot;&quot;
+        src=&quot;/static/8f5018f207a406799e2922de53dfabec/508ef/image-3.png&quot;
+        srcset=&quot;/static/8f5018f207a406799e2922de53dfabec/c26ae/image-3.png 158w,
+/static/8f5018f207a406799e2922de53dfabec/6bdcf/image-3.png 315w,
+/static/8f5018f207a406799e2922de53dfabec/508ef/image-3.png 578w&quot;
+        sizes=&quot;(max-width: 578px) 100vw, 578px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;아무튼 머.. 남은 2주 힘내보겠습니다&lt;/p&gt;
+&lt;p&gt;앗. 맞다. 학습정리 모아서 여기에 올리려고 TIL 페이지를 따로 만든건데.. ㅜㅜ&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(네이버 부스트캠프 1주차) 나참 무슨 회고록을 쓰라고..]]></title><description><![CDATA[라고는 해도 열심히 쓴답니다~ 네이버 부스트캠프 챌린지 4주 과정을 시작했는데요 처음에는 "코어타임이…]]></description><link>https://sungpaks.github.io/til/네이버_부스트캠프_1주차_회고/</link><guid isPermaLink="false">https://sungpaks.github.io/til/네이버_부스트캠프_1주차_회고/</guid><pubDate>Fri, 19 Jul 2024 17:57:26 GMT</pubDate><content:encoded>&lt;p&gt;라고는 해도 열심히 쓴답니다~&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;네이버 부스트캠프 챌린지 4주 과정&lt;/strong&gt;을 시작했는데요&lt;br&gt;
 처음에는 &quot;코어타임이 7시까지라고 했으니까 그때까지만 전집중하면 끝이겠지?&quot;&lt;br&gt;
 라고 생각했는데 오산이었습니다&lt;/p&gt;
