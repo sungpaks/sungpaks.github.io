@@ -18,6 +18,8 @@ description: "설명"
 tag: ["TIL", ]
 ---
 
+! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.
+
 '''
 
     # index.md 파일 생성 및 front matter 추가
