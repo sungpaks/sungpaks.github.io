@@ -1,4 +1,191 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 26 Jul 2024 09:35:02 GMT</lastBuildDate><item><title><![CDATA[(네이버 부스트캠프 2주차) 이번 주도 회고 써야할까?]]></title><description><![CDATA[헉 벌써 우여곡절 1주일이 지났습니다 이렇게 부스트캠프…]]></description><link>https://sungpaks.github.io/til/네이버_부스트캠프_2주차_회고/</link><guid isPermaLink="false">https://sungpaks.github.io/til/네이버_부스트캠프_2주차_회고/</guid><pubDate>Fri, 26 Jul 2024 18:25:42 GMT</pubDate><content:encoded>&lt;p&gt;헉 벌써 우여곡절 1주일이 지났습니다&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 05 Aug 2024 16:51:34 GMT</lastBuildDate><item><title><![CDATA[📡 Vercel과 함께라면 배포도 두렵지 않아]]></title><description><![CDATA[새로운 프로젝트를 개발하게 되었는데요 응당 개발 후에는 배포를 해야겠죠? 지금 배포하려는 프로젝트는 백엔드(Spring) + 프론트엔드(React)같은 국룰적인 조합이고 프론트엔드에서 빌드 도구로 Vite…]]></description><link>https://sungpaks.github.io/deploy-your-project-with-vercel/</link><guid isPermaLink="false">https://sungpaks.github.io/deploy-your-project-with-vercel/</guid><pubDate>Tue, 06 Aug 2024 01:14:12 GMT</pubDate><content:encoded>&lt;p&gt;새로운 프로젝트를 개발하게 되었는데요&lt;br&gt;
+응당 개발 후에는 배포를 해야겠죠?&lt;/p&gt;
+&lt;p&gt;지금 배포하려는 프로젝트는&lt;br&gt;
+백엔드(Spring) + 프론트엔드(React)같은 국룰적인 조합이고&lt;br&gt;
+프론트엔드에서 빌드 도구로 &lt;strong&gt;Vite&lt;/strong&gt;를 사용했습니다&lt;br&gt;
+매우 편하게도 백엔드는 이미 CI/CD 배포환경울 구축해놔서&lt;br&gt;
+개발할 때도 배포된 백엔드 주소에 접근하면 되었습니다&lt;/p&gt;
+&lt;p&gt;이제 프론트엔드까지 배포할 시간이 되었는데&lt;br&gt;
+&lt;strong&gt;Vite&lt;/strong&gt; 공식 사이트를 보면 &lt;a href=&quot;https://vitejs.dev/guide/build&quot;&gt;빌드&lt;/a&gt;와 &lt;a href=&quot;https://vitejs.dev/guide/static-deploy&quot;&gt;배포&lt;/a&gt;가이드가 잘 되어 있습니다&lt;/p&gt;
+&lt;p&gt;저는 이 중에서도&lt;br&gt;
+Vercel 배포가 해보고 싶었기도 하고&lt;br&gt;
+적당히 빠르고 쉽게 할 수 있을 것 같고&lt;br&gt;
+도메인 고민도 없이 그냥 &lt;code class=&quot;language-text&quot;&gt;myProject.vercel.app&lt;/code&gt; 이렇게 해버릴 수 있어서&lt;br&gt;
+Vercel 배포를 하기로 마음먹었습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 299px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e444348aa0b7ba9314ce37829515e1a1/aeb78/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVR42gGfAmD9ACIeEiUfFkA4K5B2SHVkQAQGBkAeEo9FKrVaNZ5ZO4laOqBqQ4VbPnJTO1w/KLGQbpBuUIVaPXpRNnhTOAANDgcAAAAkJByDb0VWOCAEAAGDPSLJZD/UbEfne1XHbk6bZkSGXUKCWkBMKxeqi2iUclmBUTaEVzuPYD8ACQkGCQkCEAwFNzAoCQoNBgEAiEAor1M3p1c7s11FvWFJkVg7YEMzkWNGZDsiu515s5Bzl2FBnmlGl2RDAAIEAwsMBwQFBAsLBV5PQnlmWncxG7ZWOKhVPrpfRLpjSl06L1xFOpBjSV44H7KWeK2MdJJgQqJsS5hnRQAIDAgRFQ8KEgsICwREOjHMs6CRTDelRivceFnjdlKDRTFNMSZrSzdaQDBLMSJqUjx6X0uZaEiha0qbZ0YABQUDCw0IAgYCCQsFLSYcmH5ujkkzjjUcwV1CwFlBSyEWSy8hZ0o1Wz8sPywicVU8cllCmmlMoGpJnGhIAAMEAgUFAgIBAAAAACIfFU41KmQkEJM9JLxWOnc0JS8YEVc4J2xON15BLTsnHmpQPWtWQ5RmSKFrSppnSQAGCAQGBwQCBAIAAwAPDgwrDAdEFQN5MBqnRytjHhIpCgVSNCNrSDBYPStaOyx6UztzUDqcaUqfaUmZZ0cAAgMCAAAAAQQBDxEODxEQRBsSUiAORR0QhEUyYSYaVjUuWUtCYUo6TzQlgFY8lWNEm2VEmWRElmJBkmBAAAIFAykXFU0tKmRgWTQxLVg6OWpRSWJGQGpjYTw0NGZjZIF5ellKSk07MH1TPHVON5plRZtlRJZkQ5JhQAA8LCuFYlOjTUl5Uk1XR0F3QzKCQiqlVTl1PzE4IiE8IiBhP0JHGBVKNS17jH6dcVKaZEOaZ0WWZUOUZEMq6L5HZDHQLgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;레츠고&quot;
+        title=&quot;&quot;
+        src=&quot;/static/e444348aa0b7ba9314ce37829515e1a1/aeb78/image.png&quot;
+        srcset=&quot;/static/e444348aa0b7ba9314ce37829515e1a1/c26ae/image.png 158w,
+/static/e444348aa0b7ba9314ce37829515e1a1/aeb78/image.png 299w&quot;
+        sizes=&quot;(max-width: 299px) 100vw, 299px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그만 떠들고 가봅시다.&lt;/p&gt;
+&lt;h1 id=&quot;vercel에서-배포해요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#vercel%EC%97%90%EC%84%9C-%EB%B0%B0%ED%8F%AC%ED%95%B4%EC%9A%94&quot; aria-label=&quot;vercel에서 배포해요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Vercel에서 배포해요&lt;/h1&gt;
+&lt;p&gt;Vercel은 정적 사이트 배포를 쉽게 지원해줍니다&lt;br&gt;
+마치 럭키 Github Pages인데요&lt;br&gt;
+제 목표는 (1) 먼저 프론트엔드 프로젝트를 빌드해서 정적 파일들로 만들고&lt;br&gt;
+(2) 이걸 Vercel에 호스팅하고, (3) 백엔드 작업은 원래 배포되어 있던 백엔드 서버에 다녀오게끔 하기&lt;br&gt;
+입니다.&lt;/p&gt;
+&lt;p&gt;Vercel사이트에 들어가서 먼저 회원가입을 해주고, 로그인합시다&lt;br&gt;
+이후 Github 연결하고, 레포지토리를 import합시다&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/JxUEFuX.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;이렇게요&lt;br&gt;
+근데 저는 별도 organization의 레포지토리를 배포하고 싶었던 건데&lt;br&gt;
+이렇게 하려면 프로여야 한다고 하네요&lt;br&gt;
+전 아마추어니까 fork떠서 여기를 배포해줍시다&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/jWgyMtM.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;그럼 이런 화면으로 오는데&lt;br&gt;
+딱히 건들 것은 없네요.. 적당히 괜찮으면 넘어가줍시다&lt;br&gt;
+아 환경변수가 있었으면 잘 paste해주도록 합시다(&lt;code class=&quot;language-text&quot;&gt;.env&lt;/code&gt; 이런 데 있는 애들)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/482IiZu.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;??&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/92wwXmN.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;끝났네요?&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 300px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/51f5816ffe2d87ce39d0d5347f39dda2/5a46d/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACZ0lEQVR42h1Sa1OiABRlZnc/9CEbHykiIOiKoIIvwke5ZqWlqYCIQgKhrWk+Utu11jZrH398aWfOnA93zpl777kXoPxQikCTIRRyOSGnA4fAIOILYYjP5czQ4aUpzY1mv32Ri1PFA3qi1kyhNJQrd2pNb5YAJohwJM5F8Aju89h2MQjMJJlsnGHpSIGlVwN52qsvB+2hcjlUaveGMFaqM62xMsXxVf3dTPl9sQDMhjES9sKgm43THBNN0xQXpyY6b+k2d+p2pj2P1aeR8v2r/HjbnWj1mSEAEcwXhr0E4sVBt4UY+TnB0LEYxbGJUU9Y/5eu+q0fo+7r3NhOtV+L6z+rwe+laRUBdH8fdtkDoBtyOfwIxNJkNhnlUrEbU1kMOo8jxfIvTXE97Gyn+tv8+m2m/xyrFn8bSIB71+ax2axVs3kWRiGHw+YFXYV8ut04S1NY+TAxN/jnae9lqj0NO39XN69zfX0jb24ViwECBSM4VBfLYqcRCof27HsfPn1EUF8iErSCYEJoPhEupCNy9ehxpL5Ybae9zd3Vymzd6zwQC3gLOUYxpaZUPa+fVS5LZ7Wi2G3EqCDmcUUDKBNC4iEE8zitU20mvQeztTAEK4iZLgAk5i0Uc91rqSlXy9Vjvn3Z0UWhU0VBu31nJwR7ODqQjxPR9yn8DwPJGn49kLczoy+VARyFK5UTWREsT1tptlVeUpv9kSaLF8eHXCHDHtBkLklm6GCC8Evl7MJoLAzeSnHUPQcwFC0Vj7qqKGt8RxMstNSG3GvxYrVSzJwccgxJ0AR+EA2krF+KBr6kiGOWap5mdOH0H0nNq8l4S+B/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;해치웠나&quot;
+        title=&quot;&quot;
+        src=&quot;/static/51f5816ffe2d87ce39d0d5347f39dda2/5a46d/image-1.png&quot;
+        srcset=&quot;/static/51f5816ffe2d87ce39d0d5347f39dda2/c26ae/image-1.png 158w,
+/static/51f5816ffe2d87ce39d0d5347f39dda2/5a46d/image-1.png 300w&quot;
+        sizes=&quot;(max-width: 300px) 100vw, 300px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;마칩니다.&lt;/p&gt;
+&lt;h1 id=&quot;404&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#404&quot; aria-label=&quot;404 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;404&lt;/h1&gt;
+&lt;p&gt;이렇게 끝나면 말이 안 됩니다&lt;br&gt;
+들어가보니 모든 api 호출이 404에러를 띄우네요&lt;/p&gt;
+&lt;p&gt;이건 결론부터 이야기하면&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//vercel.json&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;rewrites&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token property&quot;&gt;&quot;source&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/(.*)&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token property&quot;&gt;&quot;destination&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;프로젝트 루트 경로에 &lt;code class=&quot;language-text&quot;&gt;vercel.json&lt;/code&gt;파일을 만들고, 이렇게 써줍니다.&lt;br&gt;
+출처와 근거가 확실하지 않지만.. 제가 알기로는?&lt;/p&gt;
+&lt;p&gt;이게 &lt;code class=&quot;language-text&quot;&gt;vite&lt;/code&gt;는 애초에 SPA 빌드 툴이기에 경로란게 사실 존재하지 않습니다&lt;br&gt;
+제가 프로젝트에서 클라이언트 사이드에서 경로를 넣기 위해 React Router를 사용했지만&lt;br&gt;
+이것도 가짜 경로를 만든거에 불과한 것인데&lt;br&gt;
+vercel 배포는 정적 사이트 배포라서, 경로를 찾습니다&lt;br&gt;
+여기서 간극이 발생하는데 이를 &lt;code class=&quot;language-text&quot;&gt;rewrite&lt;/code&gt;로 &lt;code class=&quot;language-text&quot;&gt;/&lt;/code&gt; 경로만 참조하게 덮어줍니다.&lt;/p&gt;
+&lt;p&gt;그럴싸한가요? 사실 맞는 소리인지 잘 모르겠어요.. 나중에 뭔가 발견하면 찾아오겠습니다.&lt;/p&gt;
+&lt;h1 id=&quot;405&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#405&quot; aria-label=&quot;405 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;405&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/dNkFNCr.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;그 다음은 405 에러가 뜹니다&lt;br&gt;
+음.. 진정하고 보니까 api의 &lt;code class=&quot;language-text&quot;&gt;BASE_URL&lt;/code&gt;이 프론트네요? 백으로 가야하는데..&lt;/p&gt;
+&lt;p&gt;알아보다가 &lt;a href=&quot;https://ko.vitejs.dev/guide/env-and-mode&quot;&gt;vite 환경변수와 모드&lt;/a&gt;이런 것도 한번 보고 그랬지만&lt;/p&gt;
+&lt;p&gt;그냥 아까 &lt;code class=&quot;language-text&quot;&gt;rewrite&lt;/code&gt; 작성했던 &lt;code class=&quot;language-text&quot;&gt;vercel.json&lt;/code&gt;에 새로 아래 내용을 추가하면 됩니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;source&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/api/:path*&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;destination&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;http://백엔드_서버_IP/:path*&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;백엔드로 보내는 api요청은 &lt;code class=&quot;language-text&quot;&gt;/api/&lt;/code&gt;를 붙여서 가는데&lt;br&gt;
+그러니 이 &lt;code class=&quot;language-text&quot;&gt;/api/&lt;/code&gt;로 시작하는 애들은 전부 가로채서&lt;br&gt;
+백엔드 서버로 가는 요청으로 바꿔치기 해줍니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 299px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d9e1105c4a2227a345867642b5bd7b97/aeb78/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVR42gGfAmD9AHuMiFeVsk+YwVGRs1mUr2KTqXKbqJuik4WNhE5NUFNFQa6hgdfOo9LJoczEncm+mMm9lMa6j7yxhLWuggCRkoCXo5ajrZ2qrJG3sZDAtZDHvJLUyqFvWEY4GxU6HxmFeGLk4LLU0KXJw5i3sIa4s4W5tofDwJDEwZMAzMGVx7yPxryRzcabycSaysiez82l19Ssbl1MTzotQCkiem1XwsKUrKuBqah9s66Duq6Cu6+Gz8SX29GkAM3LoMvJn8G/mcbEnc3Kos7Ko8vHoL26lH1vVkoyKDkkH005Lqeed76uhLejfbiier6rgc7ClNnOns7GlwDMyKLNyaPNyKPFwZy2sY6jn4CYl3aJhWZKOS89JCA/KiM4Ih2TfGDFsoe9rYPVypnb0qLTy57JwpfDvpMAuLSQsKyIo6F9m5l3mZV0mZRypZl3uqiCaVZDNiEeQy0oRjEoUjwyraF+zsWYx76VxsCWxL+Wy8abxL+UAJmXcZyYc6GZdqqffLekgMKsg8Org8y5jaGSbzwkIGVLO1E8L0IpJEcwKYp+ZdXNoc7KnMC5j7WogqiYdgCtnnq8p3/BqoLDqoPFr4bAr4XEuI3UzJ7Z0qJmUkBjSzhHLig5IyFIMShyXESsoXyroH+hknSgkHGklXQAybCIybKIxLGHyLqR0Mib0cmc1Myd2NCh5d6ttKiAYUw6OSEfTDQrfGVKjnhWoJJxppV3o5J1qJ56tq+FAMO4jtHJndfRotnTpNrSotnQoNLKm9rUpd7YqOHeqaadeDQfHWFLOIJtTJKBYaSUdaOWdrKqgr+8jb+7jgDNyJ7Ry53Sy57Xz6HX0KDZ06Pc1qfY0qPGwJK3roS3rIV5aFN6Z0yZiGemmXinoH24tYnEwZHCv4+2s4eKR4B6UEEJkAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;바꿔치기&quot;
+        title=&quot;&quot;
+        src=&quot;/static/d9e1105c4a2227a345867642b5bd7b97/aeb78/image-2.png&quot;
+        srcset=&quot;/static/d9e1105c4a2227a345867642b5bd7b97/c26ae/image-2.png 158w,
+/static/d9e1105c4a2227a345867642b5bd7b97/aeb78/image-2.png 299w&quot;
+        sizes=&quot;(max-width: 299px) 100vw, 299px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;퍼엉~&lt;/p&gt;
+&lt;p&gt;저는 이렇게 하니까 잘 됐습니다&lt;/p&gt;
+&lt;h1 id=&quot;마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;마치며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;마치며&lt;/h1&gt;
+&lt;p&gt;저는 클라우드나.. 데브옵스나.. 이런거 잘 모르고 너무 어려운데&lt;br&gt;
+Vercel 선생님 덕분에 편하게 끝냈네요&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 225px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/49f3d8b4adef70cfe5cc51cf2d1cc5e7/3684f/image-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEcElEQVR42jWTa0xTZxjH315PactFJiLSrUB7oLdTenp6Oee0te1pC9hCaXsKpaVXeuUi6KhDcEaHi1sGuIkG3CWwaUzETE3ULMQPW9yyLQvLMl3mTLYP+mnJ9nUf9nHnlOzNk+fT+/s/T/7/9wWoUWnEYMzUjRNaEtcSFg1hQ1xu7KgTdVMmH2UOD7lGI97QkH140MZUOOigg7Y+t8pFdgAMVRqNMMMzpB3XsTCpoygzTiAGA6xHOg293Vazzt9nCQ05hvz2cNBJB+0+p8pJdAKsV2E0KlFUSZrVDhwhLGoc13o8FiX8GqgdDuBwuVyJRETiCB2ihgbswWN4n1t71MrAeoURVRpQBWHWkFYNblLZrFqX29jScgA+0tTd3sgFHOYwKlJpnduNGXRdpAnup3ROUgmM+i4zCpuMMGnROAjEZtE4bb1uF1YMmS/NeDJepYjLktxabz3UIIYEctkr/W6tk+gCKNJpMigwtpQWk8pBIlaLLht1bJ+hL88NzA7rD4r57PIsC5obJUIur+VgvcepoewqgBp6DL0qnRaG4Q49ovIHnD4fsZj1Xij6ziSJeVqvaJXWYJZuO9LCF/DFYmg0MlApjINCIV4oJPJsj5dK45VKspilqwn3dMh6Ok6eHFZ3H6pj167B+xLt7a35TLScHwPFIoON5bLRXJrOpiOZdLiYGlw7fmyjGnmv4p3s7zLK6qTSepFIxPkfRlFNuTQ2kY2CbDY6MTE6kRvNpSJMpVP0fDG4nLRcq4aX4liSaHHAjUIIEovFfD6/5hyXovBieYxBAENmMpGxsUFGJZ+PsUKxgWk/drHgOzXSm3W2+7VNdbzaVC6XgXk8Tl+fvVRKMPdBuZzAMEQkglpbW9RqRWzEn0mGZmO+pYR7MW5KOo6Eeg+QnRKZRCARCBm4p6ejUorncyMTmSgoleJyuWw/Sa4AUnTJU+OhqNdc6VPNBHqGDU39cAPZLDTwOTGT4nCzND9OVRiDM/REmmbghEzWtv+I6uob6w80B445Y1FPv/GwH2lyyCCqvbFglp8Jqx9dCzy86tvZHEnEhtNJmuGBx+uQy+X7ZgiFkBASE1Z9YjxAe8ymJpEa4rqaxI8/DP52Z/rF4/k/vznx/dbk7o3oO0uhXCrMui8S1e3DfD6P6R7Kdml1ecqqtYsALhbm0PYXX2ee7uSff1H9/dHc8zsz/zybvP3x7FQpAWoDBUIhawYECRlHM6n0zU82Yq82u6TAJuJtTltefjX9ZOeNn3dO/nL31LPdc08+rz74dHr57BTzV9gAOWwQbBICAW92bvbh/bujWiUlAQMNgoRc+uON3NPbCz98NvfTrdN716u/3itvXTlx4WwV6JCe2sL8eqkUMyGxGL22uvpw90FmyEPxQQACBQP89H7u5beRv/dG//0j+9de8bt7M3e3T7779gIYiQUaGurb2lrdLlu5HF9anF9fv/L+5ZXlt14/PkCWvfjW+sKTL8/d+uj8mynX7bXB+zcvblxdub69+cHK2f8Ah5oySUNijuMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;easy&quot;
+        title=&quot;&quot;
+        src=&quot;/static/49f3d8b4adef70cfe5cc51cf2d1cc5e7/3684f/image-3.png&quot;
+        srcset=&quot;/static/49f3d8b4adef70cfe5cc51cf2d1cc5e7/c26ae/image-3.png 158w,
+/static/49f3d8b4adef70cfe5cc51cf2d1cc5e7/3684f/image-3.png 225w&quot;
+        sizes=&quot;(max-width: 225px) 100vw, 225px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이만 마칩니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(네이버 부스트캠프 2주차) 이번 주도 회고 써야할까?]]></title><description><![CDATA[헉 벌써 우여곡절 1주일이 지났습니다 이렇게 부스트캠프…]]></description><link>https://sungpaks.github.io/til/네이버_부스트캠프_2주차_회고/</link><guid isPermaLink="false">https://sungpaks.github.io/til/네이버_부스트캠프_2주차_회고/</guid><pubDate>Fri, 26 Jul 2024 18:25:42 GMT</pubDate><content:encoded>&lt;p&gt;헉 벌써 우여곡절 1주일이 지났습니다&lt;br&gt;
 이렇게 부스트캠프 4주 간의 챌린지 중 반절이 지났네요&lt;/p&gt;
 &lt;figure&gt;
 &lt;p&gt;&lt;span
