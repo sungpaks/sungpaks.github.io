@@ -7,6 +7,10 @@ tag: ["TIL", "React"]
 
 ! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.
 
+[이전 포스팅에서는 프로토타입을 개발해봤었습니다](https://sungpaks.github.io/til/geolocation-based-running-tracker-prototype/)
+
+이제 진짜 서비스를 만들어야 하니, 신경쓸게 산더미입니다
+
 # 정확도 향상
 
 https://developer.mozilla.org/ko/docs/Web/API/Geolocation/getCurrentPosition
@@ -31,7 +35,7 @@ https://developer.mozilla.org/ko/docs/Web/API/Geolocation/getCurrentPosition
 [**_setState는 비동기적이다_**](https://www.dhiwise.com/post/guide-to-state-management-with-react-setstate-callback)  
 `setState`에 콜백함수를 넘기는 까닭이 바로.
 
-### 이전 러닝 상태 복구
+# 이전 러닝 상태 복구
 
 러닝 시, 불의의 사태로 서비스를 껐다가 켜게 될 수도 있고,  
 사용자가 갑자기 다른 화면으로 넘어갈 수도 있고,  
