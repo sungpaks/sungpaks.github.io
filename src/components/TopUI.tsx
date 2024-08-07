@@ -15,7 +15,7 @@ function TopUI({ setCurTag }: ComponentProps) {
   const THEME_REVERSE = "theme-reverse"
   const KEY_THEME = "theme"
   const [preferDark, setPreferedDark] = useState(false)
-  const LIGHT_MODE = "☀️"
+  const LIGHT_MODE = "🌙"
   const DARK_MODE = "🌙"
   const [curMode, setCurMode] = useState("")
 
