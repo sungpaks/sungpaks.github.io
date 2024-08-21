@@ -9,6 +9,7 @@ import kebabCase from "lodash.kebabcase"
 import { useState, useEffect } from "react"
 import "katex/dist/katex.min.css"
 import TableOfContents from "../components/TableOfContents"
+import Hamburger from "../components/Hamburger"
 
 interface Frontmatter {
   title: string
@@ -116,6 +117,7 @@ const BlogPostTemplate = ({
         <hr />
 
         <TableOfContents tableOfContents={post.tableOfContents} />
+        <Hamburger />
         <br />
         <section
           id="post-section"
