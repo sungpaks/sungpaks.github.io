@@ -1,4 +1,457 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 21 Aug 2024 07:36:55 GMT</lastBuildDate><item><title><![CDATA[Spring Boot CRUD TIL기록]]></title><description><![CDATA[! 주의 : TIL…]]></description><link>https://sungpaks.github.io/til/spring-boot-crud-and-trying-hexagonal-architecture/</link><guid isPermaLink="false">https://sungpaks.github.io/til/spring-boot-crud-and-trying-hexagonal-architecture/</guid><pubDate>Sat, 10 Aug 2024 21:52:15 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 21 Aug 2024 12:20:30 GMT</lastBuildDate><item><title><![CDATA[🐢 Node.js에 기여한 썰 푼다.]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/contributing-nodejs/</link><guid isPermaLink="false">https://sungpaks.github.io/contributing-nodejs/</guid><pubDate>Wed, 21 Aug 2024 16:37:36 GMT</pubDate><content:encoded>&lt;p&gt;오픈소스 컨트리뷰션 아카데미라는 프로그램에서 멘티로 활동하고 있어요&lt;br&gt;
+자세한 설명은 제가 쓰기 귀찮으니 &lt;a href=&quot;https://www.contribution.ac/ossca&quot;&gt;여기 링크&lt;/a&gt;를 참고하시면 좋겠습니다.&lt;br&gt;
+대충.. 오픈소스 기여하는거 처음에 좀 힘들고 벽이 느껴질 수 있으니&lt;br&gt;
+먼저 해본 멘토분들에게 배우기도 하고 다같이 으쌰으쌰 해봅시다!&lt;br&gt;
+이런.. 프로젝트입니다&lt;/p&gt;
+&lt;p&gt;저는 Node.js 팀이라서, Node.js 코어에 기여하는 활동을 하고 있어요&lt;br&gt;
+여기에서의 활동과 경험이 근래 들어 가장 저에게 도움이 되는 일이었다고 생각하는데&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 225px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0cc667f0ab708296a0dcf7f34de26670/3684f/image-9.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAETUlEQVR42g2TWXPaBhSF9drGMWYREosQNmCbTUI72oUQiEViFQKJxY5xYmIndpImsTvTTLO102Wati9960we28z0P5aZ83Bfvnvm3DMX6DQsnlNUxVB1s2a0q5KG5vIQul9SVGk+46YONx0JnsP7E2bWJ12r4nQIt03POozbAUzdknhNUxpGsytKOgyjgUAoGAzvp7MYw7M9m/cmvOdwiwnrD0m3S4w7tGuz0z49sQFJ6oiCUlObqmpEwdi9r3czibiO509N3RZFNJsjB13ed6T5lPNHlGszrl31BlttB4Dlu5KgNOrteAIB9/b0wuEDhX7ndf66Xn35cPfMtbPFvDR3lJXHz13WG3HTnuAPeX/ITnsAwXR01cBL1L17ATqXeyCTa5m6aIi/rN0/N/7f3z31DRVTRe1sIS5nrD+mZvbWX5yP1NMJQLJdjqqGg+BeMJxPwuci5bG4WyWetdWfFr2LtvxmNTXqurTy5JMZORsMvf7pZiGcTJqPFgDJdLEStrcbDIbCuRg4qWK+RI2IwpLH3zqNFz39zXw4GdrV5VRYOkXPfjBo/Xy1ZuYjaekAJN0myuXdncBX9wNgMCQfph/WuDu7dqEQt5b8+dnZ5+vlp+9fMbOhMh/17PpFvfrB7donE2zcASpEk8SwSirBZZCjBOixxcvtwZzmU4M5FbE/1tN/7y5+u9vQ/tA7826bwqZafNOVHm/8wqgFsJReKmHNfOaVTvTwrEcX11z+UsYfqcScKlyp/JdvLz8+P2UXk5vzk5d69Uoi3lvqy83iuN8AagzHlMtYJr2iSudCxSEPN1LpiYJfSLhfzl2K9D+vH73/Zm2c+NfueCPRT0XiXVtx/cFxvwn0Wk3Hag0ts1rIabmkfoQs2aOHYumML74wxV/Xs//evb56vHKm44XInfHkQ544N1XB6xe2zv2uOXfGdr2egqEsDIoHkJpB2oVsK78/Io7PLdOzrVWvc9mqzRhijB2KKl22GrjTLW5hgSWthiHTTDoGITGwjIBqJqakokY2PlYFBqtgqcSMyl9prEsVeBYjR83K9j3cbnloAlgRT8AxJB5HYSgNQfFgCN9PeSqzaGosVkmAkTqF33a0mzqzbCm1YZuZ9ujZkPFH5KQH7KMZJIkgySSSiKcgGAlHQzs7s7HTqjdikfB2YxUvf7q9+fFs+vb5jSHwnCyyTp/2RvRkAKBIKpVE4nDsIH1wlM2lE4l+2zKNFppE0rEYEgGZQvH3Hz6+enI97VqWUSeP8qqm8eMBPekDYDiyhbeCwOhBOm02Go1aM7ATSEBQOh5LwuAhmpwPhxkUrVGUa1nbXuuibLZtYtAFYhC85QP3dwVOVGWtVCiH9iLhUAgKR1AYTidgNBbV+Sp+nDN4dtQ2BaJi1jRN0nBFBqIRcAtHI1GGYkqFAgSCYCQcCW2jh5NQdB+Jo3GocpQbNBpWTWnVpMrxYVOTFVnJF0r/A8s/JDmhOGtmAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;굿이예요&quot;
+        title=&quot;&quot;
+        src=&quot;/static/0cc667f0ab708296a0dcf7f34de26670/3684f/image-9.png&quot;
+        srcset=&quot;/static/0cc667f0ab708296a0dcf7f34de26670/c26ae/image-9.png 158w,
+/static/0cc667f0ab708296a0dcf7f34de26670/3684f/image-9.png 225w&quot;
+        sizes=&quot;(max-width: 225px) 100vw, 225px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이런 감상젖은 말들은 나중에 회고같은 것으로 더 쓰겠습니다&lt;/p&gt;
+&lt;p&gt;오늘은 Node.js에 기여하기 위한, PR이 merge되기까지의 한 사이클을 기록하고자 해요&lt;/p&gt;
+&lt;h1 id=&quot;build--test&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#build--test&quot; aria-label=&quot;build  test permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Build &amp;#x26; Test&lt;/h1&gt;
+&lt;p&gt;먼저 본격적인 기여 활동에 앞서, 프로젝트를 빌드해봐야겠죠?&lt;/p&gt;
+&lt;h2 id=&quot;빌드해요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B9%8C%EB%93%9C%ED%95%B4%EC%9A%94&quot; aria-label=&quot;빌드해요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;빌드해요&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/nodejs/node/blob/main/BUILDING.md&quot;&gt;Building Node.js&lt;/a&gt; 여기를 참고하여 진행해볼 수 있습니다.&lt;/p&gt;
+&lt;p&gt;저는 Windows 11(WSL2 Ubuntu 20.04) 환경에서 진행했습니다.&lt;br&gt;
+그리고 먼저 사전 준비사항 중 gcc, g++ 버전 요구사항이 있었는데,&lt;br&gt;
+저는 요구사항보다 낮아서 업그레이드하고 진행했습니다.&lt;br&gt;
+&lt;a href=&quot;https://int-i.github.io/cpp/2021-07-10/ubuntu-gcc-11/&quot;&gt;여기를 참고&lt;/a&gt;했어요.&lt;/p&gt;
+&lt;p&gt;이제 준비가 끝났으면, 로컬에 클론 받고,&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;./configure &amp;amp;&amp;amp; make -j4&lt;/code&gt;로 빌드를 시작해줍니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;./configure&lt;/code&gt;: 먼저 빌드 환경이 제대로 갖추어졌는지 사전에 점검합니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;make&lt;/code&gt; : Node.js 빌드 프로세스는 Makefile로 관리되며, &lt;code class=&quot;language-text&quot;&gt;make&lt;/code&gt; 명령어로 빌드를 시작합니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;-j4&lt;/code&gt; : 프로세스를 4개 써서 병렬 연산을 진행합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;아? 그리고 시작부터 끝까지의 시간이 알고싶다면 &lt;code class=&quot;language-text&quot;&gt;time&lt;/code&gt;명령을 사용합니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;time make&lt;/code&gt; 이런식으로요&lt;br&gt;
+시작!&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 225px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a2c225d89bdb6cac19b16496c725ec35/3684f/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 99.36708860759494%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEzElEQVR42g2Ta0yaBxSGv7+rwHcDUUGocnVewFYtiNWtnabtnKtbr/PWVqx1eNdoBbzgDRUUURyoKAqKioiUCQreWxa1Wp011jVbmiZmaZctW7L1z35tX3Jy/r1vznnecwARnSikBiWGkrGeQCELQ9GEYDSRxUxP+iwzJe1u2pUBRY20qFAQFUUngGyUxEaInEAyAyUyEBTIjGOncajnA3EiGukiNTCJigiokIhJv5Gcmn4h3tAsXRrrK8vLFfHP0/B4DoqyYZRLxCxQzAVQSLJ946pHmWksCOSCAZEo+DEJEjI56XH8vrqi47V5jay6PPd+Mu/cWQLKQUNYMMJBYRYMYy5AdXb62y3XycpcR2XhJR7jApMq5ISLM9Lt2vY/DlZm+1sbJA9q8/NTePwwCGWhZBYEc1CEjUBshADcFEaujGlO/e7fDtZ3l+YU5YVWXevrjZk/j3zbjsH20ntNJQ+rxOLk2PPhEMxGiSwU5hBBLgllkyDgU1ZQZ0nO8dL4r3ve98fP933TLpPudNvzwjNq17f1y0rqJfckuXmJvFg6AcKAMWCIheDCIQQr4Eo0a6Sp7MRn/v1o9WRnfX99wWPW77kmvZMDNr1ycaxvWFknuZcj4vMx2kwIYYB4JkyggzAdQoH7qQJZ3vUfpg3//PTs/cunh2vOI9/09rzROaxenh7cW7IZWh9XFOZcFibQIYwTti0uHD4TgjsThIeB1IjgVA5lzaz78Nr/3+neh5ONxUmDqbvZqlEsmHonepvbah5VPrybJoij4QlYQiwEZCKEMDCAhonjg+Gr0eF1Bbel4ut/HS6/WrZnf5VZLhY7DaqBxvIeWXGDJKeu8M6NS4m80OCokCAGBDEhMIzwET80FIgLROLD0JbKfENr6dHS2K5jaHNKd7juGOmSK6sKWkry5OJbzcW59ZLcmvzbudcuJ/NjokPPMomBLCIJEFLAeCp08xPevtv4etWyOaH6982OfbCjRnyr4dvs9vIH+qZKvaJK11huUTdYNS3q+qqsL67F0GlUPA4QUAkiWlA8lVCblebUNOlri2x9ikbJN2VZGRjnrSeWp7Mjo8q6weZqW3+ba0g1pW3plVcU38lMieYCF8OoAhoxiUHMTomb6Kx36ju/a6zoqS0yqxp+9nveHfl33VNmVb2pQ+oYUvuseo9Ja1LJNfLSx+IsQBh+Nj4YL6DgbyfxXaOav98cvNlZfuG1nb5Yf3e49vb5yrM5EzYwJp43dPkdJq9ZZ+1V9EglLRUPgEhSQCwZn0CBPxdwjZ3St7urJ373yw3nq2eO5wumg0Wb3z6KxYaVw9C1/cSyMTNs62vrl5cqSvOAuBCQH4iLIuNEXEpldga2kmNY7bb0L4xqfOPa/cWZH72z3xt7pnqb54e7N+wja1bDtLYFE7eX3QewN4xACBEkmEchnaORHn6dOtIlM2sbPKbuFbN63ao7XnXuuafmBrvcJq3HopvRd1i6G7XS4j5ZCcAlgZFkPI8Mxoag0WTwYgRVWV0wppbPDiiXzFq3Ub3jmjjecO16bXMj3abeJmOnbLxLjlHAOhBDIsQQcTyUwCMFRKG46KCAirwvt5zmJ0Nq+4ByUqN46hj7Zct3tIk9G3aqBTpFpdcysGkzTvQ0/Q9CrvBdWl0aWwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;로딩 고양이&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a2c225d89bdb6cac19b16496c725ec35/3684f/image-1.png&quot;
+        srcset=&quot;/static/a2c225d89bdb6cac19b16496c725ec35/c26ae/image-1.png 158w,
+/static/a2c225d89bdb6cac19b16496c725ec35/3684f/image-1.png 225w&quot;
+        sizes=&quot;(max-width: 225px) 100vw, 225px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;어라? 그런데&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ccfd01da2e8ffc0df8fe3e622437536b/5b795/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 12.658227848101264%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAIAAAAcOLh5AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAcklEQVR42k3LawrEIAwEYK+g9dEVBXWRlkoVRdD7n2zTgEu/H8OEIeRyPl/pOE/nnPc+xvhFIQStNaWUc74hKIyxbYGTpPtureWcU4L6cMhaC/OOlFLv8k8y5+y911rHGJClFPiUCGZjzL58FiEETFLKH7ehFTviujQCAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;빌드 에러&quot;
+        title=&quot;&quot;
+        src=&quot;/static/ccfd01da2e8ffc0df8fe3e622437536b/f058b/image.png&quot;
+        srcset=&quot;/static/ccfd01da2e8ffc0df8fe3e622437536b/c26ae/image.png 158w,
+/static/ccfd01da2e8ffc0df8fe3e622437536b/6bdcf/image.png 315w,
+/static/ccfd01da2e8ffc0df8fe3e622437536b/f058b/image.png 630w,
+/static/ccfd01da2e8ffc0df8fe3e622437536b/40601/image.png 945w,
+/static/ccfd01da2e8ffc0df8fe3e622437536b/78612/image.png 1260w,
+/static/ccfd01da2e8ffc0df8fe3e622437536b/5b795/image.png 1455w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 끝나버렸어요 ㅜㅜ&lt;br&gt;
+찾아보니.. &lt;code class=&quot;language-text&quot;&gt;-j4&lt;/code&gt;를 더 낮춰서 해보라고 하길래(대충.. wsl2에서, 프로세서가 충분치 않을 때 그런다고 합니다)&lt;br&gt;
+아예 그냥 프로세서 하나만 써서 하기로 하고, 자고 일어났습니다.&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 300px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/26fc563c665baa34557a2fe26bf89a17/5a46d/image-7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVR42gGfAmD9AM+bHaTHKInAG4a4G46yHYq3GsTZJP/yOvj1QvvnGPDbGfe9BfrdCfvSFsbPI3WrAYKqCpSlEPf0Ts7DQADXphqexSJ9qxR8qRl7rxh3qRtQajthaz/WzDfPvh7z1BPLpxLIsBT52BW8wx12pgR4pQiTpQ73903Q0E4A4tA0zNEqt7QYp7EWq7YUh5Qhd4tRaHVLdW8zLEBBRlI6f39JQEtC4tZBysUkgJ0EbKMFh54L8u080Mo+AKu1HLG/JsncKKu3DLG4EaqzInOFPF54MVNwMV9zP01lRVZpP0RYPrnDM8PKIYidBH+dB4WaC7a2GJCTFACNowmruxefszVDXyRzjiGSpCe3uzVtjBaOshmpsxPQ1y+HohWCnRtthh94iipujw6EtwCXrQuutQ5+kBAAnK0Zw84moK9FRFovc4cjQlhIf5NSL0gyRGE5Q1s1e5BILEo/X3oyXno3RFo/R2ovR3gffZYvucQheogSAPDkNv7yPc/PTEJQPJqeSbi8Sp+oQEldLVRzMHeGJY+bNGdrTIJ+PoCGQLS9Tbm9UTBARcXDUvfoMLqxIwD48U727EHz1Cbz0yj32SennTaxsCuVog+Qph+JmBXfwxf/1xD80Qj0zRH86yzo4UjEyVT96y7/5iDUuiMA8uU+8tss8swa9tgb+NQVeXUuq7w4X3gfTGc3O1ougHkxsqUunpslbWsvlZUz++wr+vdC8dYV9t0PypcIAPLZNu/SKePLLcCnPu3aN4CBSHCBSTtPQT9WTVdxOoB+TV9kXV1cQ15gSJOOcvDeN+zLJPTWFvzUDtKyFgC1wSzv9l/o5U9uYXjPwVePhG9dVX1wY32Ld1zLyE6clF90ZWCNgmnTsS6PiGR8hkOJiTbHyifb4DScoh1I/UG2rCP9fwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;한 평생이 지난 후..&quot;
+        title=&quot;&quot;
+        src=&quot;/static/26fc563c665baa34557a2fe26bf89a17/5a46d/image-7.png&quot;
+        srcset=&quot;/static/26fc563c665baa34557a2fe26bf89a17/c26ae/image-7.png 158w,
+/static/26fc563c665baa34557a2fe26bf89a17/5a46d/image-7.png 300w&quot;
+        sizes=&quot;(max-width: 300px) 100vw, 300px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;
+&lt;p&gt;출처 - &lt;a href=&quot;https://www.youtube.com/watch?app=desktop&amp;#x26;v=7vnqiQ5_qU8&quot;&gt;https://www.youtube.com/watch?app=desktop&amp;#x26;v=7vnqiQ5_qU8&lt;/a&gt;&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;자고 일어났더니..&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7ce6323ce0329705515f9445ef46779f/3cb0f/image-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 73.41772151898735%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAABwElEQVR42nWSbVeCQBSE91MvgAKWISov6lIhKIKSmnT8//+qp73p6dRpPqyzu/fOzGVVURS//kBRFLIul0vWsiwXi4UccsI2z3OIbFVd14fDoTRYrVZt2+52u+12C9nv95DT6QRpmmZn8GZwPB7X67USB/ToRA8yn88RejbgBC6rEHrIUlUVlapp8K7fDcSTIF3XcY0K/piILf54ygmcE5WmKWJi+2IgAyOstaafWzgpqJEsm82GstlspnA4n89c44+wpLhOLg6MTadwQLTv2PkF7K9DQvBHGwec5VvQL1+HAqJxpdYXSQYjJ/MgXBsQ5GBAAVFJhJBsiYaiyrTmR5sVQyTh8gRgOp1GUUQE1iRJ4jiGcxgEAWVfsVFFSaxkWkzkeemniLdBOssyJMSALiS+PtivvweQIRFlFkrlkBNsKcaG/GipURiOx2PSyatoAy6owxYfHMIwHA6HvV7Ptm3Lsu4N4CoYBQ+PD67nJmkSjkNKJ9OJ63qe77uuS0O/37cMHIPeBXBV5OVkNPH7fvf+UZVV27RxFN/d3tjW3a8G5w9U1mgv8QapX3ZF2iRZrf1w4A0i72k2fAocx3b+xyfhwogZmx1FBAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;빌드 완료&quot;
+        title=&quot;&quot;
+        src=&quot;/static/7ce6323ce0329705515f9445ef46779f/f058b/image-3.png&quot;
+        srcset=&quot;/static/7ce6323ce0329705515f9445ef46779f/c26ae/image-3.png 158w,
+/static/7ce6323ce0329705515f9445ef46779f/6bdcf/image-3.png 315w,
+/static/7ce6323ce0329705515f9445ef46779f/f058b/image-3.png 630w,
+/static/7ce6323ce0329705515f9445ef46779f/3cb0f/image-3.png 708w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;음... 4시간이 걸렸네요?&lt;br&gt;
+그나마 별 일 없이 끝난게 다행입니다 ㅋㅋ&lt;/p&gt;
+&lt;p&gt;나중에는 &lt;a href=&quot;https://github.com/nodejs/node/blob/main/doc/contributing/building-node-with-ninja.md&quot;&gt;Building Node.js with Ninja&lt;/a&gt;라는 잡기술을 사용하여 그나마 빠른 빌드가 가능해졌습니다&lt;/p&gt;
+&lt;h2 id=&quot;테스트를-실행해봐요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%A5%BC-%EC%8B%A4%ED%96%89%ED%95%B4%EB%B4%90%EC%9A%94&quot; aria-label=&quot;테스트를 실행해봐요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;테스트를 실행해봐요&lt;/h2&gt;
+&lt;p&gt;이제 테스트를 돌려봅시다.&lt;br&gt;
+Node.js는 프로젝트 규모도 크니까 매우 많은 테스트코드가 있어요..&lt;br&gt;
+&lt;a href=&quot;https://github.com/nodejs/node/blob/main/BUILDING.md#running-tests&quot;&gt;여기&lt;/a&gt;를 참고하여 테스트를 실행해봅시다&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;make test-only&lt;/code&gt;를 실행한 결과&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/381d864b75b2405e26734ff500977a88/076ca/image-4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.734177215189874%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsTAAALEwEAmpwYAAABAElEQVR42p2SyXKDQAxE50ggZguL2ffVGCon//+f5XlURTmpnNwHVY8YqVti1LquZVl+vgV1u92yLLMs653ibduGYUiShHrTNKXL5XL5E/8vPo5jHMcvjTiOXdc1Nc5ecuSq+QLRUPu+N00zTRP69/u96zpcFEWR5zm7IMIhjAY/o+/71KsgCDzPCzQQRzkMwyiK3N9wHOf1aNv2U5muVVUR8Xy9XknRBY63D43TqnDDMCT/VMb2sixt26KPMq7SNEUcbxA5ks80mAgZBkGPvHo8HvM8dxqjRt/3sgLh3ON2XdcQejGtjEBUPBK+fWuIC2rYHHmeAMVyD9ga8pNk2z9BuTFj1ayeTAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;테스트 실패&quot;
+        title=&quot;&quot;
+        src=&quot;/static/381d864b75b2405e26734ff500977a88/f058b/image-4.png&quot;
+        srcset=&quot;/static/381d864b75b2405e26734ff500977a88/c26ae/image-4.png 158w,
+/static/381d864b75b2405e26734ff500977a88/6bdcf/image-4.png 315w,
+/static/381d864b75b2405e26734ff500977a88/f058b/image-4.png 630w,
+/static/381d864b75b2405e26734ff500977a88/076ca/image-4.png 914w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;어라? 테스트가 실패해버렸어요&lt;/p&gt;
+&lt;h2 id=&quot;실패한-테스트를-살펴봐요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8B%A4%ED%8C%A8%ED%95%9C-%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%A5%BC-%EC%82%B4%ED%8E%B4%EB%B4%90%EC%9A%94&quot; aria-label=&quot;실패한 테스트를 살펴봐요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;실패한 테스트를 살펴봐요&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;node --run &amp;lt;script-in-package-json&gt;&lt;/code&gt;라는 cli 명령에 대한 테스트가 실패한 것인데요..&lt;br&gt;
+해당 feature는 &lt;a href=&quot;https://github.com/nodejs/node/pull/52190&quot;&gt;PR #52190&lt;/a&gt;에서 처음 제안되어 Node 22버전에서 합류했습니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;npm run build&lt;/code&gt; 이런거 하듯이, &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;에 정의된 script를 실행하는 명령이고, 아직 experimental인가봅니다.&lt;/p&gt;
+&lt;p&gt;아무튼.. 테스트 파일에서 어떤 하위 테스트가 실패했는지도 살펴보고,&lt;br&gt;
+다른 테스트는 무엇이 있으며&lt;br&gt;
+소스코드(&lt;code class=&quot;language-text&quot;&gt;task-runner.cc&lt;/code&gt;)도 살펴보고 나서, 왜 그랬는지 보니..&lt;/p&gt;
+&lt;p&gt;이게 package.json을 찾으러 현재 디렉토리부터 시작해서 root(&lt;code class=&quot;language-text&quot;&gt;/&lt;/code&gt;) 디렉토리까지 거슬러 거슬러 올라가게 되어있습니다.&lt;br&gt;
+근데 실패한 테스트는, root까지 &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;이 없다고 상정한 것인데&lt;br&gt;
+저는 왜인지 루트에 &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;이 있어서&lt;br&gt;
+테스트에서 기대하는 에러 문구와는 다른게 출력된 것입니다&lt;/p&gt;
+&lt;h1 id=&quot;기여하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B8%B0%EC%97%AC%ED%95%98%EA%B8%B0&quot; aria-label=&quot;기여하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;기여하기&lt;/h1&gt;
+&lt;p&gt;이제 기여를 해봅시다.&lt;br&gt;
+위에서 이미 뭔가 문제를 겪었으니, 이걸 활용하면 될 것 같아요&lt;/p&gt;
+&lt;h2 id=&quot;1-contribution-idea&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-contribution-idea&quot; aria-label=&quot;1 contribution idea permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. Contribution Idea&lt;/h2&gt;
+&lt;p&gt;해당 경험을 온라인 미팅 때 나누었는데,&lt;br&gt;
+멘토님께서 관련해서 여러 조언이나 기여 방향 등을 말씀해주셨어요&lt;br&gt;
+마침 예외처리 관련 테스트가 부족한 듯 보여서&lt;br&gt;
+소스코드에서 발견했던 다른 예외케이스들도 다루는 하위 테스트를 작성하는 쪽으로 생각하게 됐습니다&lt;br&gt;
+기여 뭐하지? 하는게 꽤 큰 고민인데.. 바로 발견해버렸어요. 츄베릅&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 225px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0a20e4756ff15f2b493726d3cc435b7c/3684f/image-5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEt0lEQVR42j2T60+aBxTG3z9gyb5265Yt25K1WW2W2dU03ebaLuvs6mwba3W14N1xVUFEKHJRQK6CqK/IRYECioDcEeEFAUF4gQLegGpdamv/hHV1jXb0S09Onud8eZLf8+EAgwJhywCmldzTSuntZg+Qx+m82RGVWW30mLUm5Vo05F8NKBfkDbjm/jEKaJTJDXIGFTtM7cV13AGGJicbidh2OnVYJZyySHVWRam083z/yU42UczC2ViomIdfPj9YCUOUYRyDieNxmZi2Js0ML7ZqBUbkIGIAy5dJvG5T0O94+eLwSaG0FloJeqw++6LPZoqGPIn1SLFQ8HhNoIRlMykSq45iLriVWgF4anBiYSzkc4AiQRpO53PbHpdzYXZGIxMum/RR11La712zLQWhyHoSZqNQbs3k/lZka91TyvgBllw0rh2F/J50KlkslZxun0mnD8hn4Lm5VYHYSaZY8AT3ADURXE3lNp0LjzbXvcV0YPcxtJXyAYwpMY7Zs7Ye3tnZjoQjbk9Ap1A5mIwQjTGPIckaWo0kaoAt8Grn0tn89kb2cdSdjdq34suZd51nxLJZaQKOR6LhUDjiXQmpVapxPMqA6oLYo9HxybTRBM9p9FK+zW5NxMNh16N8dCkTsW+s2YExFWixmiAoYLdZQ+Gw2+OVSSUy5kMlunMRh4eGRy0cgV+plnNYSvlkyGfPxzz5mDMbdRSSXoA3IbJajI80cyo5aDLq5hQgAYPGPGik363j1Nev8kQBwVhGa7DIZBrl9KJ+NmDXFeDl3bT/aSYITIwL53WzYh6bxXzIYzOkfA4Jj71Xd7Or5hqt4Y6K2G8iDWp7CDr2yNSYSKtW6FWy/TT0d3b5WTYAGNRToEzIZtJoZBKXReeyhgRcZg8Wg21s4HUgsTdrhS23wK56JZs1IRwFJaOWBV0m4nmaKq8bcJh1EiFnkNjbUFfbgWwm4NHozpY+PK63HUlCIIj3G5PTlF2rRDpEHqYQ+Ix+FShxLhoKa4492AH4XYtl2l4sWj41lVyPl0rFTCazsZHHdLVeu3yxs/GueLCP09+HRiJGqSQejcKlk+ViTi5o3oNdgNdmnJCKD54/e/v27cnJyXs9PHzxVxuiG9FMRGPa7t2rr/ml5XYt5kHzIKZdznu4HXGUEsuAy6pNw0kYTh0cHORyuXg8nkgkygrDcNlqqqtrqn+4euG7yxXn667+VFddRUP96ZyVPF7W7yWdZWz93m4pFosVCoVyDIKgYDBkfjeWcv5iRcVXpz86c/rUpx9+cPb0x/1tDW6NKGAC4w7lJqQHMkFz+W+Oj0+Oj4+Pjl6/efOmfLz691WZfFomPfPZJ9+f+eJG1bmmXy/drq6iEzAe43TMpkivaPOQATjYgPxWld/rePX6n/eF/zs6WtBpfv723O8/VCL/uIpqvEFsv4tHNGCQzXzmoMuoCpjlHoMIONz07aec00LGEBHFZw3xR1h9OEx11YWKz0/VXrnUXn+T0NFEQSNpuDYavpveh6MS8GIex6gGfYsKIO3TbkSXHPOqISLm/q3rP1aerzz7ZeU3X1+/XNX425Xuplvk7vusvk4+g8qlkAZQ7f09aCZtQCrkzqvA/wHvks80hgyYEQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;츄베릅&quot;
+        title=&quot;&quot;
+        src=&quot;/static/0a20e4756ff15f2b493726d3cc435b7c/3684f/image-5.png&quot;
+        srcset=&quot;/static/0a20e4756ff15f2b493726d3cc435b7c/c26ae/image-5.png 158w,
+/static/0a20e4756ff15f2b493726d3cc435b7c/3684f/image-5.png 225w&quot;
+        sizes=&quot;(max-width: 225px) 100vw, 225px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2-수정사항을-작성하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-%EC%88%98%EC%A0%95%EC%82%AC%ED%95%AD%EC%9D%84-%EC%9E%91%EC%84%B1%ED%95%98%EA%B8%B0&quot; aria-label=&quot;2 수정사항을 작성하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. 수정사항을 작성하기&lt;/h2&gt;
+&lt;p&gt;먼저 어떤 예외케이스가 있을지 봅시다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;cpp&quot;&gt;&lt;pre class=&quot;language-cpp&quot;&gt;&lt;code class=&quot;language-cpp&quot;&gt;  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;package_json&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;has_value&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;fprintf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;stderr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Can&apos;t read package.json\n&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    result&lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt;exit_code_ &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; ExitCode&lt;span class=&quot;token double-colon punctuation&quot;&gt;::&lt;/span&gt;kGenericUserError&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// If document is not an object, throw an error.&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;error &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get_object&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;main_object&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;fprintf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;stderr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Can&apos;t parse package.json\n&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    result&lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt;exit_code_ &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; ExitCode&lt;span class=&quot;token double-colon punctuation&quot;&gt;::&lt;/span&gt;kGenericUserError&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// If package_json object doesn&apos;t have &quot;scripts&quot; field, throw an error.&lt;/span&gt;
+  simdjson&lt;span class=&quot;token double-colon punctuation&quot;&gt;::&lt;/span&gt;ondemand&lt;span class=&quot;token double-colon punctuation&quot;&gt;::&lt;/span&gt;object scripts_object&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;main_object&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get_object&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;scripts_object&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;fprintf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;stderr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Can&apos;t find \&quot;scripts\&quot; field in package.json\n&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    result&lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt;exit_code_ &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; ExitCode&lt;span class=&quot;token double-colon punctuation&quot;&gt;::&lt;/span&gt;kGenericUserError&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;(1) &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;이 없을 때, (2) &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;을 파싱할 수 없을 때, (3) &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;에 적절한 &lt;code class=&quot;language-text&quot;&gt;script&lt;/code&gt; 룰이 없을 때&lt;br&gt;
+일단은 이정도 있네요&lt;br&gt;
+(1)은 이미 어느정도 다루어지고 있으니, (2)와 (3)에 대한 서브테스트를 만들어보면 좋겠어요&lt;/p&gt;
+&lt;p&gt;일단 테스트를 위한 더미 파일을 만들고 싶은데&lt;br&gt;
+이런 테스트용 파일은 &lt;code class=&quot;language-text&quot;&gt;test/fixtures&lt;/code&gt;에 두면 된다네요&lt;br&gt;
+이미 이 &lt;code class=&quot;language-text&quot;&gt;test-node-run&lt;/code&gt; 테스트에서 &lt;code class=&quot;language-text&quot;&gt;/test/fixtures/run-script&lt;/code&gt; 위치에 테스트용 파일들을 두고 쓰고 있으니&lt;br&gt;
+여기에 추가적으로 파싱 불가한 &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;script&lt;/code&gt;룰이 없는 &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;을 만들어줬습니다&lt;/p&gt;
+&lt;p&gt;이제, sub test를 작성합시다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token function&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;returns error on unparsable file&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; child &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; common&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;spawnPromisified&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    process&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;execPath&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;--no-warnings&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;--run&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; fixtures&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;run-script/cannot-parse&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  assert&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;stderr&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token regex&quot;&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token regex-source language-regex&quot;&gt;Can&apos;t parse package\.json&lt;/span&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  assert&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;strictEqual&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;stdout&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  assert&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;strictEqual&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;code&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;returns error when there is no &quot;scripts&quot; field file&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; child &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; common&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;spawnPromisified&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    process&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;execPath&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;--no-warnings&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;--run&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; fixtures&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;run-script/cannot-find-script&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  assert&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;stderr&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token regex&quot;&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token regex-source language-regex&quot;&gt;Can&apos;t find &quot;scripts&quot; field in package\.json&lt;/span&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  assert&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;strictEqual&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;stdout&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  assert&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;strictEqual&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;code&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;먼저 &lt;code class=&quot;language-text&quot;&gt;it()&lt;/code&gt;에 서브테스트 설명을 쓰고..&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;node --run&lt;/code&gt;을 실행하고..&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;어쩔.매치(regex)&lt;/code&gt;로 에러 문구를 확인하고..&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;어쩔.무조건같아야함()&lt;/code&gt;으로 에러코드와 출력 등을 확인하고..&lt;/p&gt;
+&lt;p&gt;이런 식의 테스트 코드를 짜줍니다.&lt;br&gt;
+이미 일련의 테스트 코드가 있으니 어렵지 않게 따라할 수 있어요&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 252px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2ac83a24b6a8ea5e577f0455e53dbd76/5e02b/image-6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 79.11392405063292%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsTAAALEwEAmpwYAAADfUlEQVR42mP48+fP379//8DB37///v379vXrrdu3bty4cevWratXr3769AkoCFPx+89vMPjzh+E/KgAqApKvXr3csX3rgf37tm7dvP/APqCO/9gAw5Zt+0+duXr81KWjJy+ePHvt1Pnrx05eWrt+58zZS6dOWwAkZ8xatHT5hsVL1y1Ztm7Zio0rVm2YMWPqtBkzps+Zz5Bd0NjUNbdz4tLy2v6QiDRP76jg8MzE9Oq84s6cwnYgGZ1Y7OIV6+wZA0TuvokBISk21nYGVk4KuqYMOUVVQeFR3r5BZoYWhupaeqraWvIK4aHxRZV9uUWt+SUdyRlVAWGpgeEZ/iEZgeGZsYnFjk7OxmbGhmbGDA6urmYm2vq6+vZmll2V1f01TfWp8Ul+njkFLdlAlN+SlF7lE5TsF5LmE5jiG5QSEVtga2enoKJiZGnD4BUY7OxkqammFefvVZkYUZeRWZUYGWWrERWenF3YnpHbANTsHZDkE5TiFZDkFZAcFpPr6OjKJyymrW/MYOvsbmVh5GdvWhwXkuBhGWJt4KYjH2alFOQblFXQlpZdn5RW7RWQ6OWf5OEX7+GfGBie5e7ixMvLLigkwGBtaWpirB3uad+QGlwc5ZrqbpYf5Fod6x3q4ZKW25yWVZeQWgm009033sUn1tUnzjck3ds7UEiQl4WZgcHfz93KytrRxqYzN6kjK6IoUM9RR85OQ9HfOzgttyk5vTo+pQLobFefWCfPKEePKK/gNAcnbyU5BV4BIQZTS0dDU+vYsKiOzMjWVP9Ie3l5PnZbNbm42NzkzLqktKq45HJP/0SgTgePSFuXUPeAZDNLFw1VPWkZFQYlKXl3F//iopbq+LC2FHcvEwlWBgZ+Lk49E2dXr+ig8KyEtEp3vwSgnfZu4dZOwW4+caZOoRLaDqKy2gy+PjFuXrEBIWn9dRVdOcH2ajxGsjya0iLyKibWDoFGFm7OXtGuPvGWDkEWDkHmdv52blF6pq48sjrcUhoMx06c23/g2IkTpz+8e/n4/vXDe7adPXpg24b1EydNnzZj7uQpMydPmbVpy86jJ88cPHoSiA4dP73v4OGNW7Zt3roDe8Z48eLF4cOHdu7YsWbtGmD2uHfvLlwKJWMg5UVQ1vz9+xcwf37+9OnJkyePHj16/vzFkydPP336DJQHojdv3oIFnz999uzdu3cAaqvtzOTye6sAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;copy &amp;amp; paste&quot;
+        title=&quot;&quot;
+        src=&quot;/static/2ac83a24b6a8ea5e577f0455e53dbd76/5e02b/image-6.png&quot;
+        srcset=&quot;/static/2ac83a24b6a8ea5e577f0455e53dbd76/c26ae/image-6.png 158w,
+/static/2ac83a24b6a8ea5e577f0455e53dbd76/5e02b/image-6.png 252w&quot;
+        sizes=&quot;(max-width: 252px) 100vw, 252px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;
+&lt;p&gt;제가 이랬다는건 아닙니다..&lt;br&gt;
+출처 - &lt;a href=&quot;https://makeameme.org/meme/copy-paste-859eee9d5e&quot;&gt;https://makeameme.org/meme/copy-paste-859eee9d5e&lt;/a&gt;&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;3-commit--pr&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-commit--pr&quot; aria-label=&quot;3 commit  pr permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. Commit &amp;#x26; PR&lt;/h2&gt;
+&lt;p&gt;이제 준비되었다면, 커밋하고 풀 리퀘스트를 올릴 차례입니다&lt;br&gt;
+이 과정은 &lt;a href=&quot;https://github.com/nodejs/node/blob/main/doc/contributing/pull-requests.md&quot;&gt;pull-requests&lt;/a&gt;문서를 꼼꼼히 확인하여&lt;br&gt;
+컨벤션 룰을 잘 지키도록 합시다.&lt;/p&gt;
+&lt;h3 id=&quot;3-1-commit-사전-준비&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-1-commit-%EC%82%AC%EC%A0%84-%EC%A4%80%EB%B9%84&quot; aria-label=&quot;3 1 commit 사전 준비 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3-1. Commit 사전 준비&lt;/h3&gt;
+&lt;p&gt;먼저 위에서 수정하기 전에, 먼저 &lt;strong&gt;Fork&lt;/strong&gt;한 상태일 것인데&lt;br&gt;
+새로운 PR을 위한 브랜치를 먼저 뻗은 상태에서 수정했어야 합니다.&lt;/p&gt;
+&lt;p&gt;만약 아차! 이미 메인에 했어요! 하시는 분들이 있다면&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;git stash&lt;/code&gt;로 수정을 임시저장하고,&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;git checkout -b new-branch-name&lt;/code&gt;으로 새로운 브랜치를 만들어 체크아웃,&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;git stash pop&lt;/code&gt;으로 다시 가져와줍시다.&lt;/p&gt;
+&lt;p&gt;수정했으면, 테스트도 잘 돌아가는지 확인해야겠죠?&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;make test&lt;/code&gt;로 전부 돌려볼 수도 있지만&lt;br&gt;
+특정 테스트만 필요한 경우 &lt;code class=&quot;language-text&quot;&gt;tools/test.py test-node-run.js&lt;/code&gt; 이런 식으로 골라서 할 수 있습니다&lt;/p&gt;
+&lt;p&gt;그리고 &lt;code class=&quot;language-text&quot;&gt;make lint&lt;/code&gt;같은 lint 체크도 잊지맙시다.&lt;/p&gt;
+&lt;h3 id=&quot;3-2-commit&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-2-commit&quot; aria-label=&quot;3 2 commit permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3-2. Commit&lt;/h3&gt;
+&lt;p&gt;그 다음은.. 커밋합시다.&lt;br&gt;
+커밋과 관련해서도 &lt;a href=&quot;https://github.com/nodejs/node/blob/main/doc/contributing/pull-requests.md#step-4-commit&quot;&gt;가이드라인&lt;/a&gt;이 잘 나와있어요&lt;br&gt;
+아래처럼 나오면 됩니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;subsystem: explain the commit in one line
+
+The body of the commit message should be one or more paragraphs, explaining
+things in more detail. Please word-wrap to keep columns to 72 characters or
+less.
+
+Fixes: https://github.com/nodejs/node/issues/1337
+Refs: https://eslint.org/docs/rules/space-in-parens.html&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;앗 그런데 &lt;code class=&quot;language-text&quot;&gt;upstream&lt;/code&gt;의 &lt;code class=&quot;language-text&quot;&gt;main&lt;/code&gt;에서 혹시나 업데이트가 있었을 수 있어요&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;git fetch upstream HEAD &amp;amp;&amp;amp; git rebase FETCH_HEAD&lt;/code&gt;를 한 번 해줍시다&lt;/p&gt;
+&lt;h3 id=&quot;3-3-pull-request&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-3-pull-request&quot; aria-label=&quot;3 3 pull request permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3-3. Pull Request&lt;/h3&gt;
+&lt;p&gt;먼저 &lt;code class=&quot;language-text&quot;&gt;git push origin my-branch&lt;/code&gt;로, fork된 레포지토리에 push합시다.&lt;br&gt;
+이제 Github로 가서 새 Pull Request를 열고..&lt;br&gt;
+적당한 내용을 작성해줍시다&lt;br&gt;
+눈 한번 딱 감고 PR 열기 누르면 됩니다~&lt;br&gt;
+이제 어뿌루부를 기다리는 일만 남았어요&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4cc6cdfd21ab0fb3fe936c356505528f/c1b63/image-8.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.9620253164557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACnElEQVR42h1SW0/TABTubm13CYq+yZswFchkIUQxhIszCBOQoMDUQdSROGIyQQGFAQFliGBxm2T3rbRb67Z27bZu7ca4xQcwkqiJL76Z+OLvsPM7JzknJ/kuDwfwB10nX/f+/P754/sRx6UZhi4W89h2SFzyeW6nJGSzbIyMMVmBoPhInEfZvQh3EhZ+hUp/AeOtznHrQ5/nPUXhiUT88PDg+MtRmk2m6CTDMBiGJhPE4cHu8dHnnUIuw8a5NJplUZYOsakwMGwaMA31DN7pbr6qv9nZ9sB8d87+HMO9eNRbVXVOKpXX1FS3t7WMjpjmZifdrjWSCHAZgs/FeY4EkA8rPs+75aVp65OR/ts3rjU36HRavb6utk4rlcogSCmRyIAyJDIZqFSpNeoKg6GjkE8UcnGAwDxbbsfqqn3BPjE/P/liatwyZurpva7RqBUKCC4XrIRVSqXYao2mQpTp6+v+drK3v8MCaXSVxTa9m4s93e3nqy9oa3XDw/1Go0EqkSrKACEIKg+wLKJSaeRysLW12T43EfAhgBDb2E1sFYhNKrCyNGWxmPsfPxoSM4sOZ89UwjAsLnKRASpEMgTBlZWnm5ou19fV6HSXgGIMKZCuXBTJ40iRdBYIJxNBZm1j9dpqU6/B2HGlof6iSgn/jwDKZNLGRv29+wNdXR0GQwtQjK7z2FoWXWNDDibooPwOFnXSAQRH3nhXXq2/tFoGeyEQFP1B+BQIaczmwZkZm81mtYyNAjz5MU0RQjZV4tMsRXAsHY+i6STJJD8RkcCukMPCwelnT5cW5heWNxxvXZFIGMe3fT7P8utFQEj6MyxNx4IiP8um9kvFGBoucJkMQ5NhX55N8TkOD/nFy3YEFT+wVBSoRMLtdk5NT/wDJYUdDe1Z+FoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;please approve my pr&quot;
+        title=&quot;&quot;
+        src=&quot;/static/4cc6cdfd21ab0fb3fe936c356505528f/f058b/image-8.png&quot;
+        srcset=&quot;/static/4cc6cdfd21ab0fb3fe936c356505528f/c26ae/image-8.png 158w,
+/static/4cc6cdfd21ab0fb3fe936c356505528f/6bdcf/image-8.png 315w,
+/static/4cc6cdfd21ab0fb3fe936c356505528f/f058b/image-8.png 630w,
+/static/4cc6cdfd21ab0fb3fe936c356505528f/40601/image-8.png 945w,
+/static/4cc6cdfd21ab0fb3fe936c356505528f/c1b63/image-8.png 1200w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;
+&lt;p&gt;출처 - &lt;a href=&quot;https://oumaima-dahhoum.medium.com/how-to-create-a-good-pull-request-with-examples-and-templates-cfc92f2bb94e&quot;&gt;https://oumaima-dahhoum.medium.com/how-to-create-a-good-pull-request-with-examples-and-templates-cfc92f2bb94e&lt;/a&gt;&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;이제 코멘트를 기다리다보면 &quot;이 부분 살짝 이렇게 수정 가능?&quot; 이런 요청이 있을 수도 있는데&lt;br&gt;
+이런 경우 고쳐서, fixup으로 커밋하고, 푸시하면, 기존 PR에 반영됩니다&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/nodejs/node/pull/54204&quot;&gt;제가 열고, approve받고, merge된 PR&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;끝&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%81%9D&quot; aria-label=&quot;끝 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;끝&lt;/h1&gt;
+&lt;p&gt;꽤 호흡이 긴 주제기도 했고&lt;br&gt;
+자꾸 기록이 빵꾸난 곳이 있어서.. 제대로 썼는지 모르겠네요&lt;br&gt;
+엥? 싶은것들은 말씀 주시면 감사하겠습니다.&lt;/p&gt;
+&lt;p&gt;이제 다음 사냥감을 찾으러 가야겠습니다..
+기여할 주제 찾는 것부터 어려워요&lt;br&gt;
+제 실력도 부족하니 그에 맞는걸 찾으려니 더욱 ㅜㅜ.&lt;/p&gt;
+&lt;p&gt;이만 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Spring Boot CRUD TIL기록]]></title><description><![CDATA[! 주의 : TIL…]]></description><link>https://sungpaks.github.io/til/spring-boot-crud-and-trying-hexagonal-architecture/</link><guid isPermaLink="false">https://sungpaks.github.io/til/spring-boot-crud-and-trying-hexagonal-architecture/</guid><pubDate>Sat, 10 Aug 2024 21:52:15 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;새로운 사이드 프로젝트를 시작했어요&lt;br&gt;
