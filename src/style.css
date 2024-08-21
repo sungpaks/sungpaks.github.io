@@ -666,6 +666,7 @@ body.theme-reverse .toc a {
 }
 
 .toc-container a.activated {
+  font-weight: bold;
   text-decoration: underline;
 }
 
