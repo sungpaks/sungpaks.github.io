@@ -1,5 +1,5 @@
 ---
-title: "Spring Boot CRUD TIL기록"
+title: "Spring Boot CRUD TIL기록 (1)"
 date: 2024-08-10 21:52:15
 description: "근데 이제 헥사고날 아키텍처를 곁들인"
 tag: ["TIL", "Java", "Spring"]
