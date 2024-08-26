@@ -11,4 +11,11 @@ import "prismjs/themes/prism.css"
 
 import "@fontsource/ibm-plex-sans"
 
-require("prismjs/themes/prism.css")
+require("./src/my-prism-theme.css")
+
+// const theme =
+//   localStorage.getItem("theme") === "reversed"
+//     ? "prismjs/themes/prism.css"
+//     : "prismjs/themes/prism-tomorrow.css"
+
+// require(theme)
