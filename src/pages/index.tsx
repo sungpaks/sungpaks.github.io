@@ -1,11 +1,10 @@
-import * as React from "react"
+import React from "react"
 import { Link, graphql } from "gatsby"
 import { useState } from "react"
 import { useEffect } from "react"
 import Bio from "../components/Bio"
 import Layout from "../components/Layout"
 import Seo from "../components/seo"
-import { FC } from "react"
 
 interface SiteMetadata {
   title: string
@@ -51,7 +50,6 @@ interface ComponentProps {
 }
 
 const BlogIndex = ({ data, location }: ComponentProps) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
   const [curTag, setCurTag] = useState<string>("ALL")
   const [curPostList, setCurPostList] = useState<MarkdownRemarkNode[]>(posts)
