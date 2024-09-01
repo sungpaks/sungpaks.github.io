@@ -1,4 +1,430 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 28 Aug 2024 06:35:17 GMT</lastBuildDate><item><title><![CDATA[Spring Boot CRUD TIL 기록 (2)]]></title><description><![CDATA[! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다. 저번에 한거 PR…]]></description><link>https://sungpaks.github.io/til/spring-boot-crud-refactoring/</link><guid isPermaLink="false">https://sungpaks.github.io/til/spring-boot-crud-refactoring/</guid><pubDate>Thu, 22 Aug 2024 10:29:14 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 01 Sep 2024 12:26:59 GMT</lastBuildDate><item><title><![CDATA[⛱️ 2024 여름 회고]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/2024-summer-recap/</link><guid isPermaLink="false">https://sungpaks.github.io/2024-summer-recap/</guid><pubDate>Sun, 01 Sep 2024 20:20:17 GMT</pubDate><content:encoded>&lt;p&gt;회고라는 단어 진짜 개발자스러운거같아요&lt;br&gt;
+회고라는 그 단어 자체가 주는 이물감이 꽤 있습니다 ㅋㅋ&lt;br&gt;
+막상 쓰려면 좀 낯뜨겁기도 하고..&lt;br&gt;
+그래도 회고 쓸 결심을 좀 해보기로 했습니다&lt;br&gt;
+응당 개발자라면 회고도 써버릇 해줘야.&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2a7cee7651b871b1f1ede0afe5a9df3c/13a9a/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABJ0AAASdAHeZh94AAAC9UlEQVR42oWTa0zTVxiH//33xsWGWlksMlRMRMeIEMGSuJh03v3gnCRet+i2xChsiZrNZGOkBZVLaKWAgPRCWzQ1KHJRKqwVHOOSKrpi3CRsbG4DA0u27Ja4LZr4ePSTiTF+eHLOefOeN7/znt8rSZKEWqVGq9USG6NFoVDwJPYyZIWMWq1CKcsolUo0GrWIibvV3hM0BurxtXnwt7mxuyqpqC+lvO44pTVHKXEUU1xlFViw2C1YT4i9oFzk1PoduFpO4T7XiPeCC7vThvQrM/zBb8w8mGLq4SR/i9Pvj+4x/eAuMw9/Ylow+d8Ev/z7Pff+n+Dn++NM/DXG3X/G+e7PO5Q22igoPEz16QZGp6JIvtGr1IXOs3L9Ol7LWcHhCivhH64RiASpbXVSUPIJOw/t5+389zlg/ZjmoJ+vvu3l1tQIDYE6JDkWWdY8bcOW3TuQmm73s/GdbUgK0T9VPMtMuRR2BthSdIR5ubkkm0wYl+egz8jCkJnN3OwVbLd8Snmog4O2ElKSk4nRGVAq1GSYzUh3pqNk5WShidWhN7zCmrVvMjA+QPfNbs6EzuIXOC+fprrTR2W7j6Mtbsra/LgjX1DjdbBjtYnFC15FJckcLC1Civ44zPzUhai08czRGzCveoPeW2Gi4kl93/QSuh3mUrSHlpEemiPdNA0H8Qx14b8ewnmxmZ2bVmFauoDly9Ip8ZxEiox9KQqmCtvEERevY9GSNLydXgbG+gmOdNF+7SKBwQ48/R00Xm2jNnxe0Ep9XzuewSD2VjfvvfsWez/8gHlp6UjhSCd788zkpC1EFz+L1Zs38PXkCEMTg1wRCrtGezh3oxtf5DKuoUu4hEKnUOgW65loH7sO7SNvz3bMWzejidEh2Wos5K3JJj01GePsBDKyXqfgyH6swnv2pipsPgfH3FUUexx81lBJQXkRB8oKyS/7nI8qilianYlRtMxgTCJOl/Dkt188DfoEPYlzEkkyGpmfkkLSXKOwiPxc3rPT9RhVbO2tNMwK5wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;회고 쓸 결심&quot;
+        title=&quot;&quot;
+        src=&quot;/static/2a7cee7651b871b1f1ede0afe5a9df3c/f058b/image-1.png&quot;
+        srcset=&quot;/static/2a7cee7651b871b1f1ede0afe5a9df3c/c26ae/image-1.png 158w,
+/static/2a7cee7651b871b1f1ede0afe5a9df3c/6bdcf/image-1.png 315w,
+/static/2a7cee7651b871b1f1ede0afe5a9df3c/f058b/image-1.png 630w,
+/static/2a7cee7651b871b1f1ede0afe5a9df3c/13a9a/image-1.png 637w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;
+영화 [헤어질 결심]
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;아무튼.. 내일이면 개강인데&lt;br&gt;
+저는 마지막 개강입니다. a.k.a. 막학기&lt;br&gt;
+그럼 마지막 개강을 앞두고 마지막 방학 간에 뭘 했는지 써보겠습니다&lt;br&gt;
+어느정도 시간 순으로 사건들이 정렬되어 있습니다?&lt;/p&gt;
+&lt;h2 id=&quot;ossca-오픈소스-컨트리뷰션-아카데미&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ossca-%EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4-%EC%BB%A8%ED%8A%B8%EB%A6%AC%EB%B7%B0%EC%85%98-%EC%95%84%EC%B9%B4%EB%8D%B0%EB%AF%B8&quot; aria-label=&quot;ossca 오픈소스 컨트리뷰션 아카데미 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;OSSCA (오픈소스 컨트리뷰션 아카데미)&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.oss.kr/contribution_academy&quot;&gt;OSSCA&lt;/a&gt;는 언어, 개발 문화, 시작의 두려움으로 인해 높게만 느껴지던 오픈소스에 대한 진입장벽을 허물고 선배 개발자와 함께 서로의 &apos;컨트리뷰톤&apos;을 응원하며 참여, 오픈, 공유, 협업하는 오픈소스 문화를 직접 경험할 수 있는 멘토링 프로그램입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fb6164208e6601174467d02f87fff856/21b4d/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 41.77215189873418%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAABUklEQVR42nVQwU7CQBBdKNRSrSFpKZYWt23apbCFlkR60wCJEo0aEw9eDYl4qraGC+GgB0PCDb37rw5d8KDxHWbf7sy+NzNo2PaT0dn9yfFdFAF56Pdvez2sKAghLp/P/QO+WCwWCujm4vxrtXqfzT6Wy9fpNB6PPxeLt/k8SVNRFEECSvNblR8x+AlA2DT9IPBa1A86rufZrmsT0ouiMAwz9QKLDKAllkolYQfI+gqcyeeYyfr8jSyJOI47UFUb467vu5a1vych6I01BjmokGX5CRDHSZK8pOnjZJIkz+zl+vJKLpctjIltHwWdQ13fOLOpgPA83yDE24JknDQabd/vBqFWrYInlJmG4QDZzbYCtpuVbFX+dg7DY8PoUgr+rmUqsoxqigI7sW1YE1FVFdoWBKFSqTiOo+u6pmkQKaX1el2SpFazeToYjIaDgFKjVvsGO3c24xyzEOMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;OSSCA&quot;
+        title=&quot;&quot;
+        src=&quot;/static/fb6164208e6601174467d02f87fff856/f058b/image-2.png&quot;
+        srcset=&quot;/static/fb6164208e6601174467d02f87fff856/c26ae/image-2.png 158w,
+/static/fb6164208e6601174467d02f87fff856/6bdcf/image-2.png 315w,
+/static/fb6164208e6601174467d02f87fff856/f058b/image-2.png 630w,
+/static/fb6164208e6601174467d02f87fff856/40601/image-2.png 945w,
+/static/fb6164208e6601174467d02f87fff856/78612/image-2.png 1260w,
+/static/fb6164208e6601174467d02f87fff856/21b4d/image-2.png 1280w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;
+OSSCA
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;저는 약 13주 간 활동하는 참여형 프로그램의 Node.js 팀 멘티로 참여하고 있어요&lt;br&gt;
+종강하고나서 지원서를 써서, 7월 초쯤 결과가 나오고 발대식이 있었습니다&lt;/p&gt;
+&lt;p&gt;오픈소스 프로젝트에 기여하는 일은 안그래도 막막한데&lt;br&gt;
+Node.js는 그 규모와 생태계가 넘사라서.. 혼자서는 꿈도 못 꿨을 텐데&lt;br&gt;
+멘토님께서 잘 끌어주시고, 멘티님들과 함께하는 덕에 재밌게 활동하고 있습니다&lt;br&gt;
+기여 활동에 대한 내용은 &lt;a href=&quot;https://sungpaks.github.io/contributing-nodejs/&quot;&gt;이미 글을 한 번 썼습니다.&lt;/a&gt; 궁금하시면 봐주셍쇼&lt;/p&gt;
+&lt;p&gt;여기에서 무엇보다도 좋은 점은.. 보고 배울 능력자분들 천지라는 것입니다&lt;br&gt;
+참여가 상대적으로 자율적인 특성이 한 몫 하는지, 현직자분들도 굉장히 많습니다&lt;br&gt;
+학생인 분들도, 대단한 포포몬쓰를 보여주시는 분들이 많아서.. 많이 보고 배우는 중입니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 561px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3bc6e61ccbdd463cfe9600e1bef8c127/410f3/image-4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 96.83544303797468%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAIAAAAf7rriAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEIElEQVR42h2Sa2/aBhSG/Qfabs3WhoC5OXZ84X4ztgEDMTcbjMH4AtgGc0ugtBTSNumqNF2zKmtaqZmabpo67cO2Hzo26eh8Oo+O3kcvkM0UNW2kqLaiWJKky52e3rX6fds0RqYxscxxU1JC4QTPNzXdVDTDNMe1aiOdZtotBcCx6GFRYNlKmmLT6Xw8Rm/vFKV/yNWiUVLTDBjGuLJYKgkNodkQWgLfbHV0We3TTBaYzF/ASJDJlkRJP//xozmch8PJSDR1yJVwIuTcczOZ/PXnP2eLTaXCrzZnQr319Nn602+3bOEQeHv9+8np5c83f128u73+/M/F1e3rd59Ozi6vPnwYjiexOHX+08fzdzevr35Zbl5efvh1uX55tHj85upG1brA6euPm+cXb99/XaxeXb7/Mj1em4Oj8dHjwWgsiBJXqm+enR8vnoztxezo6eb0lWEf1/jmaDqnmBIwGc9VeZBIsDSZOX3xgkwyLsd+JJRi2RJJ5vPZqlRtGprWqSv9tlWrVoIBOhIhs5msHyKBgTFuCqbzIcxQOaWle0DU7wm6QQIP0AE82yh3GjUpnWS0Zt9QRmky54eSfijkdhPIAQO0Gr1qSQYdBwgUDOIxtxOBPLjPQ6RIIUVWpJqiSEaL13vtkdLotUSdCOR8UHIfoRA0A4z7q3xGcO0eeMGQ1xXwuQkviPg9AYriM3RFruuGMrPUuS6NVMng8gICUxhRgODUwz0YmAxO6FTZ5UB97sj/fNDnRiFfCEaYRKygiEa/PTPlo27T1ltGhin5/Uk8UAQ9wTt37wO2sYkGc86HBz532AuGtxt0wB4XihNFMlnSJdOUZ0Z70m+Pt7EZivPBKTRQ8Pqj9+59v4XXfEVBoKjbiftA3L2HJqJMJsOjaDYaYcSarDT62+nUja4ytO0FzfD7MAXB5J4LA7ry1Oo/IhNFcG/rmXA54FiU4or8sFGbK/VcklREs9cadiXb6s826/NKWdsmOsByGJ4HTP2Rpa9Scc7r3KrCdne9d+/sWPXylx+WXy8218+eqGK/1x50m0PbnK9WZ5WK+h+MMiiWA9T2aNB9HAtn3C7cA8L3dxw793fXlvL39as/Lp8/6qlGa6iKhiZaY2uxWJzwvA4j9P5BGsNZQOS7VndJYHG3C3M5oZ0dx7ffPCiSgadT9c1Sr+ZopW4InKSKlm0uZtNls2EgCO3fj6MYC9TKstldYsi2HrjT4Xc5YXAPXNvC2Vw2a/RYrm4xluG2z6ej1Wy26MjDYKhAURxO5IEiyw96S8i3VYU++A70g4TjAWhJmasTnYtg5WSi0+jFwqQsdDXZtIeTclnCMLpQ5FGMAdhcuZDnA0QM8uPxGAX5sGiMMpXm2aQ5VcU6LzEUe1isZKkCV6zaw2mJ49NpVu5osTj9Lx08P47nYVDWAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;어른들 속 나&quot;
+        title=&quot;&quot;
+        src=&quot;/static/3bc6e61ccbdd463cfe9600e1bef8c127/410f3/image-4.png&quot;
+        srcset=&quot;/static/3bc6e61ccbdd463cfe9600e1bef8c127/c26ae/image-4.png 158w,
+/static/3bc6e61ccbdd463cfe9600e1bef8c127/6bdcf/image-4.png 315w,
+/static/3bc6e61ccbdd463cfe9600e1bef8c127/410f3/image-4.png 561w&quot;
+        sizes=&quot;(max-width: 561px) 100vw, 561px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;특히 어느 날에는.. 일정이 되는 분들만 모각코 한번 하자고 모였는데&lt;br&gt;
+어라? 저를 포함해 단 둘만.. 나온 ㅋㅋㅋ 날이 있었습니다&lt;br&gt;
+근데 오히려 너무 재밌었어요&lt;br&gt;
+굉장한 커리어를 갖고 계신.. 대단한 현직자분이셨는데&lt;br&gt;
+단 둘이 몇 시간을 떠들며 인생에 너무 도움 될 이야기를 많이 나누었습니다&lt;br&gt;
+커리어 이야기와 팁도 많이 얘기해 주시고, 자소서와 포트폴리오도 살펴봐주시고, 조언해주시고, ...&lt;br&gt;
+인사이트를 많이 얻었답니다? 시간 가는 줄도 모르게 재밌었구요&lt;br&gt;
+사실 이 회고도 &quot;회고 쓰는거 좋은 것 같다&quot;고 하셔서, 써야지 써야지 하다가 쓰는 것입니다 ㅋㅋㅋ&lt;/p&gt;
+&lt;p&gt;아무튼 앞으로 한 달? 그 정도 남았는데,&lt;br&gt;
+앞으로도 열심히 재밌게 컨트리뷰션 해야겠습니다&lt;/p&gt;
+&lt;h2 id=&quot;부스트캠프-챌린지-과정&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%94%84-%EC%B1%8C%EB%A6%B0%EC%A7%80-%EA%B3%BC%EC%A0%95&quot; aria-label=&quot;부스트캠프 챌린지 과정 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;부스트캠프 챌린지 과정&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://boostcamp.connect.or.kr/&quot;&gt;부스트캠프&lt;/a&gt; 멤버십에 가기 전 단계인, 챌린지 과정을 잠깐 했습니다.&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e23bfa3fa88ba69504295a41f77cf934/6be49/image-6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 58.22784810126582%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsTAAALEwEAmpwYAAACPUlEQVR42j1Qy04bMRT1Y2yP5+nJGzKZyWM8mfDIkAGEGlAhlBCyoQkUqaUSVLBqWbTbdtku+gn9gX5o7dDWOrKur885OveCVCZpv5/2s/T/kWmaZb2j/ODl4f7untQdqZH2/xGkTHqjnRxw27eDmFsuY9Q02TMoo4bNuM25aVJKbL/OLc9kRLUZM0xF5m613gQAEQAghAAbhioAVDdyXS8QpXK54vklyhiEBsQCIA+xCjLr2I6RFYnGpuJjpUWsxL3W/uFF1Bvl+5Prm7fT6Wy5vD6bX13ML4tilA0GxcEZEwnmDWI1ECsH1TZQB1EBzYaKPZtNTyeTq+Xiw/39yeR8eXN3PLl4vbx5d3v36nRydDInzFF8jJG6Pc/TYoiZYYcQmzo+RMqY+JkCLeW0XGBvE1uhHkypeAMazip8zQtqSor0zJhhXjdMQUTmpo+8OTVrY3PthK+d2vGlyL8aTgSed6P9McBWUEuUG0bqsbJAEBAnEvk3f/BkxwsrnHuDj5XDX7Xj3yqaElNqwhXzb2xthSginhpd61nFlg+OfHTkg7f5Rez9FMUPUXzXgfU3RQbXAwJDi6ldp06TuiF11gzmOqLZ2HhTy66q6aK+dbdefFofPTV3PztBCxOHOusablPtpVQNAaQlSBQCVQBaditpZzDubp/LfJbtLYbj99svbuXwnPstQCuQliERCoAEfrUH2t203UlWkB05jLsbUSuMVZ1sdZJhR+60u1kUhXE3a/cGihN3khWy7Z3xHxF/SKK4svuSAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;부스트캠프 웹 모바일&quot;
+        title=&quot;&quot;
+        src=&quot;/static/e23bfa3fa88ba69504295a41f77cf934/f058b/image-6.png&quot;
+        srcset=&quot;/static/e23bfa3fa88ba69504295a41f77cf934/c26ae/image-6.png 158w,
+/static/e23bfa3fa88ba69504295a41f77cf934/6bdcf/image-6.png 315w,
+/static/e23bfa3fa88ba69504295a41f77cf934/f058b/image-6.png 630w,
+/static/e23bfa3fa88ba69504295a41f77cf934/40601/image-6.png 945w,
+/static/e23bfa3fa88ba69504295a41f77cf934/6be49/image-6.png 1160w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;
+저는 웹풀스택으로 참여했습니다
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;챌린지 과정 시작하기 전에, 학습 기록이나 회고를 남기려고 블로그에 &lt;a href=&quot;https://sungpaks.github.io/til/&quot;&gt;TIL 페이지&lt;/a&gt;를 따로 만들기도 했어요&lt;br&gt;
+원래 공부 시작하기 전에 책상정리를 한 번 하듯이 ㅋㅋㅋ&lt;/p&gt;
+&lt;p&gt;근데 이거 시작할 때가 진짜 다른 일도 많고 바쁠 때였어서 굉장히 굉장했습니다&lt;br&gt;
+멋사 해커톤도 슬슬 다가와서 본격적인 개발에 착수해야 했고&lt;br&gt;
+OSSCA 발대식 직후라 Node.js 기여 프로젝트에 참여도 해야 했고&lt;br&gt;
+서류 넣었던거 면접도 겹쳤고.. 등등&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e36e0fc4beea157722da55f8c3deba7e/0b533/image-7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75.31645569620254%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADhUlEQVR42i2P/W8SdxzHv12dyaKurVtmN1y7LG7J0sapP3SZzoaYtG7WWl2Fu4M+WJC2kpTYqgSDttACd9wjx2NLoTwXKAflwLbA3UFdtixxzmyJJv7qH7Df9gcMkiXvfPL54f1K3i9QV7lEmBVhpoK4SipXTcVKMCXClAQREkxUIEdViQoQKsFYQ0U8U1LZm18/efJguvxOz/0NRISpQXRD7YvLZ82ybtd3ow21twbhAuQUYLwGOUUIq8OYBKMNFcXf8gSv9BvuL2mKb/XF10CCGElB1RF/9uz1p199abl04znMChAhtHhC/P/Bm3P2fiYK+hHu4ceLs8M3A7/pmSw4UNIlJSloA4mhuQXl7Mr1hcNxWlCQAtSKCDf51q3e8vD6wb848Lpw5M8YWCWRSWoX0Gu7LrKcsadztu0ons4R6ZIzvatlpNuUAFMC1AxRV7J5hanGyl5Gwe+hI2/SIOc5q7S9ARgZZX3ZBJ3NP42XH8f55ThPZzkdI46TtRZJiQi9P2rLO5LVmlROucQC8UccBGzXtKYXwOHIY87dRLS0lxEPtsVytLLj5zgNJd5uwc3NkorcH6NSS7CYGeN3+Lr4ImXvRUd6N8f6AGViUCPBskmnO0b54xtbOTsdjM6gdQVRg4ia0inCJD++Glu6nLP2pte+bYR7OGvX+vCjKkICEs0StlTYspUwhzPLW8/sqbwtxqlQQeGUEOZQ7WuoAhml0bP4U8SiSq/c4PGetOWDjaHJzMijpvMBipcibCJJhZL4JudNcL54YYpqQN7cmNkvR2znB4xneu+d/lD9/bmBc+cJw2Va03mnA+i6AcBdRU9gLxbifUs6tx5iDXfcBsQHT2MXrs7Ljt39BOhOgZkOMHUUTF04/UP3cft0X8TYNXGiTf9ZO7BZQwyZiYV5emLQMvz5ytUvaGWfY7R/shPMnQLNxkwXMMkvYro5zxqeoNkdR8++u2Nh8NJ053tg1bSOWyLJcGkTpYJ2p395JWgxPZb3aU6Ce7L3NR3gwdC1X1/+8+rtv/md/XLckMSvxNYGi8w3KfMxgDoKmD0VxjdCDl/Y4Y/SsQDm1p/p1p4E85+2TxwHNo28sj2f9RsqXtmhG/DeH0O4vsj0v0o2nTEOs8a3zJF143jEenFj8WHgrkMvO6H9qGnbpu5sDy8erbGgSoNfgm3P10HBPZLP8hkGCVsG/gM7YLPV7n72MwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;바빠요&quot;
+        title=&quot;&quot;
+        src=&quot;/static/e36e0fc4beea157722da55f8c3deba7e/0b533/image-7.png&quot;
+        srcset=&quot;/static/e36e0fc4beea157722da55f8c3deba7e/c26ae/image-7.png 158w,
+/static/e36e0fc4beea157722da55f8c3deba7e/6bdcf/image-7.png 315w,
+/static/e36e0fc4beea157722da55f8c3deba7e/0b533/image-7.png 500w&quot;
+        sizes=&quot;(max-width: 500px) 100vw, 500px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그래도 매일 피어 리뷰도 하고, 좀 막막해보였던 과제들을 갖고 이리저리 굴려보고, 공부하고, 하니까 꽤 좋았습니다&lt;br&gt;
+처음 3일은 아침에 운동도 갔다오고 상쾌하게 시작했는데, 그 후로는 어림도 없었습니다 ㅋㅋㅎ&lt;br&gt;
+특히 매일매일 나오는 과제의 주제들이 재밌는게 많았어서, 도움이 많이 됐습니다&lt;br&gt;
+자세한 후기는.. &lt;a href=&quot;https://sungpaks.github.io/til/%EB%84%A4%EC%9D%B4%EB%B2%84_%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%94%84_1%EC%A3%BC%EC%B0%A8_%ED%9A%8C%EA%B3%A0/&quot;&gt;1주차 회고&lt;/a&gt;, &lt;a href=&quot;https://sungpaks.github.io/til/%EB%84%A4%EC%9D%B4%EB%B2%84_%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%94%84_2%EC%A3%BC%EC%B0%A8_%ED%9A%8C%EA%B3%A0/&quot;&gt;2주차 회고&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;회고가 2주차로 끝인 것은, 사실 2주차까지만 하고 그만뒀습니다&lt;br&gt;
+사실 이 챌린지는 2학기와 딱 겹치는 멤버십 과정에 들어가기 위한 빌드업인데&lt;br&gt;
+2학기에 인턴을 하게 되어서..&lt;br&gt;
+이에 대해서는 밑에서 더 쓰겠습니다&lt;/p&gt;
+&lt;h2 id=&quot;멋쟁이사자처럼-해커톤&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC-%ED%95%B4%EC%BB%A4%ED%86%A4&quot; aria-label=&quot;멋쟁이사자처럼 해커톤 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;멋쟁이사자처럼 해커톤&lt;/h2&gt;
+&lt;p&gt;제가 3월부터 멋쟁이사자처럼이라는 IT동아리에 가입하고 활동중입니다&lt;br&gt;
+이 멋쟁이사자처럼은 각 대학에 지부?가 여기저기 있어요 &lt;em&gt;멋쟁이사자처럼 OO대학교점&lt;/em&gt; 이런식으로&lt;br&gt;
+이 모든 멋쟁이사자처럼 동아리가 모이는 중앙 해커톤이 8월 6~7일에 있었습니다&lt;br&gt;
+1500명이 모였다고 했었나? 아무튼.. 사람이 너무 많으니 같은 멋사라고 해도 친밀감은 전혀 들지 않았습니다 ㅋㅋㅋ ㅜ&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/eaddb2b1bbcb5ed73bc49dee898a049d/493ac/image-8.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75.31645569620254%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEGklEQVR42h2U+0/TVxiH+6csm3NxMXFz3HTIsNwEHSgtUNcLUAFboZXeoP22tKXttxRaoEApRYooF9nQRRfnpmRZtmwadW66uIw4L9uULXGi2Ujmosny7Lifzk/nOZ837/M5ir/+ec7ypZ9YOP41SwuXWDhygezIaaZTZ5kaO00iMkU0eoxgdJqgPI61qx+zM0aHOD1yCp3ZTH55ETnKQjbn56JYf/4v12/9ztixC0ydusTozFkiiSz940sMpE4gBRO4Q2l88iT+SJJD9hBGS5ADVj+dvgTGTjs5JW/zWs5bbMrdiuLB46dcW/mNsZlzpN//irHZCwQHssTTHzKcXkLyx/GGMwRiWXyhYTocIcyuPpEwgk2KYfcG2aVSsbW4iFxlPorVP59x4+4jRmaWmcicIT16glRolGE5gyuQpm94EZt7iDaLSHbIT53BQVubB5srRJNFIhAdomJvHVsKC8ndmSOA68+4+csT+ifPMxlJkfb2cdLTS7LTg1pnFakmMegs1O5tZF9NIzurGtHVNmO3uKkxWOj2x8jbWcqrRXvIq1SjuLf2lIs3V4lOfMxoIMm8X2be7afP1oVKa0EKjNNkOMx7aiMalZGiSj1adQtNmgPkK2swHrTxTuUeXt5awIY3RMI7f/zN9XuPiWU+od+TYFbq5ajTTdhuo0rVhtMziF5vRa9uprbGwPYKLVrVARrrm8WI1VgdPqobdOTsKOXNgkIUP6yuc/XWQ+LZ84RdMY44/cxIAtjtoLzaiOWFIq1OzA1N6GsNFJY1UL+vmVZtG8V7NLikEJpGM8W7a8VSylB8c2eNb4U2k4uf4z4cZsbpZTHsw+1yodylF5pE6Whx0qLS/w8sKtNQJ4DmpnaU7+7HaLJRWr2PTdvzeCVHaHNVAO8/WufoyS9wiE1O2TycTkYIxNOU7jbQ0hHE0tZFVUUdVZX7KS7XUL1bh/2QE63JyeFuP9vKSwQwlw3CRcV3P69x+/5DMvPLuFxxAewiKVQwJZaoaTDRYg1janWjVNaiLFGzQ6mmqqweV7uLRqtEj5ykQt3A5qJ8XtqyBcUNAVy5v8bxU5/h6BllIDEt2pGiwhyhKzxOb2yC9u44LZ0R9CYve3WdaLRWJG+MbnkMqztMc7uT0rp6Xi/chuL7X59wZWWVoakzdPhG8A3NYQuIhM4wocEszp4XvQ0hjxwjFJ+gq0dGiqawBwYJDmVpd8tYPH1oTA425hWguPzjKstXbjP30UVxeRhf/DhO4aNN9DSSnMUXHcPek2AgfYLExIKom0xQPCT1ZQiNzNKfWRQThDHafGws2I7i5JcrnLv2gE8v30WKTeEbnEOSJzjoCCOPzuER/TXZA8QnP2BgfA5Ld4je4Rn8g9NExxcJiI/E3hPH15/F6h3gP2PW5P7zQ13JAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;해커톤&quot;
+        title=&quot;&quot;
+        src=&quot;/static/eaddb2b1bbcb5ed73bc49dee898a049d/f058b/image-8.png&quot;
+        srcset=&quot;/static/eaddb2b1bbcb5ed73bc49dee898a049d/c26ae/image-8.png 158w,
+/static/eaddb2b1bbcb5ed73bc49dee898a049d/6bdcf/image-8.png 315w,
+/static/eaddb2b1bbcb5ed73bc49dee898a049d/f058b/image-8.png 630w,
+/static/eaddb2b1bbcb5ed73bc49dee898a049d/40601/image-8.png 945w,
+/static/eaddb2b1bbcb5ed73bc49dee898a049d/78612/image-8.png 1260w,
+/static/eaddb2b1bbcb5ed73bc49dee898a049d/493ac/image-8.png 4032w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;사실 말이 해커톤이지 한 달을 준비했습니다&lt;br&gt;
+이미 작년에 멋사 해커톤 해본 팀원이 있는데, 당일에는 와이파이가 진짜 안 된다고&lt;br&gt;
+후다닥 해서 배포는 다 하고 가는게 좋다고 해서, 가기 전에 아예 다 완성했습니다&lt;br&gt;
+다른 해커톤들은 진짜 1박2일동안 개발해서 결과를 완성해야 하는 것인지&lt;br&gt;
+그게 가능은 한 것인지..&lt;/p&gt;
+&lt;p&gt;아무튼, &lt;a href=&quot;https://github.com/RunTale/RunTale_FE&quot;&gt;런테일&lt;/a&gt;이라는, 재밌게 러닝을 할 수 있게 하자는 서비스를 개발했어요&lt;br&gt;
+기획 1인, 백엔드 2인, 프론트엔드 2인 총 5인으로 팀이 이루어졌고, 저는 프론트엔드 개발을 담당했습니다&lt;br&gt;
+팀은 더할 나위 없이 좋았어요.&lt;br&gt;
+다른 프론트엔드 팀원은 작년에 기획을 해본 경험이 있어서, 같이 도우면서 하고&lt;br&gt;
+백엔드는 작업 속도도 빠르고, 배포와 CI/CD도 미리 해둬서 작업이 너무 편했습니다&lt;br&gt;
+그 덕분에 해커톤 당일이 되기 전에 프론트엔드까지 배포를 모두 끝내고 당일에는 핫픽스만 했어요&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9ec3392e682ce503355f67ca350f2a91/493ac/image-9.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75.31645569620254%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEF0lEQVR42h2T20/TZxzGf1uyxQ2dJ0BAUTmIAiMVgVYo554o0AO09HyGciggWhkDWkVoKQhFRFGUuDlD4qbG42KyJXNLlpht2cVu3Hazm10tu9jf8NmLF+/N+ybP+zyf7/OVyss/5rs7c7x5fJ0fn9zj16sPmfOPsL62xOvvt1hdDNFtsWDzBEmnHCwkoszMTBCPjSGrklF6sooaZT3KllbqmlVIrSo1ibMBvrgQ5OqQgYhBic/SyaDfzczUILOxUdzuM5z7tJ/Vy17Si6Pc+3yFn14t8NnGMDX1LeiMFgw9Lsx2L1KNopYjJTJCDiOv713ir5dr/PFggfleA8dKyqlSip+bVLSbLPT2hxiM9JFMnufl4ylScyFON2sxWJ1vxbocPqSi4hPk5RfhMqh4eT3KZuIMG/Ehkn1Wht1mGtVtNGg7kTdoqWnQ0aBqp6JGKe41NIi3Fr2JdrMNiyuA2eZBOlp4nNy8fHbtzkR69wMKigqIjocZG+wl2u8lNOpAbXRS29hGq66dJm0bfZEhmrUmTtVpUHd20d7twOIO0qo3IMnLjlNWXMye7IO8814GldUVXF6KspyM8+xmiqtz4wQH4pRXq4hMe1i+Pck///7Obz9vsZAco1lvRm8RkR1+Kk5VI2lOliIvKaAsN4uRXjv+vn4Gx0a4shrjxlqajeULxM96CVjNxOx6lq9d4u8/N/nvTYovN0ep05gxCn5t5h7yjhxGKi4o5EDOIXIP5NJl7MDdF2ByZpr7WzeZiA2TXL/Li9uzrA67uWHvQilYnj3n4unDNC6/l5YOK12CX22zmj379yLt3JvFgUOFTE5PEhkJ0+9xk0ou8erbr8U053n++hfOz04w4DRi6lBTJVjWNAqW7VY0JgcmMVlDj4djpeXs+PB9pIKiEj4JdPBVOsp8NEh/wE967RbfPHvE5u27PPjhFRZnD4nxIewOG/U6E1pTjzh2OqweLJ5eMQwjH+3by8H8PKTKKjmxET/xYQ+XZ6eZiMe4tj7Pxvo10olZUtcXxJZ4ubOygsnuFkI2OoUjoz0gxPpE3CCyagX7MvcgV8iR6ps0uP0hdB1GzGLFOm0+ZuZT3Fq6yN3EFPGBEG1dPvzhi2iMVgw2L2anWEdPGGfvMHrRwcJjRVRWliOTlSFZrMK+Vkft6dNYDG0oWgwkVq5wJRnj6ZPnBHxBEdOIzrwd0S2YbTsL0+MbwBkcolKhFFGzycreR0bGjm2Gx8kQpc7YuQuDVkWVQk3Yp2MxFef+oxdvC9siurYdVS8KbHYGsXrDuIS7jm4ndfX1yOUnhcZucvKPIFWUniA7MxO1SsXjh1tYRaeOFpYRiYaZEkzV7d00itU7N73I0PiMcOkS7vqFYIT6Vi1ZOTkcFtUrkymEmSb+B/KAaZJJ/t5dAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;스플렌더 함&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9ec3392e682ce503355f67ca350f2a91/f058b/image-9.png&quot;
+        srcset=&quot;/static/9ec3392e682ce503355f67ca350f2a91/c26ae/image-9.png 158w,
+/static/9ec3392e682ce503355f67ca350f2a91/6bdcf/image-9.png 315w,
+/static/9ec3392e682ce503355f67ca350f2a91/f058b/image-9.png 630w,
+/static/9ec3392e682ce503355f67ca350f2a91/40601/image-9.png 945w,
+/static/9ec3392e682ce503355f67ca350f2a91/78612/image-9.png 1260w,
+/static/9ec3392e682ce503355f67ca350f2a91/493ac/image-9.png 4032w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/figure&gt;
+&lt;figcaption&gt;
+스플렌더를 해요 ㅋㅋ
+&lt;/figcaption&gt;
+&lt;p&gt;새벽에는 다같이 보드게임이나 했습니다 ㅋㅋㅋㅋ&lt;br&gt;
+재밌게 놀고 왔답니다?&lt;br&gt;
+근데 끝나고 나니 좀 허전?공허? 헛헛? 했어요&lt;br&gt;
+목적의식이 사라진 느낌&lt;/p&gt;
+&lt;p&gt;그래서!&lt;/p&gt;
+&lt;h2 id=&quot;새로운-사이드-프로젝트&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%83%88%EB%A1%9C%EC%9A%B4-%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8&quot; aria-label=&quot;새로운 사이드 프로젝트 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;새로운 사이드 프로젝트&lt;/h2&gt;
+&lt;p&gt;저는 계속 뭔가 할 일이 있어야 안정되는 기분입니다&lt;br&gt;
+Node.js 컨트리뷰션 활동도 있지만, 새로운 뭔가가 필요했고&lt;br&gt;
+마침 지인들과 사이드 프로젝트를 시작하게 됐어요..&lt;br&gt;
+이건 아직 진행 중입니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 407px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7755184a2327608a3a6c5c134d8cb26a/0ff56/image-11.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 73.41772151898735%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAABJ0AAASdAHeZh94AAACgklEQVR42mVUS0tyURT1/zUTHAoNGpbW1FGTcpKKEUGQg3JQoyYSVoKPtLBS0l6SVpZvTU08Pei5vrs2nIt9bTjsez1n77Me+2o5PT3F7e0tisUiCoUCLi8vcXFxIYvPh4eHODs7w/7+vmT9+/X1Na6urnB+fm7m4+NjWFqtFprNJu7u7tDr9cD4+fmRxRgOh+CZfr9v7jFubm7QbrcxGAyk+cvLi9RbGo0GyuUyTk5OwGfG9/e3LMbz87MweHp6Mht+fn4ikUggn89Ls3A4jGq1isfHR1iIjgWxWEya6kYaycfHB0qlkole75M2m1KCeDwuzchCKNfrdWSzWWlIRKMNiaZSqaDT6fxqyBrqxnpmMuCShqScSqUEOnUZLSQyip7L5X7pqC8cvVwQ8ibd4OvrS7I+kEwm4Xa7sba2hmAwKNnv94tRDJ7nWWaGIKRbbPL6+iob7+/vcogaTU9Py9iw6crKCjhiExMTmJmZwdvb2x+0tVoNFopKQUmVs8h33rSxsSGa8pmZxnBOKc/4+Di2trakjuPGRjSX0lhotw6i5CgQ6cHBAbrdrtAm3Z2dHXGVDLxeL1ZXV4U6zWIdUYqGdHDUBLrKzfv7ezGKFKempjA5OQmn0ylzt7y8jM3NTbNOUyYAE+Ho3JE+qfFzW19fx+7urryHQiFEIhEsLS3h4eHhz0cgCIlEI9O3UAuPxwO73Y7Z2Vn4fD4sLCxgfn4eDodD9jQIPR0M+VL+p6xdowkul0tGhe5SQ0pgtVoxNjaGQCBgaqfZydik02ll6KKMfxJzGZOvDPfU0dGRikajyjBD7e3tyfvc3Jyy2WxqcXFRbW9vK9ZnMhllDL4y/m3UPyguKZQZcaQiAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;좀 더 해야해&quot;
+        title=&quot;&quot;
+        src=&quot;/static/7755184a2327608a3a6c5c134d8cb26a/0ff56/image-11.png&quot;
+        srcset=&quot;/static/7755184a2327608a3a6c5c134d8cb26a/c26ae/image-11.png 158w,
+/static/7755184a2327608a3a6c5c134d8cb26a/6bdcf/image-11.png 315w,
+/static/7755184a2327608a3a6c5c134d8cb26a/0ff56/image-11.png 407w&quot;
+        sizes=&quot;(max-width: 407px) 100vw, 407px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;지인이 이번에 프론트엔드로 어엿한 프로젝트를 하나 해보고 싶다고, 백엔드 해줄 생각 없냐고 했었어요&lt;br&gt;
+전 저번 겨울에 스프링을 혼자 공부했던 적이 있어서 다시 더듬더듬어.. 해보기로 했습니다&lt;br&gt;
+그래서 처음엔 제가 로그인 구현 해놓고, 아 해커톤좀 끝나고 하겠수다. 했다가&lt;br&gt;
+서비스 컨셉을 확 바꿔서 새로 시작하게 되었기 때문에&lt;br&gt;
+백엔드 전문인 또 다른 지인이 인증은 구현해줬습니다. 제가 해커톤 때문에 바쁜 동안&lt;br&gt;
+그리고.. 저는 백엔드 새싹이기 때문에 그 백엔드 전문 지인이 제가 짠 코드를 리뷰해주고 있어요&lt;br&gt;
+거인의 어깨에서 쪽쪽 빨아먹고 있답니다. 음하하&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 589px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/547dd77a7b7b3ae28d6524e20309e2fb/b1665/image-12.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 65.18987341772153%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACPklEQVR42qWSOXPTQBTH1cWJD0kraSVZkiXZlnwRJzYFiRNihgxHMjBMWoaBJsAwQ0HLV+CYVHwN+gyoo6CkoKJnhj5OGrD/vF0fQJOCFL95u//dt/supZce4NHNd3hw4y3uXz/CevsWNnauYe3yAJtXd7Ha38Cl3hVpLTdCibkLirr9z16g7PZe4M3jr3j17PPk9dMv6NYOfjhxeBzGzSyqdz7afvXYjxpZWGtmjIeZ5jYyzalnGo8zzXSzojXVVKv6QbXrn5S8ZiBX1JErMCyRrSfpzyCsneRV60xlzqlmlk9Uwx2VmDNSjfJIs4KRZvoj3SJMj2wgNZ0HI8YrpwpdhIAcUSLu7u1je3sIZocweADDroBxH6ZTgemGKFcS8HJEeiARukV7cWYRiqiDgKJAQXdw5/YetrZ2UKB6pO0eqmkHfpxKZ+EgH3Zmn1BNba+6OBOafLCgcxmlanrjTnt1nKRtsUat0UWctOFFCUXsSwfd8qQVGYnobS9eaMIqKrNhUHR5lZMYYLnEsVw06RObasuwUjIlBY06qjuzbpIlnyLZP52enilPDh/i+cvDsR3UYXn191HSPYrS7lm1Sem2+pO4sYZaq4+4sQ43bIg74D7V0ScbJFP8ZKEpm4MBhveGE+YE0Cz/OzXjG/eqvxy6KOBeDfO1qBkTTToHZSnPkFuhlFSLatVEq9sHjYtMk0ZnBq1L0zsFjZ8LjY2N+egYTkgRRZh3/n9Q/t6Uw1TOmYjowg9Ox6Ysu3cRfgMQ51IXEBDAMgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;코드리뷰&quot;
+        title=&quot;&quot;
+        src=&quot;/static/547dd77a7b7b3ae28d6524e20309e2fb/b1665/image-12.png&quot;
+        srcset=&quot;/static/547dd77a7b7b3ae28d6524e20309e2fb/c26ae/image-12.png 158w,
+/static/547dd77a7b7b3ae28d6524e20309e2fb/6bdcf/image-12.png 315w,
+/static/547dd77a7b7b3ae28d6524e20309e2fb/b1665/image-12.png 589w&quot;
+        sizes=&quot;(max-width: 589px) 100vw, 589px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/figure&gt;
+&lt;figcaption&gt;
+Looks Good To Me.
+&lt;/figcaption&gt;
+&lt;p&gt;&lt;del&gt;근데 스프링 말고 Node.js 프레임워크로 할 걸 그랬나&lt;/del&gt;&lt;/p&gt;
+&lt;h2 id=&quot;ict-인턴십&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ict-%EC%9D%B8%ED%84%B4%EC%8B%AD&quot; aria-label=&quot;ict 인턴십 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ICT 인턴십&lt;/h2&gt;
+&lt;p&gt;이제 내일이면 막학기 개강인데&lt;br&gt;
+운이 좋게도 프론트엔드 직무 인턴에 합격했어요&lt;br&gt;
+&lt;a href=&quot;https://www.ictintern.or.kr/main.do&quot;&gt;ICT 인턴십&lt;/a&gt;이라는 것인데.. 기관에서 학생들과 기업을 이어주고 학생한테는 학점도 주고 하는 시스템입니다.&lt;br&gt;
+결과 나왔을 때가 부스트캠프 2주차까지 딱 끝난 상황이었는데&lt;br&gt;
+어차피 부스트캠프 멤버십에 갈 수 있게 되어도 못 가게 되었고, 이미 걷잡을 수 없이 바쁜 김에 그만뒀었습니다&lt;/p&gt;
+&lt;p&gt;그래서 앞으로 당장 내일부터 12월까지, 4개월 간 출근하게 됐습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 241px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7102ed6b961642525ef8d66581e4e433/2f862/image-13.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 86.70886075949367%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAIAAABSJhvpAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEGElEQVR42gENBPL7AObkzeTiy9zaw9fVvdXUuODfxpuail9VRYt3Ym1cT2BUSkhBPCAgICAgIRwcGpqbiP//5fT22fP32u7w0wDk4svg3sfa2MHV07zX1bnEwqx3cWNtX06iinOkjHe8po9zZFcoKCswLzEYGBo3NzLt7NH5+9709tru7dIA4uDJ3t3G2djA0tC2w8GkuLWYlIVtl39qnYhzeGdUd2haZlhMIiIkJCYqKCgsLy8uzs6z/v/h9PTY7ezQAOPgyd/dxdnWvcbEqLOvkqypi5uFbLSTeMKhhrmdg76fh4VxYisoJT42MCcnKjQ0Nd7gxPr63fX02O3s0ADj3cji4cbY2L7BvKGqpYisqYuNeGSdf27Nq5DNqY/LpYuminerjXWlhXISExV8e2/+/N3y8dP089br6s4A5OTL2NO5xr2jtK2RrKyOqaKGjnBgnHtvvqCGyqeLvJp/upd9rZB7ST06XVxR5+XI9vXW8O/S8vHV6+rOALVpYqxXU6FKR5dQSZltXoZHQIZeTbiYfr2cgLqYfbuXfpFzXxcXE3t7au/szu3szu7t0PDv0/Lx1OrpzACqOD2nOTysQUOYOTmUNDWGNDWSc2eLbliohnGphG+3lHqefXKhfHLk68ni48Ph3sDq6Mrt7M7w79Ho58kAqj1AoTo8sUREiTczpkJDmTY4w6Weu6uaso52zKuUycG0yYuMwlRTwI990L+r3dzA4uDB5uXH7ezO5+bJAKI5PI8wMLNDRJw5Opo+Pa44Or6LitXX1drPwvv78NC1vbJDR8VaSsJyQLVgS9i/i9fVvN/fv+XjxuPjxQCaNTiILC2rP0K1QkaHNzWoPTy/c3TT19b6+vrm5d/DglzAcVfEhGXRnnDEi2fEe1jBjXbV1rje3b3d3L4AiiwugysspDo+s0JGjzQ0kTc3sWVl0tTT////vb7Dg3c+4MRs17Ny1bByu4hy1axq6LpW1apt1c2r2Ni7AIUsLIMsK5w3Oqo9QJ06O4wxM4Q/QMTDxe/y8316frOOY8+iaseYZ8uhasSXetWxc+bQcb1wWcuYidDWtgB/KyqFLi6SNDaoOj2dOTqeODpzKy5pZ3Jma3RdSTm8jG7WsnLJoHbPqn3RrW7Ak3bpznC6c1GxbWDMzbEAhC4vhi8wiTIypjs9mTMzqT0/fjEyKCY3JSk+Kig2sqNV7c5ru4pww5dv0qlxxp5w++Rjrlw6kUlJy8msAIkxM4cvMIUwMao+Qp81NqQ6O4U0MzIxQi0yRiYlMJV2POrIZMSRZeHEZ+TFaN63YdihTcJ6QaltZsjLrwCJMTGGMDCDLi+lPUGsPUGdNTiKMzMyLEEkLDw1ISu1gUjRhkjJdkjVik7ZpE60ZTihPzuPLzOVcWTEx60l2T6szKx62wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;내일 근무한다는거 잊지마&quot;
+        title=&quot;&quot;
+        src=&quot;/static/7102ed6b961642525ef8d66581e4e433/2f862/image-13.png&quot;
+        srcset=&quot;/static/7102ed6b961642525ef8d66581e4e433/c26ae/image-13.png 158w,
+/static/7102ed6b961642525ef8d66581e4e433/2f862/image-13.png 241w&quot;
+        sizes=&quot;(max-width: 241px) 100vw, 241px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;학생 때 인턴 해보고 싶었는데 초 럭키~&lt;/p&gt;
+&lt;p&gt;이만 마칩니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Spring Boot CRUD TIL 기록 (2)]]></title><description><![CDATA[! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다. 저번에 한거 PR…]]></description><link>https://sungpaks.github.io/til/spring-boot-crud-refactoring/</link><guid isPermaLink="false">https://sungpaks.github.io/til/spring-boot-crud-refactoring/</guid><pubDate>Thu, 22 Aug 2024 10:29:14 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;https://sungpaks.github.io/til/spring-boot-crud-and-trying-hexagonal-architecture/&quot;&gt;저번에 한거&lt;/a&gt; PR올려서 피드백을 받았는데&lt;br&gt;
