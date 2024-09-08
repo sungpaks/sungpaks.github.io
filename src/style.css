@@ -64,10 +64,7 @@
   --color-light: #ededed;
   --color-lightgreen: rgb(211, 255, 207);
   --color-darkgreen: rgb(0, 57, 0);
-  --default-font-family: Pretendard, -apple-system, BlinkMacSystemFont,
-    system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
-    "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", sans-serif;
+  --default-font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   --font-body: var(--default-font-family);
 }
 
@@ -95,6 +92,7 @@ body {
   word-break: keep-all;
   overflow-wrap: break-word;
 }
+
 body.theme-reverse {
   color: light-dark(var(--color-light), var(--color-text));
   background-color: light-dark(var(--color-dark), white);
@@ -218,7 +216,7 @@ ol li {
   margin-bottom: calc(var(--spacing-8) / 2);
 }
 
-li > p {
+li>p {
   margin-bottom: calc(var(--spacing-8) / 2);
 }
 
@@ -226,7 +224,7 @@ li *:last-child {
   margin-bottom: var(--spacing-0);
 }
 
-li > ul {
+li>ul {
   margin-left: var(--spacing-8);
   margin-top: calc(var(--spacing-8) / 2);
 }
@@ -242,17 +240,18 @@ blockquote {
   margin-bottom: var(--spacing-8);
   border-color: light-dark(black, white);
 }
+
 body.theme-reverse blockquote {
   color: light-dark(var(--color-light), var(--color-text-light));
   border-color: light-dark(white, black);
 }
 
-blockquote > :last-child {
+blockquote> :last-child {
   margin-bottom: var(--spacing-0);
 }
 
-blockquote > ul,
-blockquote > ol {
+blockquote>ul,
+blockquote>ol {
   list-style-position: inside;
 }
 
@@ -273,8 +272,19 @@ a {
   text-decoration: underline;
   color: light-dark(green, var(--color-lightgreen));
 }
+
 body.theme-reverse a {
   color: light-dark(var(--color-lightgreen), green);
+}
+
+h1>a,
+h2>a,
+h3>a,
+h4>a,
+h5>a,
+h6>a {
+  text-decoration: none;
+  color: inherit;
 }
 
 a:hover,
@@ -282,20 +292,11 @@ a:focus {
   font-weight: bold;
 }
 
-h1 > a,
-h2 > a,
-h3 > a,
-h4 > a,
-h5 > a,
-h6 > a {
-  text-decoration: none;
-  color: inherit;
-}
-
 details {
   padding: 0 2rem;
   margin-top: 0;
 }
+
 summary {
   font-size: larger;
   display: block;
@@ -303,11 +304,15 @@ summary {
   font-weight: bold;
   cursor: pointer;
   position: relative;
-  list-style-type: none; /*마커 화살표 없애기*/
+  list-style-type: none;
+  /*마커 화살표 없애기*/
 }
+
 summary::-webkit-details-marker {
-  display: none; /*사파리에서 마커 화살표 없애기*/
+  display: none;
+  /*사파리에서 마커 화살표 없애기*/
 }
+
 summary::before,
 summary::after {
   content: "";
@@ -318,6 +323,7 @@ summary::after {
   left: -2rem;
   top: 2rem;
 }
+
 summary::after {
   transform: rotateZ(90deg);
 }
@@ -325,6 +331,7 @@ summary::after {
 details[open] summary::after {
   display: none;
 }
+
 body.theme-reverse summary::before,
 body.theme-reverse summary::after {
   background-color: light-dark(white, black);
@@ -367,6 +374,15 @@ body.theme-reverse summary::after {
   margin-bottom: var(--spacing-2);
   margin-top: var(--spacing-0);
 }
+
+.post-list-item-title {
+  color: light-dark(black, white);
+}
+
+body.theme-reverse .post-list-item-title {
+  color: light-dark(white, black);
+}
+
 body.theme-reverse h2.post-list-item {
   color: light-dark(white, black);
 }
@@ -397,14 +413,21 @@ body.theme-reverse h2.post-list-item {
 .bio-quote {
   display: block;
 }
+
 .bio-quote p {
   font-style: italic;
-  font-family: "Georgia"; /* 명언에 어울리는 서체 선택 */
-  font-size: var(--fontSize-1); /* 폰트 크기 조절 */
-  font-weight: var(--fontWeight-black); /* 폰트 두께를 중간 정도로 설정 */
-  line-height: 1.6; /* 줄 간격을 편안하게 조절 */
-  color: #6a6868; /* 폰트 색상 설정 */
-  text-align: center; /* 텍스트 중앙 정렬 */
+  font-family: "Georgia";
+  /* 명언에 어울리는 서체 선택 */
+  font-size: var(--fontSize-1);
+  /* 폰트 크기 조절 */
+  font-weight: var(--fontWeight-black);
+  /* 폰트 두께를 중간 정도로 설정 */
+  line-height: 1.6;
+  /* 줄 간격을 편안하게 조절 */
+  color: #6a6868;
+  /* 폰트 색상 설정 */
+  text-align: center;
+  /* 텍스트 중앙 정렬 */
   margin: var(--spacing-0);
 }
 
@@ -445,6 +468,7 @@ body.theme-reverse h2.post-list-item {
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
 }
+
 body.theme-reverse .custom-button {
   color: light-dark(black, white);
 }
@@ -457,25 +481,23 @@ body.theme-reverse .custom-button {
   width: 100%;
   height: 70px;
   border-bottom: 1px solid black;
-  background-color: light-dark(
-    rgba(245, 245, 245, 0.8),
-    var(--color-lightdark-translucent)
-  );
+  background-color: light-dark(rgba(245, 245, 245, 0.8),
+      var(--color-lightdark-translucent));
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-family: "Pretendard";
 }
+
 body.theme-reverse .top-ui {
-  background-color: light-dark(
-    var(--color-lightdark-translucent),
-    rgba(245, 245, 245, 0.8)
-  );
+  background-color: light-dark(var(--color-lightdark-translucent),
+      rgba(245, 245, 245, 0.8));
 }
 
 .top-ui a {
   text-decoration: none;
 }
+
 .top-ui-tag a {
   font-size: larger;
   text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
@@ -486,15 +508,18 @@ body.theme-reverse .top-ui {
   color: light-dark(black, white);
   transition: all 0.5s ease;
 }
+
 body.theme-reverse .top-ui-title a {
   color: light-dark(white, black);
 }
+
 .top-ui-title:hover {
   text-shadow: 2px 2px 2px darkgray;
   transition: all 0.5s ease;
   transform: scale(1.05);
   color: rgba(109, 158, 12);
 }
+
 .top-ui-title:active {
   padding-top: 3px;
   padding-left: 3px;
@@ -504,6 +529,7 @@ body.theme-reverse .top-ui-title a {
   display: flex;
   flex-wrap: wrap;
 }
+
 .tag-button {
   margin: 10px;
   font-size: 13px;
@@ -513,6 +539,7 @@ body.theme-reverse .top-ui-title a {
   border: none;
   z-index: 1;
 }
+
 a.tag-button {
   text-decoration: none;
 }
@@ -521,6 +548,7 @@ body.theme-reverse .tag-button {
   color: light-dark(white, black);
   background-color: light-dark(yellowgreen, rgba(169, 248, 11, 0.5));
 }
+
 .tag-button:after {
   position: absolute;
   content: "";
@@ -535,26 +563,33 @@ body.theme-reverse .tag-button {
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
+
 .tag-button:hover {
   color: #fff;
 }
+
 .tag-button:hover:after {
   left: 0;
   width: 100%;
 }
+
 .tag-button:active {
   top: 2px;
 }
+
 .tag-button.pressed {
   background-color: rgba(109, 158, 12, 0.5);
 }
+
 .post-list-item-title {
   transition: all 0.3s ease;
 }
+
 .post-list-item-title:hover {
   transition: all 0.3s ease;
   text-shadow: 2px 2px 2px darkgray;
 }
+
 .top-ui-tag {
   float: right;
   margin-right: 20px;
@@ -562,15 +597,18 @@ body.theme-reverse .tag-button {
   transition: all 0.5s ease;
   font-weight: var(--fontWeight-bold);
 }
+
 body.theme-reverse .top-ui-tag {
   color: light-dark(--color-light, rgb(88, 88, 88));
 }
+
 .top-ui-tag:hover {
   color: black;
   text-shadow: 2px 2px 2px darkgray;
   transition: all 0.5s ease;
   transform: scale(1.05);
 }
+
 .progress-bar {
   top: calc(70px - 4px);
   z-index: 10;
@@ -586,13 +624,16 @@ body.theme-reverse .top-ui-tag {
     padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
     margin-left: var(--spacing-0);
   }
+
   ul,
   ol {
     list-style-position: inside;
   }
+
   .top-ui {
     height: 60px;
   }
+
   .progress-bar {
     top: calc(60px - 3px);
   }
@@ -601,12 +642,15 @@ body.theme-reverse .top-ui-tag {
 .smaller {
   font-size: smaller;
 }
+
 .x-small {
   font-size: x-small;
 }
+
 .xx-large {
   font-size: xx-large;
 }
+
 .x-large {
   font-size: x-large;
 }
@@ -638,6 +682,7 @@ body.theme-reverse .top-ui-tag {
   color: light-dark(var(--color-darkgreen), var(--color-lightgreen));
   padding-left: 10px;
 }
+
 .toc a:hover {
   font-weight: bolder;
 }
@@ -645,6 +690,7 @@ body.theme-reverse .top-ui-tag {
 body.theme-reverse .toc a {
   color: light-dark(var(--color-lightgreen), var(--color-darkgreen));
 }
+
 .toc ul {
   margin-top: 0;
   padding-top: 0;
@@ -657,6 +703,7 @@ body.theme-reverse .toc a {
   overflow: hidden;
   margin-bottom: 2px;
 }
+
 .toc p {
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -676,6 +723,7 @@ body.theme-reverse .toc a {
     height: auto;
   }
 }
+
 @media (min-width: 85rem) {
   .hamburger {
     display: none;
