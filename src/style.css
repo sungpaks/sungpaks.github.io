@@ -797,3 +797,10 @@ body.theme-reverse .hamburger {
   background-color: light-dark(black, white);
   border-color: light-dark(white, black);
 }
+
+.blog-post > hr {
+  height: 0;
+  border: 0;
+  border-bottom: 2px dashed #eee;
+  background: #999;
+}
