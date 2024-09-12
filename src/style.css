@@ -850,7 +850,7 @@ body.theme-reverse .tab-item {
   font-weight: bolder;
   /* font-size: large; */
   border-bottom-style: solid;
-  transition: 0.5s
+  transition: 0.5s;
 }
 
 body.theme-reverse .tab-item.active {
