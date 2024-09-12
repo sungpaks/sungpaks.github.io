@@ -404,12 +404,19 @@ body.theme-reverse h2.post-list-item {
   display: flex;
   margin-top: var(--spacing-16);
   margin-bottom: var(--spacing-8);
+  width: 100%;
 }
 
+
 .bio p {
-  height: 120px;
+  height: 160px;
+  width: 100%;
   font-weight: var(--fontWeight-normal);
   /* margin-bottom: var(--spacing-16); */
+}
+
+.bio div {
+  width: 100%;
 }
 
 .bio-quote {
@@ -862,3 +869,18 @@ body.theme-reverse .tab-item.active {
 /* body.theme-reverse .tab-item .amount {
   color: black
 } */
+
+a.plane-link {
+  color: light-dark(black, white)
+}
+
+body.theme-reverse a.plane-link {
+  color: light-dark(white, black)
+}
+
+.svg-icon-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

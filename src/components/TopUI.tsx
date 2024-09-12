@@ -113,6 +113,7 @@ function TopUI({ setCurTag }: ComponentProps) {
           </div>
         </div>
       </div>
+      
       <div
         className="progress-bar"
         style={{ width: `${scrollPercent}%` }}
