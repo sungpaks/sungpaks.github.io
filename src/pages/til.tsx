@@ -1,11 +1,13 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { Link, graphql, navigate } from "gatsby"
 import { useState } from "react"
 import { useEffect } from "react"
 import Bio from "../components/Bio"
 import Layout from "../components/Layout"
 import Seo from "../components/seo"
 import { FC } from "react"
+import TilBio from "../components/TilBio"
+import Tab from "../components/Tab"
 
 interface SiteMetadata {
   title: string
@@ -75,7 +77,7 @@ const TodayILearned = ({ data, location }: ComponentProps) => {
   if (posts.length === 0) {
     return (
       <Layout location={location} setCurTag={setCurTag}>
-        <Bio />
+        <TilBio />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -87,15 +89,8 @@ const TodayILearned = ({ data, location }: ComponentProps) => {
 
   return (
     <Layout location={location} setCurTag={setCurTag}>
-      <div className="bio">
-        <p>
-          <br />
-          <strong>Today I Learned</strong>
-          <br />
-          학습 기록&정리인데 블로그 게시글까진 아닌 뒷고기들
-        </p>
-      </div>
-      <hr />
+      <TilBio />
+      <Tab onClickAnother={()=>{navigate('/')}} amount={curPostList.length} curTab={1} />
       <ol style={{ listStyle: `none` }}>
         {curPostList.map(post => {
           const title = post.frontmatter.title || post.fields.slug

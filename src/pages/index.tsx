@@ -1,10 +1,11 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { Link, graphql, navigate } from "gatsby"
 import { useState } from "react"
 import { useEffect } from "react"
 import Bio from "../components/Bio"
 import Layout from "../components/Layout"
 import Seo from "../components/seo"
+import Tab from "../components/Tab"
 
 interface SiteMetadata {
   title: string
@@ -53,6 +54,7 @@ const BlogIndex = ({ data, location }: ComponentProps) => {
   const posts = data.allMarkdownRemark.nodes
   const [curTag, setCurTag] = useState<string>("ALL")
   const [curPostList, setCurPostList] = useState<MarkdownRemarkNode[]>(posts)
+  const [curTab, setCurTab] = useState<Number>(0);
 
   useEffect(() => {
     if (curTag === "ALL") {
@@ -86,7 +88,7 @@ const BlogIndex = ({ data, location }: ComponentProps) => {
   return (
     <Layout location={location} setCurTag={setCurTag}>
       <Bio />
-      <hr />
+      <Tab onClickAnother={()=>{navigate('/til')}} amount={curPostList.length} curTab={0} />
       <ol style={{ listStyle: `none` }}>
         {curPostList.map(post => {
           const title = post.frontmatter.title || post.fields.slug
@@ -144,7 +146,7 @@ const BlogIndex = ({ data, location }: ComponentProps) => {
           )
         })}
       </ol>
-      <hr />
+      <hr className="hr-dotted" />
     </Layout>
   )
 }

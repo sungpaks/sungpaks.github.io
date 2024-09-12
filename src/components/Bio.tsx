@@ -53,9 +53,10 @@ const Bio = () => {
       <div>
         {author?.name && (
           <p>
-            <strong>{author.name}</strong> 이라고 합니다.
+            <strong>@{author.name}</strong> 이라고 합니다. 😎
             <br />
             {author?.summary || null}
+            <br />
             <br />
             <span className="smaller">배움을 노나먹어요</span>
           </p>

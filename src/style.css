@@ -345,10 +345,10 @@ body.theme-reverse summary::after {
   padding: var(--spacing-10) var(--spacing-5);
 }
 
-.global-wrapper[data-is-root-path="true"] .bio {
+/* .global-wrapper[data-is-root-path="true"] .bio {
   margin-top: var(--spacing-20);
   margin-bottom: var(--spacing-20);
-}
+} */
 
 .global-header {
   margin-bottom: var(--spacing-12);
@@ -402,12 +402,14 @@ body.theme-reverse h2.post-list-item {
   font-weight: var(--fontWeight-black);
   font-size: var(--fontSize-3);
   display: flex;
-  margin-bottom: var(--spacing-16);
+  margin-top: var(--spacing-16);
+  margin-bottom: var(--spacing-8);
 }
 
 .bio p {
+  height: 120px;
   font-weight: var(--fontWeight-normal);
-  margin-bottom: var(--spacing-0);
+  /* margin-bottom: var(--spacing-16); */
 }
 
 .bio-quote {
@@ -614,7 +616,7 @@ body.theme-reverse .top-ui-tag {
   z-index: 10;
   position: fixed;
   height: 4px;
-  background-color: rgb(129, 193, 0);
+  background-color: lightgreen
 }
 
 /* Media queries */
@@ -804,3 +806,59 @@ body.theme-reverse .hamburger {
   border-bottom: 2px dashed #eee;
   background: #999;
 }
+
+hr.hr-dotted {
+  height: 0;
+  border: 0;
+  border-bottom: 2px dashed #eee;
+  background: #999;
+}
+
+.tab-container {
+  display: block;
+  width: 100%;
+}
+
+.tab-item {
+  width: 50%;
+  color: light-dark(black, white);
+  flex-grow: 1;
+  border: none;
+  border-bottom: 2px dashed #929292;
+  background-color: transparent;
+  height: 34px;
+  cursor: pointer;
+}
+
+body.theme-reverse .tab-item {
+  color: light-dark(var(--color-lightgreen), black);
+}
+
+.tab-item.active {
+  font-weight: bolder;
+  font-size: large;
+  border-bottom: 3px solid light-dark(black, white);
+}
+.tab-item:hover {
+  font-weight: bolder;
+  /* font-size: large; */
+  border-bottom-style: solid;
+  transition: 0.5s
+}
+
+body.theme-reverse .tab-item.active {
+  border-bottom-color: light-dark(var(--color-lightgreen), black);
+}
+
+.tab-item .amount {
+  margin-left: 1rem;
+  font-size: smaller;
+  background-color: var(--color-lightgreen);
+  padding: 0.2rem 0.8rem;
+  border-radius: 1rem;
+  color: black;
+}
+
+/* body.theme-reverse .tab-item .amount {
+  color: black
+} */

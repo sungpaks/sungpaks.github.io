@@ -95,7 +95,7 @@ function TopUI({ setCurTag }: ComponentProps) {
               <div className="tooltip-text">태그</div>
             </div>
           </div>
-          <div className="top-ui-tag">
+          {/* <div className="top-ui-tag">
             <div className="tooltip">
               <Link to="/til">📝 </Link>
               <div className="tooltip-text">
@@ -104,10 +104,10 @@ function TopUI({ setCurTag }: ComponentProps) {
                 <span className="x-small">Today I Learned</span>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="top-ui-tag">
             <div className="tooltip">
-              <Link to="/visitor-log">💬</Link>
+              <Link to="/visitor-log">📝</Link>
               <div className="tooltip-text">방명록</div>
             </div>
           </div>
