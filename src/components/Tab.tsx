@@ -1,17 +1,22 @@
 import { Link } from "gatsby";
-import React from "react"
+import React from "react";
 
 interface TabPropsType {
-	amount: Number;
-	curTab: Number;
+  amount: Number;
+  curTab: Number;
 }
 
-export default function Tab({ amount, curTab} : TabPropsType) {
-	return (
-		<div className="tab-container">
-			<Link className={curTab === 0 ? "tab-item active" : "tab-item"} to="/">POST {curTab === 0 ? <span className="amount">{`${amount}`}</span> : undefined}</Link>
-			
-			{/* <button 
+export default function Tab({ amount, curTab }: TabPropsType) {
+  return (
+    <div className="tab-container">
+      <Link className={curTab === 0 ? "tab-item active" : "tab-item"} to="/">
+        POST{" "}
+        {curTab === 0 ? (
+          <span className="amount">{`${amount}`}</span>
+        ) : undefined}
+      </Link>
+
+      {/* <button 
 			className={curTab === 0 ? "tab-item active" : "tab-item"}
 			onClick={()=>{
 				if(curTab === 1) onClickAnother();
@@ -19,8 +24,13 @@ export default function Tab({ amount, curTab} : TabPropsType) {
 			>
 				POST {curTab === 0 ? <span className="amount">{`${amount}`}</span> : undefined}
 			</button> */}
-			<Link to="/til" className={curTab === 1 ? "tab-item active" : "tab-item"}>TIL {curTab === 1 ? <span className="amount">{`${amount}`}</span> : undefined}</Link>
-			{/* <button 
+      <Link to="/til" className={curTab === 1 ? "tab-item active" : "tab-item"}>
+        TIL{" "}
+        {curTab === 1 ? (
+          <span className="amount">{`${amount}`}</span>
+        ) : undefined}
+      </Link>
+      {/* <button 
 			className={curTab === 1 ? "tab-item active" : "tab-item"}
 			onClick={()=>{
 				if(curTab === 0) onClickAnother();
@@ -28,6 +38,6 @@ export default function Tab({ amount, curTab} : TabPropsType) {
 			>
 				
 			</button> */}
-		</div>
-	)
+    </div>
+  );
 }

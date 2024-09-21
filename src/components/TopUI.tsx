@@ -1,34 +1,34 @@
-import * as React from "react"
-import { FC } from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import { Link } from "gatsby"
-import { useEffect, useState } from "react"
+import * as React from "react";
+import { FC } from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import { Link } from "gatsby";
+import { useEffect, useState } from "react";
 
 interface ComponentProps {
-  setCurTag?(value: string): void
+  setCurTag?(value: string): void;
 }
 
 function TopUI({ setCurTag }: ComponentProps) {
-  const [scrollPercent, setScrollPercent] = useState(0)
-  const ORIGINAL = "original"
-  const REVERSED = "reversed"
-  const THEME_REVERSE = "theme-reverse"
-  const KEY_THEME = "theme"
-  const [preferDark, setPreferedDark] = useState(false)
-  const LIGHT_MODE = "🌙"
-  const DARK_MODE = "🌙"
-  const [curMode, setCurMode] = useState("")
+  const [scrollPercent, setScrollPercent] = useState(0);
+  const ORIGINAL = "original";
+  const REVERSED = "reversed";
+  const THEME_REVERSE = "theme-reverse";
+  const KEY_THEME = "theme";
+  const [preferDark, setPreferedDark] = useState(false);
+  const LIGHT_MODE = "🌙";
+  const DARK_MODE = "🌙";
+  const [curMode, setCurMode] = useState("");
 
   useEffect(() => {
     document.addEventListener("scroll", () => {
-      const currentScroll: number = document.documentElement.scrollTop
+      const currentScroll: number = document.documentElement.scrollTop;
       const totalScroll: number =
         document.documentElement.scrollHeight -
-        document.documentElement.clientHeight
-      setScrollPercent((currentScroll * 100) / totalScroll)
-    })
+        document.documentElement.clientHeight;
+      setScrollPercent((currentScroll * 100) / totalScroll);
+    });
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setPreferedDark(true)
+      setPreferedDark(true);
     }
     setCurMode(
       preferDark
@@ -38,8 +38,8 @@ function TopUI({ setCurTag }: ComponentProps) {
         : localStorage.getItem(KEY_THEME) === REVERSED
         ? DARK_MODE
         : LIGHT_MODE
-    )
-  }, [])
+    );
+  }, []);
 
   return (
     <div>
@@ -48,7 +48,7 @@ function TopUI({ setCurTag }: ComponentProps) {
           <Link
             to="/"
             onClick={() => {
-              if (setCurTag) setCurTag("ALL")
+              if (setCurTag) setCurTag("ALL");
             }}
           >
             👍 조성개발실록
@@ -60,17 +60,17 @@ function TopUI({ setCurTag }: ComponentProps) {
               <a
                 id="light-or-dark"
                 onClick={() => {
-                  const theme = localStorage.getItem(KEY_THEME)
+                  const theme = localStorage.getItem(KEY_THEME);
                   if (!theme || theme === ORIGINAL) {
-                    document.body.classList.add(THEME_REVERSE)
-                    localStorage.setItem(KEY_THEME, REVERSED)
+                    document.body.classList.add(THEME_REVERSE);
+                    localStorage.setItem(KEY_THEME, REVERSED);
                   } else {
-                    document.body.classList.remove(THEME_REVERSE)
-                    localStorage.setItem(KEY_THEME, ORIGINAL)
+                    document.body.classList.remove(THEME_REVERSE);
+                    localStorage.setItem(KEY_THEME, ORIGINAL);
                   }
                   window.dispatchEvent(
                     new StorageEvent("storage", { key: KEY_THEME })
-                  )
+                  );
                   setCurMode(
                     preferDark
                       ? localStorage.getItem(KEY_THEME) === REVERSED
@@ -79,7 +79,7 @@ function TopUI({ setCurTag }: ComponentProps) {
                       : localStorage.getItem(KEY_THEME) === REVERSED
                       ? DARK_MODE
                       : LIGHT_MODE
-                  )
+                  );
                 }}
               >
                 {curMode}
@@ -113,13 +113,13 @@ function TopUI({ setCurTag }: ComponentProps) {
           </div>
         </div>
       </div>
-      
+
       <div
         className="progress-bar"
         style={{ width: `${scrollPercent}%` }}
       ></div>
     </div>
-  )
+  );
 }
 
-export default TopUI
+export default TopUI;

@@ -1,18 +1,18 @@
-import * as React from "react"
-import { FC } from "react"
-import Layout from "../components/Layout"
-import { Link, graphql } from "gatsby"
-import kebabCase from "lodash.kebabcase"
-import { PageQueryData } from "."
+import * as React from "react";
+import { FC } from "react";
+import Layout from "../components/Layout";
+import { Link, graphql } from "gatsby";
+import kebabCase from "lodash.kebabcase";
+import { PageQueryData } from ".";
 
 interface ComponentProps {
-  data: PageQueryData
-  location: any
+  data: PageQueryData;
+  location: any;
 }
 
 const TagPage = ({ data, location }: ComponentProps) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+  const siteTitle = data.site.siteMetadata?.title || `Title`;
+  const posts = data.allMarkdownRemark.nodes;
 
   return (
     <Layout location={location} setCurTag={undefined}>
@@ -26,8 +26,8 @@ const TagPage = ({ data, location }: ComponentProps) => {
             const buttonScaleStyle = {
               transform: `scale(${1 + (t.totalCount - 1) / 10})`,
               marginRight: `calc(5px + ${t.totalCount * 5}px)`,
-              marginLeft: `calc(5px + ${t.totalCount * 5}px)`,
-            }
+              marginLeft: `calc(5px + ${t.totalCount * 5}px)`
+            };
             return (
               <Link
                 key={t.fieldValue}
@@ -37,15 +37,15 @@ const TagPage = ({ data, location }: ComponentProps) => {
               >
                 {t.fieldValue} ({t.totalCount})
               </Link>
-            )
+            );
           })}
         </div>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default TagPage
+export default TagPage;
 
 export const pageQuery = graphql`
   {
@@ -76,4 +76,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

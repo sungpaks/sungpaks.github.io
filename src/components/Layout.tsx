@@ -1,17 +1,17 @@
-import * as React from "react"
-import TopUI from "./TopUI"
-import { FC } from "react"
-import { useState } from "react"
+import * as React from "react";
+import TopUI from "./TopUI";
+import { FC } from "react";
+import { useState } from "react";
 
 interface ComponentProps {
-  location: any
-  children: any | undefined
-  setCurTag?(value: string): void
+  location: any;
+  children: any | undefined;
+  setCurTag?(value: string): void;
 }
 
 const Layout = ({ location, children, setCurTag }: ComponentProps) => {
-  const rootPath = "/" //`${__PATH_PREFIX__}/`
-  const isRootPath = location?.pathname === rootPath
+  const rootPath = "/"; //`${__PATH_PREFIX__}/`
+  const isRootPath = location?.pathname === rootPath;
 
   return (
     <div>
@@ -26,7 +26,7 @@ const Layout = ({ location, children, setCurTag }: ComponentProps) => {
         </footer>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

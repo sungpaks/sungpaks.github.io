@@ -141,6 +141,7 @@ h6 {
 }
 
 @media (prefers-color-scheme: dark) {
+
   h2,
   h3,
   h4,
@@ -159,6 +160,7 @@ h6 {
 }
 
 @media (prefers-color-scheme: dark) {
+
   body.theme-reverse h2,
   h3,
   h4,
@@ -210,16 +212,16 @@ h6 {
   font-size: var(--fontSize-1);
 }
 
-h1 > a {
+h1>a {
   color: inherit;
   text-decoration: none;
 }
 
-h2 > a,
-h3 > a,
-h4 > a,
-h5 > a,
-h6 > a {
+h2>a,
+h3>a,
+h4>a,
+h5>a,
+h6>a {
   text-decoration: none;
   color: inherit;
 }
@@ -250,7 +252,7 @@ ol li {
   margin-bottom: calc(var(--spacing-8) / 2);
 }
 
-li > p {
+li>p {
   margin-bottom: calc(var(--spacing-8) / 2);
 }
 
@@ -258,7 +260,7 @@ li *:last-child {
   margin-bottom: var(--spacing-0);
 }
 
-li > ul {
+li>ul {
   margin-left: var(--spacing-8);
   margin-top: calc(var(--spacing-8) / 2);
 }
@@ -294,12 +296,12 @@ body.theme-reverse blockquote {
   }
 }
 
-blockquote > :last-child {
+blockquote> :last-child {
   margin-bottom: var(--spacing-0);
 }
 
-blockquote > ul,
-blockquote > ol {
+blockquote>ul,
+blockquote>ol {
   list-style-position: inside;
 }
 
@@ -328,8 +330,8 @@ a:hover {
   text-decoration: underline;
 }
 
-p > code,
-li > code {
+p>code,
+li>code {
   padding: 0.2em 0.4em;
   margin: 0;
   font-size: 85%;
@@ -419,14 +421,21 @@ body.theme-reverse .post-list-item h2 {
 .bio-quote {
   display: block;
 }
+
 .bio-quote p {
   font-style: italic;
-  font-family: "Georgia"; /* 명언에 어울리는 서체 선택 */
-  font-size: var(--fontSize-1); /* 폰트 크기 조절 */
-  font-weight: var(--fontWeight-black); /* 폰트 두께를 중간 정도로 설정 */
-  line-height: 1.6; /* 줄 간격을 편안하게 조절 */
-  color: #6a6868; /* 폰트 색상 설정 */
-  text-align: center; /* 텍스트 중앙 정렬 */
+  font-family: "Georgia";
+  /* 명언에 어울리는 서체 선택 */
+  font-size: var(--fontSize-1);
+  /* 폰트 크기 조절 */
+  font-weight: var(--fontWeight-black);
+  /* 폰트 두께를 중간 정도로 설정 */
+  line-height: 1.6;
+  /* 줄 간격을 편안하게 조절 */
+  color: #6a6868;
+  /* 폰트 색상 설정 */
+  text-align: center;
+  /* 텍스트 중앙 정렬 */
   margin: var(--spacing-0);
 }
 
@@ -687,13 +696,16 @@ body.theme-reverse .top-ui-tag {
     padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
     margin-left: var(--spacing-0);
   }
+
   ul,
   ol {
     list-style-position: inside;
   }
+
   .top-ui {
     height: 60px;
   }
+
   .progress-bar {
     top: calc(60px - 3px);
   }

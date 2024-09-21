@@ -1,78 +1,80 @@
-import * as React from "react"
-import { Link, graphql, navigate } from "gatsby"
-import { useState } from "react"
-import { useEffect } from "react"
-import Bio from "../components/Bio"
-import Layout from "../components/Layout"
-import Seo from "../components/seo"
-import { FC } from "react"
-import TilBio from "../components/TilBio"
-import Tab from "../components/Tab"
+import * as React from "react";
+import { Link, graphql, navigate } from "gatsby";
+import { useState } from "react";
+import { useEffect } from "react";
+import Bio from "../components/Bio";
+import Layout from "../components/Layout";
+import Seo from "../components/seo";
+import { FC } from "react";
+import TilBio from "../components/TilBio";
+import Tab from "../components/Tab";
 
 interface SiteMetadata {
-  title: string
+  title: string;
 }
 
 interface Frontmatter {
-  date: string
-  title: string
-  description: string
-  tag: string[]
+  date: string;
+  title: string;
+  description: string;
+  tag: string[];
 }
 
 interface Fields {
-  slug: string
+  slug: string;
 }
 
 interface MarkdownRemarkNode {
-  excerpt: string
-  fields: Fields
-  frontmatter: Frontmatter
+  excerpt: string;
+  fields: Fields;
+  frontmatter: Frontmatter;
 }
 
 interface TagNode {
-  fieldValue: string
-  totalCount: number
+  fieldValue: string;
+  totalCount: number;
 }
 
 export interface PageQueryData {
   site: {
-    siteMetadata: SiteMetadata
-  }
+    siteMetadata: SiteMetadata;
+  };
   allMarkdownRemark: {
-    nodes: MarkdownRemarkNode[]
-  }
+    nodes: MarkdownRemarkNode[];
+  };
   tags: {
-    group: TagNode[]
-  }
+    group: TagNode[];
+  };
 }
 
 interface ComponentProps {
-  data: PageQueryData
-  location: any
+  data: PageQueryData;
+  location: any;
 }
 
 const TodayILearned = ({ data, location }: ComponentProps) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
-  const [curTag, setCurTag] = useState<string>("ALL")
-  const [curPostList, setCurPostList] = useState<MarkdownRemarkNode[]>(posts)
+  const siteTitle = data.site.siteMetadata?.title || `Title`;
+  const posts = data.allMarkdownRemark.nodes;
+  const [curTag, setCurTag] = useState<string>("ALL");
+  const [curPostList, setCurPostList] = useState<MarkdownRemarkNode[]>(posts);
 
   useEffect(() => {
     if (curTag === "ALL") {
-      setCurPostList([...posts])
+      setCurPostList([...posts]);
     } else {
-      setCurPostList([...posts.filter(p => p.frontmatter.tag.includes(curTag))])
+      setCurPostList([
+        ...posts.filter(p => p.frontmatter.tag.includes(curTag))
+      ]);
     }
-    const tagButtons = document.getElementsByClassName("tag-button")
+    const tagButtons = document.getElementsByClassName("tag-button");
     for (let i = 0; i < tagButtons.length; i++) {
       if (curTag !== "ALL" && tagButtons[i].id === curTag) {
-        tagButtons[i].classList.add("pressed")
+        tagButtons[i].classList.add("pressed");
       } else {
-        tagButtons[i].classList.remove("pressed")
+        tagButtons[i].classList.remove("pressed");
       }
     }
-  }, [curTag])
+  }, [curTag]);
 
   if (posts.length === 0) {
     return (
@@ -84,7 +86,7 @@ const TodayILearned = ({ data, location }: ComponentProps) => {
           gatsby-config.js).
         </p>
       </Layout>
-    )
+    );
   }
 
   return (
@@ -93,7 +95,7 @@ const TodayILearned = ({ data, location }: ComponentProps) => {
       <Tab amount={curPostList.length} curTab={1} />
       <ol style={{ listStyle: `none` }}>
         {curPostList.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
+          const title = post.frontmatter.title || post.fields.slug;
           /*const categories = [
             { fieldValue: ALL_NAME, totalCount: allPosts.length },
             ...data.categories.group,
@@ -125,19 +127,19 @@ const TodayILearned = ({ data, location }: ComponentProps) => {
                       id={c}
                       className="custom-button tag-button"
                       onClick={e => {
-                        setCurTag(c === curTag ? "ALL" : c)
+                        setCurTag(c === curTag ? "ALL" : c);
                         if (c === curTag) {
                         }
                       }}
                     >
                       {c}
                     </button>
-                  )
+                  );
                 })}
                 <section>
                   <p
                     dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
+                      __html: post.frontmatter.description || post.excerpt
                     }}
                     itemProp="description"
                   />
@@ -145,15 +147,15 @@ const TodayILearned = ({ data, location }: ComponentProps) => {
                 <small>{post.frontmatter.date}</small>
               </article>
             </li>
-          )
+          );
         })}
       </ol>
       <hr />
     </Layout>
-  )
-}
+  );
+};
 
-export default TodayILearned
+export default TodayILearned;
 
 /**
  * Head export to define metadata for the page
@@ -162,7 +164,7 @@ export default TodayILearned
  */
 export const Head = () => (
   <Seo title="Today I Learned" description="" children={null} />
-)
+);
 
 export const pageQuery = graphql`
   {
@@ -196,4 +198,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

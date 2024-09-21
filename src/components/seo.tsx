@@ -5,14 +5,14 @@
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
 
-import * as React from "react"
-import { FC } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import * as React from "react";
+import { FC } from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
 interface ComponentProps {
-  description: string
-  title: string
-  children?: any
+  description: string;
+  title: string;
+  children?: any;
 }
 
 const Seo = ({ description, title, children }: ComponentProps) => {
@@ -30,10 +30,10 @@ const Seo = ({ description, title, children }: ComponentProps) => {
         }
       }
     `
-  )
+  );
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const metaDescription = description || site.siteMetadata.description;
+  const defaultTitle = site.siteMetadata?.title;
 
   return (
     <>
@@ -55,7 +55,7 @@ const Seo = ({ description, title, children }: ComponentProps) => {
         content="iP6AmcpYft1WcrX_A3DlYxkWH2bwT-mrYanTBB8vm4k"
       />
     </>
-  )
-}
+  );
+};
 
-export default Seo
+export default Seo;

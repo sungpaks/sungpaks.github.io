@@ -51,6 +51,7 @@ code[class*="language-"] ::selection {
 }
 
 @media print {
+
   code[class*="language-"],
   pre[class*="language-"] {
     text-shadow: none;
@@ -64,18 +65,18 @@ pre[class*="language-"] {
   overflow: auto;
 }
 
-:not(pre) > code[class*="language-"],
+:not(pre)>code[class*="language-"],
 pre[class*="language-"] {
   background: light-dark(#f5f2f0, black);
 }
 
-body.theme-reverse :not(pre) > code[class*="language-"],
+body.theme-reverse :not(pre)>code[class*="language-"],
 body.theme-reverse pre[class*="language-"] {
   background: light-dark(black, #f5f2f0);
 }
 
 /* Inline code */
-:not(pre) > code[class*="language-"] {
+:not(pre)>code[class*="language-"] {
   padding: 0.1em;
   border-radius: 0.3em;
   white-space: normal;
@@ -199,6 +200,7 @@ body.theme-reverse .token.class-name {
 .token.bold {
   font-weight: bold;
 }
+
 .token.italic {
   font-style: italic;
 }

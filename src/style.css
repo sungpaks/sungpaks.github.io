@@ -807,7 +807,7 @@ body.theme-reverse .hamburger {
   border-color: light-dark(white, black);
 }
 
-.blog-post > hr {
+.blog-post>hr {
   height: 0;
   border: 0;
   border-bottom: 2px dashed #eee;
@@ -838,6 +838,7 @@ hr.hr-dotted {
   line-height: 30px;
   cursor: pointer;
 }
+
 a.tab-item {
   text-decoration: none;
   text-align: center;
@@ -852,6 +853,7 @@ body.theme-reverse .tab-item {
   font-size: large;
   border-bottom: 3px solid light-dark(black, white);
 }
+
 .tab-item:hover {
   font-weight: bolder;
   /* font-size: large; */
