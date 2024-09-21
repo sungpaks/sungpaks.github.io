@@ -834,7 +834,8 @@ hr.hr-dotted {
   border: none;
   border-bottom: 2px dashed #929292;
   background-color: transparent;
-  height: 34px;
+  height: 35px;
+  line-height: 30px;
   cursor: pointer;
 }
 a.tab-item {
