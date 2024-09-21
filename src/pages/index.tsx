@@ -88,7 +88,7 @@ const BlogIndex = ({ data, location }: ComponentProps) => {
   return (
     <Layout location={location} setCurTag={setCurTag}>
       <Bio />
-      <Tab onClickAnother={()=>{navigate('/til')}} amount={curPostList.length} curTab={0} />
+      <Tab amount={curPostList.length} curTab={0} />
       <ol style={{ listStyle: `none` }}>
         {curPostList.map(post => {
           const title = post.frontmatter.title || post.fields.slug

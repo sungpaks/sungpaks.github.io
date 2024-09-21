@@ -2,12 +2,11 @@ import { Link } from "gatsby";
 import React from "react"
 
 interface TabPropsType {
-	onClickAnother: Function;
 	amount: Number;
 	curTab: Number;
 }
 
-export default function Tab({ onClickAnother, amount, curTab} : TabPropsType) {
+export default function Tab({ amount, curTab} : TabPropsType) {
 	return (
 		<div className="tab-container">
 			<Link className={curTab === 0 ? "tab-item active" : "tab-item"} to="/">POST {curTab === 0 ? <span className="amount">{`${amount}`}</span> : undefined}</Link>

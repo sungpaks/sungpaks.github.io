@@ -90,7 +90,7 @@ const TodayILearned = ({ data, location }: ComponentProps) => {
   return (
     <Layout location={location} setCurTag={setCurTag}>
       <TilBio />
-      <Tab onClickAnother={()=>{navigate('/')}} amount={curPostList.length} curTab={1} />
+      <Tab amount={curPostList.length} curTab={1} />
       <ol style={{ listStyle: `none` }}>
         {curPostList.map(post => {
           const title = post.frontmatter.title || post.fields.slug
