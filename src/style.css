@@ -827,6 +827,7 @@ hr.hr-dotted {
 }
 
 .tab-item {
+  display: inline-block;
   width: 50%;
   color: light-dark(black, white);
   flex-grow: 1;
@@ -835,6 +836,10 @@ hr.hr-dotted {
   background-color: transparent;
   height: 34px;
   cursor: pointer;
+}
+a.tab-item {
+  text-decoration: none;
+  text-align: center;
 }
 
 body.theme-reverse .tab-item {
