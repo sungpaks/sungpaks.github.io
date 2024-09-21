@@ -309,7 +309,7 @@ IDE가 Node.js환경인 줄 알고 자꾸 "이거 Timeout객체 타입인데요?
 나머지는 딱히 새로울 것도 없네요  
 이렇게 하고, `handleInputChange`를 가져다 input 요소에 등록합니다.
 
-![결과](gif-image.gif)
+![결과](https://github.com/sungpaks/sungpaks.github.io/blob/master/content/blog/render-props-and-dynamic-key-and-debouncing/gif-image.gif?raw=true)
 
 좋네요.
 
