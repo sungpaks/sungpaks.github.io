@@ -246,9 +246,13 @@ export default function Accordion({ children, className }) {
 이제 `<AccordionItem>`이 무조건 `<Accordion>`의 하위가 되게 그룹화하는 방법이 있는데  
 AccordionItem 컴포넌트를 export하지 않고, Accordion 컴포넌트의 구현부에 위치하게 합니다.  
 그런 다음, 단순히  
-`Accordion.Item = AccordionItem` 이렇게 프로퍼티로 등록해버립니다!!
+**`Accordion.Item = AccordionItem` 이렇게 프로퍼티로 등록**해버립니다!!
 
 그럼 사용할 때는, AccordionItem을 import할 필요도 없이,  
 `<Accordion.Item>`으로 서브 컴포넌트를 갖다쓸 수 있습니다.  
 마치 `<Context.Provider>`처럼요  
 이렇게 하면 더 명시적으로 *메인과 서브 컴포넌트*를 합섭 컴포넌트로서 그룹화해버릴 수 있습니다.
+
+---
+
+끗. 여기까지 하겠습니다. 
