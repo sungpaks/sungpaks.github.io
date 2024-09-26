@@ -886,6 +886,12 @@ body.theme-reverse a.plane-link {
   color: light-dark(white, black)
 }
 
+p.svg-icon-container {
+  height: 0;
+  margin-top: -2rem;
+  margin-bottom: 0.5rem;
+}
+
 .svg-icon-container {
   width: 100%;
   display: flex;
