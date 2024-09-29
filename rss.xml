@@ -1,4 +1,277 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 26 Sep 2024 14:06:08 GMT</lastBuildDate><item><title><![CDATA[🔍 리액트 검색창 구현 : Render Props + 동적 key 설정 + Debouncing]]></title><description><![CDATA[이번 시간에는 Render Props에 대해 알아보고 key를 동적으로 넣는 방법도 알아보고 Debouncing으로 사용자 경험을 높이는 법도 알아봅시다. 그리고 이 세 트리오를 짬뽕해서 검색창 구현해보려구요. 실제 구현할 때는 TypeScript…]]></description><link>https://sungpaks.github.io/render-props-and-dynamic-key-and-debouncing/</link><guid isPermaLink="false">https://sungpaks.github.io/render-props-and-dynamic-key-and-debouncing/</guid><pubDate>Sat, 21 Sep 2024 21:11:25 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 29 Sep 2024 07:01:24 GMT</lastBuildDate><item><title><![CDATA[Redux.]]></title><description><![CDATA[! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다. Redux…]]></description><link>https://sungpaks.github.io/til/introducing-redux/</link><guid isPermaLink="false">https://sungpaks.github.io/til/introducing-redux/</guid><pubDate>Sun, 29 Sep 2024 14:19:40 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://redux.js.org/&quot;&gt;Redux&lt;/a&gt;는 &lt;strong&gt;크로스 컴포넌트 또는 앱 와이드 상태를 위한 상태관리&lt;/strong&gt; 시스템인데요&lt;br&gt;
+리액트의 상태관리 라이브러리 하면 먼저 떠오르는 터줏대감? 대명사? 머 그런 느낌입니다&lt;br&gt;
+저한테는요&lt;/p&gt;
+&lt;h1 id=&quot;redux-vs-context&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#redux-vs-context&quot; aria-label=&quot;redux vs context permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Redux VS. Context&lt;/h1&gt;
+&lt;p&gt;근데 우리는 이미 Context API라는 리액트 기본 내장 기능으로 크로스 컴포넌트나 전역 상태관리를 도달할 수 있지 않나요?&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4d9bf91171ec9974927cf8e8e1981dd3/e548f/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 22.78481012658228%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA8ElEQVR42l2OW3OCUAyEee14AUUEDveCHAEVrUottDKt7f//SducjFqnD9/MJtkkq4VlAi/OsVzvkeQruEEGES3ghhls/xmTuf+H5d21QdqYCdZ+LNlvOiE0yxcIEontoUVVHyFXL8jLLWS1Y7Llhh+lco1FUSOlWsFz8hYUpNwceO5QAO1pYCLOKnT9D2o6ejydmabt8dp9ov24oHnrsW/e0Z4vOHVf5P3mnqTHBR1N6aGpklNibWTYEJ6PIIgRUWRbRDBMF/rUYZR+rHXSanFkzDEYz5ihbnGt5tp4YpPBZabKfF1W/Ru3+rF/f/CPX5V7iIwTu9ryAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;컨텍스트 성능이슈&quot;
+        title=&quot;&quot;
+        src=&quot;/static/4d9bf91171ec9974927cf8e8e1981dd3/f058b/image.png&quot;
+        srcset=&quot;/static/4d9bf91171ec9974927cf8e8e1981dd3/c26ae/image.png 158w,
+/static/4d9bf91171ec9974927cf8e8e1981dd3/6bdcf/image.png 315w,
+/static/4d9bf91171ec9974927cf8e8e1981dd3/f058b/image.png 630w,
+/static/4d9bf91171ec9974927cf8e8e1981dd3/40601/image.png 945w,
+/static/4d9bf91171ec9974927cf8e8e1981dd3/e548f/image.png 975w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;2018년쯤에 새로 context가 나왔을 때 콜라보레이터의 이러한 공식멘트가 있었습니다&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;데이터가 자주 변경되는 경우에는 성능에 좋지 않고, 컨텍스트로는 유동적인 상태 확산을 대체할 수 없다&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;라는 언급인데요&lt;br&gt;
+꽤 시간이 지난 언급이라서 변화가 있었을 수도 있긴합니다&lt;/p&gt;
+&lt;p&gt;이외에도 컨텍스트만으로는 프로젝트의 규모가 커지고 커지면 설정과 괸락 복잡해질 수 있는데&lt;br&gt;
+리덕스같은 상태관리 툴은 간단히 유동적인 상태 확산 기능을 제공합니다&lt;/p&gt;
+&lt;h1 id=&quot;redux의-방식&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#redux%EC%9D%98-%EB%B0%A9%EC%8B%9D&quot; aria-label=&quot;redux의 방식 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Redux의 방식&lt;/h1&gt;
+&lt;p&gt;Redux는 사실상 하나의 &lt;strong&gt;중앙 데이터 저장소&lt;/strong&gt;입니다&lt;br&gt;
+단일한 중앙 데이터 저장소에 모든 state가 저장되고, 이를 redux 내부에서 관리합니다&lt;/p&gt;
+&lt;p&gt;컴포넌트에서는 이것을 꺼내서 쓰기만 하면 돼요.&lt;br&gt;
+마치 &lt;strong&gt;구독&lt;/strong&gt;하듯이 사용하는 것인데&lt;br&gt;
+구독이라는 말처럼 수정은 &lt;strong&gt;절대 직접 수정하지 않습니다&lt;/strong&gt;&lt;br&gt;
+즉 데이터는 절대 반대 방향으로 흐르지 않는 다는 것입니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 407px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1e60c04b67db7ccaecba181b294e1c2f/0ff56/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 103.79746835443038%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAIAAADJt1n/AAAACXBIWXMAAAsTAAALEwEAmpwYAAACL0lEQVR42o1S27KiMBDk///C963a1/0NRVEQVO4JCISLIEnAbciuZ+ucnKqdSg2TyXRPZ4gh73dByMTYVNeyLGVRTFX1ZwtfVTLLRBS9dGaIOMZHBAF3XRGGIk2RQTVi7vugXk6TZOZcB46ieRwlpdxx+OWCtWgB+HZbwFk2CwE6eA0Y8gSlAMg8B4UkJLMsniSALcmiQF6AYp4VQAXzasZXviiK5DQtFar6HczzNE0KpgJD5d4LW8/z9qZpn06Obfu+HwSB57onbB0HR8fjMU1Ty7KSJDHeepSN47jb7TjnUkrlYUgyxp7PJ67f9z3yiOENnBVFQQgBE7xt25vNJs/z+2o4yrKsbVv9rwIGrKDsuq5pmqqqyrJkqyGDDmgLwQj0YAgA9+PxqP8aYNiiLQIUIQPG96g/wJgtWN11JLgtxoORmKYZhuF2uz0cDpAAIj0Y1RD2+sZUNWaBG2nAkIQmmAqlFP8AHhLiOIYi5OGT1fQDW56uEHw1SMDwIR4BngFi5T81/AD/e6Di8/msZjYMAwYJ/92ljPUBzmrhiWGLH4P52Y59vV0P1gF3UTV68Cfbm3s8o9d/mDFKzp71vS9pl6dtRvv7j18/98GR9nnSEtJlRV+iQExS90g6Wg2s5V0xlB7zb3V4KYMrC5zykuLoWXf8EbVpMVRfxRtBEytW+LglXuW71S1sEgSky1VRM7blwDRgCE5aijr0SbssalLQ+XWEhf5YYMR6cM0UfgPv9bLC3Jq9EgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Redux 구조도 1&quot;
+        title=&quot;&quot;
+        src=&quot;/static/1e60c04b67db7ccaecba181b294e1c2f/0ff56/image-1.png&quot;
+        srcset=&quot;/static/1e60c04b67db7ccaecba181b294e1c2f/c26ae/image-1.png 158w,
+/static/1e60c04b67db7ccaecba181b294e1c2f/6bdcf/image-1.png 315w,
+/static/1e60c04b67db7ccaecba181b294e1c2f/0ff56/image-1.png 407w&quot;
+        sizes=&quot;(max-width: 407px) 100vw, 407px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;대신에 데이터의 변경을 담당하는 함수인 &lt;strong&gt;Reducer&lt;/strong&gt;를 사용합니다&lt;br&gt;
+이 Reducer라고 함은 리액트 훅인 &lt;code class=&quot;language-text&quot;&gt;useReducer()&lt;/code&gt;와는 다른&lt;br&gt;
+자바스크립트 reduce처럼 좀 더 일반적인 프로그래밍 개념에서 나온 것인데&lt;br&gt;
+라고는 하지만 사실 useReducer랑 좀 비슷하게 생긴 것 같기도..&lt;/p&gt;
+&lt;p&gt;여기서 한 가지 개념이 더 들어오는데 &lt;strong&gt;Action&lt;/strong&gt;이라는 것입니다&lt;br&gt;
+컴포넌트는 이 Action만을 알고 Action을 트리거합니다&lt;br&gt;
+약간 이벤트리스너와 이미터같죠?&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e6164cb4cd7b9113e18f5375b8519382/91e7e/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 60.75949367088608%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsTAAALEwEAmpwYAAABjElEQVR42m2S6Y7iMBCEef+nG2mk+YUIbCDBdhLfV+Jji5jVZkbTQqJ9fF3d5ZxqrSEEY4yUUmvtvcdSKsnuU5SbHp2bA36GuiCj5zGnXGppcQIMZhzH2+1GKVVKYUkpeXQDYH7V/Kb005mHj2Jb9ZZTqf8CcGl82rZ6iJJLiqnm6oyjhGmpjTJaGWut2cM5d4I6rlLG1nWte6VyCOwIwa/XTkiBWYQQ8zwve6DHU3FzDQsn3aqG4liJuimjsOACN87n8+Vycc5DjXPeKr7bLn5+CdpnDuKV+LnkhKT5N00TAKghwU7rFqc555dhGWqbz/pPts9X4mgpGcdoDBghBBjZA3ZiJ8Z4UF5tLWGZCBv7mn1ZXTuABRBJKaEKlJEAa7IHeJ9hmmZtzO7ye6TmHBK0OgwDrEKNlPMvMMo3t/8/FR5rv4pR730fQ8Qj5R9w+8NH0nUdjpsZQFVQMurR0s/h66P/7FSP5eJFSPEbDHGUx2CMMViCnC+8p3e/BRHUQ4+DJb0azGpV1Ef4L+zTtDhjTNi7AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Redux 구조도 2&quot;
+        title=&quot;&quot;
+        src=&quot;/static/e6164cb4cd7b9113e18f5375b8519382/f058b/image-2.png&quot;
+        srcset=&quot;/static/e6164cb4cd7b9113e18f5375b8519382/c26ae/image-2.png 158w,
+/static/e6164cb4cd7b9113e18f5375b8519382/6bdcf/image-2.png 315w,
+/static/e6164cb4cd7b9113e18f5375b8519382/f058b/image-2.png 630w,
+/static/e6164cb4cd7b9113e18f5375b8519382/91e7e/image-2.png 692w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;컴포넌트가 action을 트리거하여 발송하면, 이는 Reducer Function에 전달됩니다&lt;br&gt;
+그럼 Reducer는 미리 정의된 작업을 진행하고, 이 작업은 Central Data Store의 상태값을 바꿉니다.&lt;br&gt;
+상태값이 바뀌면 컴포넌트가 영향을 받는, 그런 순환이 그려지겠죠?&lt;/p&gt;
+&lt;h1 id=&quot;redux-사용해보기-vanila-js에서&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#redux-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0-vanila-js%EC%97%90%EC%84%9C&quot; aria-label=&quot;redux 사용해보기 vanila js에서 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Redux 사용해보기 (Vanila JS에서)&lt;/h1&gt;
+&lt;p&gt;사실 Redux는 리액트에서만 쓸 수 있는게 아니라&lt;br&gt;
+JavaScript에서는 어디서든 쓸 수 있어요&lt;/p&gt;
+&lt;p&gt;Count를 관리하는 간단한 예제를 만들어보려면&lt;br&gt;
+먼저 &lt;code class=&quot;language-text&quot;&gt;const redux = require(&apos;redux&apos;);&lt;/code&gt; 와 같이 import하고&lt;/p&gt;
+&lt;h2 id=&quot;reducer를-만들어요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#reducer%EB%A5%BC-%EB%A7%8C%EB%93%A4%EC%96%B4%EC%9A%94&quot; aria-label=&quot;reducer를 만들어요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Reducer를 만들어요&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;counterReducer&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;state&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; action&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token literal-property property&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; state&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;counter &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Reducer 함수는 &lt;code class=&quot;language-text&quot;&gt;(&quot;이전의 상태&quot;, &quot;발송된 action&quot;) =&gt; 새로운 상태 객체 리턴&lt;/code&gt; 이런 구조를 갖는 &lt;strong&gt;순수함수&lt;/strong&gt;입니다.&lt;/p&gt;
+&lt;p&gt;여기서 잠깐, 순수함수란..&lt;br&gt;
+input이 같으면 항상 output이 동일한, side-effect가 없는 함수입니다&lt;br&gt;
+이는 곧 외부와의 소통이 없다는 뜻인데&lt;br&gt;
+http 요청, localStorage에서 뭐 가져오기, 아니면 하다못해 함수블록 바깥의 값을 가져다 쓰기, ... 이런 것을 일절 하지 않는다는 뜻입니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 242px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e664e4c40685171394fb1eb20b6e978d/a1a85/image-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 123.41772151898734%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAZCAIAAAC+dZmEAAAACXBIWXMAAAsTAAALEwEAmpwYAAAByElEQVR42pWUWW+CQBSF5///F1808VGfNBq3uFapCxqD+waxRRHsV6adgpo6ngQy93LP3GXOIK5xBEFw1YZQhOVyWalUMpmM53kvk0ejkWEYi8XC9/0XyIo/mUz00/6Rj8fj+XxOJBKr1UrydZoXssjxeEzZNDwYDCzL0iETIHhc1yVzoVDA1Ww2t9vt6XT6CPH5CzdE1CSrIGG73e52u4waF2an08HE2Wg03kJgvofo9XqYLOr1OsUKIsijPyTZDtWRQ9RqNcrApowgjnuPdBK8Xq9pUNCqJKuNo0HKvMkMmcpjZOr3QsiIhwN/TN7v96lUqlqt4rVCMKdsNovfNE1Mvqrt6JmJimKxKMmIBIWVy2Xmic5ns9l8Pi+VSgj2cDg4joN4VX7IrVZLEM0J3TT8dNq73Y4cgjrVtMHlcvEjiJqShkeSOW1Bhyqz/jnTSL/fF2zAYJA0LVGJEQF+JMViOByyJidzQRs4kSPv74vhhLBtm/3sO/AJvzwUkEwmESZls5HQKZLMm80GDgc2nU5J/nOrdPpEErzT6TR3lgW3LfYz+B9SqowWPStTlyx/Nfl8ngv74Df0FMg+l8txKFHNi+sruBHfFwYVmZLFiplHAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;함수상자&quot;
+        title=&quot;&quot;
+        src=&quot;/static/e664e4c40685171394fb1eb20b6e978d/a1a85/image-3.png&quot;
+        srcset=&quot;/static/e664e4c40685171394fb1eb20b6e978d/c26ae/image-3.png 158w,
+/static/e664e4c40685171394fb1eb20b6e978d/a1a85/image-3.png 242w&quot;
+        sizes=&quot;(max-width: 242px) 100vw, 242px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이런 함수상자를 만들겠다는 뜻입니다.&lt;br&gt;
+우리의 경우에는 &lt;code class=&quot;language-text&quot;&gt;f(x) = x+1&lt;/code&gt; 처럼 만든거겠죠?
+입력값 외에 영향을 받거나 주는 요인은 단 하나도 없습니다&lt;/p&gt;
+&lt;h2 id=&quot;store를-만들어요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#store%EB%A5%BC-%EB%A7%8C%EB%93%A4%EC%96%B4%EC%9A%94&quot; aria-label=&quot;store를 만들어요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;store를 만들어요&lt;/h2&gt;
+&lt;p&gt;이제 이 &lt;code class=&quot;language-text&quot;&gt;counterReducer&lt;/code&gt;를 넣어서 저장소를 생성하겠습니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;const store = redux.createStore(counterReducer);&lt;/code&gt;처럼 해주시면&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;counterReducer&lt;/code&gt;를 리듀서함수로 가지는 store를 생성한 거십니다&lt;/p&gt;
+&lt;p&gt;이 때, 주의할 점은 &lt;code class=&quot;language-text&quot;&gt;createStore&lt;/code&gt; 타이밍에 &lt;code class=&quot;language-text&quot;&gt;counterReducer&lt;/code&gt;가 한 번 실행된다는 점입니다&lt;br&gt;
+그럼 초기값이 0인 count였다면 createStore 직후에 count값은 1이겠죠?&lt;/p&gt;
+&lt;h2 id=&quot;subscriber를-만들고-등록해요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#subscriber%EB%A5%BC-%EB%A7%8C%EB%93%A4%EA%B3%A0-%EB%93%B1%EB%A1%9D%ED%95%B4%EC%9A%94&quot; aria-label=&quot;subscriber를 만들고 등록해요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;subscriber를 만들고 등록해요&lt;/h2&gt;
+&lt;p&gt;이제 store의 count값을 구독해볼건데&lt;br&gt;
+마치 이벤트리스너를 등록하듯이, subscriber 콜백함수를 만들고 이를 등록합니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;counterSubscriber&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// 구독함수를 작성하고&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; latestState &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; store&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;latestState&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+store&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;counterSubscriber&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 구독. (직접 실행 X)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;저는 &lt;code class=&quot;language-text&quot;&gt;store.getState()&lt;/code&gt;로 상태값을 가져오고,&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;console.log&lt;/code&gt;로 이를 콘솔에 출력하는 간단한 subscriber함수를 만들어서&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;store.subscribe()&lt;/code&gt;로 구독해줬습니다&lt;/p&gt;
+&lt;h2 id=&quot;action을-발행해요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#action%EC%9D%84-%EB%B0%9C%ED%96%89%ED%95%B4%EC%9A%94&quot; aria-label=&quot;action을 발행해요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;action을 발행해요&lt;/h2&gt;
+&lt;p&gt;이제 상태값을 변경하고 싶으면, action을 dispatch합니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;store.dispatch({type: &quot;increment&quot;})&lt;/code&gt; 이렇게 action객체를 전달합니다.&lt;/p&gt;
+&lt;p&gt;사실 지금 만든 &lt;code class=&quot;language-text&quot;&gt;counterReducer&lt;/code&gt;같은 경우에는 객체에 어떤 값이 있든간에 counter값을 1 증가시키지만&lt;br&gt;
+action 객체에 &lt;code class=&quot;language-text&quot;&gt;type&lt;/code&gt;같은 프로퍼티를 넣어서 전달하고, reducer에서 이를 확인해서&lt;br&gt;
+counter값을 감소시킬건지 증가시킬건지, 그런 동작을 정의해볼 수도 있겠죠?&lt;/p&gt;
+&lt;p&gt;이제 대충 Redux를 어떻게 쓰는지 알아봤으니, React에서 이를 이용하는 법을 알아봅시다&lt;/p&gt;
+&lt;h1 id=&quot;redux-사용하기-react에서&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#redux-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-react%EC%97%90%EC%84%9C&quot; aria-label=&quot;redux 사용하기 react에서 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Redux 사용하기 (React에서)&lt;/h1&gt;
+&lt;p&gt;react-redux 패키지를 사용하여 react환경에서 redux를 사용할 수 있습니다&lt;/p&gt;
+&lt;p&gt;아까 &lt;code class=&quot;language-text&quot;&gt;createStore()&lt;/code&gt;로 생성한 store 있죠?&lt;br&gt;
+이 중앙집권저장소를 모든 컴포넌트에 제공해야겠어요&lt;br&gt;
+필요할 경우 갖다 쓸 수 있게&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;root&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Provider&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;store&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;store&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;App&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Provider&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이런 식으로 감싸주겠죠? Context의 Provider로 그랬듯이&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;store&lt;/code&gt;는 따로 &lt;code class=&quot;language-text&quot;&gt;store.js&lt;/code&gt;처럼 다른 어딘가에 분리하여 저장해놓고 export해서&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;&amp;lt;Provider&gt;&amp;lt;/Provider&gt;&lt;/code&gt;에서 제공할 때 이를 import하여 store props로 전달하면 좋겠습니다&lt;/p&gt;
+&lt;h2 id=&quot;컴포넌트에서-store에서-상태값-꺼내먹기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%97%90%EC%84%9C-store%EC%97%90%EC%84%9C-%EC%83%81%ED%83%9C%EA%B0%92-%EA%BA%BC%EB%82%B4%EB%A8%B9%EA%B8%B0&quot; aria-label=&quot;컴포넌트에서 store에서 상태값 꺼내먹기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;컴포넌트에서 store에서 상태값 꺼내먹기&lt;/h2&gt;
+&lt;p&gt;react-redux 패키지는 &lt;code class=&quot;language-text&quot;&gt;useSelector&lt;/code&gt; 훅을 제공해요&lt;br&gt;
+저장소는 중앙집권이라고 했습니다. 여기에 여러 상태가 막 있을건데&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;useSelector(state =&gt; state.counter)&lt;/code&gt; 이런 식으로 원하는 state만 꺼내올 수 있습니다&lt;br&gt;
+이러면 &lt;strong&gt;구독&lt;/strong&gt;하는거니까, 당연히 최신으로 유지되고, 변경 시 리렌더링 대상이 되고, ... 하튼 그렇습니다&lt;/p&gt;
+&lt;p&gt;action의 발송은 이제 또 훅으로 하게 되는데&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;const dispatch = useDispatch()&lt;/code&gt; 이렇게 훅으로 dispatch 객체를 가져오고&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;dispatch({type: &quot;increment&quot;})&lt;/code&gt; 와 같이 써서 액션을 발행합니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; dispatch &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useDispatch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; counter &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useSelector&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;state&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; state&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;counter&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;incrementHandler&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;dispatch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;increment&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;decrementHandler&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;dispatch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;decrement&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이런 식이 되겠죠?&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;type&lt;/code&gt; 값에 따라 증가, 감소를 구현하려면 reducer에서&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;counterReducer&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;state&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; action&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;action&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;type &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;increment&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token literal-property property&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; state&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;counter &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;action&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;type &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;decrement&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token literal-property property&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; state&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;counter &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이런식으로 써주면 되겠습니다&lt;/p&gt;
+&lt;h2 id=&quot;action에-페이로드-전달하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#action%EC%97%90-%ED%8E%98%EC%9D%B4%EB%A1%9C%EB%93%9C-%EC%A0%84%EB%8B%AC%ED%95%98%EA%B8%B0&quot; aria-label=&quot;action에 페이로드 전달하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;action에 페이로드 전달하기&lt;/h2&gt;
+&lt;p&gt;이미 우리는 action객체로 페이로드를 전달하고 있습니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;{ type: &apos;increment&apos; }&lt;/code&gt;처럼 객체에 전달하는 key-value들이 그것인데&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;type&lt;/code&gt;말고도 자유롭게 다른 무언가를 넣어줄 수 있습니다&lt;br&gt;
+예를 들어, 이전에는 1씩 증가하기만 했는데, 이제 5씩 증가하는 버튼을 만들고 싶으면..&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;dispatch({ type: &quot;increase&quot;, amount: 5 })&lt;/code&gt;라고 액션 페이로드를 설정하고&lt;br&gt;
+reducer함수에서 이제 해당 동작을 추가하면 되는 일입니다&lt;/p&gt;
+&lt;h2 id=&quot;reducer-작성-시-주의할-점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#reducer-%EC%9E%91%EC%84%B1-%EC%8B%9C-%EC%A3%BC%EC%9D%98%ED%95%A0-%EC%A0%90&quot; aria-label=&quot;reducer 작성 시 주의할 점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;reducer 작성 시 주의할 점&lt;/h2&gt;
+&lt;p&gt;이미 이전에 redux의 reducer가 순수함수여야 하고, 순수함수가 무엇인지 설명했습니다&lt;br&gt;
+그럼에도 한 가지 의문이 들 수도 있는데 :&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;action&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;type &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;increment&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  state&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;counter&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; state&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 그냥 이전 state를 변경해서 리턴하면 안 되나요?&lt;br&gt;
+왜 항상 귀찮게 새 state를 만들고 반환하나요?&lt;/p&gt;
+&lt;p&gt;근데 이건 &lt;strong&gt;절대&lt;/strong&gt; 안됩니다. state를 직접 업데이트하면 안 되는데&lt;br&gt;
+&lt;a href=&quot;https://ko.redux.js.org/usage/structuring-reducers/prerequisite-concepts&quot;&gt;공식문서&lt;/a&gt;에서 관련 내용을 설명중입니다&lt;/p&gt;
+&lt;p&gt;첫 번째 이유로, redux는 상태가 변경된 후(reducer 작업 이후) 컴포넌트가 실제로 업데이트되어야 하는지 확인하는데&lt;br&gt;
+이 때 &lt;strong&gt;얕은 참조 검사&lt;/strong&gt;를 사용합니다.&lt;br&gt;
+이는 곧 &lt;strong&gt;직접 객체를 변화시키면 참조는 동일&lt;/strong&gt;하므로 &lt;strong&gt;다시 렌더링되지 않습니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;또 다른 이유로, 디버깅과 테스트를 어렵게 하고 코드의 행동이 예측불가해진다고 하는데, 공식문서에 자세한설명이 있습니다&lt;/p&gt;
+&lt;p&gt;대신 객체의 나머지 부분들은 유지하고 일부만 변경하고자 할 때&lt;br&gt;
+&lt;a href=&quot;https://ko.redux.js.org/usage/using-object-spread-operator/&quot;&gt;spread 연산자를 사용&lt;/a&gt;할 수 있습니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;Object.assign()&lt;/code&gt; 메서드를 이용하는 방법도 있는데&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;{ ...state, counter: state.counter+1 }&lt;/code&gt;이렇게 하면 아주 간결합니다&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;br&gt;
+다음 시간에는 리덕스 툴킷으로 더 편하게 리덕스를 사용하는 법을 알아보려고 합니다&lt;br&gt;
+이만 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🔍 리액트 검색창 구현 : Render Props + 동적 key 설정 + Debouncing]]></title><description><![CDATA[이번 시간에는 Render Props에 대해 알아보고 key를 동적으로 넣는 방법도 알아보고 Debouncing으로 사용자 경험을 높이는 법도 알아봅시다. 그리고 이 세 트리오를 짬뽕해서 검색창 구현해보려구요. 실제 구현할 때는 TypeScript…]]></description><link>https://sungpaks.github.io/render-props-and-dynamic-key-and-debouncing/</link><guid isPermaLink="false">https://sungpaks.github.io/render-props-and-dynamic-key-and-debouncing/</guid><pubDate>Sat, 21 Sep 2024 21:11:25 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 594px; &quot;
     &gt;
