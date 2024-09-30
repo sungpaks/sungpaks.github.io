@@ -19,6 +19,7 @@
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-advanced-sitemap": "^2.1.0",
     "gatsby-plugin-feed": "^5.13.0",
+    "gatsby-plugin-google-gtag": "^5.13.1",
     "gatsby-plugin-gtag": "^1.0.13",
     "gatsby-plugin-image": "^3.13.0",
     "gatsby-plugin-manifest": "^5.13.0",
