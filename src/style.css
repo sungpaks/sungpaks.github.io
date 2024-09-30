@@ -601,7 +601,6 @@ body.theme-reverse .tag-button {
 
 .top-ui-tag {
   float: right;
-  margin-right: 20px;
   color: light-dark(rgb(88, 88, 88), --color-light);
   transition: all 0.5s ease;
   font-weight: var(--fontWeight-bold);
@@ -897,4 +896,18 @@ p.svg-icon-container {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+}
+
+svg {
+  color: light-dark(black, white)
+}
+
+body.theme-reverse svg {
+  color: light-dark(white, black)
+}
+
+.top-ui-tag-container {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 8px;
 }
