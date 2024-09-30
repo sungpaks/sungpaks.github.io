@@ -57,24 +57,22 @@
     }
   </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div><div><div class="top-ui"><h5 class="top-ui-title" style="margin:0"><a href="/">👍 조성개발실록</a></h5><div><div class="top-ui-tag"><div class="tooltip"><a id="light-or-dark"></a><div class="tooltip-text">라이트모드</div></div></div><div class="top-ui-tag" style="margin:0 20px 0 0"><div class="tooltip"><a href="/tag/">🏷️</a><div class="tooltip-text">태그</div></div></div><div class="top-ui-tag"><div class="tooltip"><a href="/visitor-log/">📝</a><div class="tooltip-text">방명록</div></div></div></div></div><div class="progress-bar" style="width:0%"></div></div><div class="global-wrapper" data-is-root-path="false"><header class="global-header"></header><main><article class="blog-post" itemscope="" itemType="http://schema.org/Article"><header><h1 itemProp="headline">아따 시방부터 리덕수 툴킷에 대해 알아볼텨 (Redux Toolkit)</h1><a class="custom-button tag-button" href="/tag/til/">TIL</a><a class="custom-button tag-button" href="/tag/react/">React</a><a class="custom-button tag-button" href="/tag/redux/">Redux</a><p>September 30, 2024</p></header><hr/><aside class="toc-container"><div id="table-of-contents" class="toc"><ul>
 <li>
-<ul>
-<li><a href="#%EB%A6%AC%EB%93%80%EC%84%9C-%EC%AA%BC%EA%B0%9C%EB%B3%B4%EA%B8%B0-slice">리듀서 쪼개보기 slice</a></li>
-<li><a href="#%EB%A6%AC%EB%93%80%EC%84%9C-%EB%93%B1%EB%A1%9D%ED%95%98%EA%B3%A0-store-%EB%A7%8C%EB%93%A4%EA%B8%B0">리듀서 등록하고 store 만들기</a></li>
-<li><a href="#action%EC%9D%84-%EB%82%B4%EB%B3%B4%EB%82%B4%EA%B3%A0-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%97%90%EC%84%9C-%EC%93%B0%EA%B8%B0">action을 내보내고 컴포넌트에서 쓰기</a></li>
-<li><a href="#useselector%EB%A1%9C-%EC%83%81%ED%83%9C%EA%B0%92-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0">useSelector로 상태값 가져오기</a></li>
-</ul>
+<p><a href="#%EB%A6%AC%EB%93%80%EC%84%9C-%EC%AA%BC%EA%B0%9C%EB%B3%B4%EA%B8%B0-slice">리듀서 쪼개보기 slice</a></p>
+</li>
+<li>
+<p><a href="#%EB%A6%AC%EB%93%80%EC%84%9C-%EB%93%B1%EB%A1%9D%ED%95%98%EA%B3%A0-store-%EB%A7%8C%EB%93%A4%EA%B8%B0">리듀서 등록하고 store 만들기</a></p>
+</li>
+<li>
+<p><a href="#action%EC%9D%84-%EB%82%B4%EB%B3%B4%EB%82%B4%EA%B3%A0-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%97%90%EC%84%9C-%EC%93%B0%EA%B8%B0">action을 내보내고 컴포넌트에서 쓰기</a></p>
+</li>
+<li>
+<p><a href="#useselector%EB%A1%9C-%EC%83%81%ED%83%9C%EA%B0%92-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0">useSelector로 상태값 가져오기</a></p>
 </li>
 <li>
 <p><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%B2%98%EB%A6%AC%EB%82%98-%EB%B6%80%EC%88%98%ED%9A%A8%EA%B3%BC%EB%A5%BC-redux%EC%97%90%EC%84%9C-%EB%8B%A4%EB%A3%A8%EA%B8%B0">비동기 처리나 부수효과를 Redux에서 다루기</a></p>
 <ul>
-<li>
-<ul>
 <li><a href="#useeffect%EB%A1%9C-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0">useEffect로 처리하기</a></li>
-</ul>
-</li>
-<li>
-<p><a href="#%EC%95%A1%EC%85%98-%EC%83%9D%EC%84%B1%EC%9E%90-thunk-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0">액션 생성자 Thunk 사용하기</a></p>
-</li>
+<li><a href="#%EC%95%A1%EC%85%98-%EC%83%9D%EC%84%B1%EC%9E%90-thunk-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0">액션 생성자 Thunk 사용하기</a></li>
 </ul>
 </li>
 </ul></div></aside><div class="hamburger" style="left:0;top:0">🍔</div><br/><section id="post-section" itemProp="articleBody"><blockquote>
@@ -132,7 +130,7 @@ Redux의 대표적인 세 가지 문제를 해결하려고 만들어졌는디</p
 <p>그래서 나온 것이 리덕스 툴킷이다잉 <a href="https://redux-toolkit.js.org/">https://redux-toolkit.js.org/</a><br>
 <code class="language-text">npm install @reduxjs/toolkit</code><br>
 여기에는 redux가 이미 포함되어 있당께</p>
-<h2 id="리듀서-쪼개보기-slice" style="position:relative;"><a href="#%EB%A6%AC%EB%93%80%EC%84%9C-%EC%AA%BC%EA%B0%9C%EB%B3%B4%EA%B8%B0-slice" aria-label="리듀서 쪼개보기 slice permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>리듀서 쪼개보기 slice</h2>
+<h1 id="리듀서-쪼개보기-slice" style="position:relative;"><a href="#%EB%A6%AC%EB%93%80%EC%84%9C-%EC%AA%BC%EA%B0%9C%EB%B3%B4%EA%B8%B0-slice" aria-label="리듀서 쪼개보기 slice permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>리듀서 쪼개보기 slice</h1>
 <p>전에야 하나의 중앙 store만 있구, 그 안에서만 상태를 관리했는디<br>
 이제 <code class="language-text">createSlice</code>를 사용해서 store의 분파를 만들 수 있당께. 마치 지방자치구를 만드는 것처럼 말여.</p>
 <div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> initialState <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">counter</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">show</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -175,7 +173,7 @@ Redux의 대표적인 세 가지 문제를 해결하려고 만들어졌는디</p
 이거는 리덕스 툴킷이 <a href="https://github.com/immerjs/immer">immer</a>라는 라이브러리를 써서 가능한 것이여.<br>
 직접 수정하는 것처럼 보이게 써도, 내부적으로 알아서 복제하고 반환하는 형태로 처리해줌께.<br>
 그러니까 그냥 <code class="language-text">state.count++</code> 이런 식으로 걍 써도 된다잉.</p>
-<h2 id="리듀서-등록하고-store-만들기" style="position:relative;"><a href="#%EB%A6%AC%EB%93%80%EC%84%9C-%EB%93%B1%EB%A1%9D%ED%95%98%EA%B3%A0-store-%EB%A7%8C%EB%93%A4%EA%B8%B0" aria-label="리듀서 등록하고 store 만들기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>리듀서 등록하고 store 만들기</h2>
+<h1 id="리듀서-등록하고-store-만들기" style="position:relative;"><a href="#%EB%A6%AC%EB%93%80%EC%84%9C-%EB%93%B1%EB%A1%9D%ED%95%98%EA%B3%A0-store-%EB%A7%8C%EB%93%A4%EA%B8%B0" aria-label="리듀서 등록하고 store 만들기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>리듀서 등록하고 store 만들기</h1>
 <p>이제 <code class="language-text">createSlice</code>로 만든 슬라이스는 리듀서를 완전히 대체할 수 있당께<br>
 <code class="language-text">createStore(counterSlice.reducer)</code>라고 쓰면 간단하게 store를 만들 수 있당께.</p>
 <p>중앙집권적이었던 저장소를 슬라이스로 나누게 되었는디,<br>
@@ -191,7 +189,7 @@ Redux의 대표적인 세 가지 문제를 해결하려고 만들어졌는디</p
 <p><code class="language-text">configureStore</code>에 <code class="language-text">reducer</code>라는 속성을 가진 객체를 넘겨주면,<br>
 슬라이스들을 구분하는 이름이랑 그 리듀서를 넣어주면 됨께.<br>
 그러면 자동으로 모든 슬라이스 리듀서를 합친 중앙 저장소가 만들어진당께.</p>
-<h2 id="action을-내보내고-컴포넌트에서-쓰기" style="position:relative;"><a href="#action%EC%9D%84-%EB%82%B4%EB%B3%B4%EB%82%B4%EA%B3%A0-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%97%90%EC%84%9C-%EC%93%B0%EA%B8%B0" aria-label="action을 내보내고 컴포넌트에서 쓰기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>action을 내보내고 컴포넌트에서 쓰기</h2>
+<h1 id="action을-내보내고-컴포넌트에서-쓰기" style="position:relative;"><a href="#action%EC%9D%84-%EB%82%B4%EB%B3%B4%EB%82%B4%EA%B3%A0-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%97%90%EC%84%9C-%EC%93%B0%EA%B8%B0" aria-label="action을 내보내고 컴포넌트에서 쓰기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>action을 내보내고 컴포넌트에서 쓰기</h1>
 <p><code class="language-text">slice</code>의 actions 객체에는 <code class="language-text">reducers:</code>에서 정의한 액션 메서드들이 다 들어있당께.<br>
 이제 액션 메서드들을 내보내면 되는데, 이건 다 <strong>액션 생성자</strong>로 보면 된다잉.<br>
 이전에는 <code class="language-text">{ type: "increment" }</code> 이런 액션 객체를 직접 만들어서 <code class="language-text">dispatch</code>했는디,<br>
@@ -200,7 +198,7 @@ Redux의 대표적인 세 가지 문제를 해결하려고 만들어졌는디</p
 <p><code class="language-text">export const counterActions = counterSlice.actions;</code> 이런 식으로 action 생성자를 내보낼 수 있다잉.</p>
 <p>이제 <code class="language-text">dispatch(counterActions.increment)</code> 이렇게 쓰면 된다잉.<br>
 페이로드를 넣고 싶으면 <code class="language-text">counterActions.increase(10)</code> 이런 식으로 쓰면 됨께.</p>
-<h2 id="useselector로-상태값-가져오기" style="position:relative;"><a href="#useselector%EB%A1%9C-%EC%83%81%ED%83%9C%EA%B0%92-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0" aria-label="useselector로 상태값 가져오기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>useSelector로 상태값 가져오기</h2>
+<h1 id="useselector로-상태값-가져오기" style="position:relative;"><a href="#useselector%EB%A1%9C-%EC%83%81%ED%83%9C%EA%B0%92-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0" aria-label="useselector로 상태값 가져오기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>useSelector로 상태값 가져오기</h1>
 <p>슬라이스 여러 개를 <code class="language-text">configureStore</code>로 합쳤다면,<br>
 <code class="language-text">useSelector</code>에서 저 reducer 객체의 키 값으로 상태를 찾아야 한당께.</p>
 <div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> counter <span class="token operator">=</span> <span class="token function">useSelector</span><span class="token punctuation">(</span><span class="token parameter">state</span> <span class="token operator">=></span> state<span class="token punctuation">.</span>counter<span class="token punctuation">.</span>counter<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -219,7 +217,7 @@ Redux의 대표적인 세 가지 문제를 해결하려고 만들어졌는디</p
 <li>컴포넌트 안에서 <code class="language-text">useEffect</code>로 처리하던가,</li>
 <li>Redux Toolkit의 Thunk를 사용해서 처리할 수 있당께.</li>
 </ul>
-<h3 id="useeffect로-처리하기" style="position:relative;"><a href="#useeffect%EB%A1%9C-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0" aria-label="useeffect로 처리하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>useEffect로 처리하기</h3>
+<h2 id="useeffect로-처리하기" style="position:relative;"><a href="#useeffect%EB%A1%9C-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0" aria-label="useeffect로 처리하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>useEffect로 처리하기</h2>
 <div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> cart <span class="token operator">=</span> <span class="token function">useSelector</span><span class="token punctuation">(</span><span class="token parameter">state</span> <span class="token operator">=></span> state<span class="token punctuation">.</span>cart<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
