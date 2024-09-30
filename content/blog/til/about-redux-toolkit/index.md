@@ -37,7 +37,7 @@ Redux의 대표적인 세 가지 문제를 해결하려고 만들어졌는디
 `npm install @reduxjs/toolkit`  
 여기에는 redux가 이미 포함되어 있당께
 
-## 리듀서 쪼개보기 slice
+# 리듀서 쪼개보기 slice
 
 전에야 하나의 중앙 store만 있구, 그 안에서만 상태를 관리했는디  
 이제 `createSlice`를 사용해서 store의 분파를 만들 수 있당께. 마치 지방자치구를 만드는 것처럼 말여.
@@ -81,7 +81,7 @@ const counterSlice = createSlice({
 직접 수정하는 것처럼 보이게 써도, 내부적으로 알아서 복제하고 반환하는 형태로 처리해줌께.  
 그러니까 그냥 `state.count++` 이런 식으로 걍 써도 된다잉.
 
-## 리듀서 등록하고 store 만들기
+# 리듀서 등록하고 store 만들기
 
 이제 `createSlice`로 만든 슬라이스는 리듀서를 완전히 대체할 수 있당께  
 `createStore(counterSlice.reducer)`라고 쓰면 간단하게 store를 만들 수 있당께.
@@ -104,7 +104,7 @@ const store = configureStore({
 슬라이스들을 구분하는 이름이랑 그 리듀서를 넣어주면 됨께.  
 그러면 자동으로 모든 슬라이스 리듀서를 합친 중앙 저장소가 만들어진당께.
 
-## action을 내보내고 컴포넌트에서 쓰기
+# action을 내보내고 컴포넌트에서 쓰기
 
 `slice`의 actions 객체에는 `reducers:`에서 정의한 액션 메서드들이 다 들어있당께.  
 이제 액션 메서드들을 내보내면 되는데, 이건 다 **액션 생성자**로 보면 된다잉.  
@@ -117,7 +117,7 @@ const store = configureStore({
 이제 `dispatch(counterActions.increment)` 이렇게 쓰면 된다잉.  
 페이로드를 넣고 싶으면 `counterActions.increase(10)` 이런 식으로 쓰면 됨께.
 
-## useSelector로 상태값 가져오기
+# useSelector로 상태값 가져오기
 
 슬라이스 여러 개를 `configureStore`로 합쳤다면,  
 `useSelector`에서 저 reducer 객체의 키 값으로 상태를 찾아야 한당께.
@@ -144,7 +144,7 @@ const isAuthenticated = useSelector(state => state.auth.authenticated);
 - 컴포넌트 안에서 `useEffect`로 처리하던가,
 - Redux Toolkit의 Thunk를 사용해서 처리할 수 있당께.
 
-### useEffect로 처리하기
+## useEffect로 처리하기
 
 ```jsx
 const cart = useSelector(state => state.cart);
