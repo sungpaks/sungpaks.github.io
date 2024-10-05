@@ -18,7 +18,7 @@ function TopUI({ setCurTag }: ComponentProps) {
   const [preferDark, setPreferedDark] = useState(false);
   const LIGHT_MODE = <ThemeIcon />;
   const DARK_MODE = <ThemeIcon />;
-  const [curMode, setCurMode] = useState(DarkIcon);
+  const [curMode, setCurMode] = useState(<ThemeIcon />);
 
   useEffect(() => {
     const handleScroll = () => {
