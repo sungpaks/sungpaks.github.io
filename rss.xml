@@ -1,4 +1,384 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 05 Oct 2024 08:09:46 GMT</lastBuildDate><item><title><![CDATA[React 프로젝트에 애니메이션 넣기]]></title><description><![CDATA[! 주의 : TIL…]]></description><link>https://sungpaks.github.io/til/animation-in-react/</link><guid isPermaLink="false">https://sungpaks.github.io/til/animation-in-react/</guid><pubDate>Sat, 05 Oct 2024 14:28:31 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 05 Oct 2024 12:33:35 GMT</lastBuildDate><item><title><![CDATA[Next.js 먹어보기 (1) : App Router]]></title><description><![CDATA[! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다. Next.js에 대해 쓰는건 처음이네요 최근에 처음 배웠기 때문입니다? Next.js 13 이전에는 Next.js에서 Route…]]></description><link>https://sungpaks.github.io/til/nextjs-app-router-and-page-router/</link><guid isPermaLink="false">https://sungpaks.github.io/til/nextjs-app-router-and-page-router/</guid><pubDate>Sat, 05 Oct 2024 19:45:44 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Next.js에 대해 쓰는건 처음이네요&lt;br&gt;
+최근에 처음 배웠기 때문입니다?&lt;/p&gt;
+&lt;p&gt;Next.js 13 이전에는 Next.js에서 Route를 만들기 위해 &lt;a href=&quot;https://nextjs.org/docs/pages&quot;&gt;Pages Router&lt;/a&gt; 방식이 사용되었는데요&lt;br&gt;
+Next.js 13 이후로 새로 나와서 지금 밀고 있는게 &lt;a href=&quot;https://nextjs.org/docs/app&quot;&gt;App Router&lt;/a&gt;입니다&lt;br&gt;
+지금 두 방식을 모두 지원해요. App Router를 조금 더 권장할 뿐&lt;br&gt;
+아직 많은 프로덕트들이 Pages Router를 여전히 사용중입니다&lt;/p&gt;
+&lt;p&gt;오늘은 App Router방식으로 Next.js 코드 짜는 법을 기록하것습니더잉&lt;/p&gt;
+&lt;h1 id=&quot;폴더구조&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8F%B4%EB%8D%94%EA%B5%AC%EC%A1%B0&quot; aria-label=&quot;폴더구조 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;폴더구조&lt;/h1&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;- /app
+	- /about
+	- /blog
+		- /post-1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;/app/&lt;/code&gt; 경로 밑에 웹사이트에 넣을 페이지들을 위치시킵니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;/app/&lt;/code&gt;밑에 존재하는 모든 &lt;code class=&quot;language-text&quot;&gt;page.js&lt;/code&gt;파일들은 그에 해당하는 route를 만듭니다.&lt;br&gt;
+예를 들어, &lt;code class=&quot;language-text&quot;&gt;/app/about/page.js&lt;/code&gt; =&gt; &lt;code class=&quot;language-text&quot;&gt;&quot;http://my-domain.com/about&quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;그리고 이 app폴더 밑에 위치하는 리액트 컴포넌트들은 이제 Next.js에서 특별한 대우를 받게 됩니다.&lt;br&gt;
+&lt;strong&gt;서버 컴포넌트&lt;/strong&gt;가 되는 것인데요..&lt;br&gt;
+확인하고 싶으시면 &lt;code class=&quot;language-text&quot;&gt;console.log&lt;/code&gt;를 컴포넌트함수 내에서 찍어봅시다. 브라우저가 아닌 개발서버에 찍힙니다&lt;/p&gt;
+&lt;h1 id=&quot;페이지-간-이동&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B0%84-%EC%9D%B4%EB%8F%99&quot; aria-label=&quot;페이지 간 이동 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;페이지 간 이동&lt;/h1&gt;
+&lt;p&gt;만약 지금 &lt;code class=&quot;language-text&quot;&gt;http://my-domain.com/&lt;/code&gt;애 있는데, &lt;code class=&quot;language-text&quot;&gt;http://my-domain.com/about/&lt;/code&gt;으로 가고 싶다면 우뜩할까요?&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;&amp;lt;a href=&quot;/about&quot;&gt;&lt;/code&gt; 이러면 되겠죠?&lt;br&gt;
+라고 생각할 수는 있는데 딱히 이상적이진 않습니다. 적어도 이 도메인(이 프로젝트)내의 다른 경로로 이동할거면요&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;a&gt;&lt;/code&gt;태그로 이동하는 것은 &lt;strong&gt;새로운 페이지를 로드&lt;/strong&gt;합니다.&lt;br&gt;
+이는 리액트가 렌더링을 다시 하는 수준이 아닌, 페이지를 갈아엎게 되는 것인데&lt;br&gt;
+Next.js는 그렇지 않고도 리액트의 장점을 살리고 SPA로 머무는 것을 허용합니다.&lt;br&gt;
+&lt;strong&gt;클라이언트 측의 JS코드로 UI를 업데이트할 수 있게&lt;/strong&gt;한다는 것인데 (기존 리액트 like하게)&lt;/p&gt;
+&lt;p&gt;이를 위해서는 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Link href=&quot;&quot;&gt;&lt;/code&gt;라는 next.js에거 제공하는 특별한 컴포넌트를 사용합니다.&lt;br&gt;
+명력적인 방법도 있는데, &lt;code class=&quot;language-text&quot;&gt;next/navigation&lt;/code&gt;에서 &lt;code class=&quot;language-text&quot;&gt;redirect()&lt;/code&gt;함수를 import하고,&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;redirect(&apos;/about&apos;)&lt;/code&gt; 이렇게 쓰면 됩니다&lt;/p&gt;
+&lt;h1 id=&quot;컴포넌트-추가하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0&quot; aria-label=&quot;컴포넌트 추가하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;컴포넌트 추가하기&lt;/h1&gt;
+&lt;p&gt;Next.js의 &lt;code class=&quot;language-text&quot;&gt;app&lt;/code&gt;폴더 밑에서는 특별한 컴포넌트로 취급되는, &lt;a href=&quot;https://nextjs.org/docs/app/api-reference/file-conventions&quot;&gt;예약된 파일 명&lt;/a&gt;들이 있습니다.&lt;br&gt;
+예를 들면..&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;page.js&lt;/code&gt; 신규페이지&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;layout.js&lt;/code&gt; 형제/중첩 페이지의 레이아웃 (바로 뒤에 알아보겠습니다)&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;not-found.js&lt;/code&gt; 404 Not Found에 대한 폴백 페이지&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;error.js&lt;/code&gt; 기타 오류에 대한 폴백 페이지&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;loading.js&lt;/code&gt; 형제 또는 중첩 페이지에서 데이터를 가져올 때 표시되는 폴백 페이지&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;route.js&lt;/code&gt; : API 경로를 생성합니다. (jsx가 아닌 JSON 등의 데이터를 반환합니다)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이런게 아니고 막 &lt;code class=&quot;language-text&quot;&gt;title-header.jsx&lt;/code&gt;처럼 대충 제목을 지으면 그냥 커스텀 컴포넌트입니다&lt;br&gt;
+그리고 이제 &lt;code class=&quot;language-text&quot;&gt;app&lt;/code&gt; 폴더 밑에는 페이지와 route의 생성 관련한 파일만 남길거고,&lt;br&gt;
+다른 커스텀 컴포넌트는 루트에서 &lt;code class=&quot;language-text&quot;&gt;component/&lt;/code&gt; 폴더를 하나 더 두는게 좋겠네요&lt;br&gt;
+그리고 이제 import할 때, &lt;code class=&quot;language-text&quot;&gt;from &apos;@/components/header&apos;&lt;/code&gt;와 같이 @로 프로젝트의 루트 경로를 조회할 수 있습니다&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;app&lt;/code&gt;폴더 밑에서는 예약된 파일명들이 소문자로 시작하니까, 기존 리액트 컴포넌트 파일명의 컨벤션과 다르게, 여기서는 소문자로 시작하게 하면 좋겠네요&lt;br&gt;
+기타등등, &lt;a href=&quot;https://nextjs.org/docs/app/building-your-application/routing/colocation&quot;&gt;공식문서 보면 다양한 구조가 있습니다&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;layoutjs&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#layoutjs&quot; aria-label=&quot;layoutjs permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;layout.js&lt;/h2&gt;
+&lt;p&gt;아까 말한 &lt;code class=&quot;language-text&quot;&gt;layout.js&lt;/code&gt;에 대해 살짝 더 알아봅시다
+app폴더를 위한 &lt;code class=&quot;language-text&quot;&gt;layout.js&lt;/code&gt;파일이 최소 하나는 있어야 합니다.&lt;br&gt;
+최소 하나의 근본 레이아웃이 있어야 한다는 뜻입니다&lt;/p&gt;
+&lt;p&gt;이 &lt;code class=&quot;language-text&quot;&gt;layout.js&lt;/code&gt;는 그 하위의 중첩된 경로에 대해 모두 적용됩니다&lt;br&gt;
+새로운 &lt;code class=&quot;language-text&quot;&gt;layout.js&lt;/code&gt;를 만나지 않는 한은 말이죠&lt;br&gt;
+만약 &lt;code class=&quot;language-text&quot;&gt;/about/layout.js&lt;/code&gt;를 또 만들었다면, 이는 &lt;code class=&quot;language-text&quot;&gt;/about/&lt;/code&gt;이 중첩된 경로에 대해 모두 적용됩니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;./globals.css&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; metadata &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;NextJS Course App&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Your first NextJS app!&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;RootLayout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; children &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;html&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;en&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;children&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;html&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;루트 &lt;code class=&quot;language-text&quot;&gt;layout.js&lt;/code&gt;의 코드는 대충 이런식으로 쓸건데요&lt;br&gt;
+보시다시피 루트 layout은 웹사이트의 뼈대 HTML을 정의합니다&lt;/p&gt;
+&lt;p&gt;그리고 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;head&gt;&lt;/code&gt;내에 들어갈 메타데이터들이 있을건데&lt;br&gt;
+이건 &lt;code class=&quot;language-text&quot;&gt;export const metadata={}&lt;/code&gt;라는 이름으로 객체로써 내보내면 됩니다.&lt;br&gt;
+그리고 favicon은 metadata설정 안 해도, &lt;code class=&quot;language-text&quot;&gt;app&lt;/code&gt;폴더에 &lt;code class=&quot;language-text&quot;&gt;icon.png&lt;/code&gt;라는 이름으로 하나 넣어두면 알아서 이거 가져갑니다.&lt;/p&gt;
+&lt;h1 id=&quot;dynamic-route-동적-경로&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#dynamic-route-%EB%8F%99%EC%A0%81-%EA%B2%BD%EB%A1%9C&quot; aria-label=&quot;dynamic route 동적 경로 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Dynamic Route (동적 경로)&lt;/h1&gt;
+&lt;p&gt;예를 들어, 블로그 포스트를 생각해봅시다&lt;br&gt;
+각 포스트들에 대한 slug는 정해져있지 않고, 매번 다르게 추가됩니다&lt;br&gt;
+이걸 미리 다 폴더를 만들고 그럴 수는 없어요&lt;br&gt;
+대신 동적으로 route를 만들어내는 방법이 있습니다&lt;/p&gt;
+&lt;p&gt;폴더 이름에 &lt;code class=&quot;language-text&quot;&gt;[]&lt;/code&gt;(대괄호)를 쓰면 됩니다. 그리고 그 안에는 임의의 식별자를 추가하구요&lt;br&gt;
+예를 들어, &lt;code class=&quot;language-text&quot;&gt;/[slug]&lt;/code&gt;처럼 쓴다는 의미입니다&lt;br&gt;
+그리고 그 밑에는 &lt;code class=&quot;language-text&quot;&gt;page.js&lt;/code&gt;를 두면 됩니다&lt;br&gt;
+아래처럼&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;/app
+	/about
+	/blog
+		/[slug]
+			page.js
+		page.js&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 경우 &lt;code class=&quot;language-text&quot;&gt;/blog/something-slug&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;/blog/another-slug&lt;/code&gt;, ...와 같이 동적으로 경로분할이 이루어집니다&lt;br&gt;
+그리고 이제 &lt;code class=&quot;language-text&quot;&gt;/[slug]/page.js&lt;/code&gt;에서는 &lt;code class=&quot;language-text&quot;&gt;[slug]&lt;/code&gt;에 해당하는 식별자 값을 알아야 할건데&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;/[slug]/page.js&lt;/code&gt;에는 Next.js가 알아서 props를 넣어줍니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;BlogPostPage({ params })&lt;/code&gt; params라는 이름으로요&lt;br&gt;
+이 params는 동적 경로에 넣은 식별자들이 &lt;code class=&quot;language-text&quot;&gt;key-value&lt;/code&gt;로 들어가있습니다&lt;br&gt;
+즉 &lt;code class=&quot;language-text&quot;&gt;params.slug&lt;/code&gt;와 같이 써서 slug값을 가져올 수 있는거십니다잉&lt;/p&gt;
+&lt;h1 id=&quot;server-component-vs-client-component&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#server-component-vs-client-component&quot; aria-label=&quot;server component vs client component permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Server Component VS. Client Component&lt;/h1&gt;
+&lt;p&gt;기본적으로 컴포넌트들은 서버에서 실행됩니다.&lt;br&gt;
+이건 처음 로드될 때 뿐만 아니라, &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Link&gt;&lt;/code&gt;로 네비게이션할 때도 그렇고요&lt;br&gt;
+서버 컴포넌트를 사용하면 &lt;a href=&quot;https://nextjs.org/docs/app/building-your-application/rendering/server-components&quot;&gt;많은 이점&lt;/a&gt;들을 가져갈 수 있습니다&lt;/p&gt;
+&lt;p&gt;그런데 useEffect같은 훅을 쓰는 경우 서버 컴포넌트로 실행될 수 없습니다&lt;br&gt;
+localStorage, Geolocaion API 등 웹브라우저(클라이언트 사이드)에서만 가능한 기능도 또한 그렇습니다&lt;br&gt;
+당연히 우리는 컴포넌트를 클라이언트에서 렌더링해야 할 필요가 생기는 시점이 생깁니다&lt;br&gt;
+이 경우 &lt;strong&gt;클라이언트 사이드 컴포넌트임을 명시하기 위해 &quot;use client&quot; 지시어&lt;/strong&gt;를 파일 맨 위에 적어줍시다.&lt;/p&gt;
+&lt;p&gt;근데 &lt;code class=&quot;language-text&quot;&gt;use client&lt;/code&gt;를 항상 매 컴포넌트마다 써버린다면 기존 리액트랑 다를게 별로 없겠죠?&lt;br&gt;
+&lt;a href=&quot;(https://nextjs.org/docs/app/building-your-application/rendering/server-components)&quot;&gt;서버 컴포넌트의 이점&lt;/a&gt;을 활용하려면 최대한 클라이언트 컴포넌트는 컴포넌트 트리의 하단부에 넣는게 좋겠습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4d0fc753683698f5e0d2e9dab85e1688/da952/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 24.050632911392405%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAxklEQVR42lWPbXLCIBCGcxqV8BFYqGYoSZESmVDMGXqBegTP3g06GX1+MCw8u7w07AXOuRDC2s+UUs65lLIsS4xxGByvsHea16IlLWMUQB6PJ+eGsWKM5lJRSgkhm4nl2oxPPUYqJb0PKfvfv+iC7Dre9z1lVIR5vN3tNMdwBtBbwLX5UgkhYM5ruY5fznlQGm+F1nr19Ic8pzF8l5+MGsrTNOEqpWzQAABrLR5573F/2JMa6pmN0bbd71DSxoBS6Bv8SZ37D0R8PxAkCzauAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;컴포넌트 어디에&quot;
+        title=&quot;&quot;
+        src=&quot;/static/4d0fc753683698f5e0d2e9dab85e1688/f058b/image-1.png&quot;
+        srcset=&quot;/static/4d0fc753683698f5e0d2e9dab85e1688/c26ae/image-1.png 158w,
+/static/4d0fc753683698f5e0d2e9dab85e1688/6bdcf/image-1.png 315w,
+/static/4d0fc753683698f5e0d2e9dab85e1688/f058b/image-1.png 630w,
+/static/4d0fc753683698f5e0d2e9dab85e1688/40601/image-1.png 945w,
+/static/4d0fc753683698f5e0d2e9dab85e1688/78612/image-1.png 1260w,
+/static/4d0fc753683698f5e0d2e9dab85e1688/da952/image-1.png 1872w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;데이터베이스와-통신하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%99%80-%ED%86%B5%EC%8B%A0%ED%95%98%EA%B8%B0&quot; aria-label=&quot;데이터베이스와 통신하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데이터베이스와 통신하기&lt;/h1&gt;
+&lt;p&gt;데이터베이스와 통신하여 데이터를 가져오거나 데이터를 전송하는 일은 매우 흔합니다&lt;br&gt;
+보통은 DB를 따로 두고 CRUD가 가능한 api를 열든지 어쩌든지 하고, &lt;code class=&quot;language-text&quot;&gt;useEffect&lt;/code&gt;에서 &lt;code class=&quot;language-text&quot;&gt;fetch&lt;/code&gt;같은 것으로 통신할텐데요&lt;br&gt;
+Next.js는 풀스택 프레임워크니까 그런거 필요없습니다.&lt;br&gt;
+SQLite를 사용하는 경우를 예시로 한번 살펴봅시다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b9388a087df730cf3cc414ef879000a9/8b69f/image-5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 25.316455696202528%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA0UlEQVR42j2Py46DMAxF+ZsSAs2DR5OgQN4VIL5gNKt2M5pl/1+qS9qehW3J917ZRf2hOYBBCGmtXdd12zao+75bY4S4fDVZBhS5YYyrA4QQ5YRQIoWa51lrraQklDWUwqr6APqXOcdwzp1z1ppRTr//9udP12fU933btiVh/e0h7g8/T8a+gRX4i3EcU0ree7hwWZYY0+QGNVFIBCelMDREO2bCNaXrAbwDSqVUwRgbhqHrOqiQJ4So8bk8VfmXfB4uT02FfAgxxhACaEDJOX8C4kVAsXRT3lcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;데이터 가져오기&quot;
+        title=&quot;&quot;
+        src=&quot;/static/b9388a087df730cf3cc414ef879000a9/f058b/image-5.png&quot;
+        srcset=&quot;/static/b9388a087df730cf3cc414ef879000a9/c26ae/image-5.png 158w,
+/static/b9388a087df730cf3cc414ef879000a9/6bdcf/image-5.png 315w,
+/static/b9388a087df730cf3cc414ef879000a9/f058b/image-5.png 630w,
+/static/b9388a087df730cf3cc414ef879000a9/8b69f/image-5.png 912w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;데이터-꺼내오기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%BA%BC%EB%82%B4%EC%98%A4%EA%B8%B0&quot; aria-label=&quot;데이터 꺼내오기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데이터 꺼내오기&lt;/h2&gt;
+&lt;p&gt;데이터베이스에서 직접 꺼내올 수 있는 것은 서버 컴포넌트의 특권입니다&lt;br&gt;
+데이터를 꺼내오려면 다음과 같은 과정을 밟습니다. &quot;식사에 대한 정보&quot;를 가져온다고 생각하겠습니다&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;일단 데이터 가져오는 함수를 만듭시다. 보통 &lt;code class=&quot;language-text&quot;&gt;/lib/meals.js&lt;/code&gt;처럼 하는가봅니다&lt;/li&gt;
+&lt;li&gt;그 안에서 &lt;code class=&quot;language-text&quot;&gt;const db = sql(&apos;meals.db&apos;)&lt;/code&gt;와 같이, db파일을 가져다 데이터베이스를 준비합니다&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;getMeals()&lt;/code&gt;라는, 데이터 가져오기 함수를 정의할건데, &lt;code class=&quot;language-text&quot;&gt;db.prepare(sql문).all();&lt;/code&gt;처럼 하면 됩니다.
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;prepare(sql).all()&lt;/code&gt;은 조회, &lt;code class=&quot;language-text&quot;&gt;prepare(sql).run()&lt;/code&gt;은 데이터 수정입니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; sql &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;better-sqlite3&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; db &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;meals.db&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getMeals&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; db&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;prepare&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;SELECT * FROM meals&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이런 식이겠네요&lt;/p&gt;
+&lt;p&gt;그리고 이제 컴포넌트에서 이걸 사용할건데&lt;br&gt;
+서버 컴포넌트인 컴포넌트 함수는 &lt;strong&gt;async&lt;/strong&gt;가 가능합니다 (원래 안 됐음)&lt;br&gt;
+따라서 Promise에 대해 &lt;code class=&quot;language-text&quot;&gt;await&lt;/code&gt;도 가능하죠&lt;br&gt;
+그래서 이제&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;MealsPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; meals &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getMeals&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MealsGrid&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;meals&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;meals&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 쓸 수 있습니다.&lt;/p&gt;
+&lt;h3 id=&quot;꺼내오는-동안-폴백-보여주기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%BA%BC%EB%82%B4%EC%98%A4%EB%8A%94-%EB%8F%99%EC%95%88-%ED%8F%B4%EB%B0%B1-%EB%B3%B4%EC%97%AC%EC%A3%BC%EA%B8%B0&quot; aria-label=&quot;꺼내오는 동안 폴백 보여주기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;꺼내오는 동안 폴백 보여주기&lt;/h3&gt;
+&lt;p&gt;근데 당연히 꺼내오는 시간은 여전히 존재합니다&lt;br&gt;
+그럼 기다리는 동안 뭔가 보여주고 싶은데
+전에 배운 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Suspense&gt;&lt;/code&gt;블록이 유용합니다.&lt;br&gt;
+또는 &lt;code class=&quot;language-text&quot;&gt;loading.js&lt;/code&gt;를 만들어둘 수도 있겠고요&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;Suspense&gt;&lt;/code&gt;로 하려면 먼저 &lt;code class=&quot;language-text&quot;&gt;meals&lt;/code&gt; 데이터를 가져오고 렌더하는 코드를 따로 분리합시다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;async function Meals() {
+  const meals = await getMeals();
+  return &amp;lt;MealsGrid meals={meals} /&gt;;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이제 이를 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Suspense&gt;&lt;/code&gt;로 래핑하여 사용합니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Suspense&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;fallback&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MealsLoading&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Meals&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Suspense&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이러면 데이터를 가져오는 부분만 쏙 빼서 &quot;준비중입니다 ^^;;&quot;를 하고&lt;br&gt;
+다른 상관없는 부분들은 바로 보여줘버릴 수 있습니다&lt;/p&gt;
+&lt;h3 id=&quot;errorjs&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#errorjs&quot; aria-label=&quot;errorjs permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;error.js&lt;/h3&gt;
+&lt;p&gt;이 타이밍에 &lt;code class=&quot;language-text&quot;&gt;error.js&lt;/code&gt;가 슬슬 있어야겠습니다&lt;br&gt;
+조회가 실패할 수도 있고 말이죠?&lt;br&gt;
+아, &lt;code class=&quot;language-text&quot;&gt;error.js&lt;/code&gt;는 꼭 클라이언트 컴포넌트여야 합니다. 서버 뿐만 아니라 브라우저에서의 에러까지 모두 잡기 위함입니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;use client&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; error &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;main&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;error&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;h1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;An error occurred!&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;h1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;error&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;message&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;대충 이런식으로 하면 되겠는데&lt;br&gt;
+이러면 이제 중첩 route에서 에러 발생 시 이 폴백페이지를 띄웁니다&lt;br&gt;
+props로는 &lt;code class=&quot;language-text&quot;&gt;error&lt;/code&gt;객체를 받아서 디테일을 추가할 수도 있구요&lt;/p&gt;
+&lt;p&gt;NotFound도 비슷하게 &lt;code class=&quot;language-text&quot;&gt;not-found.js&lt;/code&gt;륾 만들면 되는데, 서버컴포넌트여도 됩니다&lt;/p&gt;
+&lt;h3 id=&quot;값-하나만-꺼내오기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%92-%ED%95%98%EB%82%98%EB%A7%8C-%EA%BA%BC%EB%82%B4%EC%98%A4%EA%B8%B0&quot; aria-label=&quot;값 하나만 꺼내오기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;값 하나만 꺼내오기&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getMeal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;slug&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; db&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;prepare&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;SELECT * FROM meals WHERE slug = ?&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;slug&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;아까 &lt;code class=&quot;language-text&quot;&gt;prepare().all()&lt;/code&gt;했던 것과 다르게 &lt;code class=&quot;language-text&quot;&gt;.get()&lt;/code&gt;하면 되는데&lt;br&gt;
+그 하나를 식별할 paramter를 넣어서 &lt;code class=&quot;language-text&quot;&gt;.get(slug)&lt;/code&gt;처럼 하겠죠?&lt;br&gt;
+근데 이 경우 &lt;code class=&quot;language-text&quot;&gt;.get(slug)&lt;/code&gt;가 아닌 단순히 &lt;code class=&quot;language-text&quot;&gt;&quot;SELECT * FROM meals WHERE slug=&quot;+slug&lt;/code&gt; 하면 안 됩니다. SQL Injection 당하기 딱좋습니다&lt;/p&gt;
+&lt;p&gt;없는 값인가? 를 확인하려면 일단 저 반환값을 &lt;code class=&quot;language-text&quot;&gt;if(!meal)&lt;/code&gt;처럼 확인하고&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;notFound()&lt;/code&gt;함수를 Next.js에서 제공하니까 이걸 호출하면 제일 가까운 NotFound폴백이 나타납니다&lt;/p&gt;
+&lt;h2 id=&quot;데이터-수정하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%88%98%EC%A0%95%ED%95%98%EA%B8%B0&quot; aria-label=&quot;데이터 수정하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데이터 수정하기&lt;/h2&gt;
+&lt;p&gt;응당 데이터를 가져왔다면 다시 집어넣어야겠습니다. 때로는 삭제하고 싶을수도 있고요&lt;br&gt;
+이것도 다이렉트로 서버에 넣어버리거나 하면 좋겠네요&lt;br&gt;
+이를 위해서는 임의의 js함수를 만들고, &lt;code class=&quot;language-text&quot;&gt;&apos;use server&apos;&lt;/code&gt; 지시어를 씁니다.&lt;br&gt;
+이제 그 파일 안에서 &lt;code class=&quot;language-text&quot;&gt;async&lt;/code&gt;함수를 만들면 &lt;strong&gt;Server Action&lt;/strong&gt;으로 생성됩니다.&lt;br&gt;
+그럼 서버 컴포넌트가 서버단에서 실행되는 것이 보장되듯이 이 함수도 그렇게 됩니다.&lt;/p&gt;
+&lt;h3 id=&quot;폼-제출&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8F%BC-%EC%A0%9C%EC%B6%9C&quot; aria-label=&quot;폼 제출 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;폼 제출&lt;/h3&gt;
+&lt;p&gt;폼 제출을 위한 함수를 만듭니다.&lt;br&gt;
+그리고 파일 맨 위에 &lt;code class=&quot;language-text&quot;&gt;use server&lt;/code&gt; 지시어를 써도 되지만&lt;br&gt;
+그냥 함수 정의 맨 위에 &lt;code class=&quot;language-text&quot;&gt;use server&lt;/code&gt;를 써서 개별 함수를 Server Action으로 만들 수 있습니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;shareMeal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;formData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token string&quot;&gt;&quot;user server&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; meal &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token literal-property property&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; formData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;title&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;token comment&quot;&gt;// meal 객체를 DB에 저장하기.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// Form이 있는 컴포넌트 함수에서는..&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+	&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;form&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;shareMeal&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;form&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이제 server action인 함수를 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;form&gt;&lt;/code&gt;의 action 프로퍼티로 넣어줍니다.&lt;br&gt;
+이게 근데 컴포넌트가 클라이언트 컴포넌트면 오류가 발생하는데&lt;br&gt;
+당연히 서버액션을 클라이언트에서 실행하려면 그렇죠&lt;/p&gt;
+&lt;h4 id=&quot;제출중입니다-기달&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%9C%EC%B6%9C%EC%A4%91%EC%9E%85%EB%8B%88%EB%8B%A4-%EA%B8%B0%EB%8B%AC&quot; aria-label=&quot;제출중입니다 기달 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;제출중입니다.. 기달&lt;/h4&gt;
+&lt;p&gt;이제 제출중임을 표현하고 싶으면 &lt;code class=&quot;language-text&quot;&gt;useFormState()&lt;/code&gt;훅을 사용하는데&lt;br&gt;
+아? 훅이라서 클라이언트 컴포넌트여야만 하죠?&lt;br&gt;
+그러니 제출버튼만 따로 빼서 아래와 같이 합시다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;use client&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; useFormStatus &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;react-dom&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;MealsFormSubmit&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; pending &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useFormStatus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;disabled&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;pending&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;pending &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Submitting...&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Share Meal&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 &lt;code class=&quot;language-text&quot;&gt;useFormStatus&lt;/code&gt;는 form 양식 내부에서만 가능합니다&lt;/p&gt;
+&lt;h4 id=&quot;양식-제출-시-값이-유효하지-않은-경우-그대로-머무르기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%96%91%EC%8B%9D-%EC%A0%9C%EC%B6%9C-%EC%8B%9C-%EA%B0%92%EC%9D%B4-%EC%9C%A0%ED%9A%A8%ED%95%98%EC%A7%80-%EC%95%8A%EC%9D%80-%EA%B2%BD%EC%9A%B0-%EA%B7%B8%EB%8C%80%EB%A1%9C-%EB%A8%B8%EB%AC%B4%EB%A5%B4%EA%B8%B0&quot; aria-label=&quot;양식 제출 시 값이 유효하지 않은 경우 그대로 머무르기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;양식 제출 시 값이 유효하지 않은 경우 그대로 머무르기&lt;/h4&gt;
+&lt;p&gt;Server Action에서 값이 유효하지 않으면 &lt;code class=&quot;language-text&quot;&gt;throw Error&lt;/code&gt;해버릴 수 있지만,&lt;br&gt;
+그럼 페이지를 나가버리는게 단점입니다. 유저들은 이런걸 원하지 않을것인데&lt;br&gt;
+따라서 값이 유효하지 않은 경우 그냥 &lt;code class=&quot;language-text&quot;&gt;return { message: &quot;Invalid input.&quot; }&lt;/code&gt;처럼 직렬화 가능한 객체를 반환합시다&lt;/p&gt;
+&lt;p&gt;이제 Form이 있는 페이지에서, &lt;code class=&quot;language-text&quot;&gt;useFormState&lt;/code&gt;를 사용해야합니다.&lt;br&gt;
+흠.. 그럼 어쩔 수 없이 그 페이지가 이제 클라이언트 컴포넌트가 되어야 하겠네요 ㅜㅜ&lt;br&gt;
+그럼 Server Action은 이제 어떻게 쓰죠?&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;const [state, formAction] = useFormState(serverActionFn, initValue)&lt;/code&gt;&lt;br&gt;
+이렇게 훅을 쓸거라서, 원래 &lt;Form action={serverActionFn}&gt;&lt;code class=&quot;language-text&quot;&gt;처럼 전달했던 &lt;/code&gt;serverActionFn&lt;code class=&quot;language-text&quot;&gt;을 이제 &lt;/code&gt;useFormState&lt;code class=&quot;language-text&quot;&gt;훅에 전달합니다  
+이를 위해 server action 함수는 이제 &lt;/code&gt;(prevState, formData) =&gt; {}`와 같은 형태가 되어야 합니다&lt;br&gt;
+받아오는건 두 가지인데,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;state&lt;/code&gt;는 상태 (initValue로 넣은 초기값이거나, 제출에 의한 상태값)&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;formAction&lt;/code&gt; : 이걸 이제 form의 action으로 넣어줍니다. &lt;code class=&quot;language-text&quot;&gt;&amp;lt;form action={formAction}&gt;&lt;/code&gt; 이렇게&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;nextjs-캐싱&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#nextjs-%EC%BA%90%EC%8B%B1&quot; aria-label=&quot;nextjs 캐싱 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Next.js 캐싱&lt;/h1&gt;
+&lt;p&gt;Next.js는 매우 공격적으로 페이지를 캐시합니다&lt;br&gt;
+사실상 한 번 방문한 페이지는 모두 캐싱해놓고 새로 로드하기 전까지는 이걸 보여주죠&lt;br&gt;
+특히 Next.js는 &lt;strong&gt;build할 때 가능한 모든 페이지를 모두 사전 렌더링하고 생성&lt;/strong&gt;해둡니다.&lt;br&gt;
+사실상 정적 사이트가 되는건데 이 덕분에 첫 방문시에도 매우 빠르게 페이지를 보여줄 수 있습니다.&lt;/p&gt;
+&lt;p&gt;근데 이거때문에 위에서 살펴본 폼 제출로 DB에 새 값을 넣어도, 모든 데이터를 보여주는 페이지에는 변화가 없게 됩니다&lt;br&gt;
+따라서 데이터가 변경되거나 그럴 때 &lt;strong&gt;캐시 유효성을 재확인&lt;/strong&gt;하도록 트리거해야만 하는데&lt;br&gt;
+server action함수가 끝날 때 (redirect 직전에) 함수를 호출합니다. Next.js에서 제공하는 함수를&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;revalidatePath&lt;/code&gt;입니다. &lt;code class=&quot;language-text&quot;&gt;revalidatePath(&apos;/meals&apos;)&lt;/code&gt;와 같이 호출하여 해당 경로의 캐시를 폐기합니다.&lt;br&gt;
+그럼 이제 다시 &lt;code class=&quot;language-text&quot;&gt;/meals&lt;/code&gt;경로의 페이지를 사용자가 요청하면, 새로 페이지를 렌더링합니다.&lt;/p&gt;
+&lt;p&gt;저렇게 하면 딱 저 route만 영향을 받고, 중첩 페이지는 영향받지 않는데&lt;br&gt;
+만약 중첩페이지까지 모두 갱신하려면 두 번째 인자로 &lt;code class=&quot;language-text&quot;&gt;layout&lt;/code&gt;이라고 넘겨줍니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;revalidatePath(&quot;/meals&quot;, &quot;layout&quot;)&lt;/code&gt; 이렇게. 그러면 중첩페이지를 모두 재검사합니다.&lt;br&gt;
+기본값은 &lt;code class=&quot;language-text&quot;&gt;page&lt;/code&gt;라서 그 페이지만 갱신합니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f801df1bf40f56e7a6a24a4a2f77f51e/a6d36/image-4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 60.75949367088608%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsTAAALEwEAmpwYAAABeUlEQVR42l2SWa6CQBBFezPKZEcgDuCsEEQFBQeI+mHi/hfxTiiHF+ujUn371nS7VedtWmvLsuI4rqoqy7KiKG632+FweDweeZ7f7/f1eg2h88/UT/JsNiNtt9tFUZSmKX673S4Wi81mM5lMbNv+TdaNSWCaZqvVarfbBIZh4IkpSowX2jeZYubbiLl2HMdqzG5MEAIBib/J4/H4eDzWdX06nZbLJSVWqxVj7/d7vOyZJAkxm6PFaDT6DK9c14V3vV658zyPwr7vsyRIEAS9Xg8SeBiGZVmCwP92FgERZjAYsBjJ4pkCnJg++G63CwLOaJ+NlFSlOd3oSat+v08HRAbnSFEQpEZw4rAxkOFwqEgAgs2ZfZ7PJ1OQwx0IivBy0+lUOHhiFiSmhBIlRXPm5AIGzyMTMi2a4eUtZH4QmCCvd+ZiPp+jOTrxmURSPgkiXS4XVkBw2JQ+n88gjMMirx8GlSH5j6B8Ty5QxWuMVm5jIjuFoLGa1voPlZWbuS95hzsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Next.js 캐싱&quot;
+        title=&quot;&quot;
+        src=&quot;/static/f801df1bf40f56e7a6a24a4a2f77f51e/f058b/image-4.png&quot;
+        srcset=&quot;/static/f801df1bf40f56e7a6a24a4a2f77f51e/c26ae/image-4.png 158w,
+/static/f801df1bf40f56e7a6a24a4a2f77f51e/6bdcf/image-4.png 315w,
+/static/f801df1bf40f56e7a6a24a4a2f77f51e/f058b/image-4.png 630w,
+/static/f801df1bf40f56e7a6a24a4a2f77f51e/a6d36/image-4.png 650w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;메타데이터&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A9%94%ED%83%80%EB%8D%B0%EC%9D%B4%ED%84%B0&quot; aria-label=&quot;메타데이터 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;메타데이터&lt;/h1&gt;
+&lt;p&gt;위에서 살펴봤듯이 페이지 컴포넌트에서 &lt;code class=&quot;language-text&quot;&gt;export const metadata&lt;/code&gt;로 메타데이터를 설정할 수 있습니다&lt;br&gt;
+이건 더 구체적인 페이지에 존재하는 metadata가 우선적용되는데&lt;br&gt;
+동적페이지에서는 다르게 합니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;generateMetadata&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; params &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; meal &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getMeal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;params&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;slug&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;meal&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;notFound&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token literal-property property&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; meal&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;title&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token literal-property property&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; meal&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;summary
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이런 식으로, &lt;code class=&quot;language-text&quot;&gt;generateMetaData({ params })&lt;/code&gt;라는 함수에서 객체를 반환하도록 하고, 이를 내보냅니다&lt;br&gt;
+경로 파라미터가 필요하면 인자로 주니까 그거 쓰면 됩니다&lt;br&gt;
+서버에서 실행할거라 &lt;code class=&quot;language-text&quot;&gt;async&lt;/code&gt;도 되고, 서버액션으로 값을 가져올 수도 있습니다&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;br&gt;
+여기까지인데요&lt;br&gt;
+사실 App Router는 너무 MZ식이라 아직도 Pages Router는 유효하고 많이 남아있습니다&lt;br&gt;
+다음 시간에는 Pages Router로 Next.js를 다시 알아보겠습니다&lt;/p&gt;
+&lt;p&gt;그리고 &lt;a href=&quot;https://www.napkin.ai/&quot;&gt;Napkin AI&lt;/a&gt;너무 좋은데요?&lt;br&gt;
+그림 자료들은 다 얘가 해줬습니다&lt;/p&gt;
+&lt;p&gt;이만 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React 프로젝트에 애니메이션 넣기]]></title><description><![CDATA[! 주의 : TIL…]]></description><link>https://sungpaks.github.io/til/animation-in-react/</link><guid isPermaLink="false">https://sungpaks.github.io/til/animation-in-react/</guid><pubDate>Sat, 05 Oct 2024 14:28:31 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;/demo&quot;&gt;데모 페이지&lt;/a&gt;&lt;/p&gt;
@@ -4833,14 +5213,14 @@ ts패키지도 적당히 넣어주고&lt;br&gt;
 
   &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
     &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; width&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;80vw&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;80vw&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;h3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;Kakao Map.....&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;h3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;latitude &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; longitude &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
           &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Map&lt;/span&gt;&lt;/span&gt;
-            &lt;span class=&quot;token attr-name&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; lat&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; latitude&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; lng&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; longitude &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
-            &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; width&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;100%&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; height&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;500px&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+            &lt;span class=&quot;token attr-name&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; latitude&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;lng&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; longitude &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+            &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;100%&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;500px&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
           &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MapMarker&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; lat&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; latitude&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; lng&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; longitude &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MapMarker&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MapMarker&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; latitude&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;lng&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; longitude &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MapMarker&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Polyline&lt;/span&gt;&lt;/span&gt;
               &lt;span class=&quot;token attr-name&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;path&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
               &lt;span class=&quot;token attr-name&quot;&gt;strokeWeight&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 선의 두께 입니다&lt;/span&gt;
@@ -8668,7 +9048,7 @@ graphql 쿼리를 딸깍 할 수 있는 함수?? 뭐 아무튼 그런걸 줍니�
 이상한 사람이 준 문자열을 그냥 갖다 바꿔버리면&lt;br&gt;
 &lt;a href=&quot;https://en.wikipedia.org/wiki/Cross-site_scripting&quot;&gt;Cross-Site Scripting(XSS)&lt;/a&gt;라는 보안이슈가 발생할 수 있어서&lt;br&gt;
 어흥! &lt;code class=&quot;language-text&quot;&gt;dangerously&lt;/code&gt;를 붙여놨다고 하네요&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;toc&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;dangerouslySetInnerHTML&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; __html&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; tableOfContents &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;toc&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;dangerouslySetInnerHTML&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;__html&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; tableOfContents &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;암튼 이렇게 작성하면&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
