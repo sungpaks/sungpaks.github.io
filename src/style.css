@@ -364,7 +364,7 @@ body.theme-reverse summary::after {
 .post-list-item {
   margin-bottom: var(--spacing-8);
   margin-top: var(--spacing-8);
-  animation: switch-tab 0.5s ease;
+  animation: switch-tab 0.5s ease forwards;
 }
 
 @keyframes switch-tab {

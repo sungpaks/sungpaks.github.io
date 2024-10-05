@@ -21,13 +21,14 @@ function TopUI({ setCurTag }: ComponentProps) {
   const [curMode, setCurMode] = useState(DarkIcon);
 
   useEffect(() => {
-    document.addEventListener("scroll", () => {
+    const handleScroll = () => {
       const currentScroll: number = document.documentElement.scrollTop;
       const totalScroll: number =
         document.documentElement.scrollHeight -
         document.documentElement.clientHeight;
       setScrollPercent((currentScroll * 100) / totalScroll);
-    });
+    };
+    document.addEventListener("scroll", handleScroll);
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       setPreferedDark(true);
     }
@@ -40,6 +41,9 @@ function TopUI({ setCurTag }: ComponentProps) {
         ? DARK_MODE
         : LIGHT_MODE
     );
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
