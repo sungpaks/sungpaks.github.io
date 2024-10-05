@@ -52,7 +52,7 @@ function TopUI({ setCurTag }: ComponentProps) {
               if (setCurTag) setCurTag("ALL");
             }}
           >
-            👍 조성개발실록
+            👍 &nbsp; 조성개발실록
           </Link>
         </h5>
         <div className="top-ui-tag-container">

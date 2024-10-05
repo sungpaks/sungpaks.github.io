@@ -91,12 +91,14 @@ body {
   background-color: light-dark(white, var(--color-dark));
   word-break: keep-all;
   overflow-wrap: break-word;
+  transition: background-color 0.2s ease-in, color 0.2s ease-in;
 }
 
 body.theme-reverse {
   color: light-dark(var(--color-light), var(--color-text));
   background-color: light-dark(var(--color-dark), white);
 }
+
 
 footer {
   padding: var(--spacing-6) var(--spacing-0);
@@ -362,6 +364,19 @@ body.theme-reverse summary::after {
 .post-list-item {
   margin-bottom: var(--spacing-8);
   margin-top: var(--spacing-8);
+  animation: switch-tab 0.5s ease;
+}
+
+@keyframes switch-tab {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .post-list-item p {
@@ -487,6 +502,7 @@ body.theme-reverse .custom-button {
   position: fixed;
   vertical-align: middle;
   padding-left: 20px;
+  padding-right: 5px;
   width: 100%;
   height: 70px;
   border-bottom: 1px solid black;
@@ -496,6 +512,7 @@ body.theme-reverse .custom-button {
   align-items: center;
   justify-content: space-between;
   font-family: "Pretendard";
+  transition: background-color 0.2s ease-in, color 0.2s ease-in;
 }
 
 body.theme-reverse .top-ui {
