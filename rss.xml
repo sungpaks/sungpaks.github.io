@@ -1,4 +1,343 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 05 Oct 2024 12:33:35 GMT</lastBuildDate><item><title><![CDATA[Next.js 먹어보기 (1) : App Router]]></title><description><![CDATA[! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다. Next.js에 대해 쓰는건 처음이네요 최근에 처음 배웠기 때문입니다? Next.js 13 이전에는 Next.js에서 Route…]]></description><link>https://sungpaks.github.io/til/nextjs-app-router-and-page-router/</link><guid isPermaLink="false">https://sungpaks.github.io/til/nextjs-app-router-and-page-router/</guid><pubDate>Sat, 05 Oct 2024 19:45:44 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 06 Oct 2024 12:17:51 GMT</lastBuildDate><item><title><![CDATA[Next.js 먹어보기 (2) : Pages Router]]></title><description><![CDATA[! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다. 저번 포스팅에서 Next.js의 App Router에 대해 알아봤는데요 이건 Next.js 13 이후로 나온 기능이고, 이전에는 Pages…]]></description><link>https://sungpaks.github.io/til/nextjs-pages-router/</link><guid isPermaLink="false">https://sungpaks.github.io/til/nextjs-pages-router/</guid><pubDate>Sun, 06 Oct 2024 16:07:01 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;저번 포스팅에서 Next.js의 &lt;a href=&quot;/til/nextjs-app-router&quot;&gt;App Router&lt;/a&gt;에 대해 알아봤는데요&lt;br&gt;
+이건 Next.js 13 이후로 나온 기능이고, 이전에는 &lt;a href=&quot;https://nextjs.org/docs/pages&quot;&gt;Pages Router&lt;/a&gt;만이 존재했습니다&lt;br&gt;
+&lt;del&gt;App Router가 등장하기 이전의 범부여..&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;이번에는 Pages Router로 Next.js를 다시 먹어보겠습니다&lt;/p&gt;
+&lt;p&gt;그리고 저번 App Router 포스팅의 마지막쯤에 살펴본 Next.js의 캐싱은 거의 Next.js 13에서 App Router와 함께 등장한 기능입니다&lt;br&gt;
+예컨대 방문한 모든 Route의 사전렌더링 결과를 캐싱하는 전략 등&lt;br&gt;
+Pages Router에는 보통 해당되지 않습니다&lt;/p&gt;
+&lt;p&gt;또한 &lt;code class=&quot;language-text&quot;&gt;&quot;use client&quot;&lt;/code&gt;같은 지시자를 사용하지 않습니다&lt;br&gt;
+대신 어떻게 렌더링 타이밍이 결정되냐..는 것은 이제부터 살펴보겠습니다&lt;br&gt;
+또는 &lt;a href=&quot;https://nextjs.org/docs/pages/building-your-application/rendering/client-side-rendering&quot;&gt;CSR되는 기준&lt;/a&gt;에 대한 공식문서같은 것을 미리 보셔도 괜찮을 듯&lt;/p&gt;
+&lt;h1 id=&quot;폴더-구조&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0&quot; aria-label=&quot;폴더 구조 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;폴더 구조&lt;/h1&gt;
+&lt;p&gt;이제 &lt;code class=&quot;language-text&quot;&gt;app/&lt;/code&gt; 폴더 대신, &lt;code class=&quot;language-text&quot;&gt;pages/&lt;/code&gt; 폴더 내에 페이지들이 존재합니다&lt;br&gt;
+루트 경로(&lt;code class=&quot;language-text&quot;&gt;example-domain.com/&lt;/code&gt;처럼)는 이제 &lt;code class=&quot;language-text&quot;&gt;index.js&lt;/code&gt;처럼 &lt;code class=&quot;language-text&quot;&gt;index&lt;/code&gt;라는 이름을 갖는 파일의 컴포넌트가 담당합니다&lt;/p&gt;
+&lt;p&gt;이제 다른 경로의 페이지를 만들려면, 예를 들어, &lt;code class=&quot;language-text&quot;&gt;/pages/news.js&lt;/code&gt;와 같이 파일을 만듭니다&lt;br&gt;
+이러면 이 이름에 해당하는 경로가 생성됩니다. (&lt;code class=&quot;language-text&quot;&gt;example-domain.com/news/&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;다른 방법도 있는데, &lt;code class=&quot;language-text&quot;&gt;/pages/news/index.js&lt;/code&gt;와 같이, 폴더를 만들고 그 밑에 &lt;code class=&quot;language-text&quot;&gt;index.js&lt;/code&gt;를 생성하여 새로운 경로를 정의할 수도 있습니다.&lt;br&gt;
+이렇게 하면 루트에 대한 진입점은 &lt;code class=&quot;language-text&quot;&gt;/pages/index.js&lt;/code&gt;였고, 이제 &lt;code class=&quot;language-text&quot;&gt;/news&lt;/code&gt; 경로에 대한 진입점은 &lt;code class=&quot;language-text&quot;&gt;/pages/news/index.js&lt;/code&gt;가 됩니다&lt;br&gt;
+이 방법이 &lt;strong&gt;세그먼트를 중첩&lt;/strong&gt;하여 하위 경로의 페이지들을 막 만들어낼 수 있으므로 자주 쓰입니다&lt;/p&gt;
+&lt;h1 id=&quot;dynamic-route-동적-경로&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#dynamic-route-%EB%8F%99%EC%A0%81-%EA%B2%BD%EB%A1%9C&quot; aria-label=&quot;dynamic route 동적 경로 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Dynamic Route (동적 경로)&lt;/h1&gt;
+&lt;p&gt;전에 App Router에서 했듯이, 똑같이 대괄호(&lt;code class=&quot;language-text&quot;&gt;[]&lt;/code&gt;)를 사용합니다&lt;br&gt;
+근데 이번에는 이를 폴더가 아닌 js파일에 대해 사용합니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;/pages/news/[newsId].js&lt;/code&gt;처럼요&lt;/p&gt;
+&lt;p&gt;이제 동적 경로의 매개변수 값을 가져오고 싶을건데 (&lt;code class=&quot;language-text&quot;&gt;newsId&lt;/code&gt;)&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;useRouter()&lt;/code&gt; 훅을 사용하여 &lt;code class=&quot;language-text&quot;&gt;router.query.newsId&lt;/code&gt;처럼 가져옵니다&lt;br&gt;
+어라, 훅을 사용하니 어쩔수없이 클라이언트 컴포넌트가 되나? 싶을 수 있지만&lt;br&gt;
+다른 방법이 뒤에 나옵니다&lt;/p&gt;
+&lt;p&gt;일단은 아래처럼 합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; useRouter &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;next/router&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;DetailPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; router &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useRouter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; newsId &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;query&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;newsId&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;h1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;The Detail Page : &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;newsId&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;h1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;페이지 간 이동은 여전히 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Link&gt;&lt;/code&gt;로 하면 되겠습니다&lt;/p&gt;
+&lt;h1 id=&quot;_appjs&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#_appjs&quot; aria-label=&quot;_appjs permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;code class=&quot;language-text&quot;&gt;_app.js&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;page를 initialize할 때 Next.js는 &lt;code class=&quot;language-text&quot;&gt;_app.js&lt;/code&gt;컴포넌트를 거칩니다&lt;br&gt;
+여기에서는 아래와 같은 일들을 할 수 있는데&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;공통 layout을 정의&lt;/li&gt;
+&lt;li&gt;페이지에 data 주입하기&lt;/li&gt;
+&lt;li&gt;Global CSS를 선언하기&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;기본적으로 아래처럼 생겼는데&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; AppProps &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;next/app&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;MyApp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Component&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; pageProps &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; AppProps&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Component&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token spread&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;pageProps&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;props로는&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;Component&lt;/code&gt; : 지금 initialize하려는 page입니다. 예를 들어, 유저가 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Link href=&quot;/news&quot;&gt;&lt;/code&gt;를 눌렀다면, &lt;code class=&quot;language-text&quot;&gt;/pages/news/index.js&lt;/code&gt;에 해당하는 페이지 컴포넌트입니다&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;pageProps&lt;/code&gt; : &lt;a href=&quot;https://nextjs.org/docs/pages/building-your-application/data-fetching&quot;&gt;data fetching method&lt;/a&gt;중 하나로 pre-load된 데이터입니다. 이 data fetching method에 대해서는 아래에서 다룹니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;Component {...pageProps}&gt;&lt;/code&gt;와 같이 원래 들어갈 &lt;code class=&quot;language-text&quot;&gt;pageProps&lt;/code&gt;를 그대로 모두 전달해주고,&lt;br&gt;
+이외에도 넣어주고 싶은게 있다면 props로 넣어줄 수 있습니다&lt;/p&gt;
+&lt;p&gt;그리고 &lt;a href=&quot;https://nextjs.org/docs/pages/api-reference/functions/get-initial-props&quot;&gt;getInitialProps&lt;/a&gt;를 이 타이밍에 사용할 수 있는데&lt;br&gt;
+이는 데이터를 pre-load하는 방법중 하나로, 첫 렌더링 전에 미리 data를 가져오고 주입할 수 있습니다&lt;br&gt;
+공식문서를 보시면 아시겠지만 &lt;code class=&quot;language-text&quot;&gt;getStaticProps, getServerSideProps&lt;/code&gt;가 나오면서 레거시가 되었습니다&lt;/p&gt;
+&lt;h1 id=&quot;_documentjs&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#_documentjs&quot; aria-label=&quot;_documentjs permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;code class=&quot;language-text&quot;&gt;_document.js&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;여기에 Page의 기본 뼈대가 될 HTML을 정의합니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Html&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Head&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Main&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; NextScript &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;next/document&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Document&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Html&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;en&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Head&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Main&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;NextScript&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Html&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 &lt;code class=&quot;language-text&quot;&gt;_document.js&lt;/code&gt;는 무조건 &lt;strong&gt;서버에서만 렌더링&lt;/strong&gt;되며, 따라서 이벤트핸들러같은 브라우저 특성은 먹히지 않습니다&lt;br&gt;
+여기서 무조건 포함되어야 하는 것은.. &lt;code class=&quot;language-text&quot;&gt;Html, Head, Main, NextScript&lt;/code&gt;(모두 &lt;code class=&quot;language-text&quot;&gt;next/document&lt;/code&gt;에서 import)입니다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;이 때 이 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Head&gt;&lt;/code&gt;는 &lt;code class=&quot;language-text&quot;&gt;next/head&lt;/code&gt;의 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Head&gt;&lt;/code&gt;와 다릅니다
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;_document.js&lt;/code&gt;에서 쓰는 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Head&gt;&lt;/code&gt;컴포넌트는 프로젝트 전체에 해당되는 공통적인 선언을,&lt;/li&gt;
+&lt;li&gt;다른 개별 페이지에서 사용하는 &lt;code class=&quot;language-text&quot;&gt;next/head&lt;/code&gt;의 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Head&gt;&lt;/code&gt;는 그 개별 페이지에 해당하는 선언을 나타냅니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;Main /&gt;&lt;/code&gt; 바깥에 리액트 컴포넌트가 존재해도 이는 동작하지 않습니다. React 영역전개에 해당하지 않는다는 뜻
+&lt;ul&gt;
+&lt;li&gt;그러니 Layout처럼 공통코드를 집어넣고 싶다면, &lt;a href=&quot;https://nextjs.org/docs/pages/building-your-application/routing/pages-and-layouts#layout-pattern&quot;&gt;Layout&lt;/a&gt; 여기를 참고합시다. 그리고 우리는 아까 &lt;code class=&quot;language-text&quot;&gt;_app.js&lt;/code&gt;에서 공통 코드를 넣어줄 수 있다고 했습니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;_document.js&lt;/code&gt;에서는 Data Fetching Method를 사용할 수 없습니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;client-side-rendering되는-경우&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#client-side-rendering%EB%90%98%EB%8A%94-%EA%B2%BD%EC%9A%B0&quot; aria-label=&quot;client side rendering되는 경우 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Client Side Rendering되는 경우&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://nextjs.org/docs/pages/building-your-application/rendering/client-side-rendering&quot;&gt;Next.js Client-Side Rendering 문서&lt;/a&gt;에서는 CSR로 구현되는 두 가지 경우를 제시합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;useEffect()&lt;/code&gt; 사용&lt;/li&gt;
+&lt;li&gt;또는 SWR, TanStack Query 등 서드파티 데이터 fetching 라이브러리를 사용
+&lt;ul&gt;
+&lt;li&gt;(사실 최근에 &lt;a href=&quot;https://velog.io/@seungchan__y/React-Query-%EC%A0%81%EC%9C%BC%EB%A1%9C-%EC%82%AC%EA%B3%A0%ED%95%98%EA%B8%B0&quot;&gt;이런 글&lt;/a&gt;을 봤는데, &quot;리액트 쿼리(TanStack Query)는 데이터 패칭 라이브러리가 아닙니다&quot;라고 하더라구요? 딴소리하는거긴한데 재밌는 글이라 가져왔습니다.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;useEffect&lt;/code&gt;훅은 잘 아시겠지만, 렌더링 이후에 추가로 실행되는 개념입니다&lt;br&gt;
+따라서 서버쪽에서 실행될 수 없어요&lt;br&gt;
+다른 데이터 fetching 라이브러리도 client side여야 하니까 그럴만 한 것 같습니다&lt;/p&gt;
+&lt;p&gt;근데 여기서 의문이 생기는데 &quot;&lt;code class=&quot;language-text&quot;&gt;useEffect&lt;/code&gt;훅만 안 됨? &lt;code class=&quot;language-text&quot;&gt;useState&lt;/code&gt;나 커스텀훅처럼 다른 훅은 되는건가?&quot;라는 것입니다&lt;br&gt;
+공식문서를 좀 봐도 딱히 &quot;훅이면 전부 CSR입니다&quot;라는 명시적인 문장을 찾아보지 못했어서 이런 의문을 가졌습니다 저는&lt;br&gt;
+음.. 근데 &lt;a href=&quot;https://dev.to/hiteshchawla/using-custom-react-hooks-in-nextjs-3gjo&quot;&gt;이런 글&lt;/a&gt;이나, 다른 어쩌구저쩌구를 다 뒤져봐도&lt;br&gt;
+그냥 훅을 쓰면 필연적으로 클라이언트 컴포넌트가 된다고 결론지어집니다&lt;br&gt;
+&quot;Hooks are not allowd in server components&quot;라는 Next.js 에러메시지가 있기도 하구요&lt;/p&gt;
+&lt;h1 id=&quot;page-pre-rendering-data-fetching-method&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#page-pre-rendering-data-fetching-method&quot; aria-label=&quot;page pre rendering data fetching method permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Page Pre-rendering (Data Fetching Method)&lt;/h1&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5182e99c3eac2ead267a8b73ca9c47d1/8cdda/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 86.70886075949367%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAIAAABSJhvpAAAACXBIWXMAAAsTAAALEwEAmpwYAAABiUlEQVR42oXTWXLCMBAEUJ8GCGAHCMVqwOw7xf1Pk1dSQgyBZD6EJE/P9HSLpNlspmlar9eLothsNqvVajQabbdbm/P5nGVZo9GQ0HwWSfwBzvMceL1eA+ch5vN5rPsWIm7UegQLHyqVSrVatanVanGV2ul0hsNhv9/vdrvWj+9QNynTSEOUj8CDwaAIgdF0OoVvtVoq3nX+HY0QKKCDVBbCUbn9fq9c8gombzabkUA34lmv1yv+CC8WC3L4+giul+I9RLvdxhOm1+vhfDqdeDEejx9n1pAqkqy4WSE1dEM83VDARU/kH2fWDQZD9GRwazKZyHa52+0M6YiCQlHXJ7RV9Y2eiET/4Q+HA5FM4ebmSCLDlarL5XIdgh4Ax+MRbfa419BNdK7sZRLNiK7cfFYOVUNeLhfPzswaRufvnidLSEdG2cprGzNoMw8BGQd58raBYSCVQA9/Gw3BHJn0CvlDGysaOscnQVvgaN4r5JfatzkhyWONVMt/oL/+kvIY6PWgTeQoz7/xCdjtyNEMKaaxAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Hydration&quot;
+        title=&quot;&quot;
+        src=&quot;/static/5182e99c3eac2ead267a8b73ca9c47d1/f058b/image.png&quot;
+        srcset=&quot;/static/5182e99c3eac2ead267a8b73ca9c47d1/c26ae/image.png 158w,
+/static/5182e99c3eac2ead267a8b73ca9c47d1/6bdcf/image.png 315w,
+/static/5182e99c3eac2ead267a8b73ca9c47d1/f058b/image.png 630w,
+/static/5182e99c3eac2ead267a8b73ca9c47d1/40601/image.png 945w,
+/static/5182e99c3eac2ead267a8b73ca9c47d1/8cdda/image.png 1168w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;사용자가 어떤 페이지를 처음 요청하면 위와 같은 과정을 거칩니다&lt;br&gt;
+기존의 React식 사고로 어디선가 데이터를 가져오려고 한다면 &lt;code class=&quot;language-text&quot;&gt;useEffect&lt;/code&gt;가 실행되는 타이밍이겠죠?&lt;/p&gt;
+&lt;p&gt;근데 이제 Next.js에서는 데이터를 Pre-Rendering 단계에서 포함하고 싶습니다. 또 그렇게 할 수 있어요&lt;br&gt;
+이를 위한 두 가지 대표적인 사전 렌더링 방식이 있는데, 둘은 유사하지만 &lt;strong&gt;타이밍&lt;/strong&gt;에 차이가 있습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Static Generation&lt;/strong&gt; : 어플리케이션 빌드 시점(&lt;code class=&quot;language-text&quot;&gt;npm run build&lt;/code&gt;이런거)에 페이지가 Pre-Rendering됩니다&lt;/li&gt;
+&lt;li&gt;`&lt;strong&gt;Server Side Rendering&lt;/strong&gt; : 사용자의 요청이 들어온 시점에 페이지가 Pre-Rendering됩니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;static-generation&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#static-generation&quot; aria-label=&quot;static generation permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Static Generation&lt;/h2&gt;
+&lt;p&gt;페이지 컴포넌트에서 &lt;code class=&quot;language-text&quot;&gt;getStaticProps&lt;/code&gt;라는 이름으로 함수를 만들고 export하여&lt;br&gt;
+Static Generation 방법으로 데이터를 가져다 사전렌더링에 포함할 수 있습니다&lt;br&gt;
+Next.js는 이 &lt;code class=&quot;language-text&quot;&gt;getStaticProps&lt;/code&gt;를 발견하면 사전 렌더링 프로세스 중에 이를 먼저 실행한 뒤 컴포넌트에 &lt;code class=&quot;language-text&quot;&gt;props&lt;/code&gt;로 주입합니다.&lt;br&gt;
+이 함수는 &lt;code class=&quot;language-text&quot;&gt;async&lt;/code&gt;로 할 수 있고, 그렇게 하면 Next.js는 이 함수의 실행을 기다리고 지나갑니다.&lt;/p&gt;
+&lt;p&gt;이제 이 &lt;code class=&quot;language-text&quot;&gt;getStaticProps&lt;/code&gt;에서 데이터베이스 연결, http요청, 이런 비동기작업들을 다 하면 됩니다&lt;br&gt;
+이는 서버에서만 실행되고, 절대로 클라이언트 사이드로 넘어가지 않습니다&lt;/p&gt;
+&lt;p&gt;그 결과로 &lt;code class=&quot;language-text&quot;&gt;getStaticProps&lt;/code&gt;에서는 컴포넌트에 주입할 객체만 반환값으로 넘기면 되는데&lt;br&gt;
+이는 &lt;strong&gt;무조건 props 프로퍼티&lt;/strong&gt;를 포함해야 합니다.&lt;br&gt;
+그래야 그 &lt;code class=&quot;language-text&quot;&gt;props&lt;/code&gt; 프로퍼티에 해당하는 값이 컴포넌트에 props로 꽂힙니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;HomePage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; meetups &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MeetupList&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;meetups&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;meetups&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getStaticProps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;/*
+  대충 http 요청이든 Database 연결이든 꿈을 이루기..
+  */&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token literal-property property&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token literal-property property&quot;&gt;meetups&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; meetupsFromDatabse
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 하여, 빌드 프로세스에서 이 페이지를 사전 렌더링할 때 컴포넌트가 포함할 데이터를 주입할 수 있습니다&lt;br&gt;
+인자로는 &lt;code class=&quot;language-text&quot;&gt;context&lt;/code&gt;라는 것을 받습니다. &lt;code class=&quot;language-text&quot;&gt;context.params&lt;/code&gt;와 같이 하여 url 매개변수를 갖다 쓸 수도 있고 그렇습니다&lt;/p&gt;
+&lt;p&gt;그리고 런타임에 이 사전 렌더링을 다시 수행하고 싶다면 (데이터가 변하거나, ..),&lt;br&gt;
+반환값 객체에서 &lt;code class=&quot;language-text&quot;&gt;revalidate&lt;/code&gt; 프로퍼티를 설정하여 갱신 주기를 설정할 수 있습니다&lt;/p&gt;
+&lt;p&gt;정리하자면.. &lt;code class=&quot;language-text&quot;&gt;getStaticProps&lt;/code&gt;가 실행되는 경우는 아래와 같습니다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;매 빌드 시&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fallback: true&lt;/code&gt; =&gt; fallback화면을 띄운 채로, 백그라운드에서 실행&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fallback: &apos;blocking&apos;&lt;/code&gt; =&gt; 첫 렌더링 직전에 실행을 끝낸다&lt;/li&gt;
+&lt;li&gt;반환하는 객체에 &lt;code class=&quot;language-text&quot;&gt;revalidate&lt;/code&gt; 프로퍼티 쓴 경우, 주기마다 백그라운드 실행&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;revalidate()&lt;/code&gt; 트리거되면 백그라운드에서 실행&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;getstaticpaths&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#getstaticpaths&quot; aria-label=&quot;getstaticpaths permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;code class=&quot;language-text&quot;&gt;getStaticPaths&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://nextjs.org/docs/pages/building-your-application/data-fetching/get-static-paths&quot;&gt;페이지가 Dynamic Route를 가지며, getStaticProps를 사용한다면, getStaticPaths 있어야 합니다&lt;/a&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;getStaticProps&lt;/code&gt;는 빌드 프로세스에서 사전 렌더링된다고 말했는데&lt;br&gt;
+이는 &quot;Next.js가 동적 페이지의 모든 값들을 알고 있어야 한다&quot;는 뜻입니다&lt;br&gt;
+그래야 존재하는 모든 동적페이지들에 대한 사전 렌더링 결과를 생성하고&lt;br&gt;
+존재하지 않는 경로에 대해서는 생성하지 않게끔 할 수 있습니다&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;getStaticProps&lt;/code&gt;를 export한 것처럼, &lt;code class=&quot;language-text&quot;&gt;getStaticPaths&lt;/code&gt;라는 이름의 함수도 만들고 export해줍시다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getStaticPaths&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token literal-property property&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;meetupId&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;m1&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;meetupId&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;m2&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token literal-property property&quot;&gt;fallback&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이런 식으로, &lt;code class=&quot;language-text&quot;&gt;getStaticPaths()&lt;/code&gt;에서는 객체를 반환하고, 그 객체는 &lt;code class=&quot;language-text&quot;&gt;paths&lt;/code&gt; 프로퍼티를 갖습니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;paths&lt;/code&gt; 프로퍼티의 값으로는 각 동적페이지 하나 당 객체 하나씩, 결과적으로는 객체 배열이 됩니다&lt;br&gt;
+각 객체 배열의 원소들은 &lt;code class=&quot;language-text&quot;&gt;{ params: {} }&lt;/code&gt;처럼, 개별 동적페이지의 쿼리파라미터에 대한 정보를 갖는 객체들이 됩니다&lt;br&gt;
+물론 지금처럼 하드코딩하기보단, 예를 들어 데이터베이스에서 모든 meetings 건들을 가져와서 저기에 생성하거나, 하겠네요&lt;/p&gt;
+&lt;p&gt;그리고 반환하는 객체에는 &lt;code class=&quot;language-text&quot;&gt;paths&lt;/code&gt;말고도 &lt;code class=&quot;language-text&quot;&gt;fallback&lt;/code&gt; 프로퍼티도 추가해줘야 합니다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fallback: false&lt;/code&gt; =&gt; paths에 없는 내용 요청에 대해 404에러&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fallback: true&lt;/code&gt; =&gt; paths에 없는 요청이 들어오면, Next.js는 이 요청에 대한 페이지를 만들어냅니다. 그 전까지는 fallback페이지를 보여줍니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fallback: &apos;blocking&apos;&lt;/code&gt; : true처럼 페이지를 만들어내지만, 완성 전까지 fallback을 띄우지 않고 block합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;server-side-rendering&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#server-side-rendering&quot; aria-label=&quot;server side rendering permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Server Side Rendering&lt;/h2&gt;
+&lt;p&gt;똑같이 &lt;code class=&quot;language-text&quot;&gt;getServerSideProps&lt;/code&gt;라는 함수를 만들고 export하여, 필요한 데이터를 &lt;strong&gt;request time&lt;/strong&gt;에 가져올 수 있습니다&lt;br&gt;
+이 또한 서버에서 실행됨이 보장되며, static때와 마찬가지로 여기서 직접 DB에 연결하거나 http요청을 보낼 수 있습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8b2320a5495235ec3adbd82e4d7a7efa/37563/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 10.759493670886075%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAIAAADXZGvcAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAfUlEQVR42mMICwtLS0tLSUmxtbEx9g6yjUmzCok1tLSxSy1yK250K2o0cXAx8w93SC1wTMk3c/M2cfV2SC1ySiuyCo5mAGpOTU2Nj4+3AWkOtolOtQqOMbS0tk0pcs2tcskuN7Z3NguIcEjMcYhNN3P1AmlOK3ZMyrXyDwMAM7wmVk/tBdkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;서버사이드렌더링&quot;
+        title=&quot;&quot;
+        src=&quot;/static/8b2320a5495235ec3adbd82e4d7a7efa/f058b/image-2.png&quot;
+        srcset=&quot;/static/8b2320a5495235ec3adbd82e4d7a7efa/c26ae/image-2.png 158w,
+/static/8b2320a5495235ec3adbd82e4d7a7efa/6bdcf/image-2.png 315w,
+/static/8b2320a5495235ec3adbd82e4d7a7efa/f058b/image-2.png 630w,
+/static/8b2320a5495235ec3adbd82e4d7a7efa/40601/image-2.png 945w,
+/static/8b2320a5495235ec3adbd82e4d7a7efa/78612/image-2.png 1260w,
+/static/8b2320a5495235ec3adbd82e4d7a7efa/37563/image-2.png 2228w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이런 순서로 진행됩니다&lt;br&gt;
+페이지를 요청하는 타이밍에 미리 서버에서 데이터를 준비하고 이를 토대로 HTML을 생성합니다.&lt;br&gt;
+일단 최소한의 HTML만 보내놓고 데이터를 가져와서 화면을 채우는 Client Side Rendering과는 상반되게요&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getServerSideProps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; req &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; context&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;req&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; res &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; context&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;res&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token literal-property property&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+		&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;getStaticProps&lt;/code&gt;와 되게 비슷하게 이런 식으로 씁니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;props&lt;/code&gt; 프로퍼티가 포함된 객체를 반환하고 컴포넌트에 props를 주입한다는 것도 비슷합니다&lt;br&gt;
+그리고 &lt;code class=&quot;language-text&quot;&gt;getStaticProps&lt;/code&gt;의 &lt;code class=&quot;language-text&quot;&gt;context&lt;/code&gt;와 다르게, 여기서의 &lt;code class=&quot;language-text&quot;&gt;context&lt;/code&gt;는 요청(&lt;code class=&quot;language-text&quot;&gt;req&lt;/code&gt;)과 응답(&lt;code class=&quot;language-text&quot;&gt;res&lt;/code&gt;)에 대한 객체도 포함합니다&lt;br&gt;
+예를 드렁, 요청의 헤더를 열어보거나 등등..&lt;/p&gt;
+&lt;h1 id=&quot;api-route&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#api-route&quot; aria-label=&quot;api route permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;API Route&lt;/h1&gt;
+&lt;p&gt;페이지처럼 HTML코드를 반환하는게 아니라 http 요청을 받는 route를 만들 수 있습니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;/pages/api/&lt;/code&gt; 이렇게 api 폴더를 만듭시다. 그냥 경로가 &lt;code class=&quot;language-text&quot;&gt;domain.com/api/&lt;/code&gt;로 시작하게 하는것인데&lt;br&gt;
+이제 이 안에 JS파일을 생성하면, 그 파일의 이름대로 경로 세그먼트가 됩니다&lt;br&gt;
+이 파일의 함수는 모두 서버에서만 실행됩니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// pages/api/new-meetup.js ===&gt; POST &apos;~~~~/api/new-meetup&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;req&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; res&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;req&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;method &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;POST&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; data &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; req&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; title&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; image&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; address&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; description &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; handler&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;만약 &lt;code class=&quot;language-text&quot;&gt;pages/api/new-meetup.js&lt;/code&gt;에 이렇게 작성해두면,&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;domain.com/api/new-meetup&lt;/code&gt;에 대한 POST요청을 handler가 처리하게 됩니다&lt;/p&gt;
+&lt;p&gt;예를 들어 MongoDB에 새로 데이터를 넣으려고 한다면 아래처럼 하게 될 것 같네요&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; MongoClient &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;mongodb&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;req&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; res&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;req&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;method &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;POST&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; data &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; req&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; client &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; MongoClient&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;connect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;mongoUrl&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; db &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; client&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; meetupsColleciton &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; db&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;meetups&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; meetupsColleciton&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;insertOne&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    client&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    res&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;201&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Meetup successfully inserted!&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; handler&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이제 쓸 때는 &lt;code class=&quot;language-text&quot;&gt;fetch(&quot;/api/new-meetup&quot;, { method:, body:, headers:, })&lt;/code&gt; 이런 식으로 호출합니다&lt;br&gt;
+같은 Next.js 프로젝트 내에 있으니까, 도메인 생략하고 루트부터의 절대경로를 작성해줍니다&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;그럼 &lt;code class=&quot;language-text&quot;&gt;getStaticProps&lt;/code&gt;로 Static Site Generation 방법을 선택할까요,&lt;br&gt;
+아니면 &lt;code class=&quot;language-text&quot;&gt;getServerSideProps&lt;/code&gt;로 Server Side Rendering을 선택할까요?&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ba9c336a3c71ce717dfcbccc4420331f/92bb4/image-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 30.37974683544304%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5ElEQVR42m2Qy07DMBBF/TXItT1+xAnBreME8kbKAnVTIcGu8AVFfEO/misa0UW5i9F4fK7mwdSNtKbtbts0zTiOLdR1MSVFdEuyv0yuEkrYh/sI57IsiNM0pbIw/E7Iq1bz6hDCWuucFRt6eQv79x0A733mvdzw/PXTH45GgnHAjDHg4WLOOUBlWaLD/Dyl2B6/Hj++E2mV54XPvRKiOJ3D6dzXVT8M8zx3XRdCgJHBhtnw7nt8DW37pKTmXGD86z6cG1JYHwx6XM4BI9NaV1VV13WMEVXk9N9tUHO/yrLsEonoB+YHTJ3J4w7aAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;SSR vs SSG&quot;
+        title=&quot;&quot;
+        src=&quot;/static/ba9c336a3c71ce717dfcbccc4420331f/f058b/image-3.png&quot;
+        srcset=&quot;/static/ba9c336a3c71ce717dfcbccc4420331f/c26ae/image-3.png 158w,
+/static/ba9c336a3c71ce717dfcbccc4420331f/6bdcf/image-3.png 315w,
+/static/ba9c336a3c71ce717dfcbccc4420331f/f058b/image-3.png 630w,
+/static/ba9c336a3c71ce717dfcbccc4420331f/40601/image-3.png 945w,
+/static/ba9c336a3c71ce717dfcbccc4420331f/78612/image-3.png 1260w,
+/static/ba9c336a3c71ce717dfcbccc4420331f/92bb4/image-3.png 1824w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;잘 생각해서 선택하면 되겠습니다&lt;br&gt;
+이만 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Next.js 먹어보기 (1) : App Router]]></title><description><![CDATA[! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다. Next.js에 대해 쓰는건 처음이네요 최근에 처음 배웠기 때문입니다? Next.js 13 이전에는 Next.js에서 Route…]]></description><link>https://sungpaks.github.io/til/nextjs-app-router/</link><guid isPermaLink="false">https://sungpaks.github.io/til/nextjs-app-router/</guid><pubDate>Sat, 05 Oct 2024 19:45:44 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Next.js에 대해 쓰는건 처음이네요&lt;br&gt;
