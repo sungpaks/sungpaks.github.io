@@ -1,7 +1,7 @@
 ---
 title: "Next.js 먹어보기 (1) : App Router"
 date: 2024-10-05 19:45:44
-description: "츄베릅"
+description: "Next.js 13부터는 App Router가 권장됩니다"
 tag: ["TIL", "Next.js"]
 ---
 
