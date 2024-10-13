@@ -1,4 +1,254 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 08 Oct 2024 13:17:55 GMT</lastBuildDate><item><title><![CDATA[🎨 CSS 라이브러리를 고민하는 당신을 위해 (+ 성능비교)]]></title><description><![CDATA[No CSS Club회원이 아니라면 웹페이지의 스타일링을 위해 CSS는 필수적이고 중요합니다 그러나 역사적으로 CSS는 개발자들에게 많은 고통을 주었습니다.. 그 역사에 대해서는 CSS…]]></description><link>https://sungpaks.github.io/css-styling-methods/</link><guid isPermaLink="false">https://sungpaks.github.io/css-styling-methods/</guid><pubDate>Sun, 06 Oct 2024 22:57:29 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 13 Oct 2024 12:55:07 GMT</lastBuildDate><item><title><![CDATA[Three.js 공식문서로 시작해보기. - 1일차]]></title><description><![CDATA[! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다. 최근에 Three.js 스터디를 시작하게 되었는데요 Three.js는 JavaScript로 3D…]]></description><link>https://sungpaks.github.io/til/how-to-threejs-1/</link><guid isPermaLink="false">https://sungpaks.github.io/til/how-to-threejs-1/</guid><pubDate>Sun, 13 Oct 2024 20:33:25 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;최근에 Three.js 스터디를 시작하게 되었는데요&lt;br&gt;
+&lt;a href=&quot;https://threejs.org/&quot;&gt;Three.js&lt;/a&gt;는 JavaScript로 3D 그래픽을 구현할 수 있게 해주는 라이브러리입니다.&lt;/p&gt;
+&lt;p&gt;공식문서를 쭉 한번 읽어보며 뭘 할 수 있는지를 좀 보려고 해요&lt;br&gt;
+심지어 Three.js는 &lt;a href=&quot;https://threejs.org/docs/index.html#manual/ko/introduction/Installation&quot;&gt;한국어 docs&lt;/a&gt;를 지원합니다.&lt;br&gt;
+영어 docs면 피로감이 391% 추가되는데, 아주 좋네요&lt;br&gt;
+시작해보겠습니다.&lt;/p&gt;
+&lt;p&gt;설치는 위 docs에서 쉽게 설치할 수 있습니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;npm install three&lt;/code&gt;처럼 패키지매니저로 설치할 수도 있고,&lt;br&gt;
+CDN으로 가져다 쓸 수도 있구요&lt;/p&gt;
+&lt;h1 id=&quot;장면을-만들기--spinning-cube&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9E%A5%EB%A9%B4%EC%9D%84-%EB%A7%8C%EB%93%A4%EA%B8%B0--spinning-cube&quot; aria-label=&quot;장면을 만들기  spinning cube permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;장면을 만들기 : spinning cube&lt;/h1&gt;
+&lt;p&gt;설치 후 가장 먼저 보이는 것은 &lt;a href=&quot;https://threejs.org/docs/index.html#manual/ko/introduction/Creating-a-scene&quot;&gt;Scene 만들기&lt;/a&gt; 단계입니다.&lt;br&gt;
+먼저 &lt;code class=&quot;language-text&quot;&gt;import * as THREE from &apos;three&apos;&lt;/code&gt; 처럼 Three.js의 모듈을 import하고 시작합시다.&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 420px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f90474833d478d4bc12466725895a674/d10fb/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 103.16455696202532%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAIAAADJt1n/AAAACXBIWXMAAAsTAAALEwEAmpwYAAADVklEQVR42mPQwQD2YGBpaeng4ODu7m5ra+vj42NkZKStrY2mkgGND1QRHByclJQUFRUVGRkJJF1cXGJiYszMzLS0tAhoBgJ1DQ0VNXUNTRDQ0NBQ19RQ11DH1IlNs66ulqamvpqygZYmUIO2ppa+uramirquri6SEl0IF6QZaAPEYF19fSDDwtHFf/5O75ZpRurq7pGBaTsnemdGa2tp6errAfUB/QV2kyaQwaCnp2dlZWVqagoMDS0NNVVJUbfYZJ9H/50u/Eraczz3+sL0P1tT1nRqySirK6uCHGKgbwUG+vr6DCYmJjk5OYFBQerKSq5xaS5J2b6rTrhc+m9z5n/UvReZL5YlPl6afmtxYHmqf3ackamJkaFhWlpabm6utbU1xM+66qoqtu7efpe++N/573Tln/35f7bn/sc8eJn5annS42WpL1blvF6X93NbZE+xhqKKlo42xJsM8ECytLH1XHsu4db/+jt/PC7/dz3/O37rwewr8zJer+t+tafp1Y6shyt8MqK11DR0YIEHC219fU0JYe+2mW43/+de+5Fw8797Ya2uoryto0PmyZmVrzaXvNyYfnGeqbaBuhoi5KE2a2uou6fm++577Hj6h+WJb26HP+sbmGloa6hJKYVMqk54uSL+1tzUu4vjp9UYm5mC3AyPKh1dPR1V5eC1Rx2v/7c68Mn2yK+yGxfz6qJVlbQ9POwmn27Lubc08vKCuDsL8p6vdQ70UldR1dXTRbJZU8MxLNZvytrEM3dn3Z6271nkzicxS48lbryRsP9l5OaHeR0Pp6XvmhRcnmZkjEjkDPBUo6mqpKWiOW9n+sFXQRvvhe16nHz+Y+uhl/mb7kVsexi853FKQIiHoqQ8UkpDSp5A00xMzFeeTjjwIXb/27j9r1IuvZ575GXF/nfRe1/HHnyfGJ/ppaqqpaeniz1ta2vpVXQHz9wSn1MZsPho7P43CVvvJdb2h9ZPCp+1LcHeyVJTQwu7zUAADEYNNR19PUNJUaWIOK+Dr7K6F8YpygADXVsHFEmayDqx5CqwtLaeHjDi9SwszYyMDIEiEEE0ndjzMyTTqasDE7uKmpqaDm7AgEunv79fWlpqUFAQMPdgFkD4NAM9D8w0np6ewGJMF9O5MM0ARgWBDugtBO0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;three.js 필수 3요소&quot;
+        title=&quot;&quot;
+        src=&quot;/static/f90474833d478d4bc12466725895a674/d10fb/image.png&quot;
+        srcset=&quot;/static/f90474833d478d4bc12466725895a674/c26ae/image.png 158w,
+/static/f90474833d478d4bc12466725895a674/6bdcf/image.png 315w,
+/static/f90474833d478d4bc12466725895a674/d10fb/image.png 420w&quot;
+        sizes=&quot;(max-width: 420px) 100vw, 420px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;three.js에서 필수적인 3대 요소. - generated by NapkinAI&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;이제부터 three.js를 본격적으로 시작할건데,&lt;br&gt;
+three.js에서 무언가를 표현하려면 &lt;strong&gt;scene, camera, 그리고 renderer&lt;/strong&gt; 세 가지가 필수적입니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; scene &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;THREE&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Scene&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; camera &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;THREE&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;PerspectiveCamera&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;token number&quot;&gt;75&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerWidth &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerHeight&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token number&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; renderer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;THREE&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;WebGLRenderer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+renderer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setSize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerWidth&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerHeight&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;renderer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;domElement&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이게 사실상 boilerplate처럼 됩니다&lt;/p&gt;
+&lt;p&gt;카메라는 &lt;code class=&quot;language-text&quot;&gt;PerspectiveCamera&lt;/code&gt;라는 종류를 썼는데, 이외에도 다른 몇 가지 종류가 있습니다.&lt;br&gt;
+생성자에서 전달한 각 속성으로는&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;시야각(field of view) : 각도 값으로 설정합니다. 75&lt;span class=&quot;math math-inline&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;°&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\degree&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.6944em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;°&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;처럼.&lt;/li&gt;
+&lt;li&gt;종횡비(aspect ratio) : 화면의 너비와 높이 비율로, 보통 요소의 높이와 너비에 맞추어 표시합니다.&lt;/li&gt;
+&lt;li&gt;near 절단면 : 이 값보다 가까이 있는 물체는 렌더링하지 않습니다.&lt;/li&gt;
+&lt;li&gt;far 절단면 : 이 값보다 멀리 있는 물체는 렌더링하지 않습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;렌더러는 &lt;code class=&quot;language-text&quot;&gt;WebGLRenderer&lt;/code&gt;를 사용했습니다. 이 또한 다른 종류의 렌더러가 있는데, WebGL이 지원되지 않는 환경에서 쓸 수 있는 객체가 있는 등, 입니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;먼저 렌더러를 생성(&lt;code class=&quot;language-text&quot;&gt;new THREE.WebGLRenderer()&lt;/code&gt;)하고,&lt;/li&gt;
+&lt;li&gt;크기를 설정합니다(&lt;code class=&quot;language-text&quot;&gt;renderer.setSize(window.innerWidth, innerHeight)&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;사이즈는 유지하면서 해상도를 낮추려면, &lt;code class=&quot;language-text&quot;&gt;setSize&lt;/code&gt;의 세 번째 인자인 &lt;code class=&quot;language-text&quot;&gt;updateStyle&lt;/code&gt;을 false로 꺼줍시다.
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;setSize(window.innerWidth/2, window.innerHeight/2, false)&lt;/code&gt;라고 쓰면, 절반의 해상도로 렌더링됩니다(&lt;code class=&quot;language-text&quot;&gt;&amp;lt;canvas&gt;&lt;/code&gt; 높이너비가 100%인 경우).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;const scene = new THREE.Scene()&lt;/code&gt;처럼 장면 객체도 생성해줍니다.&lt;br&gt;
+나중에 오브젝트를 만들고 장면에 추가할 것입니다.&lt;/p&gt;
+&lt;p&gt;이제 &lt;strong&gt;renderer 요소를 HTML문서에 삽입&lt;/strong&gt;합니다.&lt;br&gt;
+이는 하나의 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;canvas&gt;&lt;/code&gt; 요소로, 렌더러가 장면을 나타내는 구역에 해당합니다.&lt;/p&gt;
+&lt;h2 id=&quot;큐브를-하나-추가해봅시다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%81%90%EB%B8%8C%EB%A5%BC-%ED%95%98%EB%82%98-%EC%B6%94%EA%B0%80%ED%95%B4%EB%B4%85%EC%8B%9C%EB%8B%A4&quot; aria-label=&quot;큐브를 하나 추가해봅시다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;큐브를 하나 추가해봅시다.&lt;/h2&gt;
+&lt;p&gt;예제 오브젝트로 큐브를 하나 추가해봅니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 큐브 기하학 구조 생성&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; geometry &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;THREE&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;BoxGeomery&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 재질(색상 등을 정의) 생성&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; material &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;THREE&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;MeshBasicMaterial&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0x00ff00&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 기하학과 재질을 합치면 =&gt; 물체.&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; cube &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;THREE&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Mesh&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;geometry&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; material&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 장면에 추가.&lt;/span&gt;
+scene&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;cube&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+camera&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;position&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;z &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;먼저 &lt;code class=&quot;language-text&quot;&gt;BoxGemoetry&lt;/code&gt;로 큐브를 추가합니다.&lt;br&gt;
+이 객체는 큐브를 만드는데 필요한 모든 &lt;strong&gt;꼭짓점&lt;/strong&gt;과 &lt;strong&gt;면&lt;/strong&gt;을 포함하는 기하학 객체입니다.&lt;br&gt;
+이 꼭짓점과 면에 대해서는 나중에 알아봅니다.&lt;/p&gt;
+&lt;p&gt;이제 재질이 필요합니다. 이 재질은 요소에 색상 등의 성질을 부여합니다.&lt;br&gt;
+three.js에서 이러한 &quot;색칠&quot;에 대해 여러 방법이 고민되었지만, 현재로서는 &lt;code class=&quot;language-text&quot;&gt;MeshBasicMaterial&lt;/code&gt;을 사용합니다.&lt;br&gt;
+이 속성이 적용된 오브젝트들은 모두 그 영향을 받습니다.&lt;/p&gt;
+&lt;p&gt;이제 &lt;code class=&quot;language-text&quot;&gt;Mesh&lt;/code&gt;와 같이 Object를 생성합니다.&lt;br&gt;
+**기하학(Geometry)**과 **재질(material)**을 합쳐 하나의 물체가 되고, 이것이 화면에 삽입되어 자유롭게 움직일 수 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/31ce4a3c64c6cc1e052eefc2577d6677/23296/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.9620253164557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACgklEQVR42mWT20tUURTG/Yuih4LEXip8EITyRSqCIJ96KIjIwAR9sdTQEAkNJU1Mq9F0bMZBJS9kpaaYmpcZZSY1x2M6MzaXc+Zcf+1zjgrRYh84e+3Ft771fXvnYIJlWtiRTqaY9A+QjMWcvWWIvFiGZqBkFOffyYmQU2lm33Swu7Zqp1GULKZhkmPvMmkZKRplKxxmuaOZTHTLBdTN/wFFCt1APYyz62tH2QmTSmeQtjbRNV0AHnVUdyQOvn9kpbuK9eFadCXmANgTnACaTilZSSLY+4ipFyUs+x4iR+Yx9yTnLMcy3KrEz1WG6osJ1BUz8iyX+Z47WJrsMlT1E4Z2bH59i6/mEkONN+h/UsBcZxmqkMAB5Eg/7XCL8eYiuisKGG+6TN/jPDbnvM6ZrqoossJxxEMB3pWfoqfqCl3lF9n41OJKIaByZKFfJpVBzRrsrIqRJ/v53N9McMbL7sYSWUUjeZgkHksIlrL4VJKJGJF5L9HgNKHpATLJuGioCaMy9siW45ye1R2yiYMYI83Piaytnziti5Htxq6eupNfWVjkffsrNE1zmJnCQLvWNUWsrJwW3SYIT31gzdOItB0hLcRHFP7jsmUXqyx4PfhrK4nt/XYB7UYmLkM79pd6CFRfZbj+AuMN15jvKyM02kFqb9vRR7EZipCCi0QDHkKDLUz7PcTE+PL6Okpk48iUY4aJX8z0VjP49ByjTTd5+SCPidbbWMq+YGgJLQ1Su9/w1d+i9X4+nqqzdJXm88VTykFwlo0x//G1scT8hrM5CI8yVJfLeOs9BhuK+CP9cG+AeAVq1mRzto3emus03j3P64rTdFYWUlNyhrayQhbG2hzAv/TWDAqWZRi2AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ppap&quot;
+        title=&quot;&quot;
+        src=&quot;/static/31ce4a3c64c6cc1e052eefc2577d6677/f058b/image-1.png&quot;
+        srcset=&quot;/static/31ce4a3c64c6cc1e052eefc2577d6677/c26ae/image-1.png 158w,
+/static/31ce4a3c64c6cc1e052eefc2577d6677/6bdcf/image-1.png 315w,
+/static/31ce4a3c64c6cc1e052eefc2577d6677/f058b/image-1.png 630w,
+/static/31ce4a3c64c6cc1e052eefc2577d6677/23296/image-1.png 675w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이제 물체를 &lt;code class=&quot;language-text&quot;&gt;scene.add()&lt;/code&gt;로 장면에 추가합니다.&lt;br&gt;
+이러면 기본적으로 (0,0,0) 좌표에 위치하므로, 카메라와 큐브가 겹치게 됩니다.&lt;br&gt;
+따라서 카메라를 살짝 움직여줍니다.&lt;/p&gt;
+&lt;h2 id=&quot;scene을-렌더링하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#scene%EC%9D%84-%EB%A0%8C%EB%8D%94%EB%A7%81%ED%95%98%EA%B8%B0&quot; aria-label=&quot;scene을 렌더링하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Scene을 렌더링하기.&lt;/h2&gt;
+&lt;p&gt;아직 렌더링하지 않았으므로 아무것도 보이지 않습니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;renderer.render()&lt;/code&gt;로 현재 장면을 렌더할 수 있는데,&lt;br&gt;
+&lt;strong&gt;render or animate loop&lt;/strong&gt;로 연속적으로 렌더링할 수 있습니다. (애니메이션)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;animate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;requestAnimationFrame&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;animate&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// 여기에 큐브를 움직이는 업데이트 로직을 추가하기.&lt;/span&gt;
+  renderer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;scene&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; camera&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;animate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;기본적으로 이렇게 생깁니다.&lt;br&gt;
+Java프로그래밍 시간에 Swing실습으로 배운 &lt;a href=&quot;https://gameprogrammingpatterns.com/game-loop.html&quot;&gt;Game-Loop Pattern&lt;/a&gt;이 생각나네요&lt;br&gt;
+대충 &lt;em&gt;입력받고 -&gt; update하고 -&gt; render하는 사이클을 무한반복&lt;/em&gt;하는 패턴이었습니다.&lt;/p&gt;
+&lt;p&gt;아무튼 이렇게 하면, 화면이 새로고침될 때마다 계속해서 렌더링합니다. (기본적으로 초당 60회)&lt;br&gt;
+&lt;em&gt;왜 &lt;code class=&quot;language-text&quot;&gt;setInterval&lt;/code&gt;을 사용하지 않나요?&lt;/em&gt; =&gt; setInterval과 비슷해보이지만 다른 이점들을 제공합니다. 예를 들어, 브라우저 창에서 이탈한 경우 멈추는 등.&lt;/p&gt;
+&lt;h2 id=&quot;큐브를-움직여요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%81%90%EB%B8%8C%EB%A5%BC-%EC%9B%80%EC%A7%81%EC%97%AC%EC%9A%94&quot; aria-label=&quot;큐브를 움직여요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;큐브를 움직여요&lt;/h2&gt;
+&lt;p&gt;animate함수에서 렌더링하기 전에 큐브를 업데이트합시다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;animate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;requestAnimationFrame&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;animate&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  cube&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rotation&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;x &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0.01&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  cube&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rotation&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;y &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0.01&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  renderer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;scene&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; camera&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;animate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이런식으로. 천천히 회전하도록 매 렌더링마다 변형을 추가합니다.&lt;br&gt;
+이 예제는 &lt;a href=&quot;https://jsfiddle.net/0c1oqf38/&quot;&gt;여기&lt;/a&gt;에서 결과를 확인할 수 있습니다.&lt;/p&gt;
+&lt;h1 id=&quot;선-그리기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%A0-%EA%B7%B8%EB%A6%AC%EA%B8%B0&quot; aria-label=&quot;선 그리기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;선 그리기&lt;/h1&gt;
+&lt;p&gt;그 다음은 &lt;a href=&quot;https://threejs.org/docs/index.html#manual/ko/introduction/WebGL-compatibility-check&quot;&gt;WebGL 호환성 검사&lt;/a&gt;지만, 혹시나 WebGL2를 지원하지 않는 환경에 대처하는 방법에 대한 간단한 내용입니다.&lt;br&gt;
+그 다음 내용인 &lt;a href=&quot;https://threejs.org/docs/index.html#manual/ko/introduction/Drawing-lines&quot;&gt;선 그리기&lt;/a&gt;를 알아봅시다.&lt;/p&gt;
+&lt;p&gt;아까는 와이어프레임 &lt;a href=&quot;https://threejs.org/docs/index.html#api/en/objects/Mesh&quot;&gt;Mesh&lt;/a&gt;를 오브젝트로 사용했는데, 이제 선이나 원을 그려보려고 합니다.&lt;/p&gt;
+&lt;p&gt;아까처럼 boilerplate를 먼저 작성합시다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; renderer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;THREE&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;WebGLRenderer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+renderer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setSize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerWidth&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerHeight&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;renderer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;domElement&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; camera &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;THREE&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;PerspectiveCamera&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;token number&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerWidth &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerHeight&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token number&quot;&gt;500&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+camera&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;position&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+camera&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;lookAt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; scene &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;THREE&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Scene&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;아까랑 거의 비슷합니다. 카메라 설정만 살짝 달라졌네요.&lt;/p&gt;
+&lt;p&gt;먼저 재질을 정의합시다.
+선을 그리려면 &lt;code class=&quot;language-text&quot;&gt;LineBasicMaterial&lt;/code&gt; 또는 &lt;code class=&quot;language-text&quot;&gt;LineDashedMaterial&lt;/code&gt;을 사용합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; material &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;THREE&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;LineBasicMaterial&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0x0000ff&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 파란색 재질을 생성할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;그 다음엔 선을 구성할 각 꼭짓점에 대한 기하학을 정의합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; points &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+points&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;THREE&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Vector3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+points&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;THREE&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Vector3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+points&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;THREE&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Vector3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; geometry &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;THREE&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;BufferGeometry&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setFromPoints&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;points&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 &lt;code class=&quot;language-text&quot;&gt;BufferGeometry&lt;/code&gt; 기하학 객체에 대해서는 심화 과정 &gt; 오브젝트를 업데이트하는 방법 단계에서 자세히 다룹니다.&lt;br&gt;
+세 점을 이어 두 개의 선을 그리게 된다는 사실만 기억하시면 됩니다.&lt;br&gt;
+선은 연속된 꼭짓점 쌍 사이에 그려지고, 첫 번째와 마지막 꼭짓점에는 선을 그리지 않습니다.&lt;br&gt;
+이는 곧 &lt;em&gt;선은 닫혀있지 않다&lt;/em&gt;는 의미입니다.&lt;/p&gt;
+&lt;p&gt;이제 물체를 그려내기 위한 기하학과 재질이 있으니, 선 물체를 만들어내고, 렌더할 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; line &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;THREE&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Line&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;geometry&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; material&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+scene&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;line&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+renderer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;scene&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; camera&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/087e4eef86a2c344864488346679a634/3fe45/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 63.92405063291139%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAABb0lEQVR42o1S2W7bMBC0AamtnU+IeC53eYuilFg53tL+/zd189DCaVGnxADkww5nZjGHy/709uP7+rDdT0IqxRBSCiGJPIAbhuHwj3M6nQ7kfYyZkJwV1kohtQUwYC054+w4jrfIQgoNrrS6P+NjM5vzz5fd52gr2oLj1y+3yEprY5z3fq7KI8TgtdFCsXs1TWIYb9rmkCWWZVnmDjmmvm6QPWRKnMOYj5mPv+7jb9tyrqX1xQQiTLkUVzxmCohG6+E683F8xzV5krK3tl0ebPaBytIXVz1Wn51DgG888UH5+Kdtj+SJmYKA8wISQUBLQCmcz+ebmbUC9Lmk/RWW3aVcX55eUisyWD+n893dddi/t60AKIaQolLa1dpCiRgoxRRj/ExZKcTQ6pyDkZOy3A/3Di5P+B8yDy1bj9tc+wwOjLEO8X6ajDGfkMFxzrxuW2o59Tq3Vmrt68pr409ZP+fMheUucZkY/GA9/npu7SeqiEIEwXqeZgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;line&quot;
+        title=&quot;&quot;
+        src=&quot;/static/087e4eef86a2c344864488346679a634/f058b/image-2.png&quot;
+        srcset=&quot;/static/087e4eef86a2c344864488346679a634/c26ae/image-2.png 158w,
+/static/087e4eef86a2c344864488346679a634/6bdcf/image-2.png 315w,
+/static/087e4eef86a2c344864488346679a634/f058b/image-2.png 630w,
+/static/087e4eef86a2c344864488346679a634/3fe45/image-2.png 699w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 선을 그려낼 수 있습니다.&lt;/p&gt;
+&lt;h1 id=&quot;텍스트를-만들기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%85%8D%EC%8A%A4%ED%8A%B8%EB%A5%BC-%EB%A7%8C%EB%93%A4%EA%B8%B0&quot; aria-label=&quot;텍스트를 만들기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;텍스트를 만들기&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://threejs.org/docs/index.html#manual/ko/introduction/Creating-text&quot;&gt;three.js에서 텍스트를 다루는 방법&lt;/a&gt;은 여럿 있는데&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;DOM + CSS : 그냥 HTML요소로 텍스트 추가할 수 있습니다. (오버레이 설명 등)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://threejs.org/docs/index.html#api/en/textures/Texture&quot;&gt;Texture&lt;/a&gt;로 캔버스에 텍스트를 그릴 수 있습니다.&lt;/li&gt;
+&lt;li&gt;3D 작업 앱으로 만들고 import할 수 있습니다 : &lt;a href=&quot;https://threejs.org/docs/index.html#manual/ko/introduction/Loading-3D-models&quot;&gt;3D 모델 불러오기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;절체적 텍스트 geometry : &lt;code class=&quot;language-text&quot;&gt;THREE.TextGeometry&lt;/code&gt; 인스턴스인 mesh를 사용하여 절차적으로 사용할 수 있습니다.
+&lt;ul&gt;
+&lt;li&gt;이 때, TextGeometry의 font 파라미터가 &lt;code class=&quot;language-text&quot;&gt;THREE.Font&lt;/code&gt;인스턴스로 설정 필요&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://threejs.org/docs/index.html#examples/en/geometries/TextGeometry&quot;&gt;여기&lt;/a&gt;참고&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;비트맵 글꼴&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;등등.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;br&gt;
+다음시간엔 매뉴얼의 심화 과정으로 들어가서 &lt;a href=&quot;https://threejs.org/docs/index.html#manual/ko/introduction/How-to-update-things&quot;&gt;오브젝트를 업데이트하는 방법&lt;/a&gt;과 &lt;a href=&quot;https://threejs.org/docs/index.html#manual/ko/introduction/How-to-dispose-of-objects&quot;&gt;오브젝트를 폐기하는 방법&lt;/a&gt;을 보겠습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🎨 CSS 라이브러리를 고민하는 당신을 위해 (+ 성능비교)]]></title><description><![CDATA[No CSS Club회원이 아니라면 웹페이지의 스타일링을 위해 CSS는 필수적이고 중요합니다 그러나 역사적으로 CSS는 개발자들에게 많은 고통을 주었습니다.. 그 역사에 대해서는 CSS…]]></description><link>https://sungpaks.github.io/css-styling-methods/</link><guid isPermaLink="false">https://sungpaks.github.io/css-styling-methods/</guid><pubDate>Sun, 06 Oct 2024 22:57:29 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 213px; &quot;
     &gt;
