@@ -3,6 +3,7 @@ import { FC } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { Link } from "gatsby";
 import { useEffect, useState } from "react";
+import { CommentIcon, DarkIcon, TagIcon, ThemeIcon } from "./Icons";
 
 interface ComponentProps {
   setCurTag?(value: string): void;
@@ -15,18 +16,19 @@ function TopUI({ setCurTag }: ComponentProps) {
   const THEME_REVERSE = "theme-reverse";
   const KEY_THEME = "theme";
   const [preferDark, setPreferedDark] = useState(false);
-  const LIGHT_MODE = "🌙";
-  const DARK_MODE = "🌙";
-  const [curMode, setCurMode] = useState("");
+  const LIGHT_MODE = <ThemeIcon />;
+  const DARK_MODE = <ThemeIcon />;
+  const [curMode, setCurMode] = useState(<ThemeIcon />);
 
   useEffect(() => {
-    document.addEventListener("scroll", () => {
+    const handleScroll = () => {
       const currentScroll: number = document.documentElement.scrollTop;
       const totalScroll: number =
         document.documentElement.scrollHeight -
         document.documentElement.clientHeight;
       setScrollPercent((currentScroll * 100) / totalScroll);
-    });
+    };
+    document.addEventListener("scroll", handleScroll);
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       setPreferedDark(true);
     }
@@ -39,6 +41,9 @@ function TopUI({ setCurTag }: ComponentProps) {
         ? DARK_MODE
         : LIGHT_MODE
     );
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
@@ -51,10 +56,10 @@ function TopUI({ setCurTag }: ComponentProps) {
               if (setCurTag) setCurTag("ALL");
             }}
           >
-            👍 조성개발실록
+            👍 &nbsp; 조성개발실록
           </Link>
         </h5>
-        <div>
+        <div className="top-ui-tag-container">
           <div className="top-ui-tag">
             <div className="tooltip">
               <a
@@ -84,14 +89,14 @@ function TopUI({ setCurTag }: ComponentProps) {
               >
                 {curMode}
               </a>
-              <div className="tooltip-text">
-                {curMode === LIGHT_MODE ? "다크모드" : "라이트모드"}
-              </div>
+              <div className="tooltip-text">테마 변경</div>
             </div>
           </div>
-          <div className="top-ui-tag" style={{ margin: "0 20px 0 0" }}>
+          <div className="top-ui-tag" style={{ margin: "0 0 0 0" }}>
             <div className="tooltip">
-              <Link to="/tag">🏷️</Link>
+              <Link to="/tag">
+                <TagIcon />
+              </Link>
               <div className="tooltip-text">태그</div>
             </div>
           </div>
@@ -107,7 +112,9 @@ function TopUI({ setCurTag }: ComponentProps) {
           </div> */}
           <div className="top-ui-tag">
             <div className="tooltip">
-              <Link to="/visitor-log">📝</Link>
+              <Link to="/visitor-log">
+                <CommentIcon />
+              </Link>
               <div className="tooltip-text">방명록</div>
             </div>
           </div>
