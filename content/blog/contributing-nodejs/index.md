@@ -2,7 +2,7 @@
 title: "🐢 Node.js에 기여한 썰 푼다."
 date: 2024-08-21 16:37:36
 description: "오픈소스 컨트리뷰터가 되어보아요"
-tag: ["Node.js", "open-source"]
+tag: ["Node.js", "OpenSource"]
 ---
 
 오픈소스 컨트리뷰션 아카데미라는 프로그램에서 멘티로 활동하고 있어요  
@@ -163,22 +163,22 @@ it("returns error on unparsable file", async () => {
     process.execPath,
     ["--no-warnings", "--run", "test"],
     { cwd: fixtures.path("run-script/cannot-parse") }
-  )
-  assert.match(child.stderr, /Can't parse package\.json/)
-  assert.strictEqual(child.stdout, "")
-  assert.strictEqual(child.code, 1)
-})
+  );
+  assert.match(child.stderr, /Can't parse package\.json/);
+  assert.strictEqual(child.stdout, "");
+  assert.strictEqual(child.code, 1);
+});
 
 it('returns error when there is no "scripts" field file', async () => {
   const child = await common.spawnPromisified(
     process.execPath,
     ["--no-warnings", "--run", "test"],
     { cwd: fixtures.path("run-script/cannot-find-script") }
-  )
-  assert.match(child.stderr, /Can't find "scripts" field in package\.json/)
-  assert.strictEqual(child.stdout, "")
-  assert.strictEqual(child.code, 1)
-})
+  );
+  assert.match(child.stderr, /Can't find "scripts" field in package\.json/);
+  assert.strictEqual(child.stdout, "");
+  assert.strictEqual(child.code, 1);
+});
 ```
 
 먼저 `it()`에 서브테스트 설명을 쓰고..  
