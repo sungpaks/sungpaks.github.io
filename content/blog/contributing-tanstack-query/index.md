@@ -248,6 +248,12 @@ test("allow optional initialData", () => {
 ```
 
 위와 같이 짜줬습니다. 사실 처음에 Issue 열었던 분이 제보한 코드를 긁어다 넣었어요  
-그리고는 이제 `expectTypeOf(targetObject).toMatchTypeOf<TypeToMatch>();`와 같이, `targetObject`와 `TypeToMatch`의 타입이 호환가능한지 테스트합니다.
+그리고는 이제
+
+```ts
+expectTypeOf(targetObject).toMatchTypeOf<TypeToMatch>();
+```
+
+와 같이, `targetObject`와 `TypeToMatch`의 타입이 호환가능한지 테스트합니다.
 
 이제 `pnpm run test`로 테스트를 실행하면 되겠습니다.

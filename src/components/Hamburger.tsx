@@ -1,8 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { Ref, useEffect, useRef, useState } from "react";
 import useWindowDimensions from "../hooks/useWindowDimensions";
+import sitting from "../images/sitting.png";
+import walking01 from "../images/walking01.png";
+import { NONAME } from "dns";
 
 export default function Hamburger(toc: any) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLImageElement>(null);
   const [position, setPosition] = useState({ top: 0, left: 0 });
   const { height, width } = useWindowDimensions();
   const [isDragging, setIsDragging] = useState(false);
@@ -58,18 +61,28 @@ export default function Hamburger(toc: any) {
 
   return (
     <>
-      <div
+      <img
         className="hamburger"
         ref={ref}
-        style={{ left: position.left, top: position.top }}
+        src={isDragging ? walking01 : sitting}
+        style={{
+          left: position.left,
+          top: position.top,
+          margin: 0
+        }}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseMove}
         onTouchStart={handleMouseDown}
         onTouchEnd={handleMouseUp}
-      >
-        🍔
-      </div>
+      />
     </>
   );
+}
+
+function randomMove(imageRef: Ref<HTMLImageElement>) {
+  if (Math.random() > 0.9) {
+    return;
+  } else {
+  }
 }

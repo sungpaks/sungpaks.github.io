@@ -64,7 +64,10 @@
   --color-light: #ededed;
   --color-lightgreen: rgb(211, 255, 207);
   --color-darkgreen: rgb(0, 57, 0);
-  --default-font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  --default-font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   --font-body: var(--default-font-family);
 }
 
@@ -98,7 +101,6 @@ body.theme-reverse {
   color: light-dark(var(--color-light), var(--color-text));
   background-color: light-dark(var(--color-dark), white);
 }
-
 
 footer {
   padding: var(--spacing-6) var(--spacing-0);
@@ -218,7 +220,7 @@ ol li {
   margin-bottom: calc(var(--spacing-8) / 2);
 }
 
-li>p {
+li > p {
   margin-bottom: calc(var(--spacing-8) / 2);
 }
 
@@ -226,7 +228,7 @@ li *:last-child {
   margin-bottom: var(--spacing-0);
 }
 
-li>ul {
+li > ul {
   margin-left: var(--spacing-8);
   margin-top: calc(var(--spacing-8) / 2);
 }
@@ -248,12 +250,12 @@ body.theme-reverse blockquote {
   border-color: light-dark(white, black);
 }
 
-blockquote> :last-child {
+blockquote > :last-child {
   margin-bottom: var(--spacing-0);
 }
 
-blockquote>ul,
-blockquote>ol {
+blockquote > ul,
+blockquote > ol {
   list-style-position: inside;
 }
 
@@ -279,12 +281,12 @@ body.theme-reverse a {
   color: light-dark(var(--color-lightgreen), green);
 }
 
-h1>a,
-h2>a,
-h3>a,
-h4>a,
-h5>a,
-h6>a {
+h1 > a,
+h2 > a,
+h3 > a,
+h4 > a,
+h5 > a,
+h6 > a {
   text-decoration: none;
   color: inherit;
 }
@@ -422,7 +424,6 @@ body.theme-reverse h2.post-list-item {
   width: 100%;
 }
 
-
 .bio p {
   height: 160px;
   width: 100%;
@@ -506,8 +507,10 @@ body.theme-reverse .custom-button {
   width: 100%;
   height: 70px;
   border-bottom: 1px solid black;
-  background-color: light-dark(rgba(245, 245, 245, 0.8),
-      var(--color-lightdark-translucent));
+  background-color: light-dark(
+    rgba(245, 245, 245, 0.8),
+    var(--color-lightdark-translucent)
+  );
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -516,8 +519,10 @@ body.theme-reverse .custom-button {
 }
 
 body.theme-reverse .top-ui {
-  background-color: light-dark(var(--color-lightdark-translucent),
-      rgba(245, 245, 245, 0.8));
+  background-color: light-dark(
+    var(--color-lightdark-translucent),
+    rgba(245, 245, 245, 0.8)
+  );
 }
 
 .top-ui a {
@@ -639,7 +644,7 @@ body.theme-reverse .top-ui-tag {
   z-index: 10;
   position: fixed;
   height: 4px;
-  background-color: lightgreen
+  background-color: lightgreen;
 }
 
 /* Media queries */
@@ -808,22 +813,16 @@ body.theme-reverse .toc a {
   position: fixed;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
   text-align: center;
   align-content: center;
-  background-color: light-dark(white, black);
-  border: 2px solid light-dark(black, white);
+  background-color: transprent;
+  border: none;
   cursor: pointer;
   user-select: none;
   z-index: 9999;
 }
 
-body.theme-reverse .hamburger {
-  background-color: light-dark(black, white);
-  border-color: light-dark(white, black);
-}
-
-.blog-post>hr {
+.blog-post > hr {
   height: 0;
   border: 0;
   border-bottom: 2px dashed #eee;
@@ -895,11 +894,11 @@ body.theme-reverse .tab-item.active {
 } */
 
 a.plane-link {
-  color: light-dark(black, white)
+  color: light-dark(black, white);
 }
 
 body.theme-reverse a.plane-link {
-  color: light-dark(white, black)
+  color: light-dark(white, black);
 }
 
 p.svg-icon-container {
@@ -916,11 +915,11 @@ p.svg-icon-container {
 }
 
 svg {
-  color: light-dark(black, white)
+  color: light-dark(black, white);
 }
 
 body.theme-reverse svg {
-  color: light-dark(white, black)
+  color: light-dark(white, black);
 }
 
 .top-ui-tag-container {
