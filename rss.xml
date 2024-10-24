@@ -1,4 +1,658 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 16 Oct 2024 14:02:09 GMT</lastBuildDate><item><title><![CDATA[Three.js 공식문서로 시작해보기. - 2일차]]></title><description><![CDATA[! 주의 : TIL…]]></description><link>https://sungpaks.github.io/til/how-to-threejs-2/</link><guid isPermaLink="false">https://sungpaks.github.io/til/how-to-threejs-2/</guid><pubDate>Wed, 16 Oct 2024 22:28:10 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 24 Oct 2024 13:10:12 GMT</lastBuildDate><item><title><![CDATA[🤨 이슈 해결해준다고? 너 누군데]]></title><description><![CDATA[TanStack Query는 프론트엔드 개발자분들에겐 꽤 유명할 것 같은데요 이름이 바뀌기 전에는 React Query로 유명했고, Svelte, Vue 등등 다른 프레임워크들 또한 지원합니다 이게 뭐하는 패키지냐 하면 🤖 Powerful…]]></description><link>https://sungpaks.github.io/contributing-tanstack-query/</link><guid isPermaLink="false">https://sungpaks.github.io/contributing-tanstack-query/</guid><pubDate>Tue, 22 Oct 2024 21:37:21 GMT</pubDate><content:encoded>&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3b325c1927de9e3c6294121eee37ef63/8c557/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 110.12658227848102%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAIAAABPIytRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFSUlEQVR42gE+BcH6ACQjIDExMCYmJhoZGBkZGCcnJgsMDAABBAICBQIDBAMDBQIDBQABBAABBAIDBAUEBAIDBQUEBAQEBAUEAwARM2EbY8IcX7UdXbcdXrkZW7hddJRFdalPgrJMgbY4dbQ7dLB8mLR6mbeHobdXi7toh6RHeakfbsUOMlsAHlmaLJr/KJP7JZP/JpD+HZH/icHat9vxyer96PTv3+vds9XWlcz72vD/8vv/4Pf9yOb3zOf5a8H/DVCPACJalzqf/zCU9y6Y+i+d/iaR+GWJtHCTwm+t6nzB94/B5Yq733+89obC9ozH9X/C9mq4+Hu57z+k/w5MjQAlWpo+o/82lvkznv8+f81QRltRNTtPMTZQOUZSd7BMq/9Hofs9nPwxmv01nfw4oP0tm/sajfgXjP8NSY4AHVOZL5L/Mo73Kpb/R1qPUywlUDQ3Xj07akM2TU5vO578JJX8KJX9Np78I5b8JZf8FYr8GX33NIz/GUeIAEBklnSz/2ek84fA/3WMtS8eK2JBPHtURGxGPomVsZHP/5LH8mmy9XK29YzB84a68GSh7zF66I238EBafQBRapCEtf9QkvZjofhrp/VARWqHWDtvUUlzVkyHlqliq/JepPE2mv4xmfo7ifc2gPAsd+Yjbd4pdO4WPnwAHUuUL4D/L3z4LH79LoX/cnKKek86bFdVq5yCj4N4Rk1kTFRpQHvEH4n/EnHzFW/uGm3sKW3nMHf4GkGDADJUmUyS/zuJ/TyC8XJufpZpS1xISVFARXRkX15SUyYnNy8rNUNCTnmj3oDC/2+w+myj922c8HGo/ztZiQA9Wppxov9alvNkhsKYaEd+W0o5N0A3LjlbQUE/Nj8mKjojJzkoKTaBfH7s7PTN5PW25f+x4fu/7v9feY8AO1iVY37Ec5TUlJCgmWI9Szk5Fh0wLCw5MC45Jyk3JSk2GyAxKi06NzZCjI2qrau6hpWgNViFJkl5GSlCADc9VT5EXklll355joBscFRymBccLSssNzc2PUNBRTQ1PhgeLicqODEwOFtbbbeqqa2VdSYtTFZYdVBNVgAMDxVaVFtVTlM+PUpSYYRefqgyMz5ST1BHRElJR0o6OUEYHS0eIi9DP0dyd5eior2wq76lobnBtLZqYFoAXldWzby3uaytb2VqQTc2ODpEKTFBY2RsOTxIPD5KRkdSO0BQcF9alXFhmKDJmZasoI6Go497tJyCYlZFAHpqUdK0hdG1ic6zh1FPUzY0OEpERB0lNiswPTc2Ph8lNEE6QJxuUI9pW4uPrY+Egp2EZaCKbLSZcmJUPgB1Y0LTsXDMrGrbtWtnXlMkJjFWS0JQSUYiJTMaIC8wJzKJXUyDZVuCgJeJiJqHd2ubg2KhiWi2mm1kVTwAdmNB1LFpzKpk3LhuaFxLGx0qSEA9NDE1RT9AQztAhl1RWUI9foedcn2aT05aalxSlH5gnIRitphrZlY8AHNiPtCtZsenY9azbFtURQ8cJy0qLT86ODs2ODUwNkE3OhsfK4OUs1dlg0pTcjk8S2JVR5B5V66RZWFSOQB6aEDnwXHhvnDmvnZMTkMvVkpaUERoWkw4Mzc2MzsnKzcjJTEoPGQ6U4lFVoc5RGkkLEVCPj2OeFpbTTcAKiQYW00vWUwvV0kvHR8cFCQhIh8dHBoZGBgbJSIjFxgcEhQZBAcQBwwaGCE4ExclExciCQ4aIB4eGxgUAAIDBQAAAAAAAAAAAAcGBgwJCwYHBwAAAQMDAwkKCQsLCwQEBAUEAgsKCAwLCAoJBwEAAAoJBwkKCwYHCB1IFm1tTgOtAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;헤어지자고? 너 누군데&quot;
+        title=&quot;&quot;
+        src=&quot;/static/3b325c1927de9e3c6294121eee37ef63/f058b/image.png&quot;
+        srcset=&quot;/static/3b325c1927de9e3c6294121eee37ef63/c26ae/image.png 158w,
+/static/3b325c1927de9e3c6294121eee37ef63/6bdcf/image.png 315w,
+/static/3b325c1927de9e3c6294121eee37ef63/f058b/image.png 630w,
+/static/3b325c1927de9e3c6294121eee37ef63/8c557/image.png 700w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;
+요새 갑자기 꽂힌 밈.. (원본: https://x.com/tttoootchi/status/1801572477702967698)
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/TanStack/query&quot;&gt;TanStack Query&lt;/a&gt;는 프론트엔드 개발자분들에겐 꽤 유명할 것 같은데요&lt;br&gt;
+이름이 바뀌기 전에는 React Query로 유명했고, Svelte, Vue 등등 다른 프레임워크들 또한 지원합니다&lt;br&gt;
+이게 뭐하는 패키지냐 하면&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;한 마디로 서버와 브라우저 간에 데이터를 동기화하고 관리하는 데 아주 강력한 도구입니다&lt;br&gt;
+TypeScript와의 완전한 통합도 지원하구요&lt;/p&gt;
+&lt;p&gt;이 유명한 프로젝트에 박힌 42.2k회의 Star에 저도 한 몫 하고 있었는데요&lt;br&gt;
+그냥 어느 날엔가.. 깃허브를 내리다가.. 피드에서 TanStack Query로 들어가서.. Issue를 봤습니다&lt;br&gt;
+그러고는 우연히 그냥 재밌어보이는, 할만해보이는 이슈를 발견했습니다&lt;/p&gt;
+&lt;h1 id=&quot;이슈를-뜯어봐요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B4%EC%8A%88%EB%A5%BC-%EB%9C%AF%EC%96%B4%EB%B4%90%EC%9A%94&quot; aria-label=&quot;이슈를 뜯어봐요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이슈를 뜯어봐요&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/TanStack/query/issues/8132&quot;&gt;Cannot pass an optional infiniteData parameter to infiniteQueryOptions function&lt;/a&gt;라는 이슈였습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/cde46f30d0454a7c7ab66368709fb668/f4b34/image-12.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 35.44303797468354%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAA7DAAAOwwHHb6hkAAABRUlEQVR42nWQy07DMBBFs0+TxrWd2s6jedZp8ygVEhtAYsOWn2CBxP/vL2M3IITE4mjGd2Zszw0qa9FPE+x0j9bOnu60+Hg8X9GfL+iGBf1wQd2PqLuR9Dv0p4uPdrxClx3CmME8vCN4ffzA28snuqKB1DUilmKzlQhXNglBWvhLC2Ox1lKPm4mYQhjFCGz7BNs+Q6Y5uKrA9yVYWvwLVwfPjvoSmWPLtSfeKcQUg+Y4wC5X5O0IYRpwXfnGhIb/wtISknoEbeKiu1RQP1cFwkQgot8GKm9wJD/6YYbKaqRZBV20t9xUcHWX7ylPV5y25cqvrVSJqpiR5Qu2pkPAdQPTzND1BJl13pNEGDCZ/UQmjc/9edXcihu2h6RcyBI7eUAsMgTC1MjaCXkzoqC1i3qAoFed8RENfBv/F18jtLPC/ZbdtC/gaLddB98N/gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;이슈&quot;
+        title=&quot;&quot;
+        src=&quot;/static/cde46f30d0454a7c7ab66368709fb668/f058b/image-12.png&quot;
+        srcset=&quot;/static/cde46f30d0454a7c7ab66368709fb668/c26ae/image-12.png 158w,
+/static/cde46f30d0454a7c7ab66368709fb668/6bdcf/image-12.png 315w,
+/static/cde46f30d0454a7c7ab66368709fb668/f058b/image-12.png 630w,
+/static/cde46f30d0454a7c7ab66368709fb668/40601/image-12.png 945w,
+/static/cde46f30d0454a7c7ab66368709fb668/78612/image-12.png 1260w,
+/static/cde46f30d0454a7c7ab66368709fb668/f4b34/image-12.png 1457w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이게 TanStack React Query에서는 Query에 넣는 옵션 객체를 &lt;code class=&quot;language-text&quot;&gt;queryOptions&lt;/code&gt;로 따로 선언하여 만들어둘 수 있습니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;infiniteQuery&lt;/code&gt;에 대한 &lt;code class=&quot;language-text&quot;&gt;infiniteQueryOptions&lt;/code&gt;도 마찬가지구요&lt;br&gt;
+이런 식으로요&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; queryOptions &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;infiniteQueryOptions&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  queryKey&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;example&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token function-variable function&quot;&gt;queryFn&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; initialData&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token function-variable function&quot;&gt;getNextPageParam&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  initialPageParam&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 이제 여기에 &lt;code class=&quot;language-text&quot;&gt;initialData&lt;/code&gt;라는 초기값을 정의해줄 수 있는데,&lt;br&gt;
+아래같이 optional하게 넣으면 사실 동작은 하는데 typescript에서 타입 에러를 띄운다는 문제였습니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; queryOptions &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;infiniteQueryOptions&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  queryKey&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;example&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token function-variable function&quot;&gt;queryFn&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; initialData&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// initialData below errors&lt;/span&gt;
+  initialData&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; initialData
+    &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; pages&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;initialData&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; pageParams&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token function-variable function&quot;&gt;getNextPageParam&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  initialPageParam&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;음..&lt;br&gt;
+재밌어보입니다&lt;/p&gt;
+&lt;h1 id=&quot;소스코드를-들춰봐요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C%EB%A5%BC-%EB%93%A4%EC%B6%B0%EB%B4%90%EC%9A%94&quot; aria-label=&quot;소스코드를 들춰봐요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;소스코드를 들춰봐요&lt;/h1&gt;
+&lt;p&gt;당연히 먼저 소스코드를 까봐야겠죠?&lt;br&gt;
+어지간히 해볼만한지 판단도 해야하고요 ㅋㅋㅋ&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 259px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d41d8cd98f00b204e9800998ecf8427e/a2ead/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 74.68354430379746%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADjUlEQVR42g2QfU8aBwCH73vUpVlaRN7fsVEmtWgmpi5tt2Vr5yKlW9tQXzsB286WF1FAeTne6cEd3HF3wB3HAFErKiJwtmk7a5dl2bJ9gP25bzCS3//P8/yA3OrV31yTH558/m5Zd24e/ePZxAfr2O+PR9rfy2o3JdB14ZqOax/t/2m4f3lc5bk9Yron1t7ou/r1J1PTF4CqTXe6oT2zjrOL2jPztb9X9a+fDH20DJ8apIXrnPjEJdcYxzfJX5kUmXWKkHHoxxn5lfG+K/oLM/cuAjXHtQao+GjRsQva92bd2aKm5Zh447vfds/WXI8Y2w+RbzSpaZ7PqH46roAWlPbZQf0Xn47q+9ZfcICyV7mTE3efaZqPR7rznzUdxk4e7paLnV8otkK/3qH2IX/VORqaV9luKMugHHer7xouL5k4mSgfSHsF5Yz40K3Ztasba9NNPM1SGEsRp6U8S+FdCm0z5NtaNLusAR+Iq6SaiItWlrg4JIZiA4DbI04EZVmfpBBWH2JbrSLaKea6dL5LE28qJFvCazBIRjYLz78l/BIIkWQhUToswVFpMDQAONckYEAVDYgLybnjfKZNZzsU3hvL4NWXwejqonPurtNkJEJjSKo/khCmIR6S5sbjAz5QADApeTXD30W+OspBrQLSpdFOT5shqLDbNWdwmIxO051adKmFW7GoNhOXZ2Iy1PclEhoJ+i8B2whvP6c9wIItKtvpYWmsW0KbZGrL/ND5yOiz3i7HJ1vxaHP97bYrV4tPlewebLaeN6OIfxiopnl72YVmATspwG0K7tAIW0ZSLovt4UzcfotMis8bjn/fn7PgWX21sR/IHG6CjXXwJHpQit8ESkn1K8TbwBK94BMqy5Yx3G9zLxgIn77J9I7gMMkH//1z/A4+bgc6Bzamu2E79Zh/PTBHYhIADQyS/jvY1ndUZL6SWiH8FqtRNzUs81p5nYq0xYh38twTyvBnM/nXEb3n9NQX7xPOW0/XL3pBPvAyyKUgbh0TbxPyKq5kEBmZFG29GEgH5ce1waOavFYQFBAeHOMiCWUioPK7pZaN/iU7LxQRAekwtwjztnFhnZLRqCyPyEqoqkKoqrS8UFLQZcVuWVbKC+GUIOjjuz08m5trXxOkYlIUkQAMLCnCAgwSQqCEiKjIsKoCD9UzQ16PyJ1Whwh1hlBkMPlmRPbzc96GQ+D18MmkYI+W06T0f1Egy9xKJBZ/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;들춰보기&quot;
+        title=&quot;&quot;
+        src=&quot;/static/d41d8cd98f00b204e9800998ecf8427e/a2ead/image-1.png&quot;
+        srcset=&quot;/static/d41d8cd98f00b204e9800998ecf8427e/c26ae/image-1.png 158w,
+/static/d41d8cd98f00b204e9800998ecf8427e/a2ead/image-1.png 259w&quot;
+        sizes=&quot;(max-width: 259px) 100vw, 259px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;일단 루트 경로에서.. &lt;code class=&quot;language-text&quot;&gt;packages&lt;/code&gt;로 들어갑니다.&lt;br&gt;
+TanStack Query 레포지토리는 vue, svelte, 등등 여러 패키지들에 대한 소스코드를 여기에 다 둡니다&lt;br&gt;
+그리고 여기서, 우리는 React Query니까, &lt;code class=&quot;language-text&quot;&gt;/packages/react-query&lt;/code&gt;로 들어갑시다.&lt;br&gt;
+그리고 &lt;code class=&quot;language-text&quot;&gt;src/&lt;/code&gt;로 한번 더 들어가면..&lt;br&gt;
+&lt;a href=&quot;https://github.com/TanStack/query/blob/main/packages/react-query/src/infiniteQueryOptions.ts&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;infiniteQueryOptions.ts&lt;/code&gt;&lt;/a&gt;를 찾아낼 수 있습니다&lt;/p&gt;
+&lt;p&gt;이제 docs에서 &lt;a href=&quot;https://tanstack.com/query/latest/docs/framework/react/reference/infiniteQueryOptions&quot;&gt;infiniteQueryOptions&lt;/a&gt;가 어떤 값을 가질 수 있는지 명세도 좀 보고, 소스코드를 주르륵 한번 봅니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;infiniteQueryOptions&lt;/code&gt;는 &lt;code class=&quot;language-text&quot;&gt;initialData&lt;/code&gt; 프로퍼티를 가질 수도, 가지지 않을 수도 있는데&lt;br&gt;
+타입 구현이 사실은 어떻게 되어있냐면..&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;initialData&lt;/code&gt;가 undefined버전인 type과, defined버전인 type이 따로 있습니다;;&lt;br&gt;
+git blame 열어봤는데 무슨 이유에서 이렇게 됐는지는 잘 모르겠습니다 ㅜㅜ&lt;/p&gt;
+&lt;p&gt;암튼간에, 이렇게 오버라이드된 type의 버전이 두 개고,&lt;br&gt;
+optional할 때는 이 중 뭘 선택해도 &lt;code class=&quot;language-text&quot;&gt;initialData&lt;/code&gt;가 있거나 없거나인 양자중첩상태를 허용하지 않으니 문제가 생깁니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 249px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6b19ec1ed31044c26dab4641dc25c339/6a5fb/image-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 96.20253164556962%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAIAAAAf7rriAAAACXBIWXMAAAsTAAALEwEAmpwYAAADwUlEQVR42m1TS2wbVRQddcEG1AVVERJCSN0SkCiwIPwSugKJVX+IjwQVC0SDBIiQLiDUEk1TqCJSSuPY2CUuaYJwkzRAhWNHcf2JJ7E9Hzsez4w9/sSf+Xhc2xmPx2OPY55j1RVSzmJ039M7OufeewZSNC0lq3RxJyuIu+3dHtrt3TzPx4qlZLWRrmn+cHT295s35+aMRtNdeDMlqUpTg4S6di2cvY1GJFlu38ceuV1TlGU/pg/lLHS5r/8NCIJee3ngxNsnnzzy9A9egqtrUL6mLmBkLrOdTiVTqRRJkjAMB4NBiqKCwUCCpv9GKDOWOfrS4OFDjz/b9/zy/O2znwxfdOFCowVti8UEy1bK5WiU9Pv9OI673W6bzRYKhVwud6EgxLezN4jcqaHhp5448nr/sbNnhkbOfT+5SXP1JlTZkRRVBSZRFAWaq6urBEHEYjG73e5wOMC9XK3OhZjPLk4+/NAjr/QP6kbOf31ubDLA8IDcarVAh7IsYxgWCASAICgAH0EQhmFYlqtVpcVocmI1ePDg4ef6jl7WjX/zs2WK4Dm5DlUkqdnSEsmEx+NZW1sDzuPxOHABlLstlIr3fnOsmynx1TePH4AOvPDMixPLHn28xNVUKFMoMTkOQxEY3gBuI5EImJnX63U6nal0Gscxikn+uOS4dMtmveM6/e6ZC+NXF1bRy/9681INysqqFSF9Xk8g0NGkaTqRSPgAYDiTzeAY4nB6bJsoRcdSefHz4dGZ+X+iVJrnebXR6Oz5Sji9iER3KlJnw+0HaDabDpc3n2e7x0yGPTb41rffXSqIpW4WIK7W0Md4Y0Qw+4gVnELjKSbHRpPbLpy0bGyZ7B5ZkrpkjuMOPfrYyRPv9ILUIf9CctOUYIoV9fDWwnrwD6fv1w3CRAh6Qrjlw9tac/d+5gYGBnQ6HSg0TQNfiK81jCRviInTWCpMMU21Lks7d4LEDFOajrBL7mDnaasDUFit1hgd6+UX4pWGaU/WgiXAnFEMQ/x+T5i6TonXAszSilNVavW9FHUFu7QugG3VQObNlGBAk+thqlGvs3xhAYmb0fR6hBR4HgQex0O9Pv9H5pUmkL3OVMzxshFnzSveqRuW8akpm8fXswcWI4pi7/iALFRrM/4tg909/ef8rNU8a75gvfLl1ZH37tr/6g0GhDefz+9Djka2Pn3/+Pmh04bRD2fHPp744tRPX31gGv1o0TBWLt7rbhvERlGUfchiQXSBPymEwm4ngQfSFJKNYzwTZkIbCZoCr0ulUqVSae+H/wB39poTgFeC6wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;슈뢰딩거의 고양이&quot;
+        title=&quot;&quot;
+        src=&quot;/static/6b19ec1ed31044c26dab4641dc25c339/6a5fb/image-3.png&quot;
+        srcset=&quot;/static/6b19ec1ed31044c26dab4641dc25c339/c26ae/image-3.png 158w,
+/static/6b19ec1ed31044c26dab4641dc25c339/6a5fb/image-3.png 249w&quot;
+        sizes=&quot;(max-width: 249px) 100vw, 249px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그래서 이렇게 일단 답변을 달았었습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/36cf200f8639259db752503a5251180a/1bba8/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 91.13924050632912%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAC8klEQVR42n1T2XLbMAz0YydtYluWdUvWfVHWQcuX4txJ0+n0oTP9/2/ZglTSadpMHlYQQXCxAMGJ5jGsiiNy/oCAnWBGW1jxDguvgeI2WLjC1u9g3LezAU5+iaXPodglJnMzhbaqELED7KiF6pRYugxzM8OM9gREzNzKoFi59Iv/mZFIv0qxul/TOUa+GBPdDpFXHeKiQbHuweoe+Zpj3e1Rbw6ouh35uYzpj1fYXd5hN9ygandgTY+a79EQvDDD+dzARHNTNNsTuu0Avr9CT8H94VoeFOvd6RbNZgCjBB2tu+0lNrTfD3dkb7A/3WM73MLxE3wRhH6YoGk5+O5KEqSsQ0uHan6U6urNEazdI0wrLC0fhhNgaa7osE6KdHyZadJOFwbOFYsIfR8VKxGkNZKiRZyviZSjpNIZEYoEgiwpavhxCTfIYHrRC9lIKkHEF4Jwpvmwg5wyhzDdiIJjGNRX3fZlGXLthrDICmWfzhV8loeNN5BKJeHShUtkflIhZht4yRpOvCZFHG5Ywl6R+qhDEI5YhVQ6JVStEQszgO4miEuOmeYJhR6cVYaSf0XRnuh2Dyi29yi7I8qGepd1ktTxmbSWl0FzSK0tEEkIQiFkprlCoYelk6Bvn8HrBzRsjyCnvhF5zmk8RIJa+Bo45R5WtqVqGrgRkwpfSYXSKVU7ER+TFLLNE/jwC+3hJ93qPby4gUqBiuFLRX/jleRfzF4JraBA2j4ir6/R8Vsi/U6qBiqXVFEfVSt4ORS+4ANCUbJG/Wi2P7Dun1HXl0j7R8TNgLSiS4qrN6V9hJFQEyXnyLo7FJtv1LcnxNURBvlUSqSa4X8lax+WrDrQKUihps6pXwKKSdBXI8T6HbyOzd+Ql6Lonhxoe5WO1kuktdyYfAmtYznccujJZ9G+Rj29mIuBNt9iQYNtyKFs6DVE8jVYkiCSZI4/JtFp8C1JOEK3gz9v+A3ES1mQfIGzC1U+qc/TJVnCVMOZ/Nfexbli/I+Fhd+R0fJYdqOVLwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;이슈에 답변 남김&quot;
+        title=&quot;&quot;
+        src=&quot;/static/36cf200f8639259db752503a5251180a/f058b/image-2.png&quot;
+        srcset=&quot;/static/36cf200f8639259db752503a5251180a/c26ae/image-2.png 158w,
+/static/36cf200f8639259db752503a5251180a/6bdcf/image-2.png 315w,
+/static/36cf200f8639259db752503a5251180a/f058b/image-2.png 630w,
+/static/36cf200f8639259db752503a5251180a/1bba8/image-2.png 642w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;요약하자면, 이러이렇게 해서 슈뢰딩거의 타입으로 지정하니까 안됐던거다, 대충 저런 바보같은 방식으로 고칠수는 있는데.. 좀 드럽긴함&lt;br&gt;
+이라고 적어놨습니다&lt;/p&gt;
+&lt;p&gt;사실 이러고 말면 좀 .. 그렇죠? 게다가 좀 간단하기도 하고, 고쳐보기로 했습니다&lt;/p&gt;
+&lt;h1 id=&quot;고쳐봐요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B3%A0%EC%B3%90%EB%B4%90%EC%9A%94&quot; aria-label=&quot;고쳐봐요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;고쳐봐요&lt;/h1&gt;
+&lt;p&gt;오픈소스 프로젝트에 기여할 때 가장 먼저 해야하는 것은&lt;br&gt;
+대개 &lt;a href=&quot;https://github.com/TanStack/query/blob/main/CONTRIBUTING.md&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;CONTRIBUTING.md&lt;/code&gt;&lt;/a&gt;라는 이름의 기여 가이드라인을 읽는 것입니다&lt;br&gt;
+여기서는 보통 프로젝트를 로컬에서 빌드하고, 코드를 작성/수정하고, 커밋하고, 테스트하고, PR하고, 어쩌구 저쩌구 하는 가이드라인을 줍니다&lt;/p&gt;
+&lt;p&gt;그러니 그대로 따라서 빌드를 해주고&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;pnpm run watch&lt;/code&gt;로 개발서버를 열어줍니다&lt;br&gt;
+이제 &lt;code class=&quot;language-text&quot;&gt;undefined&lt;/code&gt;버전 타입을 수정하여 Optional이 가능하게 했습니다&lt;/p&gt;
+&lt;p&gt;저는 처음엔 잘 몰라서 &lt;code class=&quot;language-text&quot;&gt;examples/react/infinite-query/index.tsx&lt;/code&gt;같은 example코드에 버그 reproduce 코드를 써놓고&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;import &apos;../../packages/react-query/src/infiniteQueryOptions&apos;&lt;/code&gt;처럼 가져와 사용하면서 확인했는데&lt;br&gt;
+나중에 보시면 아시겠지만 각 소스코드들 근처에 test코드가 함께 있어서, 여기다가 테스트를 작성하며 작업하는게 좋겠습니다.&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 199px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/38ac151c65cd0f876b73658c97f17b30/3d64b/image-4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 127.84810126582278%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAaCAIAAAA44esqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAF6ElEQVR42hVT+VNTWRZ+f8HU2CJL8t7L25e8laxkJyEkgQRI2EMQSFCWhtFAAxI0IEQ7RGkZDCBKGmxZtQe0rbYtx6ZFm/lh2nHKmpniN/+Xedy6derWqXvOPd93vw8wm63x1vr01VRNIGwUBQHXhDzuYG2wtdLebjX2eJxRm0Es1/mduoCDD3ulOo8ksKzLbrMYDUCV235jfDw1mnE4fW0e+1DInu3tvDc7M9Zce6N3cOrK1JPxIbPB1hVxDMWjQz2R4a5AldVq0RucOgMwNtw/MTocbWtNp6de766/336wmP3udiq1cLnl799eO17K/JabcNh8LbXuuWv9sxO9mcmv4x1RoySby/WAxWTSS5xelsJ14caGxnBDxFtdY7Xa21vb9wt7W8ubawtrfl+EowW9pDOVG8w6g04UdZKOJRmAZjmj0SpLJpqWQJgAIQTDCUGSQ4Fgd0vCVxkIVte6LC6LwWSWDQZOokmGplhZ0hEYCdTV1F9saauq9NgrKvwua43LZtNLlQ5bnbe6QpYcZqPNYCzX8gZRrDSZQy6byaDnOUEUZYrSAvGOzt5YvMFfc3cm9c/f33347d3m2orEMkZRNkmy3WTmtVocRRmaZEnSZjJVhxosdo/ZbHK6HMDwYF9He2djsOGb/sRi9tZibn5i+GsKQbUUZWAZnqRonGAJiicIniA5kgq2tnpCdX5/VW0wAEBqDahWgyqQImlIDcEgSqI0QzFBq+VJZvK7scHpS4l0In578PLN/l6Z1YJlEE0wgUB9faQFYEjWoNMTGG6xWGOx7lhHT011DQJBU4n2P/ZW/7Gzcfrzi8+H+58Pdl4uL1RZLNG2mM/r74n3TaXnAIbhTAqRguh0ODs64/H22I9z0wl/1buNhdcPcjvfzu1lM39sPT4qrGaGEnduzn78+K/OaEe4oTmRGASigWAsdtHjdrtcleU6E4OgP2VvfJ8a/vS373/Jz+dHBl/czbx/lF+fHMkM9m4Xftjb2a31+f2+2slr0wBPcwInEwQjCBKK4sXnS5e+ST6/O32ytfq/l89Oth799/nep/0f9m9NL41fLeeVO4SgFXGMYCgeYClJrdLAMMoLkgZGSopVBla7NDbw4fHy6auD/xzufdrb/vf+7uf9rXvjYyhC4BhNkjQMQXAZCOhEndNqDwXrCIJCNKhaBVkFfv4vPUeFxY9PH799sPQ8e/vprczR2mpbKMhyMkNzFEXDCOzyewCR4xKdnXXBMAQhOE6o1ZqYz5NOND1MJ1+v3MlfGdhIjty7fGlh9KrAiE6nNxSsF3gRhsEqrw2QZJ0gSRhG4viZaEG1ptntvHM13tfgLcxdf7+af5oc3b+ZDnvdpSUwSwsVFXaL1WEx2cyGCoBmtCTFUjSrUmlUpTACYXotk+7rGAr7GhzG9KXu2wOXW3zV5/70Z3UZrLADQqiWk4OhSKQpCuAYQxLKg6i7sqqlpa24qIxj+fTkRGF5qb+7a2by2lBfX3NjUzQa43lRMRys9IcRjhfDisIwlCYJbUkx2NjY/OHD75ubm/F473wu9+74faiuPp1OHx4ebm9v//rr0bGSCdWfP38Bw0kUw7VaAUARStkwhFEUk8+vrK2tNTU1npycbGxsUBSVTCaz2Wwul9vd3VleXnG53MXFpYhieYzAMApANCSiwUmCUatgJTIMq9jEZrN7PB6aprmzxXOcwpPF4/EqWgJBDYYREKRBEBwoOq9qbmp79uzHn168nJ+/8+TJ9qNH69PTM8oIs7OzMzMzb968WVlZXVq6Xyhs3L+fT6WuHx6+6OrqPvdVEfDVuZLhoSunp6dfvnzZ2VFmW3779q1S8OrVq4ODA4UCpf7o6KhQKKyvrx8fHyeTI9dvTFdX+xUtAheK1JFIs4JQ6T0yMrq7u7+4+NdUaiqfX56cTA0MDM7P55RZ+vsHHj58mJnLBAI1XRe7QRCCIfQMs0oFX7hQojBRVFSqkytkWa+c1WqopOQsnv0NhJSVgYpyVUqiDIRBjYIZBOH/A5nFAMbI492DAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;누군가는 해야하잖아&quot;
+        title=&quot;&quot;
+        src=&quot;/static/38ac151c65cd0f876b73658c97f17b30/3d64b/image-4.png&quot;
+        srcset=&quot;/static/38ac151c65cd0f876b73658c97f17b30/c26ae/image-4.png 158w,
+/static/38ac151c65cd0f876b73658c97f17b30/3d64b/image-4.png 199w&quot;
+        sizes=&quot;(max-width: 199px) 100vw, 199px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;누군가는 테스트 작성해야하잖아&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;그래서 아래처럼 고쳐놓고, PR을 열었습니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;diff&quot;&gt;&lt;pre class=&quot;language-diff&quot;&gt;&lt;code class=&quot;language-diff&quot;&gt;export type DefinedInitialDataInfiniteOptions&amp;lt;
+&lt;span class=&quot;token unchanged&quot;&gt;&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt; TQueryFnData,
+&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt; TError = DefaultError,
+&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt; TData = InfiniteData&amp;lt;TQueryFnData&gt;,
+&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt; TQueryKey extends QueryKey = QueryKey,
+&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt; TPageParam = unknown,
+&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt;&gt; = UseInfiniteQueryOptions&amp;lt;
+&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt; TQueryFnData,
+&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt; TError,
+&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt; TData,
+&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt; TQueryFnData,
+&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt; TQueryKey,
+&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt; TPageParam
+&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt;&gt; &amp;amp; {
+&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt; initialData:
+&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt;   | NonUndefinedGuard&amp;lt;InfiniteData&amp;lt;TQueryFnData, TPageParam&gt;&gt;
+&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt;   | (() =&gt; NonUndefinedGuard&amp;lt;InfiniteData&amp;lt;TQueryFnData, TPageParam&gt;&gt;)
+&lt;/span&gt;&lt;span class=&quot;token inserted-sign inserted&quot;&gt;&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;    | undefined&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;고작 한 줄 써놓고 생색내는 것 같지만 여정은 지금부터 시작입니다&lt;br&gt;
+그리고 사실 오픈소스 기여는 작은 기여와 큰 기여로 나뉘는게 아닌&lt;br&gt;
+큰 기여와 개큰 기여로 나뉩니다. (뇌피셜임)&lt;/p&gt;
+&lt;h2 id=&quot;아차-답변을-못-봤어요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%95%84%EC%B0%A8-%EB%8B%B5%EB%B3%80%EC%9D%84-%EB%AA%BB-%EB%B4%A4%EC%96%B4%EC%9A%94&quot; aria-label=&quot;아차 답변을 못 봤어요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;아차, 답변을 못 봤어요&lt;/h2&gt;
+&lt;p&gt;후다닥 고쳐서 커밋,푸시하고 PR을 열었는데&lt;br&gt;
+이슈에 답변이 달려있었습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/717ccf16bbc59ecceed495da052effda/7762d/image-5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 44.93670886075949%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABcElEQVR42n2SXXeCMAyGudycU6AFLAUURPlGENS5c/b/f9a7tM7Pi108JE163qQJhozWGA5fSPIeYVJARFuN4yca/mBfceQaQVJCxgW8YAMuVjAWMsGm2GFbj1imNeQqh7/KdJKLGIws+/O5/4wqFK4rRIQXpBdBk/uYmh5M5sPkEpYbwHZDsMUSrhJSlopalJt8MnzMHExm/Mb71MYbMTUdzNkChk0C7XBGf/pB3R1R7Y4o2gFVd0BW7WkULbK6R7JtsM4arNKSXlIipnO8qcjWSPOGCkeY2UrQC1H1JzT7M6Ikg+VIqBgjVDF11nB59x9xLygxLchIOYhz3f6n5WFqudT+HRXT8WvsJf94b84EDPVRlWa2d0tcqtEFW2j/evnO4uZfO7t1qJ6nNhvS6rvxW8/Io99BRBtaRgwRppr/RK6vUBiqE4sHiOIaNc2yaEbkzYCyJVsPtKARDcW3ZUfnPSoV1zlaGC3FEcun0fwCjSbswGX7+JcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;이런 답변이 있었네&quot;
+        title=&quot;&quot;
+        src=&quot;/static/717ccf16bbc59ecceed495da052effda/f058b/image-5.png&quot;
+        srcset=&quot;/static/717ccf16bbc59ecceed495da052effda/c26ae/image-5.png 158w,
+/static/717ccf16bbc59ecceed495da052effda/6bdcf/image-5.png 315w,
+/static/717ccf16bbc59ecceed495da052effda/f058b/image-5.png 630w,
+/static/717ccf16bbc59ecceed495da052effda/7762d/image-5.png 649w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;저는 &lt;code class=&quot;language-text&quot;&gt;DefinedInitialDataInfiniteOptions&lt;/code&gt;에서 받아주게 했는데&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;UndefinedInitialDataInfiniteOptions&lt;/code&gt;에서 해야한다고 하네요&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;queryOptions&lt;/code&gt;에서도 그렇게 처리하고 있다고 합니다.&lt;/p&gt;
+&lt;p&gt;그래서 다시 &lt;code class=&quot;language-text&quot;&gt;UndefinedInitialDataInfiniteOptions&lt;/code&gt;를 아래와 같이 수정했습니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;diff&quot;&gt;&lt;pre class=&quot;language-diff&quot;&gt;&lt;code class=&quot;language-diff&quot;&gt;&lt;span class=&quot;token deleted-sign deleted&quot;&gt;&lt;span class=&quot;token prefix deleted&quot;&gt;-&lt;/span&gt; initialData?: undefined
+&lt;/span&gt;&lt;span class=&quot;token inserted-sign inserted&quot;&gt;&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt; initialData?:
+&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;  | undefined
+&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;  | InitialDataFunction&amp;lt;
+&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;    NonUndefinedGuard&amp;lt;InfiniteData&amp;lt;TQueryFnData, TPageParam&gt;&gt;
+&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;    &gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;콜라보레이터가 답변에서 언급한 `UndefinedInitialDataOptions도 아래처럼 생겼습니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;UseQueryOptions&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;TQueryFnData&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; TError&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; TData&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; TQueryKey&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    initialData&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; InitialDataFunction&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;NonUndefinedGuard&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;TQueryFnData&lt;span class=&quot;token operator&quot;&gt;&gt;&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이와 일관성있게, &lt;code class=&quot;language-text&quot;&gt;UndefinedInitialDataInfiniteOptions&lt;/code&gt;도 &lt;code class=&quot;language-text&quot;&gt;undefined&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;InitialDataFunction&lt;/code&gt;까지 커버 가능하게 타입을 수정하고 PR을 올렸습니다.&lt;/p&gt;
+&lt;h2 id=&quot;근데-initialdatafunction과-noneundefinedguard는-먼가요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B7%BC%EB%8D%B0-initialdatafunction%EA%B3%BC-noneundefinedguard%EB%8A%94-%EB%A8%BC%EA%B0%80%EC%9A%94&quot; aria-label=&quot;근데 initialdatafunction과 noneundefinedguard는 먼가요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;근데 &lt;code class=&quot;language-text&quot;&gt;InitialDataFunction&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;NoneUndefinedGuard&lt;/code&gt;는 먼가요?&lt;/h2&gt;
+&lt;p&gt;근데 작성한 코드를 보면 &lt;code class=&quot;language-text&quot;&gt;InitialDataFunction&lt;/code&gt;이라는 것과 &lt;code class=&quot;language-text&quot;&gt;NonUndefinedGuard&lt;/code&gt;라는게 있습니다&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;InitialDataFunction&lt;/code&gt;에 대해서 먼저 보면&lt;br&gt;
+사실 &lt;code class=&quot;language-text&quot;&gt;(() =&gt; NonUndefinedGuard&amp;lt;InfiniteData&amp;lt;TQueryFnData, TPageParam&gt;&gt;)&lt;/code&gt;라고 그냥 써두면 안되나? 싶지만&lt;br&gt;
+소스코드에 보면 아래와 같이 정의되어 있습니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;InitialDataFunction&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 콜라보레이터가 말해주기를&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 545px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4c12bf864895b5d4299b648c8ecc9c38/3ddad/image-6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 83.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAA7DAAAOwwHHb6hkAAACpklEQVR42n1U2XLaQBD0ow/MIRASEuhCBwgJcRgbfMSpyvGQ//+fTs9IwtiVysPUrla7sz3dPXvVG05wP7DgRQuEaYkoKzDP1ojSollbwQ1T+PESUbJCmm90XfaE/A6THDHnyWINyXVVJ7RhjKdw/ATenAfTtR5MV1ssyj2SJec558Vev7Nih2y107nlhhhaM5gTH13DrhN2jQk6PRNz3vL0/gunb7+xPbxgFi4U6SzIOM+IbKno/DjHTEZGpz/GdcfQkHmT0Fa4gm739IbNwyuK6pHJSkW5bFAKsnhRscQKyUUF8r/YHDB2gjphf+TgrjtShG8//uD09hPL9YOWY8/mmDB09GJY0wj2VObNOueyJvMBadOE1/dDLs7JQ6Bo5QIR6o40/C9uCUKi/daS+6MJgjBWjhwiED4labdR/zLkwGX0eLGKyv0a3HM1MB28no7Kx578iQhuUAsgysmBgel+CnGErAcU5/H5O6rdSfk72+bmfkSOYqwoRLk96ihEB/TZnL4sN0fk5FS8JqKEvDSi/6KkULGkutvukAgblRUFb7VcITgmwQlJT0l4rBeNnQgmEZg6hromMbQDGJbH8Gn+Jb/91tgWRpOQZR+Q0rx5daQNnpGVB2TrRwQ0uhfTj3EJn6hzIpZ1289gEsSYAIr9C2wv+ezDbkvwWQj7Y2yJNz7Eas+0VZ475ZaSO8xusIVax0vndMjJV6VbtVvLdPpmM9Z7NaFFfsS0oppDg4qKI9vjrY7662sy+S/77WmoIOSMeFcR9pnQdBN9aQ7P71jwEXD8VG0jvdw2/WVC6YzV9oltt9UHZVUdFMBHyewUN0jYnxWmfv1U+fNcLRPTKnJpW9K5ZJ5pSxXLfCr5rjdmCYnKfsON5/bq1vz8i0ftpgb5ZQV/AR6lwxOWUDNqAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;콜라보레이터가 답변해줌&quot;
+        title=&quot;&quot;
+        src=&quot;/static/4c12bf864895b5d4299b648c8ecc9c38/3ddad/image-6.png&quot;
+        srcset=&quot;/static/4c12bf864895b5d4299b648c8ecc9c38/c26ae/image-6.png 158w,
+/static/4c12bf864895b5d4299b648c8ecc9c38/6bdcf/image-6.png 315w,
+/static/4c12bf864895b5d4299b648c8ecc9c38/3ddad/image-6.png 545w&quot;
+        sizes=&quot;(max-width: 545px) 100vw, 545px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;InitialDataFunction has undefined baked into the return value:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;반환값이 &lt;code class=&quot;language-text&quot;&gt;undefined&lt;/code&gt;일 수도 있는 경우에 대해 보장해주는 유틸함수타입이네요.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;baked into&lt;/code&gt;라는 말은 약간.. &lt;em&gt;이미 반영되어 떼어낼 수 없는? 실수로 들어가버린?&lt;/em&gt; 이런 뜻이라고 합니다&lt;/p&gt;
+&lt;p&gt;그리고 &lt;code class=&quot;language-text&quot;&gt;NoneUndefinedGuard&lt;/code&gt;는 아래와 같이 정의되어 있습니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;NonUndefinedGuard&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;undefined&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;never&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;undefined는 never 안되게 해준다네요~&lt;/p&gt;
+&lt;h1 id=&quot;테스트를-작성해요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%A5%BC-%EC%9E%91%EC%84%B1%ED%95%B4%EC%9A%94&quot; aria-label=&quot;테스트를 작성해요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;테스트를 작성해요&lt;/h1&gt;
+&lt;p&gt;또한 아래와 같은 피드백도 받았습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f5cb8c6c1ba8677f2b55e9ae65e97351/1bba8/image-7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 38.60759493670886%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABWklEQVR42qWRy07DMBBFu2IBgbwTJ7GdV9NEKWqBJlBaQIUFEhKI//+ay3hSVd2zOBrPeHx9PZ59/3zht13io19DtysIWSFMcoRpwTEQGhGtvUji2o1P3HgCuuxQzHsUzYQbZpgN44iNrtGRkNANH/ZjzYS8ViQ81YzIOabXGDBkeQMnSDG7uHThyjlWTwc0/QOSvIWubzl6okCQlPDiHL5ZpxVi6jVEWQ1FffN+oLhEJBvq05gZ++Z2VbaQRYtUL5DmBLkVdChKS0jay2gvzipylpywgwwujcKhaPspHPNky4nY+nrYYbXZ4m7cU3zGZvuKcXeg+Ib94ROPL+9U37G4qugVVQdVdPxUWSyQqJovYUEzq349YNHfc6MXS0Lxh0zzU/wp3nGexoBh+riCnJfca/tHQdMoZI0rO8Q15dYRkxuss5rlhKc6c5azoJmhG0q6IaeC4OJ/+AP4cNNlwdcKbwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;테스트 써달라고 하심&quot;
+        title=&quot;&quot;
+        src=&quot;/static/f5cb8c6c1ba8677f2b55e9ae65e97351/f058b/image-7.png&quot;
+        srcset=&quot;/static/f5cb8c6c1ba8677f2b55e9ae65e97351/c26ae/image-7.png 158w,
+/static/f5cb8c6c1ba8677f2b55e9ae65e97351/6bdcf/image-7.png 315w,
+/static/f5cb8c6c1ba8677f2b55e9ae65e97351/f058b/image-7.png 630w,
+/static/f5cb8c6c1ba8677f2b55e9ae65e97351/1bba8/image-7.png 642w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;테스트를 좀 작성해달라고 합니다.&lt;br&gt;
+아, 사실 응당 그래야죠?&lt;/p&gt;
+&lt;p&gt;테스트 파일에 가서 아래와 같은 항목을 만듭니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token function&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;allow optional initialData&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이제 두 번째 인자의 콜백 내에 테스트를 작성합니다.&lt;br&gt;
+이전에는 실패하지만 제가 고친 이후로 성공하는 테스트를요&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token function&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;allow optional initialData&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; initialData&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; example&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; example&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; queryOptions &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;infiniteQueryOptions&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    queryKey&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;example&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token function-variable function&quot;&gt;queryFn&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; initialData&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// initialData below errors&lt;/span&gt;
+    initialData&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; initialData
+      &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; pages&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;initialData&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; pageParams&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token function-variable function&quot;&gt;getNextPageParam&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    initialPageParam&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;expectTypeOf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;queryOptions&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;initialData&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token generic-function&quot;&gt;&lt;span class=&quot;token function&quot;&gt;toMatchTypeOf&lt;/span&gt;&lt;span class=&quot;token generic class-name&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;
+    InitialDataFunction&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;InfiniteData&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; example&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;undefined&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위와 같이 짜줬습니다. 사실 처음에 Issue 열었던 분이 제보한 코드를 긁어다 넣었어요&lt;br&gt;
+그리고는 이제&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token function&quot;&gt;expectTypeOf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;targetObject&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token generic-function&quot;&gt;&lt;span class=&quot;token function&quot;&gt;toMatchTypeOf&lt;/span&gt;&lt;span class=&quot;token generic class-name&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;TypeToMatch&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;와 같이, &lt;code class=&quot;language-text&quot;&gt;targetObject&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;TypeToMatch&lt;/code&gt;의 타입이 호환가능한지 테스트합니다.&lt;/p&gt;
+&lt;p&gt;이제 &lt;code class=&quot;language-text&quot;&gt;pnpm run test&lt;/code&gt;로 테스트를 실행하면 되겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7a3089e8e69d933c71bdfdc7692c5d9c/3fe45/image-8.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 24.68354430379747%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABBElEQVR42m2QPU/DMBiEM7CQLyexk9jOB7RJE7qkJP1AbVAXJAYEI3NnxF/gvx9vnUogwfDoTu9wvrPVtHfo+xXY7Agx30NmJWJ1g0BkhjAmjfWk4ke9MP0X6/k44vT+Arb5QPFwQrcaULcdZFFB5hVUWSPNKuhygUTPoOiuihqMa7hB8jeQUQufKwShRhBJ2D7HtcdhE44v4LDYYP/yLuFRmBtMIa7xE5YfSlw5Nt4OX3gdP7Heb7E7PKFd3lOThWlzbrrsNhh2j9S0Bi97iGqEnA9I8mZqTQuELGFNL8RI0gZSNWZqfttCU9D5rxiXhEKU5OBpYbxHc31B/rKOGegWSXwDbiKD5eCRUVcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;머지됨&quot;
+        title=&quot;&quot;
+        src=&quot;/static/7a3089e8e69d933c71bdfdc7692c5d9c/f058b/image-8.png&quot;
+        srcset=&quot;/static/7a3089e8e69d933c71bdfdc7692c5d9c/c26ae/image-8.png 158w,
+/static/7a3089e8e69d933c71bdfdc7692c5d9c/6bdcf/image-8.png 315w,
+/static/7a3089e8e69d933c71bdfdc7692c5d9c/f058b/image-8.png 630w,
+/static/7a3089e8e69d933c71bdfdc7692c5d9c/3fe45/image-8.png 699w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;짜잔~ 그렇게 머지됐습니다&lt;/p&gt;
+&lt;h1 id=&quot;새로운-의견이-달렸어요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%83%88%EB%A1%9C%EC%9A%B4-%EC%9D%98%EA%B2%AC%EC%9D%B4-%EB%8B%AC%EB%A0%B8%EC%96%B4%EC%9A%94&quot; aria-label=&quot;새로운 의견이 달렸어요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;새로운 의견이 달렸어요&lt;/h1&gt;
+&lt;p&gt;Merge된 PR에 새로운 의견이 달렸습니다.&lt;br&gt;
+최초 이 이슈를 올리셨던 분이네요&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3652a5e6922a9e52e77846962fa8e22c/96220/image-9.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 49.36708860759494%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAByElEQVR42m2S2W7bMBBF/VoklrVRCyVSErXaWiw4TuA0dlC0cZ+Lpugf5P8/4XZEGS4S5OGAI2p4Z+aSiz+/X9F0IwKRQ2YVbC+eYRFuVoxwsbS8T7k1mc6L0xJS1fB4goXMCjgkEKYNqv4BSTnMVFvIoiN6+KKEGyqNc10zDeNK/w9kTfsZFl8MhlvqIup/YHN+Q3n4hbB9gTq8Iu6+I6if4eSPsNV7nPzrBYrVgdYnWGLAwrB9LE2PDp9QHv8iHc9w0h2quzOa+59QwzfIzRFp94ykPUFcYqb2sClPk+zozB5WtMZiafm4IcGybrFuR+R1j5D85DJHlBSwGIdBOSs70EwN6Ca0hxM++dfAC6VuTAuunBBLSvYjhazqIbI1XVKBOGvIlxSGw2GyGCs30kyx5Ykrti/hxzkVj2dBgwQNEjQ9iWr7hO3jC7JmhMhbTVINEGpDl9WDUzEW5fDi4orLc8SqhRMkF0E71JhMQNDNbu9PGPZH1MMDyvYOVbdHsdnpOF+PcGmSjzg8g0nd/x/ZCuBFGY1Zg9O4PCnJywKhnOOJOK31t+GG81QfmDyeBe15ZMZT/agteqwTpsvfMe3Nxf1PmTT+AUw4DLkDfuTKAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;새 의견&quot;
+        title=&quot;&quot;
+        src=&quot;/static/3652a5e6922a9e52e77846962fa8e22c/f058b/image-9.png&quot;
+        srcset=&quot;/static/3652a5e6922a9e52e77846962fa8e22c/c26ae/image-9.png 158w,
+/static/3652a5e6922a9e52e77846962fa8e22c/6bdcf/image-9.png 315w,
+/static/3652a5e6922a9e52e77846962fa8e22c/f058b/image-9.png 630w,
+/static/3652a5e6922a9e52e77846962fa8e22c/40601/image-9.png 945w,
+/static/3652a5e6922a9e52e77846962fa8e22c/96220/image-9.png 1165w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;제가 수정한 내용은 아래처럼&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;diff&quot;&gt;&lt;pre class=&quot;language-diff&quot;&gt;&lt;code class=&quot;language-diff&quot;&gt;&lt;span class=&quot;token inserted-sign inserted&quot;&gt;&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;  initialData?:
+&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;    | undefined
+&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;    | InitialDataFunction&amp;lt;
+&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;        NonUndefinedGuard&amp;lt;InfiniteData&amp;lt;TQueryFnData, TPageParam&gt;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;초기값을 반환하는 함수를 허용하는 내용이었습니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;infiniteQueryOptions&lt;/code&gt;의 레퍼런스 격인 &lt;code class=&quot;language-text&quot;&gt;queryOptions&lt;/code&gt;도 똑같이 생겼구요&lt;br&gt;
+그런데 이 분이 말씀하시기를, 초기값 반환 함수 뿐만 아니라 그냥 초기값 객체도 받아줘야 하는게 아니냐? 입니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; NonUndefinedGuard&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;InfiniteData&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;TQueryFnData&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; TPageParam&lt;span class=&quot;token operator&quot;&gt;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;요놈을 포함하도록 말이죠&lt;br&gt;
+그리고 이것이 없음으로 인해서 TypeError가 나는 코드를 보여주셨습니다&lt;br&gt;
+콜라보레이터분이 보시고는 ㅇㅋ 그럼 고쳐주시던지~ 라고 하셨어요&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3f778044ec47069c1ed23ba5d4c477e1/a0b80/image-10.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 33.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA7klEQVR42pVR0W6EIBDk+a7VE0EURDkU9dBre01zL/3/75oCSV+au8Q+TCa7s0xmF7Ks7zi7DazuwRuD10Lg5VQl3oM4y6XB5G8Q6gxixgvm9QYzehjn0doLnJshG4lDXiHbYXpiMoTpUXAJwkKqgqkkxMd5WScho+JfKQ8ZS0y+7t/wH3cM8xW1dijlgGPOk/gMf81opbFsn2j0ABL3Hpc32MmjGzfwbg0JVRhqUQRQoVEGxJrVOq336Maxn9EapFIW2s7Jve0dZDdABdZmSr2odQFtqHu7QIQPOD4w/E2fbhgjR/eMNruQl/IpfgAX4bFGHkOKcAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;그래서 PR을 올리셨음&quot;
+        title=&quot;&quot;
+        src=&quot;/static/3f778044ec47069c1ed23ba5d4c477e1/f058b/image-10.png&quot;
+        srcset=&quot;/static/3f778044ec47069c1ed23ba5d4c477e1/c26ae/image-10.png 158w,
+/static/3f778044ec47069c1ed23ba5d4c477e1/6bdcf/image-10.png 315w,
+/static/3f778044ec47069c1ed23ba5d4c477e1/f058b/image-10.png 630w,
+/static/3f778044ec47069c1ed23ba5d4c477e1/40601/image-10.png 945w,
+/static/3f778044ec47069c1ed23ba5d4c477e1/a0b80/image-10.png 955w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그래서 이분이 직접 PR을 올리시고 머지되었습니다.&lt;/p&gt;
+&lt;h2 id=&quot;그럼-queryoptions도-이렇게-바꿔줘야-하는거-아님&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B7%B8%EB%9F%BC-queryoptions%EB%8F%84-%EC%9D%B4%EB%A0%87%EA%B2%8C-%EB%B0%94%EA%BF%94%EC%A4%98%EC%95%BC-%ED%95%98%EB%8A%94%EA%B1%B0-%EC%95%84%EB%8B%98&quot; aria-label=&quot;그럼 queryoptions도 이렇게 바꿔줘야 하는거 아님 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;그럼 &lt;code class=&quot;language-text&quot;&gt;queryOptions&lt;/code&gt;도 이렇게 바꿔줘야 하는거 아님?&lt;/h2&gt;
+&lt;p&gt;근데 처음에 말씀드렸듯이, 초기값 반환 함수까지만 허용하고, 초기값 객체 자체는 명시하지 않은거는 &lt;code class=&quot;language-text&quot;&gt;queryOptions&lt;/code&gt;도 마찬가지입니다. 저도 그래서 함수만 포함했구요
+근데 그럼.. &lt;code class=&quot;language-text&quot;&gt;infiniteQueryOptions&lt;/code&gt;에 초기값 객체도 줄 수 있게 타입을 명시한 PR이 Merge되었다면,&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;queryOptions&lt;/code&gt;도 마찬가지로 수정되어야 하는게 아닌지?&lt;br&gt;
+그래서 물어보니까,&lt;br&gt;
+&lt;em&gt;&quot;물론, 전에는 실패하지만 수정 시 성공하는 테스트케이스를 작성 가능하다면요~&quot;&lt;/em&gt; 라고 하셨습니다&lt;/p&gt;
+&lt;h2 id=&quot;그래서-2번째-pr을-준비했습니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B7%B8%EB%9E%98%EC%84%9C-2%EB%B2%88%EC%A7%B8-pr%EC%9D%84-%EC%A4%80%EB%B9%84%ED%96%88%EC%8A%B5%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;그래서 2번째 pr을 준비했습니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;그래서 2번째 PR을 준비했습니다.&lt;/h2&gt;
+&lt;p&gt;그럼 이제 그것도 수정해봅시다.&lt;br&gt;
+테스트 코드 먼저 짰어요 이번에는&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token function&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;should allow optional initialData object&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;testFn&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;id&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; options &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;queryOptions&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      queryKey&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token function-variable function&quot;&gt;queryFn&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;something string&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      initialData&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; id &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;initial string&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;undefined&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;expectTypeOf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;options&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;initialData&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token generic-function&quot;&gt;&lt;span class=&quot;token function&quot;&gt;toMatchTypeOf&lt;/span&gt;&lt;span class=&quot;token generic class-name&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;
+      InitialDataFunction&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;undefined&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;testFn&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;testFn&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;data타입이 &lt;code class=&quot;language-text&quot;&gt;string&lt;/code&gt;인 &lt;code class=&quot;language-text&quot;&gt;queryOptions&lt;/code&gt;를 만들고, &lt;code class=&quot;language-text&quot;&gt;initialData&lt;/code&gt;를 조건부에 따라 &lt;code class=&quot;language-text&quot;&gt;undefined&lt;/code&gt; 또는 &lt;code class=&quot;language-text&quot;&gt;string&lt;/code&gt;으로 넘겨줍니다.&lt;br&gt;
+이제 &lt;code class=&quot;language-text&quot;&gt;expectTypeOf().toMatchTypeOf&amp;lt;&gt;();&lt;/code&gt;로 확인해주면, 예상대로 수정 전에는 실패해요&lt;br&gt;
+현재는 타입이 &lt;code class=&quot;language-text&quot;&gt;undefined&lt;/code&gt; 또는, &lt;code class=&quot;language-text&quot;&gt;string을 뱉는 함수&lt;/code&gt;만 가능하니까요&lt;/p&gt;
+&lt;p&gt;이제 &lt;code class=&quot;language-text&quot;&gt;queryOptions&lt;/code&gt;의 &lt;code class=&quot;language-text&quot;&gt;UndefinedInitialDataOptions&lt;/code&gt; 타입을 고쳐줍시다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;diff&quot;&gt;&lt;pre class=&quot;language-diff&quot;&gt;&lt;code class=&quot;language-diff&quot;&gt;&lt;span class=&quot;token deleted-sign deleted&quot;&gt;&lt;span class=&quot;token prefix deleted&quot;&gt;-&lt;/span&gt;  initialData?: undefined | InitialDataFunction&amp;lt;NonUndefinedGuard&amp;lt;TQueryFnData&gt;&gt;
+&lt;/span&gt;&lt;span class=&quot;token inserted-sign inserted&quot;&gt;&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;  initialData?:
+&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;    | undefined
+&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;    | InitialDataFunction&amp;lt;NonUndefinedGuard&amp;lt;TQueryFnData&gt;&gt;
+&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;    | NonUndefinedGuard&amp;lt;TQueryFnData&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 고치니 테스트가 통과합니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1a37b74cefbfe1a6d20a36f78da09ff7/4dba2/image-11.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 38.60759493670886%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABgklEQVR42nWSyVLDMAyGc6Zt4ix1nLjO6qxN04WUKQwzPAc3HoM34/F+FBdyYTh8I1ljSdYvW93whOPlGc1wwXi+oR8ndIdHnKYXTLdXtBSf/WZ/QtWOGE5Xun+7x4Yz4kQTFWxPYOOGsD7fv/A2fUCkGZKih0wrxKqEyEeI8krxFlKfERaPCHMqoCdE+gpZjFB5Ax7nYEFsipmCWTaCiwJOIEwX5kcGx4/Btors3Xd5Ys52ILF2BdaMCjBOOSHWzpZ8wuWwBL0mrY+I0g6BrBAmHULVwhMltrKGH1fwI/J3NfhuPms4PFtgxHzHExTfJrB8SiqHZ6jmCl8N8GQLX/aweYUN1wt2WC2WRc2CG7dGiiA5gNEjLJtGOhwn7E83lP0E3Q6kZYOyHpDrDkW9R1HtSdcCme5pASWNex/vlxWNbGIkmeWQoDJrIHYFIhpfZbXZnKTNRZQsU9qionF8YcSfNf1dwB/mgrYRXOGBuqxI5Nk+sHvXlcMXNuZb/OD9R4RvRsPVSyg/ffEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;2번째 PR&quot;
+        title=&quot;&quot;
+        src=&quot;/static/1a37b74cefbfe1a6d20a36f78da09ff7/f058b/image-11.png&quot;
+        srcset=&quot;/static/1a37b74cefbfe1a6d20a36f78da09ff7/c26ae/image-11.png 158w,
+/static/1a37b74cefbfe1a6d20a36f78da09ff7/6bdcf/image-11.png 315w,
+/static/1a37b74cefbfe1a6d20a36f78da09ff7/f058b/image-11.png 630w,
+/static/1a37b74cefbfe1a6d20a36f78da09ff7/40601/image-11.png 945w,
+/static/1a37b74cefbfe1a6d20a36f78da09ff7/4dba2/image-11.png 1151w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이제 수정사항을 커밋/푸시하고, 풀리퀘를 올리고 머지되었습니다&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;br&gt;
+여기까지였습니다.&lt;br&gt;
+재밌었네요~&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 221px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a060992f5305a365b08cee6892b74546/cccdc/image-13.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 103.79746835443038%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAIAAADJt1n/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAFDElEQVR42gEBBf76ANvb29zc2+zs7O7u7vb29u7u7vPz8/X19e/v7+vr6+3t7eHh4O7u7u3t7e7u7unp6efn5+rq6uvr6/T09ADGxsbCwsLFxcXNzc3b29vDw8TMzMzY2NjCwsLHx8fQz8/Hx8fExMTCwsLMzMza2trb29vKycm4uLjS0tIAzMzN4uLiycnJ4eHhycnIxMTEyMfI29vb0dHQzczM19fX0NDP19fW09PTzc3NxsfHycrK0dLS6+vs////AObm5urq6d/f3vHx8ePi4dbX1efn6PHw79/f4d3d3ufm5ufl5uXl5N3c3Ofo6NTW097e3uPi4u3t6////wDIzc+8v8LEw8fHyMvEyczM0NaZk5BRTEV7cF9xZVRiW1O+vcLAwcW6vMDFvrbPtJmagW+Zj3/GvbCrlX0AsLe6p7K1oqWqr7W5tb7Eqq2yMCkgLykiVks6Oi8genh2w8PJt7m+u8DHtKmkq4VphWNLrqWd39fQhGtQAJSOiLvBw7C3u7G3ubi8wbG1uHt3cpZ+d5N0cHNdWZ2cnLO0t7KtqqSgm5qNgoprU2lOPJ6UisjDvXFhTwBgUj+fjHGvpY2bloe2uL24vMDCx8nIqJm/lYuSenalpKiZnJx4alWTemGMeGmSfnFlTTmrm4C5saJtYVIAUUY1d15EmnpleWpcvcLCzMnEgJG0cnB9hGhcWE9OrrS/xcLCn4Z5o4ZylHtue29jfW1WxLKTX1I+aFhEAHpxY2lXQ4ltWW9hUrq9vJ2sy1BnpThLgUNGT4J4bLCsqr/ByLWinYxtYXpfU1ZLN76uj6CPcDkvIoR1WwB5b2aJf3CTiHWMfWGYmZhIYp46S4AxQHEeMFthZGdiY2KMjpaBdWJ7ZUxHOCyNf2fAsI2unnxlVkJfVUEAWVRIaGNae3RqkYJjeHqDQ1qWJjZiIjNeLTttGSdNFiZJZWZwjXlWkHxff21VuaiJuKiGg3NYZlhEXlJDAFVSRVRNQ1NMQGxiS2tvf0dfoTdMghkoUyIwXio3ZBYnUF1fZJqCXF1PN4t8Yb2sjLalhVRFNF5OPGpcSgBVTkNUUEVJRDtYTDldYXVFX6AsP20OHTwTIUcdKlIOH0JKTFSMeFWGdE+UhWitnXysnH6Qf2WBbU9NQDQAQDkvWFJIPjgyST4sWlxnTGOjPE+FKjxmFCVGFSRHChw+MDdCgW9NhnNQo5R1tqaEqZl5k4NpbF5HbmFRAEI7MVFKPzUuKUQ7LEdGR0hckEZblE9opklinTVGbhkmQi00QIRyT4Z0VrGigK6cfpyLb19SP2FWRY6BZwA/OzBNRz0yKyRBOCswLCghMFE2RW44SHQ7S3heUlWdfXhvX1mBdmCfjnCunnuci2+YiG6JdlqDcl2OgGcAOjUqR0E3LyokNy8gNjItEB08EiA9GiZAGyY8OC0wpH53j3JpSD4ual5HqZh5l4Zqh3ZcjnphhnZekIBmADkyKEA8MSokIDUsHjUyKRAdPAwbPgwaOAkXLwcRKko/RlJERy0kHFJGNauZe4t6XXxtU4V0WoJyW458ZQA/OCw+Oi4pJRsvKRo4MiggKzxBSU08RUY8RUI9QkA5Pjc8PzZMRzVtZUaYi2eFdlp6a1KFc1mEc1mHdVsASEQ+Pjs1NjQuNTIqMjApGR4nJSs0JCowISctHiInISQiIiMlLy0mQT0uWVNCS0Y4Rj80TkY4TkY4UEY4OVhyP73Uch4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;오픈소스 밈&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a060992f5305a365b08cee6892b74546/cccdc/image-13.png&quot;
+        srcset=&quot;/static/a060992f5305a365b08cee6892b74546/c26ae/image-13.png 158w,
+/static/a060992f5305a365b08cee6892b74546/cccdc/image-13.png 221w&quot;
+        sizes=&quot;(max-width: 221px) 100vw, 221px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;오픈소스인 TanStack Query는 타입을 어떻게 정의해두는지도 살펴볼 수 있었고&lt;br&gt;
+Type Test를 작성하는 법도 대충 알게 된 시간이었습니다&lt;br&gt;
+오픈소스 들여다 보면 안목도 넓어지는게 좀 느껴지는 것 같기도 하구요&lt;/p&gt;
+&lt;p&gt;특히 오픈소스 기여는 쌩판 모르는(심지어는 외국의) 개발자들이랑 소통하고 협업한다는게 좀 매력적이고 재밌습니다&lt;br&gt;
+기술적인 이야기도 나누고, 코드를 리뷰하고, 피드백을 반영하고, 이런 일련의 과정이 너무 좋죠&lt;br&gt;
+그리고 Node.js 기여할 때부터 좀 느꼈는데, PR이 거절될 때조차 의미가 큽니다. 거절당하는게 무서워서 의견도 못 내면 안되잖아요&lt;/p&gt;
+&lt;p&gt;앞으로는 좀 주기적으로 꾸준히 기여해보는 것도 좋을 것 같아요&lt;br&gt;
+Node.js 기여 팀에서 활동할 때 들었는데, 멘토님은 옛날에 한창 Node.js 기여활동 할 때는 아예 주 1회정도는 목표를 잡았다고 합니다&lt;br&gt;
+Node.js같은 큰 프로젝트에서 어떻게 주 1회 기여를 하셨지..? ㄷㄷ;&lt;br&gt;
+저도 좀 더 딥다이브로 기여해보고 해야겠어요&lt;/p&gt;
+&lt;p&gt;이만 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Three.js 공식문서로 시작해보기. - 2일차]]></title><description><![CDATA[! 주의 : TIL…]]></description><link>https://sungpaks.github.io/til/how-to-threejs-2/</link><guid isPermaLink="false">https://sungpaks.github.io/til/how-to-threejs-2/</guid><pubDate>Wed, 16 Oct 2024 22:28:10 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;/til/how-to-threejs-1&quot;&gt;저번 포스팅&lt;/a&gt;에서 기초 매뉴얼을 살펴봤습니다&lt;br&gt;
@@ -340,7 +994,7 @@ document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;sp
 &lt;hr&gt;
 &lt;p&gt;&lt;br&gt;
 재밌는데요..&lt;br&gt;
-옛날에 물리천문학과 수업에서 등한시했던 수학 이론들이 점점 모습을 드러내네요&lt;br&gt;
+옛날에 물리천문학과 수업에서 등한시했던 수학 이론들이 점점 나옵니다 ㅜㅜ&lt;br&gt;
 악! 뭐지 이 기억은?&lt;/p&gt;
 &lt;p&gt;이만 마칩니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Three.js 공식문서로 시작해보기. - 1일차]]></title><description><![CDATA[! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다. 최근에 Three.js 스터디를 시작하게 되었는데요 Three.js는 JavaScript로 3D…]]></description><link>https://sungpaks.github.io/til/how-to-threejs-1/</link><guid isPermaLink="false">https://sungpaks.github.io/til/how-to-threejs-1/</guid><pubDate>Sun, 13 Oct 2024 20:33:25 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.&lt;/p&gt;
@@ -5385,22 +6039,22 @@ Node.js는 프로젝트 규모도 크니까 매우 많은 테스트코드가 있
     process&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;execPath&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;--no-warnings&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;--run&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; fixtures&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;run-script/cannot-parse&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-  assert&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;stderr&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token regex&quot;&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token regex-source language-regex&quot;&gt;Can&apos;t parse package\.json&lt;/span&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-  assert&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;strictEqual&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;stdout&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-  assert&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;strictEqual&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;code&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  assert&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;stderr&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token regex&quot;&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token regex-source language-regex&quot;&gt;Can&apos;t parse package\.json&lt;/span&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  assert&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;strictEqual&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;stdout&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  assert&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;strictEqual&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;code&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;token function&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;returns error when there is no &quot;scripts&quot; field file&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; child &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; common&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;spawnPromisified&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
     process&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;execPath&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;--no-warnings&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;--run&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; fixtures&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;run-script/cannot-find-script&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-  assert&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;stderr&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token regex&quot;&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token regex-source language-regex&quot;&gt;Can&apos;t find &quot;scripts&quot; field in package\.json&lt;/span&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-  assert&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;strictEqual&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;stdout&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-  assert&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;strictEqual&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;code&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  assert&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;stderr&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token regex&quot;&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token regex-source language-regex&quot;&gt;Can&apos;t find &quot;scripts&quot; field in package\.json&lt;/span&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  assert&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;strictEqual&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;stdout&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  assert&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;strictEqual&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;code&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;먼저 &lt;code class=&quot;language-text&quot;&gt;it()&lt;/code&gt;에 서브테스트 설명을 쓰고..&lt;br&gt;
 &lt;code class=&quot;language-text&quot;&gt;node --run&lt;/code&gt;을 실행하고..&lt;br&gt;
 &lt;code class=&quot;language-text&quot;&gt;어쩔.매치(regex)&lt;/code&gt;로 에러 문구를 확인하고..&lt;br&gt;
