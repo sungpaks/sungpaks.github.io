@@ -32,6 +32,8 @@ TypeScript와의 완전한 통합도 지원하구요
 
 [Cannot pass an optional infiniteData parameter to infiniteQueryOptions function](https://github.com/TanStack/query/issues/8132)라는 이슈였습니다
 
+![이슈](image-12.png)
+
 이게 TanStack React Query에서는 Query에 넣는 옵션 객체를 `queryOptions`로 따로 선언하여 만들어둘 수 있습니다  
 `infiniteQuery`에 대한 `infiniteQueryOptions`도 마찬가지구요  
 이런 식으로요
@@ -257,3 +259,112 @@ expectTypeOf(targetObject).toMatchTypeOf<TypeToMatch>();
 와 같이, `targetObject`와 `TypeToMatch`의 타입이 호환가능한지 테스트합니다.
 
 이제 `pnpm run test`로 테스트를 실행하면 되겠습니다.
+
+![머지됨](image-8.png)
+
+짜잔~ 그렇게 머지됐습니다
+
+# 새로운 의견이 달렸어요
+
+Merge된 PR에 새로운 의견이 달렸습니다.  
+최초 이 이슈를 올리셨던 분이네요
+
+![새 의견](image-9.png)
+
+제가 수정한 내용은 아래처럼
+
+```diff
++  initialData?:
++    | undefined
++    | InitialDataFunction<
++        NonUndefinedGuard<InfiniteData<TQueryFnData, TPageParam>>
+```
+
+초기값을 반환하는 함수를 허용하는 내용이었습니다.  
+`infiniteQueryOptions`의 레퍼런스 격인 `queryOptions`도 똑같이 생겼구요  
+그런데 이 분이 말씀하시기를, 초기값 반환 함수 뿐만 아니라 그냥 초기값 객체도 받아줘야 하는게 아니냐? 입니다
+
+```tsx
+| NonUndefinedGuard<InfiniteData<TQueryFnData, TPageParam>>;
+```
+
+요놈을 포함하도록 말이죠  
+그리고 이것이 없음으로 인해서 TypeError가 나는 코드를 보여주셨습니다  
+콜라보레이터분이 보시고는 ㅇㅋ 그럼 고쳐주시던지~ 라고 하셨어요
+
+![그래서 PR을 올리셨음](image-10.png)
+
+그래서 이분이 직접 PR을 올리시고 머지되었습니다.
+
+## 그럼 `queryOptions`도 이렇게 바꿔줘야 하는거 아님?
+
+근데 처음에 말씀드렸듯이, 초기값 반환 함수까지만 허용하고, 초기값 객체 자체는 명시하지 않은거는 `queryOptions`도 마찬가지입니다. 저도 그래서 함수만 포함했구요
+근데 그럼.. `infiniteQueryOptions`에 초기값 객체도 줄 수 있게 타입을 명시한 PR이 Merge되었다면,  
+`queryOptions`도 마찬가지로 수정되어야 하는게 아닌지?  
+그래서 물어보니까,  
+_"물론, 전에는 실패하지만 수정 시 성공하는 테스트케이스를 작성 가능하다면요~"_ 라고 하셨습니다
+
+## 그래서 2번째 PR을 준비했습니다.
+
+그럼 이제 그것도 수정해봅시다.  
+테스트 코드 먼저 짰어요 이번에는
+
+```ts
+it("should allow optional initialData object", () => {
+  const testFn = (id?: string) => {
+    const options = queryOptions({
+      queryKey: ["test"],
+      queryFn: async () => "something string",
+      initialData: id ? "initial string" : undefined
+    });
+    expectTypeOf(options.initialData).toMatchTypeOf<
+      InitialDataFunction<string> | string | undefined
+    >();
+  };
+  testFn("id");
+  testFn();
+});
+```
+
+data타입이 `string`인 `queryOptions`를 만들고, `initialData`를 조건부에 따라 `undefined` 또는 `string`으로 넘겨줍니다.  
+이제 `expectTypeOf().toMatchTypeOf<>();`로 확인해주면, 예상대로 수정 전에는 실패해요  
+현재는 타입이 `undefined` 또는, `string을 뱉는 함수`만 가능하니까요
+
+이제 `queryOptions`의 `UndefinedInitialDataOptions` 타입을 고쳐줍시다.
+
+```diff
+-  initialData?: undefined | InitialDataFunction<NonUndefinedGuard<TQueryFnData>>
++  initialData?:
++    | undefined
++    | InitialDataFunction<NonUndefinedGuard<TQueryFnData>>
++    | NonUndefinedGuard<TQueryFnData>
+```
+
+이렇게 고치니 테스트가 통과합니다
+
+![2번째 PR](image-11.png)
+
+이제 수정사항을 커밋/푸시하고, 풀리퀘를 올리고 머지되었습니다
+
+---
+
+\
+여기까지였습니다.  
+재밌었네요~
+
+![오픈소스 밈](image-13.png)
+
+오픈소스인 TanStack Query는 타입을 어떻게 정의해두는지도 살펴볼 수 있었고  
+Type Test를 작성하는 법도 대충 알게 된 시간이었습니다  
+오픈소스 들여다 보면 안목도 넓어지는게 좀 느껴지는 것 같기도 하구요
+
+특히 오픈소스 기여는 쌩판 모르는(심지어는 외국의) 개발자들이랑 소통하고 협업한다는게 좀 매력적이고 재밌습니다  
+기술적인 이야기도 나누고, 코드를 리뷰하고, 피드백을 반영하고, 이런 일련의 과정이 너무 좋죠  
+그리고 Node.js 기여할 때부터 좀 느꼈는데, PR이 거절될 때조차 의미가 큽니다. 거절당하는게 무서워서 의견도 못 내면 안되잖아요
+
+앞으로는 좀 주기적으로 꾸준히 기여해보는 것도 좋을 것 같아요  
+Node.js 기여 팀에서 활동할 때 들었는데, 멘토님은 옛날에 한창 Node.js 기여활동 할 때는 아예 주 1회정도는 목표를 잡았다고 합니다  
+Node.js같은 큰 프로젝트에서 어떻게 주 1회 기여를 하셨지..? ㄷㄷ;  
+저도 좀 더 딥다이브로 기여해보고 해야겠어요
+
+이만 마칩니다
