@@ -110,8 +110,8 @@ optional할 때는 이 중 뭘 선택해도 `initialData`가 있거나 없거나
 `pnpm run watch`로 개발서버를 열어줍니다  
 이제 `undefined`버전 타입을 수정하여 Optional이 가능하게 했습니다
 
-저는 처음엔 잘 몰라서 `examples/react/infinite-query/index.tsx`같은 example코드에 버그 reproduce 코드를 써놓고  
-`import '../../packages/react-query/src/infiniteQueryOptions'`처럼 가져와 사용하면서 확인했는데  
+저는 처음엔 잘 몰라서 *examples/react/infinite-query/index.tsx*같은 example코드에 버그 reproduce 코드를 써놓고  
+_import '../../packages/react-query/src/infiniteQueryOptions'_ 처럼 가져와 사용하면서 확인했는데  
 나중에 보시면 아시겠지만 각 소스코드들 근처에 test코드가 함께 있어서, 여기다가 테스트를 작성하며 작업하는게 좋겠습니다.
 
 <figure>
@@ -156,11 +156,11 @@ export type DefinedInitialDataInfiniteOptions<
 
 ![이런 답변이 있었네](image-5.png)
 
-저는 `DefinedInitialDataInfiniteOptions`에서 받아주게 했는데  
-`UndefinedInitialDataInfiniteOptions`에서 해야한다고 하네요  
+저는 `Defined~~`에서 받아주게 했는데  
+`Undefined~~`에서 해야한다고 하네요  
 `queryOptions`에서도 그렇게 처리하고 있다고 합니다.
 
-그래서 다시 `UndefinedInitialDataInfiniteOptions`를 아래와 같이 수정했습니다
+그래서 다시 `Undefined~~`를 아래와 같이 수정했습니다
 
 ```diff
 - initialData?: undefined
@@ -171,7 +171,7 @@ export type DefinedInitialDataInfiniteOptions<
 +    >
 ```
 
-콜라보레이터가 답변에서 언급한 `UndefinedInitialDataOptions도 아래처럼 생겼습니다
+콜라보레이터가 답변에서 언급한 `UndefinedInitialDataOptions`도 아래처럼 생겼습니다
 
 ```ts
 UseQueryOptions<TQueryFnData, TError, TData, TQueryKey> &
@@ -183,12 +183,17 @@ UseQueryOptions<TQueryFnData, TError, TData, TQueryKey> &
 
 이와 일관성있게, `UndefinedInitialDataInfiniteOptions`도 `undefined`와 `InitialDataFunction`까지 커버 가능하게 타입을 수정하고 PR을 올렸습니다.
 
-## 근데 `InitialDataFunction`과 `NoneUndefinedGuard`는 먼가요?
+## 근데 InitialDataFunction과 NoneUndefinedGuard는 먼가요?
 
 근데 작성한 코드를 보면 `InitialDataFunction`이라는 것과 `NonUndefinedGuard`라는게 있습니다
 
-`InitialDataFunction`에 대해서 먼저 보면  
-사실 `(() => NonUndefinedGuard<InfiniteData<TQueryFnData, TPageParam>>)`라고 그냥 써두면 안되나? 싶지만  
+`InitialDataFunction`에 대해서 먼저 보면 사실
+
+```
+(() => NonUndefinedGuard<InfiniteData<TQueryFnData, TPageParam>>)
+```
+
+라고 그냥 써두면 안되나? 싶지만  
 소스코드에 보면 아래와 같이 정의되어 있습니다
 
 ```ts

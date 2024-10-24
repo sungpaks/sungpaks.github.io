@@ -1,96 +1,96 @@
-import * as React from "react"
-import { Link, graphql } from "gatsby"
+import * as React from "react";
+import { Link, graphql } from "gatsby";
 
-import Bio from "../components/Bio"
-import Layout from "../components/Layout"
-import Seo from "../components/seo"
-import Giscus from "@giscus/react"
-import kebabCase from "lodash.kebabcase"
-import { useState, useEffect } from "react"
-import "katex/dist/katex.min.css"
-import TableOfContents from "../components/TableOfContents"
-import Hamburger from "../components/Hamburger"
+import Bio from "../components/Bio";
+import Layout from "../components/Layout";
+import Seo from "../components/seo";
+import Giscus from "@giscus/react";
+import kebabCase from "lodash.kebabcase";
+import { useState, useEffect } from "react";
+import "katex/dist/katex.min.css";
+import TableOfContents from "../components/TableOfContents";
+import Hamburger from "../components/Hamburger";
 
 interface Frontmatter {
-  title: string
-  date: string
-  description?: string
-  tag?: string[]
+  title: string;
+  date: string;
+  description?: string;
+  tag?: string[];
 }
 
 interface MarkdownRemark {
-  id: string
-  excerpt: string
-  html: string
-  frontmatter: Frontmatter
-  tableOfContents: string
+  id: string;
+  excerpt: string;
+  html: string;
+  frontmatter: Frontmatter;
+  tableOfContents: string;
 }
 
 interface BlogPostBySlugQuery {
   site: {
     siteMetadata: {
-      title: string
-    }
-  }
-  markdownRemark: MarkdownRemark
+      title: string;
+    };
+  };
+  markdownRemark: MarkdownRemark;
   previous?: {
     fields: {
-      slug: string
-    }
+      slug: string;
+    };
     frontmatter: {
-      title: string
-    }
-  }
+      title: string;
+    };
+  };
   next?: {
     fields: {
-      slug: string
-    }
+      slug: string;
+    };
     frontmatter: {
-      title: string
-    }
-  }
+      title: string;
+    };
+  };
 }
 
 interface ComponentProps {
-  data: BlogPostBySlugQuery
-  location: any
+  data: BlogPostBySlugQuery;
+  location: any;
 }
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
-  location,
+  location
 }: ComponentProps) => {
-  const siteTitle = site.siteMetadata?.title || `Title`
-  const LIGHT = "light"
-  const DARK = "dark"
-  const KEY_THEME = "theme"
-  const REVERSED = "reversed"
-  const [curTheme, setCurTheme] = useState(LIGHT)
+  const siteTitle = site.siteMetadata?.title || `Title`;
+  const LIGHT = "light";
+  const DARK = "dark";
+  const KEY_THEME = "theme";
+  const REVERSED = "reversed";
+  const [curTheme, setCurTheme] = useState(LIGHT);
   useEffect(() => {
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       //시스템 설정이 다크임
       setCurTheme(
         window.localStorage.getItem(KEY_THEME) === REVERSED ? LIGHT : DARK
-      ) //뒤집혔으면 라이트로 ㄱㄱ
+      ); //뒤집혔으면 라이트로 ㄱㄱ
     } else {
       //시스템 설정이 라이트임
       setCurTheme(
         window.localStorage.getItem(KEY_THEME) === REVERSED ? DARK : LIGHT
-      ) //뒤집혔으면 다크로 ㄱㄱ
+      ); //뒤집혔으면 다크로 ㄱㄱ
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     const storageListener = (event: StorageEvent) => {
       if (event.key === KEY_THEME) {
-        setCurTheme(prev => (prev === DARK ? LIGHT : DARK))
+        setCurTheme(prev => (prev === DARK ? LIGHT : DARK));
       }
-    }
-    window.addEventListener("storage", storageListener)
+    };
+    window.addEventListener("storage", storageListener);
     return () => {
-      window.removeEventListener("storage", storageListener)
-    }
-  }, [])
+      window.removeEventListener("storage", storageListener);
+    };
+  }, []);
 
   return (
     <Layout location={location} setCurTag={undefined}>
@@ -110,14 +110,14 @@ const BlogPostTemplate = ({
               >
                 {t}
               </Link>
-            )
+            );
           })}
           <p>{post.frontmatter.date}</p>
         </header>
         <hr />
 
         <TableOfContents tableOfContents={post.tableOfContents} />
-        <Hamburger />
+        {/* <Hamburger /> */}
         <br />
         <section
           id="post-section"
@@ -133,7 +133,7 @@ const BlogPostTemplate = ({
             flexWrap: `wrap`,
             justifyContent: `space-between`,
             listStyle: `none`,
-            padding: 0,
+            padding: 0
           }}
         >
           <li>
@@ -169,8 +169,8 @@ const BlogPostTemplate = ({
         async
       ></Giscus>
     </Layout>
-  )
-}
+  );
+};
 
 export const Head = ({ data: { markdownRemark: post } }: any) => {
   return (
@@ -178,10 +178,10 @@ export const Head = ({ data: { markdownRemark: post } }: any) => {
       title={post.frontmatter.title}
       description={post.frontmatter.description || post.excerpt}
     />
-  )
-}
+  );
+};
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug(
@@ -223,4 +223,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

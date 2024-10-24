@@ -2,6 +2,7 @@ import * as React from "react";
 import TopUI from "./TopUI";
 import { FC } from "react";
 import { useState } from "react";
+import Hamburger from "./Hamburger";
 
 interface ComponentProps {
   location: any;
@@ -14,18 +15,21 @@ const Layout = ({ location, children, setCurTag }: ComponentProps) => {
   const isRootPath = location?.pathname === rootPath;
 
   return (
-    <div>
-      <TopUI setCurTag={setCurTag} />
-      <div className="global-wrapper" data-is-root-path={isRootPath}>
-        <header className="global-header">{}</header>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
+    <>
+      <Hamburger />
+      <div>
+        <TopUI setCurTag={setCurTag} />
+        <div className="global-wrapper" data-is-root-path={isRootPath}>
+          <header className="global-header">{}</header>
+          <main>{children}</main>
+          <footer>
+            © {new Date().getFullYear()}, Built with
+            {` `}
+            <a href="https://www.gatsbyjs.com">Gatsby</a>
+          </footer>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

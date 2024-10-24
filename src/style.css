@@ -754,11 +754,11 @@ body.theme-reverse .toc a {
   }
 }
 
-@media (min-width: 85rem) {
+/* @media (min-width: 85rem) {
   .hamburger {
     display: none;
   }
-}
+} */
 
 .tooltip {
   position: relative;

@@ -10,9 +10,17 @@ export default function Hamburger(toc: any) {
   const { height, width } = useWindowDimensions();
   const [isDragging, setIsDragging] = useState(false);
   const initMargin = 10;
+  const shift = useRef({ x: 0, y: 0 });
 
   const handleMouseDown = (e: React.MouseEvent | React.TouchEvent) => {
     setIsDragging(true);
+    //@ts-ignore
+    shift.current = {
+      //@ts-ignore
+      x: e.clientX - ref.current.offsetLeft,
+      //@ts-ignore
+      y: e.clientY - ref.current.offsetTop
+    };
   };
   const handleMouseUp = () => {
     setIsDragging(false);
@@ -23,8 +31,8 @@ export default function Hamburger(toc: any) {
     if (isDragging && ref.current) {
       if (e.buttons !== 1) return;
       setPosition({
-        left: e.clientX - ref.current.offsetWidth / 2,
-        top: e.clientY - ref.current.offsetHeight / 2
+        left: e.clientX - shift.current.x, //ref.current.offsetWidth / 2,
+        top: e.clientY - shift.current.y //ref.current.offsetHeight / 2
       });
     }
   };
@@ -75,6 +83,7 @@ export default function Hamburger(toc: any) {
         onMouseLeave={handleMouseMove}
         onTouchStart={handleMouseDown}
         onTouchEnd={handleMouseUp}
+        draggable={false}
       />
     </>
   );
