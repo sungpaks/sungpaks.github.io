@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 24 Oct 2024 13:10:12 GMT</lastBuildDate><item><title><![CDATA[🤨 이슈 해결해준다고? 너 누군데]]></title><description><![CDATA[TanStack Query는 프론트엔드 개발자분들에겐 꽤 유명할 것 같은데요 이름이 바뀌기 전에는 React Query로 유명했고, Svelte, Vue 등등 다른 프레임워크들 또한 지원합니다 이게 뭐하는 패키지냐 하면 🤖 Powerful…]]></description><link>https://sungpaks.github.io/contributing-tanstack-query/</link><guid isPermaLink="false">https://sungpaks.github.io/contributing-tanstack-query/</guid><pubDate>Tue, 22 Oct 2024 21:37:21 GMT</pubDate><content:encoded>&lt;figure&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 24 Oct 2024 13:12:09 GMT</lastBuildDate><item><title><![CDATA[🤨 이슈 해결해준다고? 너 누군데]]></title><description><![CDATA[TanStack Query는 프론트엔드 개발자분들에겐 꽤 유명할 것 같은데요 이름이 바뀌기 전에는 React Query로 유명했고, Svelte, Vue 등등 다른 프레임워크들 또한 지원합니다 이게 뭐하는 패키지냐 하면 🤖 Powerful…]]></description><link>https://sungpaks.github.io/contributing-tanstack-query/</link><guid isPermaLink="false">https://sungpaks.github.io/contributing-tanstack-query/</guid><pubDate>Tue, 22 Oct 2024 21:37:21 GMT</pubDate><content:encoded>&lt;figure&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
@@ -652,6 +652,40 @@ Type Test를 작성하는 법도 대충 알게 된 시간이었습니다&lt;br&g
 Node.js 기여 팀에서 활동할 때 들었는데, 멘토님은 옛날에 한창 Node.js 기여활동 할 때는 아예 주 1회정도는 목표를 잡았다고 합니다&lt;br&gt;
 Node.js같은 큰 프로젝트에서 어떻게 주 1회 기여를 하셨지..? ㄷㄷ;&lt;br&gt;
 저도 좀 더 딥다이브로 기여해보고 해야겠어요&lt;/p&gt;
+&lt;p&gt;맞다 그리고 2시간 전에 따끈따끈한 새 코멘트가..&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1bda65898aa6237ae7ea7adf33dd6568/105d8/image-14.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.16455696202532%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAB9ElEQVR42mWT227bMAyGfbkhieP4IMln+Xyqk2YFgg7dkrRNsu166APtyf9Rcotl7cUHSjT1k6Jow7QFWJhDVjeoug38uESQTIi4oH0BFkhYbggVu1jxdzDyBwiCHh4vYHw2XQoOkNeDFlS2aEYU7ZqS9Mgq5V9TggorL8TcYldiAjPLhcdK/N7/wW54gbHbfYUvG2T1CNfP4BC2kERKa4mFE2hMYklVWiyGzROCvos3Eh2vvhlpWiDKGgzrLQpVTTuiX39BM2x1dcrWipstSrpBTLE2j+ES6mZvqOpVW4xPcwdCDpDjd8jhG3Kyxe0j8v6eDrdIywFJMSCtRuTthtowglOfvSDDgnr3PwLGwvKwitZwmwvc9gKnORFnOPUznOoAu3gg9rBLxZF8R3jNE3EC73+ADz/BuwutL7B4Ngk6yYacZ7DmCNY+gxOs3usg7de+07QnEdaSYH2AV+3hlQ9TAlovmVSCLuxkC0aBHmXy6CBrz9pOkGD/Sws46R3c7B52NNLhjMgnyyerHm6qMB4RDicE3QF+94igf4LI78DiDlxSO6IOS1ERJSxREGT9+opGY6pHUXOlBtdPcvBQakSUw48yWqcI4xwOo/kzHajkc42L+fIjps1VhQwOjYB6odmS6cG9ZvY6yOovMW3/FfGOf/6/q3cpZmDl15kAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;새로운 코멘트가 나왔어요&quot;
+        title=&quot;&quot;
+        src=&quot;/static/1bda65898aa6237ae7ea7adf33dd6568/f058b/image-14.png&quot;
+        srcset=&quot;/static/1bda65898aa6237ae7ea7adf33dd6568/c26ae/image-14.png 158w,
+/static/1bda65898aa6237ae7ea7adf33dd6568/6bdcf/image-14.png 315w,
+/static/1bda65898aa6237ae7ea7adf33dd6568/f058b/image-14.png 630w,
+/static/1bda65898aa6237ae7ea7adf33dd6568/40601/image-14.png 945w,
+/static/1bda65898aa6237ae7ea7adf33dd6568/105d8/image-14.png 1170w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;새로운 모험의 냄새가?&lt;/p&gt;
 &lt;p&gt;이만 마칩니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Three.js 공식문서로 시작해보기. - 2일차]]></title><description><![CDATA[! 주의 : TIL…]]></description><link>https://sungpaks.github.io/til/how-to-threejs-2/</link><guid isPermaLink="false">https://sungpaks.github.io/til/how-to-threejs-2/</guid><pubDate>Wed, 16 Oct 2024 22:28:10 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
