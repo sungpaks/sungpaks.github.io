@@ -1,5 +1,5 @@
 ---
-title: "Three.js 공식문서로 시작해보기. - 1일차"
+title: "Three.js 공식문서로 시작해보기. - 1"
 date: 2024-10-13 20:33:25
 description: "Three.js를 시작하게 됐어요"
 tag: ["TIL", "Three.js"]

@@ -1,5 +1,5 @@
 ---
-title: "Three.js 공식문서로 시작해보기. - 2일차"
+title: "Three.js 공식문서로 시작해보기. - 2"
 date: 2024-10-16 22:28:10
 description: "오브젝트를 변형, 삭제하기"
 tag: ["TIL", "Three.js"]

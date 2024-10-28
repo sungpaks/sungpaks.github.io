@@ -1,5 +1,5 @@
 ---
-title: "Three.js 공식문서로 시작해보기. - 3일차"
+title: "Three.js 공식문서로 시작해보기. - 3"
 date: 2024-10-28 18:06:39
 description: "Post Processing, 행렬 변환, 애니메이션 시스템"
 tag: ["TIL", "Three.js"]
