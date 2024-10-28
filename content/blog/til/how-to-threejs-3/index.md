@@ -308,4 +308,31 @@ model.traverse(child => {
 THREE.PropertyBinding: Can not bind to objectName of node undefined.
 ```
 
-이런 에러가 떴습니다. 찾아보니 GLTF모델 구조때문에 매터리얼 그잡채에 직접 접근할 수 없어서 그렇다네요.
+이런 에러가 떴습니다. 찾아보니 GLTF모델 구조때문에 매터리얼 그잡채에 직접 접근할 수 없어서 그렇다네요.  
+GLTF모델은 복잡한 렌더링 모델을 생성하므로 여러 계층 구조로 구성될 수 있다고 합니다.  
+그러니 GLTF모델의 모든 매쉬 조각들에 대해 순회하면서 애니메이션 클립을 적용해줘야 합니다
+
+이제 액션클립을 만들었으니 `animate` 루프에서 액션믹서를 업데이트합니다.
+
+```js
+const clock = new THREE.clock();
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  const delta = clock.getDelta();
+  if (mixer) {
+    mixer.update(delta);
+  }
+
+  orbitCamera(camera, 0, 0, 0, radius);
+  renderer.render(scene, camera);
+}
+```
+
+`Three.clock()`은 애니메이션 실행 중 경과한 시간(delta time)을 측정하는 데 사용됩니다.  
+컴퓨터 로컬 elapsed time을 갖다 쓰면 성능에 따라 차이가 발생할 수 있는데,  
+이걸 사용하면 일관적인 속도로 프레임을 측정하고 애니메이션을 실행할 수 있습니다.
+
+이제 `animate()`루프에서 `mixer.update(delta)`와 같이 작성하여 경과한 시간만큼 애니메이션 클립을 진행시킵니다.  
+예를 들어, 1/60프레임이 지났으면 `delta=0.016`이고, `mixer.update(0.016)`이 되고, 애니메이션이 0.016초만큼 진행됩니다.
