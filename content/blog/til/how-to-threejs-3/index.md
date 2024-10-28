@@ -336,3 +336,11 @@ function animate() {
 
 이제 `animate()`루프에서 `mixer.update(delta)`와 같이 작성하여 경과한 시간만큼 애니메이션 클립을 진행시킵니다.  
 예를 들어, 1/60프레임이 지났으면 `delta=0.016`이고, `mixer.update(0.016)`이 되고, 애니메이션이 0.016초만큼 진행됩니다.
+
+![결과](https://github.com/sungpaks/sungpaks.github.io/blob/master/content/blog/til/how-to-threejs-3/%E1%84%92%E1%85%AA%E1%84%86%E1%85%A7%E1%86%AB%20%E1%84%80%E1%85%B5%E1%84%85%E1%85%A9%E1%86%A8%202024-10-25%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2010.28.11.gif?raw=true)
+
+플레이그라운드를 올리려다가 시바견 용량이 초과돼서 ㅜㅜ 그냥 녹화해서 gif로 변환 땄습니다  
+그래도 기엽죠?
+
+아무튼.. 이렇게 매뉴얼은 대충 톺아봤으니 강의라도 하나 좀 들어봐야겠습니다  
+이만 마칩니다
