@@ -25,6 +25,17 @@ export default function Hamburger(toc: any) {
   const [pose, setPose] = useState(sitting);
   const [isFlipped, setIsFlipped] = useState(false);
   const [tooltipVisible, setTooltipVisible] = useState(false);
+  const emotions = [
+    "( ´ ▽ ` )",
+    "(´･ω･`)",
+    "(´｡• ω •｡`)",
+    "(っ˘ڡ˘ς)",
+    "(｡•́︿•̀｡)",
+    "(´～｀*)｡｡oO"
+  ];
+  const [emotionIndex, setEmotionIndex] = useState(
+    Math.floor(Math.random()) * emotions.length
+  );
 
   const animateWalk = (
     timestamp: number,
@@ -86,6 +97,7 @@ export default function Hamburger(toc: any) {
   };
 
   const handleMouseDown = (e: React.MouseEvent | React.TouchEvent) => {
+    setEmotionIndex(Math.floor(Math.random() * emotions.length));
     setIsDragging(true);
     setPose(standing);
     //@ts-ignore
@@ -142,6 +154,25 @@ export default function Hamburger(toc: any) {
   // }, [width, height]);
 
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout | number;
+    const intervalId = setInterval(() => {
+      if (!tooltipVisible && Math.random() < 0.1) {
+        setTooltipVisible(true);
+        setEmotionIndex(Math.floor(Math.random() * emotions.length));
+        timeoutId = setTimeout(() => {
+          setTooltipVisible(false);
+        }, 2000);
+      } else {
+      }
+    }, 2000); // 2초마다 확률 체크
+
+    return () => {
+      clearInterval(intervalId);
+      if (timeoutId) clearTimeout(timeoutId);
+    }; // 컴포넌트 언마운트 시 interval 정리
+  }, []);
+
+  useEffect(() => {
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("touchmove", handleTouchMove, { passive: false });
 
@@ -156,8 +187,6 @@ export default function Hamburger(toc: any) {
       // walking 중이 아니고, dragging 중이 아닐 때 10% 확률로 walking 시작
       if (!isWalking && !isDragging && Math.random() < 0.1) {
         startWalk();
-      } else {
-        console.log("not walking");
       }
     }, 2000); // 2초마다 확률 체크
 
@@ -190,10 +219,11 @@ export default function Hamburger(toc: any) {
         className="tooltip"
         style={{
           position: "fixed",
-          left: position.left - 5,
+          left: position.left - 35,
           top: position.top,
-          width: 80,
-          height: 46
+          width: 110,
+          height: 46,
+          whiteSpace: "nowrap"
         }}
       >
         <div
@@ -201,10 +231,12 @@ export default function Hamburger(toc: any) {
           style={{
             width: "100%",
             height: "100%",
-            visibility: tooltipVisible ? "visible" : "hidden"
+            visibility: tooltipVisible ? "visible" : "hidden",
+            paddingLeft: 0,
+            paddingRight: 0
           }}
         >
-          {isDragging ? "(o_O)" : "( ´ ▽ ` )"}
+          {isDragging ? "(o_O)" : emotions[emotionIndex]}
         </div>
       </div>
     </>
