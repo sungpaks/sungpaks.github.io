@@ -58,9 +58,9 @@ export default function Hamburger(toc: any) {
     if (count % 30 === 0) {
       setPose((prev: any) =>
         prev === walking01
-          ? prev === walking02
-            ? walking03
-            : walking02
+          ? walking02
+          : prev === walking02
+          ? walking03
           : walking01
       );
     }
