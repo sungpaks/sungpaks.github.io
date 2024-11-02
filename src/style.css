@@ -220,7 +220,7 @@ ol li {
   margin-bottom: calc(var(--spacing-8) / 2);
 }
 
-li > p {
+li>p {
   margin-bottom: calc(var(--spacing-8) / 2);
 }
 
@@ -228,7 +228,7 @@ li *:last-child {
   margin-bottom: var(--spacing-0);
 }
 
-li > ul {
+li>ul {
   margin-left: var(--spacing-8);
   margin-top: calc(var(--spacing-8) / 2);
 }
@@ -250,12 +250,12 @@ body.theme-reverse blockquote {
   border-color: light-dark(white, black);
 }
 
-blockquote > :last-child {
+blockquote> :last-child {
   margin-bottom: var(--spacing-0);
 }
 
-blockquote > ul,
-blockquote > ol {
+blockquote>ul,
+blockquote>ol {
   list-style-position: inside;
 }
 
@@ -281,12 +281,12 @@ body.theme-reverse a {
   color: light-dark(var(--color-lightgreen), green);
 }
 
-h1 > a,
-h2 > a,
-h3 > a,
-h4 > a,
-h5 > a,
-h6 > a {
+h1>a,
+h2>a,
+h3>a,
+h4>a,
+h5>a,
+h6>a {
   text-decoration: none;
   color: inherit;
 }
@@ -507,10 +507,8 @@ body.theme-reverse .custom-button {
   width: 100%;
   height: 70px;
   border-bottom: 1px solid black;
-  background-color: light-dark(
-    rgba(245, 245, 245, 0.8),
-    var(--color-lightdark-translucent)
-  );
+  background-color: light-dark(rgba(245, 245, 245, 0.8),
+      var(--color-lightdark-translucent));
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -519,10 +517,8 @@ body.theme-reverse .custom-button {
 }
 
 body.theme-reverse .top-ui {
-  background-color: light-dark(
-    var(--color-lightdark-translucent),
-    rgba(245, 245, 245, 0.8)
-  );
+  background-color: light-dark(var(--color-lightdark-translucent),
+      rgba(245, 245, 245, 0.8));
 }
 
 .top-ui a {
@@ -763,6 +759,7 @@ body.theme-reverse .toc a {
 .tooltip {
   position: relative;
   display: inline-block;
+  z-index: 99;
 }
 
 .tooltip .tooltip-text {
@@ -822,7 +819,7 @@ body.theme-reverse .toc a {
   z-index: 9999;
 }
 
-.blog-post > hr {
+.blog-post>hr {
   height: 0;
   border: 0;
   border-bottom: 2px dashed #eee;

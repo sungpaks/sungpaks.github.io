@@ -1,19 +1,93 @@
 import React, { Ref, useEffect, useRef, useState } from "react";
 import useWindowDimensions from "../hooks/useWindowDimensions";
+//@ts-ignore
 import sitting from "../images/sitting.png";
-import walking01 from "../images/walking01.png";
+//@ts-ignore
+import walking01 from "../images/walking00.png";
+//@ts-ignore
+import walking02 from "../images/walking01.png";
+//@ts-ignore
+import walking03 from "../images/walking02.png";
+//@ts-ignore
+import standing from "../images/standing.png";
 import { NONAME } from "dns";
 
 export default function Hamburger(toc: any) {
   const ref = useRef<HTMLImageElement>(null);
-  const [position, setPosition] = useState({ top: 0, left: 0 });
+  const [position, setPosition] = useState({ top: 200, left: 100 });
   const { height, width } = useWindowDimensions();
   const [isDragging, setIsDragging] = useState(false);
   const initMargin = 10;
   const shift = useRef({ x: 0, y: 0 });
+  const animationFrameId = useRef(0);
+  const [isWalking, setIsWalking] = useState(false);
+  const startTimestamp = useRef(0);
+  const [pose, setPose] = useState(sitting);
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [tooltipVisible, setTooltipVisible] = useState(false);
+
+  const animateWalk = (
+    timestamp: number,
+    count = 0,
+    targetX: number,
+    targetY: number
+  ) => {
+    if (!startTimestamp.current) {
+      startTimestamp.current = timestamp;
+    }
+    const elapsed = timestamp - startTimestamp.current;
+    if (elapsed > 5000) {
+      setIsWalking(false);
+      setPose(sitting);
+      cancelAnimationFrame(animationFrameId.current);
+      animationFrameId.current = 0;
+      startTimestamp.current = 0;
+      return;
+    }
+    if (count % 30 === 0) {
+      setPose((prev: any) =>
+        prev === walking01
+          ? prev === walking02
+            ? walking03
+            : walking02
+          : walking01
+      );
+    }
+    if (count % 10 === 0) {
+      const dx = targetX - position.left;
+      const dy = targetY - position.top;
+
+      setPosition(prev => {
+        return {
+          left: prev.left + dx / 100,
+          top: prev.top + dy / 100
+        };
+      });
+    }
+    animationFrameId.current = requestAnimationFrame(timestamp =>
+      animateWalk(timestamp, count + 1, targetX, targetY)
+    );
+  };
+
+  const startWalk = () => {
+    if (!isWalking) {
+      const targetX =
+        Math.random() * (width - (ref.current?.offsetWidth || 0) - initMargin);
+      const targetY =
+        Math.random() *
+        (height - (ref.current?.offsetHeight || 0) - initMargin);
+      setIsWalking(true);
+      setPose(walking01);
+      setIsFlipped(position.left - targetX > 0);
+      animationFrameId.current = requestAnimationFrame(timestamp =>
+        animateWalk(timestamp, 0, targetX, targetY)
+      );
+    }
+  };
 
   const handleMouseDown = (e: React.MouseEvent | React.TouchEvent) => {
     setIsDragging(true);
+    setPose(standing);
     //@ts-ignore
     shift.current = {
       //@ts-ignore
@@ -24,6 +98,16 @@ export default function Hamburger(toc: any) {
   };
   const handleMouseUp = () => {
     setIsDragging(false);
+    setPose(sitting);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTooltipVisible(true);
+    handleMouseDown(e);
+  };
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    setTooltipVisible(false);
+    handleMouseUp();
   };
 
   const handleMouseMove = (e: MouseEvent | React.MouseEvent) => {
@@ -48,14 +132,14 @@ export default function Hamburger(toc: any) {
     }
   };
 
-  useEffect(() => {
-    if (ref.current) {
-      setPosition({
-        left: width - ref.current.offsetWidth - initMargin,
-        top: height - ref.current.offsetHeight - initMargin
-      });
-    }
-  }, [width, height]);
+  // useEffect(() => {
+  //   if (ref.current) {
+  //     setPosition({
+  //       left: width - ref.current.offsetWidth - initMargin,
+  //       top: height - ref.current.offsetHeight - initMargin
+  //     });
+  //   }
+  // }, [width, height]);
 
   useEffect(() => {
     document.addEventListener("mousemove", handleMouseMove);
@@ -67,31 +151,62 @@ export default function Hamburger(toc: any) {
     };
   }, [isDragging]);
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      // walking 중이 아니고, dragging 중이 아닐 때 10% 확률로 walking 시작
+      if (!isWalking && !isDragging && Math.random() < 0.1) {
+        startWalk();
+      } else {
+        console.log("not walking");
+      }
+    }, 2000); // 2초마다 확률 체크
+
+    return () => clearInterval(intervalId); // 컴포넌트 언마운트 시 interval 정리
+  }, [isWalking, isDragging]); // isWalking, isDragging 상태에 따라 다시 체크
+
   return (
     <>
       <img
         className="hamburger"
         ref={ref}
-        src={isDragging ? walking01 : sitting}
+        src={pose}
         style={{
           left: position.left,
           top: position.top,
-          margin: 0
+          margin: 0,
+          transform: isFlipped ? "scaleX(-1)" : "scaleX(1)"
         }}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseMove}
-        onTouchStart={handleMouseDown}
-        onTouchEnd={handleMouseUp}
+        // onMouseLeave={handleMouseMove}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         draggable={false}
+        onClick={isDragging ? undefined : startWalk}
+        onMouseEnter={() => setTooltipVisible(true)}
+        onMouseLeave={() => setTooltipVisible(false)}
       />
+      <div
+        className="tooltip"
+        style={{
+          position: "fixed",
+          left: position.left - 5,
+          top: position.top,
+          width: 80,
+          height: 46
+        }}
+      >
+        <div
+          className="tooltip-text"
+          style={{
+            width: "100%",
+            height: "100%",
+            visibility: tooltipVisible ? "visible" : "hidden"
+          }}
+        >
+          {isDragging ? "(o_O)" : "( ´ ▽ ` )"}
+        </div>
+      </div>
     </>
   );
-}
-
-function randomMove(imageRef: Ref<HTMLImageElement>) {
-  if (Math.random() > 0.9) {
-    return;
-  } else {
-  }
 }
