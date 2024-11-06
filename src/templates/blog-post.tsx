@@ -9,7 +9,7 @@ import kebabCase from "lodash.kebabcase";
 import { useState, useEffect } from "react";
 import "katex/dist/katex.min.css";
 import TableOfContents from "../components/TableOfContents";
-import Hamburger from "../components/Hamburger";
+import Bugi from "../components/Bugi";
 
 interface Frontmatter {
   title: string;

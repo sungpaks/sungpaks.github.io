@@ -2,7 +2,7 @@ import * as React from "react";
 import TopUI from "./TopUI";
 import { FC } from "react";
 import { useState } from "react";
-import Hamburger from "./Hamburger";
+import Bugi from "./Bugi";
 
 interface ComponentProps {
   location: any;
@@ -16,7 +16,7 @@ const Layout = ({ location, children, setCurTag }: ComponentProps) => {
 
   return (
     <>
-      <Hamburger />
+      <Bugi />
       <div>
         <TopUI setCurTag={setCurTag} />
         <div className="global-wrapper" data-is-root-path={isRootPath}>
