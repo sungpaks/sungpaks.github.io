@@ -25,7 +25,8 @@ export default function Bugi(toc: any) {
   const [pose, setPose] = useState(sitting);
   const [isFlipped, setIsFlipped] = useState(false);
   const [tooltipVisible, setTooltipVisible] = useState(false);
-  const [moved, setMoved] = useState(false);
+  const [dragged, setDragged] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   const emotions = [
     "( ´ ▽ ` )",
     "(´･ω･`)",
@@ -81,25 +82,24 @@ export default function Bugi(toc: any) {
     );
   };
 
-  const startWalk = () => {
-    if (!isWalking && !moved) {
-      const targetX =
-        Math.random() * (width - (ref.current?.offsetWidth || 0) - initMargin);
-      const targetY =
-        Math.random() *
-        (height - (ref.current?.offsetHeight || 0) - initMargin);
-      setIsWalking(true);
-      setPose(walking01);
-      setIsFlipped(position.left - targetX > 0);
-      animationFrameId.current = requestAnimationFrame(timestamp =>
-        animateWalk(timestamp, 0, targetX, targetY)
-      );
-    }
+  const startWalk = (method: "click" | "auto") => {
+    if ((method === "click" && dragged) || isWalking) return;
+
+    const targetX =
+      Math.random() * (width - (ref.current?.offsetWidth || 0) - initMargin);
+    const targetY =
+      Math.random() * (height - (ref.current?.offsetHeight || 0) - initMargin);
+    setIsWalking(true);
+    setPose(walking01);
+    setIsFlipped(position.left - targetX > 0);
+    animationFrameId.current = requestAnimationFrame(timestamp =>
+      animateWalk(timestamp, 0, targetX, targetY)
+    );
   };
 
   const handleMouseDown = (e: React.MouseEvent | React.TouchEvent) => {
     setEmotionIndex(Math.floor(Math.random() * emotions.length));
-    setMoved(false);
+    setDragged(false);
     setIsDragging(true);
     setPose(standing);
     //@ts-ignore
@@ -128,7 +128,7 @@ export default function Bugi(toc: any) {
     //setIsDragging(e.buttons === 1)
     if (isDragging && ref.current) {
       if (e.buttons !== 1) return;
-      setMoved(true);
+      setDragged(true);
       setPosition({
         left: e.clientX - shift.current.x, //ref.current.offsetWidth / 2,
         top: e.clientY - shift.current.y //ref.current.offsetHeight / 2
@@ -189,13 +189,20 @@ export default function Bugi(toc: any) {
     const intervalId = setInterval(() => {
       // walking 중이 아니고, dragging 중이 아닐 때 10% 확률로 walking 시작
       if (!isWalking && !isDragging && Math.random() < 0.1) {
-        startWalk();
+        startWalk("auto");
       }
     }, 2000); // 2초마다 확률 체크
 
     return () => clearInterval(intervalId); // 컴포넌트 언마운트 시 interval 정리
   }, [isWalking, isDragging]); // isWalking, isDragging 상태에 따라 다시 체크
 
+  useEffect(() => {
+    setIsClient(true);
+
+    return () => setIsClient(false);
+  }, []);
+
+  if (!isClient) return null;
   return createPortal(
     <>
       <img
@@ -214,7 +221,7 @@ export default function Bugi(toc: any) {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
         draggable={false}
-        onClick={isDragging ? undefined : startWalk}
+        onClick={() => startWalk("click")}
         onMouseEnter={() => setTooltipVisible(true)}
         onMouseLeave={() => setTooltipVisible(false)}
       />
@@ -222,10 +229,10 @@ export default function Bugi(toc: any) {
         className="tooltip"
         style={{
           position: "fixed",
-          left: position.left - 35,
+          left: position.left - 40,
           top: position.top,
           width: 110,
-          height: 46,
+          height: 40,
           whiteSpace: "nowrap"
         }}
       >
