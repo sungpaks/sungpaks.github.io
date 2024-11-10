@@ -1,9 +1,11 @@
 ---
-title: "🍔 블로그에 돌아다니는 햄부기를 소개합니다"
+title: "🍔 ദി=´∀｀) 안녕하새용저는햄부기애용"
 date: 2024-11-09 23:15:21
 description: "드래그 앤 드롭, 애니메이션 등을 리액트로 구현하고, JS로 바꿔서 크롬 확장 프로그램으로 만들기"
 tag: ["React", "JavaScript", "Chrome Extension"]
 ---
+
+> ♚♚햄부기♚♚[즉시설치](<(https://chromewebstore.google.com/detail/bugi/cidndoahplamogkfaimmahedcnakjnag?hl=ko)>)☜☜평생 무료획득♜♜[깃허브](https://github.com/sungpaks/bugi_friends)★스타 환영★100%오픈소스§§
 
 ![햄부기](image.png)
 
@@ -15,9 +17,10 @@ tag: ["React", "JavaScript", "Chrome Extension"]
 아무튼 이 친구가 어떤 기능이 있고 어떻게 구현했는지 쓰려고 해요  
 그리고 이거 크롬 익스텐션으로도 만들어서 제출했는데요, 그 여정까지 쓰겠습니다  
 나중에는 부기와 친구들 머 이런식으로 계속 캐릭터도 추가하고, 그러고 싶습니다  
-막 오픈소스처럼 다른 사람들이 캐릭터도 추가하고 어쩌구저쩌구 하게 하고싶은데 귀찮고 그럴 사람이 있을지는 모르곘어용
+막 오픈소스처럼 다른 사람들이 캐릭터도 기능도 추가하고 어쩌구저쩌구 하게 하고싶은데 점점 귀찮고 그럴 사람이 있을지는 모르곘어용
 
-아무튼 시작합시다
+아무튼 시작합시다  
+그냥 기능이 뭐있나 궁금하시면 목차에서 대제목 1,2,3만 보세요
 
 # 1. 드래그 앤 드롭으로 잡아 옮길 수 있습니다
 
@@ -29,7 +32,13 @@ tag: ["React", "JavaScript", "Chrome Extension"]
 아. 그립읍니다 교수님.  
 그래픽스 수업도 좀 들을걸 그랬어요
 
+<figure>
+
 ![여전히 가르침을 주시는군요](image-1.png)
+
+<figcaption>영화 아이언맨2</figcaption>
+
+</figure>
 
 ## HTML요소를 드래그 앤 드롭하기
 
@@ -111,6 +120,8 @@ return (
 드래그를 시작하면 요소의 위치가 현재 커서 위치로 순간적으로 바뀌어서 살짝 어색해보입니다  
 [모던 자바스크립트 튜토리얼 > 드래그 앤 드롭 > 올바른 위치 지정](https://ko.javascript.info/mouse-drag-and-drop#ref-319)에서 자세한 설명과 예시를 볼 수 있습니다
 
+![잔상입니다만](image-9.png)
+
 이건 `mousedown` 위치와 요소가 원래 있던 위치의 차이(offset)를 저장해두면 됩니다  
 이건 어차피 딱히 렌더링에 필요한 정보는 아니라서, 참조로 저장했습니다.
 
@@ -153,6 +164,14 @@ hover를 테스트할 때도, 크롬 개발자모드로 반응형 모드를 켜�
 마우스 이벤트는 `e.clientX`처럼 바로 좌표값을 가져올 수 있었는데, 터치 이벤트는 그렇지 않습니다  
 먼저 `TouchEvent.touches[0]`으로 `Touch`이벤트의 목록 중 가장 첫 번째를 가져옵니다.  
 이제 여기서 `clientX,Y`를 꺼냅니다
+
+<figure>
+
+![뉴럴라이저](image-10.png)
+
+<figcaption>영화 맨인블랙</figcaption>
+
+</figure>
 
 근데 리액트를 사용하신다면 위 내용은 다 잊어두셔도 됩니다  
 [React 이벤트 객체](https://ko.react.dev/reference/react-dom/components/common#react-event-object)가 알아서 추상화해주거든요. "**합성 이벤트**"라고도 합니다  
@@ -330,6 +349,12 @@ const startWalk = (method: "click" | "auto") => {
 
 # 3. 말풍선으로 감정을 표현합니다
 
+![말풍선](image-2.png)
+
+랜덤으로 또는 마우스 호버 시 말풍선을 띄웁니다.  
+말풍선 내부 감정표현은 랜덤으로 바뀌어요  
+드래그 시에는 당황한 표정을 짓습니다 ㅋㅋㅋ
+
 이거는 딱히 사실 설명할게 없긴한데요  
 아까 걷는 모션을 랜덤으로 시작하게 interval을 설정했던 것처럼  
 가끔 2초 간 말풍선을 띄우게 했습니다
@@ -354,14 +379,9 @@ useEffect(() => {
 }, []);
 ```
 
-그리고 랜덤으로 말풍선을 띄우는 타이밍에, 말풍선 내용물도 바꿉니다.(`emotionIndex`)  
-또한 햄부기 위에 마우스를 올려두면(호버 시) 또한 말풍선을 보여줍니다.
+그리고 랜덤으로 말풍선을 띄우는 타이밍에, 말풍선 내용물도 바꿉니다.(`emotionIndex`)
 
-![말풍선](image-2.png)
-
-그리고 드래그 시에는 당황한 표정을 짓습니다 ㅋㅋㅋ
-
-# 크롬 익스텐션으로 만들려고 하는데요..
+# 크롬 확장프로그램으로 만들려고 하는데요..
 
 이제 이 리액트 코드로 작성된 햄부기를 크롬 확장 프로그램으로 만들고 싶습니다  
 다만 그러면 리액트 코드 그대로 쓸 수는 없겠고 자바스크립트를 사용해야 합니다  
@@ -372,32 +392,350 @@ useEffect(() => {
 그리고 혹시 아예 나중에 인스턴스를 여럿 끼울 수도 있어서 클래스로 만들었어요  
 부기를 화면에 둘, 셋, 넷, ... 추가하고 싶을 수도요
 
-자바스크립트로 변환된 코드를 다듬기 전에 먼저 크롬 확장프로그램을 어떻게 만드는지 필요한만큼만 이해해봅시다
+```js
+class Bugi {
+  constructor() {
+    this.isWaling = false;
+    // 각종 변수들..
 
-## 크롬 확장프로그램
+    // 햄부기 요소를 만들고, 이벤트리스너를 추가하고, 랜덤 모션을 추가
+    this.createElements();
+    this.addEventListeners();
+    this.setupAutoWalk();
+    this.setupTooltip();
+  }
+  createElements() {
+    this.img = document.createElement("img");
+    // 햄부기 이미지 초기세팅..
+    this.tooltip = document.createElement("div");
+    // 말풍선 초기세팅..
+  }
+  addEventListeners() {
+    this.img.addEventListener("mousedown", e => this.handleMouseDown(e));
+    document.addEventListener("mousemove", e => this.handleMouseMove(e));
+    // 이외 필요한 이벤트리스너들 모두 등록
+  }
+  /*
+  이벤트핸들러들을 정의하고, 이외 유틸함수들을 작성하기
+  */
+}
+const bugi = new Bugi();
+```
 
-[크롬 확장프로그램 시작하기 가이드](https://support.google.com/chrome/a/answer/2714278?hl=ko)
+대충 쓰면 이런 식으로 나옵니다
+
+## 크롬 확장프로그램 개발 세팅하기
+
+이제 이 코드를 다듬기 전에 먼저 크롬 확장프로그램을 어떻게 만드는지 필요한만큼만 이해해봅시다  
+[크롬 확장프로그램 시작하기 가이드](https://support.google.com/chrome/a/answer/2714278?hl=ko)를 보며 시작하면 됩니다
 
 ### manifest 파일 정의하고, 개발자모드에서 프로그램을 추가하기
 
+제일 먼저 `manifest.json`이 필요해요  
+package.json처럼 프로젝트를 정의하는 문서입니다
+
+```json
+{
+  "manifest_version": 3,
+  "name": "Bugi",
+  "version": "1.0.0",
+  "permissions": ["activeTab", "scripting"],
+  "content_scripts": [],
+  "action": {
+    "default_icon": "images/logo.png"
+  },
+  "background": {
+    "service_worker": "scripting.js"
+  }
+}
+```
+
+`manifest_version`은 2 또는 3을 쓰는데 버전별로 명세가 다릅니다.  
+`name`과 `version`은 각각 확장프로그램의 이름과 버전이 됩니다  
+`permissions`에서는 프로그램이 사용하는 권한을 명시해요. `activeTab`은 현재 활성 탭에 대한 접근을, `scripting`은 `executeScript()`에 대한 권한입니다  
+우리는 자바스크립트를 실행할거라서 `scripting`권한이 필요해요  
+`action`의 `default_icon` 프로퍼티는 확장프로그램의 아이콘입니다
+
+이제 우리가 할 일로는 가장 중요한게 `"background": {"service_worker": "scripting.js"}`입니다  
+이 [백그라운드 메니페스트](https://developer.chrome.com/docs/extensions/reference/manifest/background?hl=ko)는 자바스크립트 파일을 서비스 워커로 지정하게 합니다.  
+이 자바스크립트 파일을 어떻게 정의하는지는 아래에서 봅시다
+
+아무튼 일단 `manifest.json`을 만들었으면 개발을 위해 크롬 익스텐션 개발자모드로 이동합시다
+크롬 주소창에 `chrome://extensions`를 입력하고,  
+오른쪽 상단의 "개발자 모드"를 켭니다.
+
+![개발자모드 켜기](image-5.png)
+
+그럼 이제 상단에 *"압축 해제된 확장프로그램을 로드합니다"*라는 버튼이 생기는데,  
+이걸 클릭해서 폴더를 선택해줍시다
+
 ### 활성 탭에 스크립트 삽입하기
+
+이제 서비스 워커로 지정한 `scripting.js` 파일을 작성할건데요  
+[활성 탭에 스크립트 삽입하기](https://developer.chrome.com/docs/extensions/get-started/tutorial/scripts-activetab?hl=ko) 문서를 참고합시다  
+주의할 점은, `action`의 `default_popup`이 있을 때는 `background`의 `service_worker`를 사용할 수 없습니다  
+크롬 익스텐션 튜토리얼에서 `default_popup`예제를 보여주는데 만약 이걸 따라했었다면 이건 지워줍시다
+
+아무튼 `scripting.js` 파일에 `chrome.action.onClicked.addListener()`와 같이 이벤트핸들러를 추가해줍시다  
+이는 확장프로그램 아이콘이 클릭될 때 트리거될 것이고  
+첫 번째 인자로 `tab`을 받는데 이는 현재 탭 정보입니다
+
+저는 일단 아래처럼, 익스텐션이 ON 또는 OFF일 때 라벨을 추가하게 하고  
+`mountBugi`라는 임시 함수를 `executeScript`로 실행하게 하겠습니다  
+이는 그냥 간단한 HTML요소를 추가하여 우리의 햄부기를 잘 마운트할 수 있는지를 체크하려는 함수입니다
+
+```js
+chrome.action.onClicked.addListener(async tab => {
+  const prevState = await chrome.action.getBadgeText({ tabId: tab.id });
+  const nextState = prevState === "ON" ? "OFF" : "ON";
+
+  // Set the action badge to the next state
+  await chrome.action.setBadgeText({
+    tabId: tab.id,
+    text: nextState
+  });
+
+  chrome.scripting
+    .executeScript({
+      target: { tabId: tab.id },
+      function: mountBugi
+    })
+    .then(() => {
+      console.log("Bugi injected");
+    })
+    .catch(error => {
+      console.error("Failed to inject bugi:", error);
+    });
+});
+
+function mountBugi() {
+  // 임시 HTML요소와 CSS 스타일 추가 : 화면 중앙 50%를 채우는 반투명 div
+}
+```
+
+스크립트를 실행하려면 `chrome.scripting.executeScript({target, function or file})`를 호출합니다
+
+- `target`은 스크립트를 실행할 대상 탭인데, `tab.id`로 현재 탭을 대상으로 해줍니다
+- `function` 또는 `file`을 추가합니다. 지금처럼 `function`을 넘겨도 되고, 특정 `file`을 넘겨도 되지만 둘 다는 안됩니다. 하나만 해야함
+
+이제 개발자모드에서 익스텐션을 리로드하고, 익스텐션 아이콘을 클릭하여 실행하면 아래와 같이 나옵니다
+
+![임시 scripting](image-6.png)
+
+화면에 반투명 div 영역을 채웠습니다  
+이게 되는거면 당연히 bugi도 추가할 수 있습니다  
+다만 `function`을 실행하는게 아닌 `file: bugi.js`와 같이 파일을 실행하게 하겠습니다  
+이제 우리는 `bugi.js`를 잘 다듬어서 동작하게 만드는게 목표입니다
 
 ### 이미지 가져오려면
 
-manifest에 `web_accessible_resources` 설정하고,  
-`chrome.runtime.getURL`로 가져온다
+이미지를 그냥 `require('images/bugi.png')` 이런식으로 가져올 수는 없습니다  
+대신 크롬 런타임에서 가져오도록 해야하는데요  
+먼저 manifest에 `web_accessible_resources`를 설정합니다
+
+```json
+...
+"web_accessible_resources": [
+  {
+    "resources": ["*.png"],
+    "matches": ["<all_urls>"]
+  }
+]
+```
+
+이렇게 하여 런타임에 액세스 가능한 리소스를 명시해주고  
+`bugi.js`에서 이미지에 접근할 때는 `chrome.runtime.getURL`로 가져옵니다.  
+아래처럼요
+
+```js
+assets = {
+  sitting: chrome.runtime.getURL("images/bugi/sitting.png"),
+  standing: chrome.runtime.getURL("images/bugi/standing.png"),
+  walking01: chrome.runtime.getURL("images/bugi/walking00.png"),
+  walking02: chrome.runtime.getURL("images/bugi/walking01.png"),
+  walking03: chrome.runtime.getURL("images/bugi/walking02.png")
+};
+```
+
+한 번에 갖고있고자 Bugi클래스 내에 이렇게 asset으로 저장했습니다  
+그리고 밑에서 살펴보겠지만, 변수가 중복으로 선언되는 문제가 발생해서 그렇기도 합니다
 
 ## 익스텐션 끌 때는 스크립트를 제거하기
 
-Bugi 클래스에 destroy 메서드를 추가하고
-익스텐션 스크립트에 관련 코드를 추가하기
+익스텐션을 끌 때는 응당 햄부기가 사라져줘야합니다
 
-## 익스텐션 켤 때마다 bugi.js가 실행되어서 스코프에 변수들이 중복으로 생성됨
+<figure>
 
-그래서 전역객체인 window에 선언하고, 없을 때만 새로 생성하게 했다
-중복선언 피하기 어쩌구저쩌구
+![없어져볼게](image-11.png)
 
-## 이제 터치 이벤트를 따로 관리해줘야 함
+<figcaption>내가 없어져볼게</figcaption>
+
+</figure>
+
+근데 우리는 각종 이벤트리스너도 추가했기도 하고, 정리를 위해 작성할 코드가 좀 됩니다  
+따라서 Bugi클래스에 아래와 같이 `destroy`함수를 추가했습니다
+
+```js
+_destroy() {
+  // DOM에서 요소들을 제거
+  if (this.img) this.img.remove();
+  if (this.tooltip) this.tooltip.remove();
+
+  // 이벤트 리스너 제거
+  document.removeEventListener('mousemove', this.handleMouseMove);
+  ... //등등
+
+  // interval 제거
+  clearInterval(this.autoWalkInterval);
+  clearInterval(this.tooltipInterval);
+
+  // 애니메이션 중지
+  cancelAnimationFrame(this.walkRAF);
+}
+```
+
+이제 `scripting.js`에서는 off될 때 이 함수만 호출하면 됩니다
+
+```js
+// scripting.js에서, chrome.aciton.onClicked.addEventListener 내부
+if (nextState === "OFF") {
+  // Remove the Bugi element
+  await chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    function: () => {
+      bugi._destroy();
+    }
+  });
+} else {
+  chrome.scripting.insertCSS({
+    target: { tabId: tab.id },
+    files: ["bugi.css"]
+  });
+  chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    files: ["bugi.js"]
+  });
+}
+```
+
+OFF로 넘어가는 경우에는 이렇게 파괴함수를 호출합니다.
+
+## 익스텐션을 껐다 켜면 스코프에 변수들이 중복으로 생성되는 오류가 발생해요
+
+일단 OFF 시 bugi 인스턴스 내부를 정리하긴 했습니다  
+근데 bugi 변수 자체는 남아있는데요  
+이제 다시 ON으로 켜면 `const bugi = new Bugi()`를 실행하려 하기 때문에  
+bugi라는 변수가 중복으로 생성되어 오류가 발생합니다  
+그리고 `class Bugi`도 마찬가지인데 똑같은 Bugi라는 이름의 클래스가 또 생겨버려요
+
+![중복](image-12.png)
+
+그래서 일단 Bugi클래스는 전역객체인 window의 프로퍼티로 Bugi클래스를 선언하고, 없을 때만 새로 생성하게 했습니다  
+또한 bugi 인스턴스도 window의 프로퍼티로 선언하고, OFF 시에는 이를 아예 제거해버립니다
+
+```js
+// bugi.js
+if (!window.Bugi) {
+  class Bugi {
+    ...
+  }
+  window.Bugi = Bugi;
+}
+window.bugi = new window.Bugi();
+
+// scripting.js
+if (nextState === 'OFF') {
+  // Remove the Bugi element
+  await chrome.scripting.executeScript({
+	target: { tabId: tab.id },
+	function: () => {
+	  window.bugi._destroy();
+	  delete window.bugi;
+	},
+  });
+}
+```
+
+이렇게 해서 중복 선언을 막을 수 있습니다  
+나중에는 햄부기를 화면에 여럿 추가하려면 배열로 선언해서 `window.bugi.push(new Bugi())` 이렇게 해도 괜찮겠네요
+
+## 이제 터치 이벤트를 따로 관리해줘야 합니다
 
 리액트일 때는 알아서 추상화된 이벤트를 썼지만, 이제 아닙니다  
 그래서 터치 이벤트에 대해 따로 구현해줘야 합니다
+
+위에서 잠깐 살펴봤듯이, 터치 이벤트에 의한 이벤트 객체에서는 바로 `clientX, clientY`를 가져올 수 없습니다  
+대신에 `e.touches[0].clientX`와 같이 써줘야 합니다  
+나머지는 비슷하긴 한데, 미묘하게 다릅니다  
+아래에서 `mousedown`과 `touchstart`, `mousemove`와 `touchmove`를 같이 뒀으니 비교해보세요  
+`mouseup`과 `touchend`는 다른게 없습니다 사실상
+
+```js
+handleMouseDown(e) {
+  // isDragging, pose 등 변수 업데이트는 동일
+  this.shiftX = e.clientX - this.img.offsetLeft;
+  this.shiftY = e.clientY - this.img.offsetTop;
+}
+
+handleTouchStart(e) {
+  // isDragging, pose 등 변수 업데이트는 동일
+  const touch = e.touches[0];
+  this.shiftX = touch.clientX - this.img.offsetLeft;
+  this.shiftY = touch.clientY - this.img.offsetTop;
+}
+
+handleMouseMove(e) {
+  if (!this.isDragging) return;
+  this.moved = true; // onclick 방지를 위한 moved 변수 업데이트
+  this.position.left = e.clientX - this.shiftX;
+  this.position.top = e.clientY - this.shiftY;
+  this.updatePosition();
+}
+
+handleTouchMove(e) {
+  if (!this.isDragging) return;
+  e.preventDefault(); // 기본 터치 이벤트를 막아줘야 함
+  const touch = e.touches[0];
+  this.position.left = touch.clientX - this.shiftX;
+  this.position.top = touch.clientY - this.shiftY;
+  this.updatePosition();
+}
+```
+
+매우 비슷하긴합니다. `clientX, clientY`를 가져오는 방법과 move에서 한 줄씩 차이가 나네요  
+`mousemove`에서는 onclick까지 트리거되는 현상을 방지하기 위한 변수 업데이트를 진행했습니다  
+`touchmove`에서는 기본 터치 이벤트를 막아주기 위해 `e.preventDefault()`를 호출했습니다
+
+## 이만하면 된 것 같은데요
+
+이제 제출하고싶은데요  
+먼저 프로젝트 폴더를 압축해서 `.zip`파일로 만들어야 합니다  
+그 다음 [크롬 웹 스토어 개발자 대시보드](https://chrome.google.com/u/2/webstore/devconsole)로 접속합시다  
+근데 개발자등록하려면 5달러를 내야했어요 ㅜㅜ
+
+아무튼 가서 개발자 등록까지 되었으면 "새 항목"버튼을 누릅시다
+
+![개발자 대시보드 새 항목](image-7.png)
+
+그럼 이제 ZIP파일을 업로드하여 등록을 시작할 수 있습니다
+이제 시키는대로 하고 심사를 제출하면 됩니다  
+저는 계속 막 거부되길래... 왜 자꾸 거부하냐고 막 재제출하고 컴플레인하고 그랬는데  
+알고보니 실수로 파일을 잘못 올렸습니다. 머쓱;;;  
+아무튼 이제 잘 게시되었습니다  
+저는 권한을 쓰는 것도 적고, 수집하는 정보도 없어서 심사가 빨리 이루어졌습니다
+
+👉[햄부기 다운로드하러 가기](https://chromewebstore.google.com/detail/bugi/cidndoahplamogkfaimmahedcnakjnag?hl=ko)👈 §§즉시시작§§
+
+동영상도 다시 찍고, 설명도 다시 쓰고, 버그도 고치고, 이름도 Bugi And Friends 이런식으로 바꿔서 또 게시해야겠어요
+
+---
+
+햄부기 많이 사랑해주시고, 귀여워해주시고, 아껴주시고, 격려해주시고, 염려해주시고, 근심해주시고, 성원해주시고, 신경써주시고, 보살펴주시고, 밀어주시고, 근심해주시고, 보태주시고, 응원해주시고, 믿어주시고, 걱정해주시고, 용기를 주시고,
+
+<figure>
+
+![아껴주시고](image-8.png)
+
+<figcaption>엄용수 옹.. (라디오스타에서)</figcaption>
+
+</figure>
