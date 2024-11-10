@@ -5,7 +5,7 @@ description: "드래그 앤 드롭, 애니메이션 등을 리액트로 구현�
 tag: ["React", "JavaScript", "Chrome Extension"]
 ---
 
-> ♚♚햄부기♚♚[즉시설치](<(https://chromewebstore.google.com/detail/bugi/cidndoahplamogkfaimmahedcnakjnag?hl=ko)>)☜☜평생 무료획득♜♜[깃허브](https://github.com/sungpaks/bugi_friends)★스타 환영★100%오픈소스§§
+> ♚♚햄부기♚♚크롬확장프로그램♜♜[즉시설치](<(https://chromewebstore.google.com/detail/bugi/cidndoahplamogkfaimmahedcnakjnag?hl=ko)>)☜☜평생무료획득♜♜[깃허브](https://github.com/sungpaks/bugi_friends)★스타 환영★100%오픈소스§§
 
 ![햄부기](image.png)
 
@@ -15,7 +15,7 @@ tag: ["React", "JavaScript", "Chrome Extension"]
 햄버거인 이유는 그냥 제가 햄버거를 좋아해서 그렇습니다
 
 아무튼 이 친구가 어떤 기능이 있고 어떻게 구현했는지 쓰려고 해요  
-그리고 이거 크롬 익스텐션으로도 만들어서 제출했는데요, 그 여정까지 쓰겠습니다  
+그리고 이거 크롬 익스텐션으로도 만들어서 게시했는데요, 그 여정까지 쓰겠습니다  
 나중에는 부기와 친구들 머 이런식으로 계속 캐릭터도 추가하고, 그러고 싶습니다  
 막 오픈소스처럼 다른 사람들이 캐릭터도 기능도 추가하고 어쩌구저쩌구 하게 하고싶은데 점점 귀찮고 그럴 사람이 있을지는 모르곘어용
 
