@@ -1,4 +1,661 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 13 Nov 2024 13:20:33 GMT</lastBuildDate><item><title><![CDATA[TypeScript로 즐기는 Three.js 강의 정리 - 01]]></title><description><![CDATA[! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다. 저번에 공식문서를 쭉 따라하고 TIL정리를 했었는데요 : 1 2…]]></description><link>https://sungpaks.github.io/til/threejs-with-typescript-01/</link><guid isPermaLink="false">https://sungpaks.github.io/til/threejs-with-typescript-01/</guid><pubDate>Wed, 13 Nov 2024 21:29:12 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 16 Nov 2024 14:37:52 GMT</lastBuildDate><item><title><![CDATA[Three.js 공식문서로 시작해보기. - 4]]></title><description><![CDATA[! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다. 공부하러 밖에 나가서 음~ 오늘은 또 타입스크립트로 즐기는 Three.js…]]></description><link>https://sungpaks.github.io/til/how-to-threejs-4/</link><guid isPermaLink="false">https://sungpaks.github.io/til/how-to-threejs-4/</guid><pubDate>Sat, 16 Nov 2024 22:29:04 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;공부하러 밖에 나가서 음~ 오늘은 또 타입스크립트로 즐기는 Three.js 강의 하나 더 봐야겠다~&lt;br&gt;
+했는데 웬걸? 이어폰을 안 가져왔습니다&lt;br&gt;
+제 기억 상 그 강의가 자막은 그냥 자동생성이었던거같아서&lt;br&gt;
+그냥 코드베이스만 그 강의에서 했던 것처럼 클래스 형태를 따라가는거로 하고&lt;br&gt;
+공식 문서를 봤습니다.&lt;/p&gt;
+&lt;p&gt;제가 이 시리즈 1~3까지 봤던 공식문서는 three.js documentation이었는데&lt;br&gt;
+알고보니 &lt;a href=&quot;https://threejs.org/manual/&quot;&gt;manual&lt;/a&gt;도 따로 있습니다&lt;br&gt;
+여기서는 Three.js가 뭔지, 개발환경과 알아두고 시작할 것들, 반응형 디자인, 기본 구조, ... 이런걸 설명해줍니다.&lt;br&gt;
+게다가 documentation에는 번역이 빠진 것도 은근 있고, 그냥 번역체인데&lt;br&gt;
+여기는 역주도 달려있고, 모양새도 뭔가 각잡고 누군가 번역해주신 모양새입니다&lt;br&gt;
+그래서 꽤 좋은 것 같아요. 이런저런 기본구조에 대해서도 잘 알려주고, 예제도 적당하구요&lt;/p&gt;
+&lt;p&gt;그래서 이거로 기본구조 &gt; 텍스처까지 따라가며 공부해보고 기록한걸 정리해서 올려둡니다.&lt;br&gt;
+사실 조명, 카메라까지도 봤는데 이건 그냥 쭉 보기만 하면서 이런 종류의 조명/카메라가 있구나, 만 봤어요&lt;/p&gt;
+&lt;p&gt;밑에 태양계를 간단히 느낌만 나게 구현해본 예제 있으니까 구경해보세요&lt;/p&gt;
+&lt;h1 id=&quot;원시-모델primitives&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9B%90%EC%8B%9C-%EB%AA%A8%EB%8D%B8primitives&quot; aria-label=&quot;원시 모델primitives permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;원시 모델(Primitives)&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://threejs.org/manual/#ko/primitives&quot;&gt;https://threejs.org/manual/#ko/primitives&lt;/a&gt;&lt;br&gt;
+Three.js 원시 모델이란 : 주로 런타임에서 다양한 인자들로 정의한 3D 모양들입니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;BoxGeometry, CircleGeometry, ConeGeometry, ...&lt;/code&gt;&lt;br&gt;
+얘네들은 다 비슷비슷하게 인자를 넣고, 기하학 구조를 정의하고, .. 보통 그렇습니다&lt;/p&gt;
+&lt;p&gt;근데 특히 &lt;code class=&quot;language-text&quot;&gt;TextGeometry&lt;/code&gt;는 다른 원시 모델들과 다른데&lt;br&gt;
+일단 비동기적으로 폰트를 로드해야해요&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; loader &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;THREE&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;FontLoader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+loader&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;../resources/threejs/fonts/helvetiker_regular.typeface.json&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;font&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; text &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;three.js&apos;&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; geometry &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;THREE&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TextGeometry&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;text&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token literal-property property&quot;&gt;font&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; font&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;token literal-property property&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;token literal-property property&quot;&gt;depth&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;token literal-property property&quot;&gt;curveSegments&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;token literal-property property&quot;&gt;bevelEnabled&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 깎아낸 사각&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그래서 이렇게 프로미스 콜백으로 하거나, 비동기함수를 만들고 &lt;code class=&quot;language-text&quot;&gt;await&lt;/code&gt;으로 폰트를 가져오거나 합니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt; &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupText&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; loader &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FontLoader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; font &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; loader&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;loadAsync&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;token string&quot;&gt;&quot;https://threejs.org/examples/fonts/helvetiker_regular.typeface.json&quot;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; geometry &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;TextGeometry&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;HELLO!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      font&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; font&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      size&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0.2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      height&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0.05&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      curveSegments&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      bevelEnabled&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; material &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;MeshPhongMaterial&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; color&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0x2200ff&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; textMesh &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Mesh&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;geometry&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; material&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;text &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; textMesh&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;scene&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;textMesh&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 폰트는 기본적으로 중앙이 아닌 왼쪽모서리를 중심으로 회전축이 설정되어있어요&lt;br&gt;
+중앙을 중심으로 돌게 하려면 Three.js에게 geometry의 경계 좌표(bounding box)를 계산해달라고 하고, &lt;code class=&quot;language-text&quot;&gt;getCenter&lt;/code&gt; 메서드에 해당 mesh의 위치값 객체를 넘겨줍니다.&lt;br&gt;
+=&gt; &lt;code class=&quot;language-text&quot;&gt;getCenter&lt;/code&gt; 메서드는 그 받은 위치값의 중앙 좌표값을 자신의 위치값으로 복사.&lt;br&gt;
+=&gt; 그런 다음 해당 메서드는 변경된 위치값 객체를 반환.&lt;br&gt;
+=&gt; 이 객체의 &lt;code class=&quot;language-text&quot;&gt;.multiplyScalar(-1)&lt;/code&gt; 메서드로 전체 텍스트의 회전 중심이 텍스트 중앙에 오도록 조정하면 됨&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;geometry&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;computeBoundingBox&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+geometry&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;boundingBox&lt;span class=&quot;token operator&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getCenter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;textMesh&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;position&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;multiplyScalar&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;근데 이대로 씬에 넣어버리면 위치값을 자동으로 재할당해버려요&lt;br&gt;
+따라서 그 대신, Three.js 씬 그래프의 가장 기본 요소인 &lt;code class=&quot;language-text&quot;&gt;Object3D&lt;/code&gt;를 하나 만들고 이를 부모로 두게 합시다.&lt;br&gt;
+이 기본 요소인 &lt;code class=&quot;language-text&quot;&gt;Object3D&lt;/code&gt;로 감싸는 테크닉은 꽤 자주 나옵니다&lt;br&gt;
+이런 식으로 &lt;code class=&quot;language-text&quot;&gt;Object3D&lt;/code&gt;를 생성하고 텍스트를 감싸면, 텍스트의 회전 중심은 유지한 채로 위치값을 얼마든지 조정할 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; parent &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Object3D&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+parent&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;textMesh&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;text &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; parent&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게&lt;/p&gt;
+&lt;p&gt;전체 코드&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupText&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; loader &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FontLoader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; font &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; loader&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;loadAsync&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;token string&quot;&gt;&quot;https://threejs.org/examples/fonts/helvetiker_regular.typeface.json&quot;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; geometry &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;TextGeometry&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;HELLO!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      font&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; font&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      size&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0.2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      height&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0.05&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      curveSegments&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      bevelEnabled&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      bevelThickness&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0.01&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      bevelSize&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0.01&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      bevelSegments&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; material &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;MeshPhongMaterial&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; color&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0xffff00&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; textMesh &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Mesh&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;geometry&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; material&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    geometry&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;computeBoundingBox&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    geometry&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;boundingBox&lt;span class=&quot;token operator&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getCenter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;textMesh&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;position&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;multiplyScalar&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; parent &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Object3D&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    parent&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;textMesh&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;text &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; parent&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;scene&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;parent&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id=&quot;씬-그래프scene-graph&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%94%AC-%EA%B7%B8%EB%9E%98%ED%94%84scene-graph&quot; aria-label=&quot;씬 그래프scene graph permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;씬 그래프(Scene Graph)&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://threejs.org/manual/#ko/scenegraph&quot;&gt;https://threejs.org/manual/#ko/scenegraph&lt;/a&gt;&lt;br&gt;
+3D엔진에서 씬 그래프란 요소의 계층 구조를 나타낸 그림.&lt;br&gt;
+&lt;strong&gt;각 요소는 각각의 지역공간(local space)을 가진다&lt;/strong&gt;(3편에서 살펴봤었습니다)&lt;/p&gt;
+&lt;p&gt;예시&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 493px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bd2e2c1ca45e2510d7c58403210e8c7a/f88d0/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 65.82278481012659%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAACBklEQVR42m1S2VLbMBTNfzCOZEu2ZS225XiL4yROaAgEClnKkmHSkpaBNEwf+kA7dEqn8Np+dJWlZSl3rl50z7m69xyVjJcD6RAQ7rutIavvs+aQxS1kwGeg0jOOSgh1qBtA23AqefPiVz69L2a/ZW+KoAZUCeq6vkI+JavXDB1QYlPqqPRkGDa3G91B1jmQaZ0xqi6ZQyyMICgbuv5ARghhm8o4Kzo7MkylDFxXCEqkyz1OBWee58lKVG20G5tdZDPTstdkNYpt22z7PDi+icY3dm9uUbesaWpGCAFcHh1otBg5g+v621s2uOZxsSIv9kQYs9ZR1J9XR1e0M7GpAACoy0d6QJ7veruXtTdXrPuBBtUFGaqWxGrWa6Hv5lnayLNIilo1EYzCsvagyAKqcWLW0giBDdWrhE1TtEbx/nk2nLH2kWkTbBG+eZL2L9L+JW8OLNNc6ouUe7y65ffe56OZ2JpQmZTU3u7BJ+VHOP7O+p8dJiwq/MMvjel9MP4hXs8JISsyNqB4NY4nd/Wzn+LwG0/ai7GpGzhe6HgR9SpoEVipFSRZJalZDkcPc+uECurHjhsyPzItUlrbC4G+yLJ6BGMTOzzKiiRvYcJUs0f0JWaJ/Ocz+ptYFWzmhcdf87O74OTW3fuoLFz9qadI9P/3VO2gRajsnkZ7U7nzThRDcy3YC/EHTlGPKEtrPWQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;씬그래프&quot;
+        title=&quot;&quot;
+        src=&quot;/static/bd2e2c1ca45e2510d7c58403210e8c7a/f88d0/image-1.png&quot;
+        srcset=&quot;/static/bd2e2c1ca45e2510d7c58403210e8c7a/c26ae/image-1.png 158w,
+/static/bd2e2c1ca45e2510d7c58403210e8c7a/6bdcf/image-1.png 315w,
+/static/bd2e2c1ca45e2510d7c58403210e8c7a/f88d0/image-1.png 493w&quot;
+        sizes=&quot;(max-width: 493px) 100vw, 493px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이 씬그래프를 잘 이해하기 위한 예제로 태양계 구현이 있습니다&lt;/p&gt;
+&lt;h2 id=&quot;태양계-구현하기-태양-지구-달의-자전공전&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%83%9C%EC%96%91%EA%B3%84-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-%ED%83%9C%EC%96%91-%EC%A7%80%EA%B5%AC-%EB%8B%AC%EC%9D%98-%EC%9E%90%EC%A0%84%EA%B3%B5%EC%A0%84&quot; aria-label=&quot;태양계 구현하기 태양 지구 달의 자전공전 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;태양계 구현하기 (태양, 지구, 달의 자전/공전)&lt;/h2&gt;
+&lt;p&gt;태양과 지구와 달만 생각해봅시다&lt;br&gt;
+태양은 자전만 하구요&lt;br&gt;
+지구는 태양 주변을 공전하고 자전합니다&lt;br&gt;
+달은 지구를 공전하고 또한 자전합니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 217px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1c5337a136e05e2039bad65af66f4ae2/7ba77/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 93.67088607594937%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAACmklEQVR42qVUPW8TQRC1A4EOJGgoaCIkJIREk0Bi3/o+dm/3Lo4dJ05iSByiRBE1BfyDVCAEPwH4H0RI0OVPUCBa6ICgoMeb9VqCYJNIFOOdO8+8efNmbit5nmOcGWth5KRlwdfhHJdT+QskJInfSVOsJgmWeK4lMRbTzPvOGB9nTwKUoKbWWCHIbr2OZZ4CLs878kyw+fC/nFkoPBJQwNpZ5llJYpdJK+LzFF+Sha0lu14c+4KLjB/m/gHo6TNwvdHwbUjgMPi+UrjH950sxab3Y8bmWI1FgkHhfBRgn0mSIO0I8AZtK1LoaOqmCRYrDyBxBYvfJaAMTTRtBk09oDjyshOqNZxDn8BtDqCZa6TGoa7moZISxuV+OAIqgCLBBmPX6Isk0l3F8Uc0E/FFG2HXVw04a6DiAu1WhMePbmJrcwYNZZGwYIsDEVBFXzoSWcrAsiKo0p5U7oV2LcHipMDO9jQ+fTwHoIKjwyqeP5tCpByaVnt5hOVyWKPhRngNH9RqfggxK25HEdpstRY57L+5NAD7PslzAl8+n0F3uYYkKzBvtGcmDEXTLoE9Q1kV0bAbBJeqllopZXBwcIFAVRx+ncTPH2dx+G0C/T5bT0tsq8jvrLCT4S0F2SotAooNRdU05wzq9RJPn1wbMDyq+vP9u4vIUg4qaLemBpPfYleC4QFFTPmkjn+f1ubUMcfe3nW83b+M1y+votVSSDOHNpmtc402ygILBGoHUma4NuM/duuZ3r7jMDvHtdEO2lm2W8dCpFE0W5y69etWsogZdTkcN2m/KHKa8ZIYMu+oGOdvfMCVW6/QS6e5w78t9kmAo0xTpqmZF5iZfYhFo6i7G399ncaEaWnnuPwNgtl/34enNeNZ2ZMv2P+1XwikwZ6yPuKTAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;달 움직임&quot;
+        title=&quot;&quot;
+        src=&quot;/static/1c5337a136e05e2039bad65af66f4ae2/7ba77/image-2.png&quot;
+        srcset=&quot;/static/1c5337a136e05e2039bad65af66f4ae2/c26ae/image-2.png 158w,
+/static/1c5337a136e05e2039bad65af66f4ae2/7ba77/image-2.png 217w&quot;
+        sizes=&quot;(max-width: 217px) 100vw, 217px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그럼 달 움직임이 이렇게 되는데&lt;br&gt;
+달의 이 움직임을 그냥 수학적으로 구현하려면 너무 머리가 아픕니다 ㅜㅜ&lt;/p&gt;
+&lt;p&gt;그러나 이를 상대좌표(지역공간)로 나타내면 훨씬 쉽습니다&lt;br&gt;
+달이 그냥 지구를 중심으로 하는 상대좌표 내에 놓이게 하면, 달은 지구의 움직임에 종속되면서도 본인의 공전 운동에만 집중하면 됩니다&lt;/p&gt;
+&lt;p&gt;이제 태양, 지구 달을 만들어봅시다?&lt;br&gt;
+그 전에 먼저 &lt;code class=&quot;language-text&quot;&gt;private objects: object3D[] = []&lt;/code&gt;와 같이 물체들의 배열을 만들어둡시다.&lt;br&gt;
+이제 내려다보는 평면에서 자전하게 하려고 합니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;time&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    time &lt;span class=&quot;token operator&quot;&gt;*=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0.001&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// ms -&gt; s&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      obj&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rotation&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;y &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; time&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;카메라가 &lt;code class=&quot;language-text&quot;&gt;position.set(0,30,0)&lt;/code&gt;처럼 y축방향 위쪽으로 이동해있고, &lt;code class=&quot;language-text&quot;&gt;lookAt(0,0,0)&lt;/code&gt;상태인 경우입니다&lt;br&gt;
+그럼 바라보는 평면상에서 자전하는 양상을 그려내려면 &lt;code class=&quot;language-text&quot;&gt;rotation.y&lt;/code&gt;값을 변경시켜줍니다&lt;br&gt;
+공전은 나중에 알아보겠지만, 지역공간 자체를 회전시키게 될 예정입니다.&lt;/p&gt;
+&lt;p&gt;그리고 다 똑같은 구형체니까 geometry는 똑같은걸 재활용합시다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// radius, width-segment, height-segment&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; geometry &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;SphereGeometry&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;높이/너비 분할을 좀 적게 해서 자전운동이 눈에 잘 보이게 좀 해줍시다.&lt;br&gt;
+나중에는 진짜 태양/지구/달같은 텍스처를 넣어서 좀 더 분할수를 높여볼것입니다&lt;/p&gt;
+&lt;h3 id=&quot;조명-세팅&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A1%B0%EB%AA%85-%EC%84%B8%ED%8C%85&quot; aria-label=&quot;조명 세팅 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;조명 세팅&lt;/h3&gt;
+&lt;p&gt;아 근데 먼저 조명이 있어야하는데&lt;br&gt;
+태양은 응당 태양계의 빛이니까, 태양 중심에서 뻗어나오는 점광원이 필요합니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupLight&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; color &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0xffffff&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; intensity &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; light &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;PointLight&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;color&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; intensity&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    light&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;position&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;scene&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;light&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;태양-만들기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%83%9C%EC%96%91-%EB%A7%8C%EB%93%A4%EA%B8%B0&quot; aria-label=&quot;태양 만들기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;태양 만들기&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupSun&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;geometry&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;SphereGeometry&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; material &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;MeshStandardMaterial&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      emissive&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0xffff00&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; sun &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Mesh&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;geometry&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; material&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    sun&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;scale&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 태양은 더 크게&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;scene&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;sun&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;sun&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;setupSun&lt;/code&gt; 메서드를 정의하고 콜해줍시다.&lt;br&gt;
+태양은 응당 좀 커야겠으니까 5배씩 확대해주고요&lt;br&gt;
+씬에 그대로 넣습니다.&lt;/p&gt;
+&lt;h3 id=&quot;지구-만들기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A7%80%EA%B5%AC-%EB%A7%8C%EB%93%A4%EA%B8%B0&quot; aria-label=&quot;지구 만들기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;지구 만들기&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupEarth&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;geometry&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;SphereGeometry&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; material &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;MeshStandardMaterial&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      color&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0x2233ff&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      emissive&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0x112244&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; earth &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Mesh&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;geometry&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; material&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;sun&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;earth&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    earth&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;translateX&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 태양에서 10만큼 떨어진 곳에 지구&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;earth&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;태양의 로컬공간에 편입하기 위해 &lt;code class=&quot;language-text&quot;&gt;scene.add&lt;/code&gt;가 아닌 &lt;code class=&quot;language-text&quot;&gt;this.sun.add&lt;/code&gt;로 태양의 자식요소로 넣어줍시다.&lt;br&gt;
+이제 &lt;code class=&quot;language-text&quot;&gt;earth.translateX(10)&lt;/code&gt;처럼 조금 떨어진 곳에 위치하게 해준다면, 태양이 회전함에 따라 로컬좌표계도 함께 회전하고, 그럼 그 안에 속한 지구가 공전하는 듯 보이게 됩니다&lt;/p&gt;
+&lt;p&gt;근데 아래처럼 태양과 지구의 크기가 똑같아보이게 되는데&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;sun.scale(5,5,5)&lt;/code&gt;로 크기를 확대한게 &lt;strong&gt;지역공간 자체를 확대&lt;/strong&gt;한 것입니다..&lt;br&gt;
+그래서 지구의 크기도 그만큼 크게 되고, 거리도 사실 5x10만큼 적용되는 셈입니다&lt;/p&gt;
+&lt;p&gt;지금까지의 씬 그래프가 &lt;code class=&quot;language-text&quot;&gt;Scene --&gt; this.sun(5x) --&gt; this.earth&lt;/code&gt; 이렇게 되었기 때문입니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a6a921a7244948efc95804797e304fb8/2cffa/image-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 132.91139240506328%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAYAAAB836/YAAAACXBIWXMAABYlAAAWJQFJUiTwAAABNElEQVR42mNgYGD4jx0z/mdkZP7PwMj0H7carJjhP5UxpstANCu72H9h6aj/fCJO/5mYOSk3UFyp4L+y6Zb/CoaL/osqxgK9TpaBEMMYmVj+S6qV/JfRnfxfSrPpv5h66n8WDn4UNSS7kF/S5r+EVu5/UfWE/wLyDv8ZmVkpixSQKzmFlP5zi2n9Z2bnG1SxjO59RmLCbcBcOGrgqIEj0EBGRsb/TEygqoIKBoIMARkIMxjJUPJdyMPD+l9PT+Q/Hx8r3BIGcrwJosXEOP8fOpzx////if8vX07/r6LCQ54LWVgg1WpxsQXQsLn/v/+YCqT7/3f3GJBnIDMzxIVp6ZpAg5r///zZDqRT/tfVC5JnICzwOTmZ/s+cpfb/xUuD/ytX8f4XEaFKsgFGDC8DsN5GiAMApRhExZp8xXwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;이상한 지구와 태양&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a6a921a7244948efc95804797e304fb8/f058b/image-3.png&quot;
+        srcset=&quot;/static/a6a921a7244948efc95804797e304fb8/c26ae/image-3.png 158w,
+/static/a6a921a7244948efc95804797e304fb8/6bdcf/image-3.png 315w,
+/static/a6a921a7244948efc95804797e304fb8/f058b/image-3.png 630w,
+/static/a6a921a7244948efc95804797e304fb8/40601/image-3.png 945w,
+/static/a6a921a7244948efc95804797e304fb8/2cffa/image-3.png 1092w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이를 해결하려면 비어있는 씬 그래프 요소를 추가하여 해결합니다.&lt;br&gt;
+&lt;strong&gt;하나의 비어있는 지역 공간을 추가&lt;/strong&gt;하여 사실상 태양계를 나타내는 좌표계를 추가한다고 생각하시면 됩니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupSolarSystem&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; solarSystem &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Object3D&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;scene&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;solarSystem&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;solarSystem&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;solarSystem &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; solarSystem&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이러면 잘 나옵니다. 아래처럼&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 532px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/44541a743a507c3cebbfe489cf31c52d/89a37/image-4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 93.67088607594937%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAABYlAAAWJQFJUiTwAAABx0lEQVR42q2UQUsbQRiGZ3Y3hmxE0vSSSwoeSqEpRPAgRQsVPNheJLSHXETaQ7V6FZRQDURwU0KIoJAcPHmz/QH2L7Tnij+i1XOy2ezbd3azQgKbxDSHl2/4Zt5nv5lvZoUQAhPW6IulFkE0/pQx+p9AqXkxNvMcs/MXjM968mNXqBlxmI/nGGOT2fJEzlDTJHRdg5SSYw2GoXM8JjDMqPLqQw8CBoZUykSx+ApXPzZweZlHqbSIZDI66IPhsNfLadze7QNowHXPqQbHNdzcfMDCQqJnbShQnZWKj5JT+H29SUAdLbuOtlOH3T5Fs1Vh7hg/f60gElEe2V9pL1DXfeD2zgsaLQ/iqgo9nVFVwo84l0cuN9XjGQi0yvM0lWg+6YKUalSZuUPOvUWhoHU9I1RYrWZpKtBcJqTSlUUVYTu7nMti85O/5YHA4JCXlqbZhHU4nQNPrvuFsD20O7vUGmw7xsYEniFdDhrz7fsTVvIRjvMZjrvFyrY5zjGXgGX51fXBwoB+NE2Br5UUmvYcIS+pDP78jXmweFyG3cXw1xAszmQEVt8IvHsvkE6HVjba0/PPNLgW8r4JA97z8D+IAigZhhj2Y8A/tbAZZHUli58AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;잘 나오는 지구와 태양&quot;
+        title=&quot;&quot;
+        src=&quot;/static/44541a743a507c3cebbfe489cf31c52d/89a37/image-4.png&quot;
+        srcset=&quot;/static/44541a743a507c3cebbfe489cf31c52d/c26ae/image-4.png 158w,
+/static/44541a743a507c3cebbfe489cf31c52d/6bdcf/image-4.png 315w,
+/static/44541a743a507c3cebbfe489cf31c52d/89a37/image-4.png 532w&quot;
+        sizes=&quot;(max-width: 532px) 100vw, 532px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이러면 태양계에 해당하는 로컬 좌표공간은 (0,0,0)을 중심으로 회전함에 따라 (10,0,0)의 지구는 그 중심을 기준으로 회전합니다&lt;br&gt;
+물체가 직접 회전하는게 아니라 공간 자체가 회전하는거십니다&lt;/p&gt;
+&lt;p&gt;그리고 이제 씬 그래프가 &lt;code class=&quot;language-text&quot;&gt;scene --&gt; solarSystem --&gt; sun(5x), earth&lt;/code&gt;처럼, 더이상 지구가 태양 밑에 속하지 않습니다&lt;br&gt;
+따라서 태양의 지역공간이 확대되었지만 지구는 태양계의 지역공간에 속하므로 영향을 받지 않습니다&lt;/p&gt;
+&lt;h3 id=&quot;달-추가하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8B%AC-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0&quot; aria-label=&quot;달 추가하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;달 추가하기&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupEarth&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;geometry&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;SphereGeometry&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// 지구계를 정의하여 나중에 달 넣을때 사용&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; earthSystem &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Object3D&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    earth&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;earthSystem&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;earthSystem &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; earthSystem&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+ &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupMoon&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;geomtry&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;SphereGeometry&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; material &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;MeshStandardMaterial&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      color&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0x888888&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      emissive&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0x222222&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; moon &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Mesh&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;geomtry&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; material&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    moon&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;translateX&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 지구에서 2만큼 떨어진 곳에 달&lt;/span&gt;
+    moon&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;scale&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0.25&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0.25&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0.25&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 달은 지구의 1/4 크기&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;moon&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;earthSystem&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;moon&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;달을 추가할건데, 아까 빈 로컬공간을 만들었던 것처럼 지구계를 먼저 추가합시다&lt;br&gt;
+그런 다음 적당히, 태양계에 지구 넣은 것처럼, 지구계에 달을 넣으면 됩니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8672d155b11162c51d16879c48bbe222/e9140/image-5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.0253164556962%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABU0lEQVR42o2Tu0oDQRSG/9mLrJALyVqksvEJbESLQCqVWBibpFB7fYA8hYKiVbp0CqK+h0q8gCIq4ktoYnY3vzs7WWM2cbPF8B/mzPk4twEAJjmaNrBtG8zlxvuQBCaE0loNvLgE3z/A1zfw7Bxcr4xAk2VWr4Mk2OuN6s7u0Nv/YbqutFpVwV0X/HZAx1NH2q6vng8tlxNkGAJPThVQAjwOn05X+RqNsUDh90vvq7rLZsHnFxUks4oC5Z303d6DlhWTYQhMpcHHp8nAq2vQNCNAzZhmvrBGcyrfL1kE2myqoE5MyUfHf0sWKtCy5zi//MDC7JYCGkagK6t+8101AAkIhyLtng/7/AKLxUgPM5k0TSvNlL1Aw5z57Wm4NpvbPsQZrEq4Nu02WNkYszain2XcLpZK4MEh2LoDb1rg3j64uDRhsYXQgszivp4cWDi06Nf7Aey2iMc4SGLuAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;태양과 지구와 달&quot;
+        title=&quot;&quot;
+        src=&quot;/static/8672d155b11162c51d16879c48bbe222/f058b/image-5.png&quot;
+        srcset=&quot;/static/8672d155b11162c51d16879c48bbe222/c26ae/image-5.png 158w,
+/static/8672d155b11162c51d16879c48bbe222/6bdcf/image-5.png 315w,
+/static/8672d155b11162c51d16879c48bbe222/f058b/image-5.png 630w,
+/static/8672d155b11162c51d16879c48bbe222/40601/image-5.png 945w,
+/static/8672d155b11162c51d16879c48bbe222/e9140/image-5.png 1226w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;시각적으로-축을-확인하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8B%9C%EA%B0%81%EC%A0%81%EC%9C%BC%EB%A1%9C-%EC%B6%95%EC%9D%84-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0&quot; aria-label=&quot;시각적으로 축을 확인하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;시각적으로 축을 확인하기&lt;/h3&gt;
+&lt;p&gt;Three.js에는 씬그래프 요소들의 좌표계, 축, 등등을 확인할 수 있는 헬퍼 클래스가 있습니다&lt;br&gt;
+예를 들어, 축을 시각적으로 확인하고 싶다면 &lt;code class=&quot;language-text&quot;&gt;AxesHelper&lt;/code&gt;를 사용해요&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;time&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    time &lt;span class=&quot;token operator&quot;&gt;*=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0.001&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// ms -&gt; s&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; axes &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;AxesHelper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;// @ts-ignore&lt;/span&gt;
+      axes&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;material&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;depthTest &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      axes&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;renderOrder &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      obj&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;axes&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      obj&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rotation&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;y &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; time &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;axes.material.depthTest = false&lt;/code&gt;로 물체 내부에도 축이 그려지게 하고&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;axes.renderOrder=1&lt;/code&gt;로 설정(기본은 0임)하여 구체 렌더링 후에 그려지게 합니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8b17a182987ef4b4a1ef9dd621929d49/669eb/image-6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64.55696202531645%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAABa0lEQVR42pWTzUoCURTHz71DwxCCi3QjFBFBi0It30ARoY8HKHdhex/Ilq2jBwjfoNYF+QBSGSE5M87Mv/vR6NxxSlsczp1zz//H+ZhLRIRVzLIIjGXHU7HlMM7n4nqd4bJjCU8olcz7lYBxcqtFeHgkBLDgRQ4AwvuIcH6xAF0Oq1QIr2+kIF5gYew7CMU5DHWs2zXy0yCm/Gxewvf7Wuj6BD+08BU4iCR8quODASGfz6qQMW0JYLFIGH1oYRCRquzTy2EacXX2A33XbieAnHM18MLOGXYPewoWt1utCpGoJBKwQHpRpTtZE3BmADtXCaBt21jPOShsn2KvdiOAfFbh1iZhODQrTJqMybtmM7NlrmDppVz3tGjimVA5Uxl/eiZsFH7dMlsA7h8QXgZarFqX9rNh1yU0Gn9u2bS4dfkT396JhYw11BPV3ovtH5+YeSu9lDjZtjX4qEYol+cd/OulJNtPCdV3+i1/A0jQlVVYgyhRAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;alt text&quot;
+        title=&quot;&quot;
+        src=&quot;/static/8b17a182987ef4b4a1ef9dd621929d49/f058b/image-6.png&quot;
+        srcset=&quot;/static/8b17a182987ef4b4a1ef9dd621929d49/c26ae/image-6.png 158w,
+/static/8b17a182987ef4b4a1ef9dd621929d49/6bdcf/image-6.png 315w,
+/static/8b17a182987ef4b4a1ef9dd621929d49/f058b/image-6.png 630w,
+/static/8b17a182987ef4b4a1ef9dd621929d49/40601/image-6.png 945w,
+/static/8b17a182987ef4b4a1ef9dd621929d49/669eb/image-6.png 1244w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;근데 돌아가는 모습을 보다보면 태양과 지구에 축이 막 두 가지가 존재합니다&lt;br&gt;
+이게 태양이랑 태양계 축이 같이 있고, 지구와 지구계 축이 같이 있어서 그렇습니다.&lt;br&gt;
+이런 문제를 해결하고, 축(그리고 좌표격자도)을 켜고 끌 수 있게 하기 위해 컨트롤 패널을 만들어봅시다.&lt;/p&gt;
+&lt;h4 id=&quot;컨트롤-패널-만들기---lil-gui&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BB%A8%ED%8A%B8%EB%A1%A4-%ED%8C%A8%EB%84%90-%EB%A7%8C%EB%93%A4%EA%B8%B0---lil-gui&quot; aria-label=&quot;컨트롤 패널 만들기   lil gui permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;컨트롤 패널 만들기 - lil-gui&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/georgealways/lil-gui&quot;&gt;lil-gui&lt;/a&gt;는 Three.js가 함께 쓰면 좋다고 권장하고, 실제로 같이 번들에 포함되어있습니다.&lt;br&gt;
+뭐하는 라이브러리냐면, 객체와 속성 이름을 받아서 해당 속성의 타입을 기반으로 속성값을 UI로 조정할 수 있게 만들어주는 라이브러리입니다&lt;/p&gt;
+&lt;p&gt;Three.js 문서 보다보면 아래같은 예시들이 꽤 많은데&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 570px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e712ee1ecd4afb96b126c71a4bdeee61/432e7/image-7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 69.62025316455697%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAACTUlEQVR42pWTa2saQRSGV1OxgZQEKkJCjELUteAlWisITT/1QxtQ46W6qbszezUWWgItRtOYRqv/wn+QT/mHb8+OxjSN0Hbh5d2ZM/Occ3ZnpOl0itFohPF4jOvra+HueDgcot/v4/b2FrPZDJPJBL1eD7quw7ZtOI4Dy7KE7sb1eh3S3t4ewuEwQqHQA9/d3UU0GkU+n0cymRTjSCSCQqGAw8NDpFIpZLNZ5HI54el0GrIsQ6IHf5PH4xG+ubkpErgJA4EAflBHNzc3+EnVu0kikTAkd/Gf8noX8njJ53KBGxsborKdnR0Eg0FkcnkUi0W8pCSZgwOa335coYCueP8X+Xy+1S27FT31+5atrmp/mXChJfC+zXlb24EtaKXXOFPfQ3lXxPOtZ4skjz/NSuDv2Z+sraHbfIvJ5w+4sCuYfmmBl9/8X8t+vx/7+/uIxuJ4lU3hsnOMvlnGwKpgQNCeUUIuk6R4DHI8jpicIL0QisdlmqP5REL8+fX1dUjValUcTtOkA2oa6FvHuLTLAub6uUVxmjdNU7hy2kO9e4VGd4jW6QC65VDMEIf76OgIknvyNU2bizF0uIJzsyJaPie4w0+gamyxRkXV/IqS9R1layC8yT+BqW1w4rRaLUiMIK4458I1xsGZCpt/hM40MWYEu1tXt76hbF+gYg+En+gdiqt0JQ00Gg1IqqqK+/kAqs3BjPElSMRpY8M8Q8m5IhhV6Qxxwm0qYJ5QURRIhmHAhd7DtAeQRzJsKPwUbaOLpmaDcXd/GwZ941qthl+brczeVQtq5gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;lil-gui 예시&quot;
+        title=&quot;&quot;
+        src=&quot;/static/e712ee1ecd4afb96b126c71a4bdeee61/432e7/image-7.png&quot;
+        srcset=&quot;/static/e712ee1ecd4afb96b126c71a4bdeee61/c26ae/image-7.png 158w,
+/static/e712ee1ecd4afb96b126c71a4bdeee61/6bdcf/image-7.png 315w,
+/static/e712ee1ecd4afb96b126c71a4bdeee61/432e7/image-7.png 570w&quot;
+        sizes=&quot;(max-width: 570px) 100vw, 570px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;우상단의 &quot;controls&quot; 패널이 바로 이것입니다&lt;/p&gt;
+&lt;p&gt;일단 우리는 격자와 축을 둘 다 같이 통합하고싶어서, 아래같은 클래스를 추가합시다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;three&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AxisGridHelper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; grid&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;GridHelper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; axes&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;AxesHelper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; _visible&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;boolean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Object3D&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; units&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; grid &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;GridHelper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;units&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; units&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; axes &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;AxesHelper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// @ts-ignore &amp;lt;-- 왜 타입에러 ;&lt;/span&gt;
+    axes&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;material&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;depthTest &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    axes&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;renderOrder &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    grid&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;material&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;depthTest &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    grid&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;renderOrder &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;grid &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; grid&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;axes &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; axes&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;_visible &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    obj&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;grid&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    obj&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;axes&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;visible&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;_visible&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;visible&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;v&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;_visible &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; v&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;grid&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;visible &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;_visible&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;axes&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;visible &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;_visible&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;둘 다 &lt;code class=&quot;language-text&quot;&gt;depthTest&lt;/code&gt;를 끄고, 물체 -&gt; 격자 -&gt; 축 순으로 그려지게 해줍시다.&lt;br&gt;
+그리고 &lt;code class=&quot;language-text&quot;&gt;visible&lt;/code&gt; 프로퍼티를 관리하여 컨트롤할 수 있게 합니다.&lt;/p&gt;
+&lt;p&gt;이제 다시 돌아가서 이를 이용한 &lt;code class=&quot;language-text&quot;&gt;makeAxisGrid&lt;/code&gt; 메서드를 정의합시다&lt;br&gt;
+3D오브젝트와 그 이름인 &lt;code class=&quot;language-text&quot;&gt;label&lt;/code&gt;, 그리고 선택적으로 격자 크기를 받아서 컨트롤패널에 추가하는 메서드입니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;makeAxisGrid&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Object3D&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; label&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; units&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; helper &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AxisGridHelper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; units&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    helper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;visible &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;gui&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;helper&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;visible&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;label&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이제 &lt;code class=&quot;language-text&quot;&gt;setupModels()&lt;/code&gt;에서 태양/지구/달을 모두 선언한 다음에 이 메서드들을 호출합시다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupModels&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; geometry &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;SphereGeometry&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setupSolarSystem&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setupSun&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;geometry&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setupEarth&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;geometry&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setupMoon&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;geometry&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;makeAxisGrid&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;solarSystem&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;solarSystem&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;makeAxisGrid&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;earthSystem&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;earthSystem&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;makeAxisGrid&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;sun&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;sun&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;makeAxisGrid&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;earth&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;earth&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;makeAxisGrid&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;moon&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;moon&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그럼 이렇게 됩니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/dc675ed547cf4e77254ce37e718ab869/b79a5/image-8.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 87.34177215189874%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAABYlAAAWJQFJUiTwAAABmklEQVR42pWTy07CQBiFe6HzTykxERaESwgEFoRbCCueQN+APWt9Ay9PpO+j0SWJcaUhJia6OM5pU1ug5bL408l05ptzzj9jWZaFU8t1XUwmE4xGIzSbTbTbbdRqNdTrdf4/HSgimM/nmM1m6PV6GAwGIbTT6RwPtG0bnuf9A8fjcQghsN/vnwakRUK01nAcB0opDIdDNBoNtFqtEMQx7VvHqCKIwLg4v2dfFshCoVCAXzyD7/sGKGHFwNj6UUBa8jwXfnCORneBUqlk5pQ5QAw8gTKGg0CqSqxpoyowMEG1KiiXaVWOsR4NGHR6MS26rsLdveDtXePlVbBYiFkbKWWuOdZ31XEDN15cCgDBzy+/GquVmG7yoCTTDOtJR2OVxWIEXC4j4Menxte3xnotmE4TlTnWNxuS2BXzlARPzzpUx3p4ZIdlK5od65sZxNYJtY2Sbk9wcyu4uhZUKhJ2O7ZLGF1RSC4wbZ0bCaBFllKb95GHZ3Q666k5Gw0KgijXGKaUt61qP5DFXNJZpVUdePv57zh9NzOyyqw/hFSHOJ5qADsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;결과&quot;
+        title=&quot;&quot;
+        src=&quot;/static/dc675ed547cf4e77254ce37e718ab869/f058b/image-8.png&quot;
+        srcset=&quot;/static/dc675ed547cf4e77254ce37e718ab869/c26ae/image-8.png 158w,
+/static/dc675ed547cf4e77254ce37e718ab869/6bdcf/image-8.png 315w,
+/static/dc675ed547cf4e77254ce37e718ab869/f058b/image-8.png 630w,
+/static/dc675ed547cf4e77254ce37e718ab869/40601/image-8.png 945w,
+/static/dc675ed547cf4e77254ce37e718ab869/78612/image-8.png 1260w,
+/static/dc675ed547cf4e77254ce37e718ab869/b79a5/image-8.png 1372w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;실제로 한 칸 한 칸이 위치 1씩에 대응되어, 10으로 설정한 지구-태양 사이의 거리가 격자판에서 10칸에 대응하는 것을 볼 수 있습니다.&lt;br&gt;
+또한 태양계공간에서의 지구 위치는 변하지 않고 태양계공간이 회전함에 따라 같이 박혀서 움직이는 것을 볼 수 있습니다&lt;/p&gt;
+&lt;h3 id=&quot;카메라-인터랙션-추가하기--orbitcontrol&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B9%B4%EB%A9%94%EB%9D%BC-%EC%9D%B8%ED%84%B0%EB%9E%99%EC%85%98-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0--orbitcontrol&quot; aria-label=&quot;카메라 인터랙션 추가하기  orbitcontrol permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;카메라 인터랙션 추가하기 : OrbitControl&lt;/h3&gt;
+&lt;p&gt;그리고 마우스로 잡아끌어서 시점을 바꾸고, 줌인도 가능하게 하고싶습니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;OrbitControls&lt;/code&gt;를 이용하면 쉽습니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; OrbitControls &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;three/examples/jsm/Addons.js&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// OrbitControls만 생성하고 추가해줘도 이미 마우스로 잡아끌기 가능함&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;controls &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;OrbitControls&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;camera&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;renderer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;domElement&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;controls&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;enableDamping &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//부드럽게 전환&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;controls&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;dampingFactor &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0.05&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//부드럽게 전환하는 정도&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;controls&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;enableZoom &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//줌 가능하게&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 &lt;code class=&quot;language-text&quot;&gt;render&lt;/code&gt; 메서드에서 &lt;code class=&quot;language-text&quot;&gt;OrbitControl&lt;/code&gt; 업데이트 한 줄도 추가해줍시다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;time&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;time&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;controls&lt;span class=&quot;token operator&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;renderer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;scene&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;camera&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id=&quot;재질materials&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9E%AC%EC%A7%88materials&quot; aria-label=&quot;재질materials permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;재질(materials)&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://threejs.org/manual/#ko/materials&quot;&gt;https://threejs.org/manual/#ko/materials&lt;/a&gt;&lt;br&gt;
+이제 대충 태양계는 끝났구요, 텍스처를 적용하러 가기 전에 재질을 한번 살펴보고 갑시다&lt;/p&gt;
+&lt;p&gt;Three.js의 기본 재질들 :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;MeshBasicMaterial&lt;/code&gt; : 광원의 영향을 받지 않음&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;MeshLambertMaterial&lt;/code&gt; : 정점에서만 광원을 계산함..&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;MeshPhongMaterial&lt;/code&gt; : 픽셀 하나하나 광원을 전부 계산하고, + 반사점을 지원함.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;MeshToonMaterial&lt;/code&gt; : Phong과 비슷하지만, 부드러운 쉐이딩 대신 그라디언트 맵을 사용하여 투톤의 카툰 느낌을 줌.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이 친구들은 3D처럼 보이기 위해 간단한 수학을 사용하지만, 실제와는 좀 다른데요&lt;br&gt;
+얘네 말고도 물리 기반 렌더링을 위한 재질들이 따로 또 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;물리 기반 렌더링을 위한&lt;/em&gt; 재질들 =&gt; 물리기반렌더링은 줄여서 PBR(Physically Based Rendering) =&gt; 얘네들은 좀 더 복잡한 수학을 사용해요&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;MeshStandardMaterial&lt;/code&gt; : phong과 달리 얘는 &lt;code class=&quot;language-text&quot;&gt;roughness, metalness&lt;/code&gt;를 0~1 사이 값으로 설정가능.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;MeshPhysicalMaterial&lt;/code&gt; : standard와 비슷하지만, 0~1의 &lt;code class=&quot;language-text&quot;&gt;clearcoat&lt;/code&gt; 속성으로 코팅 세기를 정하고, &lt;code class=&quot;language-text&quot;&gt;clearcoatRoughness&lt;/code&gt;로 코팅의 거침 정도를 정한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;basic &amp;#x3C; lambert &amp;#x3C; phong &amp;#x3C; standard &amp;#x3C; physical 순으로 성능부담이 큽니다.&lt;/p&gt;
+&lt;p&gt;이외 특수한 재질로 &lt;code class=&quot;language-text&quot;&gt;ShadowMaterial, MeshDepthMaterial, MeshNormalMetrial&lt;/code&gt;은 각각 그림자, 픽셀의 깊이, 기하학의 법선을 나타낼 수 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;ShaderMaterial, RawShaderMaterial&lt;/code&gt;은 재질 커스텀 시 사용하는데&lt;br&gt;
+전자는 Three.js의 쉐이더 시스템을 사용하지만, 후자는 아예 Three.js 없이 작성합니다.&lt;/p&gt;
+&lt;p&gt;재질 속성은 &lt;a href=&quot;https://threejs.org/docs/#api/ko/materials/Material&quot;&gt;docs&lt;/a&gt;를 참고하되, 두 가지 자주 쓰이는거는&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;flatShading&lt;/code&gt; : 물체를 각지게 표현할지. &lt;code class=&quot;language-text&quot;&gt;false&lt;/code&gt;가 기본&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;side&lt;/code&gt; : 어떤 면을 렌더링할지? =&gt; 그때 원규님이 말씀하신 뒷면문제다
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;THREE.FrontSide&lt;/code&gt;(기본값) : 앞면&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;THREE.BackSide&lt;/code&gt; : 뒷면&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;THREE.DoubleSide&lt;/code&gt; : 양면&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;예를 들어 직육면체면 안쪽은 렌더링하지 않아도 되겠죠?&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/cad1d6f550fb38c60bb8d331d7788141/ad00e/image-9.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 82.27848101265823%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAADC0lEQVR42oWTz09UVxTH3/+APxjej/vefT+GeVNgmHk4zgARBKyaQDDWpDYG0thkxFEZEEYGf0SMSWla2mgp0cQ07urOjS5duG2iiYnsWGhim9KFSY2Jy0/ve7qhHXRx780953w/95x77tWEFIx6o9SDeeb9OY7Ko7jSRUq57XCkgy99JvwJFtIXqHk1hp0hYpZWkAUu+otcCS8r5wJ1Z54+uw9LWk3Bsc2UJofcgyyll7gYLtIIGpxxqmSdLFqv7KXu1pkL5pjxZqjZ0wxYA4loO6AhDcblOA1vkVl/VulqVESFnMihpZ00k9YkM6LGWfsMJ9pOkBVZbNduWm4MjEuLnIgpMcU5+yxV8zRjbWO4jotmS5vQDtmv72ewdZDQDBGO+OQ9xrq8leeAPkJ/qg/f8hObFoYhpd4Sxd4iPXt7KJaKdHV2Ydv29jDl6+zopNxfTuILxQJRT0QQBGiO4yTZBF6A53pbRB8bsS7WuJ6b6GJGbNfiSQjBjtQOdFNXDi/ZfwpmWAYtqRaELjAtgfVBo9mOndC/HDjOza9XObDncwxh4LruR5piUcjkuTDa4KfzN4i6PqPd95ODNFelWx+vc+XIJcpBhFTG2NEUpg4xbZNSpp/V6i/cf3qPH15+z8TJMSb6BklZJlrGz5CVGZxclkPzM8w+eEB+3z6E8f8s432bbnF98SuqtVFOPVrixpvfmfr1FtWhYdUUH026ksm1VZY3Nvhxc5Of/3nDkYUF9J078VQZW7+caoBj8dujb7nzxzrXnm+w8upvLj15ytjICF1BGs3SdY5dvcrN16/57sULVt++pfH48XvIf0qPO2roJkOHB1h7uc7KX5us/PmKtXfvODw9jWhtVRmqQDOVonL3LkvPnnHy9m0OViq4cXZN7tL1PIzdu/nim2NcX3/O7MOHHF9epmd4GGFZccnq/aiW++3thLlcEmzs2tUUtqU5hkW2uzs5oK1FPR/TJGZp8euOooicgu1Ra0GNveUyHR0d2/6WbgUqFNTvyOfVquJLZUqlEul0mn8BxOEZXUZFtlUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;재질 속성 예시&quot;
+        title=&quot;&quot;
+        src=&quot;/static/cad1d6f550fb38c60bb8d331d7788141/f058b/image-9.png&quot;
+        srcset=&quot;/static/cad1d6f550fb38c60bb8d331d7788141/c26ae/image-9.png 158w,
+/static/cad1d6f550fb38c60bb8d331d7788141/6bdcf/image-9.png 315w,
+/static/cad1d6f550fb38c60bb8d331d7788141/f058b/image-9.png 630w,
+/static/cad1d6f550fb38c60bb8d331d7788141/40601/image-9.png 945w,
+/static/cad1d6f550fb38c60bb8d331d7788141/78612/image-9.png 1260w,
+/static/cad1d6f550fb38c60bb8d331d7788141/ad00e/image-9.png 1366w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;참고 : Three.js는 기본적으로 처음 한 번만 재질의 설정을 적용합니다. 만약 런타임에 재질의 속성을 바꿨으면 &lt;code class=&quot;language-text&quot;&gt;material.needsUpdate = true&lt;/code&gt;로 반영을 해줍시다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;flatShading&lt;/code&gt; 속성 변경&lt;/li&gt;
+&lt;li&gt;텍스처 추가/제거 시&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;텍스처textures&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%85%8D%EC%8A%A4%EC%B2%98textures&quot; aria-label=&quot;텍스처textures permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;텍스처(Textures)&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://threejs.org/manual/#ko/textures&quot;&gt;https://threejs.org/manual/#ko/textures&lt;/a&gt;&lt;br&gt;
+텍스처를 적용해봅시다.&lt;br&gt;
+텍스처가 뭔지는 말 안해도 대충 느낌적인 느낌으로 알고계시죠?&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;new THREE.TextureLoader()&lt;/code&gt;로 로더객체를 만들어주고&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;loader.load(url)&lt;/code&gt;로 불러와줍니다&lt;br&gt;
+이게 비동기실행이라고 겁주던데, 예제코드에서도 비동기처럼 취급 안하고 쓰길래 아래처럼 썼습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;  &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupSun&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;geometry&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;SphereGeometry&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; loader &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;TextureLoader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; sunTexture &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; loader&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;/src/textures/sun.png&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    sunTexture&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;colorSpace &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;SRGBColorSpace&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; material &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;THREE&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;MeshBasicMaterial&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+\      map&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; sunTexture&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 하면 되십니다&lt;br&gt;
+근데 &lt;code class=&quot;language-text&quot;&gt;&quot;textures/sun.png&quot;&lt;/code&gt; 이렇게 아니면 &lt;code class=&quot;language-text&quot;&gt;&quot;./textures/sun.png&quot;&lt;/code&gt; 이런 식으로 상대경로로 하니까 불러와지지가 않더라구요&lt;br&gt;
+절대경로로 해주니까 되더랍니다&lt;/p&gt;
+&lt;p&gt;텍스쳐는 여러 무료 사이트도 있고 한데, &lt;a href=&quot;https://www.solarsystemscope.com/textures/&quot;&gt;태양계 텍스쳐 사이트&lt;/a&gt;가 있어서 여기서 가져왔습니다&lt;br&gt;
+확실히 확실해요&lt;/p&gt;
+&lt;p&gt;그리고 이제 color값은 필요없고, 로더에서 텍스처를 가져와서 씁니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;material&lt;/code&gt;만들 때 &lt;code class=&quot;language-text&quot;&gt;map: texture&lt;/code&gt;처럼 컬러 대신 텍스처를 넣으면 됩니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;colorSpace&lt;/code&gt;를 안바꾸면 좀 쨍하더라구요? 공식문서의 예제에서도 이 줄을 넣어두길래 따라했습니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;emissive&lt;/code&gt; 속성은 =&gt; 지구와 달은 &lt;code class=&quot;language-text&quot;&gt;#222222&lt;/code&gt;로 유지하면 좋은데요, 이게 아니면 광원이 비추지 않는 뒷면은 아예 보이지도 않습니다&lt;br&gt;
+그림자라도 보이게 하려면 있는게 좋더라구요&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;완성한 태양계(데모)입니다&lt;/p&gt;
+&lt;iframe src=&quot;https://codesandbox.io/embed/rzcztw?view=preview&amp;hidenavigation=1&quot;
+     style=&quot;width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;&quot;
+     title=&quot;three.js (forked)&quot;
+     allow=&quot;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&quot;
+     sandbox=&quot;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&quot;
+   &gt;&lt;/iframe&gt;</content:encoded></item><item><title><![CDATA[TypeScript로 즐기는 Three.js 강의 정리 - 01]]></title><description><![CDATA[! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다. 저번에 공식문서를 쭉 따라하고 TIL정리를 했었는데요 : 1 2…]]></description><link>https://sungpaks.github.io/til/threejs-with-typescript-01/</link><guid isPermaLink="false">https://sungpaks.github.io/til/threejs-with-typescript-01/</guid><pubDate>Wed, 13 Nov 2024 21:29:12 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;저번에 공식문서를 쭉 따라하고 TIL정리를 했었는데요 : &lt;a href=&quot;/til/how-to-threejs-1&quot;&gt;1&lt;/a&gt; &lt;a href=&quot;/til/how-to-threejs-2&quot;&gt;2&lt;/a&gt; &lt;a href=&quot;/til/how-to-threejs-3&quot;&gt;3&lt;/a&gt;&lt;br&gt;
