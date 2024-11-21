@@ -23,6 +23,7 @@ const TagPage = ({ data, location }: ComponentProps) => {
         </h2>
         <div className="tag-button-container">
           {data.tags.group.map(t => {
+            if (t.fieldValue === "TIL") return;
             const buttonScaleStyle = {
               transform: `scale(${1 + (t.totalCount - 1) / 10})`,
               marginRight: `calc(5px + ${t.totalCount * 5}px)`,
