@@ -507,7 +507,7 @@ body.theme-reverse .custom-button {
   width: 100%;
   height: 70px;
   border-bottom: 1px solid black;
-  background-color: light-dark(rgba(245, 245, 245, 0.8),
+  background-color: light-dark(rgba(245, 245, 245, 0.95),
       var(--color-lightdark-translucent));
   display: flex;
   align-items: center;
@@ -518,7 +518,7 @@ body.theme-reverse .custom-button {
 
 body.theme-reverse .top-ui {
   background-color: light-dark(var(--color-lightdark-translucent),
-      rgba(245, 245, 245, 0.8));
+      rgba(245, 245, 245, 0.95));
 }
 
 .top-ui a {

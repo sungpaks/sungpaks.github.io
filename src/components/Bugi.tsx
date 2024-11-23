@@ -17,7 +17,10 @@ export default function Bugi(toc: any) {
   const [position, setPosition] = useState({ top: 200, left: 100 });
   const { height, width } = useWindowDimensions();
   const [isDragging, setIsDragging] = useState(false);
-  const initMargin = 10;
+  let lastPosition = { x: 0, y: 0 };
+  let lastTimestamp = 0;
+  let velocity = { x: 0, y: 0 };
+  let inertiaAnimation = 0;
   const shift = useRef({ x: 0, y: 0 });
   const animationFrameId = useRef(0);
   const [isWalking, setIsWalking] = useState(false);
@@ -89,7 +92,12 @@ export default function Bugi(toc: any) {
   };
 
   const startWalk = (method: "click" | "auto") => {
-    if ((method === "click" && dragged) || isWalking) return;
+    if (
+      (method === "click" && dragged) ||
+      isWalking ||
+      !animationFrameId.current
+    )
+      return;
 
     const range = 200;
 
@@ -112,6 +120,7 @@ export default function Bugi(toc: any) {
   };
 
   const handleMouseDown = (e: React.MouseEvent | React.TouchEvent) => {
+    if (isWalking) return;
     setEmotionIndex(Math.floor(Math.random() * emotions.length));
     setDragged(false);
     setIsDragging(true);
@@ -125,15 +134,22 @@ export default function Bugi(toc: any) {
     };
   };
   const handleMouseUp = () => {
-    setIsDragging(false);
-    setPose(sitting);
+    if (isDragging) {
+      startInertiaAnimation();
+      setIsDragging(false);
+      setPose(sitting);
+    }
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
+    if (isWalking) return;
     setTooltipVisible(true);
     handleMouseDown(e);
   };
-  const handleTouchEnd = (e: React.TouchEvent) => {
+  const handleTouchEnd = () => {
+    if (isDragging) {
+      startInertiaAnimation();
+    }
     setTooltipVisible(false);
     handleMouseUp();
   };
@@ -142,33 +158,137 @@ export default function Bugi(toc: any) {
     //setIsDragging(e.buttons === 1)
     if (isDragging && ref.current) {
       if (e.buttons !== 1) return;
+      // 화면 밖으로 나가면 드래깅 종료
+      if (
+        e.clientX - shift.current.x < 0 ||
+        e.clientX + (ref.current.offsetWidth || 0) - shift.current.x > width ||
+        e.clientY - shift.current.y < 0 ||
+        e.clientY + (ref.current.offsetHeight || 0) - shift.current.y > height
+      ) {
+        setIsDragging(false);
+        document.dispatchEvent(new MouseEvent("mouseup"));
+        return;
+      }
+
+      // 위치 이동
       setDragged(true);
       setPosition({
         left: e.clientX - shift.current.x, //ref.current.offsetWidth / 2,
         top: e.clientY - shift.current.y //ref.current.offsetHeight / 2
       });
+
+      // 관성운동량 계산
+      const currentTimestamp = e.timeStamp;
+      const dx = e.clientX - lastPosition.x;
+      const dy = e.clientY - lastPosition.y;
+      const dt = (currentTimestamp - lastTimestamp) / 1000;
+      if (dt) {
+        velocity = { x: dx / dt, y: dy / dt };
+      }
+      lastPosition = { x: e.clientX, y: e.clientY };
+      lastTimestamp = currentTimestamp;
     }
   };
 
   const handleTouchMove = (e: TouchEvent) => {
     const touch = e.touches[0];
     if (isDragging && ref.current) {
+      // 화면 밖으로 나가면 드래깅 종료
+      if (
+        touch.clientX - shift.current.x < 0 ||
+        touch.clientX + (ref.current.offsetWidth || 0) - shift.current.x >
+          width ||
+        touch.clientY - shift.current.y < 0 ||
+        touch.clientY + (ref.current.offsetHeight || 0) - shift.current.y >
+          height
+      ) {
+        setIsDragging(false);
+        document.dispatchEvent(new MouseEvent("mouseup"));
+        return;
+      }
+
+      // 위치 이동
       e.preventDefault();
       setPosition({
         left: touch.clientX - ref.current.offsetWidth / 2,
         top: touch.clientY - ref.current.offsetHeight / 2
       });
+
+      // 관성운동량 계산
+      const currentTimestamp = e.timeStamp;
+      const dx = touch.clientX - lastPosition.x;
+      const dy = touch.clientY - lastPosition.y;
+      const dt = (currentTimestamp - lastTimestamp) / 1000;
+      if (dt) {
+        velocity = { x: dx / dt, y: dy / dt };
+      }
+      lastPosition = { x: touch.clientX, y: touch.clientY };
+      lastTimestamp = currentTimestamp;
     }
   };
 
-  // useEffect(() => {
-  //   if (ref.current) {
-  //     setPosition({
-  //       left: width - ref.current.offsetWidth - initMargin,
-  //       top: height - ref.current.offsetHeight - initMargin
-  //     });
-  //   }
-  // }, [width, height]);
+  const startInertiaAnimation = () => {
+    const decay = 0.95; // Deceleration factor
+    const easeFactor = 0.0075; // Ease factor
+    const rotationFactor = 0.1; // Rotation factor
+
+    const animate = (
+      timestamp: number,
+      currentVelocity: { x: number; y: number }
+    ) => {
+      setPose(standing);
+      setIsFlipped(currentVelocity.x < 0);
+      currentVelocity.x *= decay;
+      currentVelocity.y *= decay;
+
+      if (ref.current) {
+        ref.current.style.rotate =
+          Math.sqrt(currentVelocity.x ** 2 + currentVelocity.y ** 2) *
+            rotationFactor *
+            Math.sign(velocity.x * -1) +
+          "deg";
+      }
+
+      setPosition(prev => {
+        const nextLeft = prev.left + currentVelocity.x * easeFactor;
+        const nextTop = prev.top + currentVelocity.y * easeFactor;
+        if (
+          nextLeft < 0 ||
+          nextLeft > width - (ref.current?.offsetWidth || 0)
+        ) {
+          currentVelocity.x = -currentVelocity.x;
+        }
+        if (
+          nextTop < 0 ||
+          nextTop > height - (ref.current?.offsetHeight || 0)
+        ) {
+          currentVelocity.y = -currentVelocity.y;
+        }
+
+        return {
+          left: prev.left + currentVelocity.x * easeFactor,
+          top: prev.top + currentVelocity.y * easeFactor
+        };
+      });
+
+      // Stop animation when velocity is negligible
+      if (Math.abs(velocity.x) > 0.1 || Math.abs(velocity.y) > 0.1) {
+        animationFrameId.current = requestAnimationFrame(timestamp =>
+          animate(timestamp, currentVelocity)
+        );
+      } else {
+        setPose(sitting);
+        setIsFlipped(currentVelocity.x < 0);
+        animationFrameId.current = 0;
+        console.log("stop");
+      }
+    };
+    setPose(standing);
+
+    animationFrameId.current = requestAnimationFrame(timestamp =>
+      animate(timestamp, velocity)
+    );
+  };
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout | number;
@@ -192,10 +312,14 @@ export default function Bugi(toc: any) {
   useEffect(() => {
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("touchmove", handleTouchMove, { passive: false });
+    document.addEventListener("mouseup", handleMouseUp);
+    document.addEventListener("touchend", handleTouchEnd);
 
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("touchmove", handleTouchMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("touchend", handleTouchEnd);
     };
   }, [isDragging]);
 
@@ -230,10 +354,10 @@ export default function Bugi(toc: any) {
           transform: isFlipped ? "scaleX(-1)" : "scaleX(1)"
         }}
         onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
+        // onMouseUp={handleMouseUp}
         // onMouseLeave={handleMouseMove}
         onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
+        // onTouchEnd={handleTouchEnd}
         draggable={false}
         onClick={() => startWalk("click")}
         onMouseEnter={() => setTooltipVisible(true)}
