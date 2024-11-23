@@ -28,11 +28,28 @@ export default function Bugi(toc: any) {
   const [dragged, setDragged] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const emotions = [
-    "( ´ ▽ ` )",
-    "(´･ω･`)",
+    "( ੭ •౩• )੭",
+    "(*•؎ •*)",
+    "( 'ч' )",
+    "٩( ᐛ )",
     "(´｡• ω •｡`)",
     "(っ˘ڡ˘ς)",
     "(｡•́︿•̀｡)",
+    "( ｡ •̀ ⤙ •́ ｡ )",
+    "¸◕ˇ‸ˇ◕˛",
+    "৻(  •̀ ᗜ •́  ৻)",
+    "ദ്ദി⑉･̆-･̆⑉)",
+    "(๑•̀ – •́)و",
+    "(𐐫ㆍ𐐃)",
+    "〳 ͡° Ĺ̯ ͡° 〵",
+    "٩( °ꇴ °)۶",
+    "( ⸝⸝•ᴗ•⸝⸝ )੭⁾⁾",
+    ",,ᴗ ̯ᴗ,,",
+    "(๑ᵔ⤙ᵔ๑)",
+    "( ˘༥˘  )",
+    "ᴗ.ᴗᶻ ᶻ ᶻ",
+    "[▓▓]ε¦)💤",
+    "ᐠ( ᑒ  )ᐟ",
     "(´～｀*)｡｡oO"
   ];
   const walkingPoses = [walking01, walking03, walking02];
@@ -55,7 +72,8 @@ export default function Bugi(toc: any) {
       return;
     }
     const currentPoseIndex = Math.floor(elapsed / 500) % 3;
-    setPose(walkingPoses[currentPoseIndex]);
+    if (walkingPoses[currentPoseIndex] !== pose)
+      setPose(walkingPoses[currentPoseIndex]);
     const dx = targetX - position.left;
     const dy = targetY - position.top;
     setPosition(prev => {
@@ -226,9 +244,9 @@ export default function Bugi(toc: any) {
         style={{
           position: "fixed",
           left: position.left - (width > 720 ? 40 : 45),
-          top: position.top - (width > 720 ? 0 : 5),
+          top: position.top - (width > 720 ? 5 : 15),
           width: 110,
-          height: 40,
+          height: 45,
           whiteSpace: "nowrap"
         }}
       >
