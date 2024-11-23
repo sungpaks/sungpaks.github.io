@@ -819,6 +819,13 @@ body.theme-reverse .toc a {
   z-index: 9999;
 }
 
+@media screen and (max-width: 720px) {
+  .hamburger {
+    width: 30px;
+    height: 30px;
+  }
+}
+
 .blog-post>hr {
   height: 0;
   border: 0;

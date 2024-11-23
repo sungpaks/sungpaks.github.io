@@ -35,20 +35,17 @@ export default function Bugi(toc: any) {
     "(｡•́︿•̀｡)",
     "(´～｀*)｡｡oO"
   ];
+  const walkingPoses = [walking01, walking03, walking02];
   const [emotionIndex, setEmotionIndex] = useState(
     Math.floor(Math.random()) * emotions.length
   );
 
-  const animateWalk = (
-    timestamp: number,
-    count = 0,
-    targetX: number,
-    targetY: number
-  ) => {
+  const animateWalk = (timestamp: number, targetX: number, targetY: number) => {
     if (!startTimestamp.current) {
       startTimestamp.current = timestamp;
     }
     const elapsed = timestamp - startTimestamp.current;
+
     if (elapsed > 5000) {
       setIsWalking(false);
       setPose(sitting);
@@ -57,43 +54,42 @@ export default function Bugi(toc: any) {
       startTimestamp.current = 0;
       return;
     }
-    if (count % 30 === 0) {
-      setPose((prev: any) =>
-        prev === walking01
-          ? walking02
-          : prev === walking02
-          ? walking03
-          : walking01
-      );
-    }
-    if (count % 10 === 0) {
-      const dx = targetX - position.left;
-      const dy = targetY - position.top;
+    const currentPoseIndex = Math.floor(elapsed / 500) % 3;
+    setPose(walkingPoses[currentPoseIndex]);
+    const dx = targetX - position.left;
+    const dy = targetY - position.top;
+    setPosition(prev => {
+      return {
+        left: prev.left + dx / 1000,
+        top: prev.top + dy / 1000
+      };
+    });
 
-      setPosition(prev => {
-        return {
-          left: prev.left + dx / 100,
-          top: prev.top + dy / 100
-        };
-      });
-    }
     animationFrameId.current = requestAnimationFrame(timestamp =>
-      animateWalk(timestamp, count + 1, targetX, targetY)
+      animateWalk(timestamp, targetX, targetY)
     );
   };
 
   const startWalk = (method: "click" | "auto") => {
     if ((method === "click" && dragged) || isWalking) return;
 
-    const targetX =
-      Math.random() * (width - (ref.current?.offsetWidth || 0) - initMargin);
-    const targetY =
-      Math.random() * (height - (ref.current?.offsetHeight || 0) - initMargin);
+    const range = 200;
+
+    const targetX = Math.random() * range * 2 - range + position.left; // 현재 위치에서 -300 ~ +300 범위
+    const targetY = Math.random() * range * 2 - range + position.top; // 현재 위치에서 -300 ~ +300 범위
+    const clampedX = Math.max(
+      0,
+      Math.min(targetX, width - (ref.current?.offsetWidth || 0))
+    ); // 화면 내로 제한
+    const clampedY = Math.max(
+      0,
+      Math.min(targetY, height - (ref.current?.offsetHeight || 0))
+    ); // 화면 내로 제한
     setIsWalking(true);
     setPose(walking01);
-    setIsFlipped(position.left - targetX > 0);
+    setIsFlipped(position.left - clampedX > 0);
     animationFrameId.current = requestAnimationFrame(timestamp =>
-      animateWalk(timestamp, 0, targetX, targetY)
+      animateWalk(timestamp, clampedX, clampedY)
     );
   };
 
@@ -229,8 +225,8 @@ export default function Bugi(toc: any) {
         className="tooltip"
         style={{
           position: "fixed",
-          left: position.left - 40,
-          top: position.top,
+          left: position.left - (width > 720 ? 40 : 45),
+          top: position.top - (width > 720 ? 0 : 5),
           width: 110,
           height: 40,
           whiteSpace: "nowrap"
