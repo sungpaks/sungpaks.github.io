@@ -65,6 +65,7 @@ export default function Bugi(toc: any) {
       startTimestamp.current = timestamp;
     }
     const elapsed = timestamp - startTimestamp.current;
+    setIsFlipped(position.left - targetX > 0);
 
     if (elapsed > 5000) {
       setIsWalking(false);
