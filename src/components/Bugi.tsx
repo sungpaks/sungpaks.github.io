@@ -281,7 +281,6 @@ export default function Bugi(toc: any) {
         setPose(sitting);
         setIsFlipped(currentVelocity.x < 0);
         animationFrameId.current = 0;
-        console.log("stop");
       }
     };
     setPose(standing);
