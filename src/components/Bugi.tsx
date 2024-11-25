@@ -204,7 +204,7 @@ export default function Bugi(toc: any) {
           height
       ) {
         setIsDragging(false);
-        document.dispatchEvent(new MouseEvent("mouseup"));
+        document.dispatchEvent(new MouseEvent("touchend"));
         return;
       }
 
