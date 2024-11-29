@@ -13,9 +13,10 @@ interface ComponentProps {
   description: string;
   title: string;
   children?: any;
+  thumbnail?: string;
 }
 
-const Seo = ({ description, title, children }: ComponentProps) => {
+const Seo = ({ description, title, children, thumbnail }: ComponentProps) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -35,13 +36,21 @@ const Seo = ({ description, title, children }: ComponentProps) => {
   const metaDescription = description || site.siteMetadata.description;
   const defaultTitle = site.siteMetadata?.title;
 
+  const seo = {
+    title: title || defaultTitle,
+    description: description || metaDescription,
+    thumbnail
+  };
+
   return (
     <>
-      <title>{defaultTitle ? `${defaultTitle}` : title}</title>
-      <meta name="description" content={metaDescription} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={metaDescription} />
+      <title>{seo.title}</title>
+      <meta name="description" content={seo.description} />
+      <meta property="og:title" content={seo.title} />
+      <meta property="og:description" content={seo.description} />
       <meta property="og:type" content="website" />
+      {seo.thumbnail && <meta property="og:image" content={seo.thumbnail} />}
+      <meta property="og:site_name" content={site.siteMetadata.title} />
       <meta name="twitter:card" content="summary" />
       <meta
         name="twitter:creator"

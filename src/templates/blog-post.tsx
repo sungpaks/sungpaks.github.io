@@ -153,6 +153,7 @@ const BlogPostTemplate = ({
         </ul>
       </nav>
       <Giscus
+        // @ts-ignore
         src="https://giscus.app/client.js"
         repo="sungpaks/blog-comments"
         repoId="R_kgDOLARSPg"
@@ -177,6 +178,7 @@ export const Head = ({ data: { markdownRemark: post } }: any) => {
     <Seo
       title={post.frontmatter.title}
       description={post.frontmatter.description || post.excerpt}
+      thumbnail={post.frontmatter.thumbnail || ""}
     />
   );
 };
