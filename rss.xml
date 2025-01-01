@@ -1,4 +1,585 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 15 Dec 2024 04:45:51 GMT</lastBuildDate><item><title><![CDATA[Three.js 공식문서로 시작해보기. - 6]]></title><description><![CDATA[! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다. 오늘은 Three.js 공식문서 > Fundamentals…]]></description><link>https://sungpaks.github.io/til/how-to-threejs-6/</link><guid isPermaLink="false">https://sungpaks.github.io/til/how-to-threejs-6/</guid><pubDate>Sun, 15 Dec 2024 12:37:51 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 01 Jan 2025 14:32:10 GMT</lastBuildDate><item><title><![CDATA[🚀 인턴 생활을 끝내고 새로운 시작을 앞두며]]></title><description><![CDATA[2025년입니다. 새해 복 많이 받읍시다.  이 블로그를 딱 작년 새해가 되자마자 시작했는데, 벌써 1년이 지난거네요 TIL 제외하고도 36개를 업로드했으니 달에 3개 정도는 썼다고 보여집니다 앞으로도 꾸준히 잘 쓰도록 하겠습니다. 202…]]></description><link>https://sungpaks.github.io/2024-recap-and-starting-2025/</link><guid isPermaLink="false">https://sungpaks.github.io/2024-recap-and-starting-2025/</guid><pubDate>Wed, 01 Jan 2025 15:36:34 GMT</pubDate><content:encoded>&lt;p&gt;2025년입니다.&lt;br&gt;
+새해 복 많이 받읍시다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 238px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/eb7c9cdc9e3b175a5f0c0bd178c813f8/5ea4d/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 88.60759493670886%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAIAAADUsmlHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEVUlEQVR42gFKBLX7AE07MEAsJDQkHEI7L41iUpJjUnZPP1szJkwyJk9TR1NZTik5LFdcTlldT11gUz9OQjhFOmRoW2BkVmNpXABNOy8+Kx80IhlAOS6QYlN6VUU8OjItKyYuJh5PUkZRVkskMSZYXlBfYlVlaF0/TUE4RTpfY1ZjZ1lpbmEAUDkvQSogMx8WPzYsk2NTVEA0MDUwKSsnMCkjXVpQXmNdJzItT1NIXl9UYWRZPEs/OUY6ZmpcaGxeZWteAE84LkAoITMcFz81KpRjUVY+MSMnIiIhHm9TP8Wwm+zw8cvOz7zCwHR/d19jVUBOQjtKPmZsXmRoXWJnWwBPNy4/KCE0GxVANSuNX055UUNNPTBrTjiUZkzMvKv5+fn////vys+weIVkZVs/TkQ8ST1iZVpiaVxlbGAATzctQSghNRwVPDMpilxMkmFPjE9FzaulxbWm1Mm3/v79+vv7zpaW7L2xjYZ5OUg/PUk+Z2tgb3Noa3FkAE83LUMoIjYdFzk0KYteT41bSKh8bO7Ny+nk4qmZldrPzuTEwcySg/jjtcStjzxIQThJPk5bT01aT0pYTQBPNy5CKCI3HRY6NCqLX1CKVEWwim/ux6GPZ292WWTEp6r129zGioi+gG7Iq49/e2snPTMwRTkyST00Sz8ATzguQSghOR4ZNzIpiVdHmGxfwouKxoR+lX2B+u7s+ezw8MfJwEhJwo2H+O/jxJmVOjw1NEs/Ok9EOU9FAFE5MUQqJDceGEVCOX1dV9PCuvr065h0g6NHT96ZltaLjd1BRMgxNbd/e/Pw4bR+fEwxKi9OQTtPRTpPRgBCMCo+JSBwT0TCgm6qZ2PWcW7keHefX2ziQkbBKCnTOzvmQkfVfnCOdm+Ia2qgRkBaMys0TkI+TkY8TkUAbExCZUY7f09E4kpJ7EZI+EZIxk9Zs11q/1lb9FZZ9VJV701Qx01DnE9Dey0qmSMhhUM7dlxNe1pNeVlMAJZmVYxlUrteVvFOU+JKTeZCQ6dQYKg9TOY6OOY6POtCRehKStY8Pq0fH54iIpYjI4xIPoZeUIZbS4heTwB7U0R8VUfNTEzhR0nYTE7ZRUqQV16TfWG7qIayiWrXT0fZRUjWS0u9OzqXJiWTJSOASD15VUp3U0R6VUYAppqDrYJwzj9A0UJCyUNDyUhLXWVmaJqri6rAcKWzeV5T0j88x0BCxkJEpjIzhh0ailNGnpF7loNul4ZvAMfJrr+IdrgtLcZCQMJAP6lDR2N+e3OUsniNrFJ5pmJlZMc+OLs7PbY6O7Q5O4ghIXgvKaychrSxm7GokgCZlnufjXWiPDetLzG0NzSOSFZsW1Wbo4KvwqyOp5GVVkS7NjeuNzeoNDOlMzOdMTCHJiaLSD6nmoWnpY4AioVwjY53jndmmzQzoSssdEZUbiUtgSAZgjQnjjAmpCwuoDAxlikqlSoqly0sjSMhih8giR8hgy8pj2NVWNG8FQyb8IgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;다소곳&quot;
+        title=&quot;&quot;
+        src=&quot;/static/eb7c9cdc9e3b175a5f0c0bd178c813f8/5ea4d/image.png&quot;
+        srcset=&quot;/static/eb7c9cdc9e3b175a5f0c0bd178c813f8/c26ae/image.png 158w,
+/static/eb7c9cdc9e3b175a5f0c0bd178c813f8/5ea4d/image.png 238w&quot;
+        sizes=&quot;(max-width: 238px) 100vw, 238px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이 블로그를 딱 작년 새해가 되자마자 시작했는데, 벌써 1년이 지난거네요&lt;br&gt;
+TIL 제외하고도 36개를 업로드했으니 달에 3개 정도는 썼다고 보여집니다&lt;br&gt;
+앞으로도 꾸준히 잘 쓰도록 하겠습니다.&lt;/p&gt;
+&lt;p&gt;2025년에 저는 대학 졸업을 앞두고 있습니다&lt;br&gt;
+또한.. 1월 1일 현재 기준으로 인턴생활을 어제 끝냈는데 당장 내일 새로운 회사에 출근하기로 했습니다&lt;br&gt;
+약간 이직하는기분? 사실 그냥 인턴 끝내고 취직한거지만..&lt;/p&gt;
+&lt;p&gt;암튼간에 자세한 이야기는 밑에서 하기로 하고&lt;br&gt;
+제 마지막 학기에는 어떤 일이 있었는지 적어두려구요&lt;br&gt;
+주로 인턴 후기가 될 듯&lt;/p&gt;
+&lt;h1 id=&quot;4개월-간의-인턴생활-202409--202412&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4%EA%B0%9C%EC%9B%94-%EA%B0%84%EC%9D%98-%EC%9D%B8%ED%84%B4%EC%83%9D%ED%99%9C-202409--202412&quot; aria-label=&quot;4개월 간의 인턴생활 202409  202412 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4개월 간의 인턴생활 (2024.09 ~ 2024.12)&lt;/h1&gt;
+&lt;p&gt;제가 2024년 시작할 쯤에 그냥 두리뭉실하게&lt;br&gt;
+&quot;올해는 졸업하기 전에 인턴을 해보고 싶다&quot;고 누군가에게 말한 적이 있었는데&lt;br&gt;
+어쩌다보니 그게 현실이 됐습니다&lt;br&gt;
+마지막 학기를 아예 통으로 인턴생활하며 보내게 됐어요&lt;br&gt;
+그래서 남은 교양학점은 온라인으로 채우고.. 학교에는 거의 안 갔네요&lt;/p&gt;
+&lt;h2 id=&quot;사수가-없어졌어요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%82%AC%EC%88%98%EA%B0%80-%EC%97%86%EC%96%B4%EC%A1%8C%EC%96%B4%EC%9A%94&quot; aria-label=&quot;사수가 없어졌어요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;사수가 없어졌어요&lt;/h2&gt;
+&lt;p&gt;저는 웹 프론트엔드 개발 직무였고, 제가 처음 왔을 때 같은 프론트엔드 분들은 2분 계셨습니다&lt;br&gt;
+근데 웬걸&lt;br&gt;
+온보딩 끝내고 슬슬 실무시작할 쯤이 되니&lt;br&gt;
+한 분은 회사의 다른 사업때문에 두 달 가까이 다른 사무실에 출근하셨고&lt;br&gt;
+한 분은 이직으로 인해 퇴사하셨습니다 ,,&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 299px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/025f3124c7615a3be0ade082469556a0/aeb78/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACUklEQVR42j2Pa08TQRSG9x+ZmPildm8zu3Pb7Vao9BMW0ZAWosbABxrCJW0BCwghJsa226UUy1JoKbVcrBVCIFggEo2BNKB/xilekicnOSfznPOOsHd4WT9pNZrX9eZN4+xn/fTXh4NWbf9q96i1fXRdPbzZ2m+VG1cb9cvi3o+13e/uzjd3++tKpfm+dCy4pbpb/rxaPlirHJdqzWKtuVE7LVa/VPbOKx8vSjsX67Vzt3pW2GrmK6e50km2eGSvHqZX9tPLDaEvFIz0Pe2PDPRHXkRHpt6kyk7hU3ppN+XspJxq2qm+cyopZzOT3czmqvbSlp3dtO1yNlvO2CWhwySdPhbwmZbJDMoCgWAoFA6HB4eiM4lkLjnvziwWZxfXkwtryYXVV/Mcd/p1YXouPzWXF9qmZXSa7IFB/AxbGJlIIxrEOvJbga6u7p7HAy8HJ8fiqVgyNzGVG4nZ0YlMdCI9PJ4R/AxZFPuo7iNt/BRbhFiEGhhZDBMIdaD39D4bjb+Nz+QTs4VYcmU04YzEMtHxlNBh6BblPjLxX9/EGtM0oIjhJ91EAyZBTEeUGjxFX2R4KDo/GrfHJ5fHEjmBQS+BkoEA0xWqqQaCVFOQIt+7eyfgJxgofMJ0SDRVV0QoeSEAPrMzGOx9FHouPPTxUwrTZaqJSBUJVAlUNOk+lDwEylzmLdMB39sGAgRkRRYVr4cjWES1KD8rmxhwbt9xQebOfzCQ/1SkSkgRNVXWFZmnEzCQKBSpxi+rfAVv+S8w4Cl4lW+R2o4q8dj/8ALRA0TPb85HGAb7jUgBAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;혼자&quot;
+        title=&quot;&quot;
+        src=&quot;/static/025f3124c7615a3be0ade082469556a0/aeb78/image-1.png&quot;
+        srcset=&quot;/static/025f3124c7615a3be0ade082469556a0/c26ae/image-1.png 158w,
+/static/025f3124c7615a3be0ade082469556a0/aeb78/image-1.png 299w&quot;
+        sizes=&quot;(max-width: 299px) 100vw, 299px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;응애&lt;/p&gt;
+&lt;p&gt;그래도 제가 리액트에 이미 익숙하다는 점이 다행이었고&lt;br&gt;
+뭐든간에 코드더미를 파헤쳐보면 답은 나오더라구요&lt;br&gt;
+&quot;이 구현 어디있지?&quot;나 &quot;이 구현 어떻게하지?&quot; 이런건 크게 문제되지 않았습니다&lt;/p&gt;
+&lt;p&gt;가장 문제는 &quot;이 구현 왜 이렇게함?&quot;같은건 물어볼 수는 없었다는 점인데&lt;br&gt;
+어차피 물어볼 사람이 없을 뿐더러 (심지어 깃 이력에 찍힌 작성자는 전대 인턴분이거나..)&lt;br&gt;
+컨벤션도 딱히 정해진게 없고, 문서도 최신인지 아닌지도 모를 것들만 남아있고..&lt;/p&gt;
+&lt;h2 id=&quot;그래도-일은-해요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B7%B8%EB%9E%98%EB%8F%84-%EC%9D%BC%EC%9D%80-%ED%95%B4%EC%9A%94&quot; aria-label=&quot;그래도 일은 해요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;그래도 일은 해요&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 230px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0d14f6db55c670dbede8a25dc03e1368/81c8e/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 95.56962025316456%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAIAAAAf7rriAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEhElEQVR42g3R7VMSCQAG8M2yfIlAkrK6uWpKvZvezRJTSxFBYIFl2WWFZXdld4UlBOTFFDVRwEIzNByVA9/u8rQXq8EXrNOsubsPN9Onu2aumbu5Zuru693fcPwBz/yeZx5g59Xa253Nt29evn2z9Wbnh62tzVcvNzYzq5n1Fxtrz2ZnpsSlJ/kAUJiT09PpWZyfmUt98+jx8uzsbCKRADLpp5n1Z+vrzzIb6c3M2s725uutjXR6JTm3EL4bc3lvkxZvoxRWyJSpxPRUfGxhNrm4+DCZTKZSKeDJ9/NLD2cWv0stL337/Pnj2Hh8KDpudw8gZr8adVi4PooLMs5wR8+4q3u0Kxgbe5BIzaSSqeT8wjyQmLgfH70bGwmnkrGx+FRVHXRDaoDxDg1qM5g7NAYbznSy7aFW5zDlusd67tt8sf5wbGJyYmZ2HggGfB1OjrNa+oODhDUgg+ylX1VWXVc2qcirNaoLl25cqZbpcDfjjZHOkVbXGO2JW5wjwaGx6UQK0MEgLKmywjqJiig/U3muokZwsKTuuuLmzV6aduthU8XFiqs1Utw2hHN3Ge8k6RjFLL12TzQUHgVM1ee7VDIP4zpzsUYg4PGL+EVCwfW6xsWF9IuV7dX09khkpLGuQSI3GFq7CUcUo3qMVDfbHr3ZHgKizTcMZle13Hy6/MJBUXHxocMiUUleXj5Lc+9//fjhwz+fP/33dOl5Y720CSSlGlqNcmZbiHHHbL444KquwEhfvZIUFB/h8Q+IDh0qLCzMyysQikpo2t7XGw4Eggvzy0OhkcuV4vMXayurlUzHOOOdYL2TgPVUCYFZMWvkyNGTx744JhKJcnbvER7Yj1bwD/NyAQDYtSuHt19QXn62rLSsrh7SYm6LM0a5xnHuHkCXnTBiViXqUEAshlkG+u/4fQPTTOlvXfvEx4UFB4RFAiGfX5Ttkpu790qNAiY6cS6KMhGjbRgwfl2m1pEI6daTfpt7cOXFj+m5yfd9wOfbgPp4Fs7Ztzc3O4TH4+fu2S0sPnxNojNZIyhzh2ofA6Avj8gloLhBrTPZYMLt6ryTWX390wzx6WH5k0FMLJbk5+3Ly88vKOAJi0suVTWduyyBzV2k8wHrigOsxWGk3M2gUWuwgghjcdxeWfvl3buPf/z+959//ftoaU0m15YcPXW69CzS2qOnepphG24fpjsmON8UgGA2ECI1CJt9sr5Jg3N9vcMLq+mflxfXk9OPGNoqbdKq9NyVa3JtiwciujE2bLKPtrrjbdmwwdiGZWWIrJPppEqMcAQh0o+YfbDJc1UsV6gpvdmP0sFGkJWAbQgT0tNRmByAzH1K1A8Qtt4mNS6uVUjlsFaP4/ZeuYYAEaue8NXWg1qEw9oiGqO3tgFU6VicCbSwgygdzvqE4x7QDFka5EY97jVQfhg16s3tmIkmKFqtRfWoSaWCQJQzUQ6spUXWrAXViELHQpYQyoaN3DCAM7dMdJ/G1AlTPTqyO7tK3eLTkwGEDEjBNqmakWnadOZbWTCr6ch+lI5kkwgTgVsH/wdIiriZu58crQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;alt text&quot;
+        title=&quot;&quot;
+        src=&quot;/static/0d14f6db55c670dbede8a25dc03e1368/81c8e/image-2.png&quot;
+        srcset=&quot;/static/0d14f6db55c670dbede8a25dc03e1368/c26ae/image-2.png 158w,
+/static/0d14f6db55c670dbede8a25dc03e1368/81c8e/image-2.png 230w&quot;
+        sizes=&quot;(max-width: 230px) 100vw, 230px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;우짜든둥 일은 했습니다&lt;br&gt;
+자사 서비스를 고도화하는 작업을 보통 했는데&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;QA에서 발견된 이슈사항들을 수정하거나&lt;/li&gt;
+&lt;li&gt;UI/UX 개선사항들을 적용하거나&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이게.. 서비스가 이미 배포가 되어있지만서도 구멍이 막 뚫려있어서 크고작은 QA이슈가 끊임이 없었고&lt;br&gt;
+UI/UX개선은 아예 제 앞자리 디자이너분께서 전권을 위임받으셨는데&lt;br&gt;
+그동안 참은게 많으셨는지 개선사항을 마구마구 찍어내셔서 ㅋㅋㅋ 작업할게 꽤 많았네요&lt;/p&gt;
+&lt;p&gt;그래도 혼자니까 시간이 남는대로 꿈펼치기를 막 했습니다&lt;br&gt;
+진짜 못참겠는 코드들은 좀 정리하고..&lt;br&gt;
+성능 로깅도 찍어가면서 굵직한 곳들은 좀 최적화하구요&lt;br&gt;
+특히 무지성 &lt;code class=&quot;language-text&quot;&gt;useState, useEffect&lt;/code&gt;가 막 있는 코드들이 가끔 있었어서 이것만 정리해도 사람구실은 했었네요&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 442px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e155a1df72b4518013f8c7e976677921/e03bf/image-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 98.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFc0lEQVR42iWUa1CUVRjH3+/1oaZpbBobEuSyC+yy7P3C7gJyv4koggEtILggaiQqVGZWVpZjUKYggjpcJE2QRS6FIkiiQCHgalxESYSSKGn6YB9qfp2xD8+885wz7+88z3n+/yNNXW9m8noL04MuHox1seDuFvEd8+5vmf3hHA+GztB94i3K0u2c2F/Io6leHkz3MjdxmZ/HO5gZbWFq+Gt+GqhjrKca6eH4t/w80sXDW908nuln+V4fy3f7WLrTzvzQKeZu1OJuO8ztUx8z8vVRfuxvYfHB9zycvsz9sTYmhppwC9jNvpMMdQtgQX4aOY4N5OVspNC5SUQ6zrxUnLnJ5GXFk5IcypGyLE69tZX8rFysEZvIzt/Ma5tiWZcaTUJiKHHxIUREmUhJsCAZTWoMInSmYDR6FVqjGrVeiVqnwF8pw1/mScPe19lTmMWWwmLWbizCUxFOQJAvOnMgdqs/imA/fJU++PisRLLaTNhCzRhtegwheoxWPWabDpNVi0YcotIEkhZlxJm5nmOV1bRccLHtjVK2OPPYt7eEXTsLyM1zkOnIJC0tBSlEQMx2k4CYBNCAyWYQuQGjWDcIeLCoWKMPwmwJpflCB/39ffRfvcr1gQFu3BhkbGyckZER3G43TY11SAkxVkJEhRa7WVRlJCLGTki4GZ0A6i061AJoMutIz3DSdFaoYWpS/HybmZkZrl27JqDXuXLlCv/88y99vd1ISQJoNKjxD1YIgF60KVo161Hp1WgtBhQqGWHx60jMfZu6hgba2ztobm7B5WqjR4A6O7u4eLGdJ0/+ZmhoACkzPYlDBw9Qe+QQ5R8UsbfMwY6iDaxNDmdjSigmnYz1qZkkrXfgcO4Uk00Qe1GkpcYSEWFFowkiNtKEw5HGptfTkUYG++HJnwxMzTDgvsGvd0c4WfUp+9/ZQuWhfEp2ZOHI30phyT52lGxjS24ksdEaUuMC2OUIJt7uhUbtS7BBhTkiDGlxfp4/5m5T/6WLxsou/vr9PgvTN7nnvsCtgQo6Tr7D4PnPmB52UVW5m8L8RApyYogJD6Jss4Uouxy5Sok1REu4GKbUW/cBVe/m82PeOn4r3UNv02d0nTrI0sIPTAweZ7TnEwY6P+Jy8z5qKkvY/56T3SUZovJUSrfFE6gOYI1FTqLJE1+ZL1Jb/QEqt0VTkWykdedWqvekcPb4V8zev8ud4VYaT79PwfYsIuPCKCvNZveeXJwFqRQWpZO9OZkPPyyg+M1MTNGRvOzhiZQSFU7ehmjez7BRlanlvZx1dHZcFVob5srlPuGMNGE3O9bwcBFrxF0Z0Bh1mEOtBGrVxMTZiIyPxByXhK/cH2ltUgKl23P4IttEeUECx8uPcu6bTs42NXLh3FlaOy5hiYxFpdOiNVtQajUo1GrkQSr8FEq85AGs8pMRZLbh5e2NlB1t5mhhBBWb7ewr3s7nh6v44vNyXK3NtLrauemeofp0IzJlMH5KlfgqBMCX1f5yVstkrJbL8RFg7wAlr7z4PFL11ggO5sVywJlC/cka2tpcTE38xPzCL/z66BH37s8yIfL6xjMcLq8QrYYK0RsESIanAL/qvRqZWossIBDfF55BqikKo2JXjlD58FNbPV5eZm5ujsXFRR4J4C8LC8zOzj7Nx8fH6ejo5I3tRXiLib7qJ8fDaxWrZHIMQQoSPZ5DetuRzLmG0ywL0Nj4/0bv6elhcHDwKWB4ePhpjI6OsrS0xB+PH9NQd5piZw5WIRmPl17Aw8cTgzggacWzSBlxa7jY1sbk5CTHjh2jq6uLS5cuUVtbS1NTE1fFy3L+/HkahI9ramr4XjwIZ+rr2JsRS3GYkrhVK7B5rWS930oyfF7iP82yyIKZNhquAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;코드 꼴이 이게 뭐니&quot;
+        title=&quot;&quot;
+        src=&quot;/static/e155a1df72b4518013f8c7e976677921/e03bf/image-3.png&quot;
+        srcset=&quot;/static/e155a1df72b4518013f8c7e976677921/c26ae/image-3.png 158w,
+/static/e155a1df72b4518013f8c7e976677921/6bdcf/image-3.png 315w,
+/static/e155a1df72b4518013f8c7e976677921/e03bf/image-3.png 442w&quot;
+        sizes=&quot;(max-width: 442px) 100vw, 442px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;UIUX개선하면서 디자이너분과 엄청 자주 면대면으로 논의하고 협업했는데 이것도 매우 좋았습니다&lt;br&gt;
+처음에는 그냥 피그마 디자인 대충 보고 지레짐작(제 천성인가봄 ;;;)으로 작업했었는데, 이러면 작업을 막 두번 세번 다시 하게 되더라구요&lt;br&gt;
+디자이너분도 피곤하고 저도 피곤하고 참..&lt;br&gt;
+그래서 그냥 자리도 가까우니까 자주 왔다갔다했습니다&lt;br&gt;
+나중에는 &quot;덕분에 많이 개선됐어요&quot; 이런 말을 하셨는데 가슴이 찡.&lt;/p&gt;
+&lt;h2 id=&quot;외주개발도-2번-담당했는데요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%99%B8%EC%A3%BC%EA%B0%9C%EB%B0%9C%EB%8F%84-2%EB%B2%88-%EB%8B%B4%EB%8B%B9%ED%96%88%EB%8A%94%EB%8D%B0%EC%9A%94&quot; aria-label=&quot;외주개발도 2번 담당했는데요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;외주개발도 2번 담당했는데요&lt;/h2&gt;
+&lt;p&gt;처음 맡았던 외주는 바닥구현이었고, 두 번째로 맡았던 외주는 유지보수였어요&lt;/p&gt;
+&lt;p&gt;바닥구현 외주는 너무 재밌었습니다&lt;br&gt;
+이미지를 다뤄야 해서 canvas, 이미지최적화, 이미지 편집 기능 등등 혼자만의 자유로운 기술고민의 시간..&lt;br&gt;
+그리고 여기서야말로 Next.js의 힘을 제대로 써봐야겠다! 싶어서 ISR도 해보고..(물론 성능을 위한게 가장 컸습니다)&lt;br&gt;
+재밌는 기능구현 잔뜩했네요&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 225px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6d4225fc73a9e9e0d813bf075d8b698b/3684f/image-4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC60lEQVR42mP4jwb+/f//5+//f/+QRP79//v3H5ogGDD8xwb+/f376927n69e/fn+A0UC1QgGFBv+///96dPziTNuh8bfiky+E5txKyD6XmLWs7bed3sP/v7yBaTs7z+4fgYUU///f7l45TlJ9YuaZvcLK5/PW3zDL/xuWv51Z7+rlq43/SJeL17x9+dPuE3oNn978vRhZNJ9E/sXE6Y/mzn/TnbJ4+5Jj9p67hdX3c0ouKRi9LCk5u/v3xD1DGheBZJn9x/oN7Q64er/wCPoSVDM246+BwHRz8rq7iZmXVTSv6pv8+3ufbD7/zIgWQyy+cnjx+7OXoY6xj7aRtnqhr0aJiu0zLfoWOy0dL4amfSooPLDgSNYnP0XbO3Uru4yO6PlmWGLC2P7U0JbovyrvFxCrG1VZdTmTJ8NCpk/f9BDG2Ltr7//WlKS9paHPlzb8XTbxKcbex6t6jzblpnn6iAjp5mbUwCy49dv7Jo/fPrSkRp/oD7uyoL6+5sn3VjReXFew+nughY/J3UFjczMPLgDsWh+8vRZV0bcrKSgWalBVxY2HOrIm5octroofkdxjKu2blJSBg7NYKHHN24sK0yalx87OdH/9IS8E70F07Kjd7QXnOkvK3Sxm5MY+fPDO7hNSAEG5v/49OloT+W1aWXn+nIvTCu5MKXo4ZKWu/PbDrfmr47yONdZDbUWSwoDC11YOet0W+bhlsyjHXnnp1bcmFl7sa1gZ0XygaqsZ2dPglX9xZm2P754fmpy5e7K5COVRYfqiy7NqL7QU3RkRs+3L5+RtWHLVWDpW4e3nZ5Ucn1u873VvffX9OyqTbu4awtY8g/+LAlO3l++bm0tOjqh6NTUyl01qUtTAh5cPgcPVAL5+e+/f+sr0pYnu63PDd5dHrMqyefK/t3E2AwCv//82ViRtK0w8Ehz8rHWlE2Zfnv6W5ADGZefwRH2/dvW2pT9NdFHW1JPtKcdakncVBj6+s51tKD+//8/AOVHyMw568jUAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;즐겁다&quot;
+        title=&quot;&quot;
+        src=&quot;/static/6d4225fc73a9e9e0d813bf075d8b698b/3684f/image-4.png&quot;
+        srcset=&quot;/static/6d4225fc73a9e9e0d813bf075d8b698b/c26ae/image-4.png 158w,
+/static/6d4225fc73a9e9e0d813bf075d8b698b/3684f/image-4.png 225w&quot;
+        sizes=&quot;(max-width: 225px) 100vw, 225px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;반면 아이러니하게도.. 유지보수 외주는 매우 고통스러웠습니다&lt;br&gt;
+그 코드를 작성한사람은 진짜로 누군지도 모르는 사람(아마 고객사의 이전 외주개발사)고,&lt;br&gt;
+기획도 구현도 제대로된 문서 없이 코드더미를 파헤쳐 버그를 고쳐야 하고,&lt;br&gt;
+게다가 문제점이 뻔히 보이는데도 킵고잉 해야하는 그 기분이란&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 178px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2712a3f311ff7078c0657fc6f8fece36/43e0d/image-5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 153.1645569620253%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;alt text&quot;
+        title=&quot;&quot;
+        src=&quot;/static/2712a3f311ff7078c0657fc6f8fece36/43e0d/image-5.png&quot;
+        srcset=&quot;/static/2712a3f311ff7078c0657fc6f8fece36/c26ae/image-5.png 158w,
+/static/2712a3f311ff7078c0657fc6f8fece36/43e0d/image-5.png 178w&quot;
+        sizes=&quot;(max-width: 178px) 100vw, 178px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;외주는 제품이 아닌 노동을 서비스한다고 했던가요.&lt;/p&gt;
+&lt;h2 id=&quot;어려웠던-것들&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%96%B4%EB%A0%A4%EC%9B%A0%EB%8D%98-%EA%B2%83%EB%93%A4&quot; aria-label=&quot;어려웠던 것들 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;어려웠던 것들&lt;/h2&gt;
+&lt;p&gt;처음에 가장 난감했던? 어려웠던 것은.. 구체적으로 기한을 세우고 일정을 픽스하는 것인데요&lt;br&gt;
+일단 태스크의 단위를 어느정도로 끊어서 일정에 올리느냐?도 그렇지만 구체적인 기간을 정하는게 역시 가장 어렵습니다&lt;/p&gt;
+&lt;p&gt;내가이거다하가막힐지아닐지어떻게알고버그가나서하루꼬박새울지어떻게알고사이드이펙트때문에이거고치다가하루더쓸지어떻게알고디자인이꼬여있을지코드가뒤죽박죽이라파헤치느라하루더필요할지어떻게알겠습니까만은&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 400px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e9712ef0948b8204fb5843a37f7cfdaf/e17e5/image-6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.06329113924051%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACh0lEQVR42h2P21MScRTH97WHpqnUnBE0nUCWvQACCygOsQRKlqJb3GF3EfECAmaZMAjs/gCBlNS8jJrjZcgeSsfGl5pqml76u9p15jtnznfmfM75HkhNWZ7T437abRw2o2P9CqdJYTcgQ4RuwupL0AbSaHhMGO39WpfF5La75nzL7wvT2TkFqUUdBKStxqIHxcxJfbSWwlcjmkpUU4ro6tOqOIX2ITgs65RKJRJJr9PUxzOayqRudcq2kTLUYjhPQ8IoBlgUMOpKFAcszrOqEovkw1an+e9+4bI677FpW1va7ty9r5waUVUnUZ5GuBDGh/ESA6l4WsWzGGAEgwNGaDSViDIXTCW9P+rJxrx7dmwA6e6QPGiTR534KotyIRyEBRgDIRHGeQbjRUwUJ1olz5TL0aP4RJkdSrlML4y9mFqmzHhQPoRwQbEKAkHoJgMjBgYsxtMoR2NcWFYMj+cDJa8jYsVjw5hD09PpINAqCxcCCCdIXIGAAERW4spCSJ73yQseZT4owoA212bQBSroNk+S8Ii+S4s97O7DTDMUcfOdeFxYIcDI7ARapn0HK+nPu0Qj9mglQGQCZCYkC5PtZuUcTbIuw+32e7c6Wtu1cnjYaIyOwm8pJO9VFAOQnNSRwL/9++pr8ye/t/66zKWXlxK55cXcUvJVpl6trvCAmk0Hl7L+XG40vrD4YSvxadOWfenKUhCKdTPztvWL0+uri9PN3eZh83j76KSxd7q2e354crZ/tHH+rdG82rv+tX35vXx88fHPv+KXs0TamnnzBEp55Rsl/1aN3dmYAe+SHXZTixqWmfSYxdIzoJcOauAwKXXouwb1bVq485mBoIaeMmNrwLNTC/4HRIbrBSqMZRoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;미래에 대한 불투명성때문에 그래요..&quot;
+        title=&quot;&quot;
+        src=&quot;/static/e9712ef0948b8204fb5843a37f7cfdaf/e17e5/image-6.png&quot;
+        srcset=&quot;/static/e9712ef0948b8204fb5843a37f7cfdaf/c26ae/image-6.png 158w,
+/static/e9712ef0948b8204fb5843a37f7cfdaf/6bdcf/image-6.png 315w,
+/static/e9712ef0948b8204fb5843a37f7cfdaf/e17e5/image-6.png 400w&quot;
+        sizes=&quot;(max-width: 400px) 100vw, 400px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;근데 기한을 정하고 지키는 것도 능력이라고 생각하긴해요. 당연히 필요함&lt;br&gt;
+회사 입장에서도 일정이 있고 협업에 있어서도 중요한 요소구요&lt;br&gt;
+앞으로도 계속 &quot;얼마나 걸립니다&quot;를 구체적으로 제시하고 잘 지키는 사람이 되려고 합니다&lt;br&gt;
+이건 그리고 경험에서 우러나오는게 크긴 할 듯&lt;/p&gt;
+&lt;p&gt;일단은 항상 의식적으로 생각보다 조금 더 여유를 두고 기간을 자고자 했습니다&lt;br&gt;
+조금 더 빨리 진행해야 하면 다시 기간 줄여서 잡으면 되는거고,&lt;br&gt;
+빨리 끝나면 충분히 확인하고 검수하고 다듬을 시간이 확보된거고,&lt;br&gt;
+딱 맞춰 끝나면 완전히 베스트고,&lt;br&gt;
+정한 기간보다 늦게 끝나면 문제긴 한데 사실 타이트하게 잡지 않은게 오히려 감사하겠네요&lt;/p&gt;
+&lt;p&gt;그리고 생각보다 질문을 주저하지 않는게 어렵긴했습니다&lt;br&gt;
+어지간하면 혼자 해결하려고 막 문서든 코드든 뒤져보고 심지어 가끔 백엔드 코드도 열어볼 떄가 있었는데&lt;br&gt;
+결국 일은 같이 하는거니까 물어봐야 할 때가 언젠가는 오더라구요.&lt;br&gt;
+기획이나, api이슈나, 이런 것들 특히&lt;br&gt;
+너무 머리싸매는게 답은 아니란 것을 알았습니다&lt;br&gt;
+질문할 용기 이거 참 중요한 듯&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 400px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5f4849be1778a381f0a7110811eb4977/e17e5/image-7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 80.37974683544303%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD20lEQVR42gHQAy/8AN60sfn+/NbGyqAhTMcYV8wdXckcWu4oceolb+wndNseYtocXsIeWkIrSjI4Vzs8XTk6WDk9XT1BYzw/ZgDdmZj/+Pb////nt8nEE1TWFFveHWX9Jnb6InH6InL0IXDnG2blHGVdJkwsNlQ7O106Olw3OFlBQmg4OFwAz4GD88fA/fv4////1ZKpwAtM4CBn8yNx/CV29yN15xpl4Rph6RlkeCNRKzdWQEFmNjZXOThaQUJoOTldANSUmNeIifHRyfn1+ezN3LhAbL0ISeYfZ/kld/cketwVXdwWXusXZZUlWzE7WURGbD9AZUBAZkJDaEFBZwDcoqrVjJbVnaS9Un/OLnTPOHjBImDNGVzyHW31IHHcE13gF2LrF2WzJWQ0N1ZAQWZBQmk/QGZAQWdBRWsA5LS31ZKdsVp1igU5lhlKuyVlyipzzChx4CVx7SNw5Bhl5xhl6hNgwh9mOzVXPD5hQUFoQEBmQENpNTpeANaeot6nroMfQX8EMZEMP7kpZdFNfcI/c8wuddMvd9Uuc9ggaOUhaM0qbEk6XDk5WDM0Vzo9Yy4vUVdYawDZOHDvfKGRHkmOETrCTWnfiI/vqqLclZDbgZLJUHikEE24O2jeiJDahYzCg4fBkJCkhIs3M0tjYW7d3d4AxB5h1Rln5DR103h9xXl3zoF9yYB8yH551ZKL6a6ot1huj0dQmFdZnVtcolpb5JSQwYKAkYmN6ern1dbSAJ8hVqUeW7hNZ7x0b7RlZrpxbrVubL9zcrZqa7p4dtqbkc2KiHdER08lKGw6PX9GTJyNk+vu6tHTzLi7tQCOFkiRG0ywYWiyamiuZGGfWFiJREqaVVa5eHa0a2utaGvcmZuncnFMNDlMMjaUjZDt8+7Lzca7v7jNz8kAehc/cB07ilFPmllXkE5MllRUm2Bel2BgnVVZnWlqjHJzmI6OqqenwL27j4uMura2trKys7Cxv7u4xcLAAEsjM0snNEktNFAyN1AxNVlFRmhhYXNbXYBMUGlWWl1fX2JXWl5UVmFXVmZdXGpiYW1oaG5pamtmZm9rawA+Jy9BKjE/KzM+KzU+KzRENTteWFxUSU05JS1lV1p6dXZwZmpxZ2phVFdPPkJRSEpSSUpRSUpSTE1TTk8ARiUvSCgxRiozRSo0Qio0QCoxQSw0RTI5PywyTEJGTklLTUZKRD0/RT9AQ0A+SkA/SkA/SkFDS0NETEJDAIUMMpIMOqUWR6oUSJ4QQJwWRJwXSJ4ZSaEcTqUeUKAfTpkgT5UkUJQmToMtTkQ4RkQ8SkM0PUE1N0ZAQEUOpxKv76/9AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;머뭇&quot;
+        title=&quot;&quot;
+        src=&quot;/static/5f4849be1778a381f0a7110811eb4977/e17e5/image-7.png&quot;
+        srcset=&quot;/static/5f4849be1778a381f0a7110811eb4977/c26ae/image-7.png 158w,
+/static/5f4849be1778a381f0a7110811eb4977/6bdcf/image-7.png 315w,
+/static/5f4849be1778a381f0a7110811eb4977/e17e5/image-7.png 400w&quot;
+        sizes=&quot;(max-width: 400px) 100vw, 400px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그리고 사무실에 온 전화 받는게 제일 어려움;; 땀이 줄줄&lt;/p&gt;
+&lt;h2 id=&quot;지키고자-했던-것들과-앞으로-지키고자-하는-것들&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A7%80%ED%82%A4%EA%B3%A0%EC%9E%90-%ED%96%88%EB%8D%98-%EA%B2%83%EB%93%A4%EA%B3%BC-%EC%95%9E%EC%9C%BC%EB%A1%9C-%EC%A7%80%ED%82%A4%EA%B3%A0%EC%9E%90-%ED%95%98%EB%8A%94-%EA%B2%83%EB%93%A4&quot; aria-label=&quot;지키고자 했던 것들과 앞으로 지키고자 하는 것들 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;지키고자 했던 것들과 앞으로 지키고자 하는 것들&lt;/h2&gt;
+&lt;p&gt;저는 평소에 기록이나 문서화가 제 부족함이라고 생각하는데요&lt;br&gt;
+이거때문에 블로그도 시작했고 기록도 막 의식적으로 습관을 들이고 그랬었습니다&lt;br&gt;
+일 시작할 때 가장 먼저 들었던 생각이 이거네요. 기록 잘 해두기&lt;br&gt;
+내가 작업한 것들은 내가 다시 열어볼 수 있게 했습니다.&lt;br&gt;
+근데 나중에 또 든 생각은, &quot;나&quot;가 아닌 &quot;다른 사람&quot;을 위한 버전도 정리해뒀으면 좋았을걸.&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 581px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e68b0b5de4e228765acae88718642cdf/92d15/image-9.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABGElEQVR42o2S226DMBBE/S8Nd0jykCaAbS7GmP7/D208i0zatKr8sML2ao9mlhFmnmhzK3Xtg7I0oSLPflWepdwfB02D1jRPE2ml/FlRWeR0bmru9V1LYjEzA2XfUZqcePi98P4CKg8cPVByNXVFyemD6qokJXsS1hiyi+GBGCAKQIABhEL0oXIH2oVcrMJxoMkDsSYAYb8qi5/A1QM35/gSBfSFNQ1eHWagELu/nBtWLGDXORttGcoA1f4LV8HysUMo/Noc02N3CMtaymOHsA04SrjVEgpNSP8LiPf2cT/Uhb8MAPqI1vV62WPj1pVj8x/wu0IGznsOAxD9KlhesEOvEBfkCc33wvv983Zkbw9xxzMh/DjDxRPbpD4fHGSwwQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;기록들&quot;
+        title=&quot;&quot;
+        src=&quot;/static/e68b0b5de4e228765acae88718642cdf/92d15/image-9.png&quot;
+        srcset=&quot;/static/e68b0b5de4e228765acae88718642cdf/c26ae/image-9.png 158w,
+/static/e68b0b5de4e228765acae88718642cdf/6bdcf/image-9.png 315w,
+/static/e68b0b5de4e228765acae88718642cdf/92d15/image-9.png 581w&quot;
+        sizes=&quot;(max-width: 581px) 100vw, 581px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;obsidian으로 매일 남겨둔 나를 위한 기록들&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;그리고 이건 기록에서 한 발짝 더 나아간 것인데..&lt;br&gt;
+태스크를 항목별로 구분하여 리스트업하고, 완료하면 체크하기를 습관화하고자 했고&lt;br&gt;
+이에 따라 누군가 제 일의 진행상황이 궁금하면 바로 알 수 있도록 하고자 했습니다&lt;br&gt;
+특히 퇴근 직전에는 진행중이던 태스크의 진행이 어디까지 됐는지, TODO가 무엇이 있는지는 무조건 정리하고 퇴근했었네요&lt;/p&gt;
+&lt;p&gt;그리고 질문이나 논의 등은 다른 팀원 모두가 볼 수 있게 가급적이면 메신저 채널에 올리고&lt;br&gt;
+구두로 논의한 내용들은 반드시 기록하고자 했습니다&lt;br&gt;
+일을 하면 할수록 공유가 잘 되어야 한다는 것을 느꼈어요&lt;/p&gt;
+&lt;p&gt;이렇게 한 번 겪고나니 아, 이렇게 할걸, 이런게 좀 남더라구요.&lt;br&gt;
+그래서 좀 생각해봤습니다. 앞으로는 어떤 원칙을 지킬지?&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 227px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6729dc96e0b2c45f6b1ab860a555f0e2/9b5be/image-10.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 98.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEeElEQVR42g3Q7WtVdQDA8fMmIqLAyKWQk0IoiF4kZGaQvomKkl5oYCvMCk0lMENKSJKW9gAh6kJzWlPTuTl1bu7O6e7TOd7n83TPwz33PD8/n9+5Z/du0zZJ8j/4fr4QlacGen89uqdn8vjvuTND6DTC5XDhMipcY+RxWkqRbJ4icF5peAznMZRdp3Wc0PKp7KfruiEWoV3YcAqOU7E1JtQysnmhrl1h1bysNywv6Ohm6+TAjcujWc2fo6WAkwOaNCiE2/3OSxAyWYhytj/SdC7WrcusnVPdO7ptxMG9BfDvYlNzEbRZZtS6YAWdBYQRrmRKRZSXMHf/pvWQSEjesBQNyc6EQI5gvOYYnU7033+c77O+b7VnYZrzF+637j9wFxZKokLaHu9GAmr/9sVmCM3X/YKh1tQonKuy8kQZnargers9XiqPwHekuEXq5i2UvomSlOtk6WZRUEu0pPL+nwd2Q8NnR1XBGLqWurvwgOQkVtUp3WpaTrK4iMoKbdn+3Xs5olHkpMkKliqRJwbHpvK4ZXcu9P0EWdeZlhIBA7g2iOLZEHQsN/a9lmHFNG+wgmGHLT+es/wZrM7zqg/jPN5QbbdzdeAYFA4zHMI0aamGchPpCklJ6XwtXUQRgkkXiDIlZjHab8+ijHyrTNYkDRMtGKVrKJ+ZuAIRJ6fp20RqFLb0uFZtkIQky7btASdquWELdOY5xbQDIKhOulyX/ZgS9KZo6iqoZWEoc3hEKQtIrqYZIdPUsgWCZjU/asE1CsGYbKVOibqTzOZQipJNWrEqrFAXNFFwqtkClDpyPn0mdf38jTKMe0H7TpXGcNH1HoJ13Y9506UFXTIDnFMIQaclE67SKCtXSbFYrUPjh08M/NL/T/8l+HZpcgpG0cbN24jmBAhKk6LO6AbOqw3DQTm1SHCDo1NmnFRpMZMjedGF/tqy8+ctO3t37T93+lL6VpEjpWy+JiiWagOS03yzjWGi4gYVSlIM3w4iklNGp4rnB1MSrUGHXln70eq1R/bu279n7x9954YHx0XJnsjUynizinEypuUQHC6RUwiqPLzogOOnBr89eERrBoEWQ9u6lm5a9uxX6zcc+nz76d6jYxcnsBrXaJimGkZBO0zm/KZnVxS7bLllL2ZD1wgVyw+5yMFtaOuyp3d0r9j++mtfbnz/2A8Hb4xNoyhvaaFAasCaCd0kIO2w6oCbbnDNajEgmZ8Hc4sg6ASkB+3qXt7z1OPvLu36ePWarW+9/c22r48f6psey2LjFZcwPSMEMx1ABCBvxgUnGDN8AThaEIbt0Emg7SuWbul64r2VXetWPb/h1dW9333ff+xvDOdMzvYbdqQmoOSBtBXBLiA9DzbccQOwYWK3Q68F9Sx57IMnH9m45NE3lz/Ts/aNH3fsHjt1qTCap4qMxloBF/hXZb9fDK6bMRk8TAjTrp/3IzOJ3Q6084XnPlnV3fPiys/WvLxv84d9Bw4OnR1AMkWWkh1vZmbuXttOEioCuAdwEBS9WAGJk7Tn78Z253/uYpfnLzoNZwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;공주의 규칙&quot;
+        title=&quot;&quot;
+        src=&quot;/static/6729dc96e0b2c45f6b1ab860a555f0e2/9b5be/image-10.png&quot;
+        srcset=&quot;/static/6729dc96e0b2c45f6b1ab860a555f0e2/c26ae/image-10.png 158w,
+/static/6729dc96e0b2c45f6b1ab860a555f0e2/9b5be/image-10.png 227w&quot;
+        sizes=&quot;(max-width: 227px) 100vw, 227px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;기록은 물론이고, 미래의 동료 또는 미래의 내 대체자를 위한 문서를 따로 보존하기(아예 주에 한번씩 정리하는 등 주기를 정해도 괜찮을 듯.)&lt;/li&gt;
+&lt;li&gt;협업 컨벤션, 가이드라인 등을 정하고 이를 준수하기. &quot;없으면 없는대로~&quot;는 안 해야지..
+&lt;ul&gt;
+&lt;li&gt;아, 그리고 잘 공유하기.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;동료에 대해 잘 알고, 동료와 더 나누고, 동료를 더 잘 이용하기&lt;/li&gt;
+&lt;li&gt;컴포트 존 경계하기&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;글또&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B8%80%EB%98%90&quot; aria-label=&quot;글또 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;글또&lt;/h1&gt;
+&lt;p&gt;그리고 &lt;a href=&quot;https://geultto.github.io/&quot;&gt;글또&lt;/a&gt;를 시작했어요&lt;br&gt;
+여기다 혼자 글 던져놓으면 별로 누군가 보는 사람이 없다, 는 기분도 있고&lt;br&gt;
+블로그에 글을 자주 올리다보니 다른사람들 글도 막 보고 싶어졌습니다&lt;br&gt;
+그러던 참에 글또에 참여하게 됐어요. 덕분에 이제 2주에 한 번씩 꼬박꼬박 글을 쓸 이유가 생겼습니다&lt;/p&gt;
+&lt;p&gt;저는 글또에 참여하기를 너무 잘했다고 생각하는데&lt;br&gt;
+많은 이유가 있지만 아무래도 다른 분들의 좋은 글을 더 많이 볼 수 있다는 점입니다&lt;br&gt;
+이게 재밌어서 같은 코어 내의 글들은 어지간하면 다 읽고 댓글을 남기려고 하고 있고&lt;br&gt;
+글또 내 소모임인 글읽었또에서 큐레이션 리뷰도 하고 재밌게 본 글 공유도 하고 그러고 있네요&lt;br&gt;
+그리고 누군가 볼까봐 이제 더 글 완성도도 신경쓰게 되더라구요 ㅋㅋ&lt;/p&gt;
+&lt;p&gt;이외에도 글또에서는 다른 많은 활동을 할 수 있어서 좋습니다&lt;br&gt;
+커피챗도 하고, 스터디도 하고, 여러 다른 활동들도 하구요&lt;br&gt;
+특히 튜링의 사과 1+1이 GOAT임 ㄷㄷ&lt;/p&gt;
+&lt;h2 id=&quot;threejs-스터디&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#threejs-%EC%8A%A4%ED%84%B0%EB%94%94&quot; aria-label=&quot;threejs 스터디 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Three.js 스터디&lt;/h2&gt;
+&lt;p&gt;특히 Three.js 스터디를 시작한지 두 달? 정도 더 지난 것 같네요&lt;br&gt;
+막연한 관심만 있었는데, 스터디를 덜컥 시작하고 얼레벌레 하다보니 뭔가를 하고있긴 합니다&lt;br&gt;
+혼자였으면 걍 안했을 듯;; 스터디로 하면서 격주마다 오프라인에서 공유도 하고 그러니까 좋더라구여&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 231px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/638430fc9573db290c8ac963c7c59a5c/6e622/image-11.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 65.18987341772153%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACcUlEQVR42qVTTU9aQRR9aOpfcuUPADeoiRhDIy5qU9J1t+2iiSyUdFPb2DRtBENDSxM+0liQqEEQGiJFBIvKeygfiQtEEQT5On33PqSmdtdJ7ps7M2fO3HNmnoBe63a7/b7VauHm5gbNZpODxhS3OfW03m63+3m9Xue9ApEk95PweDzw+XzI5/PwuD2w2+2w2WwwL5phtVhhWbFgaWkJ4XCY503zJjgcDricLqxaVznvdDoK4dnZGY4OjyBJEkRRxMHBAfK5PI/j8TgymQznsVgM6V9pSKKESCSCaDSKQr6AdDqNxF6Cqxf+lvy/TSAi8uH8/ByVSgWXl5ecV6tVBlxfX3NcXFxwkF/Vak3GlOX5GmNortFo4OrqSqlQzIiYNcwiFArBv+6Hd+07y6ZGkrLSCXZ2wtjY2GS5kpRFMplEsVhkTDy+h0RiH0F5vzA1NYWJiQkMDw9Dq9ViWq/H46dGPJqbwxOjETMGA3Q6HWMoxsbGMDk5idHRUVitViYkVbVaTfFQbvTBgErF/esXJkjOAFLRn0jJRhdzBbxbXuY1VQ8zODjI/fj4OJOQFbd2CbTIMaCA1u1OIHKCunsXzagEbB1j8+MXCA8UDGGHhoYYq1arUS6XEQgEENwOsg39ClWCcvraymeZ5BBl2zZqMRHwJuH7YJdPVtbvVkiy6cJyuRxOT0/5+d0j/PbeBgSPUfbGUPoUQNO1i/Wvnj7ZXULylB4zvQqSS9L/EPb88TvcQK6K9o8s2r4U4BexteqEoLpPODIywj8CEZVKJZZ/j3BG/xBvF15h4dlzmF+a8GZ+EQbd9D8vRaPRMAlVSEGEvwESqvc0L+vCrQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;쓰리제이에스&quot;
+        title=&quot;&quot;
+        src=&quot;/static/638430fc9573db290c8ac963c7c59a5c/6e622/image-11.png&quot;
+        srcset=&quot;/static/638430fc9573db290c8ac963c7c59a5c/c26ae/image-11.png 158w,
+/static/638430fc9573db290c8ac963c7c59a5c/6e622/image-11.png 231w&quot;
+        sizes=&quot;(max-width: 231px) 100vw, 231px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;음 근데 이게 약간 관성이 심해서.. 요새 안하니까 계속 안건들게되네요 ㅜ&lt;/p&gt;
+&lt;p&gt;아 럭키인건 새로 가는 회사가 3D 이커머스 도메인이고 three.js 스택이 있다는 점인데&lt;br&gt;
+앞으로 어떻게 될지는 모르겠지만 three.js 실무에서도 쓸 기회가 있을지도?를 기대중입니다&lt;br&gt;
+이 회사에 합류하고 싶었던 여러 이유 중 하나에요&lt;/p&gt;
+&lt;h1 id=&quot;ossca---nodejs팀-대상받다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ossca---nodejs%ED%8C%80-%EB%8C%80%EC%83%81%EB%B0%9B%EB%8B%A4&quot; aria-label=&quot;ossca   nodejs팀 대상받다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;OSSCA - Node.js팀 대상받다&lt;/h1&gt;
+&lt;p&gt;오픈소스 컨트리뷰션 아카데미에 Node.js팀 멘티로 참여하여 기여활동을 했었는데요&lt;br&gt;
+지난 11월 9일 최종발표를 마지막으로 활동이 종료되었었습니다&lt;br&gt;
+그런데 웬걸&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 599px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/20e6687a5eb070662c4fdc1341d73757/43142/image-13.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 80.37974683544303%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEOUlEQVR42h2T+zfbdxzG8xds5/QiF4RIlESaiCAkSoVSQV0abRK5CKLShBDELTSlRIlLjdXtTLd26FqrY1v3U9vTnfXn/UmvffnhOe/fnvO8ns/zEfUHAgT8PvyuBzjabFhvmTHqi9AV6ISrp6K0mKoKCx6HnfGhEMnEFFtrSXY2l1lbesrMeBSv24OlwortQQTRzg+rvHqZYj81RXI8QKSrFf/9Wpqt5djryoi6qwk7rYx1N/Is6mZpsk9QP2szQZbGe1gYduJqa+JmYTWNjW2I9rbX2d1aJT4xhuOhizt3bJhKLdzUGsjKyiMzM5dcpQZ1vh693kRpaRUWSy0mk5WSEis6XSU38srRF1VTefsuomBfgMFQkJVkgvXleV6k5gkHA3icjkv1+Dzcb2tjdChMr99PX6CPoYEIo8Mj3Gt2CLgBRqOjmC02ysx3ENVY67G321kV+pifnWAk8hivy0lpcTk+dydrzxNEwsFLhR73MxEbIxQcYD4xi8vZhbvTz8hQlOLiOrQ3qxDpdUYMhSUYDSZu5GrRFhjwdjppuGvD7/Vwr6kFW0MT5ooaGpvsOF09+PxBnEKyLuHqi6xIZAYBuwJNgWCoyM7nQhd9SaVKNJpCttYXeTI9xuLcNNFImO0XSVwuH909IWJTsyw8XyG1vkFkZBpLdSvZqnLU6koKLhLK0lVIZUrSxFmIxQrEkhzKyiqFsoXEaiMqdTFqvQW1oYaC8mZMd7sxtw5S+SCGpX0IY40bnakJrYCsK6lHlK8xkp6Zx/U0wVCiEOIruXJNwffXcpApdKgKyqiqbaHV2Y03FOXRxAKeyTV6F3Z5tLhPeyRJnXuAqhYP5XV2RFk5GjKz1WTI1UgE5DSJkvyCEvoe9RMOh+l46GUqHufl3hYHP+9y9OGY3d8/cP7PZ/7+9pXYzhHemWXsoREaXL2IxOJsshVqcvMKEQuGYqmKfG2pUHwP3q5emtvd+IKDhGKTPN3YYPfkhNPPn3n35V9+/PML88fnDG8d0Du3SEckhuiyOwFVmp4rSIUsI58MAfW7tFzsDi+rqWVi8VnmUyu8+e01b85O+ePrJ779943tj59Inp4x8cshjzfX8D5JIMoRfkGRoQyFgJ4mPIpMQJfn6MlQFlJd10pwcISR+Azh+BMGni0xvLHH9OEJqbO/SJ1/ZP7dOyZ+/Ynw/ga9KwuIMjJUKBQaZDLlJXK6XINErkWeV4xcbeZGcT2NwuZcQ+M4xxO4Ehv41w6I7L8mcXzC89O3TF0YHqzTv5kSkNPkXL+eeTmbi/lcGBqNFWgLLejN9dS2uHH2DdIZncQ3OYdzMsXA5iHjh0dMHb1l+fw9c2fHTL1/TezoFaKrV6VcuSK9NJVIc0jP0uDo6OR2dQPmmhbqWt00ugLY/IPYh+N45tbpSu3hSe3gXErREZ+kbThEQ5eHWy1N/A9YXIplUXa6aQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Node.js팀 대상!&quot;
+        title=&quot;&quot;
+        src=&quot;/static/20e6687a5eb070662c4fdc1341d73757/43142/image-13.png&quot;
+        srcset=&quot;/static/20e6687a5eb070662c4fdc1341d73757/c26ae/image-13.png 158w,
+/static/20e6687a5eb070662c4fdc1341d73757/6bdcf/image-13.png 315w,
+/static/20e6687a5eb070662c4fdc1341d73757/43142/image-13.png 599w&quot;
+        sizes=&quot;(max-width: 599px) 100vw, 599px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;저는 되게 얼레벌레 따라가기 급했는데..&lt;br&gt;
+다른 많은 분들의 노력이 모여 가장 큰 상을 받을 수 있었습니다 ㅜㅜ 감동.&lt;/p&gt;
+&lt;p&gt;그리고 사실 이 수상이 확정난 날 Node.js에 PR이 하나 더 머지되었는데&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3bc58b0bc2cb33e4e11941d0d68e414b/748b0/image-14.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACDUlEQVR42j1SyZLaMBD1HcziVYuRjZFsbMBgs8NMMkOlKpVDrvmB3Odf8gn50pe2mMrhVS9SP3W/lnO+v2F3uBCuuNzfyd5wvr2hO73g9f079qc7Wjp7fPuB6+sD2+6E7njF/njDta/dn6HLNYrlBmpewPn49Re/f/5BrrcoVzssig0W5QaZrq1NycriBFXfkC5WkOWZcKHcGbPlBQnF8WKPiBCoNZzKfEVdfgGTOaahwMRn8KME00Bg5MXwQolprDDypc15cQqf0MfDKYfrCes/IeAIlUJkGklewWeZLeCqQEgPeOzpc2UQ8AxxosFnxub6e2MicCcR3HGIsccIMRw2qyF0h+rwILuHMNT+fAuWtwjSBm5cYsQIvIJLdjpb21HjxQETZqCygqSoLPFoSoTDcYS52aA9vqDZ30hkwuFusWkvNr+lRTXdFavdiZZypS41BlTnehwymSNJDYafXTo9c6+fpgWYqkFZ72DKBtW6hV42KKot+R0trLVYkt8TSKVJbwFFUmmqC7l6duhOSPhoBlO3mNNGe+IeRdVvfE3dr6w1RJzQeEzOIWYL8CTHJJAIIwUpNfwwwWAUPAkDEj83BoIuxSKjoswWRjxFJFKbk6m2Gx+4Po0b0IgBRhOGuMwxXnLSPbPdOn2b/TdgIqFvwtA/MPyPZ2xz45hG4qST+AR/xpKQE2GaQSiDf/sLFbwcweZ8AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;PR 하나 머지됨&quot;
+        title=&quot;&quot;
+        src=&quot;/static/3bc58b0bc2cb33e4e11941d0d68e414b/f058b/image-14.png&quot;
+        srcset=&quot;/static/3bc58b0bc2cb33e4e11941d0d68e414b/c26ae/image-14.png 158w,
+/static/3bc58b0bc2cb33e4e11941d0d68e414b/6bdcf/image-14.png 315w,
+/static/3bc58b0bc2cb33e4e11941d0d68e414b/f058b/image-14.png 630w,
+/static/3bc58b0bc2cb33e4e11941d0d68e414b/748b0/image-14.png 868w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;사실은 거의 잊은 채로 지내던 PR인데.. 한참 지나고서 &quot;LGTM&quot; 코멘트가 달리더니 머지되었네요&lt;/p&gt;
+&lt;p&gt;아무튼 이렇게 너무 좋은 경험이었던 Node.js팀 활동이 끝났고..&lt;br&gt;
+다음 기회가 있으면 꼭 다시 OSSCA 참여하고싶네요&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;br&gt;
+이외에도 음.. 교내 창업컨퍼런스도 참가했었고&lt;br&gt;
+가벼운 사이드프로젝트인 &lt;a href=&quot;https://chromewebstore.google.com/detail/bugi-and-friends/cidndoahplamogkfaimmahedcnakjnag?hl=ko&quot;&gt;햄부기&lt;/a&gt;도 배포하고&lt;br&gt;
+여기저기 서류도 넣고 면접도 다니고&lt;br&gt;
+틈틈히 온라인강의 듣고 과제하고 시험보고&lt;br&gt;
+그러면서 막학기를 보냈네요&lt;/p&gt;
+&lt;h1 id=&quot;커리어를-시작하며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BB%A4%EB%A6%AC%EC%96%B4%EB%A5%BC-%EC%8B%9C%EC%9E%91%ED%95%98%EB%A9%B0&quot; aria-label=&quot;커리어를 시작하며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;커리어를 시작하며&lt;/h1&gt;
+&lt;p&gt;인턴하던 회사에서 감사하게도 정규직 전환 제의를 주셨었지만..&lt;br&gt;
+제가 더 하고 싶은 일이 있는 회사에 합류할 수 있는 기회가 생겼고, 그 곳에서의 출근을 앞두고 있습니다&lt;br&gt;
+이렇게 말하니까 프론트엔드 그만두는 것 같기도 한데 직무는 프론트엔드로 동일하고 도메인이 달라서 그렇습니다&lt;/p&gt;
+&lt;p&gt;생각해보니 글또 어떤 채널에서 이런 목표를 적었는데&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 445px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/21085ce4c8c2949e7b3f860f13c6570d/e66bf/image-15.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 43.0379746835443%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABY0lEQVR42oVS207CQBDlq/wA/8GEB//Rd59MJOGBRIiYlrTb0hZo6YV22xqR63HPEBSNCZtMpjvTOXPOzHa6d/cYv47R6z1DKYW6rrFarVAUhXhaVVXQWmO/3+PyHI/HX/fdbofOzW0XL6M39Pt9uI4jCRYeDgfxLKLxfu0IID+qeIRo8gTlz+ApF1EYIU1TOKbBdDpFEicIggBhGIr3fR/z+VwsDELxnvKQZdkJMFvO4E7GUJ4Pz/OkgIUEpGQyXa/XwmC73X77zWYjORpjvAug1o3pHiGKIgHiz+fCa1Iv5/gj2QzdsiwMh0MMBgO0bSvLeX9vkec5mqb5dyl/D/MCSKoE5Rwol7OybBtBGMvmydx1XZRlKc04Bl3pkzeNaMyxsQBSHgNkyULbnkC5jlnUo2G4RGmakSmfEm2xWMgC4jiWeJIkEiNw51I/N5umS/NzbpIlCucBnx/1eVhXnw0lfwFSUKla/TdyDwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;목표했던 것 ㅋㅋ&quot;
+        title=&quot;&quot;
+        src=&quot;/static/21085ce4c8c2949e7b3f860f13c6570d/e66bf/image-15.png&quot;
+        srcset=&quot;/static/21085ce4c8c2949e7b3f860f13c6570d/c26ae/image-15.png 158w,
+/static/21085ce4c8c2949e7b3f860f13c6570d/6bdcf/image-15.png 315w,
+/static/21085ce4c8c2949e7b3f860f13c6570d/e66bf/image-15.png 445w&quot;
+        sizes=&quot;(max-width: 445px) 100vw, 445px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;인정받는다는 주관적인 기준이고,, 일단 떠난건 맞네요. ㅋㅋㅋ&lt;/p&gt;
+&lt;p&gt;암튼간에 인턴으로 일하며 실무능력 뿐만 아니라&lt;br&gt;
+나는 어떤 회사에 가고 싶은지? 어떤 경력을 쌓고 싶은지?&lt;br&gt;
+어떤 동료가 되어야 할지? 어떤 노력을 해야 하는지?&lt;br&gt;
+이런 생각들을 하게 되고 답을 찾으려 해보는 것 자체로 너무 좋은 경험이었습니다&lt;br&gt;
+이런 생각은 보통 그냥 학생일 때, 또는 취준할 때는 고민하기 힘들고 실제로 겪어봐야 아는 것 같아요&lt;/p&gt;
+&lt;p&gt;제가 좀 고민에 빠졌을 때 누군가 &lt;a href=&quot;https://m.blog.naver.com/1lsang_/223325365476&quot;&gt;찰리 멍거의 커리어 원칙&lt;/a&gt;에 대해 소개해주셨는데요&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;스스로 사지 않을 것은 팔지 말라&lt;/li&gt;
+&lt;li&gt;존경할 수 있는 사람과 일하라&lt;/li&gt;
+&lt;li&gt;즐겁게 일할 수 있는 사람과 함께 일하라&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;아.. 이게 진짜 제가 찾던 그것이네요&lt;br&gt;
+사실 이 중 하나라도 잘 충족되는 회사라면 너무 좋은 회사인게 아닐지?&lt;/p&gt;
+&lt;p&gt;아무튼&lt;br&gt;
+새로운 경험 새로운 시작을 앞두고 꽤 기대도 되고 사알짝 걱정도 되네요&lt;br&gt;
+아좌좍~&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Three.js 공식문서로 시작해보기. - 6]]></title><description><![CDATA[! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다. 오늘은 Three.js 공식문서 > Fundamentals…]]></description><link>https://sungpaks.github.io/til/how-to-threejs-6/</link><guid isPermaLink="false">https://sungpaks.github.io/til/how-to-threejs-6/</guid><pubDate>Sun, 15 Dec 2024 12:37:51 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;오늘은 &lt;a href=&quot;https://threejs.org/manual/#ko/tips&quot;&gt;Three.js 공식문서 &gt; Fundamentals &gt; 여러 팁들&lt;/a&gt;에 대해 살펴보려고 합니다&lt;/p&gt;
@@ -2661,7 +3242,7 @@ rAF처럼 쓰는거니까 매 (가능한) 프레임마다 콜백을 호출하고
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;isDragging&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
   &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;
-    &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; position&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;fixed&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; top&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; position&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;top&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; left&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; position&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;left &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;fixed&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; position&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;top&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; position&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;left &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
     &lt;span class=&quot;token attr-name&quot;&gt;onMouseDown&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;handleMouseDown&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
     &lt;span class=&quot;token attr-name&quot;&gt;onMouseUp&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;handleMouseUp&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;
