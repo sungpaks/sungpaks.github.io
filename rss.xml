@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 01 Jan 2025 14:32:10 GMT</lastBuildDate><item><title><![CDATA[🚀 인턴 생활을 끝내고 새로운 시작을 앞두며]]></title><description><![CDATA[2025년입니다. 새해 복 많이 받읍시다.  이 블로그를 딱 작년 새해가 되자마자 시작했는데, 벌써 1년이 지난거네요 TIL 제외하고도 36개를 업로드했으니 달에 3개 정도는 썼다고 보여집니다 앞으로도 꾸준히 잘 쓰도록 하겠습니다. 202…]]></description><link>https://sungpaks.github.io/2024-recap-and-starting-2025/</link><guid isPermaLink="false">https://sungpaks.github.io/2024-recap-and-starting-2025/</guid><pubDate>Wed, 01 Jan 2025 15:36:34 GMT</pubDate><content:encoded>&lt;p&gt;2025년입니다.&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 02 Jan 2025 13:41:43 GMT</lastBuildDate><item><title><![CDATA[🚀 마지막 학기, 인턴 끝, 정규직 시작]]></title><description><![CDATA[2025년입니다. 새해 복 많이 받읍시다.  이 블로그를 딱 작년 새해가 되자마자 시작했는데, 벌써 1년이 지난거네요 TIL 제외하고도 36개를 업로드했으니 달에 3개 정도는 썼다고 보여집니다 앞으로도 꾸준히 잘 쓰도록 하겠습니다. 202…]]></description><link>https://sungpaks.github.io/2024-recap-and-starting-2025/</link><guid isPermaLink="false">https://sungpaks.github.io/2024-recap-and-starting-2025/</guid><pubDate>Wed, 01 Jan 2025 15:36:34 GMT</pubDate><content:encoded>&lt;p&gt;2025년입니다.&lt;br&gt;
 새해 복 많이 받읍시다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -159,6 +159,8 @@ UI/UX개선은 아예 제 앞자리 디자이너분께서 전권을 위임받으
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그치만 이건 업무 처음 투입되고나서 할 일이 많이 주어지지 않았을 때 시간이 남으면 그랬던거고&lt;br&gt;
+나중에는 QA이슈 수정과 UIUX개선은 패시브 + 외주개발 겹치는 등 그럴 시간은 딱히 없어졌었습니다&lt;/p&gt;
 &lt;p&gt;UIUX개선하면서 디자이너분과 엄청 자주 면대면으로 논의하고 협업했는데 이것도 매우 좋았습니다&lt;br&gt;
 처음에는 그냥 피그마 디자인 대충 보고 지레짐작(제 천성인가봄 ;;;)으로 작업했었는데, 이러면 작업을 막 두번 세번 다시 하게 되더라구요&lt;br&gt;
 디자이너분도 피곤하고 저도 피곤하고 참..&lt;br&gt;
@@ -276,6 +278,42 @@ UI/UX개선은 아예 제 앞자리 디자이너분께서 전권을 위임받으
 빨리 끝나면 충분히 확인하고 검수하고 다듬을 시간이 확보된거고,&lt;br&gt;
 딱 맞춰 끝나면 완전히 베스트고,&lt;br&gt;
 정한 기간보다 늦게 끝나면 문제긴 한데 사실 타이트하게 잡지 않은게 오히려 감사하겠네요&lt;/p&gt;
+&lt;p&gt;아 그리고 글또 큐레이션에서 &lt;a href=&quot;https://chaerangja.tistory.com/27&quot;&gt;스타트업의 QA 프로세스 개선에 관한 글&lt;/a&gt;을 발견하게 됐는데요&lt;br&gt;
+아.. 너무 공감가는 상황을 겪는 와중에 이 글을 읽었어서 너무 공감이 갔네요&lt;br&gt;
+문제의 요는.. 회사 규모가 작으면 기획이든 방향성이든 유연하게 변하게 되고, 문서는 쉽게 outdated되고, 누군가는 그걸 모르게 되고, 이걸 항상 &quot;아 이건 저렇게하기로 했어요&quot;를 알려줘야 한다는 점입니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 268px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0be4d8a32d13c56c5d9318d23286d521/484ae/image-16.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 70.25316455696203%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC2UlEQVR42mNgBQMWFlZuPg5RGV4BCW4eMS5BKS4+SU5eSW5BGR5BaQjiBSIBaR4BGR4uXk6gFjY2NgYQYAQRXLwsQrJsyhp83k6KiR5KsS6KZnrC4nKcovIcooqcEkAkzykmyyGuwMXBww7Ww4TQzMbDoqYvVJdsOTHJsiFEpzfGqMBDRUSCg0+ZS0CTS1CLi1+DU0iVS0SZm50PqJmJkZEZoZmBm9nTVbE/2bozxrwhWLc+QCPKQlJGgV/GVERIl09Ij59fl09Aj09MT4BLEKyZCUkzEz9TqI9Kb6LVhBSHjmjztjCDEDMpMTleWXMJUVNJKTNxIEPOUkzJSZpPmhekiQnZ2SJsHs6yVcF6bXGWdREmteHGxX66VhbSkhZS/IbCEpaSsjYyak7yKu5yfDK8CPcygikOKQ7/YK2WGIvacMN8f63CQO3qEGNHF3kJRxlJW2lpJ3k5FwU1N2VDH1V+iM3ImjmlOO0DVWfmufckWHXH23QlWNVGmXp6qaq6y6n56Yg7Ksm6qah6qWv5avDI8CHbDKIFZPk1fJVifDQbAk0mpLpOTHLpSHQPivPU99fSDTaRddBQ8NTU8tNQ8Vbkh2pmRJD8sjzSnpL+UeYzcoM7kp0a0gP6p05sW7spuCzTLMXfONFZN8xEzVdZPUAJaA1YFxMDCwsLJK1ommi1zOtYuW3lvAXTy8rz52zdNffQ2YXHzqw8fnzalg2+ldmqkVaagQa6wQbCimJMDMysrOwgO5mZQTHm6eN15saFzbt3FOdXN81eOmXP8dl7jy4+fmLpseM7z5+pX7lUONBeyEVZ0lWBS4IH6ufc3Nz8/PzUlJSZs2ffe/Jo1549G+Yu23ng8IbjZ3acOr/zNJA8u/fcpU1HjlZN7quZ1tI8t7O0rjw7Kzs3L4/hPxL4/ev37du3n7988eTJo8cPHz64f+/Gtavnz559/Ojh/Xt3Hj148PfvX2T1AFj44mKtWN34AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;잔상입니다만?&quot;
+        title=&quot;&quot;
+        src=&quot;/static/0be4d8a32d13c56c5d9318d23286d521/484ae/image-16.png&quot;
+        srcset=&quot;/static/0be4d8a32d13c56c5d9318d23286d521/c26ae/image-16.png 158w,
+/static/0be4d8a32d13c56c5d9318d23286d521/484ae/image-16.png 268w&quot;
+        sizes=&quot;(max-width: 268px) 100vw, 268px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;특히 두 번째 외주할 때는 이게 심해서, &quot;그거 저번에 시연했을 때 그대로 가기로 했어요&quot; 이런말을 진짜 매 건마다 하는 저를 발견했어요&lt;br&gt;
+그냥 나나 누구든 실제 깊게 관여된 사람이 하는게 속편한가? 싶지만 자원 측면에서 봤을 때 그러기는 또 힘들구요.&lt;br&gt;
+그래서.. 이건 앞으로도 계속 겪을 수 있는 문제인 것 같아 개선하신 스토리를 재밌게 봐뒀던 기억이 있어요&lt;br&gt;
+팀원들 간에 소통과 공유가 가장 중요한 듯 하긴 합니다&lt;/p&gt;
 &lt;p&gt;그리고 생각보다 질문을 주저하지 않는게 어렵긴했습니다&lt;br&gt;
 어지간하면 혼자 해결하려고 막 문서든 코드든 뒤져보고 심지어 가끔 백엔드 코드도 열어볼 떄가 있었는데&lt;br&gt;
 결국 일은 같이 하는거니까 물어봐야 할 때가 언젠가는 오더라구요.&lt;br&gt;
@@ -565,21 +603,55 @@ UI/UX개선은 아예 제 앞자리 디자이너분께서 전권을 위임받으
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;인정받는다는 주관적인 기준이고,, 일단 떠난건 맞네요. ㅋㅋㅋ&lt;/p&gt;
 &lt;p&gt;암튼간에 인턴으로 일하며 실무능력 뿐만 아니라&lt;br&gt;
-나는 어떤 회사에 가고 싶은지? 어떤 경력을 쌓고 싶은지?&lt;br&gt;
+팀원들과의 협업.. 고객사와의 소통과 조율.. 일정관리.. 등..&lt;br&gt;
+학생으로서는 배울 수 없는 많은 것을 배웠지만&lt;br&gt;
+특히나 나는 어떤 회사에 가고 싶은지? 어떤 경력을 쌓고 싶은지?&lt;br&gt;
 어떤 동료가 되어야 할지? 어떤 노력을 해야 하는지?&lt;br&gt;
 이런 생각들을 하게 되고 답을 찾으려 해보는 것 자체로 너무 좋은 경험이었습니다&lt;br&gt;
-이런 생각은 보통 그냥 학생일 때, 또는 취준할 때는 고민하기 힘들고 실제로 겪어봐야 아는 것 같아요&lt;/p&gt;
-&lt;p&gt;제가 좀 고민에 빠졌을 때 누군가 &lt;a href=&quot;https://m.blog.naver.com/1lsang_/223325365476&quot;&gt;찰리 멍거의 커리어 원칙&lt;/a&gt;에 대해 소개해주셨는데요&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;스스로 사지 않을 것은 팔지 말라&lt;/li&gt;
-&lt;li&gt;존경할 수 있는 사람과 일하라&lt;/li&gt;
-&lt;li&gt;즐겁게 일할 수 있는 사람과 함께 일하라&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;아.. 이게 진짜 제가 찾던 그것이네요&lt;br&gt;
-사실 이 중 하나라도 잘 충족되는 회사라면 너무 좋은 회사인게 아닐지?&lt;/p&gt;
+보통 그냥 학생일 때, 또는 취준할 때는 이런 고민에 도달하기 힘들고 실제로 겪어봐야 아는 것 같아요&lt;/p&gt;
+&lt;p&gt;그래서 결론은 저는.. 제가 생각한 일하고 싶은 회사는 몇 가지가 있는데&lt;br&gt;
+내가 재밌어할 수 있는 도메인이었으면 + 보고 배우고 싶은 사람이 있었으면 + 사람 사는 것처럼 재밌게 일할 수 있었으면 + 도움되고 재밌는 경험을 많이 할 수 있었으면&lt;br&gt;
+등등이 있네요&lt;br&gt;
+인턴하던 회사는 이를 일부분 만족하긴 했지만&lt;br&gt;
+이제 가려는 곳은 이를 대부분 충족하는 곳이라고 느꼈고 감사한 기회를 잡게 됐습니다&lt;/p&gt;
 &lt;p&gt;아무튼&lt;br&gt;
-새로운 경험 새로운 시작을 앞두고 꽤 기대도 되고 사알짝 걱정도 되네요&lt;br&gt;
-아좌좍~&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Three.js 공식문서로 시작해보기. - 6]]></title><description><![CDATA[! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다. 오늘은 Three.js 공식문서 > Fundamentals…]]></description><link>https://sungpaks.github.io/til/how-to-threejs-6/</link><guid isPermaLink="false">https://sungpaks.github.io/til/how-to-threejs-6/</guid><pubDate>Sun, 15 Dec 2024 12:37:51 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+새로운 경험 새로운 시작을 앞두고 꽤 기대도 되고 사알짝 걱정도 되네요&lt;/p&gt;
+&lt;p&gt;아 참 그냥 혼자 대충 적어본 새해 목표도 보여드립니다&lt;br&gt;
+선언효과 머시기..&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5cfb125c601c5756f82b386e203fb499/7960f/image-17.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 37.34177215189873%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAABYlAAAWJQFJUiTwAAAA8UlEQVR42o1R546DYAzjPdij0oHYe5XN+z+SL4kOVFWVrj8sOckXExslDEPM84wgCGAYBmzbhmVZME1TwNzzPLiue4PfOI4j/YtffcWkhbbr8JwmrOuK4ziwLIvwvu+RJAk6mldVhTzPURQFsixDXddomgZpmiKOY5nzUQpfVVPRt+09jKJIliPiqqoKNE0TB6/QdV1cvPYUbhQktNNVZVmKIMP3fRR0SUMfy2jO9fvyJyic0TiOYnHfd7HLNVv9eTwE3l8+Xwnyo43EzvPERDlu2yY/iUU5bLbL1hj/id2CbJVDHoZBcmTOIbPgt0KX4C/WmM3tlW6VhQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;새해 목표&quot;
+        title=&quot;&quot;
+        src=&quot;/static/5cfb125c601c5756f82b386e203fb499/f058b/image-17.png&quot;
+        srcset=&quot;/static/5cfb125c601c5756f82b386e203fb499/c26ae/image-17.png 158w,
+/static/5cfb125c601c5756f82b386e203fb499/6bdcf/image-17.png 315w,
+/static/5cfb125c601c5756f82b386e203fb499/f058b/image-17.png 630w,
+/static/5cfb125c601c5756f82b386e203fb499/40601/image-17.png 945w,
+/static/5cfb125c601c5756f82b386e203fb499/78612/image-17.png 1260w,
+/static/5cfb125c601c5756f82b386e203fb499/7960f/image-17.png 1274w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;아좌좍~&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Three.js 공식문서로 시작해보기. - 6]]></title><description><![CDATA[! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다. 오늘은 Three.js 공식문서 > Fundamentals…]]></description><link>https://sungpaks.github.io/til/how-to-threejs-6/</link><guid isPermaLink="false">https://sungpaks.github.io/til/how-to-threejs-6/</guid><pubDate>Sun, 15 Dec 2024 12:37:51 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;오늘은 &lt;a href=&quot;https://threejs.org/manual/#ko/tips&quot;&gt;Three.js 공식문서 &gt; Fundamentals &gt; 여러 팁들&lt;/a&gt;에 대해 살펴보려고 합니다&lt;/p&gt;
