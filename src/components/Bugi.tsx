@@ -95,8 +95,8 @@ export default function Bugi(toc: any) {
   const startWalk = (method: "click" | "auto") => {
     if (
       (method === "click" && dragged) ||
-      isWalking ||
-      !animationFrameId.current
+      isWalking /* ||
+      !animationFrameId.current */
     )
       return;
 
