@@ -556,7 +556,7 @@ body.theme-reverse .top-ui-title a {
   text-shadow: 2px 2px 2px darkgray;
   transition: all 0.5s ease;
   transform: scale(1.05);
-  color: rgba(109, 158, 12);
+  /* color: rgba(109, 158, 12); */
 }
 
 .top-ui-title:active {
