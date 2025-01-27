@@ -1,5 +1,5 @@
 ---
-title: "햄부기온앤 "
+title: "애니메이션에서 Reflow를 완전히 제거하고 성능을 약 20% 개선하기"
 date: 2025-01-18 14:14:48
 description: "설명"
 tag: ["JavaScript", "Chrome Extension"]
@@ -86,6 +86,8 @@ Chromium계열 브라우저에서 사용하는 개쩌는 렌더링 아키텍처�
 일단은 이동 애니메이션에서 위치를 `transform`으로 제어하게 하고  
 이것이 실제로 Layout단계를 건너뛰는지, 레이어는 잘 분리되는지, 실제로 성능은 개선되는지,  
 이러한 내용을 알아보고자 합니다
+
+> 가설 : `transform`을 적용하면 Layout단계를 스킵하고 실제로 매 렌더링마다 드는 비용(duration 등)이 감소한다
 
 ## 성능 확인 방법
 
@@ -202,3 +204,112 @@ updatePosition() {
   `;
 }
 ```
+
+# before & after 비교 분석하기
+
+이제 개선 버전의 햄부기가 완성되었으니 정말 변화가 있는지 봐야겠어요  
+진짜 최대최대로 확대해서 렌더링 태스크 하나만 골라서 봐보면..
+
+![Before Ver.](image-8.png)
+
+![After Ver.](image-9.png)
+
+이래서는 정확히 알기 힘들겠죠??  
+그리고 실험은 응당 많은 표본을 통계를 내야합니다  
+이 성능 측정 데이터인 Trace.json을 다운로드해서 이걸 파싱하고 분석하면 좋겠는데요
+
+## Trace.json 파싱, 분석하기
+
+위에서 찾은 Trace의 Format에 대한 글 + GPT에게 도움을 받아 Trace를 파싱하고 분석하는 `parseTrace.js`파일을 작성했습니다
+
+```js
+const fs = require("fs");
+
+// 특정 이벤트 분석 함수
+function analyzeTrace(data) {
+  const events = data.traceEvents;
+
+  // 관심 있는 이벤트 필터링 (예: Layout, Paint)
+  const layoutEvents = events.filter(
+    event => event.name === "Layout" && event.ph === "X"
+  );
+  const paintEvents = events.filter(
+    event => event.name === "Paint" && event.ph === "X"
+  );
+
+  console.log(`Layout events: ${layoutEvents.length}`);
+  console.log(`Paint events: ${paintEvents.length}`);
+
+  // 평균 소요 시간 계산
+  const layoutDuration =
+    layoutEvents.reduce((sum, event) => sum + (event.dur || 0), 0) / 1000; // ms
+  const paintDuration =
+    paintEvents.reduce((sum, event) => sum + (event.dur || 0), 0) / 1000; // ms
+
+  console.log(`Total Layout Duration: ${layoutDuration.toFixed(2)} ms`);
+  console.log(`Total Paint Duration: ${paintDuration.toFixed(2)} ms`);
+
+  // 전체 실행 시간 계산
+  const totalTime =
+    parseInt(data.metadata.modifications.initialBreadcrumb.window.range) / 1000; // ms
+
+  console.log(`Total Trace Time: ${totalTime.toLocaleString()} ms`);
+}
+
+// 분석 실행
+const traceDataBefore = JSON.parse(
+  fs.readFileSync("./Trace_Before.json", "utf8")
+);
+console.log("--------------Before Start----------------");
+analyzeTrace(traceDataBefore);
+console.log("--------------Before End----------------");
+
+const traceDataAfter = JSON.parse(
+  fs.readFileSync("./Trace_After.json", "utf8")
+);
+console.log("--------------After Start----------------");
+analyzeTrace(traceDataAfter);
+console.log("--------------After End----------------");
+```
+
+간단히 Layout 단계와 Paint 단계는 몇 번 일어나는지, 각각의 단계에 소요된 시간은 어느정도인지를 출력하게 했습니다  
+일단 이게 파싱과 계산이 잘 된건지 확인하기 위해 Before만 한번 돌려보겠습니다
+
+![Before를 DevTools에서 보면](https://i.imgur.com/7f1BLQN.png)
+
+위와 같은 결과를 json파일로 다운로드받아 실행하여 출력을 보니 아래와 같았습니다 :
+
+![Before 파싱결과 예시](image-10.png)
+
+전체 시간 범위, Layout 단계의 duration, Paint 단계의 duration 등 모두 잘 일치하네요  
+잘 계산되었습니다
+
+## 결과는??
+
+<figure>
+
+![Before & After](https://i.imgur.com/h53KG68.png)
+
+<figcaption>parseTrase.js 실행결과</figcaption>
+</figure>
+
+<figure>
+
+![Before in devtools](https://i.imgur.com/R63341G.png)
+
+<figcaption>DevTools상에서 Before 표본의 Bottom-up 지표 (위에서 쓴 것과 동일)</figcaption>
+</figure>
+
+<figure>
+
+![After in devtools](https://i.imgur.com/BDbl33t.png)
+
+<figcaption>DevTools상에서 After 표본의 Bottom-up 지표</figcaption>
+</figure>
+
+각 기록은 5초 간의 걷기 애니메이션을 모두 담도록 했습니다.  
+실제로 이전에는 5초 간 900번 트리거되었던 **Layout 단계가 0회로 아예 사라졌습니다!!**  
+특히 Layout단계는 Self time(하위 activity 실행시간을 제외한 해당 activity 자체 시간)에서 가장 큰 비중을 차지했는데, 완전히 사라져버렸네요.  
+증명에 성공해버렸습니다..
+
+#

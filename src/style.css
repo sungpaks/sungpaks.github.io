@@ -498,25 +498,35 @@ body.theme-reverse .custom-button {
   color: light-dark(black, white);
 }
 
-.top-ui {
+.top-ui-container {
   z-index: 10;
   position: fixed;
-  vertical-align: middle;
+  top: 0;
+  left: 0;
+  height: 54px;
+  width: 100vw;
   padding-left: 20px;
-  padding-right: 5px;
-  width: 100%;
-  height: 70px;
-  border-bottom: 1px solid black;
+  padding-right: 20px;
   background-color: light-dark(rgba(245, 245, 245, 0.95),
       var(--color-lightdark-translucent));
+  border-bottom: 1px solid black;
+  transition: background-color 0.2s ease-in, color 0.2s ease-in;
+}
+
+.top-ui {
+  vertical-align: middle;
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-family: "Pretendard";
-  transition: background-color 0.2s ease-in, color 0.2s ease-in;
+  max-width: var(--maxWidth-wrapper);
 }
 
-body.theme-reverse .top-ui {
+body.theme-reverse .top-ui-container {
   background-color: light-dark(var(--color-lightdark-translucent),
       rgba(245, 245, 245, 0.95));
 }
@@ -534,6 +544,8 @@ body.theme-reverse .top-ui {
   width: fit-content;
   color: light-dark(black, white);
   transition: all 0.5s ease;
+  margin: 0;
+  font-weight: 500;
 }
 
 body.theme-reverse .top-ui-title a {
@@ -622,6 +634,7 @@ body.theme-reverse .tag-button {
   color: light-dark(rgb(88, 88, 88), --color-light);
   transition: all 0.5s ease;
   font-weight: var(--fontWeight-bold);
+  height: 24px;
 }
 
 body.theme-reverse .top-ui-tag {
@@ -636,7 +649,8 @@ body.theme-reverse .top-ui-tag {
 }
 
 .progress-bar {
-  top: calc(70px - 4px);
+  top: calc(54px - 4px);
+  left: 0;
   z-index: 10;
   position: fixed;
   height: 4px;
@@ -930,4 +944,6 @@ body.theme-reverse svg {
   display: flex;
   flex-direction: row-reverse;
   gap: 8px;
+  align-items: center;
+  height: 100%;
 }

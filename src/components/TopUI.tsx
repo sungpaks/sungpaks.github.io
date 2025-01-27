@@ -4,10 +4,19 @@ import { useStaticQuery, graphql } from "gatsby";
 import { Link } from "gatsby";
 import { useEffect, useState } from "react";
 import { CommentIcon, DarkIcon, TagIcon, ThemeIcon } from "./Icons";
+import {
+  IconMessageUser,
+  IconMoon,
+  IconSun,
+  IconSunMoon,
+  IconTags
+} from "@tabler/icons-react";
 
 interface ComponentProps {
   setCurTag?(value: string): void;
 }
+
+const STROKE = 1.5;
 
 function TopUI({ setCurTag }: ComponentProps) {
   const [scrollPercent, setScrollPercent] = useState(0);
@@ -16,9 +25,9 @@ function TopUI({ setCurTag }: ComponentProps) {
   const THEME_REVERSE = "theme-reverse";
   const KEY_THEME = "theme";
   const [preferDark, setPreferedDark] = useState(false);
-  const LIGHT_MODE = <ThemeIcon />;
-  const DARK_MODE = <ThemeIcon />;
-  const [curMode, setCurMode] = useState(<ThemeIcon />);
+  const LIGHT_MODE = <IconMoon stroke={STROKE} />;
+  const DARK_MODE = <IconSun stroke={STROKE} />;
+  const [curMode, setCurMode] = useState(<IconSunMoon stroke={STROKE} />);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,16 +56,16 @@ function TopUI({ setCurTag }: ComponentProps) {
   }, []);
 
   return (
-    <div>
+    <div className="top-ui-container">
       <div className="top-ui">
-        <h5 className="top-ui-title" style={{ margin: 0 }}>
+        <h5 className="top-ui-title">
           <Link
             to="/"
             onClick={() => {
               if (setCurTag) setCurTag("ALL");
             }}
           >
-            👍 &nbsp; 조성개발실록
+            조성개발실록
           </Link>
         </h5>
         <div className="top-ui-tag-container">
@@ -95,25 +104,15 @@ function TopUI({ setCurTag }: ComponentProps) {
           <div className="top-ui-tag" style={{ margin: "0 0 0 0" }}>
             <div className="tooltip">
               <Link to="/tag">
-                <TagIcon />
+                <IconTags stroke={STROKE} />
               </Link>
               <div className="tooltip-text">태그</div>
             </div>
           </div>
-          {/* <div className="top-ui-tag">
-            <div className="tooltip">
-              <Link to="/til">📝 </Link>
-              <div className="tooltip-text">
-                <span className="smaller">TIL</span>
-                <br />
-                <span className="x-small">Today I Learned</span>
-              </div>
-            </div>
-          </div> */}
           <div className="top-ui-tag">
             <div className="tooltip">
               <Link to="/visitor-log">
-                <CommentIcon />
+                <IconMessageUser stroke={STROKE} />
               </Link>
               <div className="tooltip-text">방명록</div>
             </div>
