@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link, graphql } from "gatsby";
 import { useState } from "react";
 import { useEffect } from "react";
-import Bio from "../components/Bio";
+import memoImage from "../images/memo.png";
 import Layout from "../components/Layout";
 import Seo from "../components/seo";
 import { FC } from "react";
@@ -88,7 +88,10 @@ const VisitorLog = ({ data, location }: ComponentProps) => {
       <div className="bio">
         <p>
           <br />
-          📖✍️방명록입니다~💬
+          <p style={{ textAlign: "center" }}>
+            <img src={memoImage} alt="메모.." width="100px" height="auto" />
+            방명록 쓰실래요?
+          </p>
         </p>
       </div>
       <Giscus
