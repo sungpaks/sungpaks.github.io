@@ -312,4 +312,81 @@ console.log("--------------After End----------------");
 특히 Layout단계는 Self time(하위 activity 실행시간을 제외한 해당 activity 자체 시간)에서 가장 큰 비중을 차지했는데, 완전히 사라져버렸네요.  
 증명에 성공해버렸습니다..
 
-#
+# 레이어가 많아졌어요
+
+위에서 `transform`같은 프로퍼티를 사용하여 레이어를 분리하고 Layout단계를 건너뛰었는데요  
+그런데 MDN의 중요 렌더링 경로에 대한 글에서 이런 내용이 있습니다
+
+> 레이어는 성능을 향상시킵니다. 하지만 메모리 관리 측면에서 봤을 때는 비싼 작업입니다. 따라서 웹 성능 최적화 전략으로 과도하게 쓰이지는 않아야 합니다.
+
+레이어를 너무 양산하지 말라고 하네요.  
+그런데 문득.. 햄부기의 인스턴스마다 각각의 레이어가 생기고 있는게 아닌가? 라는 생각이 들었습니다.
+
+이를 확인하기 위해 크롬 개발자도구에서 Layers 탭에 들어가봤습니다
+
+![Chrome DevTools - Layers](image-11.png)
+
+이렇게 생긴 곳인데요.  
+위에서와 같은 레이어 분리를 적용한 햄부기 인스턴스를 50개 만들어봤습니다
+
+![레이어가 50개 생겼어요](image-13.png)
+
+햄부기 하나 당 하나의 레이어가 생긴 것을 확인할 수 있었습니다  
+구글 크롬 Web.dev 컨텐츠에서는 [너무 많은 레이어를 생성하지 않도록 주의](https://web.dev/articles/stick-to-compositor-only-properties-and-manage-layer-count?hl=ko#manage_layers_and_avoid_layer_explosions)해야함을 경고하고 있습니다  
+따라서 이 햄부기들을 위한 하나의, 통일된 레이어를 만들어봐야겠습니다.
+이를 위해서는 간단히 *모든 햄부기 요소를 위한 공통 부모 컨테이너*만 하나 추가해주면 되는데요
+
+```js
+if (!window.bugiContainer) {
+  const container = document.createElement("div");
+  container.id = "bugi-container";
+  document.body.appendChild(container);
+  window.bugiContainer = container;
+}
+```
+
+이를 위해 컨테이너가 될 요소를 하나 만든 다음,
+
+```css
+#bugi-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* 부모 컨테이너 클릭 방지 */
+  pointer-events: none;
+  /* 레이어 격상 - translateZ 또는 will-change 속성 */
+  will-change: transform;
+  transform: translateZ(0);
+}
+```
+
+화면 전체를 덮게 하고,  
+`translateZ(0)`또는 `will-change`속성으로 레이어를 분리. 격상합니다
+
+이제 햄부기가 생성될 때는 아래와 같이,
+
+```js
+//document.body.appendChild(this.img);  원래..
+//document.body.appendChild(this.tooltip);
+window.bugiContainer.appendChild(this.img);
+window.bugiContainer.appendChild(this.tooltip);
+```
+
+body에 직접 집어넣던 것을 bugiContainer로 넣어줍니다  
+이러면 이론상 `bugiContainer`라는 단 하나의 레이어만이 추가적으로 분리되었고,  
+각 햄부기 요소들은 이 안에서 존재해야 합니다.  
+확인해보면..
+
+![공통 레이어](image-14.png)
+
+추가적인 레이어는 `div#bugi-container` 단 하나만 존재함을 알 수 있습니다
+
+---
+
+TODO?
+
+- 뷰포트가 줄어들면 햄부기들의 위치 또한 이에 따라 반응형으로 이동하게 하기
+- `requestAnimationFrame` 콜백을 하나로 관리하기
+  - 최근 읽은 [requestAnimationFrame의 성능이슈 관련 글](https://velog.io/@k-svelte-master/optimize-request-animation-frame-frontend#requestanimationframe%EA%B3%BC-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%9F%B0%ED%83%80%EC%9E%84-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)에서 영감을 받았습니다.
