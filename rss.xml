@@ -1,4 +1,978 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 12 Jan 2025 12:50:08 GMT</lastBuildDate><item><title><![CDATA[🔨 햄부기 기능 업데이트 - 팝업 패널, 다중그림자분신술, 관성운동]]></title><description><![CDATA[안녕하세요 오늘은 귀여운 햄부기로 다시 돌아왔습니다 햄부기 1.2.…]]></description><link>https://sungpaks.github.io/chrome-extension-feature-updates/</link><guid isPermaLink="false">https://sungpaks.github.io/chrome-extension-feature-updates/</guid><pubDate>Mon, 06 Jan 2025 22:14:39 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 30 Jan 2025 16:25:07 GMT</lastBuildDate><item><title><![CDATA[⚡️ 웹 애니메이션에서 Reflow를 건너뛰고 렌더링 성능을 개선하기]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/chrome-extension-performance-optimization/</link><guid isPermaLink="false">https://sungpaks.github.io/chrome-extension-performance-optimization/</guid><pubDate>Sat, 18 Jan 2025 14:14:48 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 210px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/914318c937525a8cfef0798d93e7da01/65ed1/image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 114.55696202531647%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAIAAACEf/j0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAFGUlEQVR42o1U/VPSdxz/3LZ2V3tqndXutjVnpXVu09zEhFzkIwqUomCa4kNkWKaQGmFKmaKGKIiSoJ05dcqZpYK6Ss1HJAm1AEsNH4lTy56srm6dtvdpf8BeP7zv9Xk/fV7v9/d7HzQ3NzcyMjI5OWkwGMbGxoxG4/j4+P37981m89TUlMViGR0dnV4BhMBCzsuXLz+sAJlMJo1GMzg42N7efvfu3c7OTp1O19fXp1arwTkwMABRvV7fv4J79+4NDQ1Bd6hcXl5Gb968efr06fPnz589ewZ8YWEBGsNxfn4eCBwhCqEXL14sLi4CASfwjzevFqxmP3nyBCzwx48fQyqQ169fr0ahZnZ2FiyE3r1797EYNIAeGBgEg87u7m4Q1tvbC+JhCvCAflALR3BCGkShy0fZsJXV2bRaLfDh4WHTCvR6A1hYDyxsYmICCNiHK3j0yLK8AgSSIMloMDwym+fn5t6+fbva9cP/AILZXr169f79v9MWy5TZAnxqZsbw4IFWp7ut1Q4ODRmMxjGTaXJ6pk9zu729o7nlRmtbR6+6H3aBFAoFfNKlpaWb2jsqTf/75aVLNVVkOh1HIBGpISGHo85kpqfws8Ijj2B270HoS0pwtA+BitCnIrEYVVZWwpJBw8LiYk1TC/d8BpEWGhbHZqVlJPHSuZnnFap6YbGcHsX09A3wp0S0tHVIZGUIfcXPykbV1dXjExNKlepgRKQz3tPdz/93N4/oBE6O6GJgSBgrNe16960yRe3ZTIGi7pq0uMQVT8B6kOMTz8hlcnSxWEYgUuwcnG0cMd6U4PRzaaGRUWkXCi/XNGyzcz5Ijy2rqErhpcexkx1d3FLTUtOSkvPyRMT9AbnCPCQqEFvbO+K8yB4kGjWcwUtN8aMEevoHMxOSjsXG02gh+/eTfvvVITwiJozJio6JDSeSOAnxGzd/n5HBR2JJgY2D64FDh48ncyNj2UKhhHWKe4TNYbKTqZQArJOjj5trLCOGSKbGnTpnvd3RGbPnGDPel0jJyxej3DyRhxc1IfnsvgCaw15vgUBUXl4hLC51xuKD/AgcRqjkXGLS8aMsaMdMsLXd5fjHXiqNzjgaly8SoeycXKJXUGV5lVAkKbn0l0xeIRBJI+jh9rY76UFBdRcFvfXVnJMn/EgHfthit2btJidn/C6n3Xh3YtnlyyiTn/3pZ1beHhQul999+05Nc7vggvCwP5nHii0VZmpVtV2NipST8TgX17VrN6z54juMizt2916EPsnLz0c5F3IQQm4etIrqxqYebWllVfgBEjc2upif1q4o07Wq+Dzun65Yu+1269ZZWf/8C8YJ67vP99v1m7OyclCRVOpGCvOJYrGzRAXycnoQhRkSmJuapCwpUitrdbeaa8tKt2zYhMPgNm78yWqD9defW3nt89y2bUdRkRTJS2QNbbc0ozMNHZpQ6kGanw+PdUycfqaztrJHWadpaxroajseEWW/097Gxm79N5t+3LwlhBJIJvtKJBIkk8m6unrh98zg8bxxbokxjPOJrFp5gabxSpvy6o3Guq7ryvJSOQaDk0qLMC5YdzyezTzCiDhUUCBGOdkCzml+kaTIaceOYCKRzYjKTeV01lV1X7vS0dzQ0VSvbr0eQgsmEMhCYe7WrbYkIun0yYTk+BOFhYXwGExXVteolKobLf/09fT0q3sejgzPTIyaJ03myfFZ88ysxXy1rr71Zhs8KX9X1cDbaDTojXq9xWL5DxL8R8WtbAcXAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;햄부기온앤온&quot;
+        title=&quot;&quot;
+        src=&quot;/static/914318c937525a8cfef0798d93e7da01/65ed1/image.png&quot;
+        srcset=&quot;/static/914318c937525a8cfef0798d93e7da01/c26ae/image.png 158w,
+/static/914318c937525a8cfef0798d93e7da01/65ed1/image.png 210w&quot;
+        sizes=&quot;(max-width: 210px) 100vw, 210px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;오늘은 햄부기햄북 햄북어 햄북스딱스 함부르크햄부가우가 햄비기햄부거 햄부가티햄부기온앤 온 의 애니메이션 성능을 최적화해볼게요&lt;br&gt;
+참고로 엥? 햄부기가 뭔데요? 하신다면&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;♜♜&lt;a href=&quot;https://chromewebstore.google.com/detail/bugi-and-friends-121/cidndoahplamogkfaimmahedcnakjnag?hl=ko&quot;&gt;즉시설치&lt;/a&gt;☜☜평생무료획득♜♜&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;들어가기에 앞서, 이런 내용을 준비했습니다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;렌더링 성능 최적화&lt;/strong&gt;를 위한 &lt;strong&gt;배경지식&lt;/strong&gt;: 중요 렌더링 경로, Chrome의 렌더링 파이프라인&lt;/li&gt;
+&lt;li&gt;위 배경지식을 토대로 크롬 확장프로그램의 애니메이션 &lt;strong&gt;성능 최적화를 위한 가설&lt;/strong&gt; 수립&lt;/li&gt;
+&lt;li&gt;실제로 확인하기 위해 &lt;strong&gt;구현&lt;/strong&gt;하고 &lt;strong&gt;성능 지표를 수집, 분석&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;또 &lt;strong&gt;주의&lt;/strong&gt;해야 할 점은?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;배경지식&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B0%B0%EA%B2%BD%EC%A7%80%EC%8B%9D&quot; aria-label=&quot;배경지식 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;배경지식&lt;/h1&gt;
+&lt;p&gt;웹 성능 최적화를 이루기 위해서는, 웹페이지를 사용자에게 보여주기까지 웹브라우저 상에서 어떤 일이 일어나는지부터 알아야겠습니다&lt;br&gt;
+이에 관해 MDN에 &lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/Performance/How_browsers_work&quot;&gt;브라우저는 어떻게 동작하는가&lt;/a&gt;에 대한 글이 있는데, 시간이 많으시면 한번 쭉 읽어보시는 것을 추천드려요. 재밌습니다&lt;br&gt;
+웹페이지를 요청한 이후로 그 웹페이지의 콘텐츠를 사용자에게 보여줄 때까지 브라우저가 무슨 일을 하는지에 대해 나와있는데요,&lt;br&gt;
+이것만 정독하시면 면접에서 &quot;&lt;code class=&quot;language-text&quot;&gt;브라우저에 www.google.com을 입력하면 어떤 일이 일어나나요?&lt;/code&gt;&quot;라고 질문받으셔도 걱정 없을 듯&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 304px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/682f8c2fa59bf92af4681f966e4c4dd5/c1724/image-16.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 54.43037974683544%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVR42gGfAmD9AHh4aEBDPi8yMC0qJjIzLjc4Mzw4NUA7OF5aV2tlYJiWe7i4lHZ0Y9vSr//zxufbsdbNrPbrzPXszPfqyAB0c2JXZWtJX20yMCw1Lys4NzA+OzRGQTxbWVdmY16enYC4u5h4dWTe1LL/9svr3bTbz67778747s/67coAc3NjOjgxJyUgNjErPTgyPzs1REA6SUM+VlVUY2BbmJh6ub6ad3Zk39Wz//rP7OG23tGx/vDN++7L++7LAG1tXTo2MSsmIDYxKz45M0M+OEQ+OEVAOlRSTklGQDkvJHFvWHl3Zd/Vs//7zu/hu+DTsf/yzf7xzv3wzQBoZ1g3MywsJyQ2MSs8ODI+PDRAPTZBPDdNSkpWRDeSZUmcclJrZVLf17X//NHw473i1bP/9M3+8c7878wAZWVVNzUsKScjMy4oOjUvOjkyPTkzR0M9UktHkWVLu39avohfdGtU2tKz//bQ7+O94dS0//XR/vLP/fDNAGFhUzY2LSkpJDEsKTc0LTc3LkI/N1ZPRUI/NmlQPLJ2VZloTGNcTt7Ytv//2/fvyejbvf/00v7xzv7xzgBfX1E3Ny0gIyEoJSQrLSgvLilAPDg6NTIqJiE/OCyNY0aJYEdGNyxwalfOxqK7sJHJu53/+NH/89D978wAXV1PNzYsTUUtUkUxU0cwUEUzYFU+XU86SUA0MkZgL0hpNUlkKzxUJTdQIjJIGiU1MkRYe4qY9e3O/fDMAFZWSz85MKuKS76aUruZTJ6CSJV9RK6OSZuGVz1wrkV4uz5noDhekENzsD1rrzNXiS5bkTJcjunm0v/wyQBJSkE6NS9PQi5LQC9USDFMQzBSSDZKQCg7NCQbISkvPEs1PkonLzg3RFKttbXJx7yztqvO0MH16sv77curvTYDVZLBpwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;인재 배달왔습니다&quot;
+        title=&quot;&quot;
+        src=&quot;/static/682f8c2fa59bf92af4681f966e4c4dd5/c1724/image-16.png&quot;
+        srcset=&quot;/static/682f8c2fa59bf92af4681f966e4c4dd5/c26ae/image-16.png 158w,
+/static/682f8c2fa59bf92af4681f966e4c4dd5/c1724/image-16.png 304w&quot;
+        sizes=&quot;(max-width: 304px) 100vw, 304px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;근데 우리 햄부기의 성능을 최적화하는 데는 이 정보가 모두 필요하진 않구요,&lt;br&gt;
+&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/Performance/Critical_rendering_path&quot;&gt;중요 렌더링 경로&lt;/a&gt;에 나오는 내용만 응용하면 됩니다&lt;/p&gt;
+&lt;h2 id=&quot;중요-렌더링-경로&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A4%91%EC%9A%94-%EB%A0%8C%EB%8D%94%EB%A7%81-%EA%B2%BD%EB%A1%9C&quot; aria-label=&quot;중요 렌더링 경로 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;중요 렌더링 경로&lt;/h2&gt;
+&lt;p&gt;브라우저가 웹페이지를 그릴 때 일어나는 일련의 과정은&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;HTML을 파싱하여 DOM(Document Object Model)을, CSS를 파싱하여 CSSOM(CSS Object Model)을 생성&lt;/li&gt;
+&lt;li&gt;DOM + CSSOM =&gt; Render Tree로 합성&lt;/li&gt;
+&lt;li&gt;Layout : Render Tree를 기반으로 요소의 위치와 크기를 결정&lt;/li&gt;
+&lt;li&gt;Paint : 화면에 픽셀을 그려내기
+&lt;ul&gt;
+&lt;li&gt;요소를 별도의 레이어로 분리하여 GPU 레이어로 격상하면 Paint단계의 성능을 높일 수 있습니다.&lt;/li&gt;
+&lt;li&gt;(필요한 경우) Composite : 필요에 따라, 또는 개발자의 조작에 따라 레이어가 나뉘어 Paint되었다면, 이를 합성하여 화면에 그려냅니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bef73d76fa11c195b0ebd80f363b3f14/77abb/image-17.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 84.81012658227847%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAIAAABSJhvpAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB7ElEQVR42n1Ti7KaMBDlZ6yQkBfBBAJCp+KL670+qx1HZzr+/0f0ANVrvdodZids9uyefcQLX4jv+9+uQgh56uN9NTHGgiCo63qz2ex2u/1+n+f5U/wnmFJ688ABgLIsi6IYjUZxHOP2JZgQyrlIUgfd+SE5mHf6f7TBU3CWumyy+m2MhSttjWCDW845u8ojGK7W2LJ6z4elNQOXFVleCM6Rnynd1d8JPNmdNGAET4dlMv7pvk9kpPLxRz4/mDQlQSBnazFd7dq2bbfb9Xrd6/XIVRDdYyblNuM65vEgjKCN0IYnGYttw9gV8/lssVgsl0vgcZjNZuPxGF2UUnqhEMCHXIRC/v14axGiaaPvdySFEEoprXUURaoVGD14iMSK1LFowLSBxhkWGgTCaJFoY4xzzloLGCqnV7l1O5Q2ogFpUiGWjWDBr/7hVJGsPpan0+l4PIJz08W7njdgSqg0Ki4MH2hdWJwpaYckBWaIPZlMJiiyqqrpdPoI7pLHVgAysOJ2ixA0oP1+H+sN/WLDWMMXlc7flEGIgDa0aWgzmQ5lNarqeo6c3dp+2bDGGrqUnX/JxDLUfgPbnB/2h8vlcj6fsero2f2Se3ePKVQKow3/fSo0SZIsy/JWMKrn4Nb74XF2FZFuN7s53dP+AyeOxkjeyUclAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;중요 렌더링 경로&quot;
+        title=&quot;&quot;
+        src=&quot;/static/bef73d76fa11c195b0ebd80f363b3f14/f058b/image-17.png&quot;
+        srcset=&quot;/static/bef73d76fa11c195b0ebd80f363b3f14/c26ae/image-17.png 158w,
+/static/bef73d76fa11c195b0ebd80f363b3f14/6bdcf/image-17.png 315w,
+/static/bef73d76fa11c195b0ebd80f363b3f14/f058b/image-17.png 630w,
+/static/bef73d76fa11c195b0ebd80f363b3f14/40601/image-17.png 945w,
+/static/bef73d76fa11c195b0ebd80f363b3f14/78612/image-17.png 1260w,
+/static/bef73d76fa11c195b0ebd80f363b3f14/77abb/image-17.png 1305w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이 과정을 &lt;strong&gt;중요 렌더링 경로(Critical Rendering Path, CRP)&lt;/strong&gt; 부릅니다&lt;br&gt;
+또는 &lt;a href=&quot;https://webperf.tips/tip/browser-rendering-pipeline/&quot;&gt;Broswer Rendering Pipeline&lt;/a&gt;라고도 하는 듯&lt;br&gt;
+그리고 Layout단계의 재계산을 Reflow(크롬에서는 Layout 재계산)라고 부르며,&lt;br&gt;
+Paint단계를 다시 실행하는 것을 Repaint라고 합니다&lt;/p&gt;
+&lt;p&gt;웹 성능 최적화를 위해서는 이 CRP의 길이를 최소화하고 병목 구간을 줄이기 위해 힘써야겠습니다.&lt;/p&gt;
+&lt;h2 id=&quot;chrome-브라우저-렌더링-파이프라인&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#chrome-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8&quot; aria-label=&quot;chrome 브라우저 렌더링 파이프라인 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Chrome 브라우저 렌더링 파이프라인&lt;/h2&gt;
+&lt;p&gt;위에서 살펴본 중요 렌더링 경로가 크롬 브라우저에서는 어떻게 진행되고, 이를 어떻게 분석하면 좋을지 궁리해야겠는데요&lt;br&gt;
+이에 관해 크롬에서 &lt;a href=&quot;https://developer.chrome.com/docs/chromium/renderingng-architecture?hl=ko&quot;&gt;RenderingNG의 아키텍처&lt;/a&gt;에 대해 쓴 글이 있습니다&lt;br&gt;
+RenderingNG에서 NG는 Next Generation이라는 뜻인데요&lt;br&gt;
+Chromium계열 브라우저에서 사용하는 개쩌는 최신 렌더링 아키텍처라고 합니다&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2e0fa950ea71f28eb82ef8b3d1696b5b/1df5b/image-18.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 98.73417721518987%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAADKElEQVR42o1U227cVBT1V/cXUB8LBFU8QFEeKESqkChFiCaTljQ0atMkoEzazEzG4/H4dmwf2+d+NdvjEG4vHG1v+ba3115rHQd933vf+/52ud47yNs7kMcYnzrv714bqvo+MNqVa4ET6a2X2iGiy86UVBWUVpxXnGJBC6ZzpiCYtmOXsWPAGrO6IOsppbXhwrw87L7+lH7/NNw5+ObRy2e7x989nOztHEX3fshfLNtNJ2YVy6gMG77pZABNtHBGAdiecbspJapMjlmEq2VVRzVeVc26ESuskk5yY43zrQS4HiLQ0hk5FCthO6SbWlfaUOO06zOmW2WFddw4qu3dzLUw49gBxSb5wNIZK1bCCRdjtTcn7zI+rcQS8xvMQszXrYhaYbe1cGBhxi4DYQwbQWxbqC5X6068zbs5ZhmXMZUx0VGrIK9a1fz5wb++7Jx3rrfGG+0lsWkh54m8CvkslPOUzFB+ESdncXQWx4gJIFlbD5wr62D4gGGNQpHNOVoJq12WiP1n9OmTbvcrMnmdfzL5eef55NHRj3tvDlPSFMycpu0lIlNEgLYAqCqWPJvxeiM1t6iWjBpg7Pc1++gAPfgFpZ2ESYGtimuACuCBgvE8ABakdIQYrZ0UDiFVcl0zQ5RddRJxDSAbaWFOLA1ABeRw6bbtAjj0VgPQrcVGKmCgf1+LlGlQZ9nIK2wioqHM+h6ytB4MB9QbKB4UZnbMVg8SpFQtsDjNWCP9ZZF9eX64f3O53QK31gYIt2y3SMdXFAbOFpy3BsSc1zwlaorYaUqXdXccrS+yCqCOIkNU3Ix9AtYaYLuMRb5gHdZY6VKolMqCqbijKeWdgmkl8NjIwWVQM4x8q7P1IDKE6Axp1KuQ3v+p/OwIX+XN4+Ozb09+fXyyv3t08vnBi+siqaUPMYtbcV0NvYK7/em0p52JWvkByVkpb2q6QMX7PA3rPKzqWVEVlAOpxg32AJMMbP9te/dAm2a2onqyqDOi4M67hB8uKPh6/Gf8a/2jeHiq+t/W+OGbaUkHG+yerz5+fT0r+f8rHjykLzYYIML5edJ+cRLuXxdg6f4/6w8Kgmiq0QUWXQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;RenderingNG&quot;
+        title=&quot;&quot;
+        src=&quot;/static/2e0fa950ea71f28eb82ef8b3d1696b5b/f058b/image-18.png&quot;
+        srcset=&quot;/static/2e0fa950ea71f28eb82ef8b3d1696b5b/c26ae/image-18.png 158w,
+/static/2e0fa950ea71f28eb82ef8b3d1696b5b/6bdcf/image-18.png 315w,
+/static/2e0fa950ea71f28eb82ef8b3d1696b5b/f058b/image-18.png 630w,
+/static/2e0fa950ea71f28eb82ef8b3d1696b5b/40601/image-18.png 945w,
+/static/2e0fa950ea71f28eb82ef8b3d1696b5b/78612/image-18.png 1260w,
+/static/2e0fa950ea71f28eb82ef8b3d1696b5b/1df5b/image-18.png 1999w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figcaption&gt;출처: https://developer.chrome.com/docs/chromium/renderingng&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;위 글을 살펴보면 Chrome브라우저에서 렌더링은 아래와 같은 과정을 거치며 이를 &lt;strong&gt;렌더링 파이프라인&lt;/strong&gt;이라고도 부릅니다. (각 단계의 설명은 단순하게 요약되었습니다)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Animate: 스타일 속성이 변경됨&lt;/li&gt;
+&lt;li&gt;Style: CSS를 DOM트리에 적용(Render Tree를 합성하듯이)하고, &lt;em&gt;계산된 스타일&lt;/em&gt;을 생성&lt;/li&gt;
+&lt;li&gt;Layout: DOM 요소들의 화면 상 위치와 크기 등을 결정&lt;/li&gt;
+&lt;li&gt;Pre-paint: 레이어를 구성하기 위한 직전 단계로, 아래와 같은 작업들을 포함 :
+&lt;ul&gt;
+&lt;li&gt;기존 페인트 목록 등을 무효화&lt;/li&gt;
+&lt;li&gt;property tree : &lt;code class=&quot;language-text&quot;&gt;transform, opacity&lt;/code&gt;등의 속성은 별도의 속성 트리로 관리했다가 레이어를 병합&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Scroll: 문서 또는 스크롤 가능한 DOM요소의 스크롤 오프셋을 업데이트&lt;/li&gt;
+&lt;li&gt;Paint: DOM요소를 실제로 어떻게 그려낼지에 대한 데이터를 계산 =&gt; 디스플레이 목록&lt;/li&gt;
+&lt;li&gt;Commit: compositor 스레드에 속성 트리와 디스플레이 목록을 복사&lt;/li&gt;
+&lt;li&gt;Layerize: 디스플레이 목록을 필요에 따라 레이어로 분할&lt;/li&gt;
+&lt;li&gt;Raster, decode and paint worklets: 디스플레이 목록, 인코딩된 이미지, 페인트 워크렛 코드 등을 &lt;a href=&quot;https://en.wikipedia.org/wiki/Tiled_rendering&quot;&gt;GPU 텍스처 타일&lt;/a&gt;로 변환&lt;/li&gt;
+&lt;li&gt;Activate: 화면에 GPU 타일이 어떻게 그려져야 하는지 나타내는 compositor 프레임을 생성&lt;/li&gt;
+&lt;li&gt;Aggregate: compositor 프레임들을 결합&lt;/li&gt;
+&lt;li&gt;Draw: 그리기!!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/57bb801be89272ee7a8e1a29d00f1bda/024d6/image-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 28.48101265822785%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA+0lEQVR42jWQC3LDIAxEfZsGkPiJr2vHcVLbceKkvf9pKjpTDSPeLLAsdCHEnCsiKqWctTkGrTUz95qLRg3MqEvtvSfWART5aIxj7qYpH48zAIrTB+V63l8ISkrJdvOxamuEEMz714V9WRdC7t/jeEmnk+hKoXGgEFJOiUqN1y1wmBR51GWixinEcBtSSY2Jwvbu57Va6zqtDadyVKheNaJB8MZteebbDC9pveZE1qKxgLDUZ/a9EAqhLXXQQooY8225t1RS1lJ+Hi9PJGQL/F5Wck42hud2DJ8jbwM+xm9uEzQf7xz8lTHGk2cF2veAdY4tGLizbq2F//oFdrhHKrgYJQAAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;브라우저 렌더링 파이프라인&quot;
+        title=&quot;&quot;
+        src=&quot;/static/57bb801be89272ee7a8e1a29d00f1bda/f058b/image-1.png&quot;
+        srcset=&quot;/static/57bb801be89272ee7a8e1a29d00f1bda/c26ae/image-1.png 158w,
+/static/57bb801be89272ee7a8e1a29d00f1bda/6bdcf/image-1.png 315w,
+/static/57bb801be89272ee7a8e1a29d00f1bda/f058b/image-1.png 630w,
+/static/57bb801be89272ee7a8e1a29d00f1bda/40601/image-1.png 945w,
+/static/57bb801be89272ee7a8e1a29d00f1bda/024d6/image-1.png 961w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이 때 중요한 점은, &lt;strong&gt;필요하지 않은 단계는 생략&lt;/strong&gt;할 수 있습니다.&lt;br&gt;
+예를 들어, 스크롤에 의한 애니메이션은 합성 스레드에서 실행되게 하면 Layout, Pre-paint, Paint 단계를 건너뛸 수 있습니다&lt;/p&gt;
+&lt;p&gt;그리고 지금 살펴본 Layout, Pre-paint, Paint 등 용어를 잘 봐두면 좋은데요&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/846c1fdb3acd483c622288c85715aa32/99272/image-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 67.08860759493672%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACu0lEQVR42oWRTW8bVRSGb4r4A0hApTY4lCT+nPHE9tiesT0zHs+Mx01rOzSNjFPbaewI2XXAhNYNLQTMR0FsWbNArFgViRXdInbs+TkPN1alCqSUxaN7rs65577nPeLO4V3uTsZ88OlDJqcnnD5ZMP/6bBl/9Pkpj777gpnMjR/MmD2ac//Lx9w7z30mc98s5Ls5008+5uz7BY+/PUOY9T16/Q4PHk65P58ymY7oH3Q5GO4zGvUZDocMxn0G93rsH73H6GjI4eRgeR9MehyMe3QHHcywiVFvIsTVNv2exR8/p/j9R4U/f1H567cEfz9b56vZPn7pCfHuDtpJB/XDDq32An0wQDneJXnSpTJuMx0VEZd9Vq7UECtrLV6LOeSqJRLFDPPFEc9+/YmnT39A8XYRr9e4tOojrj7nrTorq3UZB4jVgEuRgDcVl1ciIa++HSI28k0iWoPLSos3lCZr6m1865R8YcJ6psm1TJ1N/QYbuW2ubYVE0j5r/+FKMiCi+kuEZ5dp1CzCIOD2Xhc/8HEcHbuS5cb1Oq5jUy4Z1FwHo1ggm9HIZbf+hZ57EYtCfYes1yJheuSdgDBsoDvXiRc97CDEqrkoapqUoi5PNa29FBG7OcB9/4Ty4Qyjtct2WCE8OiZ/5xh7u8pe36PduoVlWWQymf9F6Oo7tIMtdvwkVTMqZadpuDrb9iaFgobjecvC9Y1NNqNRotHYSxGJpIpZtqVXOSwzRVrLUas5eK6GZxW4JX0MwhDbtpdjR2NxYvHEhQhFUeQipFeWgVVW5XaLBHJBpqnhGi6dcETr3aZcVFV+pi1VxM6bXoBIyYa2XcUw8pQNlWxOp2I55PNbVAq6tOMmNd8nlUrJsTeIL5XEL0QkZaFZKkmfshTzKexymrpnYpU0KmaMZkPDrnpyggpFw+BcQDQWu7DhP5mFycdlKRlpAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;chrome devtools performance overview&quot;
+        title=&quot;&quot;
+        src=&quot;/static/846c1fdb3acd483c622288c85715aa32/f058b/image-2.png&quot;
+        srcset=&quot;/static/846c1fdb3acd483c622288c85715aa32/c26ae/image-2.png 158w,
+/static/846c1fdb3acd483c622288c85715aa32/6bdcf/image-2.png 315w,
+/static/846c1fdb3acd483c622288c85715aa32/f058b/image-2.png 630w,
+/static/846c1fdb3acd483c622288c85715aa32/99272/image-2.png 669w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;스포를 하자면 Chrome Devtools의 Performance 탭에서 이러한 각 렌더링 path에 대한 지표를 확인할거라서요&lt;br&gt;
+저 이름 그대로 마킹이 되어있습니다&lt;/p&gt;
+&lt;h1 id=&quot;성능-최적화-전략&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94-%EC%A0%84%EB%9E%B5&quot; aria-label=&quot;성능 최적화 전략 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;성능 최적화 전략&lt;/h1&gt;
+&lt;p&gt;노드의 사이즈나 위치가 변하면 Layout단계를 거쳐야 합니다&lt;br&gt;
+현재 Bugi는 이동할 때 &lt;code class=&quot;language-text&quot;&gt;position.x += 1&lt;/code&gt;과 같이 직접 위치를 움직이므로, Layout단계를 진행하게 됩니다&lt;br&gt;
+근데 그 대신 &lt;code class=&quot;language-text&quot;&gt;transform&lt;/code&gt;을 사용하여 GPU 레이어로 격상하면:&lt;br&gt;
+브라우저는 기존의 Layout Box를 변경하는 대신 Compositing단계에서 변환만 수행하고,&lt;br&gt;
+Compositor 스레드에서 따로 작업하므로 메인스레드를 점유하는 시간도 줄일 수 있을 듯 합니다.&lt;/p&gt;
+&lt;p&gt;또는 툴팁 표시를 지금은 &lt;code class=&quot;language-text&quot;&gt;visibility&lt;/code&gt;를 조절하고 있는데, &lt;code class=&quot;language-text&quot;&gt;opacity&lt;/code&gt;를 사용한다거나&lt;br&gt;
+모션이 바뀌는 효과를 위해 이미지를 갈아끼우는 대신에 또한 &lt;code class=&quot;language-text&quot;&gt;opacity&lt;/code&gt;를 사용하여 가시성을 제어한다거나?&lt;br&gt;
+이런 개선 아이디어가 추가로 있을 수 있겠는데요&lt;/p&gt;
+&lt;p&gt;일단은 이동 애니메이션에서 위치를 &lt;code class=&quot;language-text&quot;&gt;transform&lt;/code&gt;으로 제어하게 하고&lt;br&gt;
+이것이 실제로 Layout단계를 건너뛰는지, 레이어는 잘 분리되는지, 실제로 성능은 개선되는지,&lt;br&gt;
+이러한 내용을 알아보고자 합니다&lt;/p&gt;
+&lt;p&gt;결론적으로, 확인해보고자 하는 점은:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;가설 1. &lt;code class=&quot;language-text&quot;&gt;transform&lt;/code&gt;을 적용하면 Layout단계를 건너뛸 수 있다&lt;br&gt;
+가설 2. Layout단계를 건너뛰면 실제로 매 렌더링마다 드는 비용(duration 등)이 감소한다&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;성능-확인-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%B1%EB%8A%A5-%ED%99%95%EC%9D%B8-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;성능 확인 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;성능 확인 방법&lt;/h2&gt;
+&lt;p&gt;스포했듯이 크롬 개발자도구에서 performance탭에 들어갑시다.&lt;br&gt;
+여기에서 볼 수 있고 할 수 있는 것에 대한 설명은 &lt;a href=&quot;https://developer.chrome.com/docs/devtools/performance/overview&quot;&gt;관련 Chrome DevTools Docs&lt;/a&gt;에 잘 나와있습니다&lt;br&gt;
+여기서 제가 할 일은&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 459px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/139e6713b046bcb998f0742f1760c314/48711/image-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 19.62025316455696%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA7ElEQVR42h2O206DQBRF+ZdWRGMpbZ0BBugMUMpNIBVjY3z1/39hOZ2Hnb2SnbNyvLZtaZoGrTXLsjBNk+Pr9crtdnP82Kd5pixLx+u6ul2bC/18d+mmb7K8wOv7jnEcSdOEuq7IsgwpJUopx0VRYIyxgoY8U5yOB5I4RiWSavihW37pPlb65Y7KNd4wzgzDSG7t2pS2cydK0xQhhPtQn8+IWBFGAv/lDT8ICV5DImk4yYxYvBNLQbQP8cavPy79J23X22NDWdX2o9IJH+LEdhJLtruUzb7i6XBhe2jYRrZ3Zza7HP85sPEJgoB/Qr6JzNwd8L0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;performance 탭&quot;
+        title=&quot;&quot;
+        src=&quot;/static/139e6713b046bcb998f0742f1760c314/48711/image-3.png&quot;
+        srcset=&quot;/static/139e6713b046bcb998f0742f1760c314/c26ae/image-3.png 158w,
+/static/139e6713b046bcb998f0742f1760c314/6bdcf/image-3.png 315w,
+/static/139e6713b046bcb998f0742f1760c314/48711/image-3.png 459w&quot;
+        sizes=&quot;(max-width: 459px) 100vw, 459px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;저 녹화버튼을 눌러 햄부기가 애니메이션을 진행할 때의 지표를 수집하고&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/55de284b77e99d73c9aa7d7420f777b5/96e92/image-4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75.9493670886076%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAADQUlEQVR42nWTW3PbdBDF9UaudJjyCmmSxpJvsiXZlu3ItizJd8dpHZrETpw7DTOlhIZAMumkTVNg4JmhgfahfACe4anphC/24y+10+lM24cze3z27HpXWklhrYhieISNCrJmE9eyROM60USKWDJNRPC4lkGOaYTDCpFoDPm1FlENYmqKeDIT+FShSfbCPuVbRziLRxS7B3jLx5QWvhfaD7hLRxRufofXOyHTGGDlsxRKNub8XSpCe+U7DGqtG/vUVk6QHv72Dz89veTs/ILHf7wMcHb+Umj/8ejJRRBPzy/59fxv/nr+nKd/PuPx+b+c/v5CeC+CukdPXvCj4D8/u0RaWN9jcfuArXsPWb1zzM7BGYOv77P+zQmb905FfMDtw19Y2d1jfXuD3vpA5A8D7+a3DwQ/Zk34t/bu0799gNRauMXSWp+v9u+wfXeXwe4mi+t9gR7LW6ssbfRZ/XKN3vYai5uDAEsbKywKvb8zCPI+720PaHc7SFejTcamPEYnPcanPT76zBa8zJjA8ITN+JTD0Oc2V6aFPlFi5JrL6DU/5wiPy8iE77UZEr8/vV5E+iTaYXi6xtBUldGZmuB1xkItRq7XBRqMy40gXgk3A20s1GZMbgqvn/Njk4+VJsMzLa7KZaTkbItEvkmi2CVZmCeRq6PmGoEWz9bRC+2Ah8VphXQH2XAEL6MIruieODknODvZcImnbaSKa+OUCjhll878TTzXwcqZNBtVisU86ZSBmUmhJdQ3SL7F32hqnNl8DinaGqAt7BBu9smVK1Rdl1i1S9H7gpbTIZM1MVJpdMP4IFLpNGY2R8Y0kRRx3a1uncZcQSQSYioLu1KkaBdotedxPRfTzIovJEok8i4UJRw0LJZK5PN5MWEkRs21mKuomOkIrmPh2QZlS2euWaNkO0FRSFaQRXwfZkIyk5NTwZ9KcVWl7DhUyppoqNKsl2g3TBpugl7XoVprYRg64UgEJRx+ByFFJqlpzM5aYu0skioa2uKF2AWdkhWn0ypRcTNUChrLnRqVegPLsoIiWUzpT/s2fC0WiwV5TddfNxRrZdI6upYgP1siZaTJi5XbN6ri+eXFSiGxmvLeCX34Od/jN/4f5BEUtZQE07cAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;performance 녹화 결과&quot;
+        title=&quot;&quot;
+        src=&quot;/static/55de284b77e99d73c9aa7d7420f777b5/f058b/image-4.png&quot;
+        srcset=&quot;/static/55de284b77e99d73c9aa7d7420f777b5/c26ae/image-4.png 158w,
+/static/55de284b77e99d73c9aa7d7420f777b5/6bdcf/image-4.png 315w,
+/static/55de284b77e99d73c9aa7d7420f777b5/f058b/image-4.png 630w,
+/static/55de284b77e99d73c9aa7d7420f777b5/96e92/image-4.png 779w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;어떤 일들이 일어났는지 확인하는 것입니다&lt;br&gt;
+위에서도 잠깐 여기 지표들에 대해 언급했었지만&lt;br&gt;
+Web Performance Tips라는 웹사이트에 &lt;a href=&quot;https://webperf.tips/tip/browser-rendering-pipeline/&quot;&gt;An Introduction to the Browser Rendering Pipeline&lt;/a&gt;라는 글에서 각 지표에 대해 자세하고 쉬운 설명이 있으니&lt;br&gt;
+더 깊게 궁금하시다면 참고해주세요&lt;/p&gt;
+&lt;p&gt;그리고 이 통계 데이터들은 녹화버튼 오른쪽에 보면 있는 다운로드 버튼을 눌러 JSON파일을 받아볼 수도 있습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/cd65de0a4190076f79682a65e1e8a64e/eb390/image-6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABRUlEQVR42m2SaY6DMAxGexIQSKBCS6V2WEJL997/Sp68wIfS0fyIbCf2i7fNtqrNud7O57Pd7zd7PB52vV6DnKZp1Z1z/v0e7MvlYrfb7Iv8fD52OBwsyzLbVB44DJ13moLD8/kMQToEAAIoCB9x8EUCPB6PVpalbbY1wNbGcVwDYqCgwzAEySFDZc55v992Op0sSRIPrCrr+zZkwG8KQKcNCgaozHRP5tiv18t2u52laSrgjweOa88IAPwfEJtq5ItN6U3TWFEUM3BYMlQZOP0N7Pv+K3PuyFCZAszzfAG6LgTzEA9FLYiHopYg8UXSw6+SnQcqWACtiGy960P0eK2oYL/f+7Wp6wCcezWvAE1GAtKuSQeoD9G5owXA0dehxBkAFEhD0oTVx/gD9XoB1gEoR5VDzwAJprWKJ60p49N1nbVta78X6nEzZBAfYwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Trace.json&quot;
+        title=&quot;&quot;
+        src=&quot;/static/cd65de0a4190076f79682a65e1e8a64e/f058b/image-6.png&quot;
+        srcset=&quot;/static/cd65de0a4190076f79682a65e1e8a64e/c26ae/image-6.png 158w,
+/static/cd65de0a4190076f79682a65e1e8a64e/6bdcf/image-6.png 315w,
+/static/cd65de0a4190076f79682a65e1e8a64e/f058b/image-6.png 630w,
+/static/cd65de0a4190076f79682a65e1e8a64e/eb390/image-6.png 935w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 어렵게 생겼지만 이를 파싱해서 통계를 분석해볼 수도 있곘죠?&lt;br&gt;
+근데 그러려면 JSON파일의 포맷과 각 지표들이 무슨 데이터를 의미하는지 알아야 할텐데&lt;br&gt;
+관련 &lt;a href=&quot;https://stackoverflow.com/questions/71454764/chrome-devtools-perfomance-profiler-dump-json-file-parser&quot;&gt;stackoverflow 글&lt;/a&gt;에서 &lt;a href=&quot;https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/preview?tab=t.0#heading=h.yr4qxyxotyw&quot;&gt;Trace Event Format에 대한 문서&lt;/a&gt;를 찾을 수 있었습니다&lt;/p&gt;
+&lt;h2 id=&quot;비교를-해보려면&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B9%84%EA%B5%90%EB%A5%BC-%ED%95%B4%EB%B3%B4%EB%A0%A4%EB%A9%B4&quot; aria-label=&quot;비교를 해보려면 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;비교를 해보려면..&lt;/h2&gt;
+&lt;p&gt;먼저.. 햄부기를 소환하는 배경 웹사이트로부터의 노이즈를 최소화하기위해&lt;br&gt;
+&lt;a href=&quot;https://nocss.club/&quot;&gt;https://nocss.club/&lt;/a&gt; 이런 힙한 사이트에서 실험을 진행했습니다&lt;br&gt;
+진짜 말그대로 HTML로만 작성된 문서라서 어떤 CSS도 없습니다&lt;br&gt;
+사실 그냥 빈 HTML문서 로컬에 띄우면 되는게 아니냐?할 수도 있지만&lt;br&gt;
+그냥 힙하잖아요?&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 225px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a8945f087b3f3e95fcfb8ea4ed3106a2/3684f/image-5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEzElEQVR42i2Qe0xTdxTHrzzuo/d3e2lpC6KAD1DBrXEor0nmYrKZMUSGwMC2lEpbCvjkITrUCRY6GKgo70I1FEoLLOjwGRF1BMYYIgxRhgpIqdhWBFkLFVyy4kzOH+ecnE++3++B4oV7fXx9bBAIJRAEwDBu7+jEclvlscHb55ONgXS6O6A6MZxW4iQJ4zBC2FtvEBxGURTDYWiZ7TI7zG5ptUTaUUng7rKKwXJxZi7/4lN2Qmho4q7Qbb4BjkxXlAAI+HiJ4AgKEAizChIfZmBPATCDTmMxnVewGAdCdjRkHumpqB6olN+Q5m328kUBFV2CkQ+1hEAY+EhiwIagog4OpNvy5cLgr5Wp+66eOtkqK2zLzestUaTFHUVx+odo9v+TKMAgFMDYUgfjwJYkMBqdwfZcd5oXIxPEyvbGXzyUVpeW8bNIksLNZDI8EBxFAIYCq38MwxHI6pkAKI1KcSBgGsAJkrZhldux8NDjkREHvg2VxXCL4wX7QkKSwpJdXTfYYpg1OQpIBKdQcHvImpNGUCiwHUml4Dhgr10TvImdujOkIlFULBYr9kuajqZUJSfVZOR4ebJtEFuUQDFAowAqiaMQlaA4kngyJ9Tf29PWdtnWjd4nwr47vCu4TCK8duJ4zYEkVeohTfphRWr6+tVeGIKRBEkFNCpB0HAcolIAkySOJXEC1q8lYMiF5XA4LOzo97vyBByrbFmCMCsyqjJBkisQOjm6YAgOMALHrIntKbANRCMdWI5MOg5YNAdnJp3hSLJXr0mPCM8XcssShWf5/Iyvdspi+D/ECd1XrF3Jcl3t7Obp7Orh7LLOyQWq94/UBEQ1BEY3BkU1BsVo/Hdf9AvPCucUSuLPCeNyo6Ozd0dn8XiKHbyrfjFNX8aqtvFqgzi1QXuUW2OghS2iBb/ExUDJ/GaBYRP/ecSRywfzz2fmZfM4hfF7C4WivDieLCllIKt6avv+aa9o/WfcET/+E1/e4JZYyBwotmyRmDbGvgxO0SqvPxkYra68cftKn6pYKROJZXzuKYFII7/z7IXJOKadKGkw7Dho8uaYNsXObOZD82yuMShBV6w2al+ZF94/HzDe1HS3/Tow+siiKm3KTDjY3tL7sMv8uEdnemuZXVx8ParTljTqv0mx+Aig8f0/TT56Zn7/r2l6fmZi+uVj04M7L2429969PijNLDqfX9tYd6en/VV/55h50mTWz5pn5t6aF/UjupG0M9D4qEFv+OfN+Mw747uZCdPkkOXv7qnWa32X6zvO5lRdOKu+VNLSrPxtsEs3q12YM85bpiyzurlpg3lseBzq+3N08ulr7dBUT0d/e9vvPe3Puto6226rW65cys/JlpdV1yo0Vxvu3r/Z3X2/f7B3qONe96OeYcPYtG7kDfRX18T4kH5KO1tYUFApL6tRaO7dksrLI1pbxGfyuFVySY40vqCgQK2pl+Zml5eVq+pVFSVVxjHTxPAMZP3Q83790MMRtbq+TqWsKq++Jd2qTGJk7fGRif2bfwyQJgcXFp0rKjpTWlpaU6PMyEi/VFVvGFl88sAADfzxQvv0bee9x3XKX05LpUpFo/q0tCCOmxzoJ/rcL9ljxZHI3RWVtSdPZBVfkCuqa8QJkubG1vGhueE+w38y5PVVuLXChAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;내맘이다&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a8945f087b3f3e95fcfb8ea4ed3106a2/3684f/image-5.png&quot;
+        srcset=&quot;/static/a8945f087b3f3e95fcfb8ea4ed3106a2/c26ae/image-5.png 158w,
+/static/a8945f087b3f3e95fcfb8ea4ed3106a2/3684f/image-5.png 225w&quot;
+        sizes=&quot;(max-width: 225px) 100vw, 225px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그리고 문제는 그냥 햄부기로 실험하기에는 변수가 좀 많아요. 랜덤으로 걷기 시작하기 때문에..&lt;br&gt;
+그리고 이전 버전과 새롭게 수정한 버전 사이의 비교를 위해서는 before &amp;#x26; after 비교군을 분리할 필요성도 있겠습니다&lt;br&gt;
+그래서 이전 버전의 코드로 &lt;code class=&quot;language-text&quot;&gt;bugi_before&lt;/code&gt;를, 새롭게 수정할 버전의 코드를 &lt;code class=&quot;language-text&quot;&gt;bugi_after&lt;/code&gt;로 나눠주고&lt;br&gt;
+둘 다 아래와 같이 랜덤 걷기 애니메이션은 끄고 나오자마자 1초 후 걷기 시작하는 것으로 고정했습니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;emotions &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Before Ver.&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+	&lt;span class=&quot;token comment&quot;&gt;// this.setupAutoWalk();&lt;/span&gt;
+	&lt;span class=&quot;token comment&quot;&gt;// this.setuptooltip();&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;startWalk&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;auto&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;showtooltip&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 본인 버전이 뭔지 말풍선으로 표시도 해주고요&lt;br&gt;
+이제 &lt;code class=&quot;language-text&quot;&gt;bugi_after&lt;/code&gt;에서는 실제로 &lt;code class=&quot;language-text&quot;&gt;position&lt;/code&gt;이 아닌 &lt;code class=&quot;language-text&quot;&gt;transform&lt;/code&gt;으로 위치이동 효과를 구현해보고 성능지표를 수집해봐야겠죠?&lt;/p&gt;
+&lt;h1 id=&quot;구현하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0&quot; aria-label=&quot;구현하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;구현하기&lt;/h1&gt;
+&lt;p&gt;이제 position대신 transform을 쓸거니까, 처음 생성할 때만 위치를 고정하고 transform을 준비해줍니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;left &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;top &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;transform &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;translate(&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;position&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;left&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;px, &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;position&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;top&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;px)&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이제 좌표를 적용할 때는 &lt;code class=&quot;language-text&quot;&gt;transform = translate(${left}px, ${top}px)&lt;/code&gt;와 같이 하겠습니다&lt;br&gt;
+다행히도 &quot;위치를 업데이트&quot;하는 메서드를 따로 만들어두고 이걸 사용하니 해당 메서드만 내부 구현을 바꿔주면 되겠습니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token function&quot;&gt;updatePosition&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;/* 기존에는... */&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// this.img.style.left = `${this.position.left}px`;&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// this.img.style.top = `${this.position.top}px`;&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;/* 대신에 transform으로.. */&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;transform &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;translate(&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;position&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;left&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;px, &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;position&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;top&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;px)&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// ... 말풍선도 같이 위치 업데이트&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 해주면 되겠죠?&lt;/p&gt;
+&lt;h2 id=&quot;던지면-이상하게-날아가요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8D%98%EC%A7%80%EB%A9%B4-%EC%9D%B4%EC%83%81%ED%95%98%EA%B2%8C-%EB%82%A0%EC%95%84%EA%B0%80%EC%9A%94&quot; aria-label=&quot;던지면 이상하게 날아가요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;던지면 이상하게 날아가요&lt;/h2&gt;
+&lt;p&gt;그런데 이렇게 바꾸고나니 관성운동(던져서 날아갈 때)이 이상해졌어요&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 575px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/df9f636bf6343ca91771fb14f7d34f6f/59415/image-7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.79746835443038%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA9UlEQVR42pVSXQ+CMBDb//9zPJAYgiQCyoRtwIBIkA9n5cJA8UGbQO7K2l5usMcMY0xZlkVRlDt8JbXWQghmFkgpzW+gsKZpGIyVUjALw5A+bAHGdV3koJimiUgUaKuqYnggzvM8iqK9/TiOjuO0bWsZW7zE1ONQmqb7CeFLsVZpa/DMJiRJYpaxwPR973leEAR75Sq2bML5NtP3/TiOP5SfydThdT1fboF/Ph7ggimwfOyyrmvsEovtum4YhtsMsnhLVkLclbxGJyFlpTVknHO6T0DPDByzLKPz68JoN3/dM7xWMbwxZz5DbYC2WIAz9M/RH/YEjTp8JPIDqw8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;alt text&quot;
+        title=&quot;&quot;
+        src=&quot;/static/df9f636bf6343ca91771fb14f7d34f6f/59415/image-7.png&quot;
+        srcset=&quot;/static/df9f636bf6343ca91771fb14f7d34f6f/c26ae/image-7.png 158w,
+/static/df9f636bf6343ca91771fb14f7d34f6f/6bdcf/image-7.png 315w,
+/static/df9f636bf6343ca91771fb14f7d34f6f/59415/image-7.png 575w&quot;
+        sizes=&quot;(max-width: 575px) 100vw, 575px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;대충 이런 식으로 되는 상황이었는데..&lt;br&gt;
+이렇게 원운동울 해버립니다? ;;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 276px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/457e0a01b8d361f67cf84dd359bdca15/f2d11/image-19.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 65.82278481012659%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAABjUlEQVR42n2SW4/BUBSF/f93PwAPIhJexCVCou0IHQRtpHVpO3igRFwTd/PF6RQTM/vh5Jzdtfbae+0Gjsfj5SfO5/P1er3d4/IUt9fw84HT6eQ/YB4OB8dxTNPc7XY8RZK767qTyUSc+/1efPLIQhNQvV5vNpulUqlarSJCHrRt29PpdLlczmYz+DzJv5CBdrvdcrmsKEqxWEyn09vtFsJ8Puc0DGM4HLZarcVi4d4DvEfmhgIcy7JisRjMTCZTqVQ2mw2mrFarXq+nabpl2cwFhhIeWchSNRKJ0B6cXC4Xj8dVVSUPDnHIhmE6zhfddTodYduDjE+hUEjXdQZOpVIUolXy7XZbluXRaASg3+9z+gvy2sYtLslkMhwO0xXi0WiUniGv12vQwrw/VyUMlySpUChks1nm9AniqzjF5Q2Z9cqyVKvVFOWDKuPxGObzj/ArHjMzYT6fZ0JV/cRY9Bn+Wec9WQwMtNFo4DDrpRZ/SyKREOJ/lQgIM3AFWTYk1kAMBoNgMKhp2j+dfwMPB8t+BqAkIgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;어디갔어 이것들이&quot;
+        title=&quot;&quot;
+        src=&quot;/static/457e0a01b8d361f67cf84dd359bdca15/f2d11/image-19.png&quot;
+        srcset=&quot;/static/457e0a01b8d361f67cf84dd359bdca15/c26ae/image-19.png 158w,
+/static/457e0a01b8d361f67cf84dd359bdca15/f2d11/image-19.png 276w&quot;
+        sizes=&quot;(max-width: 276px) 100vw, 276px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;알고보니.. 날아가면서 햄부기가 뱅글뱅글 돌게 하기 위해서 아래처럼 코드를 작성했었는데요&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rotate &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;
+  Math&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;sign&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;currentVelocity&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;x &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; rotateDegree &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;deg&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;문제는 rotate의 기준점은 요소의 중앙이라는 점입니다&lt;br&gt;
+기존에는 요소가 직접 움직이므로 기준점이 진짜로 햄부기의 중앙에 있었는데,&lt;br&gt;
+이제 위치는 &lt;code class=&quot;language-text&quot;&gt;(0,0)&lt;/code&gt;에 고정이고 transform으로 움직여놨으니 &lt;code class=&quot;language-text&quot;&gt;(0,0)&lt;/code&gt;을 기준으로 회전해버립니다&lt;/p&gt;
+&lt;p&gt;이를 해결하기 위해 &lt;code class=&quot;language-text&quot;&gt;transformOrigin&lt;/code&gt;을 임시로 바꿔두고 rotate할 수도 있겠지만&lt;br&gt;
+아래처럼 &lt;code class=&quot;language-text&quot;&gt;updatePosition()&lt;/code&gt;메서드에 transform을 한번에 선언해버리면 해결됩니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token function&quot;&gt;updatePosition&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;transform &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;
+		translate(&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;position&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;left&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;px, &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;position&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;top&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;px)
+		&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;isFlipped &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;scaleX(-1)&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;
+		rotate(&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;degree &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;deg)
+  &lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id=&quot;before--after-비교-분석하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#before--after-%EB%B9%84%EA%B5%90-%EB%B6%84%EC%84%9D%ED%95%98%EA%B8%B0&quot; aria-label=&quot;before  after 비교 분석하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;before &amp;#x26; after 비교 분석하기&lt;/h1&gt;
+&lt;p&gt;이제 개선 버전의 햄부기가 완성되었으니 정말 변화가 있는지 봐야겠어요&lt;br&gt;
+진짜 최대최대로 확대해서 렌더링 태스크 하나만 골라서 봐보면..&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 612px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a6f835362cc42106636e4f14cb591b67/8c76f/image-8.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64.55696202531645%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAADOElEQVR42oWSe2xTZRiHTxQ7jCjxD+MlDnbT0W5dEHZj2Tq69rSnKwOZ3UbxwogsTNjG1hiGLiSEIJEIxD8wQghDR1CJAjFgAoSgIUJMWUdX2rIbYqYjKetI25VtZdkezjlzEhIT3uSX33fJ93zf+76fEI/HGRsbIxaLkZiYIBaNEB8dRYlAwI/VVkFOYQVZuRKLlljQ59kpMq2h0FhNmX09xea1ZL4lkaE3kZFtRPB4PPj9ftxuN3//cwePt5uu610MDQ3h892gxlnF2nUOVr5dzpp3K9m2s4UvD+9h79e7OXB0H/tk/2SXi9adzbJaEAYGBujt7cXb7aPr8nl8l3/B0+lBWb8mX1Jbt4G2PZ/R4NrMth2tfHumnRMXj/Pd+WMcP3dM9R8vneCnX3+Q/XsEJd1EIkH/rVt8s3UFp1wl+D1XZ1K+0Y3JuoqlRRbs5TbyCwoxlJRitdgQzaKqUkMpy40mea+I5AWpCNPT0+rhe5EIBz+t4/OPqrh9u/dfoBeDZTXJeTWsr/2A+o0baGrajKulkYbGRnncRO2H9SxcspJ5GSLPpZsQRkZGiMiwaDRKPD5GNDLKxERCBd4M+CgRHbya66Bj/1LOHs7lYkcepw7pOdLWhlM8iH33xyQttjAnWeKZNAkhGAzi9Xrp6+vj7t0Q4fAwoVBIht/H2+XGaKvi+SwHZ756mcGf59LZMY/QuafZvsnEiwvreM3kQJNpQZNiRZNqRVA63N/fr3Za0eDgID09PTx4MIn7j6uIK2p4KmUVW7av47fAfk5e+YLfb+6lov59hJcMaJJFkuSXKTAVOD4+rr5IST0cDqs+PDxMTP6L1z3XZGA1wuuVODc58f3VzBV/A91/bqFy43sIr4g8+4b0OFCp1dTU1GOanJxUaxj0y10udyCkOHCuLqev3UnnASc97e9QaM6XL7KjSVNqZ2NOqqRKBc52ejYU6AzQh8lWTVKm/GUWN9Bqu4DLcpZm62nmphYzP72MF9KNzM+YcUUC/xOzwEAggGixsmxZsexl2CuslJkNvLkojWydjiydVlV21qPxE4BBzGYzOTk5SJJEQX4B+mw9Oq0OrVb7n3S6R/OHwquvzP8N6hYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Before Ver.&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a6f835362cc42106636e4f14cb591b67/8c76f/image-8.png&quot;
+        srcset=&quot;/static/a6f835362cc42106636e4f14cb591b67/c26ae/image-8.png 158w,
+/static/a6f835362cc42106636e4f14cb591b67/6bdcf/image-8.png 315w,
+/static/a6f835362cc42106636e4f14cb591b67/8c76f/image-8.png 612w&quot;
+        sizes=&quot;(max-width: 612px) 100vw, 612px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 584px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9dea7ba3bb9272d3df7ea49728786731/e05eb/image-9.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 60.75949367088608%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAC70lEQVR42m2Sa0iUWRiAv8js8jdoN6jUyWDbyG7QXcfRmXFcx0JnzMw0qUYqskgbRzC2i7QXWJaCbdvqRxCUVBr9iaDyDpaNjuXk0GSOqZOENjijoVgjz57vSEbRCw/ve87H+3Decz6lx9dD/8sAvo53eJ0DBIc+oMaz9jZSM/LQZZeTYDkusJOUXSbR7SgjMcuB1loqaoeoS6f2rA4Up7OV5sYntDS7eN7moeXxU4aDQZxPn3C45BT3XaNUNfRzu95PlUrDl1zd8JY7TQNUNw6I9Vtu1fahjI+PE54MM/YhxMeJcSYmJuQJ25wt5NlK+P1qMycvPJCc+vchFZdqJKcvPhI85Mx/U3XF5XqRa1HU5lAwwP0/8qm//hefmAp3Rzvx+gzikg+wRl/IqiQbKxP389OWPZIVCXtZqbMRp1O/FbJCa2P51r0oXu8rWsR45w9t40L5QbyvfbwfGsLlasf0i4ntlgx2F+RzpOQIx8vt7MjfSeYuK/sO7edYWTH2E6Uy79yTgyU3C6Wrqwuv14uv14+vp1eIXPh8Ppoam7AVHaS4vJhj9iL+ufY3dxtvcrumkqq6SnFfN6gWVNVel1TXibXYVwKBgBC+pLf3DX6/n76+PnmP7o7nbE5KZ6PWRGKygfgEPeZ0K6lpKWxLMZNuNBOvNRC1dDkxsT9LokWtjI6OMjg4KAmK1x0eHpZ36OnsYJ02g5lRKczTGMnKsXDSsQtHUQV5JwrJKdvHwlVmZkXpmbvUIDAyR2NA6e7uliN7PB5aW1vluGq8EI+yLtFCZKwZ5cc0frWvpv/eQgqzL2E5V4Hu7FEiYo1ERpuIjDExW5Mqs6LKVNxuNyMjI6i/kRqd7mdSOFsVLjCRWxDPu840fthgJHPrRYybfkNZohUiVZgynZWxsTFCoZAcV43Jyclp4VptJrM06cxYrEOzvoA/r1xmQZxoWpRERHSyFHxmWsg3EQ6HvxJGaMxExOiZv8zKkmW5QmSYbv6e8H/qx3W2tdydKwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;After Ver.&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9dea7ba3bb9272d3df7ea49728786731/e05eb/image-9.png&quot;
+        srcset=&quot;/static/9dea7ba3bb9272d3df7ea49728786731/c26ae/image-9.png 158w,
+/static/9dea7ba3bb9272d3df7ea49728786731/6bdcf/image-9.png 315w,
+/static/9dea7ba3bb9272d3df7ea49728786731/e05eb/image-9.png 584w&quot;
+        sizes=&quot;(max-width: 584px) 100vw, 584px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이래서는 정확히 알기 힘들겠죠??&lt;br&gt;
+그리고 실험은 응당 많은 표본을 통계를 내야합니다&lt;br&gt;
+이 성능 측정 데이터인 Trace.json을 다운로드해서 이걸 파싱하고 분석하면 좋겠는데요&lt;/p&gt;
+&lt;h2 id=&quot;tracejson-파싱-분석하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#tracejson-%ED%8C%8C%EC%8B%B1-%EB%B6%84%EC%84%9D%ED%95%98%EA%B8%B0&quot; aria-label=&quot;tracejson 파싱 분석하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Trace.json 파싱, 분석하기&lt;/h2&gt;
+&lt;p&gt;위에서 찾은 Trace의 Format에 대한 글 + GPT에게 도움을 받아 Trace를 파싱하고 분석하는 &lt;code class=&quot;language-text&quot;&gt;parseTrace.js&lt;/code&gt;파일을 작성했습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 239px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c1f3d7bdba9e77de70c98936aee3ce82/4a279/image-20.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 87.9746835443038%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAIAAADUsmlHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACw0lEQVR42m2TzUuiURTGr/Zl39qXQlkZSoG1m8KPjdCipEVQGFmEIC5r086xBmKWMQtpOauYGQhalLQIAoPWQX9AiYuWaZ+WlTY1P98zIy7mLC7nve99zvOc556rdBVRXV3d1NTU1tY2PDw8Nja2tLS0vLy8vb19cXGRyWRub2+fnp7y+TxrLpe7v79XZVh9fb3FYunr6yNvb2/v6OgAfHJycnZ2dnd39/Ly8vr6+vb29rsilF6vb2xsNJvNg4ODLpcLvFIKPJu9vb37+/vv7++FQoGjIIvFosAkV8CcTqfX6w0Gg7FYzGazdXV11dbWGgwGFK2urn58fHCOEjDn/0VOCzU+Ph4KhTY3N4+Ojm5ububn59EPc01NDRL8k5NXV1dQIVsafn5+Jnl8fCRXu7u7x8fH5+fnsosEMFVVVcBJ7M7Rb/Hv2p8SDP1FLZCNFkUBymAmtNPT0/39/bgFDC90Or3L4/v85avW4F8AgRCKoUihB9jl5WU0GgUDsrm5WSPXs46Ofvr18wdtAwDPYZi4JMiy2axKpVKnp6cHBwfYVldX193dbTKZhJnVYrZEIhHsgBDZDw8PgKGlSsnteDyeTCY3NjbwCTA+0TA+C9jhcLjdbuR4PJ719fXr62swCBHnFLTpdHpiYkLYCMELWAaus7OTnZGRkUAg4Pf7t7a2GJuS24C5LUYCWm4IALRCTt7Q0IAFlLNarT6fj0/un3FaW1ujbTUzM9Pa2mo0GtHW0tJShpXJWcHb7faenh5+DQwMrKys7OzslMDhcHhoaEisYjwpxHgJWDpHFBaKHdr96XgziUSiNGGHh4e8IX5wQhQCk24pVLZd2pGc+V1YWACv9vb2eElsoVlOiGz46bC8I5tUN2gBAeOkuADuQ6qKqsrTlU+dz9nZWR4CiUy+WlxcZJ4raf8bAp6bm+OSp6amBP8HQtqJkfWOI3IAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;AI Thinking&quot;
+        title=&quot;&quot;
+        src=&quot;/static/c1f3d7bdba9e77de70c98936aee3ce82/4a279/image-20.png&quot;
+        srcset=&quot;/static/c1f3d7bdba9e77de70c98936aee3ce82/c26ae/image-20.png 158w,
+/static/c1f3d7bdba9e77de70c98936aee3ce82/4a279/image-20.png 239w&quot;
+        sizes=&quot;(max-width: 239px) 100vw, 239px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; fs &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;fs&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// 특정 이벤트 분석 함수&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;analyzeTrace&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; events &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;traceEvents&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// 관심 있는 이벤트 필터링 (예: Layout, Paint)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; layoutEvents &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; events&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token parameter&quot;&gt;event&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Layout&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ph &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;X&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; paintEvents &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; events&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token parameter&quot;&gt;event&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Paint&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ph &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;X&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;Layout events: &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;layoutEvents&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;Paint events: &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;paintEvents&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// 평균 소요 시간 계산&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; layoutDuration &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;
+    layoutEvents&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;reduce&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;sum&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; event&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; sum &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;dur &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// ms&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; paintDuration &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;
+    paintEvents&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;reduce&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;sum&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; event&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; sum &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;dur &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// ms&lt;/span&gt;
+
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;Total Layout Duration: &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;layoutDuration&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toFixed&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt; ms&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;Total Paint Duration: &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;paintDuration&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toFixed&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt; ms&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// 전체 실행 시간 계산&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; totalTime &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;metadata&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;modifications&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;initialBreadcrumb&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;range&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// ms&lt;/span&gt;
+
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;Total Trace Time: &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;totalTime&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toLocaleString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt; ms&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// 분석 실행&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; traceDataBefore &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  fs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;readFileSync&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;./Trace_Before.json&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;utf8&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;--------------Before Start----------------&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;analyzeTrace&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;traceDataBefore&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;--------------Before End----------------&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; traceDataAfter &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  fs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;readFileSync&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;./Trace_After.json&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;utf8&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;--------------After Start----------------&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;analyzeTrace&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;traceDataAfter&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;--------------After End----------------&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;간단히 Layout 단계와 Paint 단계는 몇 번 일어나는지, 각각의 단계에 소요된 시간은 어느정도인지를 출력하게 했습니다&lt;br&gt;
+일단 이게 파싱과 계산이 잘 된건지 확인하기 위해 Before만 한번 돌려보겠습니다&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/7f1BLQN.png&quot; alt=&quot;Before를 DevTools에서 보면&quot;&gt;&lt;/p&gt;
+&lt;p&gt;위와 같은 결과를 json파일로 다운로드받아 실행하여 출력을 보니 아래와 같았습니다 :&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 306px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/79fa09fede36e84d19b2f63196904f5f/98b92/image-10.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 33.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABMUlEQVR42mWRzY6CQBCEeQlhBogXExQE/OFnEURgUfCgXn3/J6mlOq5Zs4dKzWR6vqnuMRaLBajVaoXlcilretu2ojzPEccxqqpEUTVYZ98I0vatKG/hTx5/dQiSGsYwDLhcLkiSBKfTCdxXVYXNZoPn8ymutcZ8PofrOrCVCcdWcF9y9Msn2dqC8Xg8BLDf73E+n0Xb7RZpmiIMQyilYFmWuNY2bMeBmh6wLPVPrDGYrixL7HY7XK9XARLeNA36vkdd1yiKQto+HA44Ho9SH0URZrOZpCfoV8Y4jlKUZRlut5s4L/AhwgjmHNk6Z8o905um+QF6A1nEBPwUts4UbPV+v8uayZma8+VDnDXrXNd9j+ID6Pu+wCiugyCQX+66ThIRypkSSOcZ6/6KdzzPE+APJFLWuUAqnMAAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Before 파싱결과 예시&quot;
+        title=&quot;&quot;
+        src=&quot;/static/79fa09fede36e84d19b2f63196904f5f/98b92/image-10.png&quot;
+        srcset=&quot;/static/79fa09fede36e84d19b2f63196904f5f/c26ae/image-10.png 158w,
+/static/79fa09fede36e84d19b2f63196904f5f/98b92/image-10.png 306w&quot;
+        sizes=&quot;(max-width: 306px) 100vw, 306px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;전체 시간 범위, Layout 단계의 duration, Paint 단계의 duration 등 모두 잘 일치하네요&lt;br&gt;
+잘 계산되었습니다&lt;/p&gt;
+&lt;h2 id=&quot;결과는&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B2%B0%EA%B3%BC%EB%8A%94&quot; aria-label=&quot;결과는 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;결과는??&lt;/h2&gt;
+&lt;p&gt;각 기록은 5초 간의 걷기 애니메이션을 모두 담도록 했습니다.&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/h53KG68.png&quot; alt=&quot;Before &amp;#x26; After&quot;&gt;&lt;/p&gt;
+&lt;figcaption&gt;parseTrase.js 실행결과&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/R63341G.png&quot; alt=&quot;Before in devtools&quot;&gt;&lt;/p&gt;
+&lt;figcaption&gt;DevTools상에서 Before 표본의 Bottom-up 지표 (위에서 쓴 것과 동일)&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/BDbl33t.png&quot; alt=&quot;After in devtools&quot;&gt;&lt;/p&gt;
+&lt;figcaption&gt;DevTools상에서 After 표본의 Bottom-up 지표&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;실제로 이전에는 5초 간 900번 트리거되었던 &lt;strong&gt;Layout 단계가 0회로 아예 사라졌습니다!!&lt;/strong&gt;&lt;br&gt;
+특히 Layout단계는 Self time(하위 activity 실행시간을 제외한 해당 activity 자체 시간)에서 가장 큰 비중을 차지했는데, 완전히 사라져버렸네요.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;✅ &lt;del&gt;가설 1. &lt;code class=&quot;language-text&quot;&gt;transform&lt;/code&gt;을 적용하면 Layout단계를 건너뛸 수 있다&lt;/del&gt;&lt;br&gt;
+✅ &lt;del&gt;가설 2. Layout단계를 건너뛰면 실제로 매 렌더링마다 드는 비용(duration 등)이 감소한다&lt;/del&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;위와 같이 세웠던 가설들을 모두 검증했습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 356px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/484d370c0d410f30f9471f4f272b8153/50ac3/image-21.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 39.87341772151899%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAABF0lEQVR42m2Qy06EMBSG+5xufALjU7gyMXHt3sUkbn0EFxAzkMgQEmcM7QhlCoVyKZfQ4gFmlIzzp5dzvtP+aQ/SWivVK6Wm4E9jek6OQJ+EYA6TgA7/daqOB/Q4JqZnCwSJZ71tP94hCIIAY+z7PiGERgcvbsk+iCgFzrlQ9U5y5xCxppazBQoIfri5ur+9Jtj3PM+2bcMwTNPcuO46bLdfvmWtN47zudu35Dl1n8KQNnU5PwCx8Hv1ePf6suI8kVKCnxCCMda2jSyErCo4BjzLsoRnUMrzAqqc8+Ozq7Loug6CNE37vheTyrJkcQJ34HuwxnGc53kKFklCKYX7i4ZNTZh3vWjSTIbhYis1AuN+obP0IvnlP5YAxo5FUWZvAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;factos&quot;
+        title=&quot;&quot;
+        src=&quot;/static/484d370c0d410f30f9471f4f272b8153/50ac3/image-21.png&quot;
+        srcset=&quot;/static/484d370c0d410f30f9471f4f272b8153/c26ae/image-21.png 158w,
+/static/484d370c0d410f30f9471f4f272b8153/6bdcf/image-21.png 315w,
+/static/484d370c0d410f30f9471f4f272b8153/50ac3/image-21.png 356w&quot;
+        sizes=&quot;(max-width: 356px) 100vw, 356px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;실제로 &lt;strong&gt;Layout 재계산(Reflow)를 건너뛰고, 17.5%의 duration을 절감&lt;/strong&gt;했네요.&lt;/p&gt;
+&lt;h1 id=&quot;레이어-남용에-주의합시다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A0%88%EC%9D%B4%EC%96%B4-%EB%82%A8%EC%9A%A9%EC%97%90-%EC%A3%BC%EC%9D%98%ED%95%A9%EC%8B%9C%EB%8B%A4&quot; aria-label=&quot;레이어 남용에 주의합시다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;레이어 남용에 주의합시다.&lt;/h1&gt;
+&lt;p&gt;위에서 &lt;code class=&quot;language-text&quot;&gt;transform&lt;/code&gt;같은 프로퍼티를 사용하여 레이어를 분리하고 Layout단계를 건너뛰었는데요&lt;br&gt;
+그런데 MDN의 중요 렌더링 경로에 대한 글에서 이런 내용이 있습니다&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;레이어는 성능을 향상시킵니다. 하지만 메모리 관리 측면에서 봤을 때는 비싼 작업입니다. 따라서 웹 성능 최적화 전략으로 과도하게 쓰이지는 않아야 합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;레이어를 너무 양산하지 말라고 하네요.&lt;br&gt;
+그런데 문득.. 햄부기의 인스턴스마다 각각의 레이어가 생기고 있는게 아닌가? 라는 생각이 들었습니다.&lt;/p&gt;
+&lt;p&gt;이를 확인하기 위해 크롬 개발자도구에서 Layers 탭에 들어가봤습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/70f556c61062ef4ab063cf76a95e3883/203d3/image-11.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 98.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAABYlAAAWJQFJUiTwAAACBUlEQVR42uWVzU7bQBSF8yhV4viPOFIcO47lOFbjEMelREVQlVWeBSF4BlACKohAWCB4g3ZBgtgAAaECoirv0YJO5w6JG0SQAHVRqYujO3fmzjc/Gh/HarUagiBAtVpFGIYolUr96KMavovycnkcwfuPCCamUPJ9FIseHKeA4ttx+H6Z17mui5jnecjlctB1HZlMhksnZQ3oZh6GkeVjJotWwYdlF1i9AdM0MTamQlUVJpVLURTEqCEIAkRRfCBZliFLIiRJ6kuGxPolsd9mUpR7CK+VZV4XS6fTUcewqFiW74tpgfn5FnZ2rtFq9bC5eYaNjR7Lv2Nu7jPbUIKDOVDTNN54DFSi1Qm4ttbFxQVwdHSHkxOKt7i6AlZXvyKRiL8c2Gjs4/gY6HR+4eDgjsWfHLy09OV1wGazi14PHHZ4SPEWp6fA8vJgh+r/Amw295FMCn/nDilfWekyYPIfAI56NpQ3Gp3XAUc97MtLYH39BTsc/vQWFtrY3f2Bdvsc29vfsLV1jr29Gywutvn4s4BS3xwop+81Hn/zSIIQjwyEwCOBlGtaGp4fwnZcGNkstyvLsrjy+fwDDfrJBp8GMheamPyAgutFE8krHcfBwENTqRRo/kCUPwmkwZnpaczOfkK9XkelUuFjtBO6DjreH698xpEJSBAS/QJ8Zvu2bY/0zmGD/Q3Vvfikzw2uRwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Chrome DevTools - Layers&quot;
+        title=&quot;&quot;
+        src=&quot;/static/70f556c61062ef4ab063cf76a95e3883/f058b/image-11.png&quot;
+        srcset=&quot;/static/70f556c61062ef4ab063cf76a95e3883/c26ae/image-11.png 158w,
+/static/70f556c61062ef4ab063cf76a95e3883/6bdcf/image-11.png 315w,
+/static/70f556c61062ef4ab063cf76a95e3883/f058b/image-11.png 630w,
+/static/70f556c61062ef4ab063cf76a95e3883/40601/image-11.png 945w,
+/static/70f556c61062ef4ab063cf76a95e3883/78612/image-11.png 1260w,
+/static/70f556c61062ef4ab063cf76a95e3883/203d3/image-11.png 1322w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 생긴 곳인데요.&lt;br&gt;
+위에서와 같은 레이어 분리를 적용한 햄부기 인스턴스를 50개 만들어봤습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/746fe8ac2c46a3468a73df642532c1bf/9f9a4/image-13.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.49367088607595%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAACBklEQVR42n2TXW7aQBSFWUl/Atge7GAwBv/bYwyBBkEECnZI1EoJVZtmAdlApapq19CHqm9V93h6rwsIaNOHo7Fn7nxzzxm7Mhr0EXoukjBA5LuQoY+YnmXaRxzHSNMUiUwxGJ4hSRJ6lwiiBHE6gu8HcD0fQRiXtZ7noeKcLxHPb9DOLiCiMU6cDNVOBMt20G63Yds2bMdH1/HQ7dqwLAu6bsAwTtHQdTQajd2o01ix5BizmzW8swtojsQz08WJ2YWqKiQViqKQ6hsppTSa1zSWdiAhBCqB28P0/BWSKECn1YRWr0IXXCD+KtbFnzk+SFWfAIZhhKK4QpZlZKdDHahl+/uFKsmgYpPt/QdaAjnI2WyGKIpgmmZZtA9kAMOalI9B82IDFEfd7YC+72M+n0NKWV4CZ8RA3qAQ/EWthmq9jjrNqyQe+ZAngUEQIM/zjWVrB2RYr9nEm34fK5lgEYa4pkMn5KjGYFrfdnsAdF0Xk8kEIW04tsxWH8Zj/Lx/h1+sD/f0/B6P0ylMioA734duLiX8Z4e8yPDnZDnr9vC5yPF9fYdvt7f48XZdvscdCy9pXT3OcLFYHGTIC9tvThCUN9WomyVd3MfLS3xa5vh6tcKXosCK/p4GwcqMqfbAcqvVKiH8xbP9rdo0z6MwDIwo8+vBADllW5Cr18MhpOPglPLm/b8BPGuEOueUNioAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;레이어가 50개 생겼어요&quot;
+        title=&quot;&quot;
+        src=&quot;/static/746fe8ac2c46a3468a73df642532c1bf/f058b/image-13.png&quot;
+        srcset=&quot;/static/746fe8ac2c46a3468a73df642532c1bf/c26ae/image-13.png 158w,
+/static/746fe8ac2c46a3468a73df642532c1bf/6bdcf/image-13.png 315w,
+/static/746fe8ac2c46a3468a73df642532c1bf/f058b/image-13.png 630w,
+/static/746fe8ac2c46a3468a73df642532c1bf/40601/image-13.png 945w,
+/static/746fe8ac2c46a3468a73df642532c1bf/78612/image-13.png 1260w,
+/static/746fe8ac2c46a3468a73df642532c1bf/9f9a4/image-13.png 1560w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;햄부기 하나 당 하나의 레이어가 생긴 것을 확인할 수 있었습니다&lt;br&gt;
+구글 크롬 Web.dev 컨텐츠에서는 &lt;a href=&quot;https://web.dev/articles/stick-to-compositor-only-properties-and-manage-layer-count?hl=ko#manage_layers_and_avoid_layer_explosions&quot;&gt;너무 많은 레이어를 생성하지 않도록 주의&lt;/a&gt;해야함을 경고하고 있습니다&lt;br&gt;
+따라서 이 햄부기들을 위한 하나의, 통일된 레이어를 만들어봐야겠습니다.&lt;/p&gt;
+&lt;h2 id=&quot;햄부기들을-위한-레이어를-만들어주기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%96%84%EB%B6%80%EA%B8%B0%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-%EB%A0%88%EC%9D%B4%EC%96%B4%EB%A5%BC-%EB%A7%8C%EB%93%A4%EC%96%B4%EC%A3%BC%EA%B8%B0&quot; aria-label=&quot;햄부기들을 위한 레이어를 만들어주기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;햄부기들을 위한 레이어를 만들어주기&lt;/h2&gt;
+&lt;p&gt;이를 위해서는 간단히 &lt;em&gt;모든 햄부기 요소를 위한 공통 부모 컨테이너&lt;/em&gt;만 하나 추가해주면 되는데요&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bugiContainer&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; container &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;div&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  container&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;bugi-container&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;container&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bugiContainer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; container&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이를 위해 컨테이너가 될 요소를 하나 만든 다음,&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;#bugi-container&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; fixed&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 0&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 0&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 100%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 100%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;/* 부모 컨테이너 클릭 방지 */&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;pointer-events&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; none&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;/* 레이어 격상 - translateZ 또는 will-change 속성 */&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;will-change&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; transform&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;translateZ&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;0&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;화면 전체를 덮게 하고,&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;translateZ(0)&lt;/code&gt;또는 &lt;code class=&quot;language-text&quot;&gt;will-change&lt;/code&gt;속성으로 레이어를 분리. 격상합니다&lt;/p&gt;
+&lt;p&gt;이제 햄부기가 생성될 때는 아래와 같이,&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//document.body.appendChild(this.img);  원래..&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;//document.body.appendChild(this.tooltip);&lt;/span&gt;
+window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bugiContainer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;img&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bugiContainer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;tooltip&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;body에 직접 집어넣던 것을 bugiContainer로 넣어줍니다&lt;br&gt;
+이러면 이론상 &lt;code class=&quot;language-text&quot;&gt;bugiContainer&lt;/code&gt;라는 단 하나의 레이어만이 추가적으로 분리되었고,&lt;br&gt;
+각 햄부기 요소들은 이 안에서 존재해야 합니다.&lt;br&gt;
+확인해보면..&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a16bb190b69fa2d702638371574a6afb/3e096/image-14.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 61.39240506329114%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABXElEQVR42q2SzUrDQBSF8ySilSQzk8kkJjG2iZqf/kgL1YpiEVRcKuJaUFdFUJe6FHwF3Qk+3XESm5paF21x8ZHJnXtOTu6Mst47gtM+gNXaA6/vgqc9MImVdhHFMTaiFPXGFqKkgThJEMtaGIaoBpsIwgi+72OtGiCo1fK1EqYtpO1tBEkTjmziXhXE9kAtF4wxMMOEkcGFfHKJAV3XcwghOeV3ZdVz4azYcCW2JWALE4IbMA0GSkvNJQNCyc/6F4ppmlBVFZqmjcTF1yilo0ZNH+4Tfaw+YSiEGItfkIkKISUUtmmBUTkCWassV/IAfxlPZahqKi72j/F+/4K3h1cMzq/kbLlMPZl2KsNsP0t2fXKGj8ETPu+ecXN4ms81N53VsDBdWFpE03Vwu9PFY7+Py04HNudj+qkNv2sMqk7kLeCwJJ7Ucnm19HkSluva8FfV/NTnOJRZ+HfDL9QUcnQPAFHnAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;공통 레이어&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a16bb190b69fa2d702638371574a6afb/f058b/image-14.png&quot;
+        srcset=&quot;/static/a16bb190b69fa2d702638371574a6afb/c26ae/image-14.png 158w,
+/static/a16bb190b69fa2d702638371574a6afb/6bdcf/image-14.png 315w,
+/static/a16bb190b69fa2d702638371574a6afb/f058b/image-14.png 630w,
+/static/a16bb190b69fa2d702638371574a6afb/40601/image-14.png 945w,
+/static/a16bb190b69fa2d702638371574a6afb/78612/image-14.png 1260w,
+/static/a16bb190b69fa2d702638371574a6afb/3e096/image-14.png 1718w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;추가적인 레이어는 &lt;code class=&quot;language-text&quot;&gt;div#bugi-container&lt;/code&gt; 단 하나만 존재함을 알 수 있습니다&lt;/p&gt;
+&lt;h2 id=&quot;효과는-미미했다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%9A%A8%EA%B3%BC%EB%8A%94-%EB%AF%B8%EB%AF%B8%ED%96%88%EB%8B%A4&quot; aria-label=&quot;효과는 미미했다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;효과는 미미했다?&lt;/h2&gt;
+&lt;p&gt;위와 같이, 햄부기 인스턴스 각각에 대한 레이어를 유지하는 대신, 모든 햄부기들을 공통 부모 요소 내부에 두어 단일 레이어로 병합하는 최적화 전략을 시도해봤는데요&lt;br&gt;
+이것도, 한번에 햄부기 50개가 나와서 모두 똑같이 5초간 걷기 애니메이션을 진행하도록 하여 비교군을 만들어 실험했습니다..만&lt;br&gt;
+렌더링/페인팅 시간이나, 메모리 사용량이나, 어떤 큰 변화를 발견하지 못했습니다&lt;/p&gt;
+&lt;p&gt;특히 햄부기 프로젝트에서는:&lt;br&gt;
+(Multi Ver.)햄부기들이 각각의 레이어를 갖게 하면, 각 레이어는 그 햄부기들이 차지하는 영역(ex. 햄부기가 50x50픽셀이면, 50x50픽셀만큼만)만큼만 차지하는 반면,&lt;br&gt;
+(Single ver.)햄부기들을 모두 하나의 레이어로 병합하기 위해서는 각 햄부기가 차지하는 영역에 관계없이 부모 레이어가 화면 전체를 덮게 됩니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 610px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2c0e98e0b9a9d6b726a8fb4f8943e344/5aae9/image-15.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABiklEQVR42mVS2Y7jIBDk/79qXlbap9Wu5sjuOJMEGzD4wAQf4WbathJF2lJj4aaquxqBhBBd19NaUEIYF5RSxpiUsiiKlFIMofk6dhURuKTFp7iUHcYQzelEDgdEKMspOElzzmEecoopr6iqKqbkrFG1iItyiq+Eqc93tBgjXJY5WN1UKYTu9WUVjMNM/zVtD42NMdeah0WbSYVZy8MPkBnJ5vqoGEcYY/j3PgR70/yyis0tmEXKAfI3YzRje6twm4wSsEneRW/7qkLl5Rxk5Z2NMXnvnXPgO86qPh+AN05zcyp8Vz7c5rSOZYe6Ld4RJRU9/20auLZOCA7RtO3x4/Xt18+98/nP7/bzY+RCliXck/g6DpT1xTskUdpgrV2WRWttN4QQUkr3TmldMTpr4btH3lRoJ8CapgnEe638BCgEs8BE4AI21m3YCq3ieZ6VUqC8Xq9yQ4Tad4AjqDuO407QG4APRdFu7BnPygcguTt6toYex5xzeFuEEOj8v7htW3g2QKjrGnru4m8swHVwRMp4EgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;레이어 하나 vs 여러개&quot;
+        title=&quot;&quot;
+        src=&quot;/static/2c0e98e0b9a9d6b726a8fb4f8943e344/5aae9/image-15.png&quot;
+        srcset=&quot;/static/2c0e98e0b9a9d6b726a8fb4f8943e344/c26ae/image-15.png 158w,
+/static/2c0e98e0b9a9d6b726a8fb4f8943e344/6bdcf/image-15.png 315w,
+/static/2c0e98e0b9a9d6b726a8fb4f8943e344/5aae9/image-15.png 610w&quot;
+        sizes=&quot;(max-width: 610px) 100vw, 610px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;실제로 이 때문에 뷰포트가 넓어질수록 싱글 레이어가 차지하는 메모리는 증가함을 확인할 수 있었습니다&lt;br&gt;
+따라서, 뷰포트는 좁을 수록, 그리고 햄부기 수는 많아질수록 단일 레이어로 병합하여 유지하는 방법이 효과가 있을 것이지만&lt;br&gt;
+반대의 경우에는 효과를 보장할 수 없고, 심지어는 더 큰 오버헤드로 이어질 수도 있습니다(극단적으로, 매우 큰 화면에 단 하나의 햄부기만..)&lt;br&gt;
+그래서 일단 해당 업데이트를 적용하는 것은 보류하기로 했습니다.&lt;/p&gt;
+&lt;p&gt;그러나 이 사례는 &lt;strong&gt;레이어를 남용 시 부작용&lt;/strong&gt;을 미리 인지하고, 적절한 &lt;strong&gt;성능 측정에 근거&lt;/strong&gt;하여 레이어 승격을 적용해야 함을 알리기 위한 수단으로 소개해드렸습니다&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;끝&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%81%9D&quot; aria-label=&quot;끝 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;끝&lt;/h1&gt;
+&lt;p&gt;이렇게 &lt;strong&gt;웹 애니메이션에서의 렌더링 성능 최적화&lt;/strong&gt;에 대해 알아봤습니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;transform, opacity&lt;/code&gt;같은 속성 등을 적절히 사용하면 &lt;strong&gt;렌더링 경로를 최소화&lt;/strong&gt;할 수 있고,&lt;br&gt;
+이는 곧 자연스럽게 &lt;strong&gt;렌더링 성능 최적화&lt;/strong&gt;로 이어짐을 확인했구요&lt;br&gt;
+&lt;strong&gt;Chrome DevTools&lt;/strong&gt;를 통해 &lt;strong&gt;성능지표를 수집하고 분석&lt;/strong&gt;하여 실제로 이를 확인하는 과정을 보여드렸습니다&lt;br&gt;
+또한 추가로, &lt;strong&gt;무분별한 레이어 증식에 주의&lt;/strong&gt;해야 함을 확인했구요&lt;/p&gt;
+&lt;p&gt;혹시나 글에 이상한 점, 이거 아닌데, 이건 어떤가요? 등 의견이 있다면 꼭 남겨주세요&lt;/p&gt;
+&lt;p&gt;앞으로 햄부기는&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;뷰포트가 줄어들면 햄부기들의 위치 또한 이에 따라 반응형으로 이동하게 하기&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;requestAnimationFrame&lt;/code&gt; 콜백을 하나로 관리하기
+&lt;ul&gt;
+&lt;li&gt;최근 읽은 &lt;a href=&quot;https://velog.io/@k-svelte-master/optimize-request-animation-frame-frontend#requestanimationframe%EA%B3%BC-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%9F%B0%ED%83%80%EC%9E%84-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0&quot;&gt;requestAnimationFrame의 성능이슈 관련 글&lt;/a&gt;에서 영감을 받았습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;햄부기 세트메뉴 업데이트.....&lt;/li&gt;
+&lt;li&gt;햄부기끼리 부딪히는 등 인터렉션 추가...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;등.. 을 하고싶긴 한데요, 시간이 없어서 언제 할지는 모르겠습니다.&lt;/p&gt;
+&lt;p&gt;아래에는 제가 참고한 링크들을 남겨둘건데요, 웹 렌더링 성능 최적화에 관심이 있으시다면 추천&lt;/p&gt;
+&lt;h2 id=&quot;ref&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ref&quot; aria-label=&quot;ref permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Ref.&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://so-so.dev/web/browser-rendering-process/&quot;&gt;렌더링 성능 개선 (1)&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://so-so.dev/web/browser-rendering-performance/&quot;&gt;렌더링 성능 개선 (2)&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://developer.chrome.com/docs/devtools/performance/timeline-reference?hl=ko&quot;&gt;타임라인 이벤트 참조&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://webperf.tips/tip/browser-rendering-pipeline/&quot;&gt;An Introduction to the Broswer Rendering Pipeline&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://developer.chrome.com/docs/chromium/renderingng-architecture?hl=ko&quot;&gt;RenderingNG Architecture&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://medium.com/@matthew.costello/frontend-web-performance-the-essentials-0-61fea500b180&quot;&gt;Frontend Web Performance: The Essentials [0]&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://medium.com/masmovil-engineering/layers-layers-layers-be-careful-6838d59c07fa#:~:text=Using%20too%20many%20%E2%80%9Clayers%E2%80%9D%20will%20not%20improve,the%20opposite%20effect%20that%20we%20want%E2%80%A6be%20careful!&quot;&gt;Layers, layers, layers… Be careful!&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://developer.chrome.com/blog/inside-browser-part3?hl=ko#dividing_into_layers&quot;&gt;최신 웹브라우저 들여다보기 (3부)&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://web.dev/articles/stick-to-compositor-only-properties-and-manage-layer-count?hl=ko#manage_layers_and_avoid_layer_explosions&quot;&gt;컴포저 전용 속성 준수 및 레이어 개수 관리&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🔨 햄부기 기능 업데이트 - 팝업 패널, 다중그림자분신술, 관성운동]]></title><description><![CDATA[안녕하세요 오늘은 귀여운 햄부기로 다시 돌아왔습니다 햄부기 1.2.…]]></description><link>https://sungpaks.github.io/chrome-extension-feature-updates/</link><guid isPermaLink="false">https://sungpaks.github.io/chrome-extension-feature-updates/</guid><pubDate>Mon, 06 Jan 2025 22:14:39 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요&lt;br&gt;
 오늘은 귀여운 햄부기로 다시 돌아왔습니다&lt;br&gt;
 &lt;a href=&quot;https://chromewebstore.google.com/detail/bugi-and-friends-121/cidndoahplamogkfaimmahedcnakjnag?hl=ko&quot;&gt;햄부기 1.2.1&lt;/a&gt; 👈👈 즉시시작&lt;/p&gt;
 &lt;p&gt;&lt;span
@@ -3990,7 +4964,7 @@ rAF처럼 쓰는거니까 매 (가능한) 프레임마다 콜백을 호출하고
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;isDragging&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
   &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;
-    &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;fixed&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; position&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;top&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; position&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;left &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; position&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;fixed&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; top&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; position&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;top&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; left&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; position&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;left &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
     &lt;span class=&quot;token attr-name&quot;&gt;onMouseDown&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;handleMouseDown&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
     &lt;span class=&quot;token attr-name&quot;&gt;onMouseUp&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;handleMouseUp&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;
@@ -9188,7 +10162,7 @@ key를 동적으로 뱉어줄 &lt;code class=&quot;language-text&quot;&gt;keyFn&
 저는 &lt;code class=&quot;language-text&quot;&gt;item&lt;/code&gt;과 기타 여러 props를 받는 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;ScenarioListItem&gt;&lt;/code&gt; 컴포넌트를 만들었어요.&lt;br&gt;
 사실 여러분 입장에서는 별 관심을 코드라서 여기에는 안 씁니다.&lt;/p&gt;
 &lt;p&gt;이제 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;SearchableList&gt;&lt;/code&gt;를 이용하여 시나리오 리스트 검색 컴포넌트를 만들 일만 남았네요&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;SearchableList&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;scenarios&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;keyFn&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; item&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;SearchableList&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;scenarios&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;keyFn&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;item &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; item&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;item&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; index&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;ScenarioListItem&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;item&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;SearchableList&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;편하게 보시라고 안궁금하실 props 넣는 부분은 쳐냈습니다&lt;br&gt;
@@ -11986,7 +12960,7 @@ props로 &lt;code class=&quot;language-text&quot;&gt;setState : Dispatch&amp;lt;
       &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;input&lt;/span&gt;
         &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;range&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
         &lt;span class=&quot;token attr-name&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;volume &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
-        &lt;span class=&quot;token attr-name&quot;&gt;onChange&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setVolume&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;target&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+        &lt;span class=&quot;token attr-name&quot;&gt;onChange&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;e &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setVolume&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;target&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
       &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Box&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
@@ -12882,14 +13856,14 @@ ts패키지도 적당히 넣어주고&lt;br&gt;
 
   &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
     &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;80vw&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; width&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;80vw&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;h3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;Kakao Map.....&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;h3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;latitude &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; longitude &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
           &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Map&lt;/span&gt;&lt;/span&gt;
-            &lt;span class=&quot;token attr-name&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; latitude&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;lng&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; longitude &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
-            &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;100%&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;500px&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+            &lt;span class=&quot;token attr-name&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; lat&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; latitude&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; lng&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; longitude &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+            &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; width&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;100%&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; height&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;500px&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
           &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MapMarker&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; latitude&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;lng&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; longitude &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MapMarker&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MapMarker&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; lat&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; latitude&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; lng&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; longitude &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MapMarker&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Polyline&lt;/span&gt;&lt;/span&gt;
               &lt;span class=&quot;token attr-name&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;path&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
               &lt;span class=&quot;token attr-name&quot;&gt;strokeWeight&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 선의 두께 입니다&lt;/span&gt;
@@ -16717,7 +17691,7 @@ graphql 쿼리를 딸깍 할 수 있는 함수?? 뭐 아무튼 그런걸 줍니�
 이상한 사람이 준 문자열을 그냥 갖다 바꿔버리면&lt;br&gt;
 &lt;a href=&quot;https://en.wikipedia.org/wiki/Cross-site_scripting&quot;&gt;Cross-Site Scripting(XSS)&lt;/a&gt;라는 보안이슈가 발생할 수 있어서&lt;br&gt;
 어흥! &lt;code class=&quot;language-text&quot;&gt;dangerously&lt;/code&gt;를 붙여놨다고 하네요&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;toc&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;dangerouslySetInnerHTML&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;__html&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; tableOfContents &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;toc&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;dangerouslySetInnerHTML&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; __html&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; tableOfContents &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;암튼 이렇게 작성하면&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
