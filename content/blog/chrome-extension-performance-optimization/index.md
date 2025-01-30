@@ -1,13 +1,23 @@
 ---
-title: "애니메이션에서 Reflow를 완전히 제거하고 성능을 약 20% 개선하기"
+title: "⚡️ 웹 애니메이션에서 Reflow를 건너뛰고 렌더링 성능을 개선하기"
 date: 2025-01-18 14:14:48
-description: "설명"
+description: "렌더링 성능 최적화를 위한 구체적인 구현과 성능지표 수집, 분석"
 tag: ["JavaScript", "Chrome Extension"]
 ---
 
 ![햄부기온앤온](image.png)
 
-오늘은 햄부기햄북 햄북어 햄북스딱스 함부르크햄부가우가 햄비기햄부거 햄부가티햄부기온앤 온 의 성능을 최적화해볼게요
+오늘은 햄부기햄북 햄북어 햄북스딱스 함부르크햄부가우가 햄비기햄부거 햄부가티햄부기온앤 온 의 애니메이션 성능을 최적화해볼게요  
+참고로 엥? 햄부기가 뭔데요? 하신다면
+
+> ♜♜[즉시설치](https://chromewebstore.google.com/detail/bugi-and-friends-121/cidndoahplamogkfaimmahedcnakjnag?hl=ko)☜☜평생무료획득♜♜
+
+들어가기에 앞서, 이런 내용을 준비했습니다
+
+- **렌더링 성능 최적화**를 위한 **배경지식**: 중요 렌더링 경로, Chrome의 렌더링 파이프라인
+- 위 배경지식을 토대로 크롬 확장프로그램의 애니메이션 **성능 최적화를 위한 가설** 수립
+- 실제로 확인하기 위해 **구현**하고 **성능 지표를 수집, 분석**
+- 또 **주의**해야 할 점은?
 
 # 배경지식
 
@@ -15,6 +25,8 @@ tag: ["JavaScript", "Chrome Extension"]
 이에 관해 MDN에 [브라우저는 어떻게 동작하는가](https://developer.mozilla.org/ko/docs/Web/Performance/How_browsers_work)에 대한 글이 있는데, 시간이 많으시면 한번 쭉 읽어보시는 것을 추천드려요. 재밌습니다  
 웹페이지를 요청한 이후로 그 웹페이지의 콘텐츠를 사용자에게 보여줄 때까지 브라우저가 무슨 일을 하는지에 대해 나와있는데요,  
 이것만 정독하시면 면접에서 "`브라우저에 www.google.com을 입력하면 어떤 일이 일어나나요?`"라고 질문받으셔도 걱정 없을 듯
+
+![인재 배달왔습니다](image-16.png)
 
 근데 우리 햄부기의 성능을 최적화하는 데는 이 정보가 모두 필요하진 않구요,  
 [중요 렌더링 경로](https://developer.mozilla.org/ko/docs/Web/Performance/Critical_rendering_path)에 나오는 내용만 응용하면 됩니다
@@ -30,9 +42,11 @@ tag: ["JavaScript", "Chrome Extension"]
    - 요소를 별도의 레이어로 분리하여 GPU 레이어로 격상하면 Paint단계의 성능을 높일 수 있습니다.
    - (필요한 경우) Composite : 필요에 따라, 또는 개발자의 조작에 따라 레이어가 나뉘어 Paint되었다면, 이를 합성하여 화면에 그려냅니다
 
-이 과정을 **중요 렌더링 경로(Critical Rendering Path, CRP)** 부른다네요  
+![중요 렌더링 경로](image-17.png)
+
+이 과정을 **중요 렌더링 경로(Critical Rendering Path, CRP)** 부릅니다  
 또는 [Broswer Rendering Pipeline](https://webperf.tips/tip/browser-rendering-pipeline/)라고도 하는 듯  
-그리고 Layout단계부터 다시 재계산하며 실행하는 것을 Reflow(크롬에서는 Layout 재계산)라고 부르며,  
+그리고 Layout단계의 재계산을 Reflow(크롬에서는 Layout 재계산)라고 부르며,  
 Paint단계를 다시 실행하는 것을 Repaint라고 합니다
 
 웹 성능 최적화를 위해서는 이 CRP의 길이를 최소화하고 병목 구간을 줄이기 위해 힘써야겠습니다.
@@ -42,7 +56,14 @@ Paint단계를 다시 실행하는 것을 Repaint라고 합니다
 위에서 살펴본 중요 렌더링 경로가 크롬 브라우저에서는 어떻게 진행되고, 이를 어떻게 분석하면 좋을지 궁리해야겠는데요  
 이에 관해 크롬에서 [RenderingNG의 아키텍처](https://developer.chrome.com/docs/chromium/renderingng-architecture?hl=ko)에 대해 쓴 글이 있습니다  
 RenderingNG에서 NG는 Next Generation이라는 뜻인데요  
-Chromium계열 브라우저에서 사용하는 개쩌는 렌더링 아키텍처라고 하네요
+Chromium계열 브라우저에서 사용하는 개쩌는 최신 렌더링 아키텍처라고 합니다
+
+<figure>
+
+![RenderingNG](image-18.png)
+
+<figcaption>출처: https://developer.chrome.com/docs/chromium/renderingng</figcaption>
+</figure>
 
 위 글을 살펴보면 Chrome브라우저에서 렌더링은 아래와 같은 과정을 거치며 이를 **렌더링 파이프라인**이라고도 부릅니다. (각 단계의 설명은 단순하게 요약되었습니다)
 
@@ -64,7 +85,7 @@ Chromium계열 브라우저에서 사용하는 개쩌는 렌더링 아키텍처�
 ![브라우저 렌더링 파이프라인](image-1.png)
 
 이 때 중요한 점은, **필요하지 않은 단계는 생략**할 수 있습니다.  
-예를 들어, 스크롤에 의한 애니메이션은 Layout, Pre-paint, Paint 단계를 건너뛸 수 있습니다
+예를 들어, 스크롤에 의한 애니메이션은 합성 스레드에서 실행되게 하면 Layout, Pre-paint, Paint 단계를 건너뛸 수 있습니다
 
 그리고 지금 살펴본 Layout, Pre-paint, Paint 등 용어를 잘 봐두면 좋은데요
 
@@ -76,8 +97,10 @@ Chromium계열 브라우저에서 사용하는 개쩌는 렌더링 아키텍처�
 # 성능 최적화 전략
 
 노드의 사이즈나 위치가 변하면 Layout단계를 거쳐야 합니다  
-현재 Bugi는 이동할 때 `position.x += 1`과 같이 직접 위치를 움직이므로, Layout단계를 진행해야곘네요  
-근데 그 대신 `transform`을 사용하여 GPU 레이어로 격상하면 단계도 건너뛰고, 메인스레드 점유 시간도 줄일 수 있을 것 같네요?
+현재 Bugi는 이동할 때 `position.x += 1`과 같이 직접 위치를 움직이므로, Layout단계를 진행하게 됩니다  
+근데 그 대신 `transform`을 사용하여 GPU 레이어로 격상하면:  
+브라우저는 기존의 Layout Box를 변경하는 대신 Compositing단계에서 변환만 수행하고,  
+Compositor 스레드에서 따로 작업하므로 메인스레드를 점유하는 시간도 줄일 수 있을 듯 합니다.
 
 또는 툴팁 표시를 지금은 `visibility`를 조절하고 있는데, `opacity`를 사용한다거나  
 모션이 바뀌는 효과를 위해 이미지를 갈아끼우는 대신에 또한 `opacity`를 사용하여 가시성을 제어한다거나?  
@@ -87,7 +110,10 @@ Chromium계열 브라우저에서 사용하는 개쩌는 렌더링 아키텍처�
 이것이 실제로 Layout단계를 건너뛰는지, 레이어는 잘 분리되는지, 실제로 성능은 개선되는지,  
 이러한 내용을 알아보고자 합니다
 
-> 가설 : `transform`을 적용하면 Layout단계를 스킵하고 실제로 매 렌더링마다 드는 비용(duration 등)이 감소한다
+결론적으로, 확인해보고자 하는 점은:
+
+> 가설 1. `transform`을 적용하면 Layout단계를 건너뛸 수 있다  
+> 가설 2. Layout단계를 건너뛰면 실제로 매 렌더링마다 드는 비용(duration 등)이 감소한다
 
 ## 성능 확인 방법
 
@@ -181,6 +207,8 @@ updatePosition() {
 대충 이런 식으로 되는 상황이었는데..  
 이렇게 원운동울 해버립니다? ;;
 
+![어디갔어 이것들이](image-19.png)
+
 알고보니.. 날아가면서 햄부기가 뱅글뱅글 돌게 하기 위해서 아래처럼 코드를 작성했었는데요
 
 ```js
@@ -221,6 +249,8 @@ updatePosition() {
 ## Trace.json 파싱, 분석하기
 
 위에서 찾은 Trace의 Format에 대한 글 + GPT에게 도움을 받아 Trace를 파싱하고 분석하는 `parseTrace.js`파일을 작성했습니다
+
+![AI Thinking](image-20.png)
 
 ```js
 const fs = require("fs");
@@ -286,6 +316,8 @@ console.log("--------------After End----------------");
 
 ## 결과는??
 
+각 기록은 5초 간의 걷기 애니메이션을 모두 담도록 했습니다.
+
 <figure>
 
 ![Before & After](https://i.imgur.com/h53KG68.png)
@@ -307,12 +339,19 @@ console.log("--------------After End----------------");
 <figcaption>DevTools상에서 After 표본의 Bottom-up 지표</figcaption>
 </figure>
 
-각 기록은 5초 간의 걷기 애니메이션을 모두 담도록 했습니다.  
 실제로 이전에는 5초 간 900번 트리거되었던 **Layout 단계가 0회로 아예 사라졌습니다!!**  
-특히 Layout단계는 Self time(하위 activity 실행시간을 제외한 해당 activity 자체 시간)에서 가장 큰 비중을 차지했는데, 완전히 사라져버렸네요.  
-증명에 성공해버렸습니다..
+특히 Layout단계는 Self time(하위 activity 실행시간을 제외한 해당 activity 자체 시간)에서 가장 큰 비중을 차지했는데, 완전히 사라져버렸네요.
 
-# 레이어가 많아졌어요
+> ✅ ~~가설 1. `transform`을 적용하면 Layout단계를 건너뛸 수 있다~~  
+> ✅ ~~가설 2. Layout단계를 건너뛰면 실제로 매 렌더링마다 드는 비용(duration 등)이 감소한다~~
+
+위와 같이 세웠던 가설들을 모두 검증했습니다.
+
+![factos](image-21.png)
+
+실제로 **Layout 재계산(Reflow)를 건너뛰고, 17.5%의 duration을 절감**했네요.
+
+# 레이어 남용에 주의합시다.
 
 위에서 `transform`같은 프로퍼티를 사용하여 레이어를 분리하고 Layout단계를 건너뛰었는데요  
 그런데 MDN의 중요 렌더링 경로에 대한 글에서 이런 내용이 있습니다
@@ -334,6 +373,9 @@ console.log("--------------After End----------------");
 햄부기 하나 당 하나의 레이어가 생긴 것을 확인할 수 있었습니다  
 구글 크롬 Web.dev 컨텐츠에서는 [너무 많은 레이어를 생성하지 않도록 주의](https://web.dev/articles/stick-to-compositor-only-properties-and-manage-layer-count?hl=ko#manage_layers_and_avoid_layer_explosions)해야함을 경고하고 있습니다  
 따라서 이 햄부기들을 위한 하나의, 통일된 레이어를 만들어봐야겠습니다.
+
+## 햄부기들을 위한 레이어를 만들어주기
+
 이를 위해서는 간단히 *모든 햄부기 요소를 위한 공통 부모 컨테이너*만 하나 추가해주면 되는데요
 
 ```js
@@ -383,10 +425,57 @@ body에 직접 집어넣던 것을 bugiContainer로 넣어줍니다
 
 추가적인 레이어는 `div#bugi-container` 단 하나만 존재함을 알 수 있습니다
 
+## 효과는 미미했다?
+
+위와 같이, 햄부기 인스턴스 각각에 대한 레이어를 유지하는 대신, 모든 햄부기들을 공통 부모 요소 내부에 두어 단일 레이어로 병합하는 최적화 전략을 시도해봤는데요  
+이것도, 한번에 햄부기 50개가 나와서 모두 똑같이 5초간 걷기 애니메이션을 진행하도록 하여 비교군을 만들어 실험했습니다..만  
+렌더링/페인팅 시간이나, 메모리 사용량이나, 어떤 큰 변화를 발견하지 못했습니다
+
+특히 햄부기 프로젝트에서는:  
+(Multi Ver.)햄부기들이 각각의 레이어를 갖게 하면, 각 레이어는 그 햄부기들이 차지하는 영역(ex. 햄부기가 50x50픽셀이면, 50x50픽셀만큼만)만큼만 차지하는 반면,  
+(Single ver.)햄부기들을 모두 하나의 레이어로 병합하기 위해서는 각 햄부기가 차지하는 영역에 관계없이 부모 레이어가 화면 전체를 덮게 됩니다.
+
+![레이어 하나 vs 여러개](image-15.png)
+
+실제로 이 때문에 뷰포트가 넓어질수록 싱글 레이어가 차지하는 메모리는 증가함을 확인할 수 있었습니다  
+따라서, 뷰포트는 좁을 수록, 그리고 햄부기 수는 많아질수록 단일 레이어로 병합하여 유지하는 방법이 효과가 있을 것이지만  
+반대의 경우에는 효과를 보장할 수 없고, 심지어는 더 큰 오버헤드로 이어질 수도 있습니다(극단적으로, 매우 큰 화면에 단 하나의 햄부기만..)  
+그래서 일단 해당 업데이트를 적용하는 것은 보류하기로 했습니다.
+
+그러나 이 사례는 **레이어를 남용 시 부작용**을 미리 인지하고, 적절한 **성능 측정에 근거**하여 레이어 승격을 적용해야 함을 알리기 위한 수단으로 소개해드렸습니다
+
 ---
 
-TODO?
+# 끝
+
+이렇게 **웹 애니메이션에서의 렌더링 성능 최적화**에 대해 알아봤습니다.  
+`transform, opacity`같은 속성 등을 적절히 사용하면 **렌더링 경로를 최소화**할 수 있고,  
+이는 곧 자연스럽게 **렌더링 성능 최적화**로 이어짐을 확인했구요  
+**Chrome DevTools**를 통해 **성능지표를 수집하고 분석**하여 실제로 이를 확인하는 과정을 보여드렸습니다  
+또한 추가로, **무분별한 레이어 증식에 주의**해야 함을 확인했구요
+
+혹시나 글에 이상한 점, 이거 아닌데, 이건 어떤가요? 등 의견이 있다면 꼭 남겨주세요
+
+앞으로 햄부기는
 
 - 뷰포트가 줄어들면 햄부기들의 위치 또한 이에 따라 반응형으로 이동하게 하기
 - `requestAnimationFrame` 콜백을 하나로 관리하기
   - 최근 읽은 [requestAnimationFrame의 성능이슈 관련 글](https://velog.io/@k-svelte-master/optimize-request-animation-frame-frontend#requestanimationframe%EA%B3%BC-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%9F%B0%ED%83%80%EC%9E%84-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)에서 영감을 받았습니다.
+- 햄부기 세트메뉴 업데이트.....
+- 햄부기끼리 부딪히는 등 인터렉션 추가...
+
+등.. 을 하고싶긴 한데요, 시간이 없어서 언제 할지는 모르겠습니다.
+
+아래에는 제가 참고한 링크들을 남겨둘건데요, 웹 렌더링 성능 최적화에 관심이 있으시다면 추천
+
+## Ref.
+
+[렌더링 성능 개선 (1)](https://so-so.dev/web/browser-rendering-process/)  
+[렌더링 성능 개선 (2)](https://so-so.dev/web/browser-rendering-performance/)  
+[타임라인 이벤트 참조](https://developer.chrome.com/docs/devtools/performance/timeline-reference?hl=ko)  
+[An Introduction to the Broswer Rendering Pipeline](https://webperf.tips/tip/browser-rendering-pipeline/)  
+[RenderingNG Architecture](https://developer.chrome.com/docs/chromium/renderingng-architecture?hl=ko)  
+[Frontend Web Performance: The Essentials [0]](https://medium.com/@matthew.costello/frontend-web-performance-the-essentials-0-61fea500b180)  
+[Layers, layers, layers… Be careful!](https://medium.com/masmovil-engineering/layers-layers-layers-be-careful-6838d59c07fa#:~:text=Using%20too%20many%20%E2%80%9Clayers%E2%80%9D%20will%20not%20improve,the%20opposite%20effect%20that%20we%20want%E2%80%A6be%20careful!)  
+[최신 웹브라우저 들여다보기 (3부)](https://developer.chrome.com/blog/inside-browser-part3?hl=ko#dividing_into_layers)  
+[컴포저 전용 속성 준수 및 레이어 개수 관리](https://web.dev/articles/stick-to-compositor-only-properties-and-manage-layer-count?hl=ko#manage_layers_and_avoid_layer_explosions)
