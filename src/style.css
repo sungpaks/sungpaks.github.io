@@ -669,14 +669,6 @@ body.theme-reverse .top-ui-tag {
   ol {
     list-style-position: inside;
   }
-
-  .top-ui {
-    height: 60px;
-  }
-
-  .progress-bar {
-    top: calc(60px - 3px);
-  }
 }
 
 .smaller {
