@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 30 Jan 2025 16:25:07 GMT</lastBuildDate><item><title><![CDATA[⚡️ 웹 애니메이션에서 Reflow를 건너뛰고 렌더링 성능을 개선하기]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/chrome-extension-performance-optimization/</link><guid isPermaLink="false">https://sungpaks.github.io/chrome-extension-performance-optimization/</guid><pubDate>Sat, 18 Jan 2025 14:14:48 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Sunghoon Tech Blog]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 31 Jan 2025 03:57:08 GMT</lastBuildDate><item><title><![CDATA[⚡️ 웹 애니메이션에서 Reflow를 제거하고 렌더링 성능을 최적화하기]]></title><description><![CDATA[…]]></description><link>https://sungpaks.github.io/chrome-extension-performance-optimization/</link><guid isPermaLink="false">https://sungpaks.github.io/chrome-extension-performance-optimization/</guid><pubDate>Sat, 18 Jan 2025 14:14:48 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 210px; &quot;
     &gt;
@@ -27,10 +27,10 @@
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;오늘은 햄부기햄북 햄북어 햄북스딱스 함부르크햄부가우가 햄비기햄부거 햄부가티햄부기온앤 온 의 애니메이션 성능을 최적화해볼게요&lt;br&gt;
-참고로 엥? 햄부기가 뭔데요? 하신다면&lt;/p&gt;
+&lt;p&gt;오늘은 햄부기햄북 햄북어 햄북스딱스 함부르크햄부가우가 햄비기햄부거 햄부가티햄부기온앤 온 의 애니메이션 성능을 최적화해보려고 합니다&lt;br&gt;
+엥? 햄부기가 뭔데요? 하신다면&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;♜♜&lt;a href=&quot;https://chromewebstore.google.com/detail/bugi-and-friends-121/cidndoahplamogkfaimmahedcnakjnag?hl=ko&quot;&gt;즉시설치&lt;/a&gt;☜☜평생무료획득♜♜&lt;/p&gt;
+&lt;p&gt;크롬 확장프로그램 햄부기♜♜&lt;a href=&quot;https://chromewebstore.google.com/detail/bugi-and-friends-121/cidndoahplamogkfaimmahedcnakjnag?hl=ko&quot;&gt;즉시설치&lt;/a&gt;☜☜평생무료획득♜♜&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;들어가기에 앞서, 이런 내용을 준비했습니다&lt;/p&gt;
 &lt;ul&gt;
@@ -514,6 +514,35 @@ Web Performance Tips라는 웹사이트에 &lt;a href=&quot;https://webperf.tips
 &lt;p&gt;문제는 rotate의 기준점은 요소의 중앙이라는 점입니다&lt;br&gt;
 기존에는 요소가 직접 움직이므로 기준점이 진짜로 햄부기의 중앙에 있었는데,&lt;br&gt;
 이제 위치는 &lt;code class=&quot;language-text&quot;&gt;(0,0)&lt;/code&gt;에 고정이고 transform으로 움직여놨으니 &lt;code class=&quot;language-text&quot;&gt;(0,0)&lt;/code&gt;을 기준으로 회전해버립니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 216px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f3428080c400ce731cc281d4ef1eaea5/7d4ec/image-23.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 108.22784810126582%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAIAAABPIytRAAAACXBIWXMAAAsTAAALEwEAmpwYAAADr0lEQVR42jWUyS97URTHrz+DtZUdgo2ku6aRSETErxIiJNWFcSUhxhoSCyHGRgwxhppjJkE0hhBTTaWKGoqi5lLzp335vcXLu/ee8/1+z/ec+8TFxYXNZtva2trc3DSZTDc3N5eXl1dXV3xYrdbt7e319fWTk5P7+/vb29vHx8fr6+u9vb39/X2DwSA4OD093d3dfX19NRqNYH1/f//+/rIkgv3n5+fj42Ow2CRzZ2cHDofDwZFISUlpa2uD+fz8fGFhYWNjw+l0cpCent7f30++xWKZmZkhAI7y8vKxsbGDgwPI5+fnhUqlamxsXFxcJK6urm58fBx5QOTm5ra3txNBXFVVVWFhYV9fX1ZW1sDAAAUS3N3dLdRqdXV1NahDQ0OpqalxcXGtra3UQnJtbS2ZExMTMTExOp0ORJKnpqbMZnNnZ2dZWZkrGSU40dLS8s/95OfnoyUvL29wcPDh4aGnpycsLGx4eBisnJyc1dVVfCETDpGWljY9Pa3X67OzsxUKBRYUFBQkJiYWFxd3dHRQDgEBAQEJCQlAJCcnswNZUlIScAIewEpLS6OiooKCguLj40NDQwMDAzMyMkZGRiCPiIjw8/MjMzg4uLKy8ujoCGvQ7zKM0qmBZgKBQ3w0Nzf39vYeHh7SEqwmaHJyEsOhIpOmsI/5BIiVlRUWOAQE/ZTm5OXlhRmgpZTHt839sM+oMD988wZIrK2tYTWZ9BZj6T4RtFqr1VIIRTFn7+/vT09PBJD29vZ2d3f3+fmJBEHTmEeOca+kpAR7YSB5aWmJZUhICOVwSkJ9fT2+Ag0QS4CE3W5n/fHxIZfL8ebr60saY4kBwyTlhGGhTCajqRAgkBoFgkFigIuKiugku3yzQxASkEcocGBhdWxsLEDsE+NiPjs7k9bcBPh5QwsnRgBEBDvSKYgANTU1cUSKq2bi8AxXgOcMeZCwZDAhl3I40mg0RIPCkCOebwwXy8vLvr6+o6OjPz8/9v8PJsFAq9DCzONTZGRkTU0Nt7KhocHf3x9yBAoOvL29uWtcY1RAxZu7ySVhfohmTjMzM6Ojo7ETUXBiFaDMjwAABuI4oBIUSq2mq4ianZ3FJ6VSySzRPKBpB9URSYMFAlhTDINJqdIfB+VsshMeHs4kz83NIYFNpp0qcBE7CBb8euCE3MvLy8fHhxvPEiz8wDNuSFdXF1qwjUwPDw9PT09UMEX0WEi+gc0McFcQwlSY3A9VVVRUcAeh4u/F3dC4H7oLrdFo/AMGrfCXX3pBcwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;잔상권&quot;
+        title=&quot;&quot;
+        src=&quot;/static/f3428080c400ce731cc281d4ef1eaea5/7d4ec/image-23.png&quot;
+        srcset=&quot;/static/f3428080c400ce731cc281d4ef1eaea5/c26ae/image-23.png 158w,
+/static/f3428080c400ce731cc281d4ef1eaea5/7d4ec/image-23.png 216w&quot;
+        sizes=&quot;(max-width: 216px) 100vw, 216px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;이를 해결하기 위해 &lt;code class=&quot;language-text&quot;&gt;transformOrigin&lt;/code&gt;을 임시로 바꿔두고 rotate할 수도 있겠지만&lt;br&gt;
 아래처럼 &lt;code class=&quot;language-text&quot;&gt;updatePosition()&lt;/code&gt;메서드에 transform을 한번에 선언해버리면 해결됩니다&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token function&quot;&gt;updatePosition&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -761,7 +790,37 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;레이어는 성능을 향상시킵니다. 하지만 메모리 관리 측면에서 봤을 때는 비싼 작업입니다. 따라서 웹 성능 최적화 전략으로 과도하게 쓰이지는 않아야 합니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;레이어를 너무 양산하지 말라고 하네요.&lt;br&gt;
-그런데 문득.. 햄부기의 인스턴스마다 각각의 레이어가 생기고 있는게 아닌가? 라는 생각이 들었습니다.&lt;/p&gt;
+그러고보니 문득..&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 299px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9f4477aa9fbc6c26fd3027041d38ad7b/aeb78/image-24.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB0klEQVR42mNgwAYsbYw27Znz4NX2c5dnTZmRpq4uDRRkZGREV8cEA8zMTKysLEARJzerx/e33T2/6PLB1tObC67tq1g8MUZIiAekGEk/GysrmkEguWlzGz/c3npvaeONmUXnJxUeqc/Y2hrs6a0DlGJmgmrm5uJysDJicLIzDwv2tLcxcXe2sTE3tDI33L5z8u3d005MLjzalX6sL2NvQ/LqCq+sNFsebj5xUWF2NlYODk4zA/VZ/ZUM0lLi8nLSMtISWhoqCnJSZqa6h/dPurFl4vKapP3tGZur4+bmRK4p92itDcnLSmmqKchNi+1rK9u8cmJ8qBvCzZDw4OLhXtGUdX/75Acrmi7Nq9teEXtlcsmagmB9TVmIv4BelZGSKM2Lqy9JAOmBA2CwAVWkhTjd3zfj5qKaXdVxOyujLvXltQU48nFxQSyA2CEpJhLm74ISYMzMzEAyuyju4cml12aWHW1Jvzgx72R7+sT6cFZ2NpBmmH4+Xh4ODnb0aAOS7v4Otw/Puz6j8nx/7oW+/CMtyYUZ7mBrGfABiHSouuTeupAD7VHH21J2VUfOTnY1VZdBi2RsmsG2p3EI9DFwTbSUyw3WK3VRDuHjlefggMqiAgAWmZPOEsWfagAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;번뜩!!&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9f4477aa9fbc6c26fd3027041d38ad7b/aeb78/image-24.png&quot;
+        srcset=&quot;/static/9f4477aa9fbc6c26fd3027041d38ad7b/c26ae/image-24.png 158w,
+/static/9f4477aa9fbc6c26fd3027041d38ad7b/aeb78/image-24.png 299w&quot;
+        sizes=&quot;(max-width: 299px) 100vw, 299px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;햄부기의 인스턴스마다 각각의 레이어가 생기고 있는게 아닌가? 라는 생각이 들었습니다.&lt;/p&gt;
 &lt;p&gt;이를 확인하기 위해 크롬 개발자도구에서 Layers 탭에 들어가봤습니다&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -901,8 +960,37 @@ window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bugiContaine
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;추가적인 레이어는 &lt;code class=&quot;language-text&quot;&gt;div#bugi-container&lt;/code&gt; 단 하나만 존재함을 알 수 있습니다&lt;/p&gt;
 &lt;h2 id=&quot;효과는-미미했다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%9A%A8%EA%B3%BC%EB%8A%94-%EB%AF%B8%EB%AF%B8%ED%96%88%EB%8B%A4&quot; aria-label=&quot;효과는 미미했다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;효과는 미미했다?&lt;/h2&gt;
-&lt;p&gt;위와 같이, 햄부기 인스턴스 각각에 대한 레이어를 유지하는 대신, 모든 햄부기들을 공통 부모 요소 내부에 두어 단일 레이어로 병합하는 최적화 전략을 시도해봤는데요&lt;br&gt;
-이것도, 한번에 햄부기 50개가 나와서 모두 똑같이 5초간 걷기 애니메이션을 진행하도록 하여 비교군을 만들어 실험했습니다..만&lt;br&gt;
+&lt;p&gt;위와 같이, 햄부기 인스턴스 각각에 대한 레이어를 유지하는 대신, 모든 햄부기들을 공통 부모 요소 내부에 두어 단일 레이어로 병합하는 최적화 전략을 시도해봤는데요&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 300px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9894a9877f0f2b44a9353c8aaffe0054/5a46d/image-26.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACbklEQVR42g2P20/acABG+7QsUzFTYU4UBaTBQbjIpaX04q8Xei9t6YVCBQQUMjYTDdmcy8w0xqnZXrbFlz3tdX/lmpzHL+fkg1b3NkKpyFJyLZQMh1LhSH4rnIvmucr5l4vrh7ubx4BvV/e3R+9PMngxWkwpb7vs0BKnnjjxoBeRpcWN5a39ZM1iqwYZR+GF7WWUr198vfSPe+7A608HV3c3tw/3ebLyLLKYwjIHnixPvcACPY8sxStvlGlbmtjW+ZA+VF/urK3srAIJtA/bkiFLtkbLrDXqRtKx0HYYMYA689VZR5n50EpiHdUZtqdX1QOmZ0gTby31euHVYtPiP32ePjzO5x+PdZsjXJEbWpSnGOdD/tihPJmwBQg1aWns8AOT6ahs3yTa8srueo7I/fx1qZsMSZfnH0ZPT9fq2G6+65unR/Kkw3RkzGSRJg3hjgA8RTlx5BO30TOlsS2MLOfsqKGCWCK2GY/CmUSzLbFdWR452sQVBi26ozBdje+bEMEShCORrkg4AXwAe9gkHR6hkb0cnCtlE/B2sV7EW0zd4msGU9VAkA2eko4I0QAnTZayOUSnKVdEdTovoJSGZ8vp3XQCzsCxxCZCFSidyPEoooPACzwRMxnc4qCOL+oG+fTj9OzMJS0OM0BdxXmb3tzdeBWN7OXhZHqnghekNse7HG0zlMOhBigrZNCHer7w/Xr89/f8358L0aKATpq+1GgBrIHgTK0OEBRUKQkTLFrrCJLFFLBs9qBUEPGSQkJ1UDMtzvcbpzMDI4qMSintBsZXgqnmSnKL11yRFGukjDV9KbDAmThC7BeYUoEr/wdJ8LeE88zKSAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;해치웠나&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9894a9877f0f2b44a9353c8aaffe0054/5a46d/image-26.png&quot;
+        srcset=&quot;/static/9894a9877f0f2b44a9353c8aaffe0054/c26ae/image-26.png 158w,
+/static/9894a9877f0f2b44a9353c8aaffe0054/5a46d/image-26.png 300w&quot;
+        sizes=&quot;(max-width: 300px) 100vw, 300px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이것도, 한번에 햄부기 50개가 나와서 모두 똑같이 5초간 걷기 애니메이션을 진행하도록 하여 비교군을 만들어 실험했습니다..만&lt;br&gt;
 렌더링/페인팅 시간이나, 메모리 사용량이나, 어떤 큰 변화를 발견하지 못했습니다&lt;/p&gt;
 &lt;p&gt;특히 햄부기 프로젝트에서는:&lt;br&gt;
 (Multi Ver.)햄부기들이 각각의 레이어를 갖게 하면, 각 레이어는 그 햄부기들이 차지하는 영역(ex. 햄부기가 50x50픽셀이면, 50x50픽셀만큼만)만큼만 차지하는 반면,&lt;br&gt;
@@ -962,6 +1050,35 @@ window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bugiContaine
 &lt;li&gt;햄부기끼리 부딪히는 등 인터렉션 추가...&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;등.. 을 하고싶긴 한데요, 시간이 없어서 언제 할지는 모르겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 283px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5be5f5b7a1e3b33169efaad043b0a486/bde6a/image-27.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.65822784810127%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC5klEQVR42k3O2U/TAAAG8P4JxEeDJiYmJkaMiSIMdZtyTZABC6DBcSjscKPdxrZu3UFH59Z2PdZ267kLFXEjHEIAufXJiMaEP8kSfTD58r398n1ABnVnUx49BDbH4v7Hxg57v2mbRY41dpeJK/Ary8N7TZeaApC9IqMSF5P5uMghIqd3AsikZnHMQWBuKgPii95uY3s1BX6rsGcfyvt8VoJnHMPmq82Xk4izIqG6lIV4kY/9wwTmINMuMuPKk14Cc1m7HiiIl4KmG4t+IeiA7YPT/YaWm9do3K8V4jKPKEJMERCZi8tcEsilXXTWw+JejpgTKCgD2neZhR0m8YVJLKPgUtLjGjSNWtqqclwRImoB0aMUIrLu+TjAZD153MuTugRF1lfOgDtE9IeSW0/5tcD0DhmZtdyHZwdqSkIrRrSijqNKAVb+Yo70FnKgSIESA2l8SKXAcmRmFfVxzhf460FiZgh6blby4VIheoHFi1YF+N9ykZqTaUhhA2UutExNLqPdRZ9NAqcS1qcRW1fk+WPP4G0Bm6hI8ZKoJ6r+j1Xap7HB97z/M/tyK/XoBDPUgkO0Yzg7MRCymaY770war5AzLaWFvhLpVHlYLeq3w/pzmY8C1fz8muA8YG2nRHeDHmjUpj6lxxXvSNDaCvbemjDeAJ80s2PX30G3N7COWtpSINxFLijm5yU+COzx9q/Znj30yXrSQK9wHvU0yQUrGETFnKEUAs2OZjx9UmSomBiuLFjqSNt7fExgQjztE5gAcIz37i50rkVNq/OteSWRWzpgqptMaVtZOUTFLULdprQN6dMXqX6CVpcq4Qcb6S6Fcudz8zzlB47SPZsx83rMvALeId6Gpc2zjzvf149/N47O6/vnq4dn9eNf7McTcesnurKq+drXEFN5cTRPhjjSDxxiPXXYWAUNsvNuOWSppqeqqfGYo+/F+Fgy/AaHrLmgTUBGlnKvCvAzzdVaAw0i3E2mPXQ28AfNz4F0ikVhPQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;해야하나&quot;
+        title=&quot;&quot;
+        src=&quot;/static/5be5f5b7a1e3b33169efaad043b0a486/bde6a/image-27.png&quot;
+        srcset=&quot;/static/5be5f5b7a1e3b33169efaad043b0a486/c26ae/image-27.png 158w,
+/static/5be5f5b7a1e3b33169efaad043b0a486/bde6a/image-27.png 283w&quot;
+        sizes=&quot;(max-width: 283px) 100vw, 283px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;아래에는 제가 참고한 링크들을 남겨둘건데요, 웹 렌더링 성능 최적화에 관심이 있으시다면 추천&lt;/p&gt;
 &lt;h2 id=&quot;ref&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ref&quot; aria-label=&quot;ref permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Ref.&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://so-so.dev/web/browser-rendering-process/&quot;&gt;렌더링 성능 개선 (1)&lt;/a&gt;&lt;br&gt;
