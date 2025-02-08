@@ -20,7 +20,7 @@ function Particles({
     []
   );
 
-  const count = 200; // 파티클 수
+  const count = 300; // 파티클 수
   const particlesData = React.useRef({
     positions: new Float32Array(count * 3),
     velocities: new Float32Array(count * 3)

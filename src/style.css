@@ -961,8 +961,8 @@ body.theme-reverse svg {
 
 #canvas-container-rocket {
   position: absolute;
-  bottom: 50px;
-  right: 50px;
+  top: -50px;
+  right: 0px;
   width: 200px;
   height: 200px;
   background-color: transparent;
@@ -970,7 +970,7 @@ body.theme-reverse svg {
 
 @media screen and (max-width: 520px) {
   #canvas-container-rocket {
-    right: -10px;
-    bottom: 10px;
+    right: -50px;
+    top: 40px;
   }
 }

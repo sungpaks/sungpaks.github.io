@@ -23,13 +23,13 @@ export default function AboutMe() {
             fov: 75,
             near: 0.1,
             far: 1000,
-            position: [20, 10, 10]
+            position: [20, 10, -10]
             // lookAt: () => [0, 0, 0]
           }}
         >
           <OrbitControls />
           <ambientLight intensity={1} />
-          <directionalLight intensity={10} position={[0, 10, 10]} />
+          <directionalLight intensity={10} position={[0, 10, -5]} />
           <SpaceShip />
           {/* <MagnifyingGlass /> */}
         </Canvas>
@@ -49,7 +49,7 @@ function SpaceShip(props: any) {
   const { scene } = useGLTF("/models/rocket/scene.glb");
   const SCALE = enlarged ? 4 : 3;
   scene.scale.set(SCALE, SCALE, SCALE);
-  scene.rotation.x = Math.PI / 4;
+  scene.rotation.x = -Math.PI / 4;
   let theta = 0;
   const easeFactor = 0.1;
   const rotationFactor = 0.5;
@@ -73,8 +73,8 @@ function SpaceShip(props: any) {
       onPointerLeave={() => setEnlarged(false)}
     >
       <primitive object={scene} {...props}>
-        <Particles color="#FF4500" maxDistance={100} />
-        <Particles color="#1E90FF" maxDistance={20} />
+        <Particles color="#FF4500" maxDistance={80} />
+        <Particles color="#1E90FF" maxDistance={10} />
       </primitive>
     </group>
   );
