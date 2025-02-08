@@ -13,6 +13,7 @@
     "@fontsource/merriweather": "^5.0.3",
     "@giscus/react": "^2.4.0",
     "@mdx-js/react": "^3.0.1",
+    "@react-three/drei": "^9.121.4",
     "@react-three/fiber": "^8.17.12",
     "@tabler/icons-react": "^3.29.0",
     "@types/node": "^20.11.0",

@@ -8,6 +8,7 @@
 import * as React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { FC } from "react";
+import AboutMe from "./AboutMe";
 //import { StaticImage } from "gatsby-plugin-image"
 
 interface authorType {
@@ -51,17 +52,20 @@ const Bio = () => {
       />
       */}
       <div>
-        {author?.name && (
-          <p>
-            <strong>@{author.name}</strong> 이라고 합니다. 😎
-            <br />
-            {author?.summary || null}
-            <br />
-            <br />
-            <span className="smaller">배움을 노나먹어요</span>
-            <br />
-          </p>
-        )}
+        <div className="bio-inner-container">
+          {author?.name && (
+            <p>
+              <strong>@{author.name}</strong> 이라고 합니다.
+              <br />
+              {author?.summary || null}
+              <br />
+              <br />
+              <span className="smaller">배움을 노나먹어요</span>
+              <br />
+            </p>
+          )}
+          <AboutMe />
+        </div>
         <p className="svg-icon-container">
           <a href="https://github.com/sungpaks" className="plane-link">
             <svg
