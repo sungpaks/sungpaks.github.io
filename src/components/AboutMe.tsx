@@ -7,7 +7,7 @@ import {
   useTrail
 } from "@react-three/drei";
 import { Canvas, PrimitiveProps, useFrame } from "@react-three/fiber";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { DirectionalLight, Mesh } from "three";
 import DynamicParticleSystem from "./DynamicParticleSystem";
 import Particles from "./Particles";
@@ -45,8 +45,10 @@ export default function AboutMe() {
 }
 
 function SpaceShip(props: any) {
+  const [enlarged, setEnlarged] = useState(false);
   const { scene } = useGLTF("/models/rocket/scene.glb");
-  scene.scale.set(3, 3, 3);
+  const SCALE = enlarged ? 4 : 3;
+  scene.scale.set(SCALE, SCALE, SCALE);
   scene.rotation.x = Math.PI / 4;
   let theta = 0;
   const easeFactor = 0.1;
@@ -64,10 +66,17 @@ function SpaceShip(props: any) {
   });
 
   return (
-    <primitive object={scene} {...props}>
-      <Particles color="#FF4500" maxDistance={100} />
-      <Particles color="#1E90FF" maxDistance={20} />
-    </primitive>
+    <group
+      /* onClick={() => setEnlarged(prev => !prev)} */ onPointerEnter={() =>
+        setEnlarged(true)
+      }
+      onPointerLeave={() => setEnlarged(false)}
+    >
+      <primitive object={scene} {...props}>
+        <Particles color="#FF4500" maxDistance={100} />
+        <Particles color="#1E90FF" maxDistance={20} />
+      </primitive>
+    </group>
   );
 }
 
