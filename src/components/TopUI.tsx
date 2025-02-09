@@ -88,11 +88,11 @@ function TopUI({ setCurTag }: ComponentProps) {
                   setCurMode(
                     preferDark
                       ? localStorage.getItem(KEY_THEME) === REVERSED
-                        ? LIGHT_MODE
-                        : DARK_MODE
+                        ? DARK_MODE
+                        : LIGHT_MODE
                       : localStorage.getItem(KEY_THEME) === REVERSED
-                      ? DARK_MODE
-                      : LIGHT_MODE
+                      ? LIGHT_MODE
+                      : DARK_MODE
                   );
                 }}
               >

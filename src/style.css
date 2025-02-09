@@ -972,5 +972,10 @@ body.theme-reverse svg {
   #canvas-container-rocket {
     right: -50px;
     top: 40px;
+    overflow: clip;
+  }
+
+  #canvas-container-rocket canvas {
+    overflow: clip;
   }
 }
