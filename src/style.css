@@ -505,8 +505,8 @@ body.theme-reverse .custom-button {
   left: 0;
   height: 54px;
   width: 100vw;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
   background-color: light-dark(rgba(245, 245, 245, 0.95),
       var(--color-lightdark-translucent));
   border-bottom: 1px solid black;
@@ -961,18 +961,21 @@ body.theme-reverse svg {
 
 #canvas-container-rocket {
   position: absolute;
-  top: -50px;
-  right: 0px;
-  width: 200px;
-  height: 200px;
+  top: -100px;
+  right: -30px;
+  width: 320px;
+  height: 320px;
   background-color: transparent;
 }
 
 @media screen and (max-width: 520px) {
   #canvas-container-rocket {
+    width: 200px;
+    height: 200px;
     right: 0px;
     top: 40px;
     overflow: clip;
+    transform: translateX(30px)
   }
 
   #canvas-container-rocket canvas {
