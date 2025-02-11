@@ -4,24 +4,24 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
  */
 
-import { GatsbyConfig } from "gatsby"
+import { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `조성개발실록`,
     author: {
       name: `조성훈`,
-      summary: `이상한 사람이 쓰는 개발 블로그`,
+      summary: `이상한 사람이 쓰는 개발 블로그`
     },
-    description: `Sunghoon Tech Blog`,
+    description: `Tech Blog - by Sunghoon, FE Engineer`,
     siteUrl: `https://sungpaks.github.io/`,
     social: {
       twitter: ``,
-      instagram: `sungpaks`,
-    },
+      instagram: `sungpaks`
+    }
   },
   flags: {
-    DEV_SSR: true,
+    DEV_SSR: true
   },
   plugins: [
     {
@@ -29,23 +29,23 @@ const config: GatsbyConfig = {
       options: {
         trackingId: `UA-XXXXXXXX-X`, // 측정 ID
         head: false, // head에 tracking script를 넣고 싶다면 true로 변경
-        anonymize: true,
-      },
+        anonymize: true
+      }
     },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
+        name: `blog`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
-      },
+        path: `${__dirname}/src/images`
+      }
     },
     {
       resolve: `gatsby-omni-font-loader`,
@@ -53,15 +53,15 @@ const config: GatsbyConfig = {
         enableListener: true,
         preconnect: [
           `https://fonts.googleapis.com`,
-          `https://fonts.gstatic.com`,
+          `https://fonts.gstatic.com`
         ],
         web: [
           {
             name: `Pretendard`,
-            file: `https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css`,
-          },
-        ],
-      },
+            file: `https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css`
+          }
+        ]
+      }
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -71,25 +71,25 @@ const config: GatsbyConfig = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 630,
-            },
+              maxWidth: 630
+            }
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
+              wrapperStyle: `margin-bottom: 1.0725rem`
+            }
           },
           {
             resolve: `gatsby-remark-katex`,
             options: {
               // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
-              strict: `ignore`,
-            },
+              strict: `ignore`
+            }
           },
-          `gatsby-remark-prismjs`,
-        ],
-      },
+          `gatsby-remark-prismjs`
+        ]
+      }
     },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-advanced-sitemap`,
@@ -119,9 +119,9 @@ const config: GatsbyConfig = {
                   date: node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ "content:encoded": node.html }],
-                })
-              })
+                  custom_elements: [{ "content:encoded": node.html }]
+                });
+              });
             },
             query: `{
               allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
@@ -139,10 +139,10 @@ const config: GatsbyConfig = {
               }
             }`,
             output: "/rss.xml",
-            title: "Gatsby Starter Blog RSS Feed",
-          },
-        ],
-      },
+            title: "Gatsby Starter Blog RSS Feed"
+          }
+        ]
+      }
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -155,8 +155,8 @@ const config: GatsbyConfig = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/thumbs_up.png`, // This path is relative to the root of the site.
-      },
+        icon: `src/images/thumbs_up.png` // This path is relative to the root of the site.
+      }
     },
     {
       resolve: `gatsby-plugin-google-gtag`,
@@ -164,7 +164,7 @@ const config: GatsbyConfig = {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
           "GTM-W8F6ZPDK",
-          "G-6LY6ED3K8T",
+          "G-6LY6ED3K8T"
           // "GA-TRACKING_ID", // Google Analytics / GA
           // "AW-CONVERSION_ID", // Google Ads / Adwords / AW
           // "DC-FLOODIGHT_ID", // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
@@ -174,7 +174,7 @@ const config: GatsbyConfig = {
         gtagConfig: {
           optimize_id: "OPT_CONTAINER_ID",
           anonymize_ip: true,
-          cookie_expires: 0,
+          cookie_expires: 0
         },
         // This object is used for configuration specific to this plugin
         pluginConfig: {
@@ -187,11 +187,11 @@ const config: GatsbyConfig = {
           // Defaults to https://www.googletagmanager.com
           origin: "YOUR_SELF_HOSTED_ORIGIN",
           // Delays processing pageview events on route update (in milliseconds)
-          delayOnRouteUpdate: 0,
-        },
-      },
-    },
-  ],
-}
+          delayOnRouteUpdate: 0
+        }
+      }
+    }
+  ]
+};
 
-export default config
+export default config;

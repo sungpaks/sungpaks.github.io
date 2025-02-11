@@ -27,7 +27,7 @@ export default function AboutMe() {
             // lookAt: () => [0, 0, 0]
           }}
         >
-          <OrbitControls />
+          <OrbitControls enableZoom={false} />
           <ambientLight intensity={1} />
           <directionalLight intensity={10} position={[0, 10, -5]} />
           <SpaceShip />
