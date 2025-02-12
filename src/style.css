@@ -567,6 +567,8 @@ body.theme-reverse .top-ui-title a {
 .tag-button-container {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+  transition: all ease-in 0.3s;
 }
 
 .tag-button {
@@ -579,13 +581,18 @@ body.theme-reverse .top-ui-title a {
   z-index: 1;
 }
 
-a.tag-button {
+.tag-button a {
+  color: light-dark(black, white);
   text-decoration: none;
 }
 
 body.theme-reverse .tag-button {
   color: light-dark(white, black);
   background-color: light-dark(yellowgreen, rgba(169, 248, 11, 0.5));
+}
+
+body.theme-reverse .tag-button a {
+  color: light-dark(white, black);
 }
 
 .tag-button:after {
@@ -981,4 +988,14 @@ body.theme-reverse svg {
   #canvas-container-rocket canvas {
     overflow: clip;
   }
+}
+
+.tag-title-container {
+  display: flex;
+  height: fit-content;
+  gap: 20px;
+}
+
+.tag-title-container h2 {
+  margin: 0;
 }

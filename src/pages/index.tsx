@@ -6,32 +6,8 @@ import Bio from "../components/Bio";
 import Layout from "../components/Layout";
 import Seo from "../components/seo";
 import Tab from "../components/Tab";
-
-interface SiteMetadata {
-  title: string;
-}
-
-interface Frontmatter {
-  date: string;
-  title: string;
-  description: string;
-  tag: string[];
-}
-
-interface Fields {
-  slug: string;
-}
-
-interface MarkdownRemarkNode {
-  excerpt: string;
-  fields: Fields;
-  frontmatter: Frontmatter;
-}
-
-interface TagNode {
-  fieldValue: string;
-  totalCount: number;
-}
+import { SiteMetadata, MarkdownRemarkNode, TagNode } from "../types/common";
+import TagButton from "../components/TagButtonList";
 
 export interface PageQueryData {
   site: {
@@ -118,22 +94,14 @@ const BlogIndex = ({ data, location }: ComponentProps) => {
                     </Link>
                   </h2>
                 </header>
-                {post.frontmatter.tag?.map(c => {
-                  return (
-                    <button
-                      key={c}
-                      id={c}
-                      className="custom-button tag-button"
-                      onClick={e => {
-                        setCurTag(c === curTag ? "ALL" : c);
-                        if (c === curTag) {
-                        }
-                      }}
-                    >
-                      {c}
-                    </button>
-                  );
-                })}
+                <TagButton
+                  post={post}
+                  onClickTag={c => {
+                    setCurTag(c === curTag ? "ALL" : c);
+                    if (c === curTag) {
+                    }
+                  }}
+                />
                 <section>
                   <p
                     dangerouslySetInnerHTML={{
