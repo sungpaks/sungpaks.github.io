@@ -6,7 +6,9 @@ import React from "react";
 export default function AboutMePage({ location }: any) {
   return (
     <Layout location={location}>
-      <div></div>
+      <div>
+        <h1>@조성훈</h1>
+      </div>
     </Layout>
   );
 }

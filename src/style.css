@@ -643,7 +643,7 @@ body.theme-reverse .top-ui-tag {
 
 .top-ui-tag:hover {
   color: black;
-  text-shadow: 2px 2px 2px darkgray;
+  /* text-shadow: 2px 2px 2px darkgray; */
   transition: all 0.5s ease;
   transform: scale(1.05);
 }
@@ -934,7 +934,7 @@ body.theme-reverse svg {
 
 .top-ui-tag-container {
   display: flex;
-  flex-direction: row-reverse;
+  /* flex-direction: row; */
   gap: 8px;
   align-items: center;
   height: 100%;

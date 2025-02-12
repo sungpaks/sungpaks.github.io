@@ -31,7 +31,6 @@ export default function AboutMe() {
           <ambientLight intensity={1} />
           <directionalLight intensity={10} position={[0, 10, -5]} />
           <SpaceShip />
-          {/* <MagnifyingGlass /> */}
         </Canvas>
       </div>
       {/* <p className="rocket-credit">

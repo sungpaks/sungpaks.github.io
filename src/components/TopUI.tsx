@@ -9,7 +9,8 @@ import {
   IconMoon,
   IconSun,
   IconSunMoon,
-  IconTags
+  IconTags,
+  IconUserScan
 } from "@tabler/icons-react";
 
 interface ComponentProps {
@@ -115,6 +116,16 @@ function TopUI({ setCurTag }: ComponentProps) {
                 <IconMessageUser stroke={STROKE} />
               </Link>
               <div className="tooltip-text">방명록</div>
+            </div>
+          </div>
+          <div className="top-ui-tag">
+            <div className="tooltip">
+              <Link to="/about-me">
+                <IconUserScan stroke={STROKE} />
+              </Link>
+              <div className="tooltip-text" style={{ fontSize: "smaller" }}>
+                ABOUT ME
+              </div>
             </div>
           </div>
         </div>
