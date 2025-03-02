@@ -1,5 +1,5 @@
 ---
-title: "나는 Post-React18 시대에 산다"
+title: "🌐 나는 Post-React18 시대에 산다"
 date: 2025-03-01 13:57:42
 description: "React 18 동시성 업데이트 - Streaming with Suspense, React Server Component 등"
 tag: ["React", "Next.js"]
