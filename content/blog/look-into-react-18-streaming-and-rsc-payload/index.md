@@ -1,7 +1,7 @@
 ---
 title: "🤫 React(^18)와 Next.js(App Router)가 당신 몰래 하는 일"
 date: 2025-03-04 22:05:25
-description: "Suspense와 Streaming은 어떻게 동작하는지, RSC Payload"
+description: "Suspense와 Streaming의 동작 방법, Next.js가 RSC Payload를 다루는 방법, .."
 tag: ["React", "Next.js"]
 ---
 
