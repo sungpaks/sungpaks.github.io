@@ -5,7 +5,7 @@ description: "Suspense와 Streaming의 동작 방법, Next.js가 RSC Payload를 
 tag: ["React", "Next.js"]
 ---
 
-[저번 글](http://localhost:8000/react-18-concurrency-and-streaming-with-rsc/)에서 React 18에서 무슨 일이 있었는지, 동시성 업데이트를 중심으로 살펴봤는데요  
+[저번 글](https://sungpaks.github.io/react-18-concurrency-and-streaming-with-rsc/)에서 React 18에서 무슨 일이 있었는지, 동시성 업데이트를 중심으로 살펴봤는데요  
 근데 그냥 "이런게 나왔어요~" 만 하고 넘어갔는데
 
 ![흠..](image.png)
@@ -27,7 +27,7 @@ tag: ["React", "Next.js"]
 
 머 이런 비밀?에 대해 알아보겠습니다
 
-[저번 글](http://localhost:8000/react-18-concurrency-and-streaming-with-rsc/)에서 소개한 **React 18 동시성 업데이트**가 뭐였는지 기억이 안 나시거나, 아직 안보셔서 모르신다면 쓱 갔다오시면 좋겠습니다.
+[저번 글](https://sungpaks.github.io/react-18-concurrency-and-streaming-with-rsc/)에서 소개한 **React 18 동시성 업데이트**가 뭐였는지 기억이 안 나시거나, 아직 안보셔서 모르신다면 쓱 갔다오시면 좋겠습니다.
 
 # 서버 컴포넌트를 만들어보기
 
