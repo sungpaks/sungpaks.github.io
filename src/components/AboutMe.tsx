@@ -65,9 +65,9 @@ function SpaceShip(props: any) {
   let theta = 0;
   const easeFactor = 0.1;
   const rotationFactor = 0.5;
-  const xAmplitude = Math.random() * 8;
-  const yAmplitude = Math.random() * 8;
-  const zAmplitude = Math.random() * 8;
+  const xAmplitude = (Math.random() + 0.2) * 8;
+  const yAmplitude = (Math.random() + 0.2) * 8;
+  const zAmplitude = (Math.random() + 0.2) * 8;
 
   useFrame((state, delta) => {
     theta += Math.PI / 10;

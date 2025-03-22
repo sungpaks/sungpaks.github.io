@@ -2,10 +2,6 @@ import React, { useCallback, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Points, Vector3 } from "three";
 
-const PARTICLE_LIFETIME = 3000; // ms 단위로 파티클 생명주기
-const SPAWN_RATE = 10; // 매 프레임마다 생성되는 파티클 수
-const REMOVE_PROBABILITY = 0.05; // 제거 확률
-
 function Particles({
   color,
   maxDistance = 500
