@@ -11,6 +11,7 @@ import React, { useRef, useState } from "react";
 import { DirectionalLight, Mesh } from "three";
 import DynamicParticleSystem from "./DynamicParticleSystem";
 import Particles from "./Particles";
+import { IconHandClick } from "@tabler/icons-react";
 
 useGLTF.preload("/models/thinking_spinning/scene.glb");
 
@@ -18,6 +19,18 @@ export default function AboutMe() {
   return (
     <>
       <div id="canvas-container-rocket" style={{}}>
+        {/* <div
+          style={{
+            position: "absolute",
+            width: "fit-content",
+            bottom: "20%",
+            right: "20%",
+            rotate: "-30deg",
+            zIndex: 10
+          }}
+        >
+          <IconHandClick />
+        </div> */}
         <Canvas
           camera={{
             fov: 75,
@@ -46,15 +59,15 @@ export default function AboutMe() {
 function SpaceShip(props: any) {
   const [enlarged, setEnlarged] = useState(false);
   const { scene } = useGLTF("/models/rocket/scene.glb");
-  const SCALE = enlarged ? 4 : 3;
-  scene.scale.set(SCALE, SCALE, SCALE);
+  const scale = enlarged ? 4 : 3;
+  // scene.scale.set(SCALE, SCALE, SCALE);
   scene.rotation.x = -Math.PI / 4;
   let theta = 0;
   const easeFactor = 0.1;
   const rotationFactor = 0.5;
-  const xAmplitude = Math.random() * 10;
-  const yAmplitude = Math.random() * 10;
-  const zAmplitude = Math.random() * 10;
+  const xAmplitude = Math.random() * 8;
+  const yAmplitude = Math.random() * 8;
+  const zAmplitude = Math.random() * 8;
 
   useFrame((state, delta) => {
     theta += Math.PI / 10;
@@ -70,6 +83,7 @@ function SpaceShip(props: any) {
         setEnlarged(true)
       }
       onPointerLeave={() => setEnlarged(false)}
+      scale={scale}
     >
       <primitive object={scene} {...props}>
         <Particles color="#FF4500" maxDistance={80} />
@@ -77,13 +91,4 @@ function SpaceShip(props: any) {
       </primitive>
     </group>
   );
-}
-
-function MagnifyingGlass(props: any) {
-  const { scene } = useGLTF("/models/magnifying_glass/scene.glb");
-  scene.position.x = 10;
-  scene.position.y = 5;
-  scene.rotation.y = 180;
-
-  return <primitive object={scene} {...props} />;
 }
