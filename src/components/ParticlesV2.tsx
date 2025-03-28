@@ -4,7 +4,13 @@ import { BufferGeometry, Color, Material, Points, Vector3 } from "three";
 
 const G = 0.005;
 
-function ParticlesV2({ maxDistance = 500 }: { maxDistance?: number }) {
+function ParticlesV2({
+  maxDistance = 500,
+  color
+}: {
+  maxDistance?: number;
+  color?: string;
+}) {
   const count = 300; // 파티클 수
   const particles = React.useRef<Points>(null);
   const particlesData = React.useRef({
@@ -26,12 +32,12 @@ function ParticlesV2({ maxDistance = 500 }: { maxDistance?: number }) {
       const positions = particlesData.current.positions;
       const velocities = particlesData.current.velocities;
       const colors = particlesData.current.colors;
-      positions[i * 3] = -5;
-      positions[i * 3 + 1] = 0;
-      positions[i * 3 + 2] = 0;
-      velocities[i * 3] = (Math.random() + 0.5) * 0.15;
-      velocities[i * 3 + 1] = (Math.random() + 0.5) * 0.15;
-      velocities[i * 3 + 2] = (Math.random() - 0.5) * 0.1;
+      positions[i * 3] = Math.random() * 0.5;
+      positions[i * 3 + 1] = Math.random() * 0.5;
+      positions[i * 3 + 2] = Math.random() * 0.5;
+      velocities[i * 3] = (Math.random() - 0.5) * 0.075;
+      velocities[i * 3 + 1] = (Math.random() - 1) * 0.01;
+      velocities[i * 3 + 2] = (Math.random() - 0.5) * 0.075;
       colors[i] = color.r;
       colors[i + 1] = color.g;
       colors[i + 2] = color.b;
@@ -97,7 +103,7 @@ function ParticlesV2({ maxDistance = 500 }: { maxDistance?: number }) {
         />
       </bufferGeometry>
       <pointsMaterial
-        size={0.1}
+        size={0.4}
         transparent
         opacity={1}
         vertexColors

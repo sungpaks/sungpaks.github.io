@@ -6,14 +6,33 @@ import {
   useTexture,
   useTrail
 } from "@react-three/drei";
-import { Canvas, PrimitiveProps, useFrame } from "@react-three/fiber";
+import { Canvas, PrimitiveProps, useFrame, useThree } from "@react-three/fiber";
 import React, { useRef, useState } from "react";
 import { DirectionalLight, Mesh } from "three";
 import DynamicParticleSystem from "./DynamicParticleSystem";
 import Particles from "./Particles";
 import { IconHandClick } from "@tabler/icons-react";
+import ParticlesV2 from "./ParticlesV2";
 
 useGLTF.preload("/models/thinking_spinning/scene.glb");
+
+function CameraController() {
+  const { camera } = useThree();
+  const radius = 20;
+  const speed = 0.5;
+
+  useFrame(({ clock }) => {
+    const time = clock.getElapsedTime();
+    const x = radius * Math.cos(time * speed);
+    const z = radius * Math.sin(time * speed);
+
+    camera.position.x = x;
+    camera.position.z = z;
+    camera.lookAt(0, 0, 0);
+  });
+
+  return null;
+}
 
 export default function AboutMe() {
   return (
@@ -36,14 +55,14 @@ export default function AboutMe() {
             fov: 75,
             near: 0.1,
             far: 1000,
-            position: [20, 10, -10]
-            // lookAt: () => [0, 0, 0]
+            position: [15, 15, -15]
           }}
         >
           <OrbitControls enableZoom={false} />
           <ambientLight intensity={1} />
           <directionalLight intensity={10} position={[0, 10, -5]} />
           <SpaceShip />
+          <CameraController />
         </Canvas>
       </div>
       {/* <p className="rocket-credit">
@@ -87,7 +106,8 @@ function SpaceShip(props: any) {
     >
       <primitive object={scene} {...props}>
         <Particles color="#FF4500" maxDistance={80} />
-        <Particles color="#1E90FF" maxDistance={10} />
+        <Particles color="#1E90FF" maxDistance={20} />
+        <ParticlesV2 />
       </primitive>
     </group>
   );
