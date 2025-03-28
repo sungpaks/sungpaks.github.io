@@ -18,16 +18,19 @@ useGLTF.preload("/models/thinking_spinning/scene.glb");
 
 function CameraController() {
   const { camera } = useThree();
-  const radius = 20;
-  const speed = 0.5;
+  const radius = 25;
+  const speed = 0.3;
+  const height = 10; // y축 변동 폭
 
   useFrame(({ clock }) => {
     const time = clock.getElapsedTime();
+
     const x = radius * Math.cos(time * speed);
     const z = radius * Math.sin(time * speed);
 
-    camera.position.x = x;
-    camera.position.z = z;
+    const y = height * Math.sin(time * speed);
+
+    camera.position.set(x, y, z);
     camera.lookAt(0, 0, 0);
   });
 
@@ -55,7 +58,7 @@ export default function AboutMe() {
             fov: 75,
             near: 0.1,
             far: 1000,
-            position: [15, 15, -15]
+            position: [20, 20, -20]
           }}
         >
           <OrbitControls enableZoom={false} />
