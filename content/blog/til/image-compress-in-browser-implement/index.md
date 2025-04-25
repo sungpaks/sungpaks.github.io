@@ -1,5 +1,5 @@
 ---
-title: "JavaScript로 이미지를 일정 크기 이하로 압축 구현하기"
+title: "JavaScript에서 이미지를 일정 크기 이하로 압축하려면"
 date: 2025-04-22 21:29:51
 description: "50MB짜리 이미지같은거 올려버리면 서버가 아파요"
 tag: ["TIL", "JavaScript"]
@@ -7,7 +7,7 @@ tag: ["TIL", "JavaScript"]
 
 > ! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.
 
-혹시나 이미지 압축 그냥 긁어다 쓰시려고 들어온 바쁜 분들이라면 [최종코드와 사용하기](#최종코드와-사용하기)로 이동하세요
+혹시나 이미지 압축 그냥 긁어다 쓰시려고 들어온 바쁜 분들이라면 [최종코드와 사용하기](#최종코드와-사용하기)로, 반복 압축이 필요하시면 [이제 반복 압축을 구현해요](#이제-반복압축을-구현해요) 이동하세요
 
 어느날 에러 로깅 시스템에서 `413 Content Too Large`를 발견했습니다  
 [413 Error](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/413)는 요청 엔티티의 용량이 서버에서 지정한 것보다 클 때 반환됩니다
@@ -285,3 +285,92 @@ while (remainingTrials-- && (currentSize > maxSizeByte || currentSize > sourceSi
 
 ㅋㅋㅋ 그냥 될 때까지 quality나 resolution(이미지 크기)를 줄입니다  
 반복해서 압축하는거 말고 더 우아한 방법이 있으려나? 해서 찾아봤는데 어쩔 수 없나봐요
+
+## 이제 반복압축을 구현해요
+
+그럼 이제 이미지 반복 압축을 구현해볼텐데요  
+while을 돌리려면 코드를 좀 묶어서 간결하게 만들 필요가 있을 것 같아요  
+위에서 봤던 라이브러리 코드에서도, `getNewCanvasAndCtx`같이 공통 작업들을 묶어놨으니 저도 좀 묶어버려야겠어요
+
+먼저 canvas를 blob으로 변환하는 함수를 만들겠습니다
+
+```tsx
+function canvasToBlob(canvas: HTMLCanvasElement): Promise<Blob> {
+  return new Promise((resolve, reject) => {
+    try {
+      canvas.toBlob(blob => {
+        if (!blob) {
+          reject(new Error("Blob 데이터 생성 중 에러가 발생했습니다."));
+          return;
+        }
+        resolve(blob);
+      });
+    } catch (error: any) {
+      reject(new Error("Blob 변환 중 에러가 발생했습니다 : " + error?.message));
+    }
+  });
+}
+```
+
+`canvas.toBlob`은 콜백형식이라서 좀 귀찮게 생겼어요.. 그래서 Promise 함수를 만들고 이 내부에서 `resolve`하게 했습니다
+
+그리고 이미지를 canvas에 그려내는 작업도 함수로 따로 뺄게요
+
+```ts
+function drawImageInCanvas(image: HTMLImageElement, targetSize: number) {
+  const canvas = document.createElement("canvas");
+  const context = canvas.getContext("2d");
+  // ... 또 이미지를 원본 비율을 유지하며 targetSize까지 크기 줄이기 ..
+  context?.drawImage(image, 0, 0, newWidth, newHeight);
+  return canvas;
+```
+
+그러면 이제 반복하기 완전 쉬워졌네요 !!
+
+```ts
+// ... 동일하게 파일을 DataUrl로 읽고, 이미지로 로드 ..
+let trialCount = 0;
+image.onload = async () => {
+  while (trialCount++ < MAX_TRIAL) {
+    // 원하는 감소곡선에 따라 사이즈를 또 줄임
+    const canvas = drawImageInCanvas(
+      image,
+      MAX_SIZE * Math.pow(DAMPING_FACTOR, trialCount * trialCount)
+    );
+    // Blob데이터로 변환(image/webp)
+    const blob = await canvasToBlob(canvas);
+    if (targetSize && blob.size > targetSize) {
+      //targetSize가 지정되었고 아직 이거보다 크면 다시 압축
+      continue;
+    } else {
+      //targetSize가 정해지지 않았거나(이 경우 webp변환 겸 1회 압축), targetSize보다 작게 압축했으면 반환
+      const compressedFile = new File([blob], file.name, {
+        type: FORMAT,
+        lastModified: Date.now()
+      });
+      resolve(compressedFile);
+      break;
+    }
+  }
+  reject(new Error("이미지가 너무 큰거같은데요?"));
+};
+//...
+```
+
+라이브러리에서는 이미지 크기를 선형으로 압축하는데요,  
+저는 입맛에 따라 좀 변경해봤습니다  
+적당히 0.95정도의 factor를 둬서, $0.95^{x^2}$ 이런식으로 감소하게 만들어줬습니다  
+아 물론 처음 한 번은 기준 크기(ex. 서비스에서 뭘 해도 이미지가 1200px을 넘지 않으면 1200px까지 일단 줄임)까지 줄인 다음 이 수식이 적용됩니다
+
+![감소곡선 그래프](graph.png)
+
+이렇게 생겼는데요, 횟수는 자연수니까 y축 기준 오른쪽만 해당합니다  
+처음에는 보수적으로 접근해서 최대한 덜 줄여보고, 압축이 반복될 수록 어쩔 수 없이 많이 줄이는 방향성을 구현하고 싶었어요
+최대 반복 회수를 10으로 잡는다고 하면 약 0.006%까지 사이즈가 줄어들어버리니.. 사실 여기까지는 갈 상황이 있지도 않을 것 같아요
+
+---
+
+\
+이번에는 이미지 압축에 대해 알아봤고요  
+오픈소스 라이브러리를 뜯어서 이게 잘하는 짓인지도 한번 봤습니다  
+canvas 쓰는거는 항상 재밌는 듯
