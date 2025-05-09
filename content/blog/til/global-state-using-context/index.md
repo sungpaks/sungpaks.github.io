@@ -546,5 +546,6 @@ Context로 전역 상태를 다뤄보는 내용은 여기까지인데요
 저쪽에서는 값이 `a`여야 하고, 이쪽에서는 값이 `b`여야 하고, 따로 관리되어야 할 때 굿이네요
 
 대신에 전체 App에서 값이 아예 하나로 유일해야 하는 singleton 전역 상태를 원하는 경우에는 다른 방법이 더 유리합니다  
-다음 시간에는 그 방법이 무엇인지 알아보려고 합니다  
-이만 마칩니다
+다음 시간에는 그 방법이 무엇인지 알아보려고 합니다
+
+마치기 전에, 모든 예제 코드는 [공개된 레포지토리](https://github.com/sungpaks/micro-state-management-example)에서 확인하실 수 있고, [여기](https://sungpaks.github.io/micro-state-management-example/)에 대충 배포해두었으니 직접 가셔서 눌러보실 수 있습니다.
