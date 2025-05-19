@@ -398,7 +398,7 @@ useSubscription(useMemo(
 이는 React 18에서 `useSyncExternalStore`가 도입되기 전까지 효과적으로 외부 store를 구독하기 위해 사용할 수 있는 방법이었습니다.
 
 <iframe
-  src="https://sungpaks.github.io/micro-state-management-example/sharing-module-state-with-subscription/working-with-a-selector/working-with-use-subscription"
+  src="https://sungpaks.github.io/micro-state-management-example/sharing-module-state-with-subscription/working-with-use-subscription"
   class="example-embed"
   title="Module State Example"
   loading="lazy"
@@ -456,7 +456,7 @@ const useStore = (store, selector) => {
 이것도 아래 예제에서 잘 동작하는지 확인해볼 수 있습니다.
 
 <iframe
-  src="https://sungpaks.github.io/micro-state-management-example/sharing-module-state-with-subscription/working-with-a-selector/working-with-use-subscription/working-with-use-sync-external-store"
+  src="https://sungpaks.github.io/micro-state-management-example/sharing-module-state-with-subscription/working-with-use-subscription/working-with-use-sync-external-store"
   class="example-embed"
   title="Module State Example"
   loading="lazy"
