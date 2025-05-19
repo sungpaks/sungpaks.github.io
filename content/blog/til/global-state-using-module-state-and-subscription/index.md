@@ -360,6 +360,18 @@ const Component2 = () => {
 `useCallback`을 사용하거나, selector함수를 컴포넌트 바깥에 선언하여 함수가 안정적인 참조를 가지게끔 해줍시다.  
 이 방법의 장점은, **파생 상태**를 쉽게 정의할 수 있다는 점입니다. 이에 관해서는 다음 챕터에서 알아봅니다.
 
+<iframe
+  src="https://sungpaks.github.io/micro-state-management-example/sharing-module-state-with-subscription/working-with-a-selector"
+  class="example-embed"
+  title="Module State Example"
+  loading="lazy"
+  style="height: 600px"
+></iframe>
+
+여기에서 Selector를 사용한 구현 예제를 살펴보실 수 있습니다.  
+이 예제는 상태값이 `{ count: 0, name: "COUNT" }` 로 되어있는데요  
+`count`가 변했을 때 `name`을 참조하는 컴포넌트의 render count에 주목합시다.
+
 # Working with useSubscription
 
 위에서 살펴본 `useStoreSelector`는 잘 작동하지만, 약간의 주의해야 할 점이 있습니다.
@@ -385,6 +397,16 @@ useSubscription(useMemo(
 이 때, 훅이 호출될 때마다 구독이 다시 진행되는 일을 막기 위해 `useMemo`로 감쌉니다.  
 이는 React 18에서 `useSyncExternalStore`가 도입되기 전까지 효과적으로 외부 store를 구독하기 위해 사용할 수 있는 방법이었습니다.
 
+<iframe
+  src="https://sungpaks.github.io/micro-state-management-example/sharing-module-state-with-subscription/working-with-a-selector/working-with-use-subscription"
+  class="example-embed"
+  title="Module State Example"
+  loading="lazy"
+  style="height: 600px"
+></iframe>
+
+이것도 잘 되는지 확인해보세요
+
 ## Working with useSyncExternalStore?
 
 이 책이 쓰여질 당시에는 React 18이 아직 나오기 전이었고, `useSyncExternalStore`가 나온다는 사실만 알려져 있었습니다.  
@@ -397,7 +419,14 @@ useSubscription(useMemo(
   - Internal Store로는 props, context, useReducer, useState 등을 떠올려볼 수 있습니다. Component의 범위를 벗어나지 않네요
   - External Store로는 전역변수, 모듈 스코프 변수(Module State), DOM 상태, redux또는 zustand store 등.. 을 생각해볼 수 있습니다. Component 바깥에 존재합니다.
 
-기존 `useStore`를 어떻게 대체할 수 있는지 봅시다.
+`useSyncExternalStore`의 [공식문서 레퍼런스](https://ko.react.dev/reference/react/useSyncExternalStore)는 아래와 같습니다
+
+> store에 있는 데이터의 스냅샷을 반환합니다. 두 개의 함수를 인수로 전달해야 합니다.
+>
+> 1. subscribe 함수는 store를 구독하고 구독을 취소하는 함수를 반환해야 합니다.
+> 2. getSnapshot 함수는 store에서 데이터의 스냅샷을 읽어야 합니다.
+
+이것으로 기존 `useStore`를 어떻게 대체할 수 있는지 봅시다.
 
 ```tsx
 const useStore = (store, selector) => {
@@ -424,12 +453,15 @@ const useStore = (store, selector) => {
 };
 ```
 
-`useSyncExternalStore`의 [공식문서 레퍼런스](https://ko.react.dev/reference/react/useSyncExternalStore)는 아래와 같습니다
+이것도 아래 예제에서 잘 동작하는지 확인해볼 수 있습니다.
 
-> store에 있는 데이터의 스냅샷을 반환합니다. 두 개의 함수를 인수로 전달해야 합니다.
->
-> 1. subscribe 함수는 store를 구독하고 구독을 취소하는 함수를 반환해야 합니다.
-> 2. getSnapshot 함수는 store에서 데이터의 스냅샷을 읽어야 합니다.
+<iframe
+  src="https://sungpaks.github.io/micro-state-management-example/sharing-module-state-with-subscription/working-with-a-selector/working-with-use-subscription/working-with-use-sync-external-store"
+  class="example-embed"
+  title="Module State Example"
+  loading="lazy"
+  style="height: 600px"
+></iframe>
 
 ### Tearing 현상과 useSyncExternalStore
 
