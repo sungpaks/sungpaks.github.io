@@ -999,3 +999,11 @@ body.theme-reverse svg {
 .tag-title-container h2 {
   margin: 0;
 }
+
+.example-embed {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  height: 400px;
+  overflow-y: auto;
+}
