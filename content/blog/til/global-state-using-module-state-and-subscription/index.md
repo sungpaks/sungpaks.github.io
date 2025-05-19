@@ -456,7 +456,7 @@ const useStore = (store, selector) => {
 이것도 아래 예제에서 잘 동작하는지 확인해볼 수 있습니다.
 
 <iframe
-  src="https://sungpaks.github.io/micro-state-management-example/sharing-module-state-with-subscription/working-with-use-subscription/working-with-use-sync-external-store"
+  src="https://sungpaks.github.io/micro-state-management-example/sharing-module-state-with-subscription/working-with-use-sync-external-store"
   class="example-embed"
   title="Module State Example"
   loading="lazy"
