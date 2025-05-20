@@ -289,7 +289,7 @@ function App() {
 
 <iframe src="https://sungpaks.github.io/micro-state-management-example/sharing-component-state-with-context-and-subscription"
 class="example-embed"
-  title="Module State Example"
+  title="Context + Subscription Example"
   loading="lazy"
   style="height: 600px"  
 >

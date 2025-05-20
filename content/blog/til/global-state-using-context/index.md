@@ -251,6 +251,16 @@ unction Count1() {
 
 ![extra re-rendering](https://i.imgur.com/2cyYJNj.gif)
 
+아래에서 직접 확인해볼 수도 있습니다.
+
+<iframe src="https://sungpaks.github.io/micro-state-management-example/sharing-component-state-with-context#context-extra-rerender-limitations"
+class="example-embed"
+  title="Extra Re-render Problem"
+  loading="lazy"
+  style="height: 600px"  
+>
+</iframe>
+
 `<Count1 />`을 `memo()`로 감싸거나 해도 결과는 동일합니다.  
 사실은 위 gif 예시가 `memo()`로 감싼 경우예요.
 
@@ -294,6 +304,16 @@ function Provider1({ children }: { children: React.ReactNode }) {
 Provider 역할을 가져갈 컴포넌트를 하나 만들어서 (상태 관리) + (Provider 감싸기)를 수행하게 하면 딱 깔끔하네요
 
 ![solution 1: 상태를 작은 조각들로 나누기 예제 동작](https://i.imgur.com/gWlAsve.gif)
+
+아래에서 실제로 확인해보세요
+
+<iframe src="https://sungpaks.github.io/micro-state-management-example/sharing-component-state-with-context/solution1"
+class="example-embed"
+  title="Context Extra Re-render Solution2"
+  loading="lazy"
+  style="height: 600px"  
+>
+</iframe>
 
 값들을 따로 쓸 것이 분명한 경우에 이렇게 그냥 분할시켜두는 것도 괜찮겠습니다
 
@@ -363,6 +383,16 @@ function Counter2() {
 이런 식으로, 값 조회는 `Count2Context`에서, 값 변경은 `DispatchContext`에서 가져다 쓰면 됩니다
 
 ![solution 2: useReducer와 여러 context 사용 예제 동작](https://i.imgur.com/Msd1zn3.gif)
+
+이것도 예제 동작을 확인해보실 수 있습니다.
+
+<iframe src="https://sungpaks.github.io/micro-state-management-example/sharing-component-state-with-context/solution2"
+class="example-embed"
+  title="Context Extra Re-render Solution2"
+  loading="lazy"
+  style="height: 600px"  
+>
+</iframe>
 
 # Context 더 잘 쓰기
 
@@ -548,4 +578,7 @@ Context로 전역 상태를 다뤄보는 내용은 여기까지인데요
 대신에 전체 App에서 값이 아예 하나로 유일해야 하는 singleton 전역 상태를 원하는 경우에는 다른 방법이 더 유리합니다  
 다음 시간에는 그 방법이 무엇인지 알아보려고 합니다
 
-마치기 전에, 모든 예제 코드는 [공개된 레포지토리](https://github.com/sungpaks/micro-state-management-example)에서 확인하실 수 있고, [여기](https://sungpaks.github.io/micro-state-management-example/)에 대충 배포해두었으니 직접 가셔서 눌러보실 수 있습니다.
+마치기 전에, 모든 예제는 [여기](https://sungpaks.github.io/micro-state-management-example/)에 대충 배포해두었으니 직접 가셔서 눌러보실 수 있습니다.  
+[레포지토리](https://github.com/sungpaks/micro-state-management-example)도 공개되어 있긴 한데 굳이 보시진 마세요
+
+![머쓱크멜론..](https://i.imgur.com/hV1OoY8.png)

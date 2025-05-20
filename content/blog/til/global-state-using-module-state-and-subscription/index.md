@@ -363,7 +363,7 @@ const Component2 = () => {
 <iframe
   src="https://sungpaks.github.io/micro-state-management-example/sharing-module-state-with-subscription/working-with-a-selector"
   class="example-embed"
-  title="Module State Example"
+  title="Working with Selector"
   loading="lazy"
   style="height: 600px"
 ></iframe>
@@ -400,7 +400,7 @@ useSubscription(useMemo(
 <iframe
   src="https://sungpaks.github.io/micro-state-management-example/sharing-module-state-with-subscription/working-with-use-subscription"
   class="example-embed"
-  title="Module State Example"
+  title="Working with useSubscription"
   loading="lazy"
   style="height: 600px"
 ></iframe>
@@ -458,7 +458,7 @@ const useStore = (store, selector) => {
 <iframe
   src="https://sungpaks.github.io/micro-state-management-example/sharing-module-state-with-subscription/working-with-use-sync-external-store"
   class="example-embed"
-  title="Module State Example"
+  title="Working with useSyncExternalStore"
   loading="lazy"
   style="height: 600px"
 ></iframe>
