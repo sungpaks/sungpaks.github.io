@@ -313,6 +313,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">}</span></code></pre></div>
 <p>결과는 ..</p>
 <p><img src="https://i.imgur.com/2cyYJNj.gif" alt="extra re-rendering"></p>
+<p>아래에서 직접 확인해볼 수도 있습니다.</p>
+<iframe src="https://sungpaks.github.io/micro-state-management-example/sharing-component-state-with-context#context-extra-rerender-limitations"
+class="example-embed"
+  title="Extra Re-render Problem"
+  loading="lazy"
+  style="height: 600px"  
+>
+</iframe>
 <p><code class="language-text">&lt;Count1 /></code>을 <code class="language-text">memo()</code>로 감싸거나 해도 결과는 동일합니다.<br>
 사실은 위 gif 예시가 <code class="language-text">memo()</code>로 감싼 경우예요.</p>
 <p>이렇게 리렌더링되지 않아야 마땅한 컴포넌트가 리렌더링되는 경우를 <strong>Extra Re-Renders</strong> 라고 부릅니다.<br>
@@ -344,6 +352,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>이렇게 <code class="language-text">[state, setState]</code> 튜플로(<code class="language-text">useState</code>반환값 하듯이) context를 만들고,<br>
 Provider 역할을 가져갈 컴포넌트를 하나 만들어서 (상태 관리) + (Provider 감싸기)를 수행하게 하면 딱 깔끔하네요</p>
 <p><img src="https://i.imgur.com/gWlAsve.gif" alt="solution 1: 상태를 작은 조각들로 나누기 예제 동작"></p>
+<p>아래에서 실제로 확인해보세요</p>
+<iframe src="https://sungpaks.github.io/micro-state-management-example/sharing-component-state-with-context/solution1"
+class="example-embed"
+  title="Context Extra Re-render Solution2"
+  loading="lazy"
+  style="height: 600px"  
+>
+</iframe>
 <p>값들을 따로 쓸 것이 분명한 경우에 이렇게 그냥 분할시켜두는 것도 괜찮겠습니다</p>
 <h2 id="2-usereducer를-사용하여-상태는-하나만-유지하고-여러-context로-전파" style="position:relative;"><a href="#2-usereducer%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-%EC%83%81%ED%83%9C%EB%8A%94-%ED%95%98%EB%82%98%EB%A7%8C-%EC%9C%A0%EC%A7%80%ED%95%98%EA%B3%A0-%EC%97%AC%EB%9F%AC-context%EB%A1%9C-%EC%A0%84%ED%8C%8C" aria-label="2 usereducer를 사용하여 상태는 하나만 유지하고 여러 context로 전파 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. useReducer를 사용하여 상태는 하나만 유지하고, 여러 Context로 전파</h2>
 <div class="gatsby-highlight" data-language="tsx"><pre class="language-tsx"><code class="language-tsx"><span class="token keyword">type</span> <span class="token class-name">Action</span> <span class="token operator">=</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token string">"INC1"</span> <span class="token punctuation">}</span> <span class="token operator">|</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token string">"INC2"</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -401,6 +417,14 @@ Provider 역할을 가져갈 컴포넌트를 하나 만들어서 (상태 관리)
 <span class="token punctuation">}</span></code></pre></div>
 <p>이런 식으로, 값 조회는 <code class="language-text">Count2Context</code>에서, 값 변경은 <code class="language-text">DispatchContext</code>에서 가져다 쓰면 됩니다</p>
 <p><img src="https://i.imgur.com/Msd1zn3.gif" alt="solution 2: useReducer와 여러 context 사용 예제 동작"></p>
+<p>이것도 예제 동작을 확인해보실 수 있습니다.</p>
+<iframe src="https://sungpaks.github.io/micro-state-management-example/sharing-component-state-with-context/solution2"
+class="example-embed"
+  title="Context Extra Re-render Solution2"
+  loading="lazy"
+  style="height: 600px"  
+>
+</iframe>
 <h1 id="context-더-잘-쓰기" style="position:relative;"><a href="#context-%EB%8D%94-%EC%9E%98-%EC%93%B0%EA%B8%B0" aria-label="context 더 잘 쓰기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Context 더 잘 쓰기</h1>
 <p>지금부터는 Context를 더 고수처럼 쓸 수 있는 잡기술을 살펴보겠습니다</p>
 <h2 id="provider-컴포넌트와-커스텀-훅-세트로-만들기" style="position:relative;"><a href="#provider-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%99%80-%EC%BB%A4%EC%8A%A4%ED%85%80-%ED%9B%85-%EC%84%B8%ED%8A%B8%EB%A1%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0" aria-label="provider 컴포넌트와 커스텀 훅 세트로 만들기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Provider 컴포넌트와 커스텀 훅 세트로 만들기</h2>
@@ -543,7 +567,9 @@ Context로 전역 상태를 다뤄보는 내용은 여기까지인데요<br>
 저쪽에서는 값이 <code class="language-text">a</code>여야 하고, 이쪽에서는 값이 <code class="language-text">b</code>여야 하고, 따로 관리되어야 할 때 굿이네요</p>
 <p>대신에 전체 App에서 값이 아예 하나로 유일해야 하는 singleton 전역 상태를 원하는 경우에는 다른 방법이 더 유리합니다<br>
 다음 시간에는 그 방법이 무엇인지 알아보려고 합니다</p>
-<p>마치기 전에, 모든 예제 코드는 <a href="https://github.com/sungpaks/micro-state-management-example">공개된 레포지토리</a>에서 확인하실 수 있고, <a href="https://sungpaks.github.io/micro-state-management-example/">여기</a>에 대충 배포해두었으니 직접 가셔서 눌러보실 수 있습니다.</p></section><hr/></article><nav class="blog-post-nav"><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/winning-as-a-teammate/">← <!-- -->🏆 팀으로서 승리하기</a></li><li><a rel="next" href="/til/global-state-using-module-state-and-subscription/">Zustand 메인테이너가 알려주는 Module State로 전역상태 관리하기<!-- --> →</a></li></ul></nav></main><footer>© <!-- -->2025<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-X"></script><script>
+<p>마치기 전에, 모든 예제는 <a href="https://sungpaks.github.io/micro-state-management-example/">여기</a>에 대충 배포해두었으니 직접 가셔서 눌러보실 수 있습니다.<br>
+<a href="https://github.com/sungpaks/micro-state-management-example">레포지토리</a>도 공개되어 있긴 한데 굳이 보시진 마세요</p>
+<p><img src="https://i.imgur.com/hV1OoY8.png" alt="머쓱크멜론.."></p></section><hr/></article><nav class="blog-post-nav"><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/winning-as-a-teammate/">← <!-- -->🏆 팀으로서 승리하기</a></li><li><a rel="next" href="/til/global-state-using-module-state-and-subscription/">Zustand 메인테이너가 알려주는 Module State로 전역상태 관리하기<!-- --> →</a></li></ul></nav></main><footer>© <!-- -->2025<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-X"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'UA-XXXXXXXX-X'
     );
