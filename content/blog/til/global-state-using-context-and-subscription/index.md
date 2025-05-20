@@ -1,5 +1,5 @@
 ---
-title: "Context로 전역상태 만들어서 천만 구독자 만들기"
+title: "Context로 전역상태 만들어서 구독과 좋아요 알림설정까지"
 date: 2025-05-20 23:32:43
 description: "[Micro State Management with React Hooks] Chapter 5"
 tag: ["TIL", "React", "TypeScript", "JavaScript"]
@@ -308,7 +308,7 @@ class="example-embed"
 ---
 
 \
-이번 챕터는 좀 짧고 Recap이 많았습니다  
+이번 챕터는 좀 짧고 이전 내용 Recap과 응용이 많았습니다  
 이 다음 내용은 저자이신 다이시 카토 선생님이 만드신 `Zustand, Jotai, Valtio`의 특징 비교, 구현 등인데요  
 다음 글도 이에 대한 내용을 정리해서 올 것 같습니다
 
