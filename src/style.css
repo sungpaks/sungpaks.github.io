@@ -912,6 +912,8 @@ body.theme-reverse .tab-item.active {
 
 a.plane-link {
   color: light-dark(black, white);
+  height: fit-content;
+  z-index: 1;
 }
 
 body.theme-reverse a.plane-link {
