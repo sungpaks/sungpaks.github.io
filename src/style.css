@@ -212,6 +212,7 @@ ol {
   margin-bottom: var(--spacing-8);
   list-style-position: outside;
   list-style-image: none;
+  margin-top: var(--spacing-0);
 }
 
 ul li,
