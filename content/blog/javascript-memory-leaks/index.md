@@ -1,6 +1,6 @@
 ---
 title: "🚰 29K+ Star 오픈소스에서 메모리가 줄줄 새는 원인 찾기 (JavaScript 메모리 누수)"
-date: 2025-06-21 12:53:36
+date: 2025-06-28 12:53:36
 description: "JavaScript 메모리 관리, 그리고 Chrome Dev Tools에서 메모리 누수 진단하기 - Detached DOM Elements 위주로"
 tag: ["JavaScript"]
 ---
