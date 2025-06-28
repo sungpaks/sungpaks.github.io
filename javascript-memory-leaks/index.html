@@ -274,8 +274,6 @@ obj<span class="token punctuation">.</span>b <span class="token operator">=</spa
 <li>암시적(간접적)으로 붙들고 있는 메모리 크기라고 봐야겠네요.</li>
 </ul>
 <p><img src="https://i.imgur.com/bJ8ngc6.png" alt="Shallow Size vs. Retained Size"></p>
-<p>Shallow Size는 객체 그 자신이 갖는 메모리, Retained Size는 객체가 짊어진 그 일가족? 쯤 되겠네요</p>
-<p><img src="https://i.imgur.com/fsm46M2.png" alt="큰 가방 짤"></p>
 <p>특히 일반 JS객체처럼 보이지만, 실제로는 네이티브(C++) 엔진 레벨에 존재하며 JS에는 이 객체를 가리키는 <em>Wrapper Object</em>만이 노출되어있는 경우가 있습니다<br>
 DOM 노드(<code class="language-text">HTMLDivElement</code>, <code class="language-text">document.createElement("div")</code>반환값, 등..)같은 친구들이 그러한데요<br>
 이런 친구들은 JavaScript 힙에 적재되지 않고, JavaScript에서는 이 네이티브 객체를 가리키는 Wrapper Object로만 액세스할 수 있습니다.<br>
@@ -375,8 +373,8 @@ JavaScript 코드를 작성하는 입장에서 메모리에 대해 크게 신경
 </ul>
 </li>
 </ul>
-<p>혹시나 이런 증상이 발견되면 메모리를 뜯어볼 타이밍이겠네요<br>
-이만 마칩니다</p>
+<p>사실은 이런 증상이 발견되기 전에 미리 신경써서 예방하거나 조기진압하는게 좋겠죠?</p>
+<p>이만 마칩니다</p>
 <h2 id="ref" style="position:relative;"><a href="#ref" aria-label="ref permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ref.</h2>
 <p><a href="https://developer.chrome.com/docs/devtools/memory-problems/get-started?hl=ko">메모리 용어 - Chrome for Developers</a><br>
 <a href="https://developer.chrome.com/docs/devtools/memory-problems?hl=ko">메모리 문제 해결 - Chrome for Developers</a><br>
@@ -417,4 +415,4 @@ JavaScript 코드를 작성하는 입장에서 메모리에 대해 크게 신경
           >
             window.___chunkMapping="{\"app\":[\"/app-487149bd1dd31304a2f8.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-da8fcbdc9ed2c1f25af0.js\"],\"component---src-pages-about-me-tsx\":[\"/component---src-pages-about-me-tsx-ac7e5e1dddf04a4bf097.js\"],\"component---src-pages-demo-tsx\":[\"/component---src-pages-demo-tsx-c453c693b319c4ccccfb.js\"],\"component---src-pages-index-tsx\":[\"/component---src-pages-index-tsx-aa4037ce0881ab4a3b0c.js\"],\"component---src-pages-r-3-f-demo-tsx\":[\"/component---src-pages-r-3-f-demo-tsx-c268369641941feba6ed.js\"],\"component---src-pages-tag-tsx\":[\"/component---src-pages-tag-tsx-f3907a2cc5f77f189c46.js\"],\"component---src-pages-til-tsx\":[\"/component---src-pages-til-tsx-b1b61b884c8937439952.js\"],\"component---src-pages-visitor-log-tsx\":[\"/component---src-pages-visitor-log-tsx-00ef1c73827db268b04c.js\"],\"component---src-templates-blog-post-tsx\":[\"/component---src-templates-blog-post-tsx-04c77c63b3ee94376d9f.js\"],\"component---src-templates-tag-post-tsx\":[\"/component---src-templates-tag-post-tsx-48ad96d3cf3194f5fe78.js\"]}";
           </script>
-        <script>window.___webpackCompilationHash="ee6dc69a1a5661262e5e";</script><script src="/webpack-runtime-54ebb879d13717cca3c0.js" async></script><script src="/framework-58c763e77dabc7b8f4ac.js" async></script><script src="/app-487149bd1dd31304a2f8.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
+        <script>window.___webpackCompilationHash="c2306f64471021662e85";</script><script src="/webpack-runtime-54ebb879d13717cca3c0.js" async></script><script src="/framework-58c763e77dabc7b8f4ac.js" async></script><script src="/app-487149bd1dd31304a2f8.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
