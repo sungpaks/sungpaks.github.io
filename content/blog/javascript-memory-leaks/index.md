@@ -260,10 +260,6 @@ obj.b = obj2; // 다른 객체를 참조한다 -> "간접적으로 보유"한다
 
 ![Shallow Size vs. Retained Size](https://i.imgur.com/bJ8ngc6.png)
 
-Shallow Size는 객체 그 자신이 갖는 메모리, Retained Size는 객체가 짊어진 그 일가족? 쯤 되겠네요
-
-![큰 가방 짤](https://i.imgur.com/fsm46M2.png)
-
 특히 일반 JS객체처럼 보이지만, 실제로는 네이티브(C++) 엔진 레벨에 존재하며 JS에는 이 객체를 가리키는 *Wrapper Object*만이 노출되어있는 경우가 있습니다  
 DOM 노드(`HTMLDivElement`, `document.createElement("div")`반환값, 등..)같은 친구들이 그러한데요  
 이런 친구들은 JavaScript 힙에 적재되지 않고, JavaScript에서는 이 네이티브 객체를 가리키는 Wrapper Object로만 액세스할 수 있습니다.  
@@ -424,7 +420,8 @@ JavaScript 코드를 작성하는 입장에서 메모리에 대해 크게 신경
 - 페이지가 **지연되거나 잠깐 일시정지되는 듯** 보임 - 잦은 가비지 컬렉션의 영향일 가능성
   - 가비지 컬렉션이 진행되는 중에는 모든 스크립트 실행이 중단되기 때문입니다.
 
-혹시나 이런 증상이 발견되면 메모리를 뜯어볼 타이밍이겠네요  
+사실은 이런 증상이 발견되기 전에 미리 신경써서 예방하거나 조기진압하는게 좋겠죠?
+
 이만 마칩니다
 
 ## Ref.
