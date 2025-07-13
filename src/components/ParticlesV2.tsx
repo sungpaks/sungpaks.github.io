@@ -1,4 +1,11 @@
-import React, { RefObject, useCallback, useRef, useState } from "react";
+import React, {
+  memo,
+  RefObject,
+  useCallback,
+  useEffect,
+  useRef,
+  useState
+} from "react";
 import { useFrame } from "@react-three/fiber";
 import { BufferGeometry, Color, Material, Points, Vector3 } from "three";
 
@@ -86,6 +93,15 @@ function ParticlesV2({
     particles.current.geometry.attributes.position.needsUpdate = true;
   });
 
+  useEffect(() => {
+    return () => {
+      particles.current?.geometry.dispose();
+      particlesData.current.positions.fill(0);
+      particlesData.current.velocities.fill(0);
+      particlesData.current.colors.fill(0);
+    };
+  }, []);
+
   return (
     <points ref={particles}>
       <bufferGeometry>
@@ -112,4 +128,4 @@ function ParticlesV2({
   );
 }
 
-export default ParticlesV2;
+export default memo(ParticlesV2);
