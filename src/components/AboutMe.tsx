@@ -6,12 +6,9 @@ import {
   useTexture,
   useTrail
 } from "@react-three/drei";
-import { Canvas, PrimitiveProps, useFrame, useThree } from "@react-three/fiber";
-import React, { useRef, useState } from "react";
-import { DirectionalLight, Mesh } from "three";
-import DynamicParticleSystem from "./DynamicParticleSystem";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import React, { useState } from "react";
 import Particles from "./Particles";
-import { IconHandClick } from "@tabler/icons-react";
 import ParticlesV2 from "./ParticlesV2";
 
 useGLTF.preload("/models/thinking_spinning/scene.glb");
