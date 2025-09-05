@@ -29,7 +29,7 @@ function HouseModel({
   onSelectMesh: (m: Mesh) => void;
   onLoadingChange: (loading: boolean) => void;
 }) {
-  const { scene } = useGLTF("/models/house/house.glb");
+  const { scene } = useGLTF("/models/house/house_compressed.glb");
 
   React.useEffect(() => {
     onLoadingChange(false); // 모델 로딩 완료
@@ -109,7 +109,7 @@ export default function HouseViewerRepro() {
 
   const glProps = useMemo(
     () => ({
-      outputColorSpace: LinearSRGBColorSpace,
+      outputColorSpace: SRGBColorSpace,
       // 문제 재현을 위해 기본은 ACES 톤매핑 ON
       toneMapping: useRendererToneMapping
         ? ACESFilmicToneMapping
