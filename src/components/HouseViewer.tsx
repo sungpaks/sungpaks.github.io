@@ -7,12 +7,13 @@ import { Environment, OrbitControls, useGLTF } from "@react-three/drei";
 import {
   ACESFilmicToneMapping,
   NoToneMapping,
-  SRGBColorSpace,
   HalfFloatType,
   Mesh,
   Group,
   Vector3,
-  Box3
+  Box3,
+  SRGBColorSpace,
+  LinearSRGBColorSpace
 } from "three";
 import {
   EffectComposer,
@@ -21,8 +22,19 @@ import {
 } from "@react-three/postprocessing";
 import { BlendFunction, ToneMappingMode } from "postprocessing";
 
-function HouseModel({ onSelectMesh }: { onSelectMesh: (m: Mesh) => void }) {
+function HouseModel({
+  onSelectMesh,
+  onLoadingChange
+}: {
+  onSelectMesh: (m: Mesh) => void;
+  onLoadingChange: (loading: boolean) => void;
+}) {
   const { scene } = useGLTF("/models/house/house.glb");
+
+  React.useEffect(() => {
+    onLoadingChange(false); // 모델 로딩 완료
+  }, [scene, onLoadingChange]);
+
   // primitive에 이벤트를 달면 하위 mesh에서 버블업됨
   const handlePointerDown = useCallback(
     (e: ThreeEvent<MouseEvent>) => {
@@ -78,6 +90,7 @@ export default function HouseViewerRepro() {
   const [useComposerToneMapping, setUseComposerToneMapping] = useState(false); // 수정 파이프라인
   const [alwaysOnComposer, setAlwaysOnComposer] = useState(false); // EffectComposer ON/OFF 토글
   const [selectedMeshes, setSelectedMeshes] = useState<Mesh[]>([]);
+  const [isLoading, setIsLoading] = useState(true); // 로딩 상태
 
   const groupRef = useRef<Group>(null);
   const controlsRef = useRef<any>(null);
@@ -90,9 +103,13 @@ export default function HouseViewerRepro() {
     });
   }, []);
 
+  const handleLoadingChange = useCallback((loading: boolean) => {
+    setIsLoading(loading);
+  }, []);
+
   const glProps = useMemo(
     () => ({
-      outputColorSpace: SRGBColorSpace,
+      outputColorSpace: LinearSRGBColorSpace,
       // 문제 재현을 위해 기본은 ACES 톤매핑 ON
       toneMapping: useRendererToneMapping
         ? ACESFilmicToneMapping
@@ -110,6 +127,14 @@ export default function HouseViewerRepro() {
         background: "#111"
       }}
     >
+      <style>
+        {`
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+        `}
+      </style>
       {/* 작은 실험용 UI */}
       <div
         style={{
@@ -165,6 +190,42 @@ export default function HouseViewerRepro() {
         </div>
       </div>
 
+      {/* 로딩 오버레이 */}
+      {isLoading && (
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: "rgba(0,0,0,0.4)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 20,
+            color: "white",
+            fontSize: 18,
+            fontWeight: 500
+          }}
+        >
+          <div style={{ textAlign: "center" }}>
+            <div
+              style={{
+                width: 40,
+                height: 40,
+                border: "3px solid rgba(255,255,255,0.2)",
+                borderTop: "3px solid white",
+                borderRadius: "50%",
+                animation: "spin 1s linear infinite",
+                margin: "0 auto 16px"
+              }}
+            />
+            <div>3D 모델 로딩 중...</div>
+          </div>
+        </div>
+      )}
+
       <Canvas
         gl={glProps}
         camera={{
@@ -174,12 +235,14 @@ export default function HouseViewerRepro() {
         <Environment files="/models/house/environment.hdr" background />
 
         <group ref={groupRef} position={[0, 0, 0]} scale={[5, 5, 5]}>
-          <HouseModel onSelectMesh={toggleSelect} />
+          <HouseModel
+            onSelectMesh={toggleSelect}
+            onLoadingChange={handleLoadingChange}
+          />
         </group>
         <CenterCameraOnModel groupRef={groupRef} controlsRef={controlsRef} />
         <OrbitControls makeDefault ref={controlsRef} />
 
-        {/* 질문과 동일하게 Composer는 상시 ON, Outline은 조건부 */}
         {(alwaysOnComposer || selectedMeshes.length > 0) && (
           <EffectComposer
             multisampling={8}
@@ -208,7 +271,7 @@ export default function HouseViewerRepro() {
 
             {/* 수정 파이프라인 비교: 렌더러 톤매핑 OFF일 때 여기에 추가 */}
             {useComposerToneMapping ? (
-              <ToneMappingEffect mode={ToneMappingMode.AGX} />
+              <ToneMappingEffect mode={ToneMappingMode.ACES_FILMIC} />
             ) : (
               <></>
             )}
