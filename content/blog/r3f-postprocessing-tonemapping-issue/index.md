@@ -1,7 +1,7 @@
 ---
 title: "🌈 Postprocessing 적용 시 색감/톤이 바뀌는 사람 보시오(Three.js, R3F)"
 date: 2025-08-31 10:25:44
-description: "ToneMapping이 문제입니다"
+description: "Postprocessing과 EffectChain, Color Space, Tone Mapping 대환장 콜라보"
 tag: ["Three.js", "react-three-fiber", "React", "Trouble Shooting"]
 ---
 
