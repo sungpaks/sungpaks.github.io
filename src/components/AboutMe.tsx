@@ -1,12 +1,7 @@
 "use client";
 
-import {
-  OrbitControls,
-  useGLTF,
-  useTexture,
-  useTrail
-} from "@react-three/drei";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { OrbitControls, useGLTF } from "@react-three/drei";
+import { Canvas, useFrame } from "@react-three/fiber";
 import React, { useState } from "react";
 import Particles from "./Particles";
 import ParticlesV2 from "./ParticlesV2";
@@ -14,24 +9,15 @@ import ParticlesV2 from "./ParticlesV2";
 useGLTF.preload("/models/thinking_spinning/scene.glb");
 
 function CameraController() {
-  const { camera } = useThree();
-  const radius = 25;
-  const speed = 0.3;
-  const height = 10; // y축 변동 폭
-
-  useFrame(({ clock }) => {
-    const time = clock.getElapsedTime();
-
-    const x = radius * Math.cos(time * speed);
-    const z = radius * Math.sin(time * speed);
-
-    const y = height * Math.sin(time * speed);
-
-    camera.position.set(x, y, z);
-    camera.lookAt(0, 0, 0);
-  });
-
-  return null;
+  return (
+    <OrbitControls
+      enableZoom={true}
+      enableRotate
+      enablePan
+      makeDefault
+      autoRotate
+    />
+  );
 }
 
 export default function AboutMe() {
@@ -55,12 +41,11 @@ export default function AboutMe() {
             fov: 75,
             near: 0.1,
             far: 1000,
-            position: [20, 20, -20]
+            position: [20, 20, 20]
           }}
         >
-          <OrbitControls enableZoom={false} />
           <ambientLight intensity={1} />
-          <directionalLight intensity={10} position={[0, 10, -5]} />
+          <directionalLight intensity={10} position={[5, 15, -5]} />
           <SpaceShip />
           <CameraController />
         </Canvas>
@@ -80,7 +65,7 @@ function SpaceShip(props: any) {
   const { scene } = useGLTF("/models/rocket/scene.glb");
   const scale = enlarged ? 4 : 3;
   // scene.scale.set(SCALE, SCALE, SCALE);
-  scene.rotation.x = -Math.PI / 4;
+  scene.rotation.x = -Math.PI / 6;
   let theta = 0;
   const easeFactor = 0.1;
   const rotationFactor = 0.5;
