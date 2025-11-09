@@ -16,6 +16,7 @@ interface Frontmatter {
   date: string;
   description?: string;
   tag?: string[];
+  ogImage?: string;
 }
 
 interface MarkdownRemark {
@@ -30,6 +31,7 @@ interface BlogPostBySlugQuery {
   site: {
     siteMetadata: {
       title: string;
+      siteUrl?: string;
     };
   };
   markdownRemark: MarkdownRemark;
@@ -55,6 +57,44 @@ interface ComponentProps {
   data: BlogPostBySlugQuery;
   location: any;
 }
+
+const getFirstImageFromHtml = (html: string): string | null => {
+  if (!html) {
+    return null;
+  }
+
+  const imageRegex = /<img[^>]+src=["']([^"']+)["'][^>]*>/gi;
+  let match: RegExpExecArray | null;
+
+  while ((match = imageRegex.exec(html)) !== null) {
+    const candidate = match[1];
+
+    if (candidate && !candidate.startsWith("data:")) {
+      return candidate;
+    }
+  }
+
+  return null;
+};
+
+const getAbsoluteImageUrl = (
+  imagePath: string | null | undefined,
+  siteUrl?: string
+) => {
+  if (!imagePath) {
+    return "";
+  }
+
+  try {
+    if (siteUrl) {
+      return new URL(imagePath, siteUrl).toString();
+    }
+
+    return new URL(imagePath).toString();
+  } catch (error) {
+    return imagePath;
+  }
+};
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
@@ -173,12 +213,28 @@ const BlogPostTemplate = ({
   );
 };
 
-export const Head = ({ data: { markdownRemark: post } }: any) => {
+export const Head = ({
+  data
+}: {
+  data: {
+    markdownRemark: MarkdownRemark;
+    site: { siteMetadata: { title: string; siteUrl?: string } };
+  };
+}) => {
+  const { markdownRemark: post, site } = data;
+  const siteUrl = site?.siteMetadata?.siteUrl?.trim() || undefined;
+  const firstImage = getFirstImageFromHtml(post.html);
+  const frontmatterOgImage = post.frontmatter.ogImage?.trim();
+  const ogImage = getAbsoluteImageUrl(
+    frontmatterOgImage || firstImage,
+    siteUrl
+  );
+
   return (
     <Seo
       title={post.frontmatter.title}
       description={post.frontmatter.description || post.excerpt}
-      thumbnail={post.frontmatter.thumbnail || ""}
+      thumbnail={ogImage}
     />
   );
 };
@@ -194,6 +250,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
     markdownRemark(id: { eq: $id }) {
@@ -205,6 +262,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         tag
+        ogImage
       }
       tableOfContents
     }

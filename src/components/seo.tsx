@@ -42,6 +42,8 @@ const Seo = ({ description, title, children, thumbnail }: ComponentProps) => {
     thumbnail
   };
 
+  const twitterCardType = thumbnail ? "summary_large_image" : "summary";
+
   return (
     <>
       <title>{seo.title}</title>
@@ -51,13 +53,14 @@ const Seo = ({ description, title, children, thumbnail }: ComponentProps) => {
       <meta property="og:type" content="website" />
       {seo.thumbnail && <meta property="og:image" content={seo.thumbnail} />}
       <meta property="og:site_name" content={site.siteMetadata.title} />
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content={twitterCardType} />
       <meta
         name="twitter:creator"
         content={site.siteMetadata?.social?.twitter || ``}
       />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={metaDescription} />
+      {seo.thumbnail && <meta name="twitter:image" content={seo.thumbnail} />}
       {children}
       <meta
         name="google-site-verification"

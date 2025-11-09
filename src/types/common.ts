@@ -7,6 +7,7 @@ export interface Frontmatter {
   title: string;
   description: string;
   tag: string[];
+  ogImage?: string;
 }
 
 export interface Fields {

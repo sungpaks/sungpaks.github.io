@@ -133,6 +133,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      tag: [String]
+      ogImage: String
     }
 
     type Fields {
