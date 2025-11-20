@@ -29,7 +29,7 @@ function HouseModel({
   onSelectMesh: (m: Mesh) => void;
   onLoadingChange: (loading: boolean) => void;
 }) {
-  const { scene } = useGLTF("/models/house/house_compressed.glb");
+  const { scene } = useGLTF("/assets/house_compressed.glb");
 
   React.useEffect(() => {
     onLoadingChange(false); // 모델 로딩 완료

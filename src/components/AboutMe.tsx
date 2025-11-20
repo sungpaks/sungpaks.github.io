@@ -62,7 +62,7 @@ export default function AboutMe() {
 
 function SpaceShip(props: any) {
   const [enlarged, setEnlarged] = useState(false);
-  const { scene } = useGLTF("/models/rocket/scene.glb");
+  const { scene } = useGLTF("/assets/rocket.glb");
   const scale = enlarged ? 4 : 3;
   // scene.scale.set(SCALE, SCALE, SCALE);
   scene.rotation.x = -Math.PI / 6;
