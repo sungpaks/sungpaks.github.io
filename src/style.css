@@ -52,7 +52,24 @@
   --fontSize-5: 2.074rem;
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
-  --color-primary: #005b99;
+
+  /* Cerulean Blue Palette (OKLAB based) */
+  --color-cerulean-50: #f0f5ff;
+  --color-cerulean-100: #c1d5ff;
+  --color-cerulean-200: #91b4ff;
+  --color-cerulean-300: #6290ff;
+  --color-cerulean-400: #4671dd;
+  --color-cerulean-500: #2a52be;
+  --color-cerulean-600: #153cb9;
+  --color-cerulean-700: #0513ae;
+  --color-cerulean-800: #030083;
+  --color-cerulean-900: #010059;
+
+  --color-brand: var(--color-cerulean-500);
+  --color-brand-dark: var(--color-cerulean-700);
+  --color-brand-light: var(--color-cerulean-100);
+  --color-primary: var(--color-cerulean-700);
+
   --color-text: #2e353f;
   --color-text-light: #4f5969;
   --color-heading: #1a202c;
@@ -62,8 +79,6 @@
   --color-lightdark: rgb(66, 66, 66);
   --color-lightdark-translucent: rgba(66, 66, 66, 0.8);
   --color-light: #ededed;
-  --color-lightgreen: rgb(211, 255, 207);
-  --color-darkgreen: rgb(0, 57, 0);
   --default-font-family: "Pretendard Variable", Pretendard, -apple-system,
     BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
     "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
@@ -275,11 +290,11 @@ table thead tr th {
 
 a {
   text-decoration: underline;
-  color: light-dark(green, var(--color-lightgreen));
+  color: light-dark(var(--color-brand-dark), var(--color-brand-light));
 }
 
 body.theme-reverse a {
-  color: light-dark(var(--color-lightgreen), green);
+  color: light-dark(var(--color-brand-light), var(--color-brand-dark));
 }
 
 h1>a,
@@ -556,8 +571,8 @@ body.theme-reverse .top-ui-title a {
 .top-ui-title:hover {
   text-shadow: 2px 2px 2px darkgray;
   transition: all 0.5s ease;
-  transform: scale(1.05);
-  /* color: rgba(109, 158, 12); */
+  transform: scale(1.02);
+  /* color: var(--color-brand); */
 }
 
 .top-ui-title:active {
@@ -576,20 +591,23 @@ body.theme-reverse .top-ui-title a {
   margin: 10px;
   font-size: 13px;
   font-weight: 600;
-  color: light-dark(black, white);
-  background-color: light-dark(rgba(169, 248, 11, 0.5), yellowgreen);
+  color: black;
+  background-color: light-dark(var(--color-brand-light), var(--color-brand-light));
   border: none;
   z-index: 1;
 }
 
 .tag-button a {
-  color: light-dark(black, white);
   text-decoration: none;
 }
 
 body.theme-reverse .tag-button {
-  color: light-dark(white, black);
-  background-color: light-dark(yellowgreen, rgba(169, 248, 11, 0.5));
+  color: black;
+  background-color: light-dark(var(--color-brand-light), var(--color-brand-light));
+}
+
+body.theme-reverse .tag-button:hover {
+  color: white;
 }
 
 body.theme-reverse .tag-button a {
@@ -604,7 +622,7 @@ body.theme-reverse .tag-button a {
   top: 0;
   right: 0;
   z-index: -1;
-  background-color: rgba(109, 158, 12, 0.5);
+  background-color: var(--color-brand);
   border-radius: 5px;
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
@@ -625,7 +643,8 @@ body.theme-reverse .tag-button a {
 }
 
 .tag-button.pressed {
-  background-color: rgba(109, 158, 12, 0.5);
+  background-color: var(--color-brand);
+  /* 700번 */
 }
 
 .post-list-item-title {
@@ -662,7 +681,7 @@ body.theme-reverse .top-ui-tag {
   z-index: 10;
   position: fixed;
   height: 4px;
-  background-color: lightgreen;
+  background-color: var(--color-brand);
 }
 
 /* Media queries */
@@ -714,12 +733,11 @@ body.theme-reverse .top-ui-tag {
   /* border-left: gray solid 1px; */
   border-left: rgba(191, 191, 191, 0.5) solid 3px;
   padding-left: 10px;
-  opacity: 0.75;
 }
 
 .toc a {
   text-decoration: none;
-  color: light-dark(var(--color-darkgreen), var(--color-lightgreen));
+  color: light-dark(var(--color-brand-dark), var(--color-brand-light));
   padding-left: 10px;
 }
 
@@ -728,7 +746,7 @@ body.theme-reverse .top-ui-tag {
 }
 
 body.theme-reverse .toc a {
-  color: light-dark(var(--color-lightgreen), var(--color-darkgreen));
+  color: light-dark(var(--color-brand-light), var(--color-brand-dark));
 }
 
 .toc ul {
@@ -878,7 +896,7 @@ a.tab-item {
 }
 
 body.theme-reverse .tab-item {
-  color: light-dark(var(--color-lightgreen), black);
+  color: light-dark(var(--color-brand-light), black);
 }
 
 .tab-item.active {
@@ -895,13 +913,13 @@ body.theme-reverse .tab-item {
 }
 
 body.theme-reverse .tab-item.active {
-  border-bottom-color: light-dark(var(--color-lightgreen), black);
+  border-bottom-color: light-dark(var(--color-brand-light), black);
 }
 
 .tab-item .amount {
   margin-left: 1rem;
   font-size: smaller;
-  background-color: var(--color-lightgreen);
+  background-color: var(--color-brand-light);
   padding: 0.2rem 0.8rem;
   border-radius: 1rem;
   color: black;
