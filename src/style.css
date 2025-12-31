@@ -53,6 +53,8 @@
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
 
+  --color-light-green: #90ee90;
+  --color-dark-green: #008d1c;
   /* Cerulean Blue Palette (OKLAB based) */
   --color-cerulean-50: #f0f5ff;
   --color-cerulean-100: #c1d5ff;
@@ -63,12 +65,12 @@
   --color-cerulean-600: #153cb9;
   --color-cerulean-700: #0513ae;
   --color-cerulean-800: #030083;
-  --color-cerulean-900: #010059;
-
-  --color-brand: var(--color-cerulean-500);
-  --color-brand-dark: var(--color-cerulean-700);
-  --color-brand-light: var(--color-cerulean-100);
-  --color-primary: var(--color-cerulean-700);
+  --color-cerulean-900: #201700;
+  --color-cloud-dancer: #F0EEE9;
+  --color-brand: var(--color-light-green);
+  --color-brand-dark: var(--color-dark-green);
+  --color-brand-light: var(--color-cloud-dancer);
+  --color-primary: var(--color-light-green);
 
   --color-text: #2e353f;
   --color-text-light: #4f5969;
@@ -290,11 +292,11 @@ table thead tr th {
 
 a {
   text-decoration: underline;
-  color: light-dark(var(--color-brand-dark), var(--color-brand-light));
+  color: light-dark(var(--color-brand-dark), var(--color-brand));
 }
 
 body.theme-reverse a {
-  color: light-dark(var(--color-brand-light), var(--color-brand-dark));
+  color: light-dark(var(--color-brand), var(--color-brand-dark));
 }
 
 h1>a,
@@ -627,10 +629,6 @@ body.theme-reverse .tag-button a {
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-}
-
-.tag-button:hover {
-  color: #fff;
 }
 
 .tag-button:hover:after {
