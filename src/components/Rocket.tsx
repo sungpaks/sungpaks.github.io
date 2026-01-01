@@ -20,7 +20,7 @@ function CameraController() {
   );
 }
 
-export default function AboutMe() {
+export default function Rocket() {
   return (
     <>
       <div id="canvas-container-rocket" style={{}}>

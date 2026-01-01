@@ -8,7 +8,7 @@
 import * as React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { FC } from "react";
-import AboutMe from "./AboutMe";
+import Rocket from "./Rocket";
 //import { StaticImage } from "gatsby-plugin-image"
 
 interface authorType {
@@ -62,7 +62,7 @@ const Bio = () => {
               <br />
             </p>
           )}
-          <AboutMe />
+          <Rocket />
         </div>
         <p className="svg-icon-container">
           <a href="https://github.com/sungpaks" className="plane-link">
