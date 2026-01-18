@@ -1,7 +1,7 @@
 ---
 title: "⏳ 게임의 로딩을 웹에서 따라하기"
 date: 2026-01-11 17:05:36
-description: "메모리에 미리 올려둔다는 속박으로 리소스를 지연 없이 사용한다"
+description: "리소스를 런타임 메모리에 미리 캐싱한다는 속박으로 지연 없이 사용한다"
 tag: ["JavaScript", "React"]
 ogImage: "https://i.imgur.com/xG96R4q.jpeg"
 ---
@@ -68,7 +68,7 @@ ogImage: "https://i.imgur.com/xG96R4q.jpeg"
 그러나 여기에는 별다른 딸깍이 있는게 아니고
 
 - **당분간 사용할 에셋들**을 전부, 정적 파일이든 CDN에서 원격으로 받아오는 이미지든, 모두 리스트업
-- 에셋들을 **미리 서버에서 가져와 브라우저 메모리에** 올린다. (`fetch` -> `blob` -> `createObjectUrl(blob)`)
+- 에셋들을 **미리 서버에서 가져와 브라우저 메모리에** 올린다. (`fetch` -> `blob` -> `createObjectURL(blob)`)
 - 각 애셋마다 생성한 `objectUrl`들을 value로, key는 원본 url로 하여, Map객체에 넣어두고 꺼내 쓴다.
 
 이런 과정을 모두 구현하고, 특히 React 라이프사이클에서 편하게 쓸 수 있도록 구현해야 합니다.  
@@ -103,16 +103,16 @@ const fooBlob = await res.blob();
 이 blob 객체를 `<img>`에 src로 넣고 싶어지면, **objectUrl**을 발급해줍니다.
 
 ```tsx
-const fooObjectUrl = URL.createObjectUrl(fooBlob);
+const fooObjectUrl = URL.createObjectURL(fooBlob);
 <img src={fooObjectUrl}>
 ```
 
-`createObjectUrl`은 blob 그 데이터에 **접근할 수 있도록 허용된 키를 발급**합니다.  
-이 키는 `blob:https://sugnpaks.github.io/...`와 같이 url처럼 생겼습니다.  
+`createObjectURL`은 blob 그 데이터에 **접근할 수 있도록 허용된 키를 발급**합니다.  
+이 키는 `blob:https://sungpaks.github.io/...`와 같이 url처럼 생겼습니다.  
 이제 앞으로 이 키(objectUrl)를 url대신 보여주면 브라우저 메모리로부터 데이터를 받을 수 있습니다.
 
 이제 objectUrl을 사용하면 네트워크 요청을 갔다오지 않고,  
-**메모리에서 바로 꺼낼 수 있으므로 요청 갭이 거의 1ms 수준**이 되어버립니다.  
+**메모리에서 바로 꺼낼 수 있으므로 네트워크 요청 갭이 거의 1ms 수준**이 되어버립니다.  
 물건 가지러 집까지 갔다올 필요 없이 주머니에서 꺼내는 셈입니다. 마치 **캐싱(caching)** 같네요!
 
 <figure>
@@ -154,7 +154,7 @@ await img.decode();
 <img src={objectUrl} />
 ```
 
-이렇게 디코딩까지 미리 해두었다면 이미지를 새로 넣을 타이밍에 **지연은 이론상 거의 0**에 가까워질 수 있습니다.  
+이렇게 디코딩까지 미리 해두었다면 **이미지 띄우는 시간을 더 진짜 0에 가깝게** 줄일 수 있습니다.
 그러나 이건 좀 **트레이드 오프**가 클 수 있어서 잘 결정하고 설계해야 하는데  
 미리 압축을 풀어두는 거라서, **메모리 부담**이 매우 커집니다.
 
@@ -192,10 +192,13 @@ const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
 
 ## 오디오 파일은 decode까지, 이미지 파일은 objectUrl
 
-디코딩까지 하면 정말 지연 없이 리소스를 사용할 수 있다는 점이 좋지만  
-위에서 살펴봤던 그 속박의 단점으로 메모리 사용량이 크게 늘어난다는 점이 부담이었습니다.
+위에서 살펴본, 메모리에 캐싱해두는 방법에는 이런 단계가 있었는데요
 
-이로 인해 **이미지들은 디코딩하지 않고 objectUrl**까지만 가기로 했습니다.  
+1. objectUrl까지만 간다 -> 메모리를 덜 사용하지만, 아직 디코딩 비용이 남는다.
+2. 디코딩까지 미리 해둔다 -> 메모리를 더 많이 사용하지만, 사용 지연을 가장 최소화할 수 있다.
+3. 1번과 2번을 섞어, "중요한 것만" 디코딩해둔다는 전략을 세울 수도.
+
+**이미지들은 디코딩하지 않고 objectUrl**까지만 가기로 했습니다.  
 사용되는 이미지가 꽤 많아서 디코딩까지 해둔다면 생각보다 큰 부담이 될 것 같다고 생각해서입니다.  
 물론 사용처를 분류하고, 그에 따른 캐싱 전략을 잘 설계하여 이것을 컨트롤할 수도 있지만,  
 이 작업을 할 때에는 이미 거기에 쏟을 시간적 여유가 없는 상태였습니다 ㅠㅠ
@@ -238,10 +241,9 @@ interface AssetState {
   setLoading: (url: string) => void;
   setLoaded: (url: string, blob: Blob, objectUrl: string) => void;
   setError: (url: string, error: string) => void;
-  getObjectUrl: (url: string) => string | undefined;
   revoke: (url: string) => void;
   revokeAll: () => void;
-  getObjectUrl: (url: string) => string | undefined;
+  getObjectUrl: (url: string) => string;
 }
 
 export const useAssetStore = create<AssetState>((set, get) => ({
@@ -293,7 +295,7 @@ export const useAssetStore = create<AssetState>((set, get) => ({
 
 이렇게 해서 에셋 캐싱 저장소가 만들어졌습니다.
 
-## usePreloadAsset
+## usePreloadAssets
 
 이제 url들을 프리로딩하고 objectUrl을 뽑아서, `assetStore`에 차곡차곡 넣어봅시다.
 
@@ -376,8 +378,8 @@ export function usePreloadAssets(urls: string[], opts: Options = {}) {
   - 각 url을 fetch -> blob -> objectUrl
 - `AbortController`를 두어, cleanup에서 네트워크 요청이 정리될 수 있게 준비
   - 또는 외부에서 `signal`을 옵션으로 전달받아 외부에서 중단 가능
-- `done++`, `onProgress(done, pending.length)`로 "100개 중 15개 완료"처럼 표시할 수 있습니다.
-- 의존성은 url의 실제 내용이 변해야만 반응하도록 stringify로 잡았고, 옵션은 처음 옵션에서 바뀌지 않는다고 생각했습니다.
+- 의존성은 url의 실제 내용이 변해야만 반응하도록 stringify로 잡았고, 옵션(`opt`)값들은 제외했습니다.
+  - 옵션을 중간에 바꾸는 경우가 없어 좀 더 `useEffect` 재호출 위험이 적은 쪽으로 이렇게 선택했습니다.
 
 ## 오디오 파일 preload
 
