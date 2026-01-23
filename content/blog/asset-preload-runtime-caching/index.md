@@ -476,4 +476,28 @@ objectUrl을 사용하도록 적용하면 확실히 나아집니다.
 
 ![프리로딩/캐싱으로 부드럽게 전환](https://i.imgur.com/JSlr3BK.gif)
 
+어지간하면 평균 몇초 개선됩니다, 이런 수치를 넣고 싶었는데  
+이건 딱히 막.. 줄였다기보다는 네트워크 로딩을 요청타임이 아니라 앞으로 옮긴 느낌입니다
+
+<figure>
+
+![전후 네트워크 타임 비교](https://i.imgur.com/6JlEJjH.png)
+
+<figcaption>
+preloading 적용 후(상)와 적용 전(하)의 Network 타임라인
+</figcaption>
+</figure>
+
+위 타임라인은 로딩화면에서 preloading한 경우(위쪽 반절)와,  
+이미지가 필요할 때서야 로딩을 시작한, preloading 없는 경우(아래쪽 반절)인데요  
+확실히 preloading하고나면 각 이미지요청들은 바로바로 끝납니다.
+
+![로딩화면에서 네트워크 사용량..](https://i.imgur.com/v0n4kTp.png)
+
+그러나 로딩화면에서 이렇게.. 네트워크를 가득 써야 합니다  
+매도 먼저 맞는게 낫다지만 어차피 매를 맞긴해아해요  
+조삼모사같죠??
+
+![조삼모사](https://i.imgur.com/slJhqTL.png)
+
 이만 마칩니다.
