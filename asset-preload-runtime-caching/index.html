@@ -456,6 +456,22 @@ url 그대로 들어가기때문에 따로 신경쓸 필요가 없습니다.</p>
 <p>이렇게 완성한 로딩화면을 게임 시작 시 지나게 하고<br>
 objectUrl을 사용하도록 적용하면 확실히 나아집니다.</p>
 <p><img src="https://i.imgur.com/JSlr3BK.gif" alt="프리로딩/캐싱으로 부드럽게 전환"></p>
+<p>어지간하면 평균 몇초 개선됩니다, 이런 수치를 넣고 싶었는데<br>
+이건 딱히 막.. 줄였다기보다는 네트워크 로딩을 요청타임이 아니라 앞으로 옮긴 느낌입니다</p>
+<figure>
+<p><img src="https://i.imgur.com/6JlEJjH.png" alt="전후 네트워크 타임 비교"></p>
+<figcaption>
+preloading 적용 후(상)와 적용 전(하)의 Network 타임라인
+</figcaption>
+</figure>
+<p>위 타임라인은 로딩화면에서 preloading한 경우(위쪽 반절)와,<br>
+이미지가 필요할 때서야 로딩을 시작한, preloading 없는 경우(아래쪽 반절)인데요<br>
+확실히 preloading하고나면 각 이미지요청들은 바로바로 끝납니다.</p>
+<p><img src="https://i.imgur.com/v0n4kTp.png" alt="로딩화면에서 네트워크 사용량.."></p>
+<p>그러나 로딩화면에서 이렇게.. 네트워크를 가득 써야 합니다<br>
+매도 먼저 맞는게 낫다지만 어차피 매를 맞긴해아해요<br>
+조삼모사같죠??</p>
+<p><img src="https://i.imgur.com/slJhqTL.png" alt="조삼모사"></p>
 <p>이만 마칩니다.</p></section><hr/></article><nav class="blog-post-nav"><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/side-scrolling-image-hotspot-feature-implement/">← <!-- -->🎯 React에서 횡스크롤 이미지 핫스팟 기능 구현하기 with Canvas API</a></li><li></li></ul></nav></main><footer>© <!-- -->2026<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-X"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'UA-XXXXXXXX-X'
