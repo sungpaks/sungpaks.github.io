@@ -1026,3 +1026,12 @@ body.theme-reverse svg {
   height: 400px;
   overflow-y: auto;
 }
+
+.about-me-container {
+  white-space: pre-line;
+}
+
+.about-me-container p {
+  line-height: var(--lineHeight-relaxed);
+  margin-bottom: var(--spacing-3);
+}
