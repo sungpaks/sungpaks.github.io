@@ -973,6 +973,10 @@ body.theme-reverse svg {
   height: 250px;
 }
 
+.bio-inner-container .bio-about-me {
+  color: inherit;
+}
+
 .rocket-credit {
   position: absolute;
   font-size: xx-small;

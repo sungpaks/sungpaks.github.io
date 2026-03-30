@@ -55,7 +55,10 @@ const Bio = () => {
         <div className="bio-inner-container">
           {author?.name && (
             <p>
-              <strong>@{author.name}</strong> 이라고 합니다.
+              <a href="/about-me" className="bio-about-me">
+                <strong>@{author.name}</strong>
+              </a>{" "}
+              이라고 합니다.
               <br />
               <span className="smaller">{author?.summary || null}</span>
               <br />
