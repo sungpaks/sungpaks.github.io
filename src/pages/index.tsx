@@ -129,7 +129,30 @@ export default BlogIndex;
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
 export const Head = () => (
-  <Seo title="조성개발실록" description="" children={null} />
+  <Seo
+    title="조성개발실록"
+    description="조성훈의 프론트엔드 엔지니어링 블로그. React, JavaScript, 웹 성능, 렌더링, 아키텍처, 개발 경험을 다룹니다."
+    pathname="/"
+    structuredData={[
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "조성개발실록",
+        url: "https://sungpaks.github.io/",
+        description:
+          "조성훈의 프론트엔드 엔지니어링 블로그. React, JavaScript, 웹 성능, 렌더링, 아키텍처, 개발 경험을 다룹니다.",
+        inLanguage: "ko-KR"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "조성훈",
+        jobTitle: "Frontend Engineer",
+        url: "https://sungpaks.github.io/about-me/",
+        description: "웹 프론트엔드 엔지니어"
+      }
+    ]}
+  />
 );
 
 export const pageQuery = graphql`

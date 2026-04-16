@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import Seo from "../components/seo";
 import { FC } from "react";
 import TagButton from "../components/TagButtonList";
+import kebabCase from "lodash.kebabcase";
 
 interface Frontmatter {
   date: string;
@@ -47,7 +48,6 @@ const TagPost = ({ pageContext, data, location }: ComponentProps) => {
   const tagHeader = "조성개발실록 - " + tags + " 관련 게시글";
   return (
     <Layout location={location}>
-      <Seo title={tagHeader} description={tags} />
       <div style={{ marginTop: "100px", marginBottom: "100px" }}>
         <h2 style={{ paddingBottom: "10px", paddingTop: "50px" }}>
           <span>🔍 {tags}</span>
@@ -82,6 +82,15 @@ const TagPost = ({ pageContext, data, location }: ComponentProps) => {
 };
 
 export default TagPost;
+
+export const Head = ({ pageContext }: { pageContext: { tags: string } }) => (
+  <Seo
+    title={`${pageContext.tags} 관련 게시글`}
+    description={`${pageContext.tags} 태그로 분류된 글 목록입니다.`}
+    pathname={`/tag/${kebabCase(pageContext.tags)}/`}
+    noindex
+  />
+);
 
 export const pageQuery = graphql`
   query ($tags: String) {

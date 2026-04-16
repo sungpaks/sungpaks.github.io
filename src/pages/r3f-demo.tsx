@@ -22,6 +22,7 @@ import {
   Vector3
 } from "three";
 import Layout from "../components/Layout";
+import Seo from "../components/seo";
 // @ts-ignore
 import ceres from "../images/ceres.jpg"; // @ts-ignore
 import sun from "../images/sun.jpg"; // @ts-ignore
@@ -59,6 +60,15 @@ export default function R3FDemo({ location }: { location: Location }) {
     </Layout>
   );
 }
+
+export const Head = () => (
+  <Seo
+    title="R3F 데모"
+    description="React Three Fiber 실험용 데모 페이지입니다."
+    pathname="/r3f-demo/"
+    noindex
+  />
+);
 
 function Sun() {
   const mesh = React.useRef<Mesh | null>(null);
