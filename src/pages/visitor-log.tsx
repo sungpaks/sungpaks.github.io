@@ -122,5 +122,10 @@ export default VisitorLog;
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
 export const Head = () => (
-  <Seo title="visitors log" description="" children={null} />
+  <Seo
+    title="방명록"
+    description="블로그 방문자 방명록 페이지입니다."
+    pathname="/visitor-log/"
+    noindex
+  />
 );

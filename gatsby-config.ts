@@ -11,9 +11,9 @@ const config: GatsbyConfig = {
     title: `조성개발실록`,
     author: {
       name: `조성훈`,
-      summary: `이상한 사람이 쓰는 개발 블로그`
+      summary: `웹 프론트엔드 엔지니어`
     },
-    description: `Tech Blog - by Sunghoon, FE Engineer`,
+    description: `조성훈의 프론트엔드 엔지니어링 블로그. React, JavaScript, 웹 성능, 렌더링, 아키텍처, 개발 경험을 다룹니다.`,
     siteUrl: `https://sungpaks.github.io/`,
     social: {
       twitter: ``,
@@ -91,8 +91,19 @@ const config: GatsbyConfig = {
         ]
       }
     },
-    `gatsby-plugin-sitemap`,
-    `gatsby-plugin-advanced-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        excludes: [
+          `/tag`,
+          `/tag/**`,
+          `/visitor-log`,
+          `/demo`,
+          `/postprocessing-demo`,
+          `/r3f-demo`
+        ]
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -185,7 +196,7 @@ const config: GatsbyConfig = {
           // Avoids sending pageview hits from custom paths
           exclude: ["/preview/**", "/do-not-track/me/too/"],
           // Defaults to https://www.googletagmanager.com
-          origin: "YOUR_SELF_HOSTED_ORIGIN",
+          origin: "https://www.googletagmanager.com",
           // Delays processing pageview events on route update (in milliseconds)
           delayOnRouteUpdate: 0
         }

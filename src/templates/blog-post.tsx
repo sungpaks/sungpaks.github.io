@@ -14,6 +14,7 @@ import Bugi from "../components/Bugi";
 interface Frontmatter {
   title: string;
   date: string;
+  publishedTime?: string;
   description?: string;
   tag?: string[];
   ogImage?: string;
@@ -23,6 +24,9 @@ interface MarkdownRemark {
   id: string;
   excerpt: string;
   html: string;
+  fields: {
+    slug: string;
+  };
   frontmatter: Frontmatter;
   tableOfContents: string;
 }
@@ -218,7 +222,13 @@ export const Head = ({
 }: {
   data: {
     markdownRemark: MarkdownRemark;
-    site: { siteMetadata: { title: string; siteUrl?: string } };
+    site: {
+      siteMetadata: {
+        title: string;
+        siteUrl?: string;
+        author?: { name?: string };
+      };
+    };
   };
 }) => {
   const { markdownRemark: post, site } = data;
@@ -229,12 +239,46 @@ export const Head = ({
     frontmatterOgImage || firstImage,
     siteUrl
   );
+  const canonicalUrl =
+    siteUrl && post.fields.slug
+      ? new URL(post.fields.slug, siteUrl).toString()
+      : undefined;
+  const authorName = site?.siteMetadata?.author?.name || "조성훈";
 
   return (
     <Seo
       title={post.frontmatter.title}
       description={post.frontmatter.description || post.excerpt}
       thumbnail={ogImage}
+      pathname={post.fields.slug}
+      type="article"
+      publishedTime={post.frontmatter.publishedTime}
+      structuredData={
+        canonicalUrl
+          ? {
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              headline: post.frontmatter.title,
+              description: post.frontmatter.description || post.excerpt,
+              url: canonicalUrl,
+              mainEntityOfPage: canonicalUrl,
+              inLanguage: "ko-KR",
+              datePublished: post.frontmatter.publishedTime,
+              author: {
+                "@type": "Person",
+                name: authorName
+              },
+              publisher: {
+                "@type": "Person",
+                name: authorName
+              },
+              ...(ogImage ? { image: [ogImage] } : {}),
+              ...(post.frontmatter.tag?.length
+                ? { keywords: post.frontmatter.tag.join(", ") }
+                : {})
+            }
+          : undefined
+      }
     />
   );
 };
@@ -251,15 +295,22 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         siteUrl
+        author {
+          name
+        }
       }
     }
     markdownRemark(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        publishedTime: date(formatString: "YYYY-MM-DD")
         description
         tag
         ogImage

@@ -163,7 +163,18 @@ export default TodayILearned;
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
 export const Head = () => (
-  <Seo title="Today I Learned" description="" children={null} />
+  <Seo
+    title="TIL 모음"
+    description="짧은 실험, 학습 메모, 트러블슈팅 기록을 모아둔 Today I Learned 목록입니다."
+    pathname="/til/"
+    structuredData={{
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "TIL 모음",
+      url: "https://sungpaks.github.io/til/",
+      inLanguage: "ko-KR"
+    }}
+  />
 );
 
 export const pageQuery = graphql`

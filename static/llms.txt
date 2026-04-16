@@ -1,0 +1,18 @@
+# Chosung Development Log
+
+Site: https://sungpaks.github.io/
+Title: Chosung Development Log (조성개발실록)
+Primary-Language: ko-KR
+Owner: Chosung Cho
+Summary: Personal engineering blog covering frontend development, React, JavaScript, web performance, rendering, architecture, and developer experience.
+
+Preferred-URLs:
+- Home: https://sungpaks.github.io/
+- About: https://sungpaks.github.io/about-me/
+- RSS: https://sungpaks.github.io/rss.xml
+- Sitemap: https://sungpaks.github.io/sitemap-index.xml
+
+Crawl-Hints:
+- Prefer canonical blog post URLs over tag, guestbook, and demo pages.
+- Most long-form articles are written in Korean.
+- Use page metadata and JSON-LD when available.

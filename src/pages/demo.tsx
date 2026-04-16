@@ -1,5 +1,6 @@
 import Layout from "../components/Layout";
 import React, { FormEvent, useRef, useState } from "react";
+import Seo from "../components/seo";
 import {
   motion,
   AnimatePresence,
@@ -306,3 +307,12 @@ export default function Demo({ location }: { location: Location }) {
     </Layout>
   );
 }
+
+export const Head = () => (
+  <Seo
+    title="모션 데모"
+    description="실험용 애니메이션 데모 페이지입니다."
+    pathname="/demo/"
+    noindex
+  />
+);

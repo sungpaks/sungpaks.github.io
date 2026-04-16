@@ -92,5 +92,30 @@ export default function AboutMePage({ location }: any) {
 }
 
 export const Head = () => (
-  <Seo title="조성개발실록" description="" children={null} />
+  <Seo
+    title="조성훈 소개"
+    description="조성훈의 소개, 일하는 방식, 관심사, 프론트엔드 엔지니어링 배경을 정리한 페이지입니다."
+    pathname="/about-me/"
+    structuredData={[
+      {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        name: "조성훈 소개",
+        url: "https://sungpaks.github.io/about-me/",
+        inLanguage: "ko-KR",
+        about: {
+          "@type": "Person",
+          name: "조성훈"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "조성훈",
+        jobTitle: "Frontend Engineer",
+        url: "https://sungpaks.github.io/about-me/",
+        description: "웹 프론트엔드 엔지니어"
+      }
+    ]}
+  />
 );

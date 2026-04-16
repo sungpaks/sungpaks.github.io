@@ -5,6 +5,7 @@ import kebabCase from "lodash.kebabcase";
 import { PageQueryData } from ".";
 import { IconSortAscending, IconSortDescending } from "@tabler/icons-react";
 import { AnimateSharedLayout, motion } from "framer-motion";
+import Seo from "../components/seo";
 
 interface ComponentProps {
   data: PageQueryData;
@@ -66,6 +67,15 @@ const TagPage = ({ data, location }: ComponentProps) => {
 };
 
 export default TagPage;
+
+export const Head = () => (
+  <Seo
+    title="태그 목록"
+    description="블로그 태그 목록 페이지입니다."
+    pathname="/tag/"
+    noindex
+  />
+);
 
 export const pageQuery = graphql`
   {
