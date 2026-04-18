@@ -131,7 +131,7 @@ export default BlogIndex;
 export const Head = () => (
   <Seo
     title="조성개발실록"
-    description="조성훈의 프론트엔드 엔지니어링 블로그. React, JavaScript, 웹 성능, 렌더링, 아키텍처, 개발 경험을 다룹니다."
+    description="프론트엔드 개발자 조성훈의 기술 블로그. React, JavaScript, 웹 성능, 렌더링, 아키텍처 등 여러 개발 경험을 다룹니다."
     pathname="/"
     structuredData={[
       {
@@ -140,7 +140,7 @@ export const Head = () => (
         name: "조성개발실록",
         url: "https://sungpaks.github.io/",
         description:
-          "조성훈의 프론트엔드 엔지니어링 블로그. React, JavaScript, 웹 성능, 렌더링, 아키텍처, 개발 경험을 다룹니다.",
+          "프론트엔드 개발자 조성훈의 기술 블로그. React, JavaScript, 웹 성능, 렌더링, 아키텍처 등 여러 개발 경험을 다룹니다.",
         inLanguage: "ko-KR"
       },
       {

@@ -93,8 +93,8 @@ export default function AboutMePage({ location }: any) {
 
 export const Head = () => (
   <Seo
-    title="조성훈 소개"
-    description="조성훈의 소개, 일하는 방식, 관심사, 프론트엔드 엔지니어링 배경을 정리한 페이지입니다."
+    title="프론트엔드 개발자 조성훈입니다."
+    description="조성훈에 대한 소개, 일하는 방식, 관심사, 프론트엔드 엔지니어링 배경을 정리한 페이지입니다."
     pathname="/about-me/"
     structuredData={[
       {

@@ -2,11 +2,11 @@
 
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Particles from "./Particles";
 import ParticlesV2 from "./ParticlesV2";
 
-useGLTF.preload("/models/thinking_spinning/scene.glb");
+const ROCKET_MODEL_PATH = "/assets/rocket.glb";
 
 function CameraController() {
   return (
@@ -21,6 +21,40 @@ function CameraController() {
 }
 
 export default function Rocket() {
+  const [hasRocketModel, setHasRocketModel] = useState(false);
+  const [isCheckingModel, setIsCheckingModel] = useState(true);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    // The 3D model is optional. If the static asset is missing, skip rendering
+    // the canvas instead of throwing runtime 404/load errors on the home page.
+    fetch(ROCKET_MODEL_PATH, { method: "HEAD" })
+      .then(response => {
+        if (isMounted) {
+          setHasRocketModel(response.ok);
+        }
+      })
+      .catch(() => {
+        if (isMounted) {
+          setHasRocketModel(false);
+        }
+      })
+      .finally(() => {
+        if (isMounted) {
+          setIsCheckingModel(false);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  if (isCheckingModel || !hasRocketModel) {
+    return null;
+  }
+
   return (
     <>
       <div id="canvas-container-rocket" style={{}}>
@@ -62,7 +96,7 @@ export default function Rocket() {
 
 function SpaceShip(props: any) {
   const [enlarged, setEnlarged] = useState(false);
-  const { scene } = useGLTF("/assets/rocket.glb");
+  const { scene } = useGLTF(ROCKET_MODEL_PATH);
   const scale = enlarged ? 4 : 3;
   // scene.scale.set(SCALE, SCALE, SCALE);
   scene.rotation.x = -Math.PI / 6;
