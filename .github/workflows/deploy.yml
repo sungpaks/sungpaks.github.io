@@ -1,5 +1,9 @@
 name: Deploy to Production
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 on:
   push:
     branches:
