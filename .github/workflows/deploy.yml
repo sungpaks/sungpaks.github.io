@@ -27,4 +27,11 @@ jobs:
         run: |
           git config --global user.email emforhs03150@gmail.com
           git config --global user.name sungpaks
+
+          # Gatsby 빌드 결과물이 들어가는 public 폴더를 먼저 만듭니다. (이미 생성 스크립트가 있다면 생략 가능)
+          mkdir -p public
+
+          # public 폴더 안에 .nojekyll 파일을 생성하여 GitHub 서버의 Jekyll 파싱을 차단합니다.
+          touch public/.nojekyll
+
           npm run deploy
