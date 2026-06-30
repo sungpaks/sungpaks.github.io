@@ -5,26 +5,45 @@ on:
     branches:
       - master
 
+# GitHub Pages 배포를 위한 권한 설정
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 동시 배포 방지 (이전 배포가 진행 중이면 취소하고 최신 배포 우선)
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Cache node modules
-        uses: actions/cache@v2
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          path: node_modules
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-npm-
+          node-version: "20"
+          cache: "npm"
 
       - name: Install dependencies
         run: npm install
 
-      - name: Run deploy script
-        run: |
-          git config --global user.email emforhs03150@gmail.com
-          git config --global user.name sungpaks
-          npm run deploy
+      - name: Build project
+        # 원래 배포용 브랜치로 밀기 전에 빌드하던 스크립트를 실행합니다.
+        # 예: npm run build (프로젝트 상황에 맞게 수정)
+        run: npm run build
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # 빌드 결과물이 생성되는 폴더 경로를 적어줍니다.
+          path: "./public"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
