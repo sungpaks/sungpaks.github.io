@@ -17,7 +17,7 @@ tag: ["TIL", "Physics Simulation", "Computer Graphics"]
 
 여기서는 이 두 가지가 의미하는 바를 살펴보고, 특히 이 두 가지 방법에 의해 발생할 수 있는  
 **연속적인 물리계를 이산적(Discrete)인 시간 간격 $dt$로 쪼개어 연산할 때 발생하는 오차와 이로 인한 효과**를 알아보기 위해  
-**등속 원운동(Uniform Circular Motion)** 이라는 이상적인 조건에 대입해보며 살펴보려 합니다.
+**등속 원운동(Uniform Circular Motion)** 이라는 이상적인 조건에 대입해보며 살펴보려 합니다
 
 ### 주어진 조건 (Given Contexts & Conditions)
 
