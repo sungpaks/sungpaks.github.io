@@ -1,7 +1,7 @@
 ---
 title: "Path Tracing 01: 카메라를 설정하고 씬을 렌더링하기"
 date: 2026-09-06 16:23:41
-description: "설명"
+description: "눈부터 뜹시다"
 tag: ["Computer Graphics", "C++"]
 ---
 
