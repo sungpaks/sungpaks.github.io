@@ -2,7 +2,7 @@
 title: "Path Tracing 01: 카메라를 설정하고 씬을 렌더링하기"
 date: 2026-09-06 16:23:41
 description: "눈부터 뜹시다"
-tag: ["Computer Graphics", "C++"]
+tag: ["TIL", "Computer Graphics", "C++"]
 ---
 
 > ! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.
