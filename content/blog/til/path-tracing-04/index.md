@@ -50,13 +50,13 @@ const point3 box_max = center + half_size;
 이제 `hit()`은 다음과 같이 **광선이 영역에 닿았는지 검사**합니다:
 
 - 각 **축별로**, `axis_min` 및 `axis_max`에 언제 닿는지(`t`) 봅니다.
-  - 예를 들어, x축에 대해, $ray(t) = \mathbf{o} + \mathbf{d}t = x_{min}$(또는 $=x_{max}$)을 만족하는 $t_{near}, t_{far}$ 를 찾습니다.
+  - 예를 들어, x축에 대해, $ray(t) = o_x + d_x t = x_{min}$(또는 $=x_{max}$)을 만족하는 $t_{near}, t_{far}$ 를 찾습니다.
 - 축별로 반복했을 때, $t_{near}$중에서는 가장 큰 것(세 가지 축의 $t_{near}$를 모두 만족한)이 **진입점**이고, 반대로 $t_{far}$중에서는 가장 작은 것이 **이탈점**입니다.
 
 ![x축 검사](image-1.png)
 
 예를들어, x축을 검사하는 과정을 보면  
-$x=x_{min}$평면을 광선이 뚫는 지점은 좌측하단에 검은색 X르 그어둔 즈음일건데요  
+$x=x_{min}$평면을 광선이 뚫는 지점은 좌측하단에 검은색 X를 그어둔 즈음일건데요  
 이것으로는 아직 $x_{min},y_{min},z_{min}$을 모두 만족하는 **진입점**이 아닙니다.  
 $y$축으로도 $y=y_{min}$평면을 뚫는 지점, $z$축으로도 $z=z_{min}$평면을 뚫는 지점을 비교해야합니다
 
@@ -183,7 +183,7 @@ $At^2+Bt+C=0$ $\Rightarrow$ $A=d_x^2+d_z^2$, $B=2(o_xd_x+o_zd_z)$, $C=o_x^2+o_z^
 근데 이렇게만 하면 _높이가 무한한 원기둥_ 인거라, 각 해에 대해 다음의 높이 검사를 수행해줍니다:
 
 ```cpp
-doubel y = o.y() + t*d.y();
+double y = o.y() + t*d.y();
 if (-height/2 <= y && y <= height / 2) {
   // 이러면 실제 원기둥 옆면에 닿은 후보임
 }
@@ -273,7 +273,7 @@ bool _hit_side_surface(const ray& local_ray, interval ray_t, double& hit_t,
 }
 ```
 
-옆면 검사는 앞서 말한대로, $x^2+z^2\le r^2$ 안에 속하면서 높이를 벗어나지 않는지 봅니다.
+옆면 검사는 앞서 말한대로, $x^2+z^2 = r^2$ 안에 속하면서 높이를 벗어나지 않는지 봅니다.
 
 ```cpp
 bool _hit_caps(const ray& local_ray, interval ray_t, double& hit_t,
@@ -604,11 +604,11 @@ private:
 };
 ```
 
-회전하지 않는 단위 쿼터니언은 `(0,0,0,1)`입니다.  
+회전하지 않는 단위 쿼터니언은 `(1,0,0,0)`입니다.  
 값 생성자를 `private`으로 두어 임의의 쿼터니언을 만들지 않도록 했습니다.
 
 회전을 나타내는 쿼터니언은 회전축 $\mathbf{u}$, 회전각 $\theta$에 대해:  
-$$(sin(\frac{\theta}{2})\mathbf{u}, \ cos(\frac{\theta}{2}))$$
+$$(cos(\frac{\theta}{2}), sin(\frac{\theta}{2})\mathbf{u})$$
 
 ```cpp
 static quaternion from_axis_angle(const vec3& axis, double radians) {
@@ -629,7 +629,7 @@ static quaternion from_axis_angle(const vec3& axis, double radians) {
 quaternion inverse() const { return quaternion(w, -v); }
 ```
 
-**벡터 회전**은 `vec3 p`와 쿼터니언 `q`에 대해 $\mathbf{q}\cdot (\mathbf{p}, 0)\cdot \mathbf{q}^{-1}$이고  
+**벡터 회전**은 `vec3 p`와 쿼터니언 `q`에 대해 $\mathbf{q}\cdot (0, \mathbf{p})\cdot \mathbf{q}^{-1}$이고  
 임시 쿼터니언을 만들지 않고 하려면
 
 - 전개:  
@@ -685,7 +685,7 @@ private:
 };
 ```
 
-`transformed_hittable.hit()`은, **광선을 local공간으로 변환하고, 이것으로 object충돌검사를 진행하고, record는 월드공간 기준으로 기록**합니다.
+`transformed_hittable.hit()`은, **광선을 local공간으로 변환하고, 이것으로 object충돌검사를 진행하고, record는 부모 공간 기준으로 기록**합니다.
 
 ```cpp
 bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
@@ -710,8 +710,8 @@ bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
 ```
 
 이런 식인데, **변환할 ray 방향은 정규화하지 않습니다**.  
-우리는 계속 (`ray_t` 구간검사에서)`t`의 크기를 비교하는 중이라, 월드/오브젝트 공간 간에 `t`는 유지되었으면 좋겠어요  
-또한 월드/오브젝트 공간 간에 `t`가 유지되니 `rec.p = r.at(local_rec.t)`처럼 그대로 `t`를 써서 월드공간 교차점을 얻어낼 수 있습니다.
+우리는 계속 (`ray_t` 구간검사에서)`t`의 크기를 비교하는 중이라, 부모/자식 공간 간에 `t`는 유지되었으면 좋겠어요  
+또한 부모/자식 공간 간에 `t`가 유지되니 `rec.p = r.at(local_rec.t)`처럼 그대로 `t`를 써서 부모 공간 교차점을 얻어낼 수 있습니다.
 
 또한 `object->hit`에서 `rec.normal`을 받아오고 나면, ray를 거스르는 쪽이도록 뒤집혀있습니다.  
 로컬공간에서의 바깥으로 나가는 법선벡터 `local_outward`를 얻으려면, 지금이 뒷면이면 일단 뒤집어줍니다.  

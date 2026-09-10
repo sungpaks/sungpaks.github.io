@@ -124,7 +124,7 @@ if (world.hit(r, interval(0, infinity), rec)) {
 광선이 표면에 교차할 때 교차점을 딱 정확하게 구하는 시도를 하게 되는데  
 이 때 부동소수점 오류의 영향을 받기 쉬워서 중간에 교차점이 아주 미세하게 어긋난 값일 수 있습니다
 
-교차점 게산 과정을 다시 떠올려보면
+교차점 계산 과정을 다시 떠올려보면
 
 1. 구와 광선의 교차 방정식을 풀어 해를 계산 (`double root`, `sphere.hit()`에서)
 2. 구한 해(`root`, 즉 교차점에서의 광선 매개변수 `t`)로 실제 교차점 `p`를 계산(`p = r.at(rec.t)`, `ray::at()`은 `o + t*d`)
@@ -248,7 +248,7 @@ bool scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& sc
 ```
 
 앗 그런데 `random_unit_vector()`가 `rec.normal`에 완전 반대인 친구가 나와버리면,  
-`scattered_direction`은 완전히 영벡터가 되는거 아닐까요  
+`scatter_direction`은 완전히 영벡터가 되는거 아닐까요  
 이런 경우는 제거하고 싶습니다
 
 그래서 이런 것을 `vec3`클래스의 메서드로 추가해주면
@@ -297,9 +297,9 @@ lambertian 생성 시 이렇게 색상을 줄 수 있게 되었고
 이미 알고있는 정보인 (들어오는)광선 $v$, 법선벡터 $n$으로 $R$을 표현하고 싶은데
 
 파란색 $s$ 벡터에 대해, $n$과 나란하지만 딱 $v-s$만큼인(굵은 검은 화살표) 벡터는 $ncos\theta$이니  
-$s = v - ncos\theta$입니다  
+$s = v + ncos\theta$입니다  
 그리고 $cos\theta = -n\cdot v$와 같구요($v,n$은 단위벡터)  
-그럼 $s = v - ncos\theta = v + n(n\cdot v)$입니다
+그럼 $s = v + ncos\theta = v - n(n\cdot v)$입니다
 
 이제 $R = -v + 2s = -v + 2v -2n(n \cdot v) = v - 2n(n \cdot v)$  
 따라서 $R = v - 2n(n \cdot v)$ 이라는 관계를 얻었습니다
@@ -374,7 +374,7 @@ world.add(make_shared<sphere>(point3( 1.0,    0.0, -1.0),   0.5, material_right)
 
 반사에도 랜덤을 적용해서 흐리게할 수 있습니다.  
 흐리다는 뜻으로 `fuzz`계수를 두었다고 생각해보면  
-`fuzz`만큼의 작은 구 안에서 벡터를 랜덤으로 뽑고, 정반사된 벡터에 더해 _약간 흔들리게_ 해줍니다.
+반지름 `fuzz`인 구 표면에서 벡터를 랜덤으로 뽑고, 정반사된 벡터에 더해 _약간 흔들리게_ 해줍니다.
 
 <figure>
 
@@ -417,7 +417,7 @@ class metal : public material {
 
 또 한 가지 유의할 점은,  
 **fuzz sphere가 타당하려면, 임의의 길이를 갖는 반사벡터 `reflected`에 비해 일관된 크기 비율로 조정**되어야 한다는 점입니다  
-뭔말이냐면 `reflectd` 벡터가 크기가 1인 경우와 2인 경우 둘 다 `fuzz=1`인 fuzz sphere에 의해 똑같은 정도로 흐린 효과를 보고 싶은데,  
+뭔말이냐면 `reflected` 벡터가 크기가 1인 경우와 2인 경우 둘 다 `fuzz=1`인 fuzz sphere에 의해 똑같은 정도로 흐린 효과를 보고 싶은데,  
 `reflected + fuzzy_vector`를 그대로 해버리면 크기에 따라 fuzzy영향을 다르게 받는다는 뜻입니다.  
 따라서 `reflected = unit_vector(reflected) + (fuzz * random_unit_vector());`와 같이, 반사벡터를 먼저 정규화하고 fuzz를 적용합니다.
 
@@ -448,7 +448,7 @@ int main() {
 
 - **reflected ray**: 반사 광선은 표면에 부딪힌 다음 새로운 방향으로 튕겨나갑니다.
 - **refracted ray**: 굴절 광선은 굽어져서 material 안쪽으로 들어갑니다.
-  - material 자체가 갖는 _refractive index_ (**굴절률**)에 따릅니다. 굴절률은 두 물질 간의 상대적인 비율인데, 진공에서 해당 물질로 들어가는 비율로 나타냅니다.
+  - material 자체가 갖는 _refractive index_ (**굴절률**)에 따릅니다.
 
 ## 스넬(Snell)의 법칙
 
@@ -474,11 +474,11 @@ $R$이 단위벡터면 이 성분의 $\vert \mathbf R_\perp\vert = sin\theta$
 근데 $\mathbf R^\prime_\perp, \mathbf R_\perp$ 둘 다 방향이 동일하니 크기뿐 아니라 벡터에 대해서도: $\mathbf R^\prime_\perp = \frac{\eta}{\eta^\prime} \mathbf R_\perp$  
 따라서:
 
-$$\mathbf R^\prime_\perp = \frac{\eta}{\eta\prime}(\mathbf R + \mathbf ncos\theta)$$
+$$\mathbf R^\prime_\perp = \frac{\eta}{\eta^\prime}(\mathbf R + \mathbf ncos\theta)$$
 
 굴절 벡터를 두 성분으로 분해했을 때, 두 방향은 서로 수직인 관계이니  
 $|\mathbf R'|^2 =|\mathbf R'_\perp|^2+|\mathbf R'_\parallel|^2 = 1$로부터  
-$$|\mathbf R'_\parallel|=\sqrt{1-|\mathbf R'_\perp|^2}$$이고, 수직성분은 $-\mathbf n$방향이므로
+$$|\mathbf R'_\parallel|=\sqrt{1-|\mathbf R'_\perp|^2}$$이고, 법선에 평행한 성분은 $-\mathbf n$방향이므로
 
 $$\mathbf R^\prime_\parallel = -\mathbf n\sqrt{1 - \vert\mathbf  R^\prime_\perp\vert^2}$$
 
@@ -533,9 +533,9 @@ auto material_left   = make_shared<dielectric>(1.50);
 
 ![전반사](https://i.imgur.com/NcBMqWP.png)
 
-입사각 $\theta$가 어떤 임계점을 넘어가면 그러한데..
-$$sin\theta^\prime = \frac{\eta}{\eta^\prime}sin\theta$$ 에서 $\theta'$ (굴절 후 각도) 가 $90\degree$ 인 지점이 임계지점이 되겠습니다.
-즉 $sin\theta' = sin 90\degree = 1$인 임계점에 대해, 입사각 $\theta$가 이를 넘어가면 아예 반사된다는거니까
+입사각 $\theta$가 어떤 임계점을 넘어가면 그러한데..  
+$$sin\theta^\prime = \frac{\eta}{\eta^\prime}sin\theta$$ 에서 $\theta'$ (굴절 후 각도) 가 $90\degree$ 인 지점이 임계지점이 되겠습니다.  
+즉 $sin\theta' = sin 90\degree = 1$인 임계점에 대해, 입사각 $\theta$가 이를 넘어가면 아예 반사된다는거니까  
 => $$1 < \frac{\eta}{\eta'}sin\theta$$ 이면 전반사한다는 점입니다
 
 **굴절되지 않고 반사된다**는 조건이 이러하다면
@@ -573,7 +573,7 @@ if (ri * sin_theta > 1.0) {
 }
 ```
 
-이렇게 되겠네요.
+이렇게 되겠네요.  
 실제 구현은:
 
 ```cpp
@@ -611,8 +611,8 @@ auto material_left = make_shared<dielectric>(1.00 / 1.33);
 
 ## 굴절올리고 반사내려 (Schlick 근사)
 
-굴절하는 재질들도 약~~간 반사하는게 있지 않나요? 유리같은거 봐도..
-이제 일정 확률로 굴절이 아닌 반사하는 경우를 넣어보고 싶은데
+굴절하는 재질들도 약~~간 반사하는게 있지 않나요? 유리같은거 봐도..  
+이제 일정 확률로 굴절이 아닌 반사하는 경우를 넣어보고 싶은데  
 이것을 표현하려면 반영해줘야 할 현실세계 법칙이 있습니다
 
 <figure>
@@ -624,16 +624,16 @@ auto material_left = make_shared<dielectric>(1.00 / 1.33);
 </figcaption>
 </figure>
 
-잔잔한 수면을 보면 이런식이죠?? 좀 가까이 있어야 안쪽이 잘 보입니다
+잔잔한 수면을 보면 이런식이죠?? 좀 가까이 있어야 안쪽이 잘 보입니다  
 Fresnel 반사라는 효과인데 대충 **비스듬하게 볼수록 많이 반사한다**고 생각하면 됩니다.
 
-이걸 정확하게 계산하려면 수식이 귀찮은데, 다행히도 간단하게 근사하는 방법이 있다네요.
-이를 [**Schlick's Approximation**](https://en.wikipedia.org/wiki/Schlick%27s_approximation)이라고 합니다
+이걸 정확하게 계산하려면 수식이 귀찮은데, 다행히도 간단하게 근사하는 방법이 있다네요.  
+이를 [**Schlick's Approximation**](https://en.wikipedia.org/wiki/Schlick%27s_approximation)이라고 합니다  
 대충 이런 내용입니다:
 
 - 정반사 계수 $R$은 다음과 같이 근사된다: $R(\theta) = R_0 + (1-R_0)(1-cos\theta)^5$
 - 이 때, refraction index $n_1, n_2$에 대해 $R_0 = (\frac{n_1-n_2}{n_1+n_2})^2$.
-- $\theta$ 는 표면 normal과 광선이 이루는 각도. `dot(-r_in.direction(), rec.normal)`인 `cos_theta`를 그대로 쓰면 된다 (`scatter`에서)
+- $\theta$ 는 표면 normal과 광선이 이루는 각도. `dot(-unit_direction, rec.normal)`인 `cos_theta`를 그대로 쓰면 된다 (`scatter`에서)
 
 ```cpp
  static double reflectance(double cosine, double refraction_index) {
@@ -663,7 +663,7 @@ class dielectric: public material {
 
 ## 속이 텅 빈 유리 구
 
-우리 자주 보는 유리컵들은 이런 특징을 가집니다:
+우리 자주 보는 유리컵들은 이런 특징을 가집니다:  
 약간의 두께가 있는 유리 층이 있고, 그 안쪽은 공기로 차있어서
 
 1. 광선이 바깥쪽(공기->유리 층)면에 부딪힌다.
@@ -672,7 +672,7 @@ class dielectric: public material {
 4. 다시 반대로, 안쪽 면에 부딪혀 굴절한다 (공기 -> 유리 층)
 5. 또한 다시, 바깥쪽 면에 부딪혀 굴절한다 (유리 층 -> 공기)
 
-아직 우리는 Sphere밖에 없으니까 속이 텅 빈 유리구로 이것을 만들어봅니다.
+아직 우리는 Sphere밖에 없으니까 속이 텅 빈 유리구로 이것을 만들어봅니다.  
 사실은 그냥 이렇게 두 개 겹치면 됩니다.
 
 ```cpp
@@ -683,7 +683,7 @@ world.add(make_shared<sphere>(point3(-1.0, 0.0, -1.0), 0.5, material_left));
 world.add(make_shared<sphere>(point3(-1,0.0,-1.0), 0.4, material_bubble));
 ```
 
-굴절률은, 예를들어 바깥을 `1.00`, 유리를 `1.50`으로 두려면, 밖에있는(조금 더 큰) 구를 `1.50`으로, 안에 있는(조금 더 작은) 구를 `1.00`으로 해줍니다.
+굴절률은, 예를들어 바깥을 `1.00`, 유리를 `1.50`으로 두려면, 밖에있는(조금 더 큰) 구를 `1.50`으로, 안에 있는(조금 더 작은) 구를 `1.00/1.50`으로 해줍니다.
 
 ![속이 빈 유리 구](https://i.imgur.com/fULGoNw.png)
 
@@ -691,13 +691,13 @@ world.add(make_shared<sphere>(point3(-1,0.0,-1.0), 0.4, material_bubble));
 
 ## 색유리??
 
-lambertian, metal에서 albedo가 재질의 색상을 나타내듯이
-이 dielectric도 색상을 가지게 해보고 싶었습니다
-이건 [Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html)에는 없는데 그냥 해보고싶어서 알아봤어요
+lambertian, metal에서 albedo가 재질의 색상을 나타내듯이 dielectric도 색상을 가지게 해보고 싶었습니다  
+이건 [Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html)에는 없는데 그냥 해보고싶어서 알아봤어요  
+보다 전문적인 참고자료로는 [PBR-book: Volume Scattering / Transmittance](https://www.pbr-book.org/4ed/Volume_Scattering/Transmittance)를 참고하기 좋은 것 같습니다
 
 ### 너무 단순하게 하면
 
-그냥 똑같이 `albedo` 넣고, `attenuation`에 주면 되는거 아닌지?
+그냥 똑같이 `albedo` 넣고, `attenuation`에 주면 되는거 아닌지?  
 대충 색깔을 내는건 되긴합니다. 예를들어:
 
 ```cpp
@@ -725,34 +725,33 @@ auto material_bubble = make_shared<dielectric>(1.00 / 1.50); // 안쪽 공기층
 
 ![가장 단순한 유리 albedo](https://i.imgur.com/X4JDqUN.png)
 
-일단은, 이런식으로 _굴절에 대한 `attenuation`이 `albedo`라는 용어와 맞는지_ 모르겠어요
+일단은, 이런식으로 _굴절에 대한 `attenuation`이 `albedo`라는 용어와 맞는지_ 모르겠어요  
 굴절하면서 **재질이 색을 흡수한다**여야 하니까 `albedo` 대신에 `absorption`으로 할까요?
 
 용어는 둘째치고, 현실에서는 이렇게 **통과하는 시점에만 색이 흡수되지 않습니다**.
 
 ### Beer-Lambert 법칙
 
-물리적으로 진짜 흉내를 내려면 이런식으로 모델링해야 한다고 하네요
-[**Beer-Lambert Law**](https://ko.wikipedia.org/wiki/%EB%B9%84%EC%96%B4-%EB%9E%8C%EB%B2%A0%EB%A5%B4%ED%8A%B8_%EB%B2%95%EC%B9%99): **물질이 빛을 흡수할 때, 빛의 흡수 정도가 `물질의 농도`($\mathcal{c}$) 및 `빛이 통과하는 길이`($\mathcal{l}$)에 비례**한다
-=> 빛이 물질을 통과한 후 줄어든 양인 흡광도 $\mathcal{A} = \epsilon \cdot \mathcal{c} \cdot \mathcal{l}$ ($\epsilon$은 흡수율)
-사실 농도에 관해서는 뭔가 조정하지 않으니까 두고, **광선이 통과한 거리에 비례하여 색을 흡수**하게 해봅니다.
+물리적으로 진짜 흉내를 내려면 이런식으로 모델링해야 한다고 하네요  
+[**Beer-Lambert Law**](https://ko.wikipedia.org/wiki/%EB%B9%84%EC%96%B4-%EB%9E%8C%EB%B2%A0%EB%A5%B4%ED%8A%B8_%EB%B2%95%EC%B9%99): **흡광도는 `물질의 농도`($\mathcal{c}$) 및 `빛이 통과하는 길이`($\mathcal{l}$)에 비례**한다  
+=> 흡광도 $\mathcal{A} = \epsilon \cdot \mathcal{c} \cdot \mathcal{l}$ ($\epsilon$은 흡수율)  
+우리는 농도와 물질 특성을 나타내는 **RGB별 attenuation coefficient인 `color absorption`** 을 두고 진행해봅니다.
 
-일단 이 dielectric 물질을 통과한 거리가 필요한데,
-`rec.front_face == true`일 때 진입하고, `rec.front_face == false`일 때 탈출하므로
-`auto distance = (rec.p - r_in.origin()).length();`
-이러면 되겠네요?
+일단 이 dielectric 물질을 통과한 거리가 필요한데,  
+`rec.front_face == true`일 때 진입하고, `rec.front_face == false`일 때 탈출하므로  
+`auto distance = (rec.p - r_in.origin()).length();` 이러면 되겠네요?  
 일단은 아까 속이 빈 유리구처럼 물체를 겹쳐둔 경우가 없다는 조건입니다
 
-그리고 **흡수율**은 **RGB별 흡수 계수**를 따로 둡니다: `color absorption`
-이제 우리가 필요한 것은 **매질 내부에서 일정 거리를 이동한 뒤, 흡수되지 않고 남는 비율**인 **투과도**가 필요합니다.
-투과도와 흡광도($\mathcal{A}$)는 $\mathcal{A}=-\log_{10}T,\qquad T=10^{-\mathcal{A}}$ 와 같은 관계를 갖는데
-비례관계만 모델링하면 일단 되니까 편하게 밑을 자연지수 $e$로 써서:
+이제 우리가 필요한 것은 **매질 내부에서 일정 거리를 이동한 뒤, 흡수되지 않고 남는 비율**인 **투과도**가 필요합니다.  
+투과도와 흡광도($\mathcal{A}$)는 $\mathcal{A}=-\log_{10}T,\qquad T=10^{-\mathcal{A}}$ 와 같은 관계를 갖는데,  
+농도 + 물질 특성+ 밑 변환 상수($\ln 10$) 까지 `absorption`으로 표현한다고 하면 자연지수 $e$를 밑으로 하여 :  
+$$T=e^{-\text{absorption}\cdot l}$$
 
 ```cpp
 color transmittance(
   std::exp(-absorption.x() * distance),
   std::exp(-absorption.y() * distance),
-  std::exp(-absorption.z() * distance),
+  std::exp(-absorption.z() * distance)
 );
 ```
 
@@ -777,20 +776,18 @@ color transmittance(
 이런식의 구현이 되겠구요,
 
 ```cpp
-auto material_left = make_shared<dielectric>(1.50, color(0.0, 1.0, 1.0)); // 바깥쪽 유리층
-auto material_bubble =
-  make_shared<dielectric>(1.00 / 1.50, color(0.0, 0.0, 0.0)); // 안쪽 공기층을 모델링
+auto material_left = make_shared<dielectric>(1.50, color(0.0, 1.0, 1.0));
 ```
 
-이제 `absorption`을 넣어봅니다..
-이 때 주의할 점은, `absorption`은 약간 `albedo`와 다른데
-무색/투명이면 `color(0.0, 0.0, 0.0)`과 같이 _"아무것도 흡수 안함"_ 이라고 해주고
+이제 `absorption`을 넣어봅니다..  
+이 때 주의할 점은, `absorption`은 약간 `albedo`와 다른데  
+무색/투명이면 `color(0.0, 0.0, 0.0)`과 같이 _"아무것도 흡수 안함"_ 이라고 해주고  
 빨간색을 띠고 싶다면 `color(0.0, 1.0, 1.0)`과 같이 _"R만 흡수 안함. G와 B는 없어진다."_ 가 되어야 합니다.
 
 ![작은 색유리 구](https://i.imgur.com/pYw9vak.png)
 ![큰 색유리 구](https://i.imgur.com/SS9H6Gk.png)
 
-빨간색 유리 구를 약간 크기를 다르게 해봤습니다.
+빨간색 유리 구를 약간 크기를 다르게 해봤습니다.  
 구가 커지면 색유리에 의해 영향을 받는 정도가 커져서 빨간색이 짙어지는 것을 볼 수 있습니다
 
 ---
