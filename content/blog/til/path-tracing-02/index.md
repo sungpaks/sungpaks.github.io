@@ -299,9 +299,9 @@ $$a = \mathbf{d}\cdot\mathbf{d}, \ \ b=-2 \mathbf{d} \cdot (\mathbf{C}-\mathbf{Q
 
 사실 일단 먼저 판별식(루트 안에 있는 $b^2-4ac$) 먼저 확인하면 교차 여부를 알 수 있긴 합니다.
 
-![판별식으로 교차 여부 확인](https://i.imgur.com/Zj9PpY9.png)
-
 <figure>
+
+![판별식으로 교차 여부 확인](https://i.imgur.com/Zj9PpY9.png)
 
 <figcaption>
 
