@@ -947,4 +947,6 @@ Render workers: 4
 
 <br />
 
-<video controls src="progressive_renderer.mp4" title=""></video>
+![progressive renderer](https://i.imgur.com/nCVLZC1.gif)
+
+카메라가 움직일 때마다 샘플링이 충분하지 못한 noisy한 모습에서 시작해서 점점 확산하고 수렴하는 모습을 확인하실 수 있습니다.
