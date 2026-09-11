@@ -163,7 +163,7 @@ auto viewport_width = viewport_height * (double(image_width) / image_height);
 이렇게 단순하게 그려볼 수 있고,  
 $h = $(focal_length) $\cdot tan(\frac{\theta}{2})$
 와 같이 관계가 성립합니다.  
-$h$는 $viewport_height$의 반절이구요
+$h$는 $viewport_{height}$의 반절이구요
 
 ```cpp
 // Viewport의 Dimension
