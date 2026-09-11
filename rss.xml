@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[프론트엔드 엔지니어 조성훈입니다. React, JavaScript, 웹 성능, 렌더링, 아키텍처 등 여러 개발 경험을 다룹니다.]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 10 Sep 2026 13:17:09 GMT</lastBuildDate><item><title><![CDATA[Path Tracing 05: 카메라 조작 + 최적화]]></title><description><![CDATA[! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다. 이전 글까지 해서 Path Tracing…]]></description><link>https://sungpaks.github.io/til/path-tracing-05/</link><guid isPermaLink="false">https://sungpaks.github.io/til/path-tracing-05/</guid><pubDate>Thu, 10 Sep 2026 19:52:36 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[프론트엔드 엔지니어 조성훈입니다. React, JavaScript, 웹 성능, 렌더링, 아키텍처 등 여러 개발 경험을 다룹니다.]]></description><link>https://sungpaks.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 11 Sep 2026 01:29:31 GMT</lastBuildDate><item><title><![CDATA[Path Tracing 05: 카메라 조작 + 최적화]]></title><description><![CDATA[! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다. 이전 글까지 해서 Path Tracing…]]></description><link>https://sungpaks.github.io/til/path-tracing-05/</link><guid isPermaLink="false">https://sungpaks.github.io/til/path-tracing-05/</guid><pubDate>Thu, 10 Sep 2026 19:52:36 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;! 주의 : TIL 게시글입니다. 다듬지 않고 올리거나 기록을 통째로 복붙했을 수 있는 뒷고기 포스팅입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;../path-tracing-04/&quot;&gt;이전 글&lt;/a&gt;까지 해서 Path Tracing으로 여러 재질을, 여러 모양을 씬에 추가해봤는데요&lt;br&gt;
@@ -2714,36 +2714,7 @@ Path Tracing에 대해서는 다음 시간에 자세히 다루기로 하고,&lt;
 &lt;p&gt;카메라 또는 사람의 눈을 생각해봅니다.&lt;br&gt;
 먼저 &lt;strong&gt;카메라 위치&lt;/strong&gt;와 &lt;strong&gt;카메라의 시선이 향하는 곳&lt;/strong&gt;이 있어야 할 것 같아요.&lt;/p&gt;
 &lt;figure&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 400px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/37017ce1f6a28079018ae4cd922a90ae/e17e5/image.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACn0lEQVR42iWNW0yScRiH308uqhuu7Krp2trsqtMmXhQuD125lU1lDkUxsdS0KSUjJiucTp2JHAxURBAE+lJnS40yzANaIIoIY5YH9FMwD7W6CNM88O+jtufit3d7nhdcfjTrRzPraHoNOQg0RSA7gWwE+rgSmlg+JiGH7d/Rvno8RRw7A2huE7m3kGcLgSuAnP4wZML1v7IeTrg2kHcnDDkcRMixFpoNhEjt08JPi8P7Ztxqtk7ApO/IunQ4tnQ4vnxkJ0Jki6x4t1G/44dI4yEhh3cLuTeR7cu2qVfV0lKikLOVzTkKaTZME8Hp1aB9JWjzBSeXd20rh4vfkWGYiM/X07La45hqOltrGvHPLPrFTcXPZcyuzkLccB/vKjZ23gXvxm+3f8+9vu/x//EE9mdW96Z9B+kVhrgsaSJHmcBR0JjitHLNk5pHAn5Kh6rgRRen15TfY8zD9bmwtHMwH9j9vBFc2P41//Wb07fa/cGexGm8lltLZ9fTc+vi2bWxabyrCZfKyhOaJbf06nRcz8D1GUZtOljmHrybLXzr5JideQNTLHwk1WC5eLO0iJYppOfwSWIZgpRCJvteJCvrXG1NnFJG17QkatuSNa3J0GtN6rHewEeTDZYk7SBd9SoKH8WEyrO0jDwao4jkSiqLLz4j78RysqllJZE1ouim+hh54wW5+DK8HIk2vT+vG4xR90Wr+qjq1xRFN9aggTs86vWMGPrtGEYBtaIKKuuwch7GysQKWBHc+6cec08LeVHQM3YSH6YYhih6c4RmAFr7oBkHUq5WguAZ8OtA0ADCRhBJoEoMldXAfQhlpVDBpYieniA/g9EC+iHoNEPHILT3h31FN8hMmMSANekxsQ5r0oFEB1IdyEi0IG0HaRvIVfAXB4GArPEHLf8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;camera lookfrom, lookat&quot;
-        title=&quot;&quot;
-        src=&quot;/static/37017ce1f6a28079018ae4cd922a90ae/e17e5/image.png&quot;
-        srcset=&quot;/static/37017ce1f6a28079018ae4cd922a90ae/c26ae/image.png 158w,
-/static/37017ce1f6a28079018ae4cd922a90ae/6bdcf/image.png 315w,
-/static/37017ce1f6a28079018ae4cd922a90ae/e17e5/image.png 400w&quot;
-        sizes=&quot;(max-width: 400px) 100vw, 400px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/xSFuEsR.png&quot; alt=&quot;lookat, lookfrom&quot;&gt;&lt;/p&gt;
 &lt;figcaption&gt;
 출처: Ray Tracing in One Weekend
 &lt;/figcaption&gt;
