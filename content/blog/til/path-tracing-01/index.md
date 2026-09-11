@@ -36,7 +36,7 @@ class camera {
 
 <figure>
 
-![camera lookfrom, lookat](image.png)
+![lookat, lookfrom](https://i.imgur.com/xSFuEsR.png)
 
 <figcaption>
 출처: Ray Tracing in One Weekend
